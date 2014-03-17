@@ -148,7 +148,6 @@
        ag
        android-mode
        apache-mode
-       apples-mode
        ascii
        auctex
        coffee-mode
@@ -167,7 +166,6 @@
        docbook
        dot-mode
        ctable
-       electric-case
        emamux
        epc
        evil
@@ -179,14 +177,9 @@
        gitty
        gnuplot
        go-mode
-       go-direx
-       go-eldoc
-       go-errcheck
-       go-snippets
        graphviz-dot-mode
        guru-mode
        haskell-mode
-       ido-ubiquitous
        inf-ruby
        irfc
        jade-mode
@@ -196,7 +189,6 @@
        list-utils
        lua-mode
        magit
-       magit-svn
        markup-faces
        mo-git-blame
        mustache-mode
@@ -243,15 +235,23 @@
 
      '(ac-js2
        ac-math
+       apples-mode
        auto-complete
+       electric-case
        flycheck
        gitattributes-mode
        gitconfig-mode
        gitignore-mode
+       go-direx
+       go-eldoc
+       go-errcheck
+       go-snippets
+       ido-ubiquitous
        jgraph-mode
        js2-mode
        js3-mode
        jss
+       magit-svn
        simple-httpd
        skewer-mode
        undo-tree
