@@ -462,20 +462,18 @@
 ;;;
 ;;; Objective-J mode
 ;;;
-(require 'compile)
-
-(add-to-list 'compilation-error-regexp-alist-alist
-	     '(objj-acorn "^\\(WARNING\\|ERROR\\) line \\([0-9]+\\) in file:\\([^:]+\\):\\(.*\\)$" 3 2))
-
-(add-to-list 'compilation-error-regexp-alist 'objj-acorn)
-
-(load-library "objj-mode")
 (when (require 'objj-mode nil :noerror)
+  (require 'compile)
 
-  (add-to-list 'auto-mode-alist '("\\.j\\'" . objj-mode)))
-(when (require 'js2-mode nil :noerror)
+  (add-to-list 'compilation-error-regexp-alist-alist
+	       '(objj-acorn "^\\(WARNING\\|ERROR\\) line \\([0-9]+\\) in file:\\([^:]+\\):\\(.*\\)$" 3 2))
+  (add-to-list 'compilation-error-regexp-alist 'objj-acorn)
+  (load-library "objj-mode")
+  (add-to-list 'auto-mode-alist '("\\.j\\'" . objj-mode))
 
-  (add-to-list 'auto-mode-alist '("\\.sj\\'" . js2-mode)))
+  (when (require 'js2-mode nil :noerror)
+
+    (add-to-list 'auto-mode-alist '("\\.sj\\'" . js2-mode))))
 
 ;;;
 ;;; Jakefile mode
