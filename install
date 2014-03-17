@@ -1,0 +1,150 @@
+#!/bin/sh
+#
+# Set up a home directory on a Unix system.
+
+set -u
+set -C
+
+dotfiledirs="dotfiles"
+
+# requires running form the root od the dotfiles directory
+rootdir=`dirname $0`
+if [ ! ${rootdir} -ef ${PWD} ]; then
+    echo "must be run from the root of the dotfiles directory"
+    exit 1
+fi
+
+# requires stow
+stow=`which stow`
+if [ -z "${stow}" -o ! -x "${stow}" ]; then
+    echo "'stow' is not available"
+    exit 1
+fi
+
+# requires diff
+diff=`which diff`
+if [ -z "${diff}" -o ! -x "${diff}" ]; then
+    echo "'diff' is not available"
+    exit 1
+fi
+
+# requires HOME.
+if [ -z "${HOME}" ]; then
+    echo "HOME is not set, aborting"
+    exit 1
+fi
+
+# create ~/opt/local if desired
+if [ ! -d ~/opt -o ! -d ~/opt/local ]; then
+    read -p "create ~/opt/local? (y/n)?: " yn
+    if [ "${yn}" == "y" ]; then
+	mkdir -p ~/opt/local/bin
+	mkdir -p ~/opt/local/include
+	mkdir -p ~/opt/local/lib
+	mkdir -p ~/opt/local/man
+	mkdir -p ~/opt/local/mnt
+	mkdir -p ~/opt/local/share
+	mkdir -p ~/opt/local/src
+
+	# populate ~/opt/local if it exists and desired
+	echo "nothing installed to ~/opt/local by default"
+    fi
+fi
+
+# set up machine-speific ~/.bashrc
+if [ ! -e ~/.bashrc.local ]; then
+    echo "~/.bashrc.local is used for machine-specific bash settings."
+    touch ~/.bashrc.local
+fi
+
+# configure the user name/email for git
+git=`which git`
+if [ ! -z "${git}" -a -x "${git}" ]; then
+    # set up machine-specific ~/.gitconfig
+    if [ ! -e ~/.gitconfig.machine ]; then
+	echo "~/.gitconfig.machine is used for machine-specific settings to .gitconfig."
+	touch ~/.gitconfig.machine
+    fi
+
+    # set up user-specific ~/.gitconfig
+    if [ ! -e ~/.gitconfig.user ]; then
+	echo "~/.gitconfig.user is used for user-specific settings to .gitconfig."
+	touch ~/.gitconfig.user
+    fi
+
+    # get user and email from git config
+    name=`${git} config user.name`
+    email=`${git} config user.email`
+
+    if [ ! -z "${name}" -a ! -z "${email}" ]; then
+	read -p "use '${name} <${email}>' (y/n): " yn
+	if [ "${yn}" == "n" ]; then
+	    name=
+	    email=
+	fi
+    else
+	name=
+	email=
+    fi
+
+    if [ -z "${name}" -a -z "${email}" ]; then
+	name=`${git} config -f ${HOME}/.gitconfig.user user.name`
+	email=`${git} config -f ${HOME}/.gitconfig.user user.email`
+
+	if [ ! -z "${name}" -a ! -z "${email}" ]; then
+	    read -p "use '${name} <${email}>' (y/n): " yn
+	    if [ "${yn}" == "n" ]; then
+		name=
+		email=
+	    fi
+	else
+	    name=
+	    email=
+	fi
+    fi
+
+    if [ -z "${name}" -o -z "${email}" ]; then
+	read -p "Enter git user name: " name
+	read -p "Enter git user email: " email
+    fi
+
+    if [ ! -z "${name}" -a ! -z "${email}" ]; then
+	read -p "setting git user to '${name} <${email}>' (y/n): " yn
+	if [ "${yn}" == "y" ]; then
+	    # set user name/email in user-specific config
+	    ${git} config -f ${HOME}/.gitconfig.user user.name "${name}"
+	    ${git} config -f ${HOME}/.gitconfig.user user.email "${email}"
+	fi
+    fi
+
+    read -p "clear git user name/email (y/n): " yn
+    if [ "${yn}" == "y" ]; then
+	${git} config --unset user.name
+	${git} config --unset user.email
+    fi
+fi
+
+# allow user to clean up existing files
+for d in ${dotfiledirs} ; do
+    for f in `find ${d} -type f` ; do
+	home_f=~/`basename ${f}`
+	if [ -e "${home_f}" ]; then
+	    if [ ! "${f}" -ef "${home_f}" ]; then
+		if ${diff} ${f} ${home_f} ; then
+		    read -p "${f} is identical to ${home_f}.  Overwrite (y/n)?: " yn
+		    if [ "${yn}" == "y" ]; then
+			rm -i ${home_f}
+		    fi
+		else
+		    read -p "${f} is different than ${home_f}.  Overwrite anyway (y/n)?: " yn
+		    if [ "${yn}" == "y" ]; then
+			rm -i ${home_f}
+		    fi
+		fi
+	    fi
+	fi
+    done
+done
+
+# use stow to populate available dot files
+${stow} --target="${HOME}" dotfiles

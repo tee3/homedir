@@ -1,0 +1,5 @@
+-V
+-S
+--completion-cache-size=1000
+--no-current-project
+--exclude-filter=/tmp;*~

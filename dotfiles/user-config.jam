@@ -1,0 +1,138 @@
+import os ;
+
+constant HOME : [ os.environ HOME ] ;
+
+# Host Compilers
+
+if [ os.name ] = NT
+{
+    # this is the default system compiler
+    using msvc ;
+
+    # other comilers, both system and optional
+    using clang ;
+
+    #! @todo is a gcc compiler for Windows
+}
+else if [ os.name ] = CYGWIN
+{
+    # this is the default system compiler
+    using gcc ;
+
+    # other comilers, both system and optional
+    using clang ;
+}
+else if [ os.name ] = LINUX
+{
+    # this is the default system compiler
+    using gcc ;
+
+    # other comilers, both system and optional
+    using clang ;
+}
+else if [ os.name ] = MACOSX
+{
+    # this is the default system compiler
+    using clang ;
+
+    # other comilers, both system and optional
+    using clang : 3.5 : /usr/local/bin/clang++-3.5 ;
+    using clang : 3.4 : /usr/local/bin/clang++-3.4 ;
+    using clang : 3.3 : /usr/local/bin/clang++-3.3 ;
+#    using clang : 3.2 : /usr/local/bin/clang++-3.2 ;
+    using clang : 3.1 : /usr/local/bin/clang++-3.1 ;
+
+    # using darwin ;
+    # using darwin : 4.2 : /usr/bin/g++-4.2 ;
+    # using darwin : 4.1 : /usr/bin/g++-4.1 ;
+    # using darwin : 4.0 : /usr/bin/g++-4.0 ;
+
+    using darwin : 4.9 : /usr/local/bin/g++-4.9 ;
+    using darwin : 4.8 : /usr/local/bin/g++-4.8 ;
+    using darwin : 4.7 : /usr/local/bin/g++-4.7 ;
+    using darwin : 4.6 : /usr/local/bin/g++-4.7 ;
+    using darwin : 4.5 : /usr/local/bin/g++-4.5 ;
+
+    using darwin : rtags : $(HOME)/opt/local/bin/g++ ;
+}
+
+# Cross compilers
+
+# ARM compiler
+
+if [ os.name ] = NT
+{
+    #! @todo gcc for arm
+}
+else if [ os.name ] = CYGWIN
+{
+    #! @todo gcc for arm
+}
+else if [ os.name ] = LINUX
+{
+    #! @todo gcc for arm
+}
+else if [ os.name ] = MACOSX
+{
+    #! @todo gcc for arm
+}
+
+# AVR compiler
+
+if [ os.name ] = NT
+{
+    #! @todo gcc for avr
+}
+else if [ os.name ] = CYGWIN
+{
+    #! @todo gcc for avr
+}
+else if [ os.name ] = LINUX
+{
+    #! @todo gcc for avr
+}
+else if [ os.name ] = MACOSX
+{
+    #! @todo gcc for avr
+}
+
+# MPI
+
+if [ os.name ] = MAXOSX
+{
+    using mpi ;
+}
+
+# Documentation
+
+using xsltproc ;
+#using boostbook ;
+using doxygen ;
+using quickbook ;
+
+if [ os.name ] = MACOSX
+{
+    using fop ;
+}
+
+# Boost.Build user configuration for the Boost C++ Libraries
+
+import boost ;
+
+path-constant TWT_BOOST_BASE : "$(HOME)/opt/local/src/boost" ;
+
+# Set up all available versions of Boost
+using boost : 1.56.0 : <root>$(TWT_BOOST_BASE)/boost_1_56_0 ;
+using boost : 1.55.0 : <root>$(TWT_BOOST_BASE)/boost_1_55_0 ;
+using boost : 1.54.0 : <root>$(TWT_BOOST_BASE)/boost_1_54_0 ;
+using boost : 1.53.0 : <root>$(TWT_BOOST_BASE)/boost_1_53_0 ;
+using boost : 1.52.0 : <root>$(TWT_BOOST_BASE)/boost_1_52_0 ;
+using boost : 1.51.0 : <root>$(TWT_BOOST_BASE)/boost_1_51_0 ;
+using boost : 1.50.0 : <root>$(TWT_BOOST_BASE)/boost_1_50_0 ;
+using boost : 1.49.0 : <root>$(TWT_BOOST_BASE)/boost_1_49_0 ;
+using boost : 1.48.0 : <root>$(TWT_BOOST_BASE)/boost_1_48_0 ;
+using boost : 1.47.0 : <root>$(TWT_BOOST_BASE)/boost_1_47_0 ;
+using boost : 1.43.0 : <root>$(TWT_BOOST_BASE)/boost_1_43_0 ;
+using boost : 1.42.0 : <root>$(TWT_BOOST_BASE)/boost_1_42_0 ;
+using boost : 1.39.0 : <root>$(TWT_BOOST_BASE)/boost_1_39_0 ;
+using boost : git : <root>$(TWT_BOOST_BASE)/boost.git ;

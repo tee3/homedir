@@ -1,0 +1,9 @@
+#
+# Default to output to stdout because printing doesn't work here.
+#
+DefaultOutputMethod: stdout
+
+#
+# Default media to letter paper.
+#
+DefaultMedia: Letter

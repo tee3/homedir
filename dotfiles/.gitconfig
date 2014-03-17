@@ -1,0 +1,25 @@
+[color]
+	ui = auto
+[apply]
+	whitespace = fix
+[core]
+	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
+	quotepath = false
+#	autocrlf = true
+[diff]
+#	renames	= copies
+[instaweb]
+	local = true
+	httpd = webrick
+[svn]
+#	findcopiesharder = true
+	pushmergeinfo = true
+	edit = false
+	followparent = true
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[include]
+	path = ~/.gitconfig.machine	
+	path = ~/.gitconfig.user
