@@ -129,4 +129,6 @@ fi
 export CCACHE_DISABLE
 
 # local bashrc
-source ~/.bashrc.local
+if [ -e ~/.bashrc.local ]; then
+    source ~/.bashrc.local
+fi
