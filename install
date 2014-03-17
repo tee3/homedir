@@ -14,20 +14,6 @@ if [ ! ${rootdir} -ef ${PWD} ]; then
     exit 1
 fi
 
-# requires stow
-stow=`which stow`
-if [ -z "${stow}" -o ! -x "${stow}" ]; then
-    echo "'stow' is not available"
-    exit 1
-fi
-
-# requires diff
-diff=`which diff`
-if [ -z "${diff}" -o ! -x "${diff}" ]; then
-    echo "'diff' is not available"
-    exit 1
-fi
-
 # requires HOME.
 if [ -z "${HOME}" ]; then
     echo "HOME is not set, aborting"
@@ -140,6 +126,20 @@ if [ ! -z "${hg}" -a -x "${hg}" ]; then
     fi
 
     #! @todo use hg to set up user
+fi
+
+# requires stow
+stow=`which stow`
+if [ -z "${stow}" -o ! -x "${stow}" ]; then
+    echo "'stow' is not available"
+    exit 1
+fi
+
+# requires diff
+diff=`which diff`
+if [ -z "${diff}" -o ! -x "${diff}" ]; then
+    echo "'diff' is not available"
+    exit 1
 fi
 
 # allow user to clean up existing files
