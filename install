@@ -124,6 +124,24 @@ if [ ! -z "${git}" -a -x "${git}" ]; then
     fi
 fi
 
+# configure mercurial
+hg=`which hg`
+if [ ! -z "${hg}" -a -x "${hg}" ]; then
+    # set up machine-specific ~/.hgrc
+    if [ ! -e ~/.hgrc.machine ]; then
+	echo "~/.hgrc.machine is used for machine-specific settings to .hgrc."
+	touch ~/.hgrc.machine
+    fi
+
+    # set up user-specific ~/.hgrc
+    if [ ! -e ~/.hgrc.user ]; then
+	echo "~/.hgrc.user is used for user-specific settings to .hgrc."
+	touch ~/.hgrc.user
+    fi
+
+    #! @todo use hg to set up user
+fi
+
 # allow user to clean up existing files
 for d in ${dotfiledirs} ; do
     for f in `find ${d} -type f` ; do
