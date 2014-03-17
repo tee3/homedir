@@ -1,0 +1,10 @@
+[extensions]
+zeroconf =
+convert =
+highlight =
+keyword =
+hgsubversion =
+hggit =
+
+%include ~/.hgrc.machine
+%include ~/.hgrc.user
