@@ -126,7 +126,7 @@ if [ -x /usr/bin/keychain ]; then
 fi
 
 # never use ccache, no matter what
-export CCACHE_DISABLE
+export CCACHE_DISABLE=""
 
 # local bashrc
 if [ -e ~/.bashrc.local ]; then
