@@ -42,10 +42,7 @@ else if [ os.name ] = MACOSX
 #    using clang : 3.2 : /usr/local/bin/clang++-3.2 ;
     using clang : 3.1 : /usr/local/bin/clang++-3.1 ;
 
-    # using darwin ;
-    # using darwin : 4.2 : /usr/bin/g++-4.2 ;
-    # using darwin : 4.1 : /usr/bin/g++-4.1 ;
-    # using darwin : 4.0 : /usr/bin/g++-4.0 ;
+    using darwin ;
 
     using darwin : 4.9 : /usr/local/bin/g++-4.9 ;
     using darwin : 4.8 : /usr/local/bin/g++-4.8 ;
