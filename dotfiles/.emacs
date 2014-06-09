@@ -322,6 +322,7 @@
        busybee-theme
        clues-theme
        cyberpunk-theme
+       dakrone-theme
        deep-thought-theme
        django-theme
        espresso-theme
