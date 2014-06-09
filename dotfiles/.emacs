@@ -253,6 +253,7 @@
        magit-svn
        simple-httpd
        skewer-mode
+       swift-mode
        undo-tree
 
        ; not in marmalade
