@@ -233,6 +233,7 @@
 
      '(ac-js2
        ac-math
+       asn1-mode
        apples-mode
        auto-complete
        electric-case
