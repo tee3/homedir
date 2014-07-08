@@ -115,11 +115,6 @@ if [ -e ~/opt/local/narwhal ]; then
     #export CAPP_BUILD="~/opt/local/src/cappuccino/Build"
 fi
 
-# rtags hack
-if [ -e ~/opt/local/src/rtags/bin ]; then
-    export PATH=~/opt/local/src/rtags/bin:$PATH
-fi
-
 # manage ssh-agent
 if [ -x /usr/bin/keychain ]; then
     eval `/usr/bin/keychain --eval --quiet --nogui`
