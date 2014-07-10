@@ -217,6 +217,7 @@
        tidy
        todotxt
        toml-mode
+       vc-fossil
        vimgolf
        vimrc-mode
        virtualenv
