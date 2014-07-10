@@ -127,7 +127,7 @@
     (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
   (when (>= emacs-major-version 23)
     (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/")))
-  (when (>= emacs-major-version 24)
+  (when (>= emacs-major-version 23)
     (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/")))
 
   (package-initialize)
