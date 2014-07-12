@@ -313,66 +313,35 @@
        (or (package-installed-p package)
 	   (package-install package)))
 
-     '(alect-themes
-       ample-theme
-       ample-zen-theme
-       anti-zenburn-theme
+     '(anti-zenburn-theme
        zen-and-art-theme
        assemblage-theme
        base16-theme
        birds-of-paradise-plus-theme
-       busybee-theme
-       clues-theme
        cyberpunk-theme
-       dakrone-theme
-       deep-thought-theme
-       django-theme
        espresso-theme
-       flatland-theme
        gandalf-theme
        github-theme
        grandshell-theme
-       gruber-darker-theme
        hemisu-theme
-       inkpot-theme
-       jujube-theme
        heroku-theme
-       ir-black-theme
-       late-night-theme
-       leuven-theme
-       moe-theme
        molokai-theme
        monokai-theme
        mustang-theme
        naquadah-theme
-       noctilux-theme
        nzenburn-theme
        obsidian-theme
        occidental-theme
        pastels-on-dark-theme
-       phoenix-dark-mono-theme
-       phoenix-dark-pink-theme
        purple-haze-theme
        qsimpleq-theme
-       reverse-theme
-       sea-before-storm-theme
-       soft-morning-theme
        solarized-theme
-       soothe-theme
        subatomic-theme
        subatomic256-theme
        sublime-themes
-       tango-2-theme
-       tangotango-theme
-       tommyh-theme
-       toxi-theme
        tronesque-theme
        twilight-anti-bright-theme
        twilight-bright-theme
-       twilight-theme
-       ujelly-theme
-       underwater-theme
-       waher-theme
        zen-and-art-theme
        zenburn-theme))))
 
