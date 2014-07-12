@@ -126,9 +126,11 @@
   (when (< emacs-major-version 24)
     (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
   (when (>= emacs-major-version 23)
-    (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/")))
+    (add-to-list 'package-archives '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")))
   (when (>= emacs-major-version 23)
-    (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/")))
+    (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/")))
+  ;; (when (>= emacs-major-version 23)
+  ;;   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/")))
 
   (package-initialize)
 
@@ -157,10 +159,6 @@
        dash
        dedicated
        diff-hl
-       dired+
-       dired-details
-       dired-details+
-       dired-single
        docbook
        dot-mode
        ctable
@@ -187,7 +185,6 @@
        list-utils
        lua-mode
        magit
-       markup-faces
        mo-git-blame
        mustache-mode
        nginx-mode
@@ -206,20 +203,15 @@
        rbenv
        s
        ssh
-       ssh-config-mode
        string-utils
        sws-mode
        synonyms
        syslog-mode
        textmate
-       tfs
-       thesaurus
        tidy
        todotxt
        toml-mode
-       vc-fossil
        vimgolf
-       vimrc-mode
        virtualenv
        web-mode
        websocket
@@ -232,29 +224,21 @@
        (or (package-installed-p package)
 	   (package-install package)))
 
-     '(ac-js2
-       ac-math
-       asn1-mode
-       apples-mode
+     '(applescript-mode
        auto-complete
        electric-case
        flycheck
        gitattributes-mode
        gitconfig-mode
        gitignore-mode
-       go-direx
        go-eldoc
-       go-errcheck
-       go-snippets
        ido-ubiquitous
        jgraph-mode
        js2-mode
        js3-mode
-       jss
        magit-svn
        simple-httpd
        skewer-mode
-       swift-mode
        undo-tree
 
        ; not in marmalade
@@ -262,30 +246,17 @@
        cmake-mode
        cperl-mode
        ctags
-       dash-at-point
-       disaster
        dropbox
-       dummy-h-mode
-       fsharp-mode
-       git-blame
-       git-dwim
        git-gutter
        git-gutter-fringe
        gitconfig
-       glsl-mode
-       gnuplot-mode
-       go-autocomplete
-       google-c-style
        google-this
        gtags
        jabber
        json
        json-mode
-       launch
        markdown-mode
-       markdown-mode+
        monky
-       nav
        nav-flash
        ntcmd
        osx-plist
@@ -294,17 +265,57 @@
        persistent-soft
        popup
        powershell
-       powershell-mode
        rspec-mode
        ruby-compilation
-       ruby-electric
        ruby-mode
-       smooth-scrolling
-       sublimity
+       smooth-scroll
        tern
        tern-auto-complete
        twittering-mode
        writeroom-mode)))
+
+;; not in melpa-stable or marmalade
+;;   ;; Install Emacs 24 packages
+;;   (when (>= emacs-major-version 24)
+;;     (mapc
+;;      (lambda (package)
+;;        (or (package-installed-p package)
+;; 	   (package-install package)))
+
+;;      '(dired+
+;;        dired-details
+;;        dired-details+
+;;        dired-single
+;;        markup-faces
+;;        ssh-config-mode
+;;        tfs
+;;        thesaurus
+;;        vc-fossil
+;;        vimrc-mode
+;;        ac-js2
+;;        ac-math
+;;        asn1-mode
+;;        go-direx
+;;        go-errcheck
+;;        go-snippets
+;;        jss
+;;        swift-mode
+;;        dash-at-point
+;;        disaster
+;;        dummy-h-mode
+;;        fsharp-mode
+;;        git-blame
+;;        git-dwim
+;;        glsl-mode
+;;        gnuplot-mode
+;;        go-autocomplete
+;;        google-c-style
+;;        launch
+;;        markdown-mode+
+;;        nav
+;;        powershell-mode
+;;        ruby-electric
+;;        sublimity)))
 
   ;; Install themes only Emacs 24.
   (when (>= emacs-major-version 24)
@@ -316,32 +327,38 @@
      '(anti-zenburn-theme
        zen-and-art-theme
        assemblage-theme
-       base16-theme
        birds-of-paradise-plus-theme
-       cyberpunk-theme
-       espresso-theme
+; not in melpa-stable
+;       cyberpunk-theme
+; not in melpa-stable
+;       espresso-theme
        gandalf-theme
        github-theme
-       grandshell-theme
-       hemisu-theme
-       heroku-theme
-       molokai-theme
+; not in melpa-stable
+;       hemisu-theme
+; not in melpa-stable
+;       molokai-theme
        monokai-theme
-       mustang-theme
-       naquadah-theme
+; not in melpa-stable
+;       mustang-theme
+; not in melpa-stable
+;       naquadah-theme
        nzenburn-theme
-       obsidian-theme
-       occidental-theme
+; not in melpa-stable
+;       obsidian-theme
+; not in melpa-stable
+;       occidental-theme
        pastels-on-dark-theme
        purple-haze-theme
        qsimpleq-theme
        solarized-theme
-       subatomic-theme
-       subatomic256-theme
-       sublime-themes
+; not in melpa-stable
+;       subatomic-theme
+; not in melpa-stable
+;       subatomic256-theme
+; not in melpa-stable
+;       sublime-themes
        tronesque-theme
-       twilight-anti-bright-theme
-       twilight-bright-theme
        zen-and-art-theme
        zenburn-theme))))
 
