@@ -726,17 +726,6 @@
   )
 
 ;;;
-;;; Set helper scrolling
-;;;
-(defun scroll-up-one-line ()
-  (interactive)
-  (scroll-up 1))
-
-(defun scroll-down-one-line ()
-  (interactive)
-  (scroll-down 1))
-
-;;;
 ;;; Theme
 ;;;
 (when (>= emacs-major-version 24)
