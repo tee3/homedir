@@ -755,13 +755,15 @@
 ;;;
 (when (>= emacs-major-version 24)
   (cond ((display-graphic-p)
-	 (load-theme 'solarized-dark t t)
+	 (when (member 'solarized-dark (custom-available-themes))
+	   (load-theme 'solarized-dark t t)
 
-	 (enable-theme 'solarized-dark))
+	   (enable-theme 'solarized-dark)))
 	((display-color-p)
-	 (load-theme 'cyberpunk t t)
+	 (when (member 'cyberpunk (custom-available-themes))
+	   (load-theme 'cyberpunk t t)
 
-	 (enable-theme 'cyberpunk))
+	   (enable-theme 'cyberpunk)))
 	(t nil)))
 
 ;;;
