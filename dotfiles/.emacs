@@ -233,6 +233,7 @@
        gitconfig-mode
        gitignore-mode
        go-eldoc
+       helm
        ido-ubiquitous
        jgraph-mode
        js2-mode
@@ -725,6 +726,11 @@
 
 ;;   (rtags-enable-standard-keybindings c-mode-base-map)
   )
+
+;;;
+;;; Helm mode
+;;;
+(helm-mode 1)
 
 ;;;
 ;;; Theme
