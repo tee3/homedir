@@ -33,6 +33,7 @@
  '(compilation-scroll-output t)
  '(compile-auto-highlight t)
  '(current-language-environment "English")
+ '(desktop-globals-to-save (quote (desktop-missing-file-warning tags-file-name tags-table-list search-ring regexp-search-ring register-alist file-name-history kill-ring)))
  '(desktop-save-mode t)
  '(dired-kept-versions 6)
  '(display-time-mode t)
