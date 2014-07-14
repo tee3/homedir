@@ -7,6 +7,7 @@
 	attributesfile = ~/.gitattributes
 	quotepath = false
 #	autocrlf = true
+	safecrlf = true
 [diff]
 #	renames	= copies
 [instaweb]
