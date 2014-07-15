@@ -13,6 +13,8 @@ if [ os.name ] = NT
     using clang ;
 
     #! @todo is a gcc compiler for Windows
+
+    using gcc : rtags : $(HOME)/opt/local/bin/g++-4.8 ;
 }
 else if [ os.name ] = CYGWIN
 {
@@ -21,6 +23,8 @@ else if [ os.name ] = CYGWIN
 
     # other comilers, both system and optional
     using clang ;
+
+    using gcc : rtags : $(HOME)/opt/local/bin/g++-4.8 ;
 }
 else if [ os.name ] = LINUX
 {
@@ -29,6 +33,8 @@ else if [ os.name ] = LINUX
 
     # other comilers, both system and optional
     using clang ;
+
+    using gcc : rtags : $(HOME)/opt/local/bin/g++-4.8 ;
 }
 else if [ os.name ] = MACOSX
 {
@@ -50,7 +56,7 @@ else if [ os.name ] = MACOSX
     using darwin : 4.6 : /usr/local/bin/g++-4.7 ;
     using darwin : 4.5 : /usr/local/bin/g++-4.5 ;
 
-    using darwin : rtags : $(HOME)/opt/local/bin/g++ ;
+    using darwin : rtags : $(HOME)/opt/local/bin/g++-4.8 ;
 }
 
 # Cross compilers
@@ -72,6 +78,7 @@ else if [ os.name ] = LINUX
 else if [ os.name ] = MACOSX
 {
     #! @todo gcc for arm
+    using gcc : arm : $(HOME)/opt/gcc-arm-none-eabi-4_8-2014q1/bin/arm-none-eabi-g++ ;
 }
 
 # AVR compiler
