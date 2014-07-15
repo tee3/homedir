@@ -93,6 +93,8 @@ fi
 # Add local optional to path
 if [ -d ~/opt/local/bin ]; then
     export PATH=~/opt/local/bin:$PATH
+    export LD_LIBRARY_PATH=~/opt/local/lib
+    export DYLD_LIBRARY_PATH=~/opt/local/lib
 fi
 
 # History
