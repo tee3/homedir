@@ -245,6 +245,7 @@
 
        ; not in marmalade
        bundler
+       company ; just in case someone needs it
        cmake-mode
        cperl-mode
        ctags
