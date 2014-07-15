@@ -76,6 +76,7 @@
  '(octave-continuation-offset 3)
  '(paren-mode (quote sexp) nil (paren))
  '(partial-completion-mode t)
+ '(projectile-switch-project-action (quote projectile-vc))
  '(query-user-mail-address nil)
  '(rst-compile-toolsets
    (quote
