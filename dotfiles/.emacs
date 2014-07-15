@@ -730,7 +730,8 @@
 ;;;
 ;;; Helm mode
 ;;;
-(helm-mode 1)
+(when (require 'helm nil :noerror)
+  (helm-mode 1))
 
 ;;;
 ;;; Theme
