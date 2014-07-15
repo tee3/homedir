@@ -728,6 +728,12 @@
   )
 
 ;;;
+;;; Projectile mode
+;;;
+(when (require 'projectile nil :noerror)
+  (projectile-global-mode))
+
+;;;
 ;;; Helm mode
 ;;;
 (when (require 'helm nil :noerror)
