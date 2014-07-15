@@ -330,8 +330,7 @@
        zen-and-art-theme
        assemblage-theme
        birds-of-paradise-plus-theme
-; not in melpa-stable
-;       cyberpunk-theme
+       cyberpunk-theme
 ; not in melpa-stable
 ;       espresso-theme
        gandalf-theme
