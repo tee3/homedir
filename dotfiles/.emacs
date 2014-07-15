@@ -269,6 +269,7 @@
        popup
        powershell
        rspec-mode
+       rtags
        ruby-compilation
        ruby-mode
        smooth-scroll
@@ -722,10 +723,9 @@
 ;;; rtags mode
 ;;;
 (when (require 'rtags nil :noerror)
-;;   (require 'auto-complete)
+  (require 'auto-complete)
 
-;;   (rtags-enable-standard-keybindings c-mode-base-map)
-  )
+  (rtags-enable-standard-keybindings c-mode-base-map))
 
 ;;;
 ;;; Projectile mode
