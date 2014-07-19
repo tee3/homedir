@@ -55,6 +55,7 @@
  '(ido-ubiquitous-mode t)
  '(ido-use-filename-at-point (quote guess))
  '(ido-use-url-at-point t)
+ '(inferior-js-program-command "v8 --shell")
  '(inferior-octave-startup-args (quote ("--traditional")))
  '(inhibit-startup-screen t)
  '(large-file-warning-threshold nil)
@@ -237,11 +238,8 @@
        helm
        ido-ubiquitous
        jgraph-mode
-       js2-mode
-       js3-mode
        magit-svn
        simple-httpd
-       skewer-mode
        undo-tree
 
        ; not in marmalade
@@ -297,7 +295,6 @@
 ;;        thesaurus
 ;;        vc-fossil
 ;;        vimrc-mode
-;;        ac-js2
 ;;        ac-math
 ;;        asn1-mode
 ;;        go-direx
@@ -438,13 +435,6 @@
   (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode)))
 
 ;;;
-;;; JavaScript mode
-;;;
-(when (require 'js2-mode nil :noerror)
-
-  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
-
-;;;
 ;;; JSON mode
 ;;;
 (when (require 'json-mode nil :noerror)
@@ -463,17 +453,17 @@
   (load-library "objj-mode")
   (add-to-list 'auto-mode-alist '("\\.j\\'" . objj-mode))
 
-  (when (require 'js2-mode nil :noerror)
+  (when (require 'js-mode nil :noerror)
 
-    (add-to-list 'auto-mode-alist '("\\.sj\\'" . js2-mode))))
+    (add-to-list 'auto-mode-alist '("\\.sj\\'" . js-mode))))
 
 ;;;
 ;;; Jakefile mode
 ;;;
-(when (require 'js2-mode nil :noerror)
+(when (require 'js-mode nil :noerror)
 
-  (add-to-list 'auto-mode-alist '("[Jj]akefile\\'" . js2-mode))
-  (add-to-list 'auto-mode-alist '("\\.jake\\'" . js2-mode)))
+  (add-to-list 'auto-mode-alist '("[Jj]akefile.*\\'" . js-mode))
+  (add-to-list 'auto-mode-alist '("\\.jake\\'" . js-mode)))
 
 ;; ;;;
 ;; ;;; C# mode
@@ -656,12 +646,6 @@
 ;;; Customizations for JavaScript
 ;;;
 (add-hook 'js-mode-hook
-	  (lambda ()
-	    (tern-mode t)
-
-	    (flyspell-prog-mode)
-	    (linum-mode t)))
-(add-hook 'js2-mode-hook
 	  (lambda ()
 	    (tern-mode t)
 
