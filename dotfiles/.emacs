@@ -674,6 +674,14 @@
 ;; (add-to-list 'auto-mode-alist '("\\.in\\'" . comsim-mode))
 
 ;;;
+;;; Markdown mode
+;;;
+(when (require 'markdown-mode nil :noerror)
+
+  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode)))
+
+;;;
 ;;; Code Composer Studio and DSP/BIOS mode
 ;;;
 ;;;    TextConf script types
