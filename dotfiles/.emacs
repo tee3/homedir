@@ -38,6 +38,7 @@
  '(dired-kept-versions 6)
  '(display-time-mode t)
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
+ '(flycheck-swift-executable "xcrun swift")
  '(fringe-mode 4 nil (fringe))
  '(git-commit-confirm-commit t)
  '(global-auto-complete-mode t)
@@ -272,6 +273,7 @@
        ruby-compilation
        ruby-mode
        smooth-scroll
+       swift-mode
        tern
        tern-auto-complete
        twittering-mode
@@ -301,7 +303,6 @@
 ;;        go-errcheck
 ;;        go-snippets
 ;;        jss
-;;        swift-mode
 ;;        dash-at-point
 ;;        disaster
 ;;        dummy-h-mode
@@ -405,6 +406,12 @@
 ;;; Go mode
 ;;;
 (when (require 'go-mode nil :noerror)
+  nil)
+
+;;;
+;;; Swift mode
+;;;
+(when (require 'swift-mode nil :noerror)
   nil)
 
 ;;;
