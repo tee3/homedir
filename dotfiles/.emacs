@@ -329,38 +329,39 @@
        (or (package-installed-p package)
 	   (package-install package)))
 
-     '(anti-zenburn-theme
-       zen-and-art-theme
+     '(alect-themes
+       ample-theme
+       ample-zen-theme
+       anti-zenburn-theme
        assemblage-theme
        birds-of-paradise-plus-theme
+       bubbleberry-theme
+       clues-theme
        cyberpunk-theme
-; not in melpa-stable
+       deep-thought-theme
+       django-theme
 ;       espresso-theme
+       flatland-theme
        gandalf-theme
        github-theme
-; not in melpa-stable
 ;       hemisu-theme
-; not in melpa-stable
+       heroku-theme
+       ir-black-theme
+       jujube-theme
+       late-night-theme
 ;       molokai-theme
        monokai-theme
-; not in melpa-stable
 ;       mustang-theme
-; not in melpa-stable
 ;       naquadah-theme
        nzenburn-theme
-; not in melpa-stable
 ;       obsidian-theme
-; not in melpa-stable
 ;       occidental-theme
        pastels-on-dark-theme
        purple-haze-theme
        qsimpleq-theme
        solarized-theme
-; not in melpa-stable
 ;       subatomic-theme
-; not in melpa-stable
 ;       subatomic256-theme
-; not in melpa-stable
 ;       sublime-themes
        tronesque-theme
        zen-and-art-theme
