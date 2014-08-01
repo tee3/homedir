@@ -204,6 +204,8 @@
        protobuf-mode
        psvn
        pylint
+       rainbow-delimiters
+       rainbow-identifiers
        rbenv
        s
        ssh
@@ -738,6 +740,14 @@
 ;;;
 (when (require 'helm nil :noerror)
   (helm-mode 1))
+
+;; ;;;
+;; ;;; Rainbow modes
+;; ;;;
+;; (when (require 'rainbow-delimiters nil :noerror)
+;;   (global-rainbow-delimiters-mode))
+;; (when (require 'rainbow-identifiers nil :noerror)
+;;   (rainbow-identifiers-mode))
 
 ;;;
 ;;; Theme
