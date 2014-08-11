@@ -23,7 +23,7 @@ fi
 # create ~/opt/local if desired
 if [ ! -d ~/opt -o ! -d ~/opt/local ]; then
     read -p "create ~/opt/local? (y/n)?: " yn
-    if [ "${yn}" == "y" ]; then
+    if [ "${yn}" = "y" ]; then
 	mkdir -p ~/opt/local/bin
 	mkdir -p ~/opt/local/include
 	mkdir -p ~/opt/local/lib
@@ -64,7 +64,7 @@ if [ ! -z "${git}" -a -x "${git}" ]; then
 
     if [ ! -z "${name}" -a ! -z "${email}" ]; then
 	read -p "use '${name} <${email}>' (y/n): " yn
-	if [ "${yn}" == "n" ]; then
+	if [ "${yn}" = "n" ]; then
 	    name=
 	    email=
 	fi
@@ -79,7 +79,7 @@ if [ ! -z "${git}" -a -x "${git}" ]; then
 
 	if [ ! -z "${name}" -a ! -z "${email}" ]; then
 	    read -p "use '${name} <${email}>' (y/n): " yn
-	    if [ "${yn}" == "n" ]; then
+	    if [ "${yn}" = "n" ]; then
 		name=
 		email=
 	    fi
@@ -96,7 +96,7 @@ if [ ! -z "${git}" -a -x "${git}" ]; then
 
     if [ ! -z "${name}" -a ! -z "${email}" ]; then
 	read -p "setting git user to '${name} <${email}>' (y/n): " yn
-	if [ "${yn}" == "y" ]; then
+	if [ "${yn}" = "y" ]; then
 	    # set user name/email in user-specific config
 	    ${git} config -f ${HOME}/.gitconfig.user user.name "${name}"
 	    ${git} config -f ${HOME}/.gitconfig.user user.email "${email}"
@@ -104,7 +104,7 @@ if [ ! -z "${git}" -a -x "${git}" ]; then
     fi
 
     read -p "clear git user name/email (y/n): " yn
-    if [ "${yn}" == "y" ]; then
+    if [ "${yn}" = "y" ]; then
 	${git} config --unset user.name
 	${git} config --unset user.email
     fi
@@ -150,12 +150,12 @@ for d in ${dotfiledirs} ; do
 	    if [ ! "${f}" -ef "${home_f}" ]; then
 		if ${diff} ${f} ${home_f} ; then
 		    read -p "${f} is identical to ${home_f}.  Overwrite (y/n)?: " yn
-		    if [ "${yn}" == "y" ]; then
+		    if [ "${yn}" = "y" ]; then
 			rm -i ${home_f}
 		    fi
 		else
 		    read -p "${f} is different than ${home_f}.  Overwrite anyway (y/n)?: " yn
-		    if [ "${yn}" == "y" ]; then
+		    if [ "${yn}" = "y" ]; then
 			rm -i ${home_f}
 		    fi
 		fi
