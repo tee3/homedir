@@ -62,6 +62,7 @@
  '(large-file-warning-threshold nil)
  '(linum-format "%4d ")
  '(load-home-init-file t t)
+ '(magit-completing-read-function (quote magit-ido-completing-read))
  '(magit-diff-options nil)
  '(magit-diff-refine-hunk nil)
  '(magit-gitk-executable "gitk")
