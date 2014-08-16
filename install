@@ -128,13 +128,6 @@ if [ ! -z "${hg}" -a -x "${hg}" ]; then
     #! @todo use hg to set up user
 fi
 
-# requires stow
-stow=`which stow`
-if [ -z "${stow}" -o ! -x "${stow}" ]; then
-    echo "'stow' is not available"
-    exit 1
-fi
-
 # requires diff
 diff=`which diff`
 if [ -z "${diff}" -o ! -x "${diff}" ]; then
@@ -163,6 +156,13 @@ for d in ${dotfiledirs} ; do
 	fi
     done
 done
+
+# requires stow
+stow=`which stow`
+if [ -z "${stow}" -o ! -x "${stow}" ]; then
+    echo "'stow' is not available"
+    exit 1
+fi
 
 # use stow to populate available dot files
 ${stow} --target="${HOME}" dotfiles
