@@ -361,10 +361,19 @@
        purple-haze-theme
        qsimpleq-theme
        solarized-theme
+       soothe-theme
+       steady-theme
+       stekene-theme
 ;       subatomic-theme
 ;       subatomic256-theme
 ;       sublime-themes
+       tommyh-theme
+       toxi-theme
+       tron-theme
        tronesque-theme
+       twilight-theme
+       ujelly-theme
+       underwater-theme
        zen-and-art-theme
        zenburn-theme))))
 
