@@ -699,6 +699,12 @@
   (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode)))
 
 ;;;
+;;; Git modes
+;;;
+(when (require 'gitconfig-mode nil :noerror)
+  (add-to-list 'auto-mode-alist '("\\.gitconfig.*\\'" . gitconfig-mode)))
+
+;;;
 ;;; Code Composer Studio and DSP/BIOS mode
 ;;;
 ;;;    TextConf script types
