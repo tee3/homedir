@@ -232,7 +232,16 @@
 	   (package-install package)))
 
      '(applescript-mode
+       ac-geiser
+; @todo version mismatch      
+;       ac-helm
+       ac-inf-ruby
+; @todo not available
+;       ac-ispell
+       ac-python
+       ac-slime
        auto-complete
+;       auto-complete-clang
        c-eldoc
        electric-case
        flycheck
@@ -743,7 +752,9 @@
 ;;; Auto-complete mode
 ;;;
 (when (require 'auto-complete nil :noerror)
-  )
+  (add-to-list 'ac-dictionary-directories "~/.emacs.d/dict"))
+(when (require 'auto-complete-config nil :noerror)
+  (ac-config-default))
 
 ;;;
 ;;; rtags mode
