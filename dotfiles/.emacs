@@ -714,7 +714,13 @@
 ;;; Git modes
 ;;;
 (when (require 'gitconfig-mode nil :noerror)
-  (add-to-list 'auto-mode-alist '("\\.gitconfig.*\\'" . gitconfig-mode)))
+
+  (add-to-list 'auto-mode-alist '("\\.gitconfig.*\\'" . gitconfig-mode))
+
+  ; SubGit-generated Git submodules files
+  (add-to-list 'auto-mode-alist '("\\.gitsvnextmodules\\'" . gitconfig-mode))
+  ; migration-generated Git submodules files
+  (add-to-list 'auto-mode-alist '("\\.gitsvnexternals\\'" . gitconfig-mode)))
 
 ;;;
 ;;; Code Composer Studio and DSP/BIOS mode
