@@ -661,9 +661,13 @@
 ;;;
 ;;; Customizations for JavaScript
 ;;;
-(add-hook 'js-mode-hook
-	  (lambda ()
-	    (tern-mode t))
+(when (require 'tern nil :noerror)
+  (add-hook 'js-mode-hook (lambda ()
+			    (tern-mode t)
+			    ))
+
+  (when (require 'tern-auto-complete nil :noerror)
+    (tern-ac-setup)))
 
 ;;;
 ;;; Asm Mode Configuration
