@@ -233,6 +233,7 @@
 
      '(applescript-mode
        auto-complete
+       c-eldoc
        electric-case
        flycheck
        gitattributes-mode
@@ -419,6 +420,8 @@
 ;;; Go mode
 ;;;
 (when (require 'go-mode nil :noerror)
+  (when (require 'go-eldoc nil :noerror)
+    (add-hook 'go-mode-hook 'go-eldoc-setup))
   nil)
 
 ;;;
@@ -644,6 +647,16 @@
 
      (hs-minor-mode t)
      ))
+
+;;;
+;;; C eldoc
+;;;
+(when (require 'c-eldoc nil :noerror)
+  ; add more as desired, superset of what you'd like to use
+  (setq c-eldoc-includes "-I.")
+
+  (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
+  (add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode))
 
 ;;;
 ;;; Customizations for JavaScript
