@@ -537,7 +537,6 @@
 (defconst tbrown-c-style
   '((c-basic-offset                   . 3)
      (tab-width                       . 8)
-     (indent-tabs-mode                . nil)
 
 ;;     (c-comment-only-line-offset    . 4)
 ;;     (c-block-comment-prefix        . X)
@@ -636,41 +635,22 @@
 
 ;;      (auto-fill-mode                           t)
 ;;      (abbrev-mode                              t)
-;;      (line-number-mode                         t)
 ;;      (column-number-mode                       t)
 
 ;;      (setq tab-width                     8)
-     (setq indent-tabs-mode                 nil)
 
 ;;      (setq c-tab-always-indent           t)
 ;;      (setq c-insert-tab-function         nil)
 
      (hs-minor-mode t)
-     (gtags-mode t)
-     (auto-complete-mode t)
-
-     (flyspell-prog-mode)
-     (linum-mode t)))
-
-;;;
-;;; Customizations for Python.
-;;;
-(add-hook 'python-mode-hook
-          (lambda ()
-	    (setq indent-tabs-mode                 nil)
-
-	    (flyspell-prog-mode)
-	    (linum-mode t)))
+     ))
 
 ;;;
 ;;; Customizations for JavaScript
 ;;;
 (add-hook 'js-mode-hook
 	  (lambda ()
-	    (tern-mode t)
-
-	    (flyspell-prog-mode)
-	    (linum-mode t)))
+	    (tern-mode t))
 
 ;;;
 ;;; Asm Mode Configuration
@@ -721,6 +701,16 @@
   (add-to-list 'auto-mode-alist '("\\.xs\\'" . js2-mode)))
 
 ;;;
+;;; Programming mode hooks
+;;;
+(add-hook 'prog-mode-hook (lambda ()
+			    (setq indent-tabs-mode nil)))
+(when (require 'linum nil :noerror)
+  (add-hook 'prog-mode-hook 'linum-mode))
+(when (require 'flyspell nil :noerror)
+  (add-hook 'prog-mode-hook 'flyspell-prog-mode))
+
+;;;
 ;;; Flycheck mode
 ;;;
 (when (>= emacs-major-version 24)
@@ -736,7 +726,8 @@
 ;;; rtags mode
 ;;;
 (when (require 'rtags nil :noerror)
-  (require 'auto-complete)
+  (when (require 'auto-complete nil :noerror)
+    nil)
 
   (rtags-enable-standard-keybindings c-mode-base-map))
 
