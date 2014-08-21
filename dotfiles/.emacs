@@ -259,6 +259,9 @@
        ; not in marmalade
        bundler
        company ; just in case someone needs it
+       company-cmake
+       company-inf-ruby
+       company-tern
        cmake-mode
        cperl-mode
        ctags
@@ -755,6 +758,17 @@
   (add-to-list 'ac-dictionary-directories "~/.emacs.d/dict"))
 (when (require 'auto-complete-config nil :noerror)
   (ac-config-default))
+
+;; ;;;
+;; ;;; Company (completion) mode
+;; ;;;
+;; (when (require 'company nil :noerror)
+;;   (add-to-list 'company-backends 'company-cmake t)
+;;   (add-to-list 'company-backends 'company-inf-ruby t)
+;;   (add-to-list 'company-backends 'company-ispell t)
+;;   (add-to-list 'company-backends 'company-tern t)
+
+;;   (add-hook 'after-init-hook 'global-company-mode))
 
 ;;;
 ;;; rtags mode
