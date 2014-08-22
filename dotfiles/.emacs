@@ -401,6 +401,11 @@
 ;;;
 ;;; Boost.Build mode
 ;;;
+;;; @todo no official support for this yet
+
+;;;
+;;; Jamfile mode
+;;;
 (when (require 'jam-mode nil :noerror)
 
   (add-to-list 'auto-mode-alist '("[Jj]amroot\\'" . jam-mode))
@@ -409,13 +414,6 @@
 
   (add-hook 'jam-mode-hook (lambda ()
                              (setq indent-tabs-mode nil))))
-
-;;;
-;;; Jamfile mode
-;;;
-(when (require 'jam-mode nil :noerror)
-
-  (add-to-list 'auto-mode-alist '("\\.jam\\'" . jam-mode)))
 
 ;;;
 ;;; CMake mode.
