@@ -40,6 +40,7 @@
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(flycheck-swift-executable "xcrun swift")
  '(fringe-mode 4 nil (fringe))
+ '(generic-define-mswindows-modes t)
  '(git-commit-confirm-commit t)
  '(global-auto-complete-mode t)
  '(global-cwarn-mode t)
