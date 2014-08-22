@@ -404,7 +404,10 @@
 
   (add-to-list 'auto-mode-alist '("[Jj]amroot\\'" . jam-mode))
   (add-to-list 'auto-mode-alist '("[Jj]amfile\\'" . jam-mode))
-  (add-to-list 'auto-mode-alist '("\\.jam\\'" . jam-mode)))
+  (add-to-list 'auto-mode-alist '("\\.jam\\'" . jam-mode))
+
+  (add-hook 'jam-mode-hook (lambda ()
+                             (setq indent-tabs-mode nil))))
 
 ;;;
 ;;; Jamfile mode
@@ -750,6 +753,12 @@
   (add-hook 'prog-mode-hook 'linum-mode))
 (when (require 'flyspell nil :noerror)
   (add-hook 'prog-mode-hook 'flyspell-prog-mode))
+
+;;;
+;;; Text mode hooks (additional)
+;;;
+(add-hook 'text-mode-hook (lambda ()
+			    (setq indent-tabs-mode nil)))
 
 ;;;
 ;;; Flycheck mode
