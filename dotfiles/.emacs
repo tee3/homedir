@@ -289,6 +289,7 @@
        rtags
        ruby-compilation
        ruby-mode
+       smart-mode-line
        smooth-scroll
        swift-mode
        tern
@@ -813,6 +814,13 @@
 ;;   (global-rainbow-delimiters-mode))
 ;; (when (require 'rainbow-identifiers nil :noerror)
 ;;   (rainbow-identifiers-mode))
+
+;;;
+;;; Smart mode line
+;;;
+(when (require 'smart-mode-line nil :noerror)
+  (sml/setup)
+  (sml/apply-theme 'respectful))
 
 ;;;
 ;;; Theme
