@@ -413,7 +413,8 @@
   (add-to-list 'auto-mode-alist '("\\.jam\\'" . jam-mode))
 
   (add-hook 'jam-mode-hook (lambda ()
-                             (setq indent-tabs-mode nil))))
+                             (setq indent-tabs-mode nil)))
+  (add-hook 'jam-mode-hook 'flyspell-prog-mode))
 
 ;;;
 ;;; CMake mode.
