@@ -5,12 +5,12 @@ fi
 
 # Homebrew setup
 if [ -e /usr/local/bin/brew ]; then
-    brew_prefix=`/usr/local/bin/brew --prefix`
+    brew_prefix=$(/usr/local/bin/brew --prefix)
 
     export PATH=${brew_prefix}/bin:${brew_prefix}/sbin:$PATH
 
     # Hunspell from Homebrew
-    if [ -e `brew --prefix hunspell` ]; then
+    if [ -e $(brew --prefix hunspell) ]; then
 	export DICTIONARY=en_US
     fi
 
@@ -20,10 +20,10 @@ if [ -e /usr/local/bin/brew ]; then
     fi
 
     # Emacs.app from Homebrew
-    if [ -e `brew --prefix emacs` ]; then
+    if [ -e $(brew --prefix emacs) ]; then
 	#alias Emacs.app="emacsclient -c -n"
-	#alias Emacs.app="emacsclient -c -n -a open `brew --prefix emacs`/Emacs.app"
-	alias Emacs.app="open `brew --prefix emacs`/Emacs.app"
+	#alias Emacs.app="emacsclient -c -n -a open $(brew --prefix emacs)/Emacs.app"
+	alias Emacs.app="open $(brew --prefix emacs)/Emacs.app"
     fi
 
     # Git from Homebrew
@@ -50,43 +50,43 @@ if [ -e /usr/local/bin/brew ]; then
 	source ${brew_prefix}/etc/bash_completion.d/subversion
     fi
 
-    if [ -e `brew --prefix subversion17` ] ; then
+    if [ -e $(brew --prefix subversion17) ] ; then
 	export RUBYLIB=${brew_prefix}/lib/ruby:$RUBYLIB
-	export PERL5LIB=`brew --prefix subversion17`/Library/Perl/5.16:$PERL5LIB
+	export PERL5LIB=$(brew --prefix subversion17)/Library/Perl/5.16:$PERL5LIB
 	export PYTHONPATH=${brew_prefix}/lib/svn-python:$PYTHONPATH
     fi
 
 #    # Python 2.7 from Homebrew
-#    if [ -e `brew --prefix python` ]; then
-#	export PYTHONPATH=`brew --prefix`/lib/python2.7/site-packages
+#    if [ -e $(brew --prefix python) ]; then
+#	export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
 #    fi
 
     # Ruby from Homebrew
-    if [ -e `brew --prefix ruby` ]; then
+    if [ -e $(brew --prefix ruby) ]; then
         export PATH=${brew_prefix}/opt/ruby/bin:$PATH
     fi
 
 #    # Perl from Homebrew
-#    if [ -e `brew --prefix perl` ]; then
+#    if [ -e $(brew --prefix perl) ]; then
 #    fi
 
 #    # Node from Homebrew
-#    if [ -e `brew --prefix node` ]; then
+#    if [ -e $(brew --prefix node) ]; then
 #    fi
 
     # Boost.Build from Homebrew
-    if [ -e `brew --prefix boost-build` ]; then
-	export BOOST_BUILD_PATH=`brew --prefix boost-build`/share
+    if [ -e $(brew --prefix boost-build) ]; then
+	export BOOST_BUILD_PATH=$(brew --prefix boost-build)/share
     fi
 
     # DocBook from Homebrew
-    if [ -e `brew --prefix docbook` ]; then
+    if [ -e $(brew --prefix docbook) ]; then
 	export XML_CATALOG_FILES="${brew_prefix}/etc/xml/catalog"
     fi
 
     # Android SDK from Homebrew
-    if [ -e `brew --prefix android-sdk` ]; then
-	export ANDROID_SDK_ROOT=`brew --prefix android-sdk`
+    if [ -e $(brew --prefix android-sdk) ]; then
+	export ANDROID_SDK_ROOT=$(brew --prefix android-sdk)
     fi
 fi
 
@@ -105,7 +105,7 @@ shopt -s histappend
 shopt -s cmdhist
 
 # Emacs
-if [ ! -z `which emacsclient` ]; then
+if [ ! -z $(which emacsclient) ]; then
     export ALTERNATE_EDITOR=
     export EDITOR=emacsclient
 fi
@@ -127,7 +127,7 @@ fi
 
 # manage ssh-agent
 if [ -x /usr/bin/keychain ]; then
-    eval `/usr/bin/keychain --eval --quiet --nogui`
+    eval $(/usr/bin/keychain --eval --quiet --nogui)
 fi
 
 # never use ccache, no matter what

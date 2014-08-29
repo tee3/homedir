@@ -8,7 +8,7 @@ set -C
 dotfiledirs="dotfiles"
 
 # requires running form the root od the dotfiles directory
-rootdir=`dirname $0`
+rootdir=$(dirname $0)
 if [ ! ${rootdir} -ef ${PWD} ]; then
     echo "must be run from the root of the dotfiles directory"
     exit 1
@@ -44,7 +44,7 @@ if [ ! -e ~/.bashrc.local ]; then
 fi
 
 # configure the user name/email for git
-git=`which git`
+git=$(which git)
 if [ ! -z "${git}" -a -x "${git}" ]; then
     # set up machine-specific ~/.gitconfig
     if [ ! -e ~/.gitconfig.machine ]; then
@@ -59,8 +59,8 @@ if [ ! -z "${git}" -a -x "${git}" ]; then
     fi
 
     # get user and email from git config
-    name=`${git} config user.name`
-    email=`${git} config user.email`
+    name=$(${git} config user.name)
+    email=$(${git} config user.email)
 
     if [ ! -z "${name}" -a ! -z "${email}" ]; then
 	read -p "use '${name} <${email}>' (y/n): " yn
@@ -74,8 +74,8 @@ if [ ! -z "${git}" -a -x "${git}" ]; then
     fi
 
     if [ -z "${name}" -a -z "${email}" ]; then
-	name=`${git} config -f ${HOME}/.gitconfig.user user.name`
-	email=`${git} config -f ${HOME}/.gitconfig.user user.email`
+	name=$(${git} config -f ${HOME}/.gitconfig.user user.name)
+	email=$(${git} config -f ${HOME}/.gitconfig.user user.email)
 
 	if [ ! -z "${name}" -a ! -z "${email}" ]; then
 	    read -p "use '${name} <${email}>' (y/n): " yn
@@ -111,7 +111,7 @@ if [ ! -z "${git}" -a -x "${git}" ]; then
 fi
 
 # configure mercurial
-hg=`which hg`
+hg=$(which hg)
 if [ ! -z "${hg}" -a -x "${hg}" ]; then
     # set up machine-specific ~/.hgrc
     if [ ! -e ~/.hgrc.machine ]; then
@@ -129,7 +129,7 @@ if [ ! -z "${hg}" -a -x "${hg}" ]; then
 fi
 
 # requires diff
-diff=`which diff`
+diff=$(which diff)
 if [ -z "${diff}" -o ! -x "${diff}" ]; then
     echo "'diff' is not available"
     exit 1
@@ -137,8 +137,8 @@ fi
 
 # allow user to clean up existing files
 for d in ${dotfiledirs} ; do
-    for f in `find ${d} -type f` ; do
-	home_f=~/`basename ${f}`
+    for f in $(find ${d} -type f) ; do
+	home_f=~/$(basename ${f})
 	if [ -e "${home_f}" ]; then
 	    if [ ! "${f}" -ef "${home_f}" ]; then
 		if ${diff} ${f} ${home_f} ; then
@@ -158,7 +158,7 @@ for d in ${dotfiledirs} ; do
 done
 
 # requires stow
-stow=`which stow`
+stow=$(which stow)
 if [ -z "${stow}" -o ! -x "${stow}" ]; then
     echo "'stow' is not available"
     exit 1
