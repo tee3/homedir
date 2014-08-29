@@ -9,7 +9,7 @@ dotfiledirs="dotfiles"
 
 # requires running form the root od the dotfiles directory
 rootdir=$(dirname "$0")
-if [ ! "${rootdir}" -ef "${PWD}" ]; then
+if [ "${rootdir}" != "${PWD}" ]; then
     echo "must be run from the root of the dotfiles directory"
     exit 1
 fi
@@ -140,7 +140,7 @@ for d in ${dotfiledirs} ; do
     for f in $(find ${d} -type f) ; do
 	home_f=~/$(basename "${f}")
 	if [ -e "${home_f}" ]; then
-	    if [ ! "${f}" -ef "${home_f}" ]; then
+	    if [ "${f}" != "${home_f}" ]; then
 		if ${diff} "${f}" "${home_f}" ; then
 		    read -p "${f} is identical to ${home_f}.  Overwrite (y/n)?: " yn
 		    if [ "${yn}" = "y" ]; then
