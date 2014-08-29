@@ -819,8 +819,9 @@
 ;;; Smart mode line
 ;;;
 (when (require 'smart-mode-line nil :noerror)
-  (sml/setup)
-  (sml/apply-theme 'respectful))
+  (setq sml/theme nil)
+
+  (sml/setup))
 
 ;;;
 ;;; Theme
