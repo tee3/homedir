@@ -8,8 +8,8 @@ set -C
 dotfiledirs="dotfiles"
 
 # requires running form the root od the dotfiles directory
-rootdir=$(dirname $0)
-if [ ! ${rootdir} -ef ${PWD} ]; then
+rootdir=$(dirname "$0")
+if [ ! "${rootdir}" -ef "${PWD}" ]; then
     echo "must be run from the root of the dotfiles directory"
     exit 1
 fi
@@ -74,8 +74,8 @@ if [ ! -z "${git}" -a -x "${git}" ]; then
     fi
 
     if [ -z "${name}" -a -z "${email}" ]; then
-	name=$(${git} config -f ${HOME}/.gitconfig.user user.name)
-	email=$(${git} config -f ${HOME}/.gitconfig.user user.email)
+	name=$(${git} config -f "${HOME}"/.gitconfig.user user.name)
+	email=$(${git} config -f "${HOME}"/.gitconfig.user user.email)
 
 	if [ ! -z "${name}" -a ! -z "${email}" ]; then
 	    read -p "use '${name} <${email}>' (y/n): " yn
@@ -98,8 +98,8 @@ if [ ! -z "${git}" -a -x "${git}" ]; then
 	read -p "setting git user to '${name} <${email}>' (y/n): " yn
 	if [ "${yn}" = "y" ]; then
 	    # set user name/email in user-specific config
-	    ${git} config -f ${HOME}/.gitconfig.user user.name "${name}"
-	    ${git} config -f ${HOME}/.gitconfig.user user.email "${email}"
+	    ${git} config -f "${HOME}"/.gitconfig.user user.name "${name}"
+	    ${git} config -f "${HOME}"/.gitconfig.user user.email "${email}"
 	fi
     fi
 
@@ -138,18 +138,18 @@ fi
 # allow user to clean up existing files
 for d in ${dotfiledirs} ; do
     for f in $(find ${d} -type f) ; do
-	home_f=~/$(basename ${f})
+	home_f=~/$(basename "${f}")
 	if [ -e "${home_f}" ]; then
 	    if [ ! "${f}" -ef "${home_f}" ]; then
-		if ${diff} ${f} ${home_f} ; then
+		if ${diff} "${f}" "${home_f}" ; then
 		    read -p "${f} is identical to ${home_f}.  Overwrite (y/n)?: " yn
 		    if [ "${yn}" = "y" ]; then
-			rm -i ${home_f}
+			rm -i "${home_f}"
 		    fi
 		else
 		    read -p "${f} is different than ${home_f}.  Overwrite anyway (y/n)?: " yn
 		    if [ "${yn}" = "y" ]; then
-			rm -i ${home_f}
+			rm -i "${home_f}"
 		    fi
 		fi
 	    fi
