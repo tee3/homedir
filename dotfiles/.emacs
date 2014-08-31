@@ -148,7 +148,7 @@
     (mapc
      (lambda (package)
        (or (package-installed-p package)
-	   (package-install package)))
+           (package-install package)))
 
      '(adoc-mode
        ag
@@ -230,7 +230,7 @@
     (mapc
      (lambda (package)
        (or (package-installed-p package)
-	   (package-install package)))
+           (package-install package)))
 
      '(applescript-mode
        ac-geiser
@@ -303,7 +303,7 @@
 ;;     (mapc
 ;;      (lambda (package)
 ;;        (or (package-installed-p package)
-;; 	   (package-install package)))
+;;            (package-install package)))
 
 ;;      '(dired+
 ;;        dired-details
@@ -343,7 +343,7 @@
     (mapc
      (lambda (package)
        (or (package-installed-p package)
-	   (package-install package)))
+           (package-install package)))
 
      '(alect-themes
        ample-theme
@@ -491,7 +491,7 @@
   (require 'compile)
 
   (add-to-list 'compilation-error-regexp-alist-alist
-	       '(objj-acorn "^\\(WARNING\\|ERROR\\) line \\([0-9]+\\) in file:\\([^:]+\\):\\(.*\\)$" 3 2))
+               '(objj-acorn "^\\(WARNING\\|ERROR\\) line \\([0-9]+\\) in file:\\([^:]+\\):\\(.*\\)$" 3 2))
   (add-to-list 'compilation-error-regexp-alist 'objj-acorn)
   (load-library "objj-mode")
   (add-to-list 'auto-mode-alist '("\\.j\\'" . objj-mode))
@@ -569,8 +569,8 @@
 ;;                                       empty-defun-braces
 ;;                                       defun-close-semi))
     (c-hanging-braces-alist        . ((brace-list-open)
-				      (substatement-open before after)
-				      (block-close . c-snug-do-while)))
+                                      (substatement-open before after)
+                                      (block-close . c-snug-do-while)))
 ;;     (c-hanging-colons-alist        . ((member-init-intro before)
 ;;                                       (inher-intro)
 ;;                                       (case-label after)
@@ -582,9 +582,9 @@
 ;;     (c-special-indent-hook          . nil)
 ;;     (c-label-minimum-indentation    . nil)
     (c-offsets-alist               . ((arglist-close          . c-lineup-arglist)
-				      (substatement-open      . 0)
-				      (inline-open            . 0)
-				      (case-label             . +)))
+                                      (substatement-open      . 0)
+                                      (inline-open            . 0)
+                                      (case-label             . +)))
     )
   "tbrown C Programming Style")
 
@@ -614,9 +614,9 @@
 ;;     (c-special-indent-hook          . nil)
 ;;     (c-label-minimum-indentation    . nil)
     (c-offsets-alist               . ((arglist-close          . c-lineup-arglist)
-				      (substatement-open      . 0)
-				      (inline-open            . 0)
-				      (case-label             . +)))
+                                      (substatement-open      . 0)
+                                      (inline-open            . 0)
+                                      (case-label             . +)))
     )
   "MSVC C Programming Style")
 
@@ -683,8 +683,7 @@
 ;;;
 (when (require 'tern nil :noerror)
   (add-hook 'js-mode-hook (lambda ()
-			    (tern-mode t)
-			    ))
+                            (tern-mode t)))
 
   (when (require 'tern-auto-complete nil :noerror)
     (tern-ac-setup)))
@@ -753,7 +752,7 @@
 ;;; Programming mode hooks
 ;;;
 (add-hook 'prog-mode-hook (lambda ()
-			    (setq indent-tabs-mode nil)))
+                            (setq indent-tabs-mode nil)))
 (when (require 'linum nil :noerror)
   (add-hook 'prog-mode-hook 'linum-mode))
 (when (require 'flyspell nil :noerror)
@@ -763,7 +762,7 @@
 ;;; Text mode hooks (additional)
 ;;;
 (add-hook 'text-mode-hook (lambda ()
-			    (setq indent-tabs-mode nil)))
+                            (setq indent-tabs-mode nil)))
 
 ;;;
 ;;; Flycheck mode
@@ -832,16 +831,16 @@
 ;;;
 (when (>= emacs-major-version 24)
   (cond ((display-graphic-p)
-	 (when (member 'solarized-dark (custom-available-themes))
-	   (load-theme 'solarized-dark t t)
+         (when (member 'solarized-dark (custom-available-themes))
+           (load-theme 'solarized-dark t t)
 
-	   (enable-theme 'solarized-dark)))
-	((display-color-p)
-	 (when (member 'cyberpunk (custom-available-themes))
-	   (load-theme 'cyberpunk t t)
+           (enable-theme 'solarized-dark)))
+        ((display-color-p)
+         (when (member 'cyberpunk (custom-available-themes))
+           (load-theme 'cyberpunk t t)
 
-	   (enable-theme 'cyberpunk)))
-	(t nil)))
+           (enable-theme 'cyberpunk)))
+        (t nil)))
 
 ;;;
 ;;; Start the emacs server (emacsserver/emacsclient)

@@ -11,54 +11,54 @@ if [ -e /usr/local/bin/brew ]; then
 
     # Hunspell from Homebrew
     if [ -e "$(brew --prefix hunspell)" ]; then
-	export DICTIONARY=en_US
+        export DICTIONARY=en_US
     fi
 
     # tmux from Homebrew
     if [ -f "${brew_prefix}"/etc/bash_completion.d/tmux ]; then
-	source "${brew_prefix}"/etc/bash_completion.d/tmux
+        source "${brew_prefix}"/etc/bash_completion.d/tmux
     fi
 
     # Emacs.app from Homebrew
     if [ -e "$(brew --prefix emacs)" ]; then
-	#alias Emacs.app="emacsclient -c -n"
-	#alias Emacs.app="emacsclient -c -n -a open $(brew --prefix emacs)/Emacs.app"
-	alias Emacs.app="open $(brew --prefix emacs)/Emacs.app"
+        #alias Emacs.app="emacsclient -c -n"
+        #alias Emacs.app="emacsclient -c -n -a open $(brew --prefix emacs)/Emacs.app"
+        alias Emacs.app="open $(brew --prefix emacs)/Emacs.app"
     fi
 
     # Git from Homebrew
     if [ -f "${brew_prefix}"/etc/bash_completion.d/git-completion.bash ]; then
-	source "${brew_prefix}"/etc/bash_completion.d/git-completion.bash
+        source "${brew_prefix}"/etc/bash_completion.d/git-completion.bash
     fi
     if [ -f "${brew_prefix}"/etc/bash_completion.d/git-flow-completion.bash ]; then
-	source "${brew_prefix}"/etc/bash_completion.d/git-flow-completion.bash
+        source "${brew_prefix}"/etc/bash_completion.d/git-flow-completion.bash
     fi
     if [ -f "${brew_prefix}"/etc/bash_completion.d/git-prompt.sh ]; then
-	source "${brew_prefix}"/etc/bash_completion.d/git-prompt.sh
+        source "${brew_prefix}"/etc/bash_completion.d/git-prompt.sh
     fi
     if [ -f "${brew_prefix}"/etc/bash_completion.d/tig-completion.bash ]; then
-	source "${brew_prefix}"/etc/bash_completion.d/tig-completion.bash
+        source "${brew_prefix}"/etc/bash_completion.d/tig-completion.bash
     fi
 
     # Hub from Homebrew
     if [ -f "${brew_prefix}"/etc/bash_completion.d/hub.bash_completion.sh ]; then
-	source "${brew_prefix}"/etc/bash_completion.d/hub.bash_completion.sh
+        source "${brew_prefix}"/etc/bash_completion.d/hub.bash_completion.sh
     fi
 
     # Subversion 1.7 from Homebrew
     if [ -f "${brew_prefix}"/etc/bash_completion.d/subversion ]; then
-	source "${brew_prefix}"/etc/bash_completion.d/subversion
+        source "${brew_prefix}"/etc/bash_completion.d/subversion
     fi
 
     if [ -e "$(brew --prefix subversion17)" ] ; then
-	export RUBYLIB=${brew_prefix}/lib/ruby:${RUBYLIB}
-	export PERL5LIB="$(brew --prefix subversion17)"/Library/Perl/5.16:${PERL5LIB}
-	export PYTHONPATH=${brew_prefix}/lib/svn-python:${PYTHONPATH}
+        export RUBYLIB=${brew_prefix}/lib/ruby:${RUBYLIB}
+        export PERL5LIB="$(brew --prefix subversion17)"/Library/Perl/5.16:${PERL5LIB}
+        export PYTHONPATH=${brew_prefix}/lib/svn-python:${PYTHONPATH}
     fi
 
 #    # Python 2.7 from Homebrew
 #    if [ -e "$(brew --prefix python)" ]; then
-#	export PYTHONPATH="$(brew --prefix)"/lib/python2.7/site-packages
+#        export PYTHONPATH="$(brew --prefix)"/lib/python2.7/site-packages
 #    fi
 
     # Ruby from Homebrew
@@ -76,17 +76,17 @@ if [ -e /usr/local/bin/brew ]; then
 
     # Boost.Build from Homebrew
     if [ -e "$(brew --prefix boost-build)" ]; then
-	export BOOST_BUILD_PATH="$(brew --prefix boost-build)"/share
+        export BOOST_BUILD_PATH="$(brew --prefix boost-build)"/share
     fi
 
     # DocBook from Homebrew
     if [ -e "$(brew --prefix docbook)" ]; then
-	export XML_CATALOG_FILES=${brew_prefix}/etc/xml/catalog
+        export XML_CATALOG_FILES=${brew_prefix}/etc/xml/catalog
     fi
 
     # Android SDK from Homebrew
     if [ -e "$(brew --prefix android-sdk)" ]; then
-	export ANDROID_SDK_ROOT=$(brew --prefix android-sdk)
+        export ANDROID_SDK_ROOT=$(brew --prefix android-sdk)
     fi
 fi
 
@@ -121,7 +121,7 @@ fi
 if [ -e ~/opt/local/bin/rdm ]; then
     # total hack for OS X, need one for Linux
     if [ -e /usr/local/lib/llvm-3.4/lib ]; then
-	export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:/usr/local/lib/llvm-3.4/lib
+        export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:/usr/local/lib/llvm-3.4/lib
     fi
 fi
 
