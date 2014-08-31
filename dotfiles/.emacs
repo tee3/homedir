@@ -418,6 +418,7 @@
 
   (add-hook 'jam-mode-hook (lambda ()
                              (setq indent-tabs-mode nil)))
+  (add-hook 'jam-mode-hook 'linum-mode)
   (add-hook 'jam-mode-hook 'flyspell-prog-mode))
 
 ;;;
