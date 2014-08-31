@@ -1,11 +1,13 @@
-;;;;
-;;;; Emacs user configuration file.
-;;;;
-;;;;    This file customizes Emacs for a specific user's needs.
-;;;;
+;;; .emacs --- Emacs user configuration file
+;;;
+;;; Commentary:
+;;;
+;;;    This file customizes Emacs for a specific user's needs.
+;;;
+;;; Code:
 
 ;;;
-;;; Update the load path to include the user's lisp files.
+;;; Update the load path to include the user's Lisp files.
 ;;;
 (add-to-list 'load-path "~/opt/local/share/emacs/site-lisp" t)
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp" t)
@@ -848,3 +850,6 @@
 (when (require 'server nil :noerror)
   (unless (server-running-p)
     (server-start)))
+
+(provide '.emacs)
+;;; .emacs ends here
