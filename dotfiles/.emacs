@@ -397,7 +397,10 @@
 ;;;
 (when (require 'make-mode nil :noerror)
 
-  (add-to-list 'auto-mode-alist '("Makefile.*\\'" . makefile-mode)))
+  (add-to-list 'auto-mode-alist '("Makefile.*\\'" . makefile-mode))
+
+  (add-hook 'makefile-mode-hook (lambda ()
+                                  (setq indent-tabs-mode t))))
 
 ;;;
 ;;; Boost.Build mode
