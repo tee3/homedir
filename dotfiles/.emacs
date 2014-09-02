@@ -562,6 +562,7 @@
 (defconst tbrown-c-style
   '((c-basic-offset                   . 3)
      (tab-width                       . 8)
+     (indent-tabs-mode                . nil)
 
 ;;     (c-comment-only-line-offset    . 4)
 ;;     (c-block-comment-prefix        . X)
