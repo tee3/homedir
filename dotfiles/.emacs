@@ -109,7 +109,7 @@
  '(tempo-interactive t)
  '(text-mode-hook
    (quote
-    (turn-on-flyspell turn-on-auto-fill text-mode-hook-identify linum-mode)))
+    (turn-on-flyspell turn-on-auto-fill text-mode-hook-identify)))
  '(tool-bar-mode nil)
  '(truncate-lines t)
  '(vc-directory-exclusion-list (quote ("SCCS" "RCS" "CVS" ".svn" "_MTN")))
@@ -420,7 +420,8 @@
 
   (add-hook 'jam-mode-hook (lambda ()
                              (setq indent-tabs-mode nil)))
-  (add-hook 'jam-mode-hook 'linum-mode)
+  (add-hook 'jam-mode-hook (lambda ()
+                             (linum-mode 1)))
   (add-hook 'jam-mode-hook 'flyspell-prog-mode))
 
 ;;;
@@ -757,7 +758,8 @@
 (add-hook 'prog-mode-hook (lambda ()
                             (setq indent-tabs-mode nil)))
 (when (require 'linum nil :noerror)
-  (add-hook 'prog-mode-hook 'linum-mode))
+  (add-hook 'prog-mode-hook (lambda ()
+                              (linum-mode 1))))
 (when (require 'flyspell nil :noerror)
   (add-hook 'prog-mode-hook 'flyspell-prog-mode))
 
@@ -766,6 +768,8 @@
 ;;;
 (add-hook 'text-mode-hook (lambda ()
                             (setq indent-tabs-mode nil)))
+(add-hook 'text-mode-hook (lambda ()
+                            (linum-mode 1)))
 
 ;;;
 ;;; Flycheck mode
