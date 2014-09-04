@@ -234,6 +234,7 @@
      '(applescript-mode
        c-eldoc
        electric-case
+       expand-region
        flycheck
        gitattributes-mode
        gitconfig-mode
@@ -788,6 +789,12 @@
 ;;;
 (when (require 'helm nil :noerror)
   (helm-mode 1))
+
+;;;
+;;; Expand region
+;;;
+(when (require 'expand-region nil :noerror)
+  (global-set-key (kbd "C-c =") 'er/expand-region))
 
 ;; ;;;
 ;; ;;; Rainbow modes
