@@ -24,7 +24,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(Info-additional-directory-list (quote ("/usr/local/share/info")))
- '(ac-auto-start t)
  '(auto-compression-mode t nil (jka-compr))
  '(c-indent-comments-syntactically-p t)
  '(c-macro-shrink-window-flag t)
@@ -44,7 +43,6 @@
  '(fringe-mode 4 nil (fringe))
  '(generic-define-mswindows-modes t)
  '(git-commit-confirm-commit t)
- '(global-auto-complete-mode t)
  '(global-cwarn-mode t)
  '(global-font-lock-mode t nil (font-lock))
  '(gnus-select-method (quote (nntp "news.gmane.org")))
@@ -75,7 +73,6 @@
  '(menu-bar-mode nil)
  '(mouse-wheel-mode t)
  '(ns-pop-up-frames nil)
- '(nxml-slash-auto-complete-flag t)
  '(octave-auto-indent t)
  '(octave-auto-newline t)
  '(octave-block-offset 3)
@@ -235,16 +232,6 @@
            (package-install package)))
 
      '(applescript-mode
-       ac-geiser
-; @todo version mismatch      
-;       ac-helm
-       ac-inf-ruby
-; @todo not available
-;       ac-ispell
-       ac-python
-       ac-slime
-       auto-complete
-;       auto-complete-clang
        c-eldoc
        electric-case
        flycheck
@@ -261,8 +248,9 @@
 
        ; not in marmalade
        bundler
-       company ; just in case someone needs it
+       company
        company-cmake
+       company-ghc
        company-inf-ruby
        company-tern
        cmake-mode
@@ -295,7 +283,6 @@
        smooth-scroll
        swift-mode
        tern
-       tern-auto-complete
        twittering-mode
        writeroom-mode)))
 
@@ -317,7 +304,6 @@
 ;;        thesaurus
 ;;        vc-fossil
 ;;        vimrc-mode
-;;        ac-math
 ;;        asn1-mode
 ;;        go-direx
 ;;        go-errcheck
@@ -687,10 +673,7 @@
 ;;;
 (when (require 'tern nil :noerror)
   (add-hook 'js-mode-hook (lambda ()
-                            (tern-mode t)))
-
-  (when (require 'tern-auto-complete nil :noerror)
-    (tern-ac-setup)))
+                            (tern-mode t))))
 
 ;;;
 ;;; Asm Mode Configuration
@@ -778,31 +761,20 @@
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
 ;;;
-;;; Auto-complete mode
+;;; Company (completion) mode
 ;;;
-(when (require 'auto-complete nil :noerror)
-  (add-to-list 'ac-dictionary-directories "~/.emacs.d/dict"))
-(when (require 'auto-complete-config nil :noerror)
-  (ac-config-default))
+(when (require 'company nil :noerror)
+  (add-to-list 'company-backends 'company-cmake t)
+  (add-to-list 'company-backends 'company-inf-ruby t)
+  (add-to-list 'company-backends 'company-ispell t)
+  (add-to-list 'company-backends 'company-tern t)
 
-;; ;;;
-;; ;;; Company (completion) mode
-;; ;;;
-;; (when (require 'company nil :noerror)
-;;   (add-to-list 'company-backends 'company-cmake t)
-;;   (add-to-list 'company-backends 'company-inf-ruby t)
-;;   (add-to-list 'company-backends 'company-ispell t)
-;;   (add-to-list 'company-backends 'company-tern t)
-
-;;   (add-hook 'after-init-hook 'global-company-mode))
+  (add-hook 'after-init-hook 'global-company-mode))
 
 ;;;
 ;;; rtags mode
 ;;;
 (when (require 'rtags nil :noerror)
-  (when (require 'auto-complete nil :noerror)
-    nil)
-
   (rtags-enable-standard-keybindings c-mode-base-map))
 
 ;;;
