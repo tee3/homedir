@@ -185,7 +185,6 @@
        irfc
        jade-mode
        jam-mode
-;       jedi
        js-comint
        list-utils
        lua-mode
@@ -204,7 +203,6 @@
        projectile
        protobuf-mode
        psvn
-       pylint
        rainbow-delimiters
        rainbow-identifiers
        rbenv
@@ -234,6 +232,7 @@
      '(applescript-mode
        c-eldoc
        electric-case
+       elpy
        expand-region
        flycheck
        gitattributes-mode
@@ -704,6 +703,12 @@
 
   (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode)))
+
+;;;
+;;; Python
+;;;
+(when (require 'elpy nil :noerror)
+  (elpy-enable))
 
 ;;;
 ;;; Git modes
