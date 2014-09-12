@@ -21,6 +21,13 @@ following script as the administrator of the system.
 $ ./install_packages_osx
 ```
 
+To install Python packages for any system, run the following script as
+the administrator of the system.
+
+```
+$ ./install_pip
+```
+
 # rationale
 
 This is a very simple way of keeping home directories synchronized
@@ -78,3 +85,25 @@ There are a few issues with the current implementation.
    list with a script for each system that processes the list and
    turns it into commands to Homebrew, `apt-get`, `yum`, etc. would be
    an interesting approach.
+
+## support for python packages
+
+The `install_pip` script will install required Python packages for all
+systems.
+
+There are some outstanding issues with this approach.
+
+1. There are no packages required yet.  This will be fixed after this
+   gets pushed up and things are moving.
+
+2. Right now, the packages are part of the script.  However, this
+   might be better done with a `requirements.txt` file for the
+   packages, but I'm not yet familiar how that all works.
+
+3. This currently installs to the default location and therefore must
+   be run as an appropriate user and with the appropriate permissions.
+   If this can be done per-user in a sane way, it should be done that
+   way.  This currently will require at least administrator access and
+   a Homebrew python for OS X and `sudo` access for other Unix
+   systems.  This is not good and could potentially be remedied, but
+   making it work easily is a bit of a pain.
