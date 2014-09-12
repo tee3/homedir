@@ -28,6 +28,13 @@ the administrator of the system.
 $ ./install_pip
 ```
 
+To install Ruby packages for any system, run the following script as
+the administrator of the system.
+
+```
+$ ./install_gem
+```
+
 # rationale
 
 This is a very simple way of keeping home directories synchronized
@@ -105,5 +112,27 @@ There are some outstanding issues with this approach.
    If this can be done per-user in a sane way, it should be done that
    way.  This currently will require at least administrator access and
    a Homebrew python for OS X and `sudo` access for other Unix
+   systems.  This is not good and could potentially be remedied, but
+   making it work easily is a bit of a pain.
+
+## support for ruby packages
+
+The `install_gem` script will install required Ruby packages for all
+systems.
+
+There are some outstanding issues with this approach.
+
+1. There are no packages required yet.  This will be fixed after this
+   gets pushed up and things are moving.
+
+2. Right now, the packages are part of the script.  However, this
+   might be better done with a list of packages , but I'm not yet
+   familiar how that all works.
+
+3. This currently installs to the default location and therefore must
+   be run as an appropriate user and with the appropriate permissions.
+   If this can be done per-user in a sane way, it should be done that
+   way.  This currently will require at least administrator access and
+   a Homebrew ruby for OS X and `sudo` access for other Unix
    systems.  This is not good and could potentially be remedied, but
    making it work easily is a bit of a pain.
