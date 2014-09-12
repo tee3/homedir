@@ -21,11 +21,11 @@ following script as the administrator of the system.
 $ ./install_packages_osx
 ```
 
-To install Python packages for any system, run the following script as
-the administrator of the system.
+To install Python packages for any system, run the following command
+as the administrator of the system.
 
 ```
-$ ./install_pip
+$ pip install -r python-packages.txt
 ```
 
 To install Ruby packages for any system, run the following script as
@@ -95,19 +95,19 @@ There are a few issues with the current implementation.
 
 ## support for python packages
 
-The `install_pip` script will install required Python packages for all
-systems.
+A requirements file (`python-packages.txt`) defines the Python
+packages.
 
-There are some outstanding issues with this approach.
+There are several outstanding issues with the Python support.
 
-1. There are no packages required yet.  This will be fixed after this
-   gets pushed up and things are moving.
+1. Python is not checked in the `install` script.
 
-2. Right now, the packages are part of the script.  However, this
-   might be better done with a `requirements.txt` file for the
-   packages, but I'm not yet familiar how that all works.
+2. There is no `pip` configuration file installed by the `install`
+   script.
 
-3. This currently installs to the default location and therefore must
+3. The packages are not installed in the `install` script.
+
+4. This currently installs to the default location and therefore must
    be run as an appropriate user and with the appropriate permissions.
    If this can be done per-user in a sane way, it should be done that
    way.  This currently will require at least administrator access and

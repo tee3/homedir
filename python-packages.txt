@@ -1,0 +1,11 @@
+#beets
+#breathe
+docutils
+flake8
+jedi
+#pycparser
+#pyflakes
+#pygit2
+#PyGithub
+Sphinx
+virtualenv
