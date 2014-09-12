@@ -8,7 +8,7 @@ set -C
 dotfiledirs="dotfiles"
 
 # requires running form the root od the dotfiles directory
-rootdir=$(dirname "$0")
+rootdir=$(cd "$(dirname ./install)" && pwd)
 if [ "${rootdir}" != "${PWD}" ]; then
     echo "must be run from the root of the dotfiles directory"
     exit 1
