@@ -1,8 +1,18 @@
-# home
+# homedir
 
-This directory contains a script to set up a home directory as well as
-dot files to populate that home directory.  This directory is intended
-to be tracked using git and shared across multiple machines.
+This directory contains both dot files to populate that home directory
+and scripts to set up a home directory and packages.
+
+This directory is intended to be tracked using git and shared across
+multiple machines and so should be designed to work well across
+different types of Unix systems.
+
+To set up a new system or update an existing system for a user, run
+the following commands when logged in as that user.
+
+```
+$ ./install
+```
 
 To install packages (for OS X via Homebrew only for now), run the
 following script as the administrator of the system.
@@ -22,33 +32,33 @@ become useful.
 
 # requirements
 
-The install script must be run from this directory and the HOME
+The `install` script must be run from this directory and the HOME
 environment variable must be set properly.
 
-* sh
-* stow
-* diff
+* `sh`
+* `stow`
+* `diff`
 
 # install
 
-The install script checks for the requirements and then helps the user
-set up a home directory.  There is special support for features that
-require it.
+The `install` script checks for the requirements and then helps the
+user set up a home directory.  There is special support for features
+that require it.
 
 ## support for ~/opt/local
 
-The install script will build a directory structure at ~/opt/local if
-it does not exist.
+The `install` script will build a directory structure at ~/opt/local
+if it does not exist.
 
 In the future, this may also be populated.
 
 ## support for git
 
-The ~/.gitconfig file includes a file named ~/.gitconfig.user designed
-for git configuration parameters that are user-specific.
+The `~/.gitconfig` file includes a file named `~/.gitconfig.user`
+designed for git configuration parameters that are user-specific.
 
-The install script will migrate the user name/email from ~/.gitconfig
-to ~/.gitconfig.user as required.
+The install script will migrate the user name/email from
+`~/.gitconfig` to `~/.gitconfig.user` as required.
 
 ## support for installing packages
 
