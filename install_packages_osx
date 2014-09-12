@@ -69,11 +69,13 @@ brew install fortune
 brew install apple-gcc42
 HOMEBREW_KEEP_INFO=1 brew install gcc
 brew install gcc43 --enable-all-languages
-brew install gcc44 --enable-all-languages
+# @todo conflicts with gcc45
+#brew install gcc44 --enable-all-languages
 brew install gcc45 --enable-all-languages
 brew install gcc46 --enable-all-languages
 brew install gcc47 --enable-all-languages
 brew install gcc48 --enable-all-languages
+# @todo conflicts with gcc
 #brew install gcc49 --enable-all-languages
 brew install git-flow
 brew install git-hooks --HEAD
@@ -105,10 +107,11 @@ brew install jsonpp
 brew install legit
 brew install llvm --all-targets --with-clang --with-libcxx
 brew install llvm31 --all-targets --with-clang
-brew install llvm32 --all-targets --with-asan --with-clang
+# @todo does not build
+#brew install llvm32 --all-targets --with-asan --with-clang
 brew install llvm33 --all-targets --with-asan --with-clang --with-libcxx --rtti
 brew install llvm34 --all-targets --with-asan --with-clang --with-libcxx --rtti
-brew install llvm35 --HEAD --all-targets --with-asan --with-clang --with-libcxx --rtti
+brew install llvm35 --all-targets --with-asan --with-clang --with-libcxx --rtti
 brew install markdown
 brew install multimarkdown
 brew install mscgen --without-gd
