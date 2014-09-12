@@ -32,7 +32,8 @@ To install Ruby packages for any system, run the following script as
 the administrator of the system.
 
 ```
-$ ./install_gem
+$ gem install bundler
+$ bundle install --gemfile=ruby-packages.gemfile
 ```
 
 # rationale
@@ -117,19 +118,18 @@ There are several outstanding issues with the Python support.
 
 ## support for ruby packages
 
-The `install_gem` script will install required Ruby packages for all
-systems.
+A Gemfile (`ruby-packages.gemfile`) defines the Ruby packages.
 
 There are some outstanding issues with this approach.
 
-1. There are no packages required yet.  This will be fixed after this
-   gets pushed up and things are moving.
+1. Ruby is not checked in the `install` script.
 
-2. Right now, the packages are part of the script.  However, this
-   might be better done with a list of packages , but I'm not yet
-   familiar how that all works.
+2. There is no `gem` configuration file installed by the `install`
+   script.
 
-3. This currently installs to the default location and therefore must
+3. The packages are not installed in the `install` script.
+
+4. This currently installs to the default location and therefore must
    be run as an appropriate user and with the appropriate permissions.
    If this can be done per-user in a sane way, it should be done that
    way.  This currently will require at least administrator access and
