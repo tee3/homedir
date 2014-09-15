@@ -49,6 +49,8 @@ brew install automake
 #brew install avr-binutils
 #brew install avr-gcc
 brew install boost
+#brew install boost-bcp
+#brew install boost-build
 brew install casperjs
 brew install cmake
 brew install cppcheck
