@@ -367,8 +367,7 @@
        soothe-theme
        steady-theme
        stekene-theme
-;       subatomic-theme
-;       subatomic256-theme
+       subatomic-enhanced-theme
 ;       sublime-themes
        tommyh-theme
        toxi-theme
@@ -377,6 +376,7 @@
        twilight-theme
        ujelly-theme
        underwater-theme
+       waher-theme
        zen-and-art-theme
        zenburn-theme))))
 
