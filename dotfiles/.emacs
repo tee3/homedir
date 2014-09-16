@@ -276,7 +276,6 @@
        popup
        powershell
        rspec-mode
-       rtags
        ruby-compilation
        ruby-mode
        smart-mode-line
@@ -780,6 +779,7 @@
 ;;;
 ;;; rtags mode
 ;;;
+(add-to-list 'load-path "~/opt/local/src/rtags/src" t)
 (when (require 'rtags nil :noerror)
   (rtags-enable-standard-keybindings c-mode-base-map))
 
