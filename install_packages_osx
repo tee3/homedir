@@ -6,7 +6,15 @@
 # and has the proper administrator privileges.
 
 # required homebrew taps
-brew_taps="homebrew/apache homebrew/binary homebrew/completions homebrew/dupes homebrew/headonly homebrew/science homebrew/versions"
+brew_taps="
+    homebrew/apache
+    homebrew/binary
+    homebrew/completions
+    homebrew/dupes
+    homebrew/headonly
+    homebrew/science
+    homebrew/versions
+"
 
 # check if Homebrew is installed
 if [ -z "$(which brew)" ]; then
