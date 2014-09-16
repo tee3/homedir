@@ -12,6 +12,8 @@ brew_taps="
     homebrew/completions
     homebrew/dupes
     homebrew/headonly
+    homebrew/nginx
+    homebrew/python
     homebrew/science
     homebrew/versions
 "
