@@ -176,8 +176,8 @@ brew cleanup -s
 # show outdated brews
 outdated=$(brew outdated)
 if [ ! -z "${outdated}" ]; then
-    echo "info: outdated brews, consider running 'brew update'"
-    for b in $(outdated); do
+    echo "info: outdated brews, consider running 'brew upgrade'"
+    for b in ${outdated}; do
         echo "\t${b}"
     done
 fi
