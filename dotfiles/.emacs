@@ -445,17 +445,18 @@
 
   (add-to-list 'auto-mode-alist '("\\.m\\'" . matlab-mode)))
 
-;; ;;;
-;; ;;; GNU Octave mode (MATLAB)
-;; ;;;
-;; (require 'octave-mode)
+;;;
+;;; GNU Octave mode (MATLAB)
+;;;
+(when (require 'octave-mode nil :noerror)
 
-;; (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
+  (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode)))
 
-;; ;;;
-;; ;;; PHP mode
-;; ;;;
-;; (require 'php-mode)
+;;;
+;;; PHP mode
+;;;
+(when (require 'php-mode nil :noerror)
+  )
 
 ;;;
 ;;; Ruby mode
@@ -686,7 +687,8 @@
 ;;;
 ;;; Generic modes (configuration files, etc.)
 ;;;
-(require 'generic-x)
+(when (require 'generic-x nil :noerror)
+  )
 
 ;;;
 ;;; Markdown mode
