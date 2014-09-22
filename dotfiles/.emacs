@@ -688,13 +688,6 @@
 ;;;
 (require 'generic-x)
 
-;; ;;;
-;; ;;; ComSim mode
-;; ;;;
-;; (require 'comsim-mode)
-
-;; (add-to-list 'auto-mode-alist '("\\.in\\'" . comsim-mode))
-
 ;;;
 ;;; Markdown mode
 ;;;
