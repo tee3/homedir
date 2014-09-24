@@ -155,7 +155,6 @@
        apache-mode
        ascii
        auctex
-       coffee-mode
        crontab-mode
        csv-mode
        ctags-update
@@ -174,8 +173,6 @@
        find-file-in-repository
        flyspell-lazy
        geiser
-       git-commit-mode
-       gitty
        gnuplot
        go-mode
        graphviz-dot-mode
@@ -188,7 +185,6 @@
        js-comint
        list-utils
        lua-mode
-       magit
        mo-git-blame
        mustache-mode
        nginx-mode
@@ -203,8 +199,6 @@
        projectile
        protobuf-mode
        psvn
-       rainbow-delimiters
-       rainbow-identifiers
        rbenv
        s
        ssh
@@ -231,6 +225,7 @@
 
      '(applescript-mode
        c-eldoc
+       coffee-mode
        electric-case
        elpy
        expand-region
@@ -238,10 +233,12 @@
        gitattributes-mode
        gitconfig-mode
        gitignore-mode
+       gitty
        go-eldoc
        helm
        ido-ubiquitous
        jgraph-mode
+       magit
        magit-svn
        simple-httpd
        undo-tree
@@ -257,6 +254,7 @@
        cperl-mode
        ctags
        dropbox
+       git-commit-mode
        git-gutter
        git-gutter-fringe
        gitconfig
@@ -275,6 +273,8 @@
        persistent-soft
        popup
        powershell
+       rainbow-delimiters
+       rainbow-identifiers
        rspec-mode
        ruby-compilation
        ruby-mode
