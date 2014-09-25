@@ -1,13 +1,18 @@
+# Python Development
 autopep8
-#beets
-#breathe
 docformatter
-docutils
 flake8
 jedi
-#pycparser
-#pyflakes
+virtualenv
+
+# reStructuredText
+#breathe
+docutils
+Sphinx
+
+# Git
 #pygit2
 #PyGithub
-Sphinx
-virtualenv
+
+# Fun
+#beets
