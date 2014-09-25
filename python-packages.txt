@@ -1,5 +1,7 @@
+autopep8
 #beets
 #breathe
+docformatter
 docutils
 flake8
 jedi
