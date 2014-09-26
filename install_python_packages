@@ -3,30 +3,28 @@
 # Install Python modules in the python-packages.txt requirements file.
 
 set -u
-set -C
 
-# install useful python modules if python is installed
 python=$(which python)
-if [ ! -z "${python}" -a -x "${python}" ]; then
-    # install pip if it is not installed
-    pip=$(which pip)
-    if [ -z "${pip}" -o ! -x "${pip}" ]; then
-        pip="$(python -c 'import site ; print site.USER_BASE')/bin/pip"
-        if [ -z "${pip}" -o ! -x "${pip}" ]; then
-            wget https://bootstrap.pypa.io/get-pip.py
-            if [ -e get-pip.py ]; then
-                ${python} get-pip.py --user
-                rm get-pip.py
-            fi
-        fi
-    fi
+if [ -z "${python}" -o ! -x "${python}" ]; then
+    echo "error: Python not installed, not installing Python packages."
+    exit 1
+fi
 
-    # check if pip is available
-    if [ -z "${pip}" -o ! -x "${pip}" ]; then
-        echo "'pip' is not available"
+pip="$(python -c 'import site ; print site.USER_BASE')/bin/pip"
+if [ -z "${pip}" -o ! -x "${pip}" ]; then
+    wget https://bootstrap.pypa.io/get-pip.py
+    if [ ! -e get-pip.py ]; then
+        echo "warning: pip failed to install, not installing Python packages."
         exit 1
     fi
 
-    # install requirements
-    ${pip} install --user --upgrade -r python-packages.txt
+    ${python} get-pip.py --user
+    rm get-pip.py
 fi
+
+if [ -z "${pip}" -o ! -x "${pip}" ]; then
+    echo "error: pip not installing, not installing Python packages."
+    exit 1
+fi
+
+${pip} install --user --upgrade -r python-packages.txt

@@ -3,23 +3,25 @@
 # Install Ruby modules in the ruby-packages.gemfile Gemfile.
 
 set -u
-set -C
 
-# install useful ruby modules if ruby is installed
 ruby=$(which ruby)
-if [ ! -z "${ruby}" -a -x "${ruby}" ]; then
-    # install required Ruby modules
-    gem=$(which gem)
-    if [ -z "${gem}" -o ! -x "${gem}" ]; then
-        echo "info: gem is not available, skipping Ruby module installation"
-    else
-        ${gem} install --user-install bundler
-
-        bundle="$(ruby -rubygems -e 'puts Gem.user_dir')/bin/bundle"
-        if [ -z "${bundle}" -o ! -x "${bundle}" ]; then
-            echo "info: failed to install bundler, skipping Ruby module installation"
-        else
-            ${bundle} install --path ~/.gem --gemfile=ruby-packages.gemfile
-        fi
-    fi
+if [ -z "${ruby}" -o ! -x "${ruby}" ]; then
+    echo "error: Ruby not installed, not installing Ruby packages."
+    exit 1
 fi
+
+gem=$(which gem)
+if [ -z "${gem}" -o ! -x "${gem}" ]; then
+    echo "error: gem is not available, skipping Ruby module installation"
+    exit 1
+fi
+
+${gem} install --user-install bundler
+
+bundle="$(ruby -rubygems -e 'puts Gem.user_dir')/bin/bundle"
+if [ -z "${bundle}" -o ! -x "${bundle}" ]; then
+    echo "error: failed to install bundler, skipping Ruby module installation"
+    exit 1
+fi
+
+${bundle} install --path ~/.gem --gemfile=ruby-packages.gemfile

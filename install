@@ -3,7 +3,6 @@
 # Set up a home directory on a Unix system.
 
 set -u
-set -C
 
 dotfiledirs="dotfiles"
 

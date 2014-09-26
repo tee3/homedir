@@ -3,15 +3,20 @@
 # Install Node modules in the node-packages.txt package list.
 
 set -u
-set -C
 
-# install required node.js modules
+node=$(which node)
+if [ -z "${node}" -o ! -x "${node}" ]; then
+    echo "error: node is not installed, skipping node module installation"
+    exit 1
+fi
+
 npm=$(which npm)
 if [ -z "${npm}" -o ! -x "${npm}" ]; then
-    echo "info: npm is not installed, skipping node module installation"
-else
-    node_modules=$(cat node-packages.txt)
-    for m in ${node_modules} ; do
-        ${npm} install --global --prefix=~/.node_modules "${m}"
-    done
+    echo "error: npm is not installed, skipping node module installation"
+    exit 1
 fi
+
+node_modules=$(cat node-packages.txt)
+for m in ${node_modules} ; do
+    ${npm} install --global --prefix=~/.node_modules "${m}"
+done
