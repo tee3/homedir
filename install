@@ -167,25 +167,25 @@ fi
 # use stow to populate available dot files
 ${stow} --target="${HOME}" dotfiles
 
-# always try to install Python packages
-install_python_packages=y
-if [ "${install_python_packages}" = "y" ]; then
+# ask to install python packages
+read -p "Install Python packages? (y/n)?: " yn
+if [ "${yn}" = "y" ]; then
     if ! ./install_python_packages ; then
         echo "warning: failed to install Python packages."
     fi
 fi
 
-# always try to install Ruby packages
-install_ruby_packages=y
-if [ "${install_ruby_packages}" = "y" ]; then
+# ask to install ruby packages
+read -p "Install Ruby packages? (y/n)?: " yn
+if [ "${yn}" = "y" ]; then
     if ! ./install_ruby_packages ; then
         echo "warning: failed to install Ruby packages."
     fi
 fi
 
-# always try to install Node packages
-install_node_packages=y
-if [ "${install_node_packages}" = "y" ]; then
+# ask to install node packages
+read -p "Install Node packages? (y/n)?: " yn
+if [ "${yn}" = "y" ]; then
     if ! ./install_node_packages ; then
         echo "warning: failed to install Node.js packages."
     fi
