@@ -14,11 +14,11 @@ the following commands when logged in as that user.
 $ ./install
 ```
 
-To install packages (for OS X via Homebrew only for now), run the
-following script as the administrator of the system.
+To install system packages (for OS X via Homebrew only for now), run
+the following script as the administrator of the system.
 
 ```
-$ ./install_packages_osx
+$ ./install_system_packages_osx
 ```
 
 # rationale
@@ -60,10 +60,10 @@ designed for git configuration parameters that are user-specific.
 The install script will migrate the user name/email from
 `~/.gitconfig` to `~/.gitconfig.user` as required.
 
-## support for installing packages
+## support for installing system packages
 
-The `install_packages_osx` script will install required packages for
-OS X.
+The `install_system_packages_osx` script will install required
+packages for OS X.
 
 There are a few issues with the current implementation.
 
