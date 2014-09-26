@@ -104,6 +104,11 @@ HISTCONTROL="erasedups:ignoreboth"
 shopt -s histappend
 shopt -s cmdhist
 
+# Python
+if [ ! -z "$(which python)" ]; then
+    PATH="$(python -c 'import site ; print site.USER_BASE')/bin":${PATH}
+fi
+
 # Emacs
 if [ ! -z "$(which emacsclient)" ]; then
     export ALTERNATE_EDITOR=

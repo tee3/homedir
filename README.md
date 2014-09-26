@@ -21,13 +21,6 @@ following script as the administrator of the system.
 $ ./install_packages_osx
 ```
 
-To install Python packages for any system, run the following command
-as the administrator of the system.
-
-```
-$ pip install -r python-packages.txt
-```
-
 To install Ruby packages for any system, run the following script as
 the administrator of the system.
 
@@ -96,25 +89,9 @@ There are a few issues with the current implementation.
 
 ## support for python packages
 
-A requirements file (`python-packages.txt`) defines the Python
-packages.
-
-There are several outstanding issues with the Python support.
-
-1. Python is not checked in the `install` script.
-
-2. There is no `pip` configuration file installed by the `install`
-   script.
-
-3. The packages are not installed in the `install` script.
-
-4. This currently installs to the default location and therefore must
-   be run as an appropriate user and with the appropriate permissions.
-   If this can be done per-user in a sane way, it should be done that
-   way.  This currently will require at least administrator access and
-   a Homebrew python for OS X and `sudo` access for other Unix
-   systems.  This is not good and could potentially be remedied, but
-   making it work easily is a bit of a pain.
+Python packages are installed using the user protocol and are defined
+in a requirements file (`python-packages.txt`) defines the installed
+Python packages.
 
 ## support for ruby packages
 
