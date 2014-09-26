@@ -127,35 +127,6 @@ if [ ! -z "${hg}" -a -x "${hg}" ]; then
     #! @todo use hg to set up user
 fi
 
-# requires diff
-diff=$(which diff 2> /dev/null)
-if [ -z "${diff}" -o ! -x "${diff}" ]; then
-    echo "'diff' is not available"
-    exit 1
-fi
-
-# allow user to clean up existing files
-for d in ${dotfiledirs} ; do
-    for f in $(find ${d} -type f) ; do
-        home_f=~/$(basename "${f}")
-        if [ -e "${home_f}" ]; then
-            if [ "${f}" != "${home_f}" ]; then
-                if ${diff} "${f}" "${home_f}" ; then
-                    read -p "${f} is identical to ${home_f}.  Overwrite (y/n)?: " yn
-                    if [ "${yn}" = "y" ]; then
-                        rm -i "${home_f}"
-                    fi
-                else
-                    read -p "${f} is different than ${home_f}.  Overwrite anyway (y/n)?: " yn
-                    if [ "${yn}" = "y" ]; then
-                        rm -i "${home_f}"
-                    fi
-                fi
-            fi
-        fi
-    done
-done
-
 # requires stow
 stow=$(which stow 2> /dev/null)
 if [ -z "${stow}" -o ! -x "${stow}" ]; then
@@ -163,8 +134,42 @@ if [ -z "${stow}" -o ! -x "${stow}" ]; then
     exit 1
 fi
 
-# use stow to populate available dot files
-${stow} --target="${HOME}" dotfiles
+# attempt to stow the dotfiles directory, clean up if fails.
+if ! ${stow} --target="${HOME}" dotfiles ; then
+    # requires diff
+    diff=$(which diff 2> /dev/null)
+    if [ -z "${diff}" -o ! -x "${diff}" ]; then
+        echo "'diff' is not available"
+        exit 1
+    fi
+
+    # allow user to clean up existing files
+    for d in ${dotfiledirs} ; do
+        for f in $(find ${d} -type f) ; do
+            home_f=~/$(basename "${f}")
+            if [ -e "${home_f}" ]; then
+                if [ "${f}" != "${home_f}" ]; then
+                    if ${diff} "${f}" "${home_f}" ; then
+                        read -p "${f} is identical to ${home_f}.  Overwrite (y/n)?: " yn
+                        if [ "${yn}" = "y" ]; then
+                            rm -i "${home_f}"
+                        fi
+                    else
+                        read -p "${f} is different than ${home_f}.  Overwrite anyway (y/n)?: " yn
+                        if [ "${yn}" = "y" ]; then
+                            rm -i "${home_f}"
+                        fi
+                    fi
+                fi
+            fi
+        done
+    done
+
+    if ! ${stow} --target="${HOME}" dotfiles ; then
+        echo "error: some targets could not be linked to home directory."
+        exit 1
+    fi
+fi
 
 # ask to install python packages
 read -p "Install Python packages? (y/n)?: " yn
