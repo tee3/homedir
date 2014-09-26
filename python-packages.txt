@@ -4,6 +4,7 @@ docformatter
 flake8
 jedi
 pep8
+pep8-naming
 pylint
 virtualenv
 
