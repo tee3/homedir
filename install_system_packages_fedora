@@ -19,6 +19,9 @@ sudo yum check
 
 #! @todo check the repos
 
+# upgrade existing packages
+sudo yum update
+
 # install packages for homedir installer
 sudo yum install wget
 sudo yum install stow
@@ -158,6 +161,3 @@ sudo yum install subversion
 # cleanup
 sudo yum autoremove
 sudo yum clean all
-
-# show outdated packages
-sudo yum update

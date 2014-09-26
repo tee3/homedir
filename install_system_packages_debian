@@ -20,7 +20,8 @@ fi
 # update yum and check
 sudo aptitude update
 
-#! @todo check the repos
+# upgrade existing packages
+sudo aptitude safe-upgrade
 
 # install packages for homedir installer
 sudo aptitude install wget
@@ -161,6 +162,3 @@ sudo aptitude install subversion
 # cleanup
 sudo aptitude clean
 sudo aptitude autoclean
-
-# show outdated packages
-sudo aptitude safe-upgrade

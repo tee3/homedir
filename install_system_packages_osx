@@ -38,6 +38,9 @@ brew update
 for t in ${brew_taps} ; do brew tap "${t}" ; done
 brew update
 
+# upgrade existing brews
+brew upgrade
+
 # install interpreters prior to other brews
 # @todo use system python
 #brew install python
@@ -178,12 +181,3 @@ brew install xmlto
 
 # cleanup
 brew cleanup -s
-
-# show outdated brews
-outdated=$(brew outdated)
-if [ ! -z "${outdated}" ]; then
-    echo "info: outdated brews, consider running 'brew upgrade'"
-    for b in ${outdated}; do
-        echo "\t${b}"
-    done
-fi
