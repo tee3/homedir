@@ -797,9 +797,9 @@
 (when (require 'expand-region nil :noerror)
   (global-set-key (kbd "C-c =") 'er/expand-region))
 
-;; ;;;
-;; ;;; Rainbow modes
-;; ;;;
+;;;
+;;; Rainbow modes
+;;;
 ;; (when (require 'rainbow-delimiters nil :noerror)
 ;;   (global-rainbow-delimiters-mode))
 ;; (when (require 'rainbow-identifiers nil :noerror)
