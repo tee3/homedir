@@ -243,7 +243,7 @@
        simple-httpd
        undo-tree
 
-       ; not in marmalade
+       ;; not in marmalade
        bundler
        company
        company-cmake
@@ -285,45 +285,45 @@
        twittering-mode
        writeroom-mode)))
 
-;; not in melpa-stable or marmalade
-;;   ;; Install Emacs 24 packages
-;;   (when (>= emacs-major-version 24)
-;;     (mapc
-;;      (lambda (package)
-;;        (or (package-installed-p package)
-;;            (package-install package)))
+  ;; Install Emacs 24 packages
+  ;; @todo not in melpa-stable or marmalade
+  ;; (when (>= emacs-major-version 24)
+  ;;   (mapc
+  ;;    (lambda (package)
+  ;;      (or (package-installed-p package)
+  ;;          (package-install package)))
 
-;;      '(dired+
-;;        dired-details
-;;        dired-details+
-;;        dired-single
-;;        markup-faces
-;;        ssh-config-mode
-;;        tfs
-;;        thesaurus
-;;        vc-fossil
-;;        vimrc-mode
-;;        asn1-mode
-;;        go-direx
-;;        go-errcheck
-;;        go-snippets
-;;        jss
-;;        dash-at-point
-;;        disaster
-;;        dummy-h-mode
-;;        fsharp-mode
-;;        git-blame
-;;        git-dwim
-;;        glsl-mode
-;;        gnuplot-mode
-;;        go-autocomplete
-;;        google-c-style
-;;        launch
-;;        markdown-mode+
-;;        nav
-;;        powershell-mode
-;;        ruby-electric
-;;        sublimity)))
+  ;;    '(dired+
+  ;;      dired-details
+  ;;      dired-details+
+  ;;      dired-single
+  ;;      markup-faces
+  ;;      ssh-config-mode
+  ;;      tfs
+  ;;      thesaurus
+  ;;      vc-fossil
+  ;;      vimrc-mode
+  ;;      asn1-mode
+  ;;      go-direx
+  ;;      go-errcheck
+  ;;      go-snippets
+  ;;      jss
+  ;;      dash-at-point
+  ;;      disaster
+  ;;      dummy-h-mode
+  ;;      fsharp-mode
+  ;;      git-blame
+  ;;      git-dwim
+  ;;      glsl-mode
+  ;;      gnuplot-mode
+  ;;      go-autocomplete
+  ;;      google-c-style
+  ;;      launch
+  ;;      markdown-mode+
+  ;;      nav
+  ;;      powershell-mode
+  ;;      ruby-electric
+  ;;      sublimity)))
 
   ;; Install themes only Emacs 24.
   (when (>= emacs-major-version 24)
@@ -343,22 +343,22 @@
        cyberpunk-theme
        deep-thought-theme
        django-theme
-;       espresso-theme
+       ;; espresso-theme
        flatland-theme
        gandalf-theme
        github-theme
-;       hemisu-theme
+       ;; hemisu-theme
        heroku-theme
        ir-black-theme
        jujube-theme
        late-night-theme
-;       molokai-theme
+       ;; molokai-theme
        monokai-theme
-;       mustang-theme
-;       naquadah-theme
+       ;; mustang-theme
+       ;; naquadah-theme
        nzenburn-theme
-;       obsidian-theme
-;       occidental-theme
+       ;; obsidian-theme
+       ;; occidental-theme
        pastels-on-dark-theme
        purple-haze-theme
        qsimpleq-theme
@@ -367,7 +367,7 @@
        steady-theme
        stekene-theme
        subatomic-enhanced-theme
-;       sublime-themes
+       ;; sublime-themes
        tommyh-theme
        toxi-theme
        tron-theme
@@ -548,66 +548,66 @@
 ;;; NOTE: This is based on the sample from the Info node on CC Mode.
 ;;;
 (defconst tbrown-c-style
-  '((c-basic-offset                   . 3)
-     (tab-width                       . 8)
-     (indent-tabs-mode                . nil)
+  '((c-basic-offset . 3)
+    (tab-width . 8)
+    (indent-tabs-mode . nil)
 
-;;     (c-comment-only-line-offset    . 4)
-;;     (c-block-comment-prefix        . X)
-;;     (c-comment-prefix              . X)
+    ;; (c-comment-only-line-offset . 4)
+    ;; (c-block-comment-prefix . X)
+    ;; (c-comment-prefix . X)
 
-;;     (c-cleanup-list                . (scope-operator
-;;                                       empty-defun-braces
-;;                                       defun-close-semi))
-    (c-hanging-braces-alist        . ((brace-list-open)
-                                      (substatement-open before after)
-                                      (block-close . c-snug-do-while)))
-;;     (c-hanging-colons-alist        . ((member-init-intro before)
-;;                                       (inher-intro)
-;;                                       (case-label after)
-;;                                       (label after)
-;;                                       (access-label after)))
-;;     (c-hanging-semi&comma-alist    . ())
-    (c-backslash-column             . 76)
-    (c-backslash-max-column         . 152)
-;;     (c-special-indent-hook          . nil)
-;;     (c-label-minimum-indentation    . nil)
-    (c-offsets-alist               . ((arglist-close          . c-lineup-arglist)
-                                      (substatement-open      . 0)
-                                      (inline-open            . 0)
-                                      (case-label             . +)))
+    ;; (c-cleanup-list . (scope-operator
+    ;;                    empty-defun-braces
+    ;;                    defun-close-semi))
+    (c-hanging-braces-alist . ((brace-list-open)
+                               (substatement-open before after)
+                               (block-close . c-snug-do-while)))
+    ;; (c-hanging-colons-alist . ((member-init-intro before)
+    ;;                            (inher-intro)
+    ;;                            (case-label after)
+    ;;                            (label after)
+    ;;                            (access-label after)))
+    ;; (c-hanging-semi&comma-alist . ())
+    (c-backslash-column . 76)
+    (c-backslash-max-column . 152)
+    ;; (c-special-indent-hook . nil)
+    ;; (c-label-minimum-indentation . nil)
+    (c-offsets-alist . ((arglist-close . c-lineup-arglist)
+                        (substatement-open . 0)
+                        (inline-open . 0)
+                        (case-label . +)))
     )
   "tbrown C Programming Style")
 
 (defconst msvc-c-style
-  '((c-basic-offset                . 4)
-     (tab-width                    . 4)
-     (indent-tabs-mode             . t)
+  '((c-basic-offset . 4)
+    (tab-width . 4)
+    (indent-tabs-mode . t)
 
-;;     (c-comment-only-line-offset    . 4)
-;;     (c-block-comment-prefix        . X)
-;;     (c-comment-prefix              . X)
+    ;; (c-comment-only-line-offset . 4)
+    ;; (c-block-comment-prefix . X)
+    ;; (c-comment-prefix . X)
 
-;;     (c-cleanup-list                . (scope-operator
-;;                                       empty-defun-braces
-;;                                       defun-close-semi))
-;;     (c-hanging-braces-alist        . ((brace-list-open)
-;;                                       (substatement-open before after)
-;;                                       (block-close . c-snug-do-while)))
-;;     (c-hanging-colons-alist        . ((member-init-intro before)
-;;                                       (inher-intro)
-;;                                       (case-label after)
-;;                                       (label after)
-;;                                       (access-label after)))
-;;     (c-hanging-semi&comma-alist    . ())
-    (c-backslash-column             . 76)
-    (c-backslash-max-column         . 152)
-;;     (c-special-indent-hook          . nil)
-;;     (c-label-minimum-indentation    . nil)
-    (c-offsets-alist               . ((arglist-close          . c-lineup-arglist)
-                                      (substatement-open      . 0)
-                                      (inline-open            . 0)
-                                      (case-label             . +)))
+    ;; (c-cleanup-list . (scope-operator
+    ;;                    empty-defun-braces
+    ;;                    defun-close-semi))
+    ;; (c-hanging-braces-alist . ((brace-list-open)
+    ;;                            (substatement-open before after)
+    ;;                            (block-close . c-snug-do-while)))
+    ;; (c-hanging-colons-alist . ((member-init-intro before)
+    ;;                            (inher-intro)
+    ;;                            (case-label after)
+    ;;                            (label after)
+    ;;                            (access-label after)))
+    ;; (c-hanging-semi&comma-alist . ())
+    (c-backslash-column . 76)
+    (c-backslash-max-column . 152)
+    ;; (c-special-indent-hook . nil)
+    ;; (c-label-minimum-indentation . nil)
+    (c-offsets-alist . ((arglist-close . c-lineup-arglist)
+                        (substatement-open . 0)
+                        (inline-open . 0)
+                        (case-label . +)))
     )
   "MSVC C Programming Style")
 
@@ -643,18 +643,18 @@
      ;;
      ;; TBD: Not sure if all of these will be okay or not.
      ;;
-     (c-toggle-auto-state                1)
-     (c-toggle-hungry-state              1)
-;;     (c-toggle-auto-hungry-state         1)
+     (c-toggle-auto-state 1)
+     (c-toggle-hungry-state 1)
+     ;; (c-toggle-auto-hungry-state 1)
 
-;;      (auto-fill-mode                           t)
-;;      (abbrev-mode                              t)
-;;      (column-number-mode                       t)
+     ;; (auto-fill-mode t)
+     ;; (abbrev-mode t)
+     ;; (column-number-mode t)
 
-;;      (setq tab-width                     8)
+     ;; (setq tab-width 8)
 
-;;      (setq c-tab-always-indent           t)
-;;      (setq c-insert-tab-function         nil)
+     ;; (setq c-tab-always-indent t)
+     ;; (setq c-insert-tab-function nil)
 
      (hs-minor-mode t)
      ))
@@ -663,7 +663,7 @@
 ;;; C eldoc
 ;;;
 (when (require 'c-eldoc nil :noerror)
-  ; add more as desired, superset of what you'd like to use
+  ;; add more as desired, superset of what you'd like to use
   (setq c-eldoc-includes "-I.")
 
   (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
@@ -712,9 +712,9 @@
 
   (add-to-list 'auto-mode-alist '("\\.gitconfig.*\\'" . gitconfig-mode))
 
-  ; SubGit-generated Git submodules files
+  ;; SubGit-generated Git submodules files
   (add-to-list 'auto-mode-alist '("\\.gitsvnextmodules\\'" . gitconfig-mode))
-  ; migration-generated Git submodules files
+  ;; migration-generated Git submodules files
   (add-to-list 'auto-mode-alist '("\\.gitsvnexternals\\'" . gitconfig-mode)))
 
 ;;;
