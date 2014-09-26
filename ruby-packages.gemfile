@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'lolcat'
+# Development
 gem 'travis-lint'
+
+# Fun
+gem 'lolcat'
