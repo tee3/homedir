@@ -3,12 +3,15 @@ autopep8
 docformatter
 flake8
 jedi
+pep8
+pylint
 virtualenv
 
 # reStructuredText
 #breathe
 docutils
 Sphinx
+html2rest
 
 # Git
 #pygit2
