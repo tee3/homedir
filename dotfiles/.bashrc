@@ -56,7 +56,7 @@ if [ -e /usr/local/bin/brew ]; then
         export PYTHONPATH=${brew_prefix}/lib/svn-python:${PYTHONPATH}
     fi
 
-#    # Python 2.7 from Homebrew
+    # Python 2.7 from Homebrew
 #    if [ -e "$(brew --prefix python)" ]; then
 #        export PYTHONPATH="$(brew --prefix)"/lib/python2.7/site-packages
 #    fi
@@ -66,11 +66,11 @@ if [ -e /usr/local/bin/brew ]; then
         export PATH=${brew_prefix}/opt/ruby/bin:${PATH}
     fi
 
-#    # Perl from Homebrew
+    # Perl from Homebrew
 #    if [ -e "$(brew --prefix perl)" ]; then
 #    fi
 
-#    # Node from Homebrew
+    # Node from Homebrew
 #    if [ -e "$(brew --prefix node)" ]; then
 #    fi
 
