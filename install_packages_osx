@@ -118,7 +118,8 @@ brew install jsmin
 brew install json-c
 brew install jsonpp
 brew install legit
-brew install llvm --all-targets --with-clang --with-libcxx
+# @note this installs the llvm library, keg-only
+brew install llvm
 brew install llvm31 --all-targets --with-clang
 # @todo does not build
 #brew install llvm32 --all-targets --with-asan --with-clang
