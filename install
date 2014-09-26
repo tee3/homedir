@@ -59,8 +59,8 @@ if [ ! -z "${git}" -a -x "${git}" ]; then
     fi
 
     # get user and email from git config
-    name=$(${git} config user.name)
-    email=$(${git} config user.email)
+    name=$(${git} config --global user.name)
+    email=$(${git} config --global user.email)
 
     if [ ! -z "${name}" -a ! -z "${email}" ]; then
         read -p "use '${name} <${email}>' (y/n): " yn
@@ -105,8 +105,8 @@ if [ ! -z "${git}" -a -x "${git}" ]; then
 
     read -p "clear git user name/email (y/n): " yn
     if [ "${yn}" = "y" ]; then
-        ${git} config --unset user.name
-        ${git} config --unset user.email
+        ${git} config --global --unset user.name
+        ${git} config --global --unset user.email
     fi
 fi
 
