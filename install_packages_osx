@@ -143,6 +143,7 @@ brew install parallel
 brew install phantomjs
 brew install pinentry
 brew install pkg-config
+brew install shellcheck
 brew install socat
 brew install sqlite --with-docs
 brew install srecord
