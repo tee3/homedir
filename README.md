@@ -89,3 +89,9 @@ Python packages.
 
 Ruby gems are installed using the user protocol and a Gemfile
 (`ruby-packages.gemfile`) defines the installed Ruby packages.
+
+## support for node.js packages
+
+Node.js modules are installed to the user's home directory under
+`~/.node_modules` and a text file (`node-packages.txt`) defines the
+installed Node.js modules.

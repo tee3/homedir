@@ -114,6 +114,12 @@ if [ ! -z "$(which ruby)" -a ! -z "$(which gem)" ]; then
     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin":${PATH}
 fi
 
+# Node.js
+if [ ! -z "$(which node)" ]; then
+    PATH=~/.node_modules/bin:${PATH}
+    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin":${PATH}
+fi
+
 # Emacs
 if [ ! -z "$(which emacsclient)" ]; then
     export ALTERNATE_EDITOR=
