@@ -497,10 +497,11 @@
   (add-to-list 'auto-mode-alist '("[Jj]akefile.*\\'" . js-mode))
   (add-to-list 'auto-mode-alist '("\\.jake\\'" . js-mode)))
 
-;; ;;;
-;; ;;; C# mode
-;; ;;;
-;; (require 'csharp-mode)
+;;;
+;;; C# mode
+;;;
+(when (require 'csharp-mode nil :noerror)
+  )
 
 ;;;
 ;;; XML mode
