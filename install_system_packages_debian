@@ -1,0 +1,166 @@
+#!/bin/sh
+#
+# Install interesting packages using apt-get.
+#
+# This assumes that the current user is the user used to install
+# packages.  and has the proper administrator privileges.
+
+# additional repositories
+#! @todo none right now
+
+# install aptitude
+sudo apt-get install aptitude
+
+# check if aptitude is installed
+if [ -z "$(which aptitude 2> /dev/null)" ]; then
+    echo "error: aptitude not found."
+    exit 1
+fi
+
+# update yum and check
+sudo aptitude update
+
+#! @todo check the repos
+
+# install packages for homedir installer
+sudo aptitude install wget
+sudo aptitude install stow
+sudo aptitude install diffutils
+
+# install interpreters prior to other packages
+sudo aptitude install python
+# @todo we don't need python3 at this point
+#sudo aptitude install python3
+sudo aptitude install ruby
+
+# install version control systems
+sudo aptitude install git
+sudo aptitude install mercurial
+sudo aptitude install subversion
+
+# install all taps with the right options
+#sudo aptitude install arp-scan
+#sudo aptitude install arp-sk
+#sudo aptitude install arpoison
+#sudo aptitude install autoconf
+#sudo aptitude install automake
+#sudo aptitude install avrdude
+#sudo aptitude install avr-binutils
+#sudo aptitude install avr-gcc
+#sudo aptitude install boost
+#sudo aptitude install boost-bcp
+#sudo aptitude install boost-build
+#sudo aptitude install casperjs
+#sudo aptitude install cmake
+#sudo aptitude install cppcheck
+#sudo aptitude install dart
+#sudo aptitude install dns2tcp
+#sudo aptitude install dnstop
+#sudo aptitude install docbook
+#sudo aptitude install docbook-xsl
+#sudo aptitude install docker
+#sudo aptitude install doxygen
+#sudo aptitude install e2fsprogs
+#sudo aptitude install emacs
+#sudo aptitude install emscripten
+#sudo aptitude install enscript
+#sudo aptitude install ext2fuse
+#sudo aptitude install fop
+#sudo aptitude install fortune
+#sudo aptitude install apple-gcc42
+#sudo aptitude install gcc
+#sudo aptitude install gcc43
+#sudo aptitude install gcc44
+#sudo aptitude install gcc45
+#sudo aptitude install gcc46
+#sudo aptitude install gcc47
+#sudo aptitude install gcc48
+#sudo aptitude install gcc49
+#sudo aptitude install git-flow
+#sudo aptitude install git-hooks
+#sudo aptitude install glew
+#sudo aptitude install glfw3
+#sudo aptitude install glib
+#sudo aptitude install glm
+#sudo aptitude install global
+#sudo aptitude install gnu-typist
+#sudo aptitude install go
+#sudo aptitude install gource
+#sudo aptitude install graphviz
+#sudo aptitude install guile
+#sudo aptitude install highlight
+#sudo aptitude install htop-osx
+#sudo aptitude install httping
+#sudo aptitude install httpry
+#sudo aptitude install hunspell
+#sudo aptitude install iperf
+#sudo aptitude install ipv6calc
+#sudo aptitude install jam
+#sudo aptitude install jansson
+#sudo aptitude install jasper
+#sudo aptitude install jpeg
+#sudo aptitude install jsdoc-toolkit
+#sudo aptitude install jsl
+#sudo aptitude install jsmin
+#sudo aptitude install json-c
+#sudo aptitude install jsonpp
+#sudo aptitude install legit
+#sudo aptitude install llvm
+#sudo aptitude install llvm31
+#sudo aptitude install llvm32
+#sudo aptitude install llvm33
+#sudo aptitude install llvm34
+#sudo aptitude install llvm35
+#sudo aptitude install markdown
+#sudo aptitude install multimarkdown
+#sudo aptitude install mscgen
+#sudo aptitude install netcat
+#sudo aptitude install netperf
+#sudo aptitude install nmap
+#sudo aptitude install node
+#sudo aptitude install nuttcp
+#sudo aptitude install ntfs-3g
+#sudo aptitude install osxfuse
+#sudo aptitude install nuttcp
+#sudo aptitude install p0f
+#sudo aptitude install p7zip
+#sudo aptitude install parallel
+#sudo aptitude install phantomjs
+#sudo aptitude install pinentry
+#sudo aptitude install pkg-config
+#sudo aptitude install shellcheck
+#sudo aptitude install socat
+#sudo aptitude install sqlite
+#sudo aptitude install srecord
+#sudo aptitude install ssh-copy-id
+#sudo aptitude install sshfs
+#sudo aptitude install stow
+#sudo aptitude install stress
+#sudo aptitude install subgit
+#sudo aptitude install swig
+#sudo aptitude install tcpdump
+#sudo aptitude install tcpflow
+#sudo aptitude install tcping
+#sudo aptitude install tcpreplay
+#sudo aptitude install tcptrace
+#sudo aptitude install tcptraceroute
+#sudo aptitude install tcptrack
+#sudo aptitude install termshare
+#sudo aptitude install tig
+#sudo aptitude install tmux
+#sudo aptitude install tree
+#sudo aptitude install v8
+#sudo aptitude install webp
+#sudo aptitude install wget
+#sudo aptitude install wireshark
+#sudo aptitude install xctool
+#sudo aptitude install xmlformat
+#sudo aptitude install xmlstarlet
+#sudo aptitude install xmlto
+
+# cleanup
+sudo aptitude clean
+sudo aptitude autoclean
+
+# show outdated packages
+sudo aptitude safe-upgrade
