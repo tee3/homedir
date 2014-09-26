@@ -21,14 +21,6 @@ following script as the administrator of the system.
 $ ./install_packages_osx
 ```
 
-To install Ruby packages for any system, run the following script as
-the administrator of the system.
-
-```
-$ gem install bundler
-$ bundle install --gemfile=ruby-packages.gemfile
-```
-
 # rationale
 
 This is a very simple way of keeping home directories synchronized
@@ -95,21 +87,5 @@ Python packages.
 
 ## support for ruby packages
 
-A Gemfile (`ruby-packages.gemfile`) defines the Ruby packages.
-
-There are some outstanding issues with this approach.
-
-1. Ruby is not checked in the `install` script.
-
-2. There is no `gem` configuration file installed by the `install`
-   script.
-
-3. The packages are not installed in the `install` script.
-
-4. This currently installs to the default location and therefore must
-   be run as an appropriate user and with the appropriate permissions.
-   If this can be done per-user in a sane way, it should be done that
-   way.  This currently will require at least administrator access and
-   a Homebrew ruby for OS X and `sudo` access for other Unix
-   systems.  This is not good and could potentially be remedied, but
-   making it work easily is a bit of a pain.
+Ruby gems are installed using the user protocol and a Gemfile
+(`ruby-packages.gemfile`) defines the installed Ruby packages.

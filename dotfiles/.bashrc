@@ -109,6 +109,11 @@ if [ ! -z "$(which python)" ]; then
     PATH="$(python -c 'import site ; print site.USER_BASE')/bin":${PATH}
 fi
 
+# Ruby
+if [ ! -z "$(which ruby)" -a ! -z "$(which gem)" ]; then
+    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin":${PATH}
+fi
+
 # Emacs
 if [ ! -z "$(which emacsclient)" ]; then
     export ALTERNATE_EDITOR=

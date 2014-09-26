@@ -192,3 +192,22 @@ if [ ! -z "${python}" -a -x "${python}" ]; then
     # install requirements
     ${pip} install --user --upgrade -r python-packages.txt
 fi
+
+# install useful ruby modules if ruby is installed
+ruby=$(which ruby)
+if [ ! -z "${ruby}" -a -x "${ruby}" ]; then
+    # install required Ruby modules
+    gem=$(which gem)
+    if [ -z "${gem}" -o ! -x "${gem}" ]; then
+        echo "info: gem is not available, skipping Ruby module installation"
+    else
+        ${gem} install --user-install bundler
+
+        bundle="$(ruby -rubygems -e 'puts Gem.user_dir')/bin/bundle"
+        if [ -z "${bundle}" -o ! -x "${bundle}" ]; then
+            echo "info: failed to install bundler, skipping Ruby module installation"
+        else
+            ${bundle} install --path ~/.gem --gemfile=ruby-packages.gemfile
+        fi
+    fi
+fi
