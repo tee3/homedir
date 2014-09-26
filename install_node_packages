@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# Install Node modules in the node-packages.txt package list.
+
+set -u
+set -C
+
+# install required node.js modules
+npm=$(which npm)
+if [ -z "${npm}" -o ! -x "${npm}" ]; then
+    echo "info: npm is not installed, skipping node module installation"
+else
+    node_modules=$(cat node-packages.txt)
+    for m in ${node_modules} ; do
+        ${npm} install --global --prefix=~/.node_modules "${m}"
+    done
+fi

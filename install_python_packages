@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# Install Python modules in the python-packages.txt requirements file.
+
+set -u
+set -C
+
+# install useful python modules if python is installed
+python=$(which python)
+if [ ! -z "${python}" -a -x "${python}" ]; then
+    # install pip if it is not installed
+    pip=$(which pip)
+    if [ -z "${pip}" -o ! -x "${pip}" ]; then
+        pip="$(python -c 'import site ; print site.USER_BASE')/bin/pip"
+        if [ -z "${pip}" -o ! -x "${pip}" ]; then
+            wget https://bootstrap.pypa.io/get-pip.py
+            if [ -e get-pip.py ]; then
+                ${python} get-pip.py --user
+                rm get-pip.py
+            fi
+        fi
+    fi
+
+    # check if pip is available
+    if [ -z "${pip}" -o ! -x "${pip}" ]; then
+        echo "'pip' is not available"
+        exit 1
+    fi
+
+    # install requirements
+    ${pip} install --user --upgrade -r python-packages.txt
+fi

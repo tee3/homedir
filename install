@@ -167,58 +167,26 @@ fi
 # use stow to populate available dot files
 ${stow} --target="${HOME}" dotfiles
 
-# install useful python modules if python is installed
-python=$(which python)
-if [ ! -z "${python}" -a -x "${python}" ]; then
-    # install pip if it is not installed
-    pip=$(which pip)
-    if [ -z "${pip}" -o ! -x "${pip}" ]; then
-        pip="$(python -c 'import site ; print site.USER_BASE')/bin/pip"
-        if [ -z "${pip}" -o ! -x "${pip}" ]; then
-            wget https://bootstrap.pypa.io/get-pip.py
-            if [ -e get-pip.py ]; then
-                ${python} get-pip.py --user
-                rm get-pip.py
-            fi
-        fi
-    fi
-
-    # check if pip is available
-    if [ -z "${pip}" -o ! -x "${pip}" ]; then
-        echo "'pip' is not available"
-        exit 1
-    fi
-
-    # install requirements
-    ${pip} install --user --upgrade -r python-packages.txt
-fi
-
-# install useful ruby modules if ruby is installed
-ruby=$(which ruby)
-if [ ! -z "${ruby}" -a -x "${ruby}" ]; then
-    # install required Ruby modules
-    gem=$(which gem)
-    if [ -z "${gem}" -o ! -x "${gem}" ]; then
-        echo "info: gem is not available, skipping Ruby module installation"
-    else
-        ${gem} install --user-install bundler
-
-        bundle="$(ruby -rubygems -e 'puts Gem.user_dir')/bin/bundle"
-        if [ -z "${bundle}" -o ! -x "${bundle}" ]; then
-            echo "info: failed to install bundler, skipping Ruby module installation"
-        else
-            ${bundle} install --path ~/.gem --gemfile=ruby-packages.gemfile
-        fi
+# always try to install Python packages
+install_python_packages=y
+if [ "${install_python_packages}" = "y" ]; then
+    if ! ./install_python_packages ; then
+        echo "warning: failed to install Python packages."
     fi
 fi
 
-# install required node.js modules
-npm=$(which npm)
-if [ -z "${npm}" -o ! -x "${npm}" ]; then
-    echo "info: npm is not installed, skipping node module installation"
-else
-    node_modules=$(cat node-packages.txt)
-    for m in ${node_modules} ; do
-        ${npm} install --global --prefix=~/.node_modules "${m}"
-    done
+# always try to install Ruby packages
+install_ruby_packages=y
+if [ "${install_ruby_packages}" = "y" ]; then
+    if ! ./install_ruby_packages ; then
+        echo "warning: failed to install Ruby packages."
+    fi
+fi
+
+# always try to install Node packages
+install_node_packages=y
+if [ "${install_node_packages}" = "y" ]; then
+    if ! ./install_node_packages ; then
+        echo "warning: failed to install Node.js packages."
+    fi
 fi
