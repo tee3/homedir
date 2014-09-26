@@ -43,7 +43,7 @@ if [ ! -e ~/.bashrc.local ]; then
 fi
 
 # configure the user name/email for git
-git=$(which git)
+git=$(which git 2> /dev/null)
 if [ ! -z "${git}" -a -x "${git}" ]; then
     # set up machine-specific ~/.gitconfig
     if [ ! -e ~/.gitconfig.machine ]; then
@@ -110,7 +110,7 @@ if [ ! -z "${git}" -a -x "${git}" ]; then
 fi
 
 # configure mercurial
-hg=$(which hg)
+hg=$(which hg 2> /dev/null)
 if [ ! -z "${hg}" -a -x "${hg}" ]; then
     # set up machine-specific ~/.hgrc
     if [ ! -e ~/.hgrc.machine ]; then
@@ -128,7 +128,7 @@ if [ ! -z "${hg}" -a -x "${hg}" ]; then
 fi
 
 # requires diff
-diff=$(which diff)
+diff=$(which diff 2> /dev/null)
 if [ -z "${diff}" -o ! -x "${diff}" ]; then
     echo "'diff' is not available"
     exit 1
@@ -157,7 +157,7 @@ for d in ${dotfiledirs} ; do
 done
 
 # requires stow
-stow=$(which stow)
+stow=$(which stow 2> /dev/null)
 if [ -z "${stow}" -o ! -x "${stow}" ]; then
     echo "'stow' is not available"
     exit 1

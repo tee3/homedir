@@ -105,23 +105,23 @@ shopt -s histappend
 shopt -s cmdhist
 
 # Python
-if [ ! -z "$(which python)" ]; then
+if [ ! -z "$(which python 2> /dev/null)" ]; then
     PATH="$(python -c 'import site ; print site.USER_BASE')/bin":${PATH}
 fi
 
 # Ruby
-if [ ! -z "$(which ruby)" -a ! -z "$(which gem)" ]; then
+if [ ! -z "$(which ruby 2> /dev/null)" -a ! -z "$(which gem 2> /dev/null)" ]; then
     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin":${PATH}
 fi
 
 # Node.js
-if [ ! -z "$(which node)" ]; then
+if [ ! -z "$(which node 2> /dev/null)" ]; then
     PATH=~/.node_modules/bin:${PATH}
     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin":${PATH}
 fi
 
 # Emacs
-if [ ! -z "$(which emacsclient)" ]; then
+if [ ! -z "$(which emacsclient 2> /dev/null)" ]; then
     export ALTERNATE_EDITOR=
     export EDITOR=emacsclient
 fi

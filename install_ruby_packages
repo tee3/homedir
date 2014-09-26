@@ -4,13 +4,13 @@
 
 set -u
 
-ruby=$(which ruby)
+ruby=$(which ruby 2> /dev/null)
 if [ -z "${ruby}" -o ! -x "${ruby}" ]; then
     echo "error: Ruby not installed, not installing Ruby packages."
     exit 1
 fi
 
-gem=$(which gem)
+gem=$(which gem 2> /dev/null)
 if [ -z "${gem}" -o ! -x "${gem}" ]; then
     echo "error: gem is not available, skipping Ruby module installation"
     exit 1

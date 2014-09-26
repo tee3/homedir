@@ -19,7 +19,7 @@ brew_taps="
 "
 
 # check if Homebrew is installed
-if [ -z "$(which brew)" ]; then
+if [ -z "$(which brew 2> /dev/null)" ]; then
     echo "error: Homebrew (brew) not found."
     exit 1
 fi

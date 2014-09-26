@@ -4,7 +4,7 @@
 
 set -u
 
-python=$(which python)
+python=$(which python 2> /dev/null)
 if [ -z "${python}" -o ! -x "${python}" ]; then
     echo "error: Python not installed, not installing Python packages."
     exit 1
