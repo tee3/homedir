@@ -2,10 +2,10 @@
 #
 # Install interesting packages for OS X.
 #
-# This assumes that the current user is the user used to install brews
-# and has the proper administrator privileges.
+# This assumes that the current user is the user used to install
+# packages.  and has the proper administrator privileges.
 
-# required homebrew taps
+# additional repositories
 brew_taps="
     homebrew/apache
     homebrew/binary
@@ -24,7 +24,7 @@ if [ -z "$(which brew 2> /dev/null)" ]; then
     exit 1
 fi
 
-# update Homebrew and run doctor
+# update and check packages
 brew update
 brew doctor
 
@@ -38,10 +38,10 @@ brew update
 for t in ${brew_taps} ; do brew tap "${t}" ; done
 brew update
 
-# upgrade existing brews
+# upgrade existing packages
 brew upgrade
 
-# install interpreters prior to other brews
+# install interpreters prior to other packages
 # @todo use system python
 #brew install python
 # @todo we don't need python3 at this point

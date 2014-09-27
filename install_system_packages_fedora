@@ -1,11 +1,11 @@
 #!/bin/sh
 #
-# Install interesting packages using yum.
+# Install interesting packages for Fedora.
 #
 # This assumes that the current user is the user used to install
 # packages.  and has the proper administrator privileges.
 
-# additional yum repositories
+# additional repositories
 #! @todo none right now
 
 # check if yum is installed
@@ -14,10 +14,8 @@ if [ -z "$(which yum 2> /dev/null)" ]; then
     exit 1
 fi
 
-# update yum and check
+# update and check packages
 sudo yum check
-
-#! @todo check the repos
 
 # upgrade existing packages
 sudo yum update

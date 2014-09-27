@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Install interesting packages using apt-get.
+# Install interesting packages for Debian.
 #
 # This assumes that the current user is the user used to install
 # packages.  and has the proper administrator privileges.
@@ -17,7 +17,7 @@ if [ -z "$(which aptitude 2> /dev/null)" ]; then
     exit 1
 fi
 
-# update yum and check
+# update and check packages
 sudo aptitude update
 
 # upgrade existing packages
