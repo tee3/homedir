@@ -14,8 +14,22 @@ the following commands when logged in as that user.
 $ ./install
 ```
 
-To install system packages (for OS X via Homebrew only for now), run
-the following script as the administrator of the system.
+To install system packages for Fedora-based systems (via yum), run the
+following script as a user with `sudo` permission.
+
+```
+$ ./install_system_packages_fedora
+```
+
+To install system packages for Debian-based systems (via yum), run the
+following script as a user with `sudo` permission.
+
+```
+$ ./install_system_packages_debian
+```
+
+To install system packages for OS X (via Homebrew), run the following
+script as the administrator of the system.
 
 ```
 $ ./install_system_packages_osx
