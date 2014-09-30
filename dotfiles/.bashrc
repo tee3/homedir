@@ -9,14 +9,14 @@ if [ -e /usr/local/bin/brew ]; then
 
     export PATH=${brew_prefix}/bin:${brew_prefix}/sbin:${PATH}
 
+    # Completion from Homebrew
+    if [ -f "${brew_prefix}"/etc/bash_completion ]; then
+        source "${brew_prefix}"/etc/bash_completion
+    fi
+
     # Hunspell from Homebrew
     if [ -e "$(brew --prefix hunspell)" ]; then
         export DICTIONARY=en_US
-    fi
-
-    # tmux from Homebrew
-    if [ -f "${brew_prefix}"/etc/bash_completion.d/tmux ]; then
-        source "${brew_prefix}"/etc/bash_completion.d/tmux
     fi
 
     # Emacs.app from Homebrew
@@ -26,30 +26,7 @@ if [ -e /usr/local/bin/brew ]; then
         alias Emacs.app="open $(brew --prefix emacs)/Emacs.app"
     fi
 
-    # Git from Homebrew
-    if [ -f "${brew_prefix}"/etc/bash_completion.d/git-completion.bash ]; then
-        source "${brew_prefix}"/etc/bash_completion.d/git-completion.bash
-    fi
-    if [ -f "${brew_prefix}"/etc/bash_completion.d/git-flow-completion.bash ]; then
-        source "${brew_prefix}"/etc/bash_completion.d/git-flow-completion.bash
-    fi
-    if [ -f "${brew_prefix}"/etc/bash_completion.d/git-prompt.sh ]; then
-        source "${brew_prefix}"/etc/bash_completion.d/git-prompt.sh
-    fi
-    if [ -f "${brew_prefix}"/etc/bash_completion.d/tig-completion.bash ]; then
-        source "${brew_prefix}"/etc/bash_completion.d/tig-completion.bash
-    fi
-
-    # Hub from Homebrew
-    if [ -f "${brew_prefix}"/etc/bash_completion.d/hub.bash_completion.sh ]; then
-        source "${brew_prefix}"/etc/bash_completion.d/hub.bash_completion.sh
-    fi
-
     # Subversion 1.7 from Homebrew
-    if [ -f "${brew_prefix}"/etc/bash_completion.d/subversion ]; then
-        source "${brew_prefix}"/etc/bash_completion.d/subversion
-    fi
-
     if [ -e "$(brew --prefix subversion17)" ] ; then
         export RUBYLIB=${brew_prefix}/lib/ruby:${RUBYLIB}
         export PERL5LIB="$(brew --prefix subversion17)"/Library/Perl/5.16:${PERL5LIB}
@@ -93,6 +70,11 @@ if [ -e /usr/local/bin/brew ]; then
     if [ -e "$(brew --prefix android-sdk)" ]; then
         export ANDROID_SDK_ROOT=$(brew --prefix android-sdk)
     fi
+fi
+
+# Completion
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+    source /usr/share/bash-completion/bash_completion
 fi
 
 # Add local optional to path
