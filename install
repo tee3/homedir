@@ -194,3 +194,11 @@ if [ "${yn}" = "y" ]; then
         echo "warning: failed to install Node.js packages."
     fi
 fi
+
+# ask to install go packages
+read -p "Install Go packages? (y/n)?: " yn
+if [ "${yn}" = "y" ]; then
+    if ! ./install_go_packages ; then
+        echo "warning: failed to install Go packages."
+    fi
+fi

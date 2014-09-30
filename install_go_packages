@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# Install Go modules.
+
+set -u
+
+go=$(which go 2> /dev/null)
+if [ -z "${go}" -o ! -x "${go}" ]; then
+    echo "error: Go not installed, not installing Go packages."
+    exit 1
+fi
+
+# @todo these must be installed as administrator
+#go get -u code.google.com/p/go.tools/cmd/godoc
+#go get -u code.google.com/p/go.tools/cmd/vet
+
+go get -u github.com/nsf/gocode

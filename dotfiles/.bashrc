@@ -74,6 +74,11 @@ if [ -e /usr/local/bin/brew ]; then
 #    if [ -e "$(brew --prefix node)" ]; then
 #    fi
 
+    # Go from Homebrew
+    if [ -e "$(brew --prefix go)" ]; then
+        export PATH=$PATH:"$(brew --prefix go)"/libexec/bin
+    fi
+
     # Boost.Build from Homebrew
     if [ -e "$(brew --prefix boost-build)" ]; then
         export BOOST_BUILD_PATH="$(brew --prefix boost-build)"/share
@@ -118,6 +123,12 @@ fi
 if [ ! -z "$(which node 2> /dev/null)" ]; then
     export PATH=~/.node_modules/bin:${PATH}
     export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin":${PATH}
+fi
+
+# Go
+if [ ! -z "$(which go 2> /dev/null)" ]; then
+    export GOPATH=~/Development/go:${GOPATH}
+    export PATH=~/Development/go/bin:${PATH}
 fi
 
 # Cappuccino
