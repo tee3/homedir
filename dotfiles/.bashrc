@@ -120,12 +120,6 @@ if [ ! -z "$(which node 2> /dev/null)" ]; then
     export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin":${PATH}
 fi
 
-# Emacs
-if [ ! -z "$(which emacsclient 2> /dev/null)" ]; then
-    export ALTERNATE_EDITOR=
-    export EDITOR=emacsclient
-fi
-
 # Cappuccino
 if [ -e ~/opt/local/narwhal ]; then
     export NARWHAL_ENGINE=jsc
@@ -139,6 +133,12 @@ if [ -e ~/opt/local/bin/rdm ]; then
     if [ -e /usr/local/lib/llvm-3.4/lib ]; then
         export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:/usr/local/lib/llvm-3.4/lib
     fi
+fi
+
+# Emacs
+if [ ! -z "$(which emacsclient 2> /dev/null)" ]; then
+    export ALTERNATE_EDITOR=
+    export EDITOR=emacsclient
 fi
 
 # manage ssh-agent
