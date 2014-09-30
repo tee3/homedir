@@ -106,18 +106,18 @@ shopt -s cmdhist
 
 # Python
 if [ ! -z "$(which python 2> /dev/null)" ]; then
-    PATH="$(python -c 'import site ; print site.USER_BASE')/bin":${PATH}
+    export PATH="$(python -c 'import site ; print site.USER_BASE')/bin":${PATH}
 fi
 
 # Ruby
 if [ ! -z "$(which ruby 2> /dev/null)" -a ! -z "$(which gem 2> /dev/null)" ]; then
-    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin":${PATH}
+    export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin":${PATH}
 fi
 
 # Node.js
 if [ ! -z "$(which node 2> /dev/null)" ]; then
-    PATH=~/.node_modules/bin:${PATH}
-    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin":${PATH}
+    export PATH=~/.node_modules/bin:${PATH}
+    export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin":${PATH}
 fi
 
 # Emacs
