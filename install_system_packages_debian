@@ -85,7 +85,7 @@ sudo aptitude install subversion
 #sudo aptitude install glm
 #sudo aptitude install global
 #sudo aptitude install gnu-typist
-#sudo aptitude install go
+#sudo aptitude install golang-go
 #sudo aptitude install gource
 #sudo aptitude install graphviz
 #sudo aptitude install guile

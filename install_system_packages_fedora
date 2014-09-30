@@ -82,7 +82,7 @@ sudo yum install subversion
 #sudo yum install glm
 #sudo yum install global
 #sudo yum install gnu-typist
-#sudo yum install go
+#sudo yum install golang
 #sudo yum install gource
 #sudo yum install graphviz
 #sudo yum install guile
