@@ -48,6 +48,7 @@ sudo aptitude install subversion
 #sudo aptitude install avrdude
 #sudo aptitude install avr-binutils
 #sudo aptitude install avr-gcc
+sudo aptitude install bash-completion
 #sudo aptitude install boost
 #sudo aptitude install boost-bcp
 #sudo aptitude install boost-build
