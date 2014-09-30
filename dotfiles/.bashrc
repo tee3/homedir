@@ -35,7 +35,7 @@ if [ -e /usr/local/bin/brew ]; then
 
     # Python 2.7 from Homebrew
 #    if [ -e "$(brew --prefix python)" ]; then
-#        export PYTHONPATH="$(brew --prefix)"/lib/python2.7/site-packages
+#        export PYTHONPATH=""${brew_prefix}""/lib/python2.7/site-packages
 #    fi
 
     # Ruby from Homebrew
