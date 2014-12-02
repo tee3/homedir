@@ -119,6 +119,7 @@ brew install jam
 brew install jansson
 brew install jasper
 brew install jpeg
+brew install jrnl
 brew install jsdoc-toolkit
 brew install jsl
 brew install jsmin
