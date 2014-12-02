@@ -343,31 +343,31 @@
        cyberpunk-theme
        deep-thought-theme
        django-theme
-       ;; espresso-theme
+       espresso-theme
        flatland-theme
        gandalf-theme
        github-theme
-       ;; hemisu-theme
+       hemisu-theme
        heroku-theme
        ir-black-theme
        jujube-theme
        late-night-theme
-       ;; molokai-theme
+       molokai-theme
        monokai-theme
-       ;; mustang-theme
-       ;; naquadah-theme
+       mustang-theme
+       naquadah-theme
        nzenburn-theme
-       ;; obsidian-theme
-       ;; occidental-theme
+       obsidian-theme
+       occidental-theme
        pastels-on-dark-theme
+       professional-theme
        purple-haze-theme
        qsimpleq-theme
        solarized-theme
        soothe-theme
        steady-theme
        stekene-theme
-       subatomic-enhanced-theme
-       ;; sublime-themes
+       sublime-themes
        tommyh-theme
        toxi-theme
        tron-theme
