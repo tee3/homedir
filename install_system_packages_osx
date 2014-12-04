@@ -10,6 +10,7 @@ brew_taps="
     homebrew/apache
     homebrew/binary
     homebrew/completions
+    dart-lang/dart
     homebrew/dupes
     homebrew/headonly
     homebrew/nginx
