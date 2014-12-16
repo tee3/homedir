@@ -18,9 +18,6 @@
 	pushmergeinfo = true
 	edit = false
 	followparent = true
-[filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
 [include]
 	path = ~/.gitconfig.machine	
 	path = ~/.gitconfig.user
