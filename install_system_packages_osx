@@ -70,6 +70,7 @@ brew install boost
 #brew install boost-bcp
 #brew install boost-build
 brew install casperjs
+brew install clang-format
 brew install cmake
 brew install cppcheck
 brew install cups-pdf

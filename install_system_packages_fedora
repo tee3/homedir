@@ -50,6 +50,7 @@ sudo yum install bash-completion
 #sudo yum install boost-bcp
 #sudo yum install boost-build
 #sudo yum install casperjs
+#sudo yum install clang-format
 #sudo yum install cmake
 #sudo yum install cppcheck
 #sudo yum install dart

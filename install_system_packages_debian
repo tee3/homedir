@@ -53,6 +53,7 @@ sudo aptitude install bash-completion
 #sudo aptitude install boost-bcp
 #sudo aptitude install boost-build
 #sudo aptitude install casperjs
+#sudo aptitude install clang-format
 #sudo aptitude install cmake
 #sudo aptitude install cppcheck
 #sudo aptitude install dart
