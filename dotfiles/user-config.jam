@@ -45,7 +45,7 @@ else if [ os.name ] = MACOSX
     using clang : 3.5 : /usr/local/bin/clang++-3.5 ;
     using clang : 3.4 : /usr/local/bin/clang++-3.4 ;
     using clang : 3.3 : /usr/local/bin/clang++-3.3 ;
-#    using clang : 3.2 : /usr/local/bin/clang++-3.2 ;
+    using clang : 3.2 : /usr/local/bin/clang++-3.2 ;
     using clang : 3.1 : /usr/local/bin/clang++-3.1 ;
 
     using darwin ;
@@ -53,7 +53,7 @@ else if [ os.name ] = MACOSX
     using darwin : 4.9 : /usr/local/bin/g++-4.9 ;
     using darwin : 4.8 : /usr/local/bin/g++-4.8 ;
     using darwin : 4.7 : /usr/local/bin/g++-4.7 ;
-    using darwin : 4.6 : /usr/local/bin/g++-4.7 ;
+    using darwin : 4.6 : /usr/local/bin/g++-4.6 ;
     using darwin : 4.5 : /usr/local/bin/g++-4.5 ;
 
     using darwin : rtags : $(HOME)/opt/local/bin/g++-4.8 ;
