@@ -89,15 +89,14 @@ brew install ext2fuse
 brew install fop
 brew install fortune
 HOMEBREW_KEEP_INFO=1 brew install gcc
-brew install gcc43 --enable-all-languages
-# @todo conflicts with gcc45
-#brew install gcc44 --enable-all-languages
-brew install gcc45 --enable-all-languages
-brew install gcc46 --enable-all-languages
-brew install gcc47 --enable-all-languages
-brew install gcc48 --enable-all-languages
-# @todo conflicts with gcc
-#brew install gcc49 --enable-all-languages
+brew install gcc43
+brew install gcc44
+brew install gcc45
+brew install gcc46
+brew install gcc47
+brew install gcc48
+# @todo the official Homebrew gcc is gcc49
+#brew install gcc49
 brew install git-flow
 brew install git-hooks --HEAD
 brew install glew
