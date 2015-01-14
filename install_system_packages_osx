@@ -88,7 +88,6 @@ brew install enscript
 brew install ext2fuse
 brew install fop
 brew install fortune
-brew install apple-gcc42
 HOMEBREW_KEEP_INFO=1 brew install gcc
 brew install gcc43 --enable-all-languages
 # @todo conflicts with gcc45

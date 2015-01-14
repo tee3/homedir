@@ -67,7 +67,6 @@ sudo yum install bash-completion
 #sudo yum install ext2fuse
 #sudo yum install fop
 #sudo yum install fortune
-#sudo yum install apple-gcc42
 #sudo yum install gcc
 #sudo yum install gcc43
 #sudo yum install gcc44

@@ -70,7 +70,6 @@ sudo aptitude install bash-completion
 #sudo aptitude install ext2fuse
 #sudo aptitude install fop
 #sudo aptitude install fortune
-#sudo aptitude install apple-gcc42
 #sudo aptitude install gcc
 #sudo aptitude install gcc43
 #sudo aptitude install gcc44
