@@ -105,8 +105,6 @@ sudo yum install bash-completion
 #sudo yum install jsonpp
 #sudo yum install legit
 #sudo yum install llvm
-#sudo yum install llvm31
-#sudo yum install llvm32
 #sudo yum install llvm33
 #sudo yum install llvm34
 #sudo yum install llvm35

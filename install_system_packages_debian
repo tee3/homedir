@@ -108,8 +108,6 @@ sudo aptitude install bash-completion
 #sudo aptitude install jsonpp
 #sudo aptitude install legit
 #sudo aptitude install llvm
-#sudo aptitude install llvm31
-#sudo aptitude install llvm32
 #sudo aptitude install llvm33
 #sudo aptitude install llvm34
 #sudo aptitude install llvm35

@@ -128,14 +128,10 @@ brew install jsmin
 brew install json-c
 brew install jsonpp
 brew install legit
-# @note this installs the llvm library, keg-only
 brew install llvm
-brew install llvm31 --all-targets --with-clang
-# @todo does not build
-#brew install llvm32 --all-targets --with-asan --with-clang
-brew install llvm33 --all-targets --with-asan --with-clang --with-libcxx --rtti
-brew install llvm34 --all-targets --with-asan --with-clang --with-libcxx --rtti
-brew install llvm35 --all-targets --with-asan --with-clang --with-libcxx --rtti
+brew install llvm33
+brew install llvm34
+brew install llvm35
 brew install markdown
 brew install multimarkdown
 brew install mscgen --without-gd
