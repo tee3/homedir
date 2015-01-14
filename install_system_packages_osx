@@ -54,7 +54,7 @@ brew upgrade
 brew install bazaar
 brew install git
 brew install mercurial
-brew install subversion17 --with-python --perl
+brew install subversion17
 
 # install all taps with the right options
 brew install arp-scan
@@ -80,7 +80,7 @@ brew install dnstop
 brew install docbook
 brew install docbook-xsl
 brew install docker
-brew install doxygen --with-dot --with-libclang
+brew install doxygen
 brew install e2fsprogs
 brew install emacs --cocoa
 brew install emscripten
@@ -105,10 +105,10 @@ brew install glib
 brew install glm
 HOMEBREW_KEEP_INFO=1 brew install global --with-exuberant-ctags
 HOMEBREW_KEEP_INFO=1 brew install gnu-typist
-brew install go --cross-compile-all
+brew install go
 brew install gource
 brew install graphviz
-HOMEBREW_KEEP_INFO=1 brew install guile --devel
+HOMEBREW_KEEP_INFO=1 brew install guile
 brew install highlight
 brew install htop-osx
 brew install httping
@@ -150,7 +150,7 @@ brew install pinentry
 brew install pkg-config
 brew install shellcheck
 brew install socat
-brew install sqlite --with-docs
+brew install sqlite
 brew install srecord
 brew install ssh-copy-id
 brew install sshfs
