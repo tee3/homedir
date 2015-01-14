@@ -126,6 +126,7 @@ import boost ;
 path-constant TWT_BOOST_BASE : "$(HOME)/opt/local/src/boost" ;
 
 # Set up all available versions of Boost
+using boost : 1.57.0 : <root>$(TWT_BOOST_BASE)/boost_1_57_0 ;
 using boost : 1.56.0 : <root>$(TWT_BOOST_BASE)/boost_1_56_0 ;
 using boost : 1.55.0 : <root>$(TWT_BOOST_BASE)/boost_1_55_0 ;
 using boost : 1.54.0 : <root>$(TWT_BOOST_BASE)/boost_1_54_0 ;
