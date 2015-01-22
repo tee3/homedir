@@ -66,6 +66,7 @@ brew install automake
 #brew install avr-binutils
 #brew install avr-gcc
 brew install bash-completion
+brew install bear
 brew install boost
 #brew install boost-bcp
 #brew install boost-build

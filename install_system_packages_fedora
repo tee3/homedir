@@ -46,6 +46,7 @@ sudo yum install subversion
 #sudo yum install avr-binutils
 #sudo yum install avr-gcc
 sudo yum install bash-completion
+#sudo yum install bear
 #sudo yum install boost
 #sudo yum install boost-bcp
 #sudo yum install boost-build
