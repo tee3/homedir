@@ -8,7 +8,9 @@ multiple machines and so should be designed to work well across
 different types of Unix systems.
 
 To set up a new system or update an existing system for a user, run
-the following commands when logged in as that user.
+the following commands when logged in as that user.  Note that all
+system packages should be installed prior to the `install` script
+so all support applications are properly set up.
 
 ```
 $ ./install
@@ -76,22 +78,22 @@ The install script will migrate the user name/email from
 
 ## support for installing system packages
 
-The `install_system_packages_osx` script will install required
-packages for OS X.
+This system has direct support for OS X and Linux (both Fedora- and
+Debian-based).
 
-There are a few issues with the current implementation.
+NOTE: Installing system packages should really be generalized a bit
+since packages required for work are the same regardless of which
+system you are on.  A package list with a script for each system that
+processes the list and turns it into commands to Homebrew, `apt-get`,
+`yum`, etc. would be an interesting approach.
 
-1. This support is very preliminary as it only supports OS X vis
-   Homebrew.  Supporting Linux is a little harder since there one
-   requires `sudo` privileges, which may not always be available.
-   There is some possibility in the Linuxbrew system, but it is
-   probably not mature enough at this point.
+### requirements for os x
 
-2. This really should be generalized a bit since packages required for
-   work are the same regardless of which system you are on.  A package
-   list with a script for each system that processes the list and
-   turns it into commands to Homebrew, `apt-get`, `yum`, etc. would be
-   an interesting approach.
+- administrator privileges (not `sudo` or `root` permissions)
+
+### requirements for linux
+
+- `sudo` or `root`
 
 ## support for python packages
 
