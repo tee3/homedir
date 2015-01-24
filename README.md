@@ -46,7 +46,7 @@ become useful.
 
 # requirements
 
-The `install` script must be run from this directory and the HOME
+The `install` script must be run from this directory and the `HOME`
 environment variable must be set properly.
 
 * `sh`
@@ -59,9 +59,9 @@ The `install` script checks for the requirements and then helps the
 user set up a home directory.  There is special support for features
 that require it.
 
-## support for ~/opt/local
+## support for `~/opt/local`
 
-The `install` script will build a directory structure at ~/opt/local
+The `install` script will build a directory structure at `~/opt/local`
 if it does not exist.
 
 In the future, this may also be populated.
