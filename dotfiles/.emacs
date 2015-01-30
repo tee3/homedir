@@ -235,6 +235,9 @@
        gitty
        go-eldoc
        helm
+       helm-flycheck
+       helm-flyspell
+       helm-projectile
        ido-ubiquitous
        jgraph-mode
        magit
@@ -805,7 +808,18 @@
 ;;; Helm mode
 ;;;
 (when (require 'helm nil :noerror)
-  (helm-mode 1))
+  (helm-mode 1)
+
+  (when (require 'helm-flycheck nil :noerror)
+    (eval-after-load 'flycheck
+      '(define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck))
+    )
+
+  (when (require 'helm-flyspell nil :noerror)
+    (eval-after-load 'flyspell
+      '(define-key flyspell-mode-map (kbd "C-;") 'helm-flyspell))
+    )
+  )
 
 ;;;
 ;;; Expand region
