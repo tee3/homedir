@@ -342,19 +342,26 @@
        assemblage-theme
        birds-of-paradise-plus-theme
        bubbleberry-theme
+       busybee-theme
        clues-theme
        cyberpunk-theme
        deep-thought-theme
        django-theme
        espresso-theme
+       firebelly-theme
        flatland-theme
+       flatui-theme
        gandalf-theme
        github-theme
+       grandshell-theme
        hemisu-theme
        heroku-theme
+       inkpot-theme
        ir-black-theme
+       jazz-theme
        jujube-theme
        late-night-theme
+       moe-theme
        molokai-theme
        monokai-theme
        mustang-theme
@@ -371,6 +378,8 @@
        steady-theme
        stekene-theme
        sublime-themes
+       subatomic-theme
+       subatomic256-theme
        tommyh-theme
        toxi-theme
        tron-theme
