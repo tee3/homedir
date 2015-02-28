@@ -13,8 +13,6 @@ if [ os.name ] = NT
     using clang ;
 
     #! @todo is a gcc compiler for Windows
-
-    using gcc : rtags : $(HOME)/opt/local/bin/g++-4.8 ;
 }
 else if [ os.name ] = CYGWIN
 {
@@ -23,8 +21,6 @@ else if [ os.name ] = CYGWIN
 
     # other comilers, both system and optional
     using clang ;
-
-    using gcc : rtags : $(HOME)/opt/local/bin/g++-4.8 ;
 }
 else if [ os.name ] = LINUX
 {
@@ -33,8 +29,6 @@ else if [ os.name ] = LINUX
 
     # other comilers, both system and optional
     using clang ;
-
-    using gcc : rtags : $(HOME)/opt/local/bin/g++-4.8 ;
 }
 else if [ os.name ] = MACOSX
 {
@@ -55,8 +49,6 @@ else if [ os.name ] = MACOSX
     using darwin : 4.7 : /usr/local/bin/g++-4.7 ;
     using darwin : 4.6 : /usr/local/bin/g++-4.6 ;
     using darwin : 4.5 : /usr/local/bin/g++-4.5 ;
-
-    using darwin : rtags : $(HOME)/opt/local/bin/g++-4.8 ;
 }
 
 # Cross compilers
