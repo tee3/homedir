@@ -5,6 +5,8 @@
 # This assumes that the current user is the user used to install
 # packages.  and has the proper administrator privileges.
 
+set -u
+
 # additional repositories
 brew_taps="
     homebrew/apache
