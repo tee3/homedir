@@ -339,14 +339,18 @@
        (or (package-installed-p package)
            (package-install package)))
 
-     '(alect-themes
+     '(ahungry-theme
+       alect-themes
        ample-theme
        ample-zen-theme
        anti-zenburn-theme
        assemblage-theme
+       atom-dark-theme
        birds-of-paradise-plus-theme
        bubbleberry-theme
        busybee-theme
+       calmer-forest-theme
+       cherry-blossom-theme
        clues-theme
        cyberpunk-theme
        deep-thought-theme
