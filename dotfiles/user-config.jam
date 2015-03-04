@@ -108,26 +108,3 @@ if [ os.name ] = MACOSX
 {
     using fop ;
 }
-
-# Boost.Build user configuration for the Boost C++ Libraries
-
-import boost ;
-
-path-constant TWT_BOOST_BASE : "$(HOME)/opt/local/src/boost" ;
-
-# Set up all available versions of Boost
-using boost : 1.57.0 : <root>$(TWT_BOOST_BASE)/boost_1_57_0 ;
-using boost : 1.56.0 : <root>$(TWT_BOOST_BASE)/boost_1_56_0 ;
-using boost : 1.55.0 : <root>$(TWT_BOOST_BASE)/boost_1_55_0 ;
-using boost : 1.54.0 : <root>$(TWT_BOOST_BASE)/boost_1_54_0 ;
-using boost : 1.53.0 : <root>$(TWT_BOOST_BASE)/boost_1_53_0 ;
-using boost : 1.52.0 : <root>$(TWT_BOOST_BASE)/boost_1_52_0 ;
-using boost : 1.51.0 : <root>$(TWT_BOOST_BASE)/boost_1_51_0 ;
-using boost : 1.50.0 : <root>$(TWT_BOOST_BASE)/boost_1_50_0 ;
-using boost : 1.49.0 : <root>$(TWT_BOOST_BASE)/boost_1_49_0 ;
-using boost : 1.48.0 : <root>$(TWT_BOOST_BASE)/boost_1_48_0 ;
-using boost : 1.47.0 : <root>$(TWT_BOOST_BASE)/boost_1_47_0 ;
-using boost : 1.43.0 : <root>$(TWT_BOOST_BASE)/boost_1_43_0 ;
-using boost : 1.42.0 : <root>$(TWT_BOOST_BASE)/boost_1_42_0 ;
-using boost : 1.39.0 : <root>$(TWT_BOOST_BASE)/boost_1_39_0 ;
-using boost : git : <root>$(TWT_BOOST_BASE)/boost.git ;
