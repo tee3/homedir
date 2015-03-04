@@ -284,6 +284,7 @@
        simple-httpd
        smart-mode-line
        smooth-scroll
+       ssh-config-mode
        swift-mode
        tern
        twittering-mode
@@ -551,7 +552,9 @@
 (when (require 'ssh-config-mode nil :noerror)
 
   (add-to-list 'auto-mode-alist '(".ssh/config\\'"  . ssh-config-mode))
-  (add-to-list 'auto-mode-alist '("sshd?_config\\'" . ssh-config-mode)))
+  (add-to-list 'auto-mode-alist '("sshd?_config\\'" . ssh-config-mode))
+  (add-to-list 'auto-mode-alist '("known_hosts\\'"  . ssh-known-hosts-mode))
+  (add-to-list 'auto-mode-alist '("authorized_keys2?\\'" . ssh-authorized-keys-mode)))
 
 ;;;
 ;;; Magit Subversion Support
