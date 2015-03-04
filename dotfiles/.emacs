@@ -224,30 +224,10 @@
            (package-install package)))
 
      '(applescript-mode
-       c-eldoc
-       coffee-mode
-       electric-case
-       elpy
-       expand-region
-       flycheck
-       gitattributes-mode
-       gitconfig-mode
-       gitignore-mode
-       gitty
-       go-eldoc
-       helm
-       helm-flycheck
-       helm-flyspell
-       helm-projectile
-       ido-ubiquitous
-       jgraph-mode
-       magit
-       magit-svn
-       simple-httpd
-       undo-tree
-
-       ;; not in marmalade
        bundler
+       c-eldoc
+       cmake-mode
+       coffee-mode
        company
        company-auctex
        company-c-headers
@@ -257,19 +237,35 @@
        company-inf-ruby
        company-tern
        company-ycmd
-       cmake-mode
        cperl-mode
        ctags
        dropbox
+       electric-case
+       elpy
+       expand-region
+       flycheck
        git-commit-mode
        git-gutter
        git-gutter-fringe
+       gitattributes-mode
        gitconfig
+       gitconfig-mode
+       gitignore-mode
+       gitty
+       go-eldoc
        google-this
        gtags
+       helm
+       helm-flycheck
+       helm-flyspell
+       helm-projectile
+       ido-ubiquitous
        jabber
+       jgraph-mode
        json
        json-mode
+       magit
+       magit-svn
        markdown-mode
        monky
        nav-flash
@@ -285,11 +281,13 @@
        rspec-mode
        ruby-compilation
        ruby-mode
+       simple-httpd
        smart-mode-line
        smooth-scroll
        swift-mode
        tern
        twittering-mode
+       undo-tree
        writeroom-mode)))
 
   ;; Install Emacs 24 packages
