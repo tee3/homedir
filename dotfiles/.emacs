@@ -42,7 +42,6 @@
  '(flycheck-swift-executable "xcrun swift")
  '(fringe-mode 4 nil (fringe))
  '(generic-define-mswindows-modes t)
- '(git-commit-confirm-commit t)
  '(global-cwarn-mode t)
  '(global-font-lock-mode t nil (font-lock))
  '(gnus-select-method (quote (nntp "news.gmane.org")))
@@ -63,11 +62,6 @@
  '(large-file-warning-threshold nil)
  '(linum-format "%4d ")
  '(load-home-init-file t t)
- '(magit-completing-read-function (quote magit-ido-completing-read))
- '(magit-diff-options nil)
- '(magit-diff-refine-hunk nil)
- '(magit-gitk-executable "gitk")
- '(magit-log-auto-more t)
  '(matlab-shell-command-switches "-nodesktop")
  '(matlab-shell-mode-hook nil)
  '(menu-bar-mode nil)
@@ -243,7 +237,6 @@
        elpy
        expand-region
        flycheck
-       git-commit-mode
        git-gutter
        git-gutter-fringe
        gitattributes-mode
@@ -262,8 +255,6 @@
        jgraph-mode
        json
        json-mode
-       magit
-       magit-svn
        markdown-mode
        monky
        nav-flash
@@ -555,9 +546,12 @@
   (add-to-list 'auto-mode-alist '("authorized_keys2?\\'" . ssh-authorized-keys-mode)))
 
 ;;;
-;;; Magit Subversion Support
+;;; Magit
 ;;;
-(add-hook 'magit-mode-hook 'magit-load-config-extensions)
+(add-to-list 'load-path "~/.emacs.d/site-lisp/magit")
+
+(when (require 'magit nil :noerror)
+  (add-hook 'magit-mode-hook 'magit-load-config-extensions))
 
 ;;;
 ;;; CC Mode customizations.
