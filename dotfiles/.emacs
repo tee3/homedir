@@ -185,7 +185,6 @@
        js-comint
        list-utils
        lua-mode
-       mo-git-blame
        mustache-mode
        nginx-mode
        nodejs-repl
@@ -251,7 +250,6 @@
        gitconfig
        gitconfig-mode
        gitignore-mode
-       gitty
        go-eldoc
        google-this
        gtags
