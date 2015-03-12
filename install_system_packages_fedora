@@ -153,6 +153,7 @@ sudo yum install tmux
 sudo yum install tree
 sudo yum install v8
 #sudo yum install vegeta
+sudo yum install vim
 #sudo yum install webp
 sudo yum install wget
 sudo yum install wireshark
