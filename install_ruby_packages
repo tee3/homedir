@@ -16,6 +16,9 @@ if [ -z "${gem}" -o ! -x "${gem}" ]; then
     exit 1
 fi
 
+# location of gems with --user-install
+gemdir=~/.gem
+
 ${gem} install --user-install bundler
 
 bundle="$(ruby -rubygems -e 'puts Gem.user_dir')"/bin/bundle
@@ -24,4 +27,4 @@ if [ -z "${bundle}" -o ! -x "${bundle}" ]; then
     exit 1
 fi
 
-${bundle} install --path ~/.gem --gemfile=ruby-packages.gemfile
+${bundle} install --path "${gemdir}" --gemfile=ruby-packages.gemfile
