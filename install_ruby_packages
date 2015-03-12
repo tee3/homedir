@@ -18,7 +18,7 @@ fi
 
 ${gem} install --user-install bundler
 
-bundle="$(ruby -rubygems -e 'puts Gem.user_dir')/bin/bundle"
+bundle="$(ruby -rubygems -e 'puts Gem.user_dir')"/bin/bundle
 if [ -z "${bundle}" -o ! -x "${bundle}" ]; then
     echo "error: failed to install bundler, skipping Ruby module installation"
     exit 1
