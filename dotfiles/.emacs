@@ -278,6 +278,7 @@
        tern
        twittering-mode
        undo-tree
+       vimrc-mode
        writeroom-mode)))
 
   ;; Install Emacs 24 packages
@@ -386,6 +387,12 @@
        waher-theme
        zen-and-art-theme
        zenburn-theme))))
+
+;;;
+;;; vimrc mode
+;;;
+(when (require 'vimrc-mode nil :noerror)
+  )
 
 ;;;
 ;;; Makefile mode
