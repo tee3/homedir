@@ -104,7 +104,6 @@ fi
 # Node.js
 if [ ! -z "$(which node 2> /dev/null)" ]; then
     export PATH=~/.node_modules/bin:${PATH}
-    export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin":${PATH}
 fi
 
 # Go
