@@ -36,6 +36,7 @@ sudo aptitude install python
 # @todo we don't need python3 at this point
 #sudo aptitude install python3
 sudo aptitude install ruby
+sudo aptitude install ruby-devel
 
 # install version control systems
 sudo aptitude install git
