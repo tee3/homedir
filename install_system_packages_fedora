@@ -108,6 +108,7 @@ sudo yum install jam
 #sudo yum install jsmin
 #sudo yum install json-c
 #sudo yum install jsonpp
+sudo yum install keychain
 #sudo yum install legit
 sudo yum install llvm
 #sudo yum install llvm33
