@@ -52,9 +52,9 @@ if [ -e /usr/local/bin/brew ]; then
 #    fi
 
     # Go from Homebrew
-    if [ -e "$(brew --prefix go)" ]; then
-        export PATH=$PATH:"$(brew --prefix go)"/libexec/bin
-    fi
+#    if [ -e "$(brew --prefix go)" ]; then
+#        export PATH=$PATH:"$(brew --prefix go)"/libexec/bin
+#    fi
 
     # Boost.Build from Homebrew
     if [ -e "$(brew --prefix boost-build)" ]; then
