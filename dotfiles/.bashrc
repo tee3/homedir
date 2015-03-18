@@ -119,14 +119,6 @@ if [ -e ~/opt/local/narwhal ]; then
     export CAPP_BUILD=~/opt/local/src/cappuccino/Build
 fi
 
-# rtags
-if [ -e ~/opt/local/bin/rdm ]; then
-    # total hack for OS X, need one for Linux
-    if [ -e /usr/local/lib/llvm-3.4/lib ]; then
-        export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:/usr/local/lib/llvm-3.4/lib
-    fi
-fi
-
 # Emacs
 if [ ! -z "$(which emacsclient 2> /dev/null)" ]; then
     export ALTERNATE_EDITOR=
