@@ -1,5 +1,5 @@
--v
--S
+--verbose
+--silent
 --completion-cache-size=1000
 --no-startup-project
 --exclude-filter=/tmp;*~
