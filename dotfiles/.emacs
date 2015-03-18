@@ -328,13 +328,17 @@
        (or (package-installed-p package)
            (package-install package)))
 
-     '(ahungry-theme
+     '(afternoon-theme
+       ahungry-theme
        alect-themes
        ample-theme
        ample-zen-theme
        anti-zenburn-theme
        assemblage-theme
        atom-dark-theme
+       badger-theme
+       base16-theme
+       basic-theme
        birds-of-paradise-plus-theme
        bubbleberry-theme
        busybee-theme
@@ -342,51 +346,90 @@
        cherry-blossom-theme
        clues-theme
        cyberpunk-theme
+       dakrone-theme
+       darcula-theme
+       darkburn-theme
+       darkmine-theme
        deep-thought-theme
+       distinguished-theme
        django-theme
+       eclipse-theme
        espresso-theme
        firebelly-theme
        flatland-theme
        flatui-theme
        gandalf-theme
        github-theme
+       gotham-theme
        grandshell-theme
+       gruber-darker-theme
+       gruvbox-theme
+       hc-zenburn-theme
        hemisu-theme
        heroku-theme
+       hipster-theme
        inkpot-theme
        ir-black-theme
        jazz-theme
        jujube-theme
        late-night-theme
+       leuven-theme
+       light-soap-theme
+       lush-theme
+       minimal-theme
        moe-theme
        molokai-theme
+       monochrome-theme
        monokai-theme
        mustang-theme
        naquadah-theme
+       niflheim-theme
+       noctilux-theme
        nzenburn-theme
        obsidian-theme
        occidental-theme
+       oldlace-theme
+       organic-green-theme
        pastels-on-dark-theme
+       phoenix-dark-mono-theme
+       phoenix-dark-pink-theme
+       planet-theme
        professional-theme
        purple-haze-theme
        qsimpleq-theme
+       railscasts-theme
+       sea-before-storm-theme
+       seti-theme
+       smyx-theme
+       soft-charcoal-theme
+       soft-morning-theme
+       soft-stone-theme
        solarized-theme
        soothe-theme
+       spacegray-theme
        steady-theme
        stekene-theme
        sublime-themes
        subatomic-theme
        subatomic256-theme
+       sunny-day-theme
+       tangotango-theme
        tommyh-theme
        toxi-theme
        tron-theme
        tronesque-theme
        twilight-theme
+       twilight-anti-bright-theme
+       twilight-bright-theme
+       ubuntu-theme
        ujelly-theme
        underwater-theme
        waher-theme
+       warm-night-theme
+       yoshi-theme
        zen-and-art-theme
-       zenburn-theme))))
+       zenburn-theme
+       zonokai-theme))))
 
 ;;;
 ;;; vimrc mode
