@@ -84,7 +84,6 @@
      (xml "rst2xml.py" ".xml" "--verbose --strict --date --time")
      (pdf "rst2pdf.py" ".pdf" "--verbose --strict --date --time")
      (s5 "rst2s5.py" ".html" "--verbose --strict --date --time"))))
- '(rtags-completion-mode (quote rtags-complete-with-dabbrev-and-autocomplete))
  '(save-place t nil (saveplace))
  '(savehist-mode t nil (savehist))
  '(scroll-bar-mode nil)
@@ -844,7 +843,11 @@
 ;;;
 (add-to-list 'load-path "~/opt/local/src/rtags/src" t)
 (when (require 'rtags nil :noerror)
-  (rtags-enable-standard-keybindings c-mode-base-map))
+  (when (require 'company nil :noerror)
+    (when (require 'company-rtags nil :noerror)
+      (add-to-list 'company-backends 'company-rtags t)))
+
+  (rtags-enable-standard-keybindings c-mode-base-map "\C-xt"))
 
 ;;;
 ;;; Projectile mode
