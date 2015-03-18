@@ -3,4 +3,6 @@
 
 --no-startup-project
 
+--enable-compiler-manager
+
 --exclude-filter=/tmp;*~
