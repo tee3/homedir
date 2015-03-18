@@ -1,3 +1,5 @@
 --verbose
+
 --no-startup-project
+
 --exclude-filter=/tmp;*~
