@@ -223,7 +223,6 @@
        company
        company-auctex
        company-c-headers
-       company-cmake
        company-ghc
        company-go
        company-inf-ruby
@@ -829,7 +828,6 @@
 (when (require 'company nil :noerror)
   (add-to-list 'company-backends 'company-auctex t)
   (add-to-list 'company-backends 'company-c-headers t)
-  (add-to-list 'company-backends 'company-cmake t)
   (add-to-list 'company-backends 'company-ghc t)
   (add-to-list 'company-backends 'company-go t)
   (add-to-list 'company-backends 'company-inf-ruby t)
