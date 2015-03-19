@@ -849,6 +849,9 @@
     :pin melpa
     :config
     (add-hook 'go-mode-hook 'go-eldoc-setup))
+  (use-package go-guru
+    :ensure t
+    :pin melpa)
   (use-package go-projectile
     :ensure t
     :pin melpa)
