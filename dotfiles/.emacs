@@ -9,8 +9,8 @@
 ;;;
 ;;; Update the load path to include the user's Lisp files.
 ;;;
-(add-to-list 'load-path "~/opt/local/share/emacs/site-lisp" t)
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp" t)
+(add-to-list 'load-path (expand-file-name "~/opt/local/share/emacs/site-lisp") t)
+(add-to-list 'load-path (expand-file-name "/usr/local/share/emacs/site-lisp") t)
 
 ;;;
 ;;; Custom Parameters
@@ -597,7 +597,7 @@
 ;;;
 ;;; Magit
 ;;;
-(add-to-list 'load-path "~/.emacs.d/site-lisp/magit")
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/magit"))
 
 (when (require 'magit nil :noerror)
   (add-hook 'magit-mode-hook 'magit-load-config-extensions))
@@ -841,7 +841,7 @@
 ;;;
 ;;; rtags mode
 ;;;
-(add-to-list 'load-path "~/opt/local/src/rtags/src" t)
+(add-to-list 'load-path (expand-file-name "~/opt/local/src/rtags/src") t)
 (when (require 'rtags nil :noerror)
   (when (require 'company nil :noerror)
     (when (require 'company-rtags nil :noerror)
