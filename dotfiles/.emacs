@@ -826,13 +826,26 @@
 ;;; Company (completion) mode
 ;;;
 (when (require 'company nil :noerror)
-  (add-to-list 'company-backends 'company-auctex t)
-  (add-to-list 'company-backends 'company-c-headers t)
-  (add-to-list 'company-backends 'company-ghc t)
-  (add-to-list 'company-backends 'company-go t)
-  (add-to-list 'company-backends 'company-inf-ruby t)
-  (add-to-list 'company-backends 'company-tern t)
-  (add-to-list 'company-backends 'company-ycmd t)
+  (when (require 'company-auctex nil :noerror)
+    (add-to-list 'company-backends 'company-auctex t))
+
+  (when (require 'company-c-headers nil :noerror)
+    (add-to-list 'company-backends 'company-c-headers t))
+
+  (when (require 'company-ghc nil :noerror)
+    (add-to-list 'company-backends 'company-ghc t))
+
+  (when (require 'company-go nil :noerror)
+    (add-to-list 'company-backends 'company-go t))
+
+  (when (require 'company-inf-ruby nil :noerror)
+    (add-to-list 'company-backends 'company-inf-ruby t))
+
+  (when (require 'company-tern nil :noerror)
+    (add-to-list 'company-backends 'company-tern t))
+
+  (when (require 'company-ycmd nil :noerror)
+    (add-to-list 'company-backends 'company-ycmd t))
 
   (add-hook 'after-init-hook 'global-company-mode))
 
