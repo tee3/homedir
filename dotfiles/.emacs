@@ -486,6 +486,13 @@
 (when (require 'go-mode nil :noerror)
   (when (require 'go-eldoc nil :noerror)
     (add-hook 'go-mode-hook 'go-eldoc-setup))
+
+  (add-hook 'go-mode-hook (lambda ()
+                            ;; allow use of tags as it is required by go fmt
+			    (setq indent-tabs-mode t)
+
+                            ;; format before save
+                            (add-hook 'before-save-hook 'gofmt-before-save)))
   nil)
 
 ;;;
