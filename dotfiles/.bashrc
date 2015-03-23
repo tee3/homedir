@@ -126,8 +126,9 @@ if [ ! -z "$(which emacsclient 2> /dev/null)" ]; then
 fi
 
 # manage ssh-agent
-if [ -x /usr/bin/keychain ]; then
-    eval "$(/usr/bin/keychain --eval --quiet --nogui)"
+keychain=$(which keychain 2> /dev/null)
+if [ ! -z "${keychain}" ]; then
+    eval "$(${keychain} --eval --quiet --nogui)"
 fi
 
 # never use ccache, no matter what

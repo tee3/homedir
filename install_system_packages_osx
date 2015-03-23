@@ -130,6 +130,7 @@ brew install jsl
 brew install jsmin
 brew install json-c
 brew install jsonpp
+brew install keychain
 brew install legit
 brew install llvm
 brew install llvm33
