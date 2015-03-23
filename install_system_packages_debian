@@ -118,7 +118,6 @@ sudo aptitude install keychain
 #sudo aptitude install llvm34
 #sudo aptitude install llvm35
 #sudo aptitude install markdown
-#sudo aptitude install multimarkdown
 #sudo aptitude install mscgen
 #sudo aptitude install netcat
 #sudo aptitude install netperf

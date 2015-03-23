@@ -137,7 +137,6 @@ brew install llvm33
 brew install llvm34
 brew install llvm35
 brew install markdown
-brew install multimarkdown
 brew install mscgen --without-gd
 brew install netcat
 brew install netperf
