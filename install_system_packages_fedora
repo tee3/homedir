@@ -131,7 +131,7 @@ sudo yum install nuttcp
 #sudo yum install phantomjs
 #sudo yum install pinentry
 #sudo yum install pkg-config
-#sudo yum install shellcheck
+sudo yum install ShellCheck
 sudo yum install socat
 sudo yum install sqlite
 sudo yum install srecord

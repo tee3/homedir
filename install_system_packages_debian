@@ -134,7 +134,7 @@ sudo aptitude install nuttcp
 #sudo aptitude install phantomjs
 #sudo aptitude install pinentry
 #sudo aptitude install pkg-config
-#sudo aptitude install shellcheck
+sudo aptitude install shellcheck
 sudo aptitude install socat
 sudo aptitude install sqlite
 sudo aptitude install srecord
