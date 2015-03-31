@@ -157,7 +157,7 @@ sudo yum install v8
 sudo yum install vim
 #sudo yum install webp
 sudo yum install wget
-sudo yum install wireshark
+#sudo yum install wireshark
 #sudo yum install xctool
 #sudo yum install xmlformat
 #sudo yum install xmlstarlet
