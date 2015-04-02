@@ -178,7 +178,7 @@ brew install vegeta
 brew install vim
 brew install webp
 brew install wget
-brew install wireshark
+#brew install wireshark
 brew install xctool
 brew install xmlformat
 brew install xmlstarlet
