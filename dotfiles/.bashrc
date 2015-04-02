@@ -122,7 +122,7 @@ fi
 # Emacs
 if [ ! -z "$(which emacsclient 2> /dev/null)" ]; then
     export ALTERNATE_EDITOR=
-    export EDITOR=emacsclient
+    export EDITOR="emacsclient -a vi"
 fi
 
 # manage ssh-agent
