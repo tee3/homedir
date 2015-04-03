@@ -1,3 +1,3 @@
 set grid
-set terminal X11
+set terminal dumb
 set data style linespoints
