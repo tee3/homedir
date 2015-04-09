@@ -102,7 +102,7 @@ brew install gcc48
 # @todo the official Homebrew gcc is gcc49
 #brew install gcc49
 brew install git-flow
-brew install git-hooks --HEAD
+brew install git-hooks
 brew install glew
 brew install glfw3
 brew install glib
