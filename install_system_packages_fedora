@@ -83,6 +83,7 @@ sudo yum install gcc
 #sudo yum install gcc49
 #sudo yum install git-flow
 #sudo yum install git-hooks
+#sudo yum install git-lfs
 #sudo yum install glew
 #sudo yum install glfw3
 #sudo yum install glib
