@@ -783,7 +783,13 @@
 ;;; Python
 ;;;
 (when (require 'elpy nil :noerror)
-  (elpy-enable))
+  (elpy-enable)
+
+  ;; disable flymake if flycheck is available
+  (when (require 'flycheck nil t)
+    (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+    )
+  )
 
 ;;;
 ;;; Git modes
