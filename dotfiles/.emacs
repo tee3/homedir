@@ -50,12 +50,6 @@
  '(hide-ifdef-lines t)
  '(history-delete-duplicates t)
  '(icomplete-mode t)
- '(ido-case-fold nil)
- '(ido-everywhere t)
- '(ido-mode (quote both) nil (ido))
- '(ido-ubiquitous-mode t)
- '(ido-use-filename-at-point (quote guess))
- '(ido-use-url-at-point t)
  '(inferior-js-program-command "v8 --shell")
  '(inferior-octave-startup-args (quote ("--traditional")))
  '(inhibit-startup-screen t)
@@ -429,6 +423,23 @@
        zen-and-art-theme
        zenburn-theme
        zonokai-theme))))
+
+;;;
+;;; Ido
+;;;
+(when (require 'ido nil :noerror)
+  ;; (ido-mode (quote both) nil (ido))
+  (ido-mode t)
+  (ido-everywhere)
+
+  (setq ido-use-filename-at-point 'guess)
+  (setq ido-use-url-at-point t)
+  (setq ido-confirm-unique-completion t)
+
+  (when (require 'ido-ubiquitous nil :noerror)
+    (ido-ubiquitous-mode t)
+    )
+  )
 
 ;;;
 ;;; vimrc mode
