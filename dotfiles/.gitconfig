@@ -18,6 +18,10 @@
 	pushmergeinfo = true
 	edit = false
 	followparent = true
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
 [include]
 	path = ~/.gitconfig.machine	
 	path = ~/.gitconfig.user
