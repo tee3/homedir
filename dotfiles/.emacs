@@ -271,6 +271,7 @@
        tern
        twittering-mode
        undo-tree
+       vc-fossil
        vimrc-mode
        writeroom-mode)))
 
