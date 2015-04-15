@@ -274,46 +274,6 @@
        vimrc-mode
        writeroom-mode)))
 
-  ;; Install Emacs 24 packages
-  ;; @todo not in melpa-stable or marmalade
-  ;; (when (>= emacs-major-version 24)
-  ;;   (mapc
-  ;;    (lambda (package)
-  ;;      (or (package-installed-p package)
-  ;;          (package-install package)))
-
-  ;;    '(dired+
-  ;;      dired-details
-  ;;      dired-details+
-  ;;      dired-single
-  ;;      markup-faces
-  ;;      ssh-config-mode
-  ;;      tfs
-  ;;      thesaurus
-  ;;      vc-fossil
-  ;;      vimrc-mode
-  ;;      asn1-mode
-  ;;      go-direx
-  ;;      go-errcheck
-  ;;      go-snippets
-  ;;      jss
-  ;;      dash-at-point
-  ;;      disaster
-  ;;      dummy-h-mode
-  ;;      fsharp-mode
-  ;;      git-blame
-  ;;      git-dwim
-  ;;      glsl-mode
-  ;;      gnuplot-mode
-  ;;      go-autocomplete
-  ;;      google-c-style
-  ;;      launch
-  ;;      markdown-mode+
-  ;;      nav
-  ;;      powershell-mode
-  ;;      ruby-electric
-  ;;      sublimity)))
-
   ;; Install themes only Emacs 24.
   (when (>= emacs-major-version 24)
     (mapc
