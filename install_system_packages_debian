@@ -84,6 +84,7 @@ sudo aptitude install gcc
 #sudo aptitude install gcc47
 #sudo aptitude install gcc48
 #sudo aptitude install gcc49
+#sudo aptitude install gcc5
 #sudo aptitude install git-flow
 #sudo aptitude install git-hooks
 #sudo aptitude install git-lfs

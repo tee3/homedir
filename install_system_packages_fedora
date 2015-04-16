@@ -81,6 +81,7 @@ sudo yum install gcc
 #sudo yum install gcc47
 #sudo yum install gcc48
 #sudo yum install gcc49
+#sudo yum install gcc5
 #sudo yum install git-flow
 #sudo yum install git-hooks
 #sudo yum install git-lfs
