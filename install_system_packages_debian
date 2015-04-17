@@ -125,7 +125,7 @@ sudo aptitude install llvm
 #sudo aptitude install netcat
 #sudo aptitude install netperf
 sudo aptitude install nmap
-sudo aptitude install node
+sudo aptitude install nodejs
 sudo aptitude install nuttcp
 #sudo aptitude install ntfs-3g
 #sudo aptitude install osxfuse
