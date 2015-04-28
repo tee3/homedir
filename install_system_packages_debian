@@ -114,7 +114,6 @@ sudo aptitude install jam
 #sudo aptitude install jsmin
 #sudo aptitude install json-c
 #sudo aptitude install jsonpp
-sudo aptitude install keychain
 #sudo aptitude install legit
 sudo aptitude install llvm
 #sudo aptitude install llvm33

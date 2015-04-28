@@ -125,13 +125,6 @@ if [ ! -z "$(which emacsclient 2> /dev/null)" ]; then
     export EDITOR="emacsclient -a vi"
 fi
 
-### @todo disable as it seems to break forwarding
-### # manage ssh-agent
-### keychain=$(which keychain 2> /dev/null)
-### if [ ! -z "${keychain}" ]; then
-###     eval "$(${keychain} --eval --quiet --nogui)"
-### fi
-
 # never use ccache, no matter what
 export CCACHE_DISABLE=""
 
