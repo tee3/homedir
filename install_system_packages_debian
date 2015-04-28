@@ -166,7 +166,7 @@ sudo aptitude install tig
 sudo aptitude install tmux
 sudo aptitude install tree
 #sudo aptitude install v8
-#sudo aptitude install vim
+sudo aptitude install vim
 #sudo aptitude install vegeta
 #sudo aptitude install webp
 sudo aptitude install wget
