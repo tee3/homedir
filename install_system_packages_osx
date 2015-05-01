@@ -43,7 +43,7 @@ for t in ${brew_taps} ; do brew tap "${t}" ; done
 brew update
 
 # upgrade existing packages
-brew upgrade
+brew upgrade --all
 
 # install interpreters prior to other packages
 # @todo use system python
