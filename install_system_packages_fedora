@@ -94,6 +94,7 @@ sudo yum install gcc-c++
 #sudo yum install git-flow
 #sudo yum install git-hooks
 #sudo yum install git-lfs
+#sudo yum install git-test
 #sudo yum install glew
 #sudo yum install glfw3
 #sudo yum install glib
