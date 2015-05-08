@@ -304,11 +304,13 @@
        darcula-theme
        darkburn-theme
        darkmine-theme
+       darktooth-theme
        deep-thought-theme
        distinguished-theme
        django-theme
        eclipse-theme
        espresso-theme
+       farmhouse-theme
        firebelly-theme
        flatland-theme
        flatui-theme
@@ -316,6 +318,7 @@
        github-theme
        gotham-theme
        grandshell-theme
+       greymatters-theme
        gruber-darker-theme
        gruvbox-theme
        hc-zenburn-theme
@@ -327,9 +330,12 @@
        jazz-theme
        jujube-theme
        late-night-theme
+       lenlen-theme
        leuven-theme
        light-soap-theme
        lush-theme
+       material-theme
+       mbo70s-theme
        minimal-theme
        moe-theme
        molokai-theme
@@ -347,6 +353,7 @@
        pastels-on-dark-theme
        phoenix-dark-mono-theme
        phoenix-dark-pink-theme
+       plan9-theme
        planet-theme
        professional-theme
        purple-haze-theme
@@ -367,6 +374,8 @@
        subatomic-theme
        subatomic256-theme
        sunny-day-theme
+       tango-plus-theme
+       tao-theme
        tangotango-theme
        tommyh-theme
        toxi-theme
