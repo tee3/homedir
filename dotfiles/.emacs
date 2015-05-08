@@ -859,7 +859,10 @@
 ;;; Projectile mode
 ;;;
 (when (require 'projectile nil :noerror)
-  (projectile-global-mode))
+  (projectile-global-mode)
+
+  ;; @tood workaround for an issue with tramp
+  (setq projectile-mode-line " Projectile"))
 
 ;;;
 ;;; Helm mode
