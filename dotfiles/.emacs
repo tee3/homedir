@@ -285,6 +285,7 @@
        helm-flyspell
        helm-projectile
        hide-comnt
+       howdoi
        ibuffer-git
        ibuffer-vc
        ido-ubiquitous
