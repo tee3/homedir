@@ -260,9 +260,20 @@
        gitconfig-mode
        gitignore-mode
        glsl-mode
+       go-autocomplete
+       go-direx
        go-eldoc
+       go-errcheck
+       go-play
+       go-projectile
+       go-snippets
+       go-stacktracer
+       golint
        google-c-style
        google-this
+       gore-mode
+       gotest
+       govet
        gtags
        helm
        helm-flycheck
