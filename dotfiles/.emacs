@@ -326,6 +326,7 @@
        swift-mode
        tern
        tfs
+       thesaurus
        twittering-mode
        undo-tree
        vc-fossil
