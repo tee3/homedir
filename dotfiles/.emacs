@@ -157,7 +157,6 @@
 (init-install-package 'dash)
 (init-install-package 'dedicated)
 (init-install-package 'diff-hl)
-(init-install-package 'docbook)
 (init-install-package 'dot-mode)
 (init-install-package 'ctable)
 (init-install-package 'emamux)
@@ -167,22 +166,15 @@
 (init-install-package 'find-file-in-repository)
 (init-install-package 'flyspell-lazy)
 (init-install-package 'geiser)
-(init-install-package 'gnuplot)
-(init-install-package 'go-mode)
 (init-install-package 'graphviz-dot-mode)
 (init-install-package 'guru-mode)
 (init-install-package 'haskell-mode)
-(init-install-package 'inf-ruby)
 (init-install-package 'irfc)
 (init-install-package 'jade-mode)
-(init-install-package 'jam-mode)
-(init-install-package 'js-comint)
 (init-install-package 'list-utils)
 (init-install-package 'lua-mode)
 (init-install-package 'mustache-mode)
 (init-install-package 'nginx-mode)
-(init-install-package 'nodejs-repl)
-(init-install-package 'nose)
 (init-install-package 'oauth)
 (init-install-package 'org)
 (init-install-package 'p4)
@@ -190,11 +182,8 @@
 (init-install-package 'pov-mode)
 (init-install-package 'processing-mode)
 (init-install-package 'processing-snippets)
-(init-install-package 'projectile)
 (init-install-package 'protobuf-mode)
 (init-install-package 'psvn)
-(init-install-package 'py-autopep8)
-(init-install-package 'rbenv)
 (init-install-package 's)
 (init-install-package 'sphinx-frontend)
 (init-install-package 'ssh)
@@ -208,30 +197,14 @@
 (init-install-package 'toml-mode)
 (init-install-package 'use-package)
 (init-install-package 'vimgolf)
-(init-install-package 'virtualenv)
 (init-install-package 'web-mode)
 (init-install-package 'websocket)
 (init-install-package 'yaml-mode)
 (init-install-package 'applescript-mode)
-(init-install-package 'bundler)
 (init-install-package 'c-eldoc)
-(init-install-package 'cmake-mode)
-(init-install-package 'cmake-font-lock)
-(init-install-package 'cmake-project)
-(init-install-package 'coffee-mode)
-(init-install-package 'company)
-(init-install-package 'company-auctex)
-(init-install-package 'company-c-headers)
-(init-install-package 'company-ghc)
-(init-install-package 'company-go)
-(init-install-package 'company-inf-ruby)
-(init-install-package 'company-tern)
-(init-install-package 'company-ycmd)
 (init-install-package 'cperl-mode)
 (init-install-package 'cppcheck)
-(init-install-package 'cpputils-cmake)
 (init-install-package 'creole-mode)
-;; (init-install-package 'csharp-mode)
 (init-install-package 'ctags)
 (init-install-package 'cuda-mode)
 (init-install-package 'darkroom)
@@ -247,95 +220,43 @@
 (init-install-package 'dropbox)
 (init-install-package 'dummy-h-mode)
 (init-install-package 'electric-case)
-(init-install-package 'elpy)
-(init-install-package 'expand-region)
 (init-install-package 'fish-mode)
-(init-install-package 'flycheck)
-(init-install-package 'flycheck-google-cpplint)
-(init-install-package 'flycheck-irony)
-(init-install-package 'flycheck-package)
-(init-install-package 'flycheck-pyflakes)
-(init-install-package 'flycheck-ycmd)
 (init-install-package 'fm)
-(init-install-package 'gist)
-(init-install-package 'git-gutter)
-(init-install-package 'git-gutter-fringe)
-(init-install-package 'git-link)
-(init-install-package 'git-messenger)
-(init-install-package 'gitattributes-mode)
-(init-install-package 'gitconfig)
-(init-install-package 'gitconfig-mode)
-(init-install-package 'gitignore-mode)
 (init-install-package 'glsl-mode)
-(init-install-package 'gnuplot-mode)
-(init-install-package 'go-autocomplete)
-(init-install-package 'go-direx)
-(init-install-package 'go-eldoc)
-(init-install-package 'go-errcheck)
-(init-install-package 'go-play)
-(init-install-package 'go-projectile)
-(init-install-package 'go-snippets)
-(init-install-package 'go-stacktracer)
-(init-install-package 'golint)
 (init-install-package 'google-c-style)
 (init-install-package 'google-this)
-(init-install-package 'gore-mode)
-(init-install-package 'gotest)
-(init-install-package 'govet)
 (init-install-package 'gtags)
-(init-install-package 'helm)
-(init-install-package 'helm-flycheck)
-(init-install-package 'helm-flyspell)
-(init-install-package 'helm-projectile)
 (init-install-package 'hide-comnt)
 (init-install-package 'howdoi)
 (init-install-package 'ibuffer-git)
-(init-install-package 'ibuffer-projectile)
 (init-install-package 'ibuffer-tramp)
 (init-install-package 'ibuffer-vc)
-(init-install-package 'ido-ubiquitous)
 (init-install-package 'ioccur)
 (init-install-package 'irony)
 (init-install-package 'irony-eldoc)
 (init-install-package 'jabber)
 (init-install-package 'jgraph-mode)
-(init-install-package 'json)
-(init-install-package 'json-mode)
-(init-install-package 'jss)
 (init-install-package 'malinka)
-(init-install-package 'markdown-mode)
-(init-install-package 'markdown-mode+)
 (init-install-package 'markup-faces)
-(init-install-package 'matlab-mode)
 (init-install-package 'monky)
 (init-install-package 'nav)
 (init-install-package 'nav-flash)
 (init-install-package 'ninja-mode)
 (init-install-package 'nlinum)
 (init-install-package 'noccur)
-(init-install-package 'nose-mode)
 (init-install-package 'ntcmd)
 (init-install-package 'objc-font-lock)
-;; (init-install-package 'omnisharp)
 (init-install-package 'osx-plist)
 (init-install-package 'pandoc-mode)
 (init-install-package 'pcache)
-(init-install-package 'pip-requirements)
 (init-install-package 'persistent-soft)
 (init-install-package 'popup)
 (init-install-package 'powershell)
 (init-install-package 'rainbow-delimiters)
 (init-install-package 'rainbow-identifiers)
-(init-install-package 'rspec-mode)
-(init-install-package 'ruby-compilation)
-(init-install-package 'ruby-electric)
-(init-install-package 'ruby-mode)
 (init-install-package 'simple-httpd)
-(init-install-package 'smart-mode-line)
 (init-install-package 'smooth-scroll)
-(init-install-package 'ssh-config-mode)
 (init-install-package 'sublimity)
-;; (init-install-package 'swift-mode)
 (init-install-package 'tern)
 (init-install-package 'tfs)
 (init-install-package 'thesaurus)
@@ -343,128 +264,14 @@
 (init-install-package 'undo-tree)
 (init-install-package 'vc-fossil)
 (init-install-package 'vc-tfs)
-(init-install-package 'vimrc-mode)
 (init-install-package 'wonderland)
 (init-install-package 'writeroom-mode)
 
 ;;;
-;;; Install Emacs 24 themes
-;;;
-(init-install-package 'afternoon-theme)
-(init-install-package 'ahungry-theme)
-(init-install-package 'alect-themes)
-(init-install-package 'ample-theme)
-(init-install-package 'ample-zen-theme)
-(init-install-package 'anti-zenburn-theme)
-(init-install-package 'assemblage-theme)
-(init-install-package 'atom-dark-theme)
-(init-install-package 'badger-theme)
-(init-install-package 'base16-theme)
-(init-install-package 'basic-theme)
-(init-install-package 'birds-of-paradise-plus-theme)
-(init-install-package 'bubbleberry-theme)
-(init-install-package 'busybee-theme)
-(init-install-package 'calmer-forest-theme)
-(init-install-package 'cherry-blossom-theme)
-(init-install-package 'clues-theme)
-(init-install-package 'cyberpunk-theme)
-(init-install-package 'dakrone-theme)
-(init-install-package 'darcula-theme)
-(init-install-package 'darkburn-theme)
-(init-install-package 'darkmine-theme)
-(init-install-package 'darktooth-theme)
-(init-install-package 'deep-thought-theme)
-(init-install-package 'distinguished-theme)
-(init-install-package 'django-theme)
-(init-install-package 'eclipse-theme)
-(init-install-package 'espresso-theme)
-(init-install-package 'farmhouse-theme)
-(init-install-package 'firebelly-theme)
-(init-install-package 'flatland-theme)
-(init-install-package 'flatui-theme)
-(init-install-package 'gandalf-theme)
-(init-install-package 'github-theme)
-(init-install-package 'gotham-theme)
-(init-install-package 'grandshell-theme)
-(init-install-package 'greymatters-theme)
-(init-install-package 'gruber-darker-theme)
-(init-install-package 'gruvbox-theme)
-(init-install-package 'hc-zenburn-theme)
-(init-install-package 'hemisu-theme)
-(init-install-package 'heroku-theme)
-(init-install-package 'hipster-theme)
-(init-install-package 'inkpot-theme)
-(init-install-package 'ir-black-theme)
-(init-install-package 'jazz-theme)
-(init-install-package 'jujube-theme)
-(init-install-package 'late-night-theme)
-(init-install-package 'lenlen-theme)
-(init-install-package 'leuven-theme)
-(init-install-package 'light-soap-theme)
-(init-install-package 'lush-theme)
-(init-install-package 'material-theme)
-(init-install-package 'mbo70s-theme)
-(init-install-package 'minimal-theme)
-(init-install-package 'moe-theme)
-(init-install-package 'molokai-theme)
-(init-install-package 'monochrome-theme)
-(init-install-package 'monokai-theme)
-(init-install-package 'mustang-theme)
-(init-install-package 'naquadah-theme)
-(init-install-package 'niflheim-theme)
-(init-install-package 'noctilux-theme)
-(init-install-package 'nzenburn-theme)
-(init-install-package 'obsidian-theme)
-(init-install-package 'occidental-theme)
-(init-install-package 'oldlace-theme)
-(init-install-package 'organic-green-theme)
-(init-install-package 'pastels-on-dark-theme)
-(init-install-package 'phoenix-dark-mono-theme)
-(init-install-package 'phoenix-dark-pink-theme)
-(init-install-package 'plan9-theme)
-(init-install-package 'planet-theme)
-(init-install-package 'professional-theme)
-(init-install-package 'purple-haze-theme)
-(init-install-package 'qsimpleq-theme)
-(init-install-package 'railscasts-theme)
-(init-install-package 'sea-before-storm-theme)
-(init-install-package 'seti-theme)
-(init-install-package 'smyx-theme)
-(init-install-package 'soft-charcoal-theme)
-(init-install-package 'soft-morning-theme)
-(init-install-package 'soft-stone-theme)
-(init-install-package 'solarized-theme)
-(init-install-package 'soothe-theme)
-(init-install-package 'spacegray-theme)
-(init-install-package 'steady-theme)
-(init-install-package 'stekene-theme)
-(init-install-package 'sublime-themes)
-(init-install-package 'subatomic-theme)
-(init-install-package 'subatomic256-theme)
-(init-install-package 'sunny-day-theme)
-(init-install-package 'tango-plus-theme)
-(init-install-package 'tao-theme)
-(init-install-package 'tangotango-theme)
-(init-install-package 'tommyh-theme)
-(init-install-package 'toxi-theme)
-(init-install-package 'tron-theme)
-(init-install-package 'tronesque-theme)
-(init-install-package 'twilight-theme)
-(init-install-package 'twilight-anti-bright-theme)
-(init-install-package 'twilight-bright-theme)
-(init-install-package 'ubuntu-theme)
-(init-install-package 'ujelly-theme)
-(init-install-package 'underwater-theme)
-(init-install-package 'waher-theme)
-(init-install-package 'warm-night-theme)
-(init-install-package 'yoshi-theme)
-(init-install-package 'zen-and-art-theme)
-(init-install-package 'zenburn-theme)
-(init-install-package 'zonokai-theme)
-
-;;;
 ;;; Ido
 ;;;
+(init-install-package 'ido-ubiquitous)
+
 (when (require 'ido nil :noerror)
   ;; (ido-mode (quote both) nil (ido))
   (ido-mode t)
@@ -482,6 +289,8 @@
 ;;;
 ;;; vimrc mode
 ;;;
+(init-install-package 'vimrc-mode)
+
 (when (require 'vimrc-mode nil :noerror)
   )
 
@@ -503,6 +312,8 @@
 ;;;
 ;;; Jamfile mode
 ;;;
+(init-install-package 'jam-mode)
+
 (when (require 'jam-mode nil :noerror)
 
   (add-to-list 'auto-mode-alist '("[Jj]amroot\\'" . jam-mode))
@@ -518,6 +329,11 @@
 ;;;
 ;;; CMake mode.
 ;;;
+(init-install-package 'cmake-mode)
+(init-install-package 'cmake-font-lock)
+(init-install-package 'cmake-project)
+(init-install-package 'cpputils-cmake)
+
 (when (require 'cmake-mode nil :noerror)
 
   (add-to-list 'auto-mode-alist '("CMakeLists\\.txt\\'" . cmake-mode))
@@ -526,6 +342,9 @@
 ;;;
 ;;; Gnuplot mode
 ;;;
+(init-install-package 'gnuplot)
+(init-install-package 'gnuplot-mode)
+
 (when (require 'gnuplot-mode nil :noerror)
 
   (add-to-list 'auto-mode-alist '("\\.gp\\'" . gnuplot-mode)))
@@ -533,6 +352,21 @@
 ;;;
 ;;; Go mode
 ;;;
+(init-install-package 'go-mode)
+(init-install-package 'company-go)
+(init-install-package 'go-autocomplete)
+(init-install-package 'go-direx)
+(init-install-package 'go-eldoc)
+(init-install-package 'go-errcheck)
+(init-install-package 'go-play)
+(init-install-package 'go-projectile)
+(init-install-package 'go-snippets)
+(init-install-package 'go-stacktracer)
+(init-install-package 'golint)
+(init-install-package 'gore-mode)
+(init-install-package 'gotest)
+(init-install-package 'govet)
+
 (when (require 'go-mode nil :noerror)
   (when (require 'go-eldoc nil :noerror)
     (add-hook 'go-mode-hook 'go-eldoc-setup))
@@ -548,12 +382,16 @@
 ;;;
 ;;; Swift mode
 ;;;
+;; (init-install-package 'swift-mode)
+
 (when (require 'swift-mode nil :noerror)
   nil)
 
 ;;;
 ;;; MATLAB mode
 ;;;
+(init-install-package 'matlab-mode)
+
 (when (require 'matlab nil :noerror)
 
   (add-to-list 'auto-mode-alist '("\\.m\\'" . matlab-mode)))
@@ -574,6 +412,15 @@
 ;;;
 ;;; Ruby mode
 ;;;
+(init-install-package 'company-inf-ruby)
+(init-install-package 'inf-ruby)
+(init-install-package 'rbenv)
+(init-install-package 'rspec-mode)
+(init-install-package 'ruby-compilation)
+(init-install-package 'ruby-electric)
+(init-install-package 'ruby-mode)
+(init-install-package 'bundler)
+
 (when (require 'ruby-mode nil :noerror)
 
   (add-to-list 'auto-mode-alist '("[Rr]akefile\\'" . ruby-mode))
@@ -582,6 +429,9 @@
 ;;;
 ;;; JSON mode
 ;;;
+(init-install-package 'json)
+(init-install-package 'json-mode)
+
 (when (require 'json-mode nil :noerror)
 
   (add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode)))
@@ -613,6 +463,9 @@
 ;;;
 ;;; C# mode
 ;;;
+;; (init-install-package 'csharp-mode)
+;; (init-install-package 'omnisharp)
+
 (when (require 'csharp-mode nil :noerror)
   )
 
@@ -637,12 +490,16 @@
 ;;;
 ;;; DocBook
 ;;;
+(init-install-package 'docbook)
+
 (when (require 'nxml nil :noerror)
   (add-to-list 'auto-mode-alist '("\\.docbook\\'" . nxml-mode)))
 
 ;;;
 ;;; SSH Configuration Files
 ;;;
+(init-install-package 'ssh-config-mode)
+
 (when (require 'ssh-config-mode nil :noerror)
 
   (add-to-list 'auto-mode-alist '(".ssh/config\\'"  . ssh-config-mode))
@@ -790,6 +647,16 @@
 ;;;
 ;;; Customizations for JavaScript
 ;;;
+(init-install-package 'js-comint)
+(init-install-package 'jss)
+
+(init-install-package 'tern)
+(init-install-package 'company-tern)
+
+(init-install-package 'nodejs-repl)
+
+(init-install-package 'coffee-mode)
+
 (when (require 'tern nil :noerror)
   (add-hook 'js-mode-hook (lambda ()
                             (tern-mode t))))
@@ -812,6 +679,9 @@
 ;;;
 ;;; Markdown mode
 ;;;
+(init-install-package 'markdown-mode)
+(init-install-package 'markdown-mode+)
+
 (when (require 'markdown-mode nil :noerror)
 
   (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
@@ -820,6 +690,14 @@
 ;;;
 ;;; Python
 ;;;
+(init-install-package 'py-autopep8)
+(init-install-package 'elpy)
+(init-install-package 'flycheck-pyflakes)
+(init-install-package 'pip-requirements)
+(init-install-package 'nose)
+(init-install-package 'nose-mode)
+(init-install-package 'virtualenv)
+
 (when (require 'elpy nil :noerror)
   (elpy-enable)
 
@@ -832,6 +710,18 @@
 ;;;
 ;;; Git modes
 ;;;
+(init-install-package 'gitattributes-mode)
+(init-install-package 'gitconfig-mode)
+(init-install-package 'gitignore-mode)
+
+(init-install-package 'git-gutter)
+(init-install-package 'git-gutter-fringe)
+(init-install-package 'git-link)
+(init-install-package 'git-messenger)
+(init-install-package 'gitconfig)
+
+(init-install-package 'gist)
+
 (when (require 'gitconfig-mode nil :noerror)
 
   (add-to-list 'auto-mode-alist '("\\.gitconfig.*\\'" . gitconfig-mode))
@@ -882,12 +772,24 @@
 ;;;
 ;;; Flycheck mode
 ;;;
+(init-install-package 'flycheck)
+(init-install-package 'flycheck-google-cpplint)
+(init-install-package 'flycheck-irony)
+(init-install-package 'flycheck-package)
+(init-install-package 'flycheck-ycmd)
+
 (when (>= emacs-major-version 24)
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
 ;;;
 ;;; Company (completion) mode
 ;;;
+(init-install-package 'company)
+(init-install-package 'company-auctex)
+(init-install-package 'company-c-headers)
+(init-install-package 'company-ghc)
+(init-install-package 'company-ycmd)
+
 (when (require 'company nil :noerror)
   (when (require 'company-auctex nil :noerror)
     (add-to-list 'company-backends 'company-auctex t))
@@ -926,6 +828,9 @@
 ;;;
 ;;; Projectile mode
 ;;;
+(init-install-package 'projectile)
+(init-install-package 'ibuffer-projectile)
+
 (when (require 'projectile nil :noerror)
   (projectile-global-mode)
 
@@ -935,6 +840,11 @@
 ;;;
 ;;; Helm mode
 ;;;
+(init-install-package 'helm)
+(init-install-package 'helm-flycheck)
+(init-install-package 'helm-flyspell)
+(init-install-package 'helm-projectile)
+
 (when (require 'helm nil :noerror)
   (helm-mode 1)
 
@@ -952,6 +862,7 @@
 ;;;
 ;;; Expand region
 ;;;
+(init-install-package 'expand-region)
 (when (require 'expand-region nil :noerror)
   (global-set-key (kbd "C-c =") 'er/expand-region))
 
@@ -966,6 +877,7 @@
 ;;;
 ;;; Smart mode line
 ;;;
+(init-install-package 'smart-mode-line)
 (when (require 'smart-mode-line nil :noerror)
   (setq sml/theme nil)
 
@@ -974,6 +886,118 @@
 ;;;
 ;;; Theme
 ;;;
+(init-install-package 'afternoon-theme)
+(init-install-package 'ahungry-theme)
+(init-install-package 'alect-themes)
+(init-install-package 'ample-theme)
+(init-install-package 'ample-zen-theme)
+(init-install-package 'anti-zenburn-theme)
+(init-install-package 'assemblage-theme)
+(init-install-package 'atom-dark-theme)
+(init-install-package 'badger-theme)
+(init-install-package 'base16-theme)
+(init-install-package 'basic-theme)
+(init-install-package 'birds-of-paradise-plus-theme)
+(init-install-package 'bubbleberry-theme)
+(init-install-package 'busybee-theme)
+(init-install-package 'calmer-forest-theme)
+(init-install-package 'cherry-blossom-theme)
+(init-install-package 'clues-theme)
+(init-install-package 'cyberpunk-theme)
+(init-install-package 'dakrone-theme)
+(init-install-package 'darcula-theme)
+(init-install-package 'darkburn-theme)
+(init-install-package 'darkmine-theme)
+(init-install-package 'darktooth-theme)
+(init-install-package 'deep-thought-theme)
+(init-install-package 'distinguished-theme)
+(init-install-package 'django-theme)
+(init-install-package 'eclipse-theme)
+(init-install-package 'espresso-theme)
+(init-install-package 'farmhouse-theme)
+(init-install-package 'firebelly-theme)
+(init-install-package 'flatland-theme)
+(init-install-package 'flatui-theme)
+(init-install-package 'gandalf-theme)
+(init-install-package 'github-theme)
+(init-install-package 'gotham-theme)
+(init-install-package 'grandshell-theme)
+(init-install-package 'greymatters-theme)
+(init-install-package 'gruber-darker-theme)
+(init-install-package 'gruvbox-theme)
+(init-install-package 'hc-zenburn-theme)
+(init-install-package 'hemisu-theme)
+(init-install-package 'heroku-theme)
+(init-install-package 'hipster-theme)
+(init-install-package 'inkpot-theme)
+(init-install-package 'ir-black-theme)
+(init-install-package 'jazz-theme)
+(init-install-package 'jujube-theme)
+(init-install-package 'late-night-theme)
+(init-install-package 'lenlen-theme)
+(init-install-package 'leuven-theme)
+(init-install-package 'light-soap-theme)
+(init-install-package 'lush-theme)
+(init-install-package 'material-theme)
+(init-install-package 'mbo70s-theme)
+(init-install-package 'minimal-theme)
+(init-install-package 'moe-theme)
+(init-install-package 'molokai-theme)
+(init-install-package 'monochrome-theme)
+(init-install-package 'monokai-theme)
+(init-install-package 'mustang-theme)
+(init-install-package 'naquadah-theme)
+(init-install-package 'niflheim-theme)
+(init-install-package 'noctilux-theme)
+(init-install-package 'nzenburn-theme)
+(init-install-package 'obsidian-theme)
+(init-install-package 'occidental-theme)
+(init-install-package 'oldlace-theme)
+(init-install-package 'organic-green-theme)
+(init-install-package 'pastels-on-dark-theme)
+(init-install-package 'phoenix-dark-mono-theme)
+(init-install-package 'phoenix-dark-pink-theme)
+(init-install-package 'plan9-theme)
+(init-install-package 'planet-theme)
+(init-install-package 'professional-theme)
+(init-install-package 'purple-haze-theme)
+(init-install-package 'qsimpleq-theme)
+(init-install-package 'railscasts-theme)
+(init-install-package 'sea-before-storm-theme)
+(init-install-package 'seti-theme)
+(init-install-package 'smyx-theme)
+(init-install-package 'soft-charcoal-theme)
+(init-install-package 'soft-morning-theme)
+(init-install-package 'soft-stone-theme)
+(init-install-package 'solarized-theme)
+(init-install-package 'soothe-theme)
+(init-install-package 'spacegray-theme)
+(init-install-package 'steady-theme)
+(init-install-package 'stekene-theme)
+(init-install-package 'sublime-themes)
+(init-install-package 'subatomic-theme)
+(init-install-package 'subatomic256-theme)
+(init-install-package 'sunny-day-theme)
+(init-install-package 'tango-plus-theme)
+(init-install-package 'tao-theme)
+(init-install-package 'tangotango-theme)
+(init-install-package 'tommyh-theme)
+(init-install-package 'toxi-theme)
+(init-install-package 'tron-theme)
+(init-install-package 'tronesque-theme)
+(init-install-package 'twilight-theme)
+(init-install-package 'twilight-anti-bright-theme)
+(init-install-package 'twilight-bright-theme)
+(init-install-package 'ubuntu-theme)
+(init-install-package 'ujelly-theme)
+(init-install-package 'underwater-theme)
+(init-install-package 'waher-theme)
+(init-install-package 'warm-night-theme)
+(init-install-package 'yoshi-theme)
+(init-install-package 'zen-and-art-theme)
+(init-install-package 'zenburn-theme)
+(init-install-package 'zonokai-theme)
+
 (when (>= emacs-major-version 24)
   (cond ((display-graphic-p)
          (when (member 'solarized-dark (custom-available-themes))
