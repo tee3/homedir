@@ -199,6 +199,7 @@
        tidy
        todotxt
        toml-mode
+       use-package
        vimgolf
        virtualenv
        web-mode
@@ -304,6 +305,7 @@
        vc-fossil
        vc-tfs
        vimrc-mode
+       wonderland
        writeroom-mode)))
 
   ;; Install themes only Emacs 24.
