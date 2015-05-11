@@ -250,6 +250,7 @@
        electric-case
        elpy
        expand-region
+       fish-mode
        flycheck
        flycheck-google-cpplint
        flycheck-irony
