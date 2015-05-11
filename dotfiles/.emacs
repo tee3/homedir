@@ -233,6 +233,7 @@
        cppcheck
        cpputils-cmake
        creole-mode
+       ;; csharp-mode
        ctags
        cuda-mode
        darkroom
@@ -316,6 +317,7 @@
        nose-mode
        ntcmd
        objc-font-lock
+       ;; omnisharp
        osx-plist
        pandoc-mode
        pcache
