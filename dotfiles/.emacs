@@ -305,6 +305,7 @@
        monky
        nav
        nav-flash
+       ninja-mode
        nlinum
        noccur
        nose-mode
