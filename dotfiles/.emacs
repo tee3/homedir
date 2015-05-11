@@ -243,6 +243,7 @@
        dired-rainbow
        dired-single
        disaster
+       dockerfile-mode
        dos
        dropbox
        dummy-h-mode
