@@ -265,6 +265,7 @@
        gitconfig-mode
        gitignore-mode
        glsl-mode
+       gnuplot-mode
        go-autocomplete
        go-direx
        go-eldoc
