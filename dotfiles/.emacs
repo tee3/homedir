@@ -335,7 +335,7 @@
 (init-install-package 'smooth-scroll)
 (init-install-package 'ssh-config-mode)
 (init-install-package 'sublimity)
-(init-install-package 'swift-mode)
+;; (init-install-package 'swift-mode)
 (init-install-package 'tern)
 (init-install-package 'tfs)
 (init-install-package 'thesaurus)
