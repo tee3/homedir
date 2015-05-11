@@ -324,6 +324,7 @@
        rainbow-identifiers
        rspec-mode
        ruby-compilation
+       ruby-electric
        ruby-mode
        simple-httpd
        smart-mode-line
