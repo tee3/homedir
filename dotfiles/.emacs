@@ -254,6 +254,7 @@
        flycheck
        flycheck-google-cpplint
        flycheck-irony
+       flycheck-package
        flycheck-pyflakes
        flycheck-ycmd
        gist
