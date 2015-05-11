@@ -289,6 +289,7 @@
        howdoi
        ibuffer-git
        ibuffer-projectile
+       ibuffer-tramp
        ibuffer-vc
        ido-ubiquitous
        ioccur
