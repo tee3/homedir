@@ -300,6 +300,7 @@
        jgraph-mode
        json
        json-mode
+       jss
        malinka
        markdown-mode
        markdown-mode+
