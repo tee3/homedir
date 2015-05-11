@@ -183,6 +183,7 @@
        pos-tip
        pov-mode
        processing-mode
+       processing-snippets
        projectile
        protobuf-mode
        psvn
