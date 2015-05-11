@@ -189,6 +189,7 @@
        py-autopep8
        rbenv
        s
+       sphinx-frontend
        ssh
        string-utils
        sws-mode
@@ -227,6 +228,7 @@
        cperl-mode
        cppcheck
        cpputils-cmake
+       creole-mode
        ctags
        cuda-mode
        demangle-mode
@@ -271,6 +273,8 @@
        json-mode
        malinka
        markdown-mode
+       markdown-mode+
+       markup-faces
        monky
        nav-flash
        nose-mode
