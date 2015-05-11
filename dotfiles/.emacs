@@ -258,6 +258,7 @@
        flycheck-package
        flycheck-pyflakes
        flycheck-ycmd
+       fm
        gist
        git-gutter
        git-gutter-fringe
