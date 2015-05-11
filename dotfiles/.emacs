@@ -294,9 +294,11 @@
        ssh-config-mode
        swift-mode
        tern
+       tfs
        twittering-mode
        undo-tree
        vc-fossil
+       vc-tfs
        vimrc-mode
        writeroom-mode)))
 
