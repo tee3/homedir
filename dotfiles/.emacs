@@ -241,8 +241,11 @@
        flycheck-irony
        flycheck-pyflakes
        flycheck-ycmd
+       gist
        git-gutter
        git-gutter-fringe
+       git-link
+       git-messenger
        gitattributes-mode
        gitconfig
        gitconfig-mode
@@ -257,6 +260,8 @@
        helm-flyspell
        helm-projectile
        hide-comnt
+       ibuffer-git
+       ibuffer-vc
        ido-ubiquitous
        irony
        irony-eldoc
