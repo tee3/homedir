@@ -243,6 +243,7 @@
        dired-rainbow
        dired-single
        disaster
+       dos
        dropbox
        dummy-h-mode
        electric-case
