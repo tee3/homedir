@@ -301,6 +301,7 @@
        markdown-mode
        markdown-mode+
        markup-faces
+       matlab-mode
        monky
        nav
        nav-flash
