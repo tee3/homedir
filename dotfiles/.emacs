@@ -232,7 +232,13 @@
        creole-mode
        ctags
        cuda-mode
+       darkroom
        demangle-mode
+       dired+
+       dired-details
+       dired-details+
+       dired-rainbow
+       dired-single
        disaster
        dropbox
        dummy-h-mode
@@ -266,6 +272,7 @@
        ibuffer-git
        ibuffer-vc
        ido-ubiquitous
+       ioccur
        irony
        irony-eldoc
        jabber
@@ -277,7 +284,10 @@
        markdown-mode+
        markup-faces
        monky
+       nav
        nav-flash
+       nlinum
+       noccur
        nose-mode
        ntcmd
        objc-font-lock
@@ -297,6 +307,7 @@
        smart-mode-line
        smooth-scroll
        ssh-config-mode
+       sublimity
        swift-mode
        tern
        tfs
