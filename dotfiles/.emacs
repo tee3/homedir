@@ -186,6 +186,7 @@
        projectile
        protobuf-mode
        psvn
+       py-autopep8
        rbenv
        s
        ssh
@@ -238,6 +239,7 @@
        flycheck
        flycheck-google-cpplint
        flycheck-irony
+       flycheck-pyflakes
        flycheck-ycmd
        git-gutter
        git-gutter-fringe
@@ -266,11 +268,13 @@
        markdown-mode
        monky
        nav-flash
+       nose-mode
        ntcmd
        objc-font-lock
        osx-plist
        pandoc-mode
        pcache
+       pip-requirements
        persistent-soft
        popup
        powershell
