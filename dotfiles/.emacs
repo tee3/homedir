@@ -224,34 +224,50 @@
        company-tern
        company-ycmd
        cperl-mode
+       cppcheck
+       cpputils-cmake
        ctags
+       cuda-mode
+       demangle-mode
+       disaster
        dropbox
+       dummy-h-mode
        electric-case
        elpy
        expand-region
        flycheck
+       flycheck-google-cpplint
+       flycheck-irony
+       flycheck-ycmd
        git-gutter
        git-gutter-fringe
        gitattributes-mode
        gitconfig
        gitconfig-mode
        gitignore-mode
+       glsl-mode
        go-eldoc
+       google-c-style
        google-this
        gtags
        helm
        helm-flycheck
        helm-flyspell
        helm-projectile
+       hide-comnt
        ido-ubiquitous
+       irony
+       irony-eldoc
        jabber
        jgraph-mode
        json
        json-mode
+       malinka
        markdown-mode
        monky
        nav-flash
        ntcmd
+       objc-font-lock
        osx-plist
        pandoc-mode
        pcache
