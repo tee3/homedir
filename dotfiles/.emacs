@@ -217,6 +217,8 @@
        bundler
        c-eldoc
        cmake-mode
+       cmake-font-lock
+       cmake-project
        coffee-mode
        company
        company-auctex
