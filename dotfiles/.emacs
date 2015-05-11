@@ -288,6 +288,7 @@
        hide-comnt
        howdoi
        ibuffer-git
+       ibuffer-projectile
        ibuffer-vc
        ido-ubiquitous
        ioccur
