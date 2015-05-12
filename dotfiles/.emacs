@@ -1195,30 +1195,22 @@
 ;;;
 (use-package helm
   :ensure t
-  :defer t)
-(use-package helm-flycheck
-  :ensure t
-  :defer t)
-(use-package helm-flyspell
-  :ensure t
-  :defer t)
-(use-package helm-projectile
-  :ensure t
-  :defer t)
-
-(when (require 'helm nil :noerror)
-  (helm-mode 1)
-
-  (when (require 'helm-flycheck nil :noerror)
-    (eval-after-load 'flycheck
-      '(define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck))
-    )
-
-  (when (require 'helm-flyspell nil :noerror)
-    (eval-after-load 'flyspell
-      '(define-key flyspell-mode-map (kbd "C-;") 'helm-flyspell))
-    )
-  )
+  :defer t
+  :init
+  (use-package helm-flycheck
+    :ensure t
+    :defer t
+    :bind ("C-c ! h" . helm-flycheck))
+  (use-package helm-flyspell
+    :ensure t
+    :defer t
+    ;; @todo the :bind below does not work for some reason
+    :bind ("C-;" . helm-flyspell-correct))
+  (use-package helm-projectile
+    :ensure t
+    :defer t)
+  :config
+  (helm-mode 1))
 
 ;;;
 ;;; Expand region
