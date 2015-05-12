@@ -1044,12 +1044,24 @@
 ;;;
 ;;; Git modes
 ;;;
+(use-package ibuffer-git
+  :ensure t
+  :defer t)
+
 (use-package gitattributes-mode
   :ensure t
   :defer t)
 (use-package gitconfig-mode
   :ensure t
   :defer t)
+(when (require 'gitconfig-mode nil :noerror)
+
+  (add-to-list 'auto-mode-alist '("\\.gitconfig.*\\'" . gitconfig-mode))
+
+  ;; SubGit-generated Git submodules files
+  (add-to-list 'auto-mode-alist '("\\.gitsvnextmodules\\'" . gitconfig-mode))
+  ;; migration-generated Git submodules files
+  (add-to-list 'auto-mode-alist '("\\.gitsvnexternals\\'" . gitconfig-mode)))
 (use-package gitignore-mode
   :ensure t
   :defer t)
@@ -1060,9 +1072,6 @@
 (use-package git-gutter-fringe
   :ensure t
   :defer t)
-(use-package git-link
-  :ensure t
-  :defer t)
 (use-package git-messenger
   :ensure t
   :defer t)
@@ -1070,19 +1079,9 @@
 (use-package gist
   :ensure t
   :defer t)
-
-(use-package ibuffer-git
+(use-package git-link
   :ensure t
   :defer t)
-
-(when (require 'gitconfig-mode nil :noerror)
-
-  (add-to-list 'auto-mode-alist '("\\.gitconfig.*\\'" . gitconfig-mode))
-
-  ;; SubGit-generated Git submodules files
-  (add-to-list 'auto-mode-alist '("\\.gitsvnextmodules\\'" . gitconfig-mode))
-  ;; migration-generated Git submodules files
-  (add-to-list 'auto-mode-alist '("\\.gitsvnexternals\\'" . gitconfig-mode)))
 
 ;;;
 ;;; Code Composer Studio and DSP/BIOS mode
