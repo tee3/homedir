@@ -1164,12 +1164,12 @@
 (use-package projectile
   :ensure t
   :defer t
-  :diminish projectile-mode)
-(use-package ibuffer-projectile
-  :ensure t
-  :defer t)
+  :diminish projectile-mode
+  :init
+  (use-package ibuffer-projectile
+    :ensure t
+    :defer t)
 
-(when (require 'projectile nil :noerror)
   (projectile-global-mode)
 
   ;; @tood workaround for an issue with tramp
