@@ -1066,9 +1066,6 @@
 (use-package git-messenger
   :ensure t
   :defer t)
-(use-package gitconfig
-  :ensure t
-  :defer t)
 
 (use-package gist
   :ensure t
