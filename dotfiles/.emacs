@@ -234,44 +234,11 @@
   :ensure auctex
   :defer t)
 
-;;; C-family programming language
-(use-package c-eldoc
-  :ensure t
-  :defer t)
-(use-package cppcheck
-  :ensure t
-  :defer t)
+;;; OpenGL
 (use-package cuda-mode
   :ensure t
   :defer t)
-(use-package demangle-mode
-  :ensure t
-  :defer t)
-(use-package disaster
-  :ensure t
-  :defer t)
-(use-package dummy-h-mode
-  :ensure t
-  :defer t)
 (use-package glsl-mode
-  :ensure t
-  :defer t)
-(use-package google-c-style
-  :ensure t
-  :defer t)
-(use-package hide-comnt
-  :ensure t
-  :defer t)
-(use-package irony
-  :ensure t
-  :defer t)
-(use-package irony-eldoc
-  :ensure t
-  :defer t)
-(use-package objc-font-lock
-  :ensure t
-  :defer t)
-(use-package malinka
   :ensure t
   :defer t)
 
@@ -825,6 +792,37 @@
 ;;;
 ;;; C-family programming languages
 ;;;
+(use-package cppcheck
+  :ensure t
+  :defer t)
+(use-package demangle-mode
+  :ensure t
+  :defer t)
+(use-package disaster
+  :ensure t
+  :defer t)
+(use-package dummy-h-mode
+  :ensure t
+  :defer t)
+(use-package google-c-style
+  :ensure t
+  :defer t)
+(use-package hide-comnt
+  :ensure t
+  :defer t)
+(use-package irony
+  :ensure t
+  :defer t)
+(use-package irony-eldoc
+  :ensure t
+  :defer t)
+(use-package objc-font-lock
+  :ensure t
+  :defer t)
+(use-package malinka
+  :ensure t
+  :defer t)
+
 (defconst tbrown-c-style
   '((c-basic-offset . 3)
     (tab-width . 8)
@@ -937,6 +935,9 @@
      (hs-minor-mode t)
      ))
 
+(use-package c-eldoc
+  :ensure t
+  :defer t)
 (when (require 'c-eldoc nil :noerror)
   ;; add more as desired, superset of what you'd like to use
   (setq c-eldoc-includes "-I.")
