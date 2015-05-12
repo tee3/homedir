@@ -1194,9 +1194,6 @@
   (use-package flycheck-package
     :ensure t
     :defer t)
-  (use-package flycheck-ycmd
-    :ensure t
-    :defer t)
   :config
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
@@ -1207,14 +1204,32 @@
   :ensure t
   :defer t
   :diminish company-mode
-  :init
-  (use-package company-ycmd
-    :ensure t
-    :defer t
-    :config
-    (add-to-list 'company-backends 'company-ycmd t))
   :config
   (add-hook 'after-init-hook 'global-company-mode))
+
+;;;
+;;; YouCompleteMe
+;;;
+(use-package ycmd
+  :ensure t
+  :defer t
+  :init
+  (use-package company
+    :ensure t
+    :defer t
+    :init
+    (use-package company-ycmd
+      :ensure t
+      :defer t
+      :config
+      (add-to-list 'company-backends 'company-ycmd t)))
+  (use-package flycheck
+    :ensure t
+    :defer t
+    :init
+    (use-package flycheck-ycmd
+      :ensure t
+      :defer t)))
 
 ;;;
 ;;; rtags
