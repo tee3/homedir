@@ -746,7 +746,7 @@
   (elpy-enable)
 
   ;; disable flymake if flycheck is available
-  (when (require 'flycheck nil t)
+  (when (require 'flycheck nil :noerror)
     (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
     )
   )
