@@ -954,6 +954,9 @@
 (use-package tern
   :ensure t
   :defer t)
+(when (require 'tern nil :noerror)
+  (add-hook 'js-mode-hook (lambda ()
+                            (tern-mode t))))
 (use-package company-tern
   :ensure t
   :defer t)
@@ -971,10 +974,6 @@
 (use-package coffee-mode
   :ensure t
   :defer t)
-
-(when (require 'tern nil :noerror)
-  (add-hook 'js-mode-hook (lambda ()
-                            (tern-mode t))))
 
 ;;;
 ;;; Assembler programming language
