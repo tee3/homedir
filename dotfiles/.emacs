@@ -286,6 +286,11 @@
   :defer t)
 
 ;;; Emacs
+(use-package abbrev
+  :disabled t
+  :ensure t
+  :defer t
+  :diminish abbrev-mode)
 (use-package darkroom
   :ensure t
   :defer t)
