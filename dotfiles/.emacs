@@ -437,12 +437,6 @@
 (use-package howdoi
   :ensure t
   :defer t)
-(use-package rainbow-delimiters
-  :ensure t
-  :defer t)
-(use-package rainbow-identifiers
-  :ensure t
-  :defer t)
 
 ;;; Occur
 (use-package ioccur
@@ -1272,10 +1266,18 @@
 ;;;
 ;;; Rainbow modes
 ;;;
-;; (when (require 'rainbow-delimiters nil :noerror)
-;;   (global-rainbow-delimiters-mode))
-;; (when (require 'rainbow-identifiers nil :noerror)
-;;   (rainbow-identifiers-mode))
+(use-package rainbow-delimiters
+  :disabled t
+  :ensure t
+  :defer t
+  :config
+  (global-rainbow-delimiters-mode))
+(use-package rainbow-identifiers
+  :disabled t
+  :ensure t
+  :defer t
+  :config
+  (rainbow-identifiers-mode))
 
 ;;;
 ;;; Smart mode line
