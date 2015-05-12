@@ -967,6 +967,7 @@
   :ensure t
   :defer t)
 (use-package irony
+  :disabled t
   :ensure t
   :defer t
   :init
@@ -1211,6 +1212,7 @@
 ;;; YouCompleteMe
 ;;;
 (use-package ycmd
+  :disabled t
   :ensure t
   :defer t
   :init
