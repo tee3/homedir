@@ -1128,20 +1128,21 @@
 (use-package flycheck
   :ensure t
   :defer t
+  :init
+  (use-package flycheck-google-cpplint
+    :ensure t
+    :defer t)
+  (use-package flycheck-irony
+    :ensure t
+    :defer t)
+  (use-package flycheck-package
+    :ensure t
+    :defer t)
+  (use-package flycheck-ycmd
+    :ensure t
+    :defer t)
   :config
   (add-hook 'after-init-hook #'global-flycheck-mode))
-(use-package flycheck-google-cpplint
-  :ensure t
-  :defer t)
-(use-package flycheck-irony
-  :ensure t
-  :defer t)
-(use-package flycheck-package
-  :ensure t
-  :defer t)
-(use-package flycheck-ycmd
-  :ensure t
-  :defer t)
 
 ;;;
 ;;; Company completion
