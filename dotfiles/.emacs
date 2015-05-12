@@ -950,6 +950,13 @@
     :defer t
     :config
     (add-to-list 'company-backends 'company-c-headers t)))
+(use-package flycheck
+  :ensure t
+  :defer t
+  :init
+  (use-package flycheck-google-cpplint
+    :ensure t
+    :defer t))
 (use-package demangle-mode
   :ensure t
   :defer t)
@@ -1162,9 +1169,6 @@
   :defer t
   :diminish flycheck-mode
   :init
-  (use-package flycheck-google-cpplint
-    :ensure t
-    :defer t)
   (use-package flycheck-irony
     :ensure t
     :defer t)
