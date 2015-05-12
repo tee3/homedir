@@ -709,7 +709,6 @@
 ;;; Customizations for JavaScript
 ;;;
 (init-install-package 'js-comint)
-(init-install-package 'jss)
 
 (init-install-package 'tern)
 (init-install-package 'company-tern)
@@ -806,12 +805,12 @@
 
   (add-to-list 'auto-mode-alist '("\\.gel\\'" . c-mode)))
 
-(when (require 'js2-mode nil :noerror)
+(when (require 'js-mode nil :noerror)
 
-  (add-to-list 'auto-mode-alist '("\\.tcf\\'" . js2-mode))
-  (add-to-list 'auto-mode-alist '("\\.tci\\'" . js2-mode))
-  (add-to-list 'auto-mode-alist '("\\.tcp\\'" . js2-mode))
-  (add-to-list 'auto-mode-alist '("\\.xs\\'" . js2-mode)))
+  (add-to-list 'auto-mode-alist '("\\.tcf\\'" . js-mode))
+  (add-to-list 'auto-mode-alist '("\\.tci\\'" . js-mode))
+  (add-to-list 'auto-mode-alist '("\\.tcp\\'" . js-mode))
+  (add-to-list 'auto-mode-alist '("\\.xs\\'" . js-mode)))
 
 ;;;
 ;;; Programming mode hooks
