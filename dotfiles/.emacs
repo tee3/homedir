@@ -1009,7 +1009,12 @@
   :defer t)
 (use-package elpy
   :ensure t
-  :defer t)
+  :config
+  (elpy-enable)
+
+  ;; disable flymake if flycheck is available
+  (when (require 'flycheck nil :noerror)
+    (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))))
 (use-package flycheck-pyflakes
   :ensure t
   :defer t)
@@ -1022,15 +1027,6 @@
 (use-package virtualenv
   :ensure t
   :defer t)
-
-(when (require 'elpy nil :noerror)
-  (elpy-enable)
-
-  ;; disable flymake if flycheck is available
-  (when (require 'flycheck nil :noerror)
-    (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-    )
-  )
 
 ;;;
 ;;; Git
