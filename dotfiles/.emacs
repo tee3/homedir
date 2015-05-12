@@ -576,9 +576,6 @@
 (use-package company-go
   :ensure t
   :defer t)
-(use-package go-autocomplete
-  :ensure t
-  :defer t)
 (use-package go-direx
   :ensure t
   :defer t)
