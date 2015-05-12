@@ -133,10 +133,9 @@
 ;;; Bootstrap use-package
 ;;;
 ;;; @todo replace use-package with nothingness?
-(when (and (require 'package nil :noerror)
-           (>= emacs-major-version 24)
-           (not (package-installed-p 'use-package)))
-  (package-install 'use-package))
+(when (require 'package nil :noerror)
+  (when (not (package-installed-p 'use-package))
+    (package-install 'use-package)))
 
 (require 'use-package)
 
