@@ -208,9 +208,6 @@
 (use-package applescript-mode
   :ensure t
   :defer t)
-(use-package dot-mode
-  :ensure t
-  :defer t)
 (use-package graphviz-dot-mode
   :ensure t
   :defer t)
@@ -304,31 +301,7 @@
 (use-package nav
   :ensure t
   :defer t)
-(use-package nav-flash
-  :ensure t
-  :defer t)
-(use-package nlinum
-  :ensure t
-  :defer t)
-(use-package persistent-soft
-  :ensure t
-  :defer t)
-(use-package popup
-  :ensure t
-  :defer t)
-(use-package pos-tip
-  :ensure t
-  :defer t)
 (use-package smooth-scroll
-  :ensure t
-  :defer t)
-(use-package sublimity
-  :ensure t
-  :defer t)
-(use-package sws-mode
-  :ensure t
-  :defer t)
-(use-package textmate
   :ensure t
   :defer t)
 (use-package undo-tree
@@ -340,11 +313,6 @@
 
 ;;; Evil (vi) emulation
 (use-package evil
-  :ensure t
-  :defer t)
-
-;;; Diffs
-(use-package diff-hl
   :ensure t
   :defer t)
 
@@ -377,9 +345,6 @@
   :defer t)
 
 ;;; Revision control
-(use-package find-file-in-repository
-  :ensure t
-  :defer t)
 (use-package ibuffer-vc
   :ensure t
   :defer t)
