@@ -1016,9 +1016,6 @@
 ;;;
 ;;; Python programming language
 ;;;
-(use-package py-autopep8
-  :ensure t
-  :defer t)
 (use-package elpy
   :ensure t
   :config
@@ -1027,6 +1024,9 @@
   ;; disable flymake if flycheck is available
   (when (require 'flycheck nil :noerror)
     (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))))
+(use-package py-autopep8
+  :ensure t
+  :defer t)
 (use-package flycheck-pyflakes
   :ensure t
   :defer t)
