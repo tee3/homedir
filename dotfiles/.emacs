@@ -112,8 +112,7 @@
 ;;;
 ;;; Set up package
 ;;;
-(when (and (>= emacs-major-version 24)
-	   (require 'package nil :noerror))
+(when (require 'package nil :noerror)
 
   ;; add packages libraries
   (when (< emacs-major-version 24)
