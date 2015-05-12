@@ -503,10 +503,11 @@
 ;;;
 ;;; Make
 ;;;
-(when (require 'make-mode nil :noerror)
-
-  (add-to-list 'auto-mode-alist '("Makefile.*\\'" . makefile-mode))
-
+(use-package makefile-mode
+  :defer t
+  :mode
+  (("Makefile.*\\'" . makefile-mode))
+  :config
   (add-hook 'makefile-mode-hook (lambda ()
                                   (setq indent-tabs-mode t))))
 
@@ -519,14 +520,12 @@
 ;;; Jam programming language
 ;;;
 (use-package jam-mode
-  :ensure t)
-
-(when (require 'jam-mode nil :noerror)
-
-  (add-to-list 'auto-mode-alist '("[Jj]amroot\\'" . jam-mode))
-  (add-to-list 'auto-mode-alist '("[Jj]amfile\\'" . jam-mode))
-  (add-to-list 'auto-mode-alist '("\\.jam\\'" . jam-mode))
-
+  :ensure t
+  :mode
+  (("[Jj]amroot\\'" . jam-mode)
+   ("[Jj]amfile\\'" . jam-mode)
+   ("\\.jam\\'" . jam-mode))
+  :config
   (add-hook 'jam-mode-hook (lambda ()
                              (setq indent-tabs-mode nil)))
   (add-hook 'jam-mode-hook (lambda ()
@@ -538,7 +537,10 @@
 ;;;
 (use-package cmake-mode
   :ensure t
-  :defer t)
+  :defer t
+  :mode
+  (("CMakeLists\\.txt\\'" . cmake-mode)
+   ("\\.cmake\\'" . cmake-mode)))
 (use-package cmake-font-lock
   :ensure t
   :defer t)
@@ -549,11 +551,6 @@
   :ensure t
   :defer t)
 
-(when (require 'cmake-mode nil :noerror)
-
-  (add-to-list 'auto-mode-alist '("CMakeLists\\.txt\\'" . cmake-mode))
-  (add-to-list 'auto-mode-alist '("\\.cmake\\'" . cmake-mode)))
-
 ;;;
 ;;; Gnuplot
 ;;;
@@ -562,11 +559,9 @@
   :defer t)
 (use-package gnuplot-mode
   :ensure t
-  :defer t)
-
-(when (require 'gnuplot-mode nil :noerror)
-
-  (add-to-list 'auto-mode-alist '("\\.gp\\'" . gnuplot-mode)))
+  :defer t
+  :mode
+  (("\\.gp\\'" . gnuplot-mode)))
 
 ;;;
 ;;; Go programming language
@@ -639,24 +634,25 @@
 ;;;
 (use-package matlab-mode
   :ensure t
-  :defer t)
-
-(when (require 'matlab nil :noerror)
-
-  (add-to-list 'auto-mode-alist '("\\.m\\'" . matlab-mode)))
+  :defer t
+  :mode
+  (("\\.m\\'" . matlab-mode)))
 
 ;;;
 ;;; GNU Octave
 ;;;
-(when (require 'octave-mode nil :noerror)
-
-  (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode)))
+(use-package octave-mode
+  :disabled t
+  :ensure t
+  :defer t
+  :mode
+  (("\\.m\\'" . octave-mode)))
 
 ;;;
 ;;; PHP programming language
 ;;;
-(when (require 'php-mode nil :noerror)
-  )
+(use-package php-mode
+  :defer t)
 
 ;;;
 ;;; Ruby programming language
@@ -681,26 +677,22 @@
   :defer t)
 (use-package ruby-mode
   :ensure t
-  :defer t)
+  :defer t
+  :mode
+  (("[Rr]akefile\\'" . ruby-mode)
+   ("\\.rake\\'" . ruby-mode)))
 (use-package bundler
   :ensure t
   :defer t)
-
-(when (require 'ruby-mode nil :noerror)
-
-  (add-to-list 'auto-mode-alist '("[Rr]akefile\\'" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode)))
 
 ;;;
 ;;; JSON
 ;;;
 (use-package json-mode
   :ensure t
-  :defer t)
-
-(when (require 'json-mode nil :noerror)
-
-  (add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode)))
+  :defer t
+  :mode
+  (("\\.json\\'" . json-mode)))
 
 ;;;
 ;;; Objective-J programming language
@@ -743,13 +735,15 @@
 ;;;
 ;;; XML
 ;;;
-(when (require 'nxml nil :noerror)
-
-  (add-to-list 'auto-mode-alist '("\\.xml\\'" . nxml-mode))
-  (add-to-list 'auto-mode-alist '("\\.xsl\\'" . nxml-mode))
-  (add-to-list 'auto-mode-alist '("\\.xsd\\'" . nxml-mode))
-  (add-to-list 'auto-mode-alist '("\\.rng\\'" . nxml-mode))
-  (add-to-list 'auto-mode-alist '("\\.xhtml\\'" . nxml-mode)))
+(use-package nxml
+  :ensure t
+  :defer t
+  :mode
+  (("\\.xml\\'" . nxml-mode)
+   ("\\.xsl\\'" . nxml-mode)
+   ("\\.xsd\\'" . nxml-mode)
+   ("\\.rng\\'" . nxml-mode)
+   ("\\.xhtml\\'" . nxml-mode)))
 
 ;;;
 ;;; DITA
@@ -773,14 +767,12 @@
 ;;;
 (use-package ssh-config-mode
   :ensure t
-  :defer t)
-
-(when (require 'ssh-config-mode nil :noerror)
-
-  (add-to-list 'auto-mode-alist '(".ssh/config\\'"  . ssh-config-mode))
-  (add-to-list 'auto-mode-alist '("sshd?_config\\'" . ssh-config-mode))
-  (add-to-list 'auto-mode-alist '("known_hosts\\'"  . ssh-known-hosts-mode))
-  (add-to-list 'auto-mode-alist '("authorized_keys2?\\'" . ssh-authorized-keys-mode)))
+  :defer t
+  :mode
+  ((".ssh/config\\'" . ssh-config-mode)
+   ("sshd?_config\\'" . ssh-config-mode)
+   ("known_hosts\\'" . ssh-known-hosts-mode)
+   ("authorized_keys2?\\'" . ssh-authorized-keys-mode)))
 
 ;;;
 ;;; Magit
@@ -939,11 +931,11 @@
 
 (use-package c-eldoc
   :ensure t
-  :defer t)
-(when (require 'c-eldoc nil :noerror)
+  :defer t
+  :init
   ;; add more as desired, superset of what you'd like to use
   (setq c-eldoc-includes "-I.")
-
+  :config
   (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
   (add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode))
 
@@ -956,13 +948,14 @@
 
 (use-package tern
   :ensure t
-  :defer t)
-(when (require 'tern nil :noerror)
+  :defer t
+  :init
+  (use-package company-tern
+    :ensure t
+    :defer t)
+  :config
   (add-hook 'js-mode-hook (lambda ()
                             (tern-mode t))))
-(use-package company-tern
-  :ensure t
-  :defer t)
 
 ;;;
 ;;; node.js
@@ -981,30 +974,30 @@
 ;;;
 ;;; Assembler programming language
 ;;;
-(when (require 'asm-mode nil :noerror)
-
-  (add-to-list 'auto-mode-alist '("\\.[sh][56][45x]\\'" . asm-mode)))
+(use-package asm-mode
+  :defer t
+  :mode
+  (("\\.[sh][56][45x]\\'" . asm-mode)))
 
 ;;;
 ;;; Generic modes
 ;;;
-(when (require 'generic-x nil :noerror)
-  )
+(use-package generic-x
+  :defer t)
 
 ;;;
 ;;; Markdown
 ;;;
 (use-package markdown-mode
   :ensure t
-  :defer t)
-(use-package markdown-mode+
-  :ensure t
-  :defer t)
-
-(when (require 'markdown-mode nil :noerror)
-
-  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode)))
+  :defer t
+  :mode
+  (("\\.markdown\\'" . markdown-mode)
+   ("\\.md\\'" . markdown-mode))
+  :init
+  (use-package markdown-mode+
+    :ensure t
+    :defer t))
 
 ;;;
 ;;; Python programming language
@@ -1049,15 +1042,14 @@
   :defer t)
 (use-package gitconfig-mode
   :ensure t
-  :defer t)
-(when (require 'gitconfig-mode nil :noerror)
+  :defer t
+  :mode
+  (("\\.gitconfig.*\\'" . gitconfig-mode)
 
-  (add-to-list 'auto-mode-alist '("\\.gitconfig.*\\'" . gitconfig-mode))
-
-  ;; SubGit-generated Git submodules files
-  (add-to-list 'auto-mode-alist '("\\.gitsvnextmodules\\'" . gitconfig-mode))
-  ;; migration-generated Git submodules files
-  (add-to-list 'auto-mode-alist '("\\.gitsvnexternals\\'" . gitconfig-mode)))
+   ;; SubGit-generated Git submodules files
+   ("\\.gitsvnextmodules\\'" . gitconfig-mode)
+   ;; migration-generated Git submodules files
+   ("\\.gitsvnexternals\\'" . gitconfig-mode)))
 (use-package gitignore-mode
   :ensure t
   :defer t)
@@ -1125,7 +1117,9 @@
 ;;;
 (use-package flycheck
   :ensure t
-  :defer t)
+  :defer t
+  :config
+  (add-hook 'after-init-hook #'global-flycheck-mode))
 (use-package flycheck-google-cpplint
   :ensure t
   :defer t)
@@ -1138,9 +1132,6 @@
 (use-package flycheck-ycmd
   :ensure t
   :defer t)
-
-(when (>= emacs-major-version 24)
-  (add-hook 'after-init-hook #'global-flycheck-mode))
 
 ;;;
 ;;; Company completion
@@ -1251,9 +1242,8 @@
 ;;;
 (use-package expand-region
   :ensure t
-  :defer t)
-(when (require 'expand-region nil :noerror)
-  (global-set-key (kbd "C-c =") 'er/expand-region))
+  :defer t
+  :bind ("C-c =" . er/expand-region))
 
 ;;;
 ;;; Rainbow modes
@@ -1276,8 +1266,8 @@
 ;;;
 (use-package smart-mode-line
   :ensure t
-  :defer t)
-(when (require 'smart-mode-line nil :noerror)
+  :defer t
+  :config
   (setq sml/theme nil)
 
   (sml/setup))
