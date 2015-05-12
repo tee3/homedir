@@ -433,7 +433,7 @@
   :ensure t
   :defer t)
 
-;;; Programming languages
+;;; Programming
 (use-package howdoi
   :ensure t
   :defer t)
@@ -451,7 +451,7 @@
   :ensure t
   :defer t)
 
-;;; Org mode
+;;; Org
 (use-package org
   :ensure t
   :defer t)
@@ -527,17 +527,14 @@
   )
 
 ;;;
-;;; vimrc mode
+;;; vimrc
 ;;;
 (use-package vimrc-mode
   :ensure t
   :defer t)
 
-(when (require 'vimrc-mode nil :noerror)
-  )
-
 ;;;
-;;; Makefile mode
+;;; Make
 ;;;
 (when (require 'make-mode nil :noerror)
 
@@ -547,12 +544,12 @@
                                   (setq indent-tabs-mode t))))
 
 ;;;
-;;; Boost.Build mode
+;;; Boost.Build programming language
 ;;;
 ;;; @todo no official support for this yet
 
 ;;;
-;;; Jamfile mode
+;;; Jam programming language
 ;;;
 (use-package jam-mode
   :ensure t)
@@ -570,7 +567,7 @@
   (add-hook 'jam-mode-hook 'flyspell-prog-mode))
 
 ;;;
-;;; CMake mode.
+;;; CMake
 ;;;
 (use-package cmake-mode
   :ensure t
@@ -591,7 +588,7 @@
   (add-to-list 'auto-mode-alist '("\\.cmake\\'" . cmake-mode)))
 
 ;;;
-;;; Gnuplot mode
+;;; Gnuplot
 ;;;
 (use-package gnuplot
   :ensure t
@@ -605,7 +602,7 @@
   (add-to-list 'auto-mode-alist '("\\.gp\\'" . gnuplot-mode)))
 
 ;;;
-;;; Go mode
+;;; Go programming language
 ;;;
 (use-package go-mode
   :ensure t
@@ -663,7 +660,7 @@
   nil)
 
 ;;;
-;;; Swift mode
+;;; Swift programming language
 ;;;
 (use-package swift-mode
   :disabled t
@@ -671,7 +668,7 @@
   :defer t)
 
 ;;;
-;;; MATLAB mode
+;;; MATLAB
 ;;;
 (use-package matlab-mode
   :ensure t
@@ -682,20 +679,20 @@
   (add-to-list 'auto-mode-alist '("\\.m\\'" . matlab-mode)))
 
 ;;;
-;;; GNU Octave mode (MATLAB)
+;;; GNU Octave
 ;;;
 (when (require 'octave-mode nil :noerror)
 
   (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode)))
 
 ;;;
-;;; PHP mode
+;;; PHP programming language
 ;;;
 (when (require 'php-mode nil :noerror)
   )
 
 ;;;
-;;; Ruby mode
+;;; Ruby programming language
 ;;;
 (use-package company-inf-ruby
   :ensure t
@@ -728,7 +725,7 @@
   (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode)))
 
 ;;;
-;;; JSON mode
+;;; JSON
 ;;;
 (use-package json-mode
   :ensure t
@@ -739,7 +736,7 @@
   (add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode)))
 
 ;;;
-;;; Objective-J mode
+;;; Objective-J programming language
 ;;;
 (when (require 'objj-mode nil :noerror)
   (require 'compile)
@@ -755,7 +752,7 @@
     (add-to-list 'auto-mode-alist '("\\.sj\\'" . js-mode))))
 
 ;;;
-;;; Jakefile mode
+;;; Jake
 ;;;
 (when (require 'js-mode nil :noerror)
 
@@ -763,7 +760,7 @@
   (add-to-list 'auto-mode-alist '("\\.jake\\'" . js-mode)))
 
 ;;;
-;;; C# mode
+;;; C# programming language
 ;;;
 (use-package csharp-mode
   :disabled t
@@ -775,7 +772,7 @@
   :defer t)
 
 ;;;
-;;; XML mode
+;;; XML
 ;;;
 (when (require 'nxml nil :noerror)
 
@@ -803,7 +800,7 @@
   (add-to-list 'auto-mode-alist '("\\.docbook\\'" . nxml-mode)))
 
 ;;;
-;;; SSH Configuration Files
+;;; SSH
 ;;;
 (use-package ssh-config-mode
   :ensure t
@@ -826,11 +823,7 @@
   (add-hook 'magit-mode-hook 'magit-load-config-extensions))
 
 ;;;
-;;; CC Mode customizations.
-;;;
-;;;    All CC Mode mode configurations
-;;;
-;;; NOTE: This is based on the sample from the Info node on CC Mode.
+;;; C-family programming languages
 ;;;
 (defconst tbrown-c-style
   '((c-basic-offset . 3)
@@ -944,9 +937,6 @@
      (hs-minor-mode t)
      ))
 
-;;;
-;;; C eldoc
-;;;
 (when (require 'c-eldoc nil :noerror)
   ;; add more as desired, superset of what you'd like to use
   (setq c-eldoc-includes "-I.")
@@ -955,7 +945,7 @@
   (add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode))
 
 ;;;
-;;; Customizations for JavaScript
+;;; JavaScript programming language
 ;;;
 (use-package js-comint
   :ensure t
@@ -968,10 +958,16 @@
   :ensure t
   :defer t)
 
+;;;
+;;; node.js
+;;;
 (use-package nodejs-repl
   :ensure t
   :defer t)
 
+;;;
+;;; CoffeeScript programming language
+;;;
 (use-package coffee-mode
   :ensure t
   :defer t)
@@ -981,22 +977,20 @@
                             (tern-mode t))))
 
 ;;;
-;;; Asm Mode Configuration
-;;;
-;;; TBD: Fix this up for new version of emacs!
+;;; Assembler programming language
 ;;;
 (when (require 'asm-mode nil :noerror)
 
   (add-to-list 'auto-mode-alist '("\\.[sh][56][45x]\\'" . asm-mode)))
 
 ;;;
-;;; Generic modes (configuration files, etc.)
+;;; Generic modes
 ;;;
 (when (require 'generic-x nil :noerror)
   )
 
 ;;;
-;;; Markdown mode
+;;; Markdown
 ;;;
 (use-package markdown-mode
   :ensure t
@@ -1011,7 +1005,7 @@
   (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode)))
 
 ;;;
-;;; Python
+;;; Python programming language
 ;;;
 (use-package py-autopep8
   :ensure t
@@ -1042,7 +1036,7 @@
   )
 
 ;;;
-;;; Git modes
+;;; Git
 ;;;
 (use-package ibuffer-git
   :ensure t
@@ -1076,6 +1070,9 @@
   :ensure t
   :defer t)
 
+;;;
+;;; GitHub
+;;;
 (use-package gist
   :ensure t
   :defer t)
@@ -1122,7 +1119,7 @@
                             (linum-mode 1)))
 
 ;;;
-;;; Flycheck mode
+;;; Flycheck
 ;;;
 (use-package flycheck
   :ensure t
@@ -1144,7 +1141,7 @@
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
 ;;;
-;;; Company (completion) mode
+;;; Company completion
 ;;;
 (use-package company
   :ensure t
@@ -1187,7 +1184,7 @@
   (add-hook 'after-init-hook 'global-company-mode))
 
 ;;;
-;;; rtags mode
+;;; rtags
 ;;;
 (use-package rtags
   :load-path
@@ -1202,7 +1199,7 @@
   (rtags-enable-standard-keybindings c-mode-base-map "\C-xt"))
 
 ;;;
-;;; Projectile mode
+;;; Projectile
 ;;;
 (use-package projectile
   :ensure t
@@ -1218,7 +1215,7 @@
   (setq projectile-mode-line " Projectile"))
 
 ;;;
-;;; Helm mode
+;;; Helm
 ;;;
 (use-package helm
   :ensure t
@@ -1284,7 +1281,7 @@
   (sml/setup))
 
 ;;;
-;;; Theme
+;;; Themes
 ;;;
 (use-package afternoon-theme
   :ensure t
