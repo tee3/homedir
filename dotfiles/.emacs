@@ -1179,7 +1179,7 @@
   (use-package helm-projectile
     :ensure t
     :defer t)
-  :config
+
   (helm-mode 1))
 
 ;;;
