@@ -216,7 +216,14 @@
   :defer t)
 (use-package haskell-mode
   :ensure t
-  :defer t)
+  :defer t
+  :init
+  (use-package company-ghc
+    :ensure t
+    :defer t
+    :config
+    (add-to-list 'company-backends 'company-ghc t)))
+
 (use-package jgraph-mode
   :ensure t
   :defer t)
@@ -1148,11 +1155,6 @@
     :defer t
     :config
     (add-to-list 'company-backends 'company-c-headers t))
-  (use-package company-ghc
-    :ensure t
-    :defer t
-    :config
-    (add-to-list 'company-backends 'company-ghc t))
   (use-package company-ycmd
     :ensure t
     :defer t
