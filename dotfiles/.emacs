@@ -755,7 +755,6 @@
 (init-install-package 'flycheck-pyflakes)
 (init-install-package 'pip-requirements)
 (init-install-package 'nose)
-(init-install-package 'nose-mode)
 (init-install-package 'virtualenv)
 
 (when (require 'elpy nil :noerror)
