@@ -828,9 +828,10 @@
 ;;;
 ;;; Magit
 ;;;
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/magit"))
-
-(when (require 'magit nil :noerror)
+(use-package magit
+  :load-path
+  "~/.emacs.d/site-lisp/magit"
+  :config
   (add-hook 'magit-mode-hook 'magit-load-config-extensions))
 
 ;;;
