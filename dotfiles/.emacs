@@ -305,6 +305,9 @@
 (use-package fm
   :ensure t
   :defer t)
+(use-package hide-comnt
+  :ensure t
+  :defer t)
 (use-package nav
   :ensure t
   :defer t)
@@ -817,9 +820,6 @@
   :ensure t
   :defer t)
 (use-package google-c-style
-  :ensure t
-  :defer t)
-(use-package hide-comnt
   :ensure t
   :defer t)
 (use-package irony
