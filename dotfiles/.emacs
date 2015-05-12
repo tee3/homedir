@@ -970,9 +970,27 @@
   :ensure t
   :defer t
   :init
-  (use-package irony-eldoc
+  (use-package company
     :ensure t
-    :defer t))
+    :defer t
+    :init
+    (use-package company-irony
+      :ensure t
+      :defer t))
+  (use-package eldoc
+    :ensure t
+    :defer t
+    :init
+    (use-package irony-eldoc
+      :ensure t
+      :defer t))
+  (use-package flycheck
+    :ensure t
+    :defer t
+    :init
+    (use-package flycheck-irony
+      :ensure t
+      :defer t)))
 (use-package objc-font-lock
   :ensure t
   :defer t)
@@ -1173,9 +1191,6 @@
   :defer t
   :diminish flycheck-mode
   :init
-  (use-package flycheck-irony
-    :ensure t
-    :defer t)
   (use-package flycheck-package
     :ensure t
     :defer t)
