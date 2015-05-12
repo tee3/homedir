@@ -479,23 +479,22 @@
 ;;;
 ;;; Ido
 ;;;
-(use-package ido-ubiquitous
+(use-package ido
   :ensure t
-  :defer t)
+  :init
+  (use-package ido-ubiquitous
+    :ensure t
+    :config
+    (ido-ubiquitous-mode t))
+  :config
+  (progn
+    ;; (ido-mode (quote both) nil (ido))
+    (ido-mode t)
+    (ido-everywhere)
 
-(when (require 'ido nil :noerror)
-  ;; (ido-mode (quote both) nil (ido))
-  (ido-mode t)
-  (ido-everywhere)
-
-  (setq ido-use-filename-at-point 'guess)
-  (setq ido-use-url-at-point t)
-  (setq ido-confirm-unique-completion t)
-
-  (when (require 'ido-ubiquitous nil :noerror)
-    (ido-ubiquitous-mode t)
-    )
-  )
+    (setq ido-use-filename-at-point 'guess)
+    (setq ido-use-url-at-point t)
+    (setq ido-confirm-unique-completion t)))
 
 ;;;
 ;;; vimrc
