@@ -292,7 +292,13 @@
 (use-package dedicated
   :ensure t
   :defer t)
+(use-package eldoc
+  :ensure t
+  :defer t)
 (use-package electric-case
+  :ensure t
+  :defer t)
+(use-package flyspell
   :ensure t
   :defer t)
 (use-package fm
