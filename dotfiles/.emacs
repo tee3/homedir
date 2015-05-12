@@ -507,7 +507,7 @@
 ;;;
 ;;; Make
 ;;;
-(use-package makefile-mode
+(use-package make-mode
   :defer t
   :mode
   (("Makefile.*\\'" . makefile-mode))
