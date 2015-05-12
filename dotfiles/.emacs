@@ -149,7 +149,6 @@
 (init-install-package 'sphinx-frontend)
 
 ;;; Utilities
-(init-install-package 'ag)
 (init-install-package 'ascii)
 
 ;;; Android development
@@ -169,12 +168,10 @@
 ;;; Programming languages
 (init-install-package 'applescript-mode)
 (init-install-package 'dot-mode)
-(init-install-package 'feature-mode)
 (init-install-package 'graphviz-dot-mode)
 (init-install-package 'haskell-mode)
 (init-install-package 'jgraph-mode)
 (init-install-package 'lua-mode)
-(init-install-package 'mustache-mode)
 (init-install-package 'pov-mode)
 (init-install-package 'tidy)
 (init-install-package 'web-mode)
@@ -233,9 +230,6 @@
 ;;; Evil (vi) emulation
 (init-install-package 'evil)
 
-;;; Dart programming language
-(init-install-package 'dart-mode)
-
 ;;; Diffs
 (init-install-package 'diff-hl)
 
@@ -250,9 +244,6 @@
 (init-install-package 'dos)
 (init-install-package 'ntcmd)
 (init-install-package 'powershell)
-
-;;; tmux
-(init-install-package 'emamux)
 
 ;;; Revision control
 (init-install-package 'find-file-in-repository)
@@ -315,12 +306,6 @@
 ;;; Microsoft Team Foundation Server
 (init-install-package 'tfs)
 (init-install-package 'vc-tfs)
-
-;;; To Do (todo.txt)
-(init-install-package 'todotxt)
-
-;;; Twitter
-(init-install-package 'twittering-mode)
 
 ;;; Initialization utilities
 (init-install-package 'use-package)
