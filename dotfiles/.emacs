@@ -575,7 +575,9 @@
   :init
   (use-package company-go
     :ensure t
-    :defer t)
+    :defer t
+    :config
+    (add-to-list 'company-backends 'company-go t))
   (use-package go-direx
     :ensure t
     :defer t)
@@ -658,7 +660,9 @@
 ;;;
 (use-package company-inf-ruby
   :ensure t
-  :defer t)
+  :defer t
+  :config
+  (add-to-list 'company-backends 'company-inf-ruby t))
 (use-package inf-ruby
   :ensure t
   :defer t)
@@ -951,7 +955,9 @@
   :init
   (use-package company-tern
     :ensure t
-    :defer t)
+    :defer t
+    :config
+    (add-to-list 'company-backends 'company-tern t))
   :config
   (add-hook 'js-mode-hook (lambda ()
                             (tern-mode t))))
@@ -1127,42 +1133,29 @@
 ;;;
 (use-package company
   :ensure t
-  :defer t)
-(use-package company-auctex
-  :ensure t
-  :defer t)
-(use-package company-c-headers
-  :ensure t
-  :defer t)
-(use-package company-ghc
-  :ensure t
-  :defer t)
-(use-package company-ycmd
-  :ensure t
-  :defer t)
-
-(when (require 'company nil :noerror)
-  (when (require 'company-auctex nil :noerror)
+  :defer t
+  :init
+  (use-package company-auctex
+    :ensure t
+    :defer t
+    :config
     (add-to-list 'company-backends 'company-auctex t))
-
-  (when (require 'company-c-headers nil :noerror)
+  (use-package company-c-headers
+    :ensure t
+    :defer t
+    :config
     (add-to-list 'company-backends 'company-c-headers t))
-
-  (when (require 'company-ghc nil :noerror)
+  (use-package company-ghc
+    :ensure t
+    :defer t
+    :config
     (add-to-list 'company-backends 'company-ghc t))
-
-  (when (require 'company-go nil :noerror)
-    (add-to-list 'company-backends 'company-go t))
-
-  (when (require 'company-inf-ruby nil :noerror)
-    (add-to-list 'company-backends 'company-inf-ruby t))
-
-  (when (require 'company-tern nil :noerror)
-    (add-to-list 'company-backends 'company-tern t))
-
-  (when (require 'company-ycmd nil :noerror)
+  (use-package company-ycmd
+    :ensure t
+    :defer t
+    :config
     (add-to-list 'company-backends 'company-ycmd t))
-
+  :config
   (add-hook 'after-init-hook 'global-company-mode))
 
 ;;;
