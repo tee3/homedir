@@ -215,11 +215,15 @@
   :ensure t
   :defer t
   :init
-  (use-package company-ghc
+  (use-package company
     :ensure t
     :defer t
-    :config
-    (add-to-list 'company-backends 'company-ghc t)))
+    :init
+    (use-package company-ghc
+      :ensure t
+      :defer t
+      :config
+      (add-to-list 'company-backends 'company-ghc t))))
 
 (use-package jgraph-mode
   :ensure t
@@ -242,11 +246,15 @@
   :ensure auctex
   :defer t
   :init
-  (use-package company-auctex
+  (use-package company
     :ensure t
     :defer t
-    :config
-    (add-to-list 'company-backends 'company-auctex t)))
+    :init
+    (use-package company-auctex
+      :ensure t
+      :defer t
+      :config
+      (add-to-list 'company-backends 'company-auctex t))))
 
 ;;; OpenGL
 (use-package cuda-mode
@@ -582,11 +590,15 @@
   :ensure t
   :defer t
   :init
-  (use-package company-go
+  (use-package company
     :ensure t
     :defer t
-    :config
-    (add-to-list 'company-backends 'company-go t))
+    :init
+    (use-package company-go
+      :ensure t
+      :defer t
+      :config
+      (add-to-list 'company-backends 'company-go t)))
   (use-package go-direx
     :ensure t
     :defer t)
@@ -684,11 +696,15 @@
   :ensure t
   :defer t
   :init
-  (use-package company-inf-ruby
+  (use-package company
     :ensure t
     :defer t
-    :config
-    (add-to-list 'company-backends 'company-inf-ruby t)))
+    :init
+    (use-package company-inf-ruby
+      :ensure t
+      :defer t
+      :config
+      (add-to-list 'company-backends 'company-inf-ruby t))))
 (use-package rspec-mode
   :ensure t
   :defer t)
@@ -925,6 +941,15 @@
 
               (hs-minor-mode t)
               ))
+(use-package company
+  :ensure t
+  :defer t
+  :init
+  (use-package company-c-headers
+    :ensure t
+    :defer t
+    :config
+    (add-to-list 'company-backends 'company-c-headers t)))
 (use-package demangle-mode
   :ensure t
   :defer t)
@@ -961,11 +986,15 @@
   :ensure t
   :defer t
   :init
-  (use-package company-tern
+  (use-package company
     :ensure t
     :defer t
-    :config
-    (add-to-list 'company-backends 'company-tern t))
+    :init
+    (use-package company-tern
+      :ensure t
+      :defer t
+      :config
+      (add-to-list 'company-backends 'company-tern t)))
   :config
   (add-hook 'js-mode-hook (lambda ()
                             (tern-mode t))))
@@ -1149,18 +1178,13 @@
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
 ;;;
-;;; Company completion
+;;; Company
 ;;;
 (use-package company
   :ensure t
   :defer t
   :diminish company-mode
   :init
-  (use-package company-c-headers
-    :ensure t
-    :defer t
-    :config
-    (add-to-list 'company-backends 'company-c-headers t))
   (use-package company-ycmd
     :ensure t
     :defer t
@@ -1176,11 +1200,15 @@
   :load-path
   "~/opt/local/src/rtags/src"
   :init
-  (use-package company-rtags
-    :load-path
-    "~/opt/local/src/rtags/src"
-    :config
-    (add-to-list 'company-backends 'company-rtags t))
+  (use-package company
+    :ensure t
+    :defer t
+    :init
+    (use-package company-rtags
+      :load-path
+      "~/opt/local/src/rtags/src"
+      :config
+      (add-to-list 'company-backends 'company-rtags t)))
   :config
   (rtags-enable-standard-keybindings c-mode-base-map "\C-xt"))
 
