@@ -807,9 +807,6 @@
 ;;;
 ;;; C-family programming languages
 ;;;
-(use-package cppcheck
-  :ensure t
-  :defer t)
 (use-package demangle-mode
   :ensure t
   :defer t)
