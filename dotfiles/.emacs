@@ -204,19 +204,6 @@
 (init-install-package 'csv-mode)
 (init-install-package 'irfc)
 
-;;; Emacs lisp libraries
-(init-install-package 'ctable)
-(init-install-package 'dash)
-(init-install-package 'dropbox)
-(init-install-package 'epc)
-(init-install-package 'jabber)
-(init-install-package 'oauth)
-(init-install-package 'pcache)
-(init-install-package 's)
-(init-install-package 'simple-httpd)
-(init-install-package 'string-utils)
-(init-install-package 'websocket)
-
 ;;; Tags
 (init-install-package 'ctags)
 (init-install-package 'ctags-update)
@@ -298,8 +285,6 @@
 ;;; Occur
 (init-install-package 'ioccur)
 (init-install-package 'noccur)
-
-(init-install-package 'list-utils)
 
 ;;; Mercurial
 (init-install-package 'monky)
@@ -506,7 +491,6 @@
 ;;;
 ;;; JSON mode
 ;;;
-(init-install-package 'json)
 (init-install-package 'json-mode)
 
 (when (require 'json-mode nil :noerror)
