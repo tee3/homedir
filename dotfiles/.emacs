@@ -1062,17 +1062,11 @@
 (use-package git-gutter-fringe
   :ensure t
   :defer t)
-(use-package git-messenger
-  :ensure t
-  :defer t)
 
 ;;;
 ;;; GitHub
 ;;;
 (use-package gist
-  :ensure t
-  :defer t)
-(use-package git-link
   :ensure t
   :defer t)
 
