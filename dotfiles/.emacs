@@ -951,10 +951,12 @@
 ;;;
 ;;; JavaScript programming language
 ;;;
+(use-package js-mode
+  :ensure js
+  :defer t)
 (use-package js-comint
   :ensure t
   :defer t)
-
 (use-package tern
   :ensure t
   :defer t
