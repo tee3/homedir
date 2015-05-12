@@ -1062,9 +1062,13 @@
 (use-package py-autopep8
   :ensure t
   :defer t)
-(use-package flycheck-pyflakes
+(use-package flycheck
   :ensure t
-  :defer t)
+  :defer t
+  :init
+  (use-package flycheck-pyflakes
+    :ensure t
+    :defer t))
 (use-package pip-requirements
   :ensure t
   :defer t)
