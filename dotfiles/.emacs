@@ -295,8 +295,6 @@
 
 ;;; Emacs
 (use-package abbrev
-  :disabled t
-  :ensure t
   :defer t
   :diminish abbrev-mode)
 (use-package darkroom
@@ -309,7 +307,6 @@
   :ensure t
   :defer t)
 (use-package eldoc
-  :ensure t
   :defer t
   :diminish eldoc-mode)
 (use-package electric-case
@@ -374,7 +371,6 @@
 
 ;;; Flyspell
 (use-package flyspell
-  :ensure t
   :defer t
   :diminish flyspell-mode
   :init
@@ -497,7 +493,6 @@
 ;;; Ido
 ;;;
 (use-package ido
-  :ensure t
   :init
   (use-package ido-ubiquitous
     :ensure t
@@ -680,7 +675,6 @@
 ;;; Ruby programming language
 ;;;
 (use-package ruby-mode
-  :ensure t
   :defer t
   :mode
   (("[Rr]akefile\\'" . ruby-mode)
@@ -733,14 +727,12 @@
   (("\\.j\\'" . objj-mode))
   :init
   (use-package compile
-    :ensure t
     :defer t
     :config
     (add-to-list 'compilation-error-regexp-alist-alist
                  '(objj-acorn "^\\(WARNING\\|ERROR\\) line \\([0-9]+\\) in file:\\([^:]+\\):\\(.*\\)$" 3 2))
     (add-to-list 'compilation-error-regexp-alist 'objj-acorn))
   (use-package js-mode
-    :ensure js
     :defer t
     :mode
     (("\\.sj\\'" . js-mode))))
@@ -749,7 +741,6 @@
 ;;; Jake
 ;;;
 (use-package js-mode
-  :ensure js
   :defer t
   :mode
   (("[Jj]akefile.*\\'" . js-mode)
@@ -771,7 +762,6 @@
 ;;; XML
 ;;;
 (use-package nxml
-  :ensure t
   :defer t
   :mode
   (("\\.xml\\'" . nxml-mode)
@@ -784,7 +774,6 @@
 ;;; DITA
 ;;;
 (use-package nxml
-  :ensure t
   :defer t
   :mode
   (("\\.dita\\'" . nxml-mode)
@@ -798,7 +787,6 @@
   :defer t)
 
 (use-package nxml
-  :ensure t
   :defer t
   :mode
   (("\\.docbook\\'" . nxml-mode)))
@@ -829,7 +817,6 @@
 ;;; C-family programming languages
 ;;;
 (use-package cc-mode
-  :ensure t
   :defer t
   :preface
   (defconst tbrown-c-style
@@ -979,7 +966,6 @@
       :ensure t
       :defer t))
   (use-package eldoc
-    :ensure t
     :defer t
     :init
     (use-package irony-eldoc
@@ -1003,7 +989,6 @@
 ;;; JavaScript programming language
 ;;;
 (use-package js-mode
-  :ensure js
   :defer t)
 (use-package js-comint
   :ensure t
@@ -1138,7 +1123,6 @@
 ;;;    TextConf script types
 ;;;
 (use-package cc-mode
-  :ensure t
   :defer t
   :mode
   (("\\.h[cd]f\\'" . c-mode)
@@ -1147,7 +1131,6 @@
    ("\\.gel\\'" . c-mode)))
 
 (use-package js-mode
-  :ensure js
   :defer t
   :mode
   (("\\.tcf\\'" . js-mode)
@@ -1161,13 +1144,11 @@
 (add-hook 'prog-mode-hook (lambda ()
                             (setq indent-tabs-mode nil)))
 (use-package linum
-  :ensure t
   :defer t
   :config
   (add-hook 'prog-mode-hook (lambda ()
                               (linum-mode 1))))
 (use-package flyspell
-  :ensure t
   :defer t
   :config
   (add-hook 'prog-mode-hook 'flyspell-prog-mode))
@@ -1178,7 +1159,6 @@
 (add-hook 'text-mode-hook (lambda ()
                             (setq indent-tabs-mode nil)))
 (use-package linum
-  :ensure t
   :defer t
   :config
   (add-hook 'text-mode-hook (lambda ()
@@ -1455,7 +1435,6 @@
 ;;; Start the emacs server (emacsserver/emacsclient)
 ;;;
 (use-package server
-  :ensure t
   :defer t
   :config
   (unless (server-running-p)
