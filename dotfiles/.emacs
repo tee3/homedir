@@ -1202,12 +1202,16 @@
 ;;;
 ;;; rtags mode
 ;;;
-(add-to-list 'load-path (expand-file-name "~/opt/local/src/rtags/src") t)
-(when (require 'rtags nil :noerror)
-  (when (require 'company nil :noerror)
-    (when (require 'company-rtags nil :noerror)
-      (add-to-list 'company-backends 'company-rtags t)))
-
+(use-package rtags
+  :load-path
+  "~/opt/local/src/rtags/src"
+  :init
+  (use-package company-rtags
+    :load-path
+    "~/opt/local/src/rtags/src"
+    :config
+    (add-to-list 'company-backends 'company-rtags t))
+  :config
   (rtags-enable-standard-keybindings c-mode-base-map "\C-xt"))
 
 ;;;
