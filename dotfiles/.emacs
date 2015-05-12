@@ -292,15 +292,20 @@
 (use-package dedicated
   :ensure t
   :defer t)
-(use-package eldoc
+(use-package diminish
   :ensure t
   :defer t)
+(use-package eldoc
+  :ensure t
+  :defer t
+  :diminish eldoc-mode)
 (use-package electric-case
   :ensure t
   :defer t)
 (use-package flyspell
   :ensure t
-  :defer t)
+  :defer t
+  :diminish flyspell-mode)
 (use-package fm
   :ensure t
   :defer t)
@@ -767,6 +772,7 @@
 (use-package magit
   :load-path
   "~/.emacs.d/site-lisp/magit"
+  :diminish magit-auto-revert-mode
   :config
   (add-hook 'magit-mode-hook 'magit-load-config-extensions))
 
@@ -1099,6 +1105,7 @@
 (use-package flycheck
   :ensure t
   :defer t
+  :diminish flycheck-mode
   :init
   (use-package flycheck-google-cpplint
     :ensure t
@@ -1121,6 +1128,7 @@
 (use-package company
   :ensure t
   :defer t
+  :diminish company-mode
   :init
   (use-package company-c-headers
     :ensure t
@@ -1155,7 +1163,8 @@
 ;;;
 (use-package projectile
   :ensure t
-  :defer t)
+  :defer t
+  :diminish projectile-mode)
 (use-package ibuffer-projectile
   :ensure t
   :defer t)
@@ -1172,6 +1181,7 @@
 (use-package helm
   :ensure t
   :defer t
+  :diminish helm-mode
   :init
   (use-package helm-flycheck
     :ensure t
