@@ -315,6 +315,9 @@
 (use-package fm
   :ensure t
   :defer t)
+(use-package hideshow
+  :defer t
+  :diminish hs-minor-mode)
 (use-package hide-comnt
   :ensure t
   :defer t)
@@ -883,6 +886,9 @@
       )
     "MSVC C Programming Style")
   :init
+  (use-package cwarn
+    :defer t
+    :diminish cwarn-mode)
   (use-package google-c-style
     :ensure t
     :defer t)
