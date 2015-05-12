@@ -384,7 +384,10 @@
 ;;; Google
 (use-package google-this
   :ensure t
-  :defer t)
+  :defer t
+  :diminish google-this-mode
+  :init
+  (google-this-mode 1))
 
 ;;; Learning Emacs
 (use-package guru-mode
