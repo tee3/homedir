@@ -130,194 +130,393 @@
   ;; Update the package list from the network
   (package-refresh-contents))
 
+;;;
+;;; Bootstrap use-package
+;;;
+;;; @todo replace use-package with nothingness?
+(when (and (require 'package nil :noerror)
+           (>= emacs-major-version 24)
+           (not (package-installed-p 'use-package)))
+  (package-install 'use-package))
 
-;;;
-;;; Helper for installing packages
-;;;
-(defun init-install-package (package)
-  "Install PACKAGE in Emacs 24 if it is not already installed."
-  (when (and (>= emacs-major-version 24)
-             (not (package-installed-p package)))
-    (package-install package)))
+(require 'use-package)
 
 ;;; Markdown formats
-(init-install-package 'adoc-mode)
-(init-install-package 'creole-mode)
-(init-install-package 'jade-mode)
-(init-install-package 'markup-faces)
-(init-install-package 'pandoc-mode)
-(init-install-package 'sphinx-frontend)
+(use-package adoc-mode
+  :ensure t
+  :defer t)
+(use-package creole-mode
+  :ensure t
+  :defer t)
+(use-package jade-mode
+  :ensure t
+  :defer t)
+(use-package markup-faces
+  :ensure t
+  :defer t)
+(use-package pandoc-mode
+  :ensure t
+  :defer t)
+(use-package sphinx-frontend
+  :ensure t
+  :defer t)
 
 ;;; Utilities
-(init-install-package 'ascii)
+(use-package ascii
+  :ensure t
+  :defer t)
 
 ;;; Android development
-(init-install-package 'android-mode)
+(use-package android-mode
+  :ensure t
+  :defer t)
 
 ;;; Configuration files
-(init-install-package 'apache-mode)
-(init-install-package 'crontab-mode)
-(init-install-package 'dockerfile-mode)
-(init-install-package 'nginx-mode)
-(init-install-package 'ninja-mode)
-(init-install-package 'osx-plist)
-(init-install-package 'syslog-mode)
-(init-install-package 'toml-mode)
-(init-install-package 'yaml-mode)
+(use-package apache-mode
+  :ensure t
+  :defer t)
+(use-package crontab-mode
+  :ensure t
+  :defer t)
+(use-package dockerfile-mode
+  :ensure t
+  :defer t)
+(use-package nginx-mode
+  :ensure t
+  :defer t)
+(use-package ninja-mode
+  :ensure t
+  :defer t)
+(use-package osx-plist
+  :ensure t
+  :defer t)
+(use-package syslog-mode
+  :ensure t
+  :defer t)
+(use-package toml-mode
+  :ensure t
+  :defer t)
+(use-package yaml-mode
+  :ensure t
+  :defer t)
 
 ;;; Programming languages
-(init-install-package 'applescript-mode)
-(init-install-package 'dot-mode)
-(init-install-package 'graphviz-dot-mode)
-(init-install-package 'haskell-mode)
-(init-install-package 'jgraph-mode)
-(init-install-package 'lua-mode)
-(init-install-package 'pov-mode)
-(init-install-package 'tidy)
-(init-install-package 'web-mode)
+(use-package applescript-mode
+  :ensure t
+  :defer t)
+(use-package dot-mode
+  :ensure t
+  :defer t)
+(use-package graphviz-dot-mode
+  :ensure t
+  :defer t)
+(use-package haskell-mode
+  :ensure t
+  :defer t)
+(use-package jgraph-mode
+  :ensure t
+  :defer t)
+(use-package lua-mode
+  :ensure t
+  :defer t)
+(use-package pov-mode
+  :ensure t
+  :defer t)
+(use-package tidy
+  :ensure t
+  :defer t)
+(use-package web-mode
+  :ensure t
+  :defer t)
 
 ;;; TeX and LaTeX
-(init-install-package 'auctex)
+(use-package tex-site
+  :ensure auctex
+  :defer t)
 
 ;;; C-family programming language
-(init-install-package 'c-eldoc)
-(init-install-package 'cppcheck)
-(init-install-package 'cuda-mode)
-(init-install-package 'demangle-mode)
-(init-install-package 'disaster)
-(init-install-package 'dummy-h-mode)
-(init-install-package 'glsl-mode)
-(init-install-package 'google-c-style)
-(init-install-package 'hide-comnt)
-(init-install-package 'irony)
-(init-install-package 'irony-eldoc)
-(init-install-package 'objc-font-lock)
-(init-install-package 'malinka)
+(use-package c-eldoc
+  :ensure t
+  :defer t)
+(use-package cppcheck
+  :ensure t
+  :defer t)
+(use-package cuda-mode
+  :ensure t
+  :defer t)
+(use-package demangle-mode
+  :ensure t
+  :defer t)
+(use-package disaster
+  :ensure t
+  :defer t)
+(use-package dummy-h-mode
+  :ensure t
+  :defer t)
+(use-package glsl-mode
+  :ensure t
+  :defer t)
+(use-package google-c-style
+  :ensure t
+  :defer t)
+(use-package hide-comnt
+  :ensure t
+  :defer t)
+(use-package irony
+  :ensure t
+  :defer t)
+(use-package irony-eldoc
+  :ensure t
+  :defer t)
+(use-package objc-font-lock
+  :ensure t
+  :defer t)
+(use-package malinka
+  :ensure t
+  :defer t)
 
 ;;; Perl programming language
-(init-install-package 'cperl-mode)
+(use-package cperl-mode
+  :ensure t
+  :defer t)
 
 ;;; File formats
-(init-install-package 'csv-mode)
-(init-install-package 'irfc)
+(use-package csv-mode
+  :ensure t
+  :defer t)
+(use-package irfc
+  :ensure t
+  :defer t)
 
 ;;; Tags
-(init-install-package 'ctags)
-(init-install-package 'ctags-update)
-(init-install-package 'gtags)
+(use-package ctags
+  :ensure t
+  :defer t)
+(use-package ctags-update
+  :ensure t
+  :defer t)
+(use-package gtags
+  :ensure t
+  :defer t)
 
 ;;; D programming language
-(init-install-package 'd-mode)
+(use-package d-mode
+  :ensure t
+  :defer t)
 
 ;;; Emacs
-(init-install-package 'darkroom)
-(init-install-package 'dedicated)
-(init-install-package 'electric-case)
-(init-install-package 'fm)
-(init-install-package 'nav)
-(init-install-package 'nav-flash)
-(init-install-package 'nlinum)
-(init-install-package 'persistent-soft)
-(init-install-package 'popup)
-(init-install-package 'pos-tip)
-(init-install-package 'smooth-scroll)
-(init-install-package 'sublimity)
-(init-install-package 'sws-mode)
-(init-install-package 'textmate)
-(init-install-package 'undo-tree)
-(init-install-package 'writeroom-mode)
+(use-package darkroom
+  :ensure t
+  :defer t)
+(use-package dedicated
+  :ensure t
+  :defer t)
+(use-package electric-case
+  :ensure t
+  :defer t)
+(use-package fm
+  :ensure t
+  :defer t)
+(use-package nav
+  :ensure t
+  :defer t)
+(use-package nav-flash
+  :ensure t
+  :defer t)
+(use-package nlinum
+  :ensure t
+  :defer t)
+(use-package persistent-soft
+  :ensure t
+  :defer t)
+(use-package popup
+  :ensure t
+  :defer t)
+(use-package pos-tip
+  :ensure t
+  :defer t)
+(use-package smooth-scroll
+  :ensure t
+  :defer t)
+(use-package sublimity
+  :ensure t
+  :defer t)
+(use-package sws-mode
+  :ensure t
+  :defer t)
+(use-package textmate
+  :ensure t
+  :defer t)
+(use-package undo-tree
+  :ensure t
+  :defer t)
+(use-package writeroom-mode
+  :ensure t
+  :defer t)
 
 ;;; Evil (vi) emulation
-(init-install-package 'evil)
+(use-package evil
+  :ensure t
+  :defer t)
 
 ;;; Diffs
-(init-install-package 'diff-hl)
+(use-package diff-hl
+  :ensure t
+  :defer t)
 
 ;;; Emacs dired
-(init-install-package 'dired+)
-(init-install-package 'dired-details)
-(init-install-package 'dired-details+)
-(init-install-package 'dired-rainbow)
-(init-install-package 'dired-single)
+(use-package dired+
+  :ensure t
+  :defer t)
+(use-package dired-details
+  :ensure t
+  :defer t)
+(use-package dired-details+
+  :ensure t
+  :defer t)
+(use-package dired-rainbow
+  :ensure t
+  :defer t)
+(use-package dired-single
+  :ensure t
+  :defer t)
 
 ;;; Windows support
-(init-install-package 'dos)
-(init-install-package 'ntcmd)
-(init-install-package 'powershell)
+(use-package dos
+  :ensure t
+  :defer t)
+(use-package ntcmd
+  :ensure t
+  :defer t)
+(use-package powershell
+  :ensure t
+  :defer t)
 
 ;;; Revision control
-(init-install-package 'find-file-in-repository)
-(init-install-package 'ibuffer-vc)
+(use-package find-file-in-repository
+  :ensure t
+  :defer t)
+(use-package ibuffer-vc
+  :ensure t
+  :defer t)
 
 ;;; Fish shell programming
-(init-install-package 'fish-mode)
+(use-package fish-mode
+  :ensure t
+  :defer t)
 
 ;;; Flyspell
-(init-install-package 'flyspell-lazy)
+(use-package flyspell-lazy
+  :ensure t
+  :defer t)
 
 ;;; Scheme programming language
-(init-install-package 'geiser)
+(use-package geiser
+  :ensure t
+  :defer t)
 
 ;;; TRAMP
-(init-install-package 'ibuffer-tramp)
+(use-package ibuffer-tramp
+  :ensure t
+  :defer t)
 
 ;;; Google
-(init-install-package 'google-this)
+(use-package google-this
+  :ensure t
+  :defer t)
 
 ;;; Learning Emacs
-(init-install-package 'guru-mode)
-(init-install-package 'vimgolf)
+(use-package guru-mode
+  :ensure t
+  :defer t)
+(use-package vimgolf
+  :ensure t
+  :defer t)
 
 ;;; Programming languages
-(init-install-package 'howdoi)
-(init-install-package 'rainbow-delimiters)
-(init-install-package 'rainbow-identifiers)
+(use-package howdoi
+  :ensure t
+  :defer t)
+(use-package rainbow-delimiters
+  :ensure t
+  :defer t)
+(use-package rainbow-identifiers
+  :ensure t
+  :defer t)
 
 ;;; Occur
-(init-install-package 'ioccur)
-(init-install-package 'noccur)
+(use-package ioccur
+  :ensure t
+  :defer t)
+(use-package noccur
+  :ensure t
+  :defer t)
 
 ;;; Mercurial
-(init-install-package 'monky)
+(use-package monky
+  :ensure t
+  :defer t)
 
 ;;; Org mode
-(init-install-package 'org)
+(use-package org
+  :ensure t
+  :defer t)
 
 ;;; Perforce
-(init-install-package 'p4)
+(use-package p4
+  :ensure t
+  :defer t)
 
 ;;; Processing programming language
-(init-install-package 'processing-mode)
-(init-install-package 'processing-snippets)
+(use-package processing-mode
+  :ensure t
+  :defer t)
+(use-package processing-snippets
+  :ensure t
+  :defer t)
 
 ;;; Protobuf
-(init-install-package 'protobuf-mode)
+(use-package protobuf-mode
+  :ensure t
+  :defer t)
 
 ;;; Subversion
-(init-install-package 'psvn)
+(use-package psvn
+  :ensure t
+  :defer t)
 
 ;;; SSH
-(init-install-package 'ssh)
+(use-package ssh
+  :ensure t
+  :defer t)
 
 ;;; Writing
-(init-install-package 'synonyms)
-(init-install-package 'thesaurus)
+(use-package synonyms
+  :ensure t
+  :defer t)
+(use-package thesaurus
+  :ensure t
+  :defer t)
 
 ;;; Microsoft Team Foundation Server
-(init-install-package 'tfs)
-(init-install-package 'vc-tfs)
-
-;;; Initialization utilities
-(init-install-package 'use-package)
-(init-install-package 'wonderland)
+(use-package tfs
+  :ensure t
+  :defer t)
+(use-package vc-tfs
+  :ensure t
+  :defer t)
 
 ;;; Fossil
-(init-install-package 'vc-fossil)
+(use-package vc-fossil
+  :ensure t
+  :defer t)
 
 ;;;
 ;;; Ido
 ;;;
-(init-install-package 'ido-ubiquitous)
+(use-package ido-ubiquitous
+  :ensure t
+  :defer t)
 
 (when (require 'ido nil :noerror)
   ;; (ido-mode (quote both) nil (ido))
@@ -336,7 +535,9 @@
 ;;;
 ;;; vimrc mode
 ;;;
-(init-install-package 'vimrc-mode)
+(use-package vimrc-mode
+  :ensure t
+  :defer t)
 
 (when (require 'vimrc-mode nil :noerror)
   )
@@ -359,7 +560,8 @@
 ;;;
 ;;; Jamfile mode
 ;;;
-(init-install-package 'jam-mode)
+(use-package jam-mode
+  :ensure t)
 
 (when (require 'jam-mode nil :noerror)
 
@@ -376,10 +578,18 @@
 ;;;
 ;;; CMake mode.
 ;;;
-(init-install-package 'cmake-mode)
-(init-install-package 'cmake-font-lock)
-(init-install-package 'cmake-project)
-(init-install-package 'cpputils-cmake)
+(use-package cmake-mode
+  :ensure t
+  :defer t)
+(use-package cmake-font-lock
+  :ensure t
+  :defer t)
+(use-package cmake-project
+  :ensure t
+  :defer t)
+(use-package cpputils-cmake
+  :ensure t
+  :defer t)
 
 (when (require 'cmake-mode nil :noerror)
 
@@ -389,8 +599,12 @@
 ;;;
 ;;; Gnuplot mode
 ;;;
-(init-install-package 'gnuplot)
-(init-install-package 'gnuplot-mode)
+(use-package gnuplot
+  :ensure t
+  :defer t)
+(use-package gnuplot-mode
+  :ensure t
+  :defer t)
 
 (when (require 'gnuplot-mode nil :noerror)
 
@@ -399,20 +613,48 @@
 ;;;
 ;;; Go mode
 ;;;
-(init-install-package 'go-mode)
-(init-install-package 'company-go)
-(init-install-package 'go-autocomplete)
-(init-install-package 'go-direx)
-(init-install-package 'go-eldoc)
-(init-install-package 'go-errcheck)
-(init-install-package 'go-play)
-(init-install-package 'go-projectile)
-(init-install-package 'go-snippets)
-(init-install-package 'go-stacktracer)
-(init-install-package 'golint)
-(init-install-package 'gore-mode)
-(init-install-package 'gotest)
-(init-install-package 'govet)
+(use-package go-mode
+  :ensure t
+  :defer t)
+(use-package company-go
+  :ensure t
+  :defer t)
+(use-package go-autocomplete
+  :ensure t
+  :defer t)
+(use-package go-direx
+  :ensure t
+  :defer t)
+(use-package go-eldoc
+  :ensure t
+  :defer t)
+(use-package go-errcheck
+  :ensure t
+  :defer t)
+(use-package go-play
+  :ensure t
+  :defer t)
+(use-package go-projectile
+  :ensure t
+  :defer t)
+(use-package go-snippets
+  :ensure t
+  :defer t)
+(use-package go-stacktracer
+  :ensure t
+  :defer t)
+(use-package golint
+  :ensure t
+  :defer t)
+(use-package gore-mode
+  :ensure t
+  :defer t)
+(use-package gotest
+  :ensure t
+  :defer t)
+(use-package govet
+  :ensure t
+  :defer t)
 
 (when (require 'go-mode nil :noerror)
   (when (require 'go-eldoc nil :noerror)
@@ -429,7 +671,9 @@
 ;;;
 ;;; Swift mode
 ;;;
-;; (init-install-package 'swift-mode)
+;; (use-package swift-mode
+;;   :ensure t
+;;   :defer t)
 
 (when (require 'swift-mode nil :noerror)
   nil)
@@ -437,7 +681,9 @@
 ;;;
 ;;; MATLAB mode
 ;;;
-(init-install-package 'matlab-mode)
+(use-package matlab-mode
+  :ensure t
+  :defer t)
 
 (when (require 'matlab nil :noerror)
 
@@ -459,14 +705,30 @@
 ;;;
 ;;; Ruby mode
 ;;;
-(init-install-package 'company-inf-ruby)
-(init-install-package 'inf-ruby)
-(init-install-package 'rbenv)
-(init-install-package 'rspec-mode)
-(init-install-package 'ruby-compilation)
-(init-install-package 'ruby-electric)
-(init-install-package 'ruby-mode)
-(init-install-package 'bundler)
+(use-package company-inf-ruby
+  :ensure t
+  :defer t)
+(use-package inf-ruby
+  :ensure t
+  :defer t)
+(use-package rbenv
+  :ensure t
+  :defer t)
+(use-package rspec-mode
+  :ensure t
+  :defer t)
+(use-package ruby-compilation
+  :ensure t
+  :defer t)
+(use-package ruby-electric
+  :ensure t
+  :defer t)
+(use-package ruby-mode
+  :ensure t
+  :defer t)
+(use-package bundler
+  :ensure t
+  :defer t)
 
 (when (require 'ruby-mode nil :noerror)
 
@@ -476,7 +738,9 @@
 ;;;
 ;;; JSON mode
 ;;;
-(init-install-package 'json-mode)
+(use-package json-mode
+  :ensure t
+  :defer t)
 
 (when (require 'json-mode nil :noerror)
 
@@ -509,8 +773,12 @@
 ;;;
 ;;; C# mode
 ;;;
-;; (init-install-package 'csharp-mode)
-;; (init-install-package 'omnisharp)
+;; (use-package csharp-mode
+;;   :ensure t
+;;   :defer t)
+;; (use-package omnisharp
+;;   :ensure t
+;;   :defer t)
 
 (when (require 'csharp-mode nil :noerror)
   )
@@ -536,7 +804,9 @@
 ;;;
 ;;; DocBook
 ;;;
-(init-install-package 'docbook)
+(use-package docbook
+  :ensure t
+  :defer t)
 
 (when (require 'nxml nil :noerror)
   (add-to-list 'auto-mode-alist '("\\.docbook\\'" . nxml-mode)))
@@ -544,7 +814,9 @@
 ;;;
 ;;; SSH Configuration Files
 ;;;
-(init-install-package 'ssh-config-mode)
+(use-package ssh-config-mode
+  :ensure t
+  :defer t)
 
 (when (require 'ssh-config-mode nil :noerror)
 
@@ -693,14 +965,24 @@
 ;;;
 ;;; Customizations for JavaScript
 ;;;
-(init-install-package 'js-comint)
+(use-package js-comint
+  :ensure t
+  :defer t)
 
-(init-install-package 'tern)
-(init-install-package 'company-tern)
+(use-package tern
+  :ensure t
+  :defer t)
+(use-package company-tern
+  :ensure t
+  :defer t)
 
-(init-install-package 'nodejs-repl)
+(use-package nodejs-repl
+  :ensure t
+  :defer t)
 
-(init-install-package 'coffee-mode)
+(use-package coffee-mode
+  :ensure t
+  :defer t)
 
 (when (require 'tern nil :noerror)
   (add-hook 'js-mode-hook (lambda ()
@@ -724,8 +1006,12 @@
 ;;;
 ;;; Markdown mode
 ;;;
-(init-install-package 'markdown-mode)
-(init-install-package 'markdown-mode+)
+(use-package markdown-mode
+  :ensure t
+  :defer t)
+(use-package markdown-mode+
+  :ensure t
+  :defer t)
 
 (when (require 'markdown-mode nil :noerror)
 
@@ -735,12 +1021,24 @@
 ;;;
 ;;; Python
 ;;;
-(init-install-package 'py-autopep8)
-(init-install-package 'elpy)
-(init-install-package 'flycheck-pyflakes)
-(init-install-package 'pip-requirements)
-(init-install-package 'nose)
-(init-install-package 'virtualenv)
+(use-package py-autopep8
+  :ensure t
+  :defer t)
+(use-package elpy
+  :ensure t
+  :defer t)
+(use-package flycheck-pyflakes
+  :ensure t
+  :defer t)
+(use-package pip-requirements
+  :ensure t
+  :defer t)
+(use-package nose
+  :ensure t
+  :defer t)
+(use-package virtualenv
+  :ensure t
+  :defer t)
 
 (when (require 'elpy nil :noerror)
   (elpy-enable)
@@ -754,19 +1052,39 @@
 ;;;
 ;;; Git modes
 ;;;
-(init-install-package 'gitattributes-mode)
-(init-install-package 'gitconfig-mode)
-(init-install-package 'gitignore-mode)
+(use-package gitattributes-mode
+  :ensure t
+  :defer t)
+(use-package gitconfig-mode
+  :ensure t
+  :defer t)
+(use-package gitignore-mode
+  :ensure t
+  :defer t)
 
-(init-install-package 'git-gutter)
-(init-install-package 'git-gutter-fringe)
-(init-install-package 'git-link)
-(init-install-package 'git-messenger)
-(init-install-package 'gitconfig)
+(use-package git-gutter
+  :ensure t
+  :defer t)
+(use-package git-gutter-fringe
+  :ensure t
+  :defer t)
+(use-package git-link
+  :ensure t
+  :defer t)
+(use-package git-messenger
+  :ensure t
+  :defer t)
+(use-package gitconfig
+  :ensure t
+  :defer t)
 
-(init-install-package 'gist)
+(use-package gist
+  :ensure t
+  :defer t)
 
-(init-install-package 'ibuffer-git)
+(use-package ibuffer-git
+  :ensure t
+  :defer t)
 
 (when (require 'gitconfig-mode nil :noerror)
 
@@ -818,11 +1136,21 @@
 ;;;
 ;;; Flycheck mode
 ;;;
-(init-install-package 'flycheck)
-(init-install-package 'flycheck-google-cpplint)
-(init-install-package 'flycheck-irony)
-(init-install-package 'flycheck-package)
-(init-install-package 'flycheck-ycmd)
+(use-package flycheck
+  :ensure t
+  :defer t)
+(use-package flycheck-google-cpplint
+  :ensure t
+  :defer t)
+(use-package flycheck-irony
+  :ensure t
+  :defer t)
+(use-package flycheck-package
+  :ensure t
+  :defer t)
+(use-package flycheck-ycmd
+  :ensure t
+  :defer t)
 
 (when (>= emacs-major-version 24)
   (add-hook 'after-init-hook #'global-flycheck-mode))
@@ -830,11 +1158,21 @@
 ;;;
 ;;; Company (completion) mode
 ;;;
-(init-install-package 'company)
-(init-install-package 'company-auctex)
-(init-install-package 'company-c-headers)
-(init-install-package 'company-ghc)
-(init-install-package 'company-ycmd)
+(use-package company
+  :ensure t
+  :defer t)
+(use-package company-auctex
+  :ensure t
+  :defer t)
+(use-package company-c-headers
+  :ensure t
+  :defer t)
+(use-package company-ghc
+  :ensure t
+  :defer t)
+(use-package company-ycmd
+  :ensure t
+  :defer t)
 
 (when (require 'company nil :noerror)
   (when (require 'company-auctex nil :noerror)
@@ -874,8 +1212,12 @@
 ;;;
 ;;; Projectile mode
 ;;;
-(init-install-package 'projectile)
-(init-install-package 'ibuffer-projectile)
+(use-package projectile
+  :ensure t
+  :defer t)
+(use-package ibuffer-projectile
+  :ensure t
+  :defer t)
 
 (when (require 'projectile nil :noerror)
   (projectile-global-mode)
@@ -886,10 +1228,18 @@
 ;;;
 ;;; Helm mode
 ;;;
-(init-install-package 'helm)
-(init-install-package 'helm-flycheck)
-(init-install-package 'helm-flyspell)
-(init-install-package 'helm-projectile)
+(use-package helm
+  :ensure t
+  :defer t)
+(use-package helm-flycheck
+  :ensure t
+  :defer t)
+(use-package helm-flyspell
+  :ensure t
+  :defer t)
+(use-package helm-projectile
+  :ensure t
+  :defer t)
 
 (when (require 'helm nil :noerror)
   (helm-mode 1)
@@ -908,7 +1258,9 @@
 ;;;
 ;;; Expand region
 ;;;
-(init-install-package 'expand-region)
+(use-package expand-region
+  :ensure t
+  :defer t)
 (when (require 'expand-region nil :noerror)
   (global-set-key (kbd "C-c =") 'er/expand-region))
 
@@ -923,7 +1275,9 @@
 ;;;
 ;;; Smart mode line
 ;;;
-(init-install-package 'smart-mode-line)
+(use-package smart-mode-line
+  :ensure t
+  :defer t)
 (when (require 'smart-mode-line nil :noerror)
   (setq sml/theme nil)
 
@@ -932,117 +1286,339 @@
 ;;;
 ;;; Theme
 ;;;
-(init-install-package 'afternoon-theme)
-(init-install-package 'ahungry-theme)
-(init-install-package 'alect-themes)
-(init-install-package 'ample-theme)
-(init-install-package 'ample-zen-theme)
-(init-install-package 'anti-zenburn-theme)
-(init-install-package 'assemblage-theme)
-(init-install-package 'atom-dark-theme)
-(init-install-package 'badger-theme)
-(init-install-package 'base16-theme)
-(init-install-package 'basic-theme)
-(init-install-package 'birds-of-paradise-plus-theme)
-(init-install-package 'bubbleberry-theme)
-(init-install-package 'busybee-theme)
-(init-install-package 'calmer-forest-theme)
-(init-install-package 'cherry-blossom-theme)
-(init-install-package 'clues-theme)
-(init-install-package 'cyberpunk-theme)
-(init-install-package 'dakrone-theme)
-(init-install-package 'darcula-theme)
-(init-install-package 'darkburn-theme)
-(init-install-package 'darkmine-theme)
-(init-install-package 'darktooth-theme)
-(init-install-package 'deep-thought-theme)
-(init-install-package 'distinguished-theme)
-(init-install-package 'django-theme)
-(init-install-package 'eclipse-theme)
-(init-install-package 'espresso-theme)
-(init-install-package 'farmhouse-theme)
-(init-install-package 'firebelly-theme)
-(init-install-package 'flatland-theme)
-(init-install-package 'flatui-theme)
-(init-install-package 'gandalf-theme)
-(init-install-package 'github-theme)
-(init-install-package 'gotham-theme)
-(init-install-package 'grandshell-theme)
-(init-install-package 'greymatters-theme)
-(init-install-package 'gruber-darker-theme)
-(init-install-package 'gruvbox-theme)
-(init-install-package 'hc-zenburn-theme)
-(init-install-package 'hemisu-theme)
-(init-install-package 'heroku-theme)
-(init-install-package 'hipster-theme)
-(init-install-package 'inkpot-theme)
-(init-install-package 'ir-black-theme)
-(init-install-package 'jazz-theme)
-(init-install-package 'jujube-theme)
-(init-install-package 'late-night-theme)
-(init-install-package 'lenlen-theme)
-(init-install-package 'leuven-theme)
-(init-install-package 'light-soap-theme)
-(init-install-package 'lush-theme)
-(init-install-package 'material-theme)
-(init-install-package 'mbo70s-theme)
-(init-install-package 'minimal-theme)
-(init-install-package 'moe-theme)
-(init-install-package 'molokai-theme)
-(init-install-package 'monochrome-theme)
-(init-install-package 'monokai-theme)
-(init-install-package 'mustang-theme)
-(init-install-package 'naquadah-theme)
-(init-install-package 'niflheim-theme)
-(init-install-package 'noctilux-theme)
-(init-install-package 'nzenburn-theme)
-(init-install-package 'obsidian-theme)
-(init-install-package 'occidental-theme)
-(init-install-package 'oldlace-theme)
-(init-install-package 'organic-green-theme)
-(init-install-package 'pastels-on-dark-theme)
-(init-install-package 'phoenix-dark-mono-theme)
-(init-install-package 'phoenix-dark-pink-theme)
-(init-install-package 'plan9-theme)
-(init-install-package 'planet-theme)
-(init-install-package 'professional-theme)
-(init-install-package 'purple-haze-theme)
-(init-install-package 'qsimpleq-theme)
-(init-install-package 'railscasts-theme)
-(init-install-package 'sea-before-storm-theme)
-(init-install-package 'seti-theme)
-(init-install-package 'smyx-theme)
-(init-install-package 'soft-charcoal-theme)
-(init-install-package 'soft-morning-theme)
-(init-install-package 'soft-stone-theme)
-(init-install-package 'solarized-theme)
-(init-install-package 'soothe-theme)
-(init-install-package 'spacegray-theme)
-(init-install-package 'steady-theme)
-(init-install-package 'stekene-theme)
-(init-install-package 'sublime-themes)
-(init-install-package 'subatomic-theme)
-(init-install-package 'subatomic256-theme)
-(init-install-package 'sunny-day-theme)
-(init-install-package 'tango-plus-theme)
-(init-install-package 'tao-theme)
-(init-install-package 'tangotango-theme)
-(init-install-package 'tommyh-theme)
-(init-install-package 'toxi-theme)
-(init-install-package 'tron-theme)
-(init-install-package 'tronesque-theme)
-(init-install-package 'twilight-theme)
-(init-install-package 'twilight-anti-bright-theme)
-(init-install-package 'twilight-bright-theme)
-(init-install-package 'ubuntu-theme)
-(init-install-package 'ujelly-theme)
-(init-install-package 'underwater-theme)
-(init-install-package 'waher-theme)
-(init-install-package 'warm-night-theme)
-(init-install-package 'yoshi-theme)
-(init-install-package 'zen-and-art-theme)
-(init-install-package 'zenburn-theme)
-(init-install-package 'zonokai-theme)
+(use-package afternoon-theme
+  :ensure t
+  :defer t)
+(use-package ahungry-theme
+  :ensure t
+  :defer t)
+(use-package alect-themes
+  :ensure t
+  :defer t)
+(use-package ample-theme
+  :ensure t
+  :defer t)
+(use-package ample-zen-theme
+  :ensure t
+  :defer t)
+(use-package anti-zenburn-theme
+  :ensure t
+  :defer t)
+(use-package assemblage-theme
+  :ensure t
+  :defer t)
+(use-package atom-dark-theme
+  :ensure t
+  :defer t)
+(use-package badger-theme
+  :ensure t
+  :defer t)
+(use-package base16-theme
+  :ensure t
+  :defer t)
+(use-package basic-theme
+  :ensure t
+  :defer t)
+(use-package birds-of-paradise-plus-theme
+  :ensure t
+  :defer t)
+(use-package bubbleberry-theme
+  :ensure t
+  :defer t)
+(use-package busybee-theme
+  :ensure t
+  :defer t)
+(use-package calmer-forest-theme
+  :ensure t
+  :defer t)
+(use-package cherry-blossom-theme
+  :ensure t
+  :defer t)
+(use-package clues-theme
+  :ensure t
+  :defer t)
+(use-package cyberpunk-theme
+  :ensure t
+  :defer t)
+(use-package dakrone-theme
+  :ensure t
+  :defer t)
+(use-package darcula-theme
+  :ensure t
+  :defer t)
+(use-package darkburn-theme
+  :ensure t
+  :defer t)
+(use-package darkmine-theme
+  :ensure t
+  :defer t)
+(use-package darktooth-theme
+  :ensure t
+  :defer t)
+(use-package deep-thought-theme
+  :ensure t
+  :defer t)
+(use-package distinguished-theme
+  :ensure t
+  :defer t)
+(use-package django-theme
+  :ensure t
+  :defer t)
+(use-package eclipse-theme
+  :ensure t
+  :defer t)
+(use-package espresso-theme
+  :ensure t
+  :defer t)
+(use-package farmhouse-theme
+  :ensure t
+  :defer t)
+(use-package firebelly-theme
+  :ensure t
+  :defer t)
+(use-package flatland-theme
+  :ensure t
+  :defer t)
+(use-package flatui-theme
+  :ensure t
+  :defer t)
+(use-package gandalf-theme
+  :ensure t
+  :defer t)
+(use-package github-theme
+  :ensure t
+  :defer t)
+(use-package gotham-theme
+  :ensure t
+  :defer t)
+(use-package grandshell-theme
+  :ensure t
+  :defer t)
+(use-package greymatters-theme
+  :ensure t
+  :defer t)
+(use-package gruber-darker-theme
+  :ensure t
+  :defer t)
+(use-package gruvbox-theme
+  :ensure t
+  :defer t)
+(use-package hc-zenburn-theme
+  :ensure t
+  :defer t)
+(use-package hemisu-theme
+  :ensure t
+  :defer t)
+(use-package heroku-theme
+  :ensure t
+  :defer t)
+(use-package hipster-theme
+  :ensure t
+  :defer t)
+(use-package inkpot-theme
+  :ensure t
+  :defer t)
+(use-package ir-black-theme
+  :ensure t
+  :defer t)
+(use-package jazz-theme
+  :ensure t
+  :defer t)
+(use-package jujube-theme
+  :ensure t
+  :defer t)
+(use-package late-night-theme
+  :ensure t
+  :defer t)
+(use-package lenlen-theme
+  :ensure t
+  :defer t)
+(use-package leuven-theme
+  :ensure t
+  :defer t)
+(use-package light-soap-theme
+  :ensure t
+  :defer t)
+(use-package lush-theme
+  :ensure t
+  :defer t)
+(use-package material-theme
+  :ensure t
+  :defer t)
+(use-package mbo70s-theme
+  :ensure t
+  :defer t)
+(use-package minimal-theme
+  :ensure t
+  :defer t)
+(use-package moe-theme
+  :ensure t
+  :defer t)
+(use-package molokai-theme
+  :ensure t
+  :defer t)
+(use-package monochrome-theme
+  :ensure t
+  :defer t)
+(use-package monokai-theme
+  :ensure t
+  :defer t)
+(use-package mustang-theme
+  :ensure t
+  :defer t)
+(use-package naquadah-theme
+  :ensure t
+  :defer t)
+(use-package niflheim-theme
+  :ensure t
+  :defer t)
+(use-package noctilux-theme
+  :ensure t
+  :defer t)
+(use-package nzenburn-theme
+  :ensure t
+  :defer t)
+(use-package obsidian-theme
+  :ensure t
+  :defer t)
+(use-package occidental-theme
+  :ensure t
+  :defer t)
+(use-package oldlace-theme
+  :ensure t
+  :defer t)
+(use-package organic-green-theme
+  :ensure t
+  :defer t)
+(use-package pastels-on-dark-theme
+  :ensure t
+  :defer t)
+(use-package phoenix-dark-mono-theme
+  :ensure t
+  :defer t)
+(use-package phoenix-dark-pink-theme
+  :ensure t
+  :defer t)
+(use-package plan9-theme
+  :ensure t
+  :defer t)
+(use-package planet-theme
+  :ensure t
+  :defer t)
+(use-package professional-theme
+  :ensure t
+  :defer t)
+(use-package purple-haze-theme
+  :ensure t
+  :defer t)
+(use-package qsimpleq-theme
+  :ensure t
+  :defer t)
+(use-package railscasts-theme
+  :ensure t
+  :defer t)
+(use-package sea-before-storm-theme
+  :ensure t
+  :defer t)
+(use-package seti-theme
+  :ensure t
+  :defer t)
+(use-package smyx-theme
+  :ensure t
+  :defer t)
+(use-package soft-charcoal-theme
+  :ensure t
+  :defer t)
+(use-package soft-morning-theme
+  :ensure t
+  :defer t)
+(use-package soft-stone-theme
+  :ensure t
+  :defer t)
+(use-package solarized-theme
+  :ensure t
+  :defer t)
+(use-package soothe-theme
+  :ensure t
+  :defer t)
+(use-package spacegray-theme
+  :ensure t
+  :defer t)
+(use-package steady-theme
+  :ensure t
+  :defer t)
+(use-package stekene-theme
+  :ensure t
+  :defer t)
+(use-package sublime-themes
+  :ensure t
+  :defer t)
+(use-package subatomic-theme
+  :ensure t
+  :defer t)
+(use-package subatomic256-theme
+  :ensure t
+  :defer t)
+(use-package sunny-day-theme
+  :ensure t
+  :defer t)
+(use-package tango-plus-theme
+  :ensure t
+  :defer t)
+(use-package tao-theme
+  :ensure t
+  :defer t)
+(use-package tangotango-theme
+  :ensure t
+  :defer t)
+(use-package tommyh-theme
+  :ensure t
+  :defer t)
+(use-package toxi-theme
+  :ensure t
+  :defer t)
+(use-package tron-theme
+  :ensure t
+  :defer t)
+(use-package tronesque-theme
+  :ensure t
+  :defer t)
+(use-package twilight-theme
+  :ensure t
+  :defer t)
+(use-package twilight-anti-bright-theme
+  :ensure t
+  :defer t)
+(use-package twilight-bright-theme
+  :ensure t
+  :defer t)
+(use-package ubuntu-theme
+  :ensure t
+  :defer t)
+(use-package ujelly-theme
+  :ensure t
+  :defer t)
+(use-package underwater-theme
+  :ensure t
+  :defer t)
+(use-package waher-theme
+  :ensure t
+  :defer t)
+(use-package warm-night-theme
+  :ensure t
+  :defer t)
+(use-package yoshi-theme
+  :ensure t
+  :defer t)
+(use-package zen-and-art-theme
+  :ensure t
+  :defer t)
+(use-package zenburn-theme
+  :ensure t
+  :defer t)
+(use-package zonokai-theme
+  :ensure t
+  :defer t)
 
 (when (>= emacs-major-version 24)
   (cond ((display-graphic-p)
