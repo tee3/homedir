@@ -132,12 +132,18 @@
 ;;;
 ;;; Bootstrap use-package
 ;;;
-;;; @todo replace use-package with nothingness?
 (when (require 'package nil :noerror)
   (when (not (package-installed-p 'use-package))
     (package-install 'use-package)))
 
-(require 'use-package)
+(unless (require 'use-package nil :noerror)
+  (defmacro use-package (name &rest args)
+    (unless (member :disabled args)
+      (setq message-log-max (+ message-log-max 1))
+
+      (if (require name nil :noerror)
+          (message "%s required but not configured" name)
+        (message "%s is not available." name)))))
 
 ;;; Markdown formats
 (use-package adoc-mode
