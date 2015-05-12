@@ -236,7 +236,13 @@
 ;;; TeX and LaTeX
 (use-package tex-site
   :ensure auctex
-  :defer t)
+  :defer t
+  :init
+  (use-package company-auctex
+    :ensure t
+    :defer t
+    :config
+    (add-to-list 'company-backends 'company-auctex t)))
 
 ;;; OpenGL
 (use-package cuda-mode
@@ -1135,11 +1141,6 @@
   :ensure t
   :defer t
   :init
-  (use-package company-auctex
-    :ensure t
-    :defer t
-    :config
-    (add-to-list 'company-backends 'company-auctex t))
   (use-package company-c-headers
     :ensure t
     :defer t
