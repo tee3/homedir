@@ -699,24 +699,29 @@
   :load-path "~/opt/local/share/emacs/site-lisp"
   :mode
   (("\\.j\\'" . objj-mode))
-  :config
-  (require 'compile)
-
-  (add-to-list 'compilation-error-regexp-alist-alist
-               '(objj-acorn "^\\(WARNING\\|ERROR\\) line \\([0-9]+\\) in file:\\([^:]+\\):\\(.*\\)$" 3 2))
-  (add-to-list 'compilation-error-regexp-alist 'objj-acorn)
-
-  (when (require 'js-mode nil :noerror)
-
-    (add-to-list 'auto-mode-alist '("\\.sj\\'" . js-mode))))
+  :init
+  (use-package compile
+    :ensure t
+    :defer t
+    :config
+    (add-to-list 'compilation-error-regexp-alist-alist
+                 '(objj-acorn "^\\(WARNING\\|ERROR\\) line \\([0-9]+\\) in file:\\([^:]+\\):\\(.*\\)$" 3 2))
+    (add-to-list 'compilation-error-regexp-alist 'objj-acorn))
+  (use-package js-mode
+    :ensure js
+    :defer t
+    :mode
+    (("\\.sj\\'" . js-mode))))
 
 ;;;
 ;;; Jake
 ;;;
-(when (require 'js-mode nil :noerror)
-
-  (add-to-list 'auto-mode-alist '("[Jj]akefile.*\\'" . js-mode))
-  (add-to-list 'auto-mode-alist '("\\.jake\\'" . js-mode)))
+(use-package js-mode
+  :ensure js
+  :defer t
+  :mode
+  (("[Jj]akefile.*\\'" . js-mode)
+   ("\\.jake\\'" . js-mode)))
 
 ;;;
 ;;; C# programming language
@@ -746,9 +751,12 @@
 ;;;
 ;;; DITA
 ;;;
-(when (require 'nxml nil :noerror)
-  (add-to-list 'auto-mode-alist '("\\.dita\\'" . nxml-mode))
-  (add-to-list 'auto-mode-alist '("\\.ditamap\\'" . nxml-mode)))
+(use-package nxml
+  :ensure t
+  :defer t
+  :mode
+  (("\\.dita\\'" . nxml-mode)
+   ("\\.ditamap\\'" . nxml-mode)))
 
 ;;;
 ;;; DocBook
@@ -757,8 +765,11 @@
   :ensure t
   :defer t)
 
-(when (require 'nxml nil :noerror)
-  (add-to-list 'auto-mode-alist '("\\.docbook\\'" . nxml-mode)))
+(use-package nxml
+  :ensure t
+  :defer t
+  :mode
+  (("\\.docbook\\'" . nxml-mode)))
 
 ;;;
 ;;; SSH
@@ -1072,29 +1083,39 @@
 ;;;
 ;;;    TextConf script types
 ;;;
-(when (require 'cc-mode nil :noerror)
+(use-package cc-mode
+  :ensure t
+  :defer t
+  :mode
+  (("\\.h[cd]f\\'" . c-mode)
+   ("\\.l[cd]f\\'" . c-mode)
 
-  (add-to-list 'auto-mode-alist '("\\.h[cd]f\\'" . c-mode))
-  (add-to-list 'auto-mode-alist '("\\.l[cd]f\\'" . c-mode))
+   ("\\.gel\\'" . c-mode)))
 
-  (add-to-list 'auto-mode-alist '("\\.gel\\'" . c-mode)))
-
-(when (require 'js-mode nil :noerror)
-
-  (add-to-list 'auto-mode-alist '("\\.tcf\\'" . js-mode))
-  (add-to-list 'auto-mode-alist '("\\.tci\\'" . js-mode))
-  (add-to-list 'auto-mode-alist '("\\.tcp\\'" . js-mode))
-  (add-to-list 'auto-mode-alist '("\\.xs\\'" . js-mode)))
+(use-package js-mode
+  :ensure js
+  :defer t
+  :mode
+  (("\\.tcf\\'" . js-mode)
+   ("\\.tci\\'" . js-mode)
+   ("\\.tcp\\'" . js-mode)
+   ("\\.xs\\'" . js-mode)))
 
 ;;;
 ;;; Programming mode hooks
 ;;;
 (add-hook 'prog-mode-hook (lambda ()
                             (setq indent-tabs-mode nil)))
-(when (require 'linum nil :noerror)
+(use-package linum
+  :ensure t
+  :defer t
+  :config
   (add-hook 'prog-mode-hook (lambda ()
                               (linum-mode 1))))
-(when (require 'flyspell nil :noerror)
+(use-package flyspell
+  :ensure t
+  :defer t
+  :config
   (add-hook 'prog-mode-hook 'flyspell-prog-mode))
 
 ;;;
@@ -1102,8 +1123,12 @@
 ;;;
 (add-hook 'text-mode-hook (lambda ()
                             (setq indent-tabs-mode nil)))
-(add-hook 'text-mode-hook (lambda ()
-                            (linum-mode 1)))
+(use-package linum
+  :ensure t
+  :defer t
+  :config
+  (add-hook 'text-mode-hook (lambda ()
+                              (linum-mode 1))))
 
 ;;;
 ;;; Flycheck
@@ -1370,7 +1395,10 @@
 ;;;
 ;;; Start the emacs server (emacsserver/emacsclient)
 ;;;
-(when (require 'server nil :noerror)
+(use-package server
+  :ensure t
+  :defer t
+  :config
   (unless (server-running-p)
     (server-start)))
 
