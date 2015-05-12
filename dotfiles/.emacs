@@ -653,6 +653,7 @@
 ;;; PHP programming language
 ;;;
 (use-package php-mode
+  :ensure t
   :defer t)
 
 ;;;
