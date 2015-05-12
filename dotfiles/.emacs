@@ -665,12 +665,10 @@
 ;;;
 ;;; Swift mode
 ;;;
-;; (use-package swift-mode
-;;   :ensure t
-;;   :defer t)
-
-(when (require 'swift-mode nil :noerror)
-  nil)
+(use-package swift-mode
+  :disabled t
+  :ensure t
+  :defer t)
 
 ;;;
 ;;; MATLAB mode
