@@ -807,6 +807,119 @@
 ;;;
 ;;; C-family programming languages
 ;;;
+(use-package cc-mode
+  :ensure t
+  :defer t
+  :preface
+  (defconst tbrown-c-style
+    '((c-basic-offset . 3)
+      (tab-width . 8)
+      (indent-tabs-mode . nil)
+
+      ;; (c-comment-only-line-offset . 4)
+      ;; (c-block-comment-prefix . X)
+      ;; (c-comment-prefix . X)
+
+      ;; (c-cleanup-list . (scope-operator
+      ;;                    empty-defun-braces
+      ;;                    defun-close-semi))
+      (c-hanging-braces-alist . ((brace-list-open)
+                                 (substatement-open before after)
+                                 (block-close . c-snug-do-while)))
+      ;; (c-hanging-colons-alist . ((member-init-intro before)
+      ;;                            (inher-intro)
+      ;;                            (case-label after)
+      ;;                            (label after)
+      ;;                            (access-label after)))
+      ;; (c-hanging-semi&comma-alist . ())
+      (c-backslash-column . 76)
+      (c-backslash-max-column . 152)
+      ;; (c-special-indent-hook . nil)
+      ;; (c-label-minimum-indentation . nil)
+      (c-offsets-alist . ((arglist-close . c-lineup-arglist)
+                          (substatement-open . 0)
+                          (inline-open . 0)
+                          (case-label . +)))
+      )
+    "tbrown C Programming Style")
+
+  (defconst msvc-c-style
+    '((c-basic-offset . 4)
+      (tab-width . 4)
+      (indent-tabs-mode . t)
+
+      ;; (c-comment-only-line-offset . 4)
+      ;; (c-block-comment-prefix . X)
+      ;; (c-comment-prefix . X)
+
+      ;; (c-cleanup-list . (scope-operator
+      ;;                    empty-defun-braces
+      ;;                    defun-close-semi))
+      ;; (c-hanging-braces-alist . ((brace-list-open)
+      ;;                            (substatement-open before after)
+      ;;                            (block-close . c-snug-do-while)))
+      ;; (c-hanging-colons-alist . ((member-init-intro before)
+      ;;                            (inher-intro)
+      ;;                            (case-label after)
+      ;;                            (label after)
+      ;;                            (access-label after)))
+      ;; (c-hanging-semi&comma-alist . ())
+      (c-backslash-column . 76)
+      (c-backslash-max-column . 152)
+      ;; (c-special-indent-hook . nil)
+      ;; (c-label-minimum-indentation . nil)
+      (c-offsets-alist . ((arglist-close . c-lineup-arglist)
+                          (substatement-open . 0)
+                          (inline-open . 0)
+                          (case-label . +)))
+      )
+    "MSVC C Programming Style")
+  :init
+  (use-package google-c-style
+    :ensure t
+    :defer t)
+  (use-package c-eldoc
+    :ensure t
+    :defer t
+    :init
+    ;; add more as desired, superset of what you'd like to use
+    (setq c-eldoc-includes "-I.")
+    :config
+    (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
+    (add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode))
+  :config
+  (add-hook 'c-mode-hook
+            (lambda ()
+              (c-set-style "tbrown")))
+  (add-hook 'c++-mode-hook
+            (lambda ()
+              (c-set-style "tbrown")))
+  (add-hook 'c-mode-common-hook
+            (lambda ()
+              ;; Add the personal styles defined above.
+              (c-add-style "tbrown" tbrown-c-style t)
+              (c-add-style "msvc" msvc-c-style t)
+
+              ;;
+              ;; Other customizations.
+              ;;
+              ;; TBD: Not sure if all of these will be okay or not.
+              ;;
+              (c-toggle-auto-state 1)
+              (c-toggle-hungry-state 1)
+              ;; (c-toggle-auto-hungry-state 1)
+
+              ;; (auto-fill-mode t)
+              ;; (abbrev-mode t)
+              ;; (column-number-mode t)
+
+              ;; (setq tab-width 8)
+
+              ;; (setq c-tab-always-indent t)
+              ;; (setq c-insert-tab-function nil)
+
+              (hs-minor-mode t)
+              ))
 (use-package demangle-mode
   :ensure t
   :defer t)
@@ -816,143 +929,19 @@
 (use-package dummy-h-mode
   :ensure t
   :defer t)
-(use-package google-c-style
-  :ensure t
-  :defer t)
 (use-package irony
   :ensure t
-  :defer t)
-(use-package irony-eldoc
-  :ensure t
-  :defer t)
+  :defer t
+  :init
+  (use-package irony-eldoc
+    :ensure t
+    :defer t))
 (use-package objc-font-lock
   :ensure t
   :defer t)
 (use-package malinka
   :ensure t
-  :defer t)
-
-(defconst tbrown-c-style
-  '((c-basic-offset . 3)
-    (tab-width . 8)
-    (indent-tabs-mode . nil)
-
-    ;; (c-comment-only-line-offset . 4)
-    ;; (c-block-comment-prefix . X)
-    ;; (c-comment-prefix . X)
-
-    ;; (c-cleanup-list . (scope-operator
-    ;;                    empty-defun-braces
-    ;;                    defun-close-semi))
-    (c-hanging-braces-alist . ((brace-list-open)
-                               (substatement-open before after)
-                               (block-close . c-snug-do-while)))
-    ;; (c-hanging-colons-alist . ((member-init-intro before)
-    ;;                            (inher-intro)
-    ;;                            (case-label after)
-    ;;                            (label after)
-    ;;                            (access-label after)))
-    ;; (c-hanging-semi&comma-alist . ())
-    (c-backslash-column . 76)
-    (c-backslash-max-column . 152)
-    ;; (c-special-indent-hook . nil)
-    ;; (c-label-minimum-indentation . nil)
-    (c-offsets-alist . ((arglist-close . c-lineup-arglist)
-                        (substatement-open . 0)
-                        (inline-open . 0)
-                        (case-label . +)))
-    )
-  "tbrown C Programming Style")
-
-(defconst msvc-c-style
-  '((c-basic-offset . 4)
-    (tab-width . 4)
-    (indent-tabs-mode . t)
-
-    ;; (c-comment-only-line-offset . 4)
-    ;; (c-block-comment-prefix . X)
-    ;; (c-comment-prefix . X)
-
-    ;; (c-cleanup-list . (scope-operator
-    ;;                    empty-defun-braces
-    ;;                    defun-close-semi))
-    ;; (c-hanging-braces-alist . ((brace-list-open)
-    ;;                            (substatement-open before after)
-    ;;                            (block-close . c-snug-do-while)))
-    ;; (c-hanging-colons-alist . ((member-init-intro before)
-    ;;                            (inher-intro)
-    ;;                            (case-label after)
-    ;;                            (label after)
-    ;;                            (access-label after)))
-    ;; (c-hanging-semi&comma-alist . ())
-    (c-backslash-column . 76)
-    (c-backslash-max-column . 152)
-    ;; (c-special-indent-hook . nil)
-    ;; (c-label-minimum-indentation . nil)
-    (c-offsets-alist . ((arglist-close . c-lineup-arglist)
-                        (substatement-open . 0)
-                        (inline-open . 0)
-                        (case-label . +)))
-    )
-  "MSVC C Programming Style")
-
-;;
-;; Customizations for C mode.
-;;
-(add-hook 'c-mode-hook
-   (lambda ()
-     (c-set-style "tbrown")
-     )
-   )
-
-;;
-;; Customizations for C++ mode.
-;;
-(add-hook 'c++-mode-hook
-   (lambda ()
-     (c-set-style "tbrown")
-     )
-   )
-
-;;
-;; Customizations for all sub-modes in CC Mode.
-;;
-(add-hook 'c-mode-common-hook
-   (lambda ()
-     ;; Add the personal styles defined above.
-     (c-add-style "tbrown" tbrown-c-style t)
-     (c-add-style "msvc" msvc-c-style t)
-
-     ;;
-     ;; Other customizations.
-     ;;
-     ;; TBD: Not sure if all of these will be okay or not.
-     ;;
-     (c-toggle-auto-state 1)
-     (c-toggle-hungry-state 1)
-     ;; (c-toggle-auto-hungry-state 1)
-
-     ;; (auto-fill-mode t)
-     ;; (abbrev-mode t)
-     ;; (column-number-mode t)
-
-     ;; (setq tab-width 8)
-
-     ;; (setq c-tab-always-indent t)
-     ;; (setq c-insert-tab-function nil)
-
-     (hs-minor-mode t)
-     ))
-
-(use-package c-eldoc
-  :ensure t
-  :defer t
-  :init
-  ;; add more as desired, superset of what you'd like to use
-  (setq c-eldoc-includes "-I.")
-  :config
-  (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
-  (add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode))
+  :defer t))
 
 ;;;
 ;;; JavaScript programming language
