@@ -767,15 +767,14 @@
 ;;;
 ;;; C# mode
 ;;;
-;; (use-package csharp-mode
-;;   :ensure t
-;;   :defer t)
-;; (use-package omnisharp
-;;   :ensure t
-;;   :defer t)
-
-(when (require 'csharp-mode nil :noerror)
-  )
+(use-package csharp-mode
+  :disabled t
+  :ensure t
+  :defer t)
+(use-package omnisharp
+  :disabled t
+  :ensure t
+  :defer t)
 
 ;;;
 ;;; XML mode
