@@ -302,10 +302,6 @@
 (use-package electric-case
   :ensure t
   :defer t)
-(use-package flyspell
-  :ensure t
-  :defer t
-  :diminish flyspell-mode)
 (use-package fm
   :ensure t
   :defer t)
@@ -366,9 +362,14 @@
   :defer t)
 
 ;;; Flyspell
-(use-package flyspell-lazy
+(use-package flyspell
   :ensure t
-  :defer t)
+  :defer t
+  :diminish flyspell-mode
+  :init
+  (use-package flyspell-lazy
+    :ensure t
+    :defer t))
 
 ;;; Scheme programming language
 (use-package geiser
