@@ -571,55 +571,53 @@
 ;;;
 (use-package go-mode
   :ensure t
-  :defer t)
-(use-package company-go
-  :ensure t
-  :defer t)
-(use-package go-direx
-  :ensure t
-  :defer t)
-(use-package go-eldoc
-  :ensure t
-  :defer t)
-(use-package go-errcheck
-  :ensure t
-  :defer t)
-(use-package go-play
-  :ensure t
-  :defer t)
-(use-package go-projectile
-  :ensure t
-  :defer t)
-(use-package go-snippets
-  :ensure t
-  :defer t)
-(use-package go-stacktracer
-  :ensure t
-  :defer t)
-(use-package golint
-  :ensure t
-  :defer t)
-(use-package gore-mode
-  :ensure t
-  :defer t)
-(use-package gotest
-  :ensure t
-  :defer t)
-(use-package govet
-  :ensure t
-  :defer t)
-
-(when (require 'go-mode nil :noerror)
-  (when (require 'go-eldoc nil :noerror)
+  :defer t
+  :init
+  (use-package company-go
+    :ensure t
+    :defer t)
+  (use-package go-direx
+    :ensure t
+    :defer t)
+  (use-package go-eldoc
+    :ensure t
+    :defer t
+    :config
     (add-hook 'go-mode-hook 'go-eldoc-setup))
-
+  (use-package go-errcheck
+    :ensure t
+    :defer t)
+  (use-package go-play
+    :ensure t
+    :defer t)
+  (use-package go-projectile
+    :ensure t
+    :defer t)
+  (use-package go-snippets
+    :ensure t
+    :defer t)
+  (use-package go-stacktracer
+    :ensure t
+    :defer t)
+  (use-package golint
+    :ensure t
+    :defer t)
+  (use-package gore-mode
+    :ensure t
+    :defer t)
+  (use-package gotest
+    :ensure t
+    :defer t)
+  (use-package govet
+    :ensure t
+    :defer t)
+  :config
   (add-hook 'go-mode-hook (lambda ()
                             ;; allow use of tags as it is required by go fmt
 			    (setq indent-tabs-mode t)
 
                             ;; format before save
-                            (add-hook 'before-save-hook 'gofmt-before-save)))
-  nil)
+                            (add-hook 'before-save-hook 'gofmt-before-save))))
 
 ;;;
 ;;; Swift programming language
