@@ -351,11 +351,6 @@
   :ensure t
   :defer t)
 
-;;; Revision control
-(use-package ibuffer-vc
-  :ensure t
-  :defer t)
-
 ;;; Fish shell programming
 (use-package fish-mode
   :ensure t
@@ -371,13 +366,26 @@
     :ensure t
     :defer t))
 
+;;; Ibuffer
+(use-package ibuffer
+  :ensure t
+  :defer t
+  :init
+  (use-package ibuffer-vc
+    :ensure t
+    :defer t)
+  (use-package ibuffer-tramp
+    :ensure t
+    :defer t)
+  (use-package ibuffer-git
+    :ensure t
+    :defer t)
+  (use-package ibuffer-projectile
+    :ensure t
+    :defer t))
+
 ;;; Scheme programming language
 (use-package geiser
-  :ensure t
-  :defer t)
-
-;;; TRAMP
-(use-package ibuffer-tramp
   :ensure t
   :defer t)
 
@@ -1043,10 +1051,6 @@
 ;;;
 ;;; Git
 ;;;
-(use-package ibuffer-git
-  :ensure t
-  :defer t)
-
 (use-package gitattributes-mode
   :ensure t
   :defer t)
@@ -1197,10 +1201,6 @@
   :defer t
   :diminish projectile-mode
   :init
-  (use-package ibuffer-projectile
-    :ensure t
-    :defer t)
-
   (projectile-global-mode)
 
   ;; @tood workaround for an issue with tramp
