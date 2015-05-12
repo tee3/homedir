@@ -140,131 +140,209 @@
              (not (package-installed-p package)))
     (package-install package)))
 
-;;;
-;;; Install packages
-;;;
+;;; Markdown formats
 (init-install-package 'adoc-mode)
-(init-install-package 'ag)
-(init-install-package 'android-mode)
-(init-install-package 'apache-mode)
-(init-install-package 'applescript-mode)
-(init-install-package 'ascii)
-(init-install-package 'auctex)
-(init-install-package 'c-eldoc)
-(init-install-package 'cperl-mode)
-(init-install-package 'cppcheck)
 (init-install-package 'creole-mode)
+(init-install-package 'jade-mode)
+(init-install-package 'markup-faces)
+(init-install-package 'pandoc-mode)
+(init-install-package 'sphinx-frontend)
+
+;;; Utilities
+(init-install-package 'ag)
+(init-install-package 'ascii)
+
+;;; Android development
+(init-install-package 'android-mode)
+
+;;; Configuration files
+(init-install-package 'apache-mode)
 (init-install-package 'crontab-mode)
+(init-install-package 'dockerfile-mode)
+(init-install-package 'nginx-mode)
+(init-install-package 'ninja-mode)
+(init-install-package 'osx-plist)
+(init-install-package 'syslog-mode)
+(init-install-package 'toml-mode)
+(init-install-package 'yaml-mode)
+
+;;; Programming languages
+(init-install-package 'applescript-mode)
+(init-install-package 'dot-mode)
+(init-install-package 'feature-mode)
+(init-install-package 'graphviz-dot-mode)
+(init-install-package 'haskell-mode)
+(init-install-package 'jgraph-mode)
+(init-install-package 'lua-mode)
+(init-install-package 'mustache-mode)
+(init-install-package 'pov-mode)
+(init-install-package 'tidy)
+(init-install-package 'web-mode)
+
+;;; TeX and LaTeX
+(init-install-package 'auctex)
+
+;;; C-family programming language
+(init-install-package 'c-eldoc)
+(init-install-package 'cppcheck)
+(init-install-package 'cuda-mode)
+(init-install-package 'demangle-mode)
+(init-install-package 'disaster)
+(init-install-package 'dummy-h-mode)
+(init-install-package 'glsl-mode)
+(init-install-package 'google-c-style)
+(init-install-package 'hide-comnt)
+(init-install-package 'irony)
+(init-install-package 'irony-eldoc)
+(init-install-package 'objc-font-lock)
+(init-install-package 'malinka)
+
+;;; Perl programming language
+(init-install-package 'cperl-mode)
+
+;;; File formats
 (init-install-package 'csv-mode)
+(init-install-package 'irfc)
+
+;;; Emacs lisp libraries
 (init-install-package 'ctable)
+(init-install-package 'dash)
+(init-install-package 'dropbox)
+(init-install-package 'epc)
+(init-install-package 'jabber)
+(init-install-package 'oauth)
+(init-install-package 'pcache)
+(init-install-package 's)
+(init-install-package 'simple-httpd)
+(init-install-package 'string-utils)
+(init-install-package 'websocket)
+
+;;; Tags
 (init-install-package 'ctags)
 (init-install-package 'ctags-update)
-(init-install-package 'cuda-mode)
+(init-install-package 'gtags)
+
+;;; D programming language
 (init-install-package 'd-mode)
+
+;;; Emacs
 (init-install-package 'darkroom)
-(init-install-package 'dart-mode)
-(init-install-package 'dash)
 (init-install-package 'dedicated)
-(init-install-package 'demangle-mode)
+(init-install-package 'electric-case)
+(init-install-package 'fm)
+(init-install-package 'nav)
+(init-install-package 'nav-flash)
+(init-install-package 'nlinum)
+(init-install-package 'persistent-soft)
+(init-install-package 'popup)
+(init-install-package 'pos-tip)
+(init-install-package 'smooth-scroll)
+(init-install-package 'sublimity)
+(init-install-package 'sws-mode)
+(init-install-package 'textmate)
+(init-install-package 'undo-tree)
+(init-install-package 'writeroom-mode)
+
+;;; Evil (vi) emulation
+(init-install-package 'evil)
+
+;;; Dart programming language
+(init-install-package 'dart-mode)
+
+;;; Diffs
 (init-install-package 'diff-hl)
+
+;;; Emacs dired
 (init-install-package 'dired+)
 (init-install-package 'dired-details)
 (init-install-package 'dired-details+)
 (init-install-package 'dired-rainbow)
 (init-install-package 'dired-single)
-(init-install-package 'disaster)
-(init-install-package 'dockerfile-mode)
+
+;;; Windows support
 (init-install-package 'dos)
-(init-install-package 'dot-mode)
-(init-install-package 'dropbox)
-(init-install-package 'dummy-h-mode)
-(init-install-package 'electric-case)
-(init-install-package 'emamux)
-(init-install-package 'epc)
-(init-install-package 'evil)
-(init-install-package 'feature-mode)
-(init-install-package 'find-file-in-repository)
-(init-install-package 'fish-mode)
-(init-install-package 'flyspell-lazy)
-(init-install-package 'fm)
-(init-install-package 'geiser)
-(init-install-package 'glsl-mode)
-(init-install-package 'google-c-style)
-(init-install-package 'google-this)
-(init-install-package 'graphviz-dot-mode)
-(init-install-package 'gtags)
-(init-install-package 'guru-mode)
-(init-install-package 'haskell-mode)
-(init-install-package 'hide-comnt)
-(init-install-package 'howdoi)
-(init-install-package 'ibuffer-git)
-(init-install-package 'ibuffer-tramp)
-(init-install-package 'ibuffer-vc)
-(init-install-package 'ioccur)
-(init-install-package 'irfc)
-(init-install-package 'irony)
-(init-install-package 'irony-eldoc)
-(init-install-package 'jabber)
-(init-install-package 'jade-mode)
-(init-install-package 'jgraph-mode)
-(init-install-package 'list-utils)
-(init-install-package 'lua-mode)
-(init-install-package 'malinka)
-(init-install-package 'markup-faces)
-(init-install-package 'monky)
-(init-install-package 'mustache-mode)
-(init-install-package 'nav)
-(init-install-package 'nav-flash)
-(init-install-package 'nginx-mode)
-(init-install-package 'ninja-mode)
-(init-install-package 'nlinum)
-(init-install-package 'noccur)
 (init-install-package 'ntcmd)
-(init-install-package 'oauth)
-(init-install-package 'objc-font-lock)
-(init-install-package 'org)
-(init-install-package 'osx-plist)
-(init-install-package 'p4)
-(init-install-package 'pandoc-mode)
-(init-install-package 'pcache)
-(init-install-package 'persistent-soft)
-(init-install-package 'popup)
-(init-install-package 'pos-tip)
-(init-install-package 'pov-mode)
 (init-install-package 'powershell)
-(init-install-package 'processing-mode)
-(init-install-package 'processing-snippets)
-(init-install-package 'protobuf-mode)
-(init-install-package 'psvn)
+
+;;; tmux
+(init-install-package 'emamux)
+
+;;; Revision control
+(init-install-package 'find-file-in-repository)
+(init-install-package 'ibuffer-vc)
+
+;;; Fish shell programming
+(init-install-package 'fish-mode)
+
+;;; Flyspell
+(init-install-package 'flyspell-lazy)
+
+;;; Scheme programming language
+(init-install-package 'geiser)
+
+;;; TRAMP
+(init-install-package 'ibuffer-tramp)
+
+;;; Google
+(init-install-package 'google-this)
+
+;;; Learning Emacs
+(init-install-package 'guru-mode)
+(init-install-package 'vimgolf)
+
+;;; Programming languages
+(init-install-package 'howdoi)
 (init-install-package 'rainbow-delimiters)
 (init-install-package 'rainbow-identifiers)
-(init-install-package 's)
-(init-install-package 'simple-httpd)
-(init-install-package 'smooth-scroll)
-(init-install-package 'sphinx-frontend)
+
+;;; Occur
+(init-install-package 'ioccur)
+(init-install-package 'noccur)
+
+(init-install-package 'list-utils)
+
+;;; Mercurial
+(init-install-package 'monky)
+
+;;; Org mode
+(init-install-package 'org)
+
+;;; Perforce
+(init-install-package 'p4)
+
+;;; Processing programming language
+(init-install-package 'processing-mode)
+(init-install-package 'processing-snippets)
+
+;;; Protobuf
+(init-install-package 'protobuf-mode)
+
+;;; Subversion
+(init-install-package 'psvn)
+
+;;; SSH
 (init-install-package 'ssh)
-(init-install-package 'string-utils)
-(init-install-package 'sublimity)
-(init-install-package 'sws-mode)
+
+;;; Writing
 (init-install-package 'synonyms)
-(init-install-package 'syslog-mode)
-(init-install-package 'textmate)
-(init-install-package 'tfs)
 (init-install-package 'thesaurus)
-(init-install-package 'tidy)
-(init-install-package 'todotxt)
-(init-install-package 'toml-mode)
-(init-install-package 'twittering-mode)
-(init-install-package 'undo-tree)
-(init-install-package 'use-package)
-(init-install-package 'vc-fossil)
+
+;;; Microsoft Team Foundation Server
+(init-install-package 'tfs)
 (init-install-package 'vc-tfs)
-(init-install-package 'vimgolf)
-(init-install-package 'web-mode)
-(init-install-package 'websocket)
+
+;;; To Do (todo.txt)
+(init-install-package 'todotxt)
+
+;;; Twitter
+(init-install-package 'twittering-mode)
+
+;;; Initialization utilities
+(init-install-package 'use-package)
 (init-install-package 'wonderland)
-(init-install-package 'writeroom-mode)
-(init-install-package 'yaml-mode)
+
+;;; Fossil
+(init-install-package 'vc-fossil)
 
 ;;;
 ;;; Ido
@@ -720,6 +798,8 @@
 (init-install-package 'gitconfig)
 
 (init-install-package 'gist)
+
+(init-install-package 'ibuffer-git)
 
 (when (require 'gitconfig-mode nil :noerror)
 
