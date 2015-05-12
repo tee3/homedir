@@ -705,14 +705,16 @@
 ;;;
 ;;; Objective-J programming language
 ;;;
-(when (require 'objj-mode nil :noerror)
+(use-package objj-mode
+  :load-path "~/opt/local/share/emacs/site-lisp"
+  :mode
+  (("\\.j\\'" . objj-mode))
+  :config
   (require 'compile)
 
   (add-to-list 'compilation-error-regexp-alist-alist
                '(objj-acorn "^\\(WARNING\\|ERROR\\) line \\([0-9]+\\) in file:\\([^:]+\\):\\(.*\\)$" 3 2))
   (add-to-list 'compilation-error-regexp-alist 'objj-acorn)
-  (load-library "objj-mode")
-  (add-to-list 'auto-mode-alist '("\\.j\\'" . objj-mode))
 
   (when (require 'js-mode nil :noerror)
 
