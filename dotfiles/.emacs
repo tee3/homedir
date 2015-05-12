@@ -651,32 +651,34 @@
 ;;;
 ;;; Ruby programming language
 ;;;
-(use-package company-inf-ruby
-  :ensure t
-  :defer t
-  :config
-  (add-to-list 'company-backends 'company-inf-ruby t))
-(use-package inf-ruby
-  :ensure t
-  :defer t)
-(use-package rbenv
-  :ensure t
-  :defer t)
-(use-package rspec-mode
-  :ensure t
-  :defer t)
-(use-package ruby-compilation
-  :ensure t
-  :defer t)
-(use-package ruby-electric
-  :ensure t
-  :defer t)
 (use-package ruby-mode
   :ensure t
   :defer t
   :mode
   (("[Rr]akefile\\'" . ruby-mode)
-   ("\\.rake\\'" . ruby-mode)))
+   ("\\.rake\\'" . ruby-mode))
+  :init
+  (use-package ruby-compilation
+    :ensure t
+    :defer t)
+  (use-package ruby-electric
+    :ensure t
+    :defer t))
+(use-package inf-ruby
+  :ensure t
+  :defer t
+  :init
+  (use-package company-inf-ruby
+    :ensure t
+    :defer t
+    :config
+    (add-to-list 'company-backends 'company-inf-ruby t)))
+(use-package rspec-mode
+  :ensure t
+  :defer t)
+(use-package rbenv
+  :ensure t
+  :defer t)
 (use-package bundler
   :ensure t
   :defer t)
