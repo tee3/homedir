@@ -339,23 +339,6 @@
   :ensure t
   :defer t)
 
-;;; Emacs dired
-(use-package dired+
-  :ensure t
-  :defer t)
-(use-package dired-details
-  :ensure t
-  :defer t)
-(use-package dired-details+
-  :ensure t
-  :defer t)
-(use-package dired-rainbow
-  :ensure t
-  :defer t)
-(use-package dired-single
-  :ensure t
-  :defer t)
-
 ;;; Windows support
 (use-package powershell
   :ensure t
