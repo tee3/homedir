@@ -505,9 +505,8 @@
     (ido-ubiquitous-mode t))
   :config
   (progn
-    ;; (ido-mode (quote both) nil (ido))
     (ido-mode t)
-    (ido-everywhere)
+    (ido-everywhere t)
 
     (setq ido-use-filename-at-point 'guess)
     (setq ido-use-url-at-point t)
