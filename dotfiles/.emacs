@@ -480,14 +480,6 @@
   :ensure t
   :defer t)
 
-;;; Writing
-(use-package synonyms
-  :ensure t
-  :defer t)
-(use-package thesaurus
-  :ensure t
-  :defer t)
-
 ;;; Microsoft Team Foundation Server
 (use-package tfs
   :ensure t
