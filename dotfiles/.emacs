@@ -135,9 +135,6 @@
 (use-package pandoc-mode
   :ensure t
   :defer t)
-(use-package sphinx-frontend
-  :ensure t
-  :defer t)
 
 ;;; Utilities
 (use-package ascii
@@ -429,11 +426,15 @@
 (use-package tfs
   :ensure t
   :defer t)
+
+;;;
+;;; Version Control Systems
+;;;
+(use-package vc
+  :defer t)
 (use-package vc-tfs
   :ensure t
   :defer t)
-
-;;; Fossil
 (use-package vc-fossil
   :ensure t
   :defer t)
@@ -454,6 +455,17 @@
     (setq ido-use-filename-at-point 'guess)
     (setq ido-use-url-at-point t)
     (setq ido-confirm-unique-completion t)))
+
+;;;
+;;; ReStructuredText
+;;;
+;;; @todo Add options to the rst-compile-toolsets "--verbose --strict --date --time"
+;;;
+(use-package rst
+  :defer t)
+(use-package sphinx-frontend
+  :ensure t
+  :defer t)
 
 ;;;
 ;;; vimrc
@@ -524,6 +536,12 @@
   :defer t
   :mode
   (("\\.gp\\'" . gnuplot-mode)))
+
+;;;
+;;; Tcl programming language
+;;;
+(use-package tcl
+  :defer t)
 
 ;;;
 ;;; Go programming language
@@ -838,6 +856,9 @@
     :config
     (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
     (add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode))
+  (use-package hideif
+    :defer t
+    :diminish hide-ifdef-mode)
   :config
   (add-hook 'c-mode-hook
             (lambda ()
