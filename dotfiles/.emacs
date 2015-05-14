@@ -468,9 +468,8 @@
   :init
   (use-package ido-ubiquitous
     :ensure t
-    :config
+    :init
     (ido-ubiquitous-mode t))
-  :config
   (progn
     (ido-mode t)
     (ido-everywhere t)
@@ -1030,7 +1029,7 @@
 ;;;
 (use-package elpy
   :ensure t
-  :config
+  :init
   (elpy-enable)
 
   ;; disable flymake if flycheck is available
@@ -1254,13 +1253,13 @@
   :disabled t
   :ensure t
   :defer t
-  :config
+  :init
   (global-rainbow-delimiters-mode))
 (use-package rainbow-identifiers
   :disabled t
   :ensure t
   :defer t
-  :config
+  :init
   (rainbow-identifiers-mode))
 
 ;;;
@@ -1269,7 +1268,7 @@
 (use-package smart-mode-line
   :ensure t
   :defer t
-  :config
+  :init
   (setq sml/theme nil)
 
   (sml/setup))
