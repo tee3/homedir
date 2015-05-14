@@ -367,18 +367,8 @@
   :ensure t
   :defer t)
 
-;;; Mercurial
-(use-package monky
-  :ensure t
-  :defer t)
-
 ;;; Org
 (use-package org
-  :ensure t
-  :defer t)
-
-;;; Perforce
-(use-package p4
   :ensure t
   :defer t)
 
@@ -396,18 +386,8 @@
   :ensure t
   :defer t)
 
-;;; Subversion
-(use-package psvn
-  :ensure t
-  :defer t)
-
 ;;; SSH
 (use-package ssh
-  :ensure t
-  :defer t)
-
-;;; Microsoft Team Foundation Server
-(use-package tfs
   :ensure t
   :defer t)
 
@@ -418,10 +398,91 @@
   :defer t
   :init
   (setq vc-make-backup-files t))
-(use-package vc-tfs
+
+;;;
+;;; Fossil
+;;;
+(use-package vc-fossil
+  :ensure t
+  :defer t
+  :init
+  (use-package vc
+    :defer t))
+
+;;;
+;;; Git
+;;;
+(use-package gitattributes-mode
   :ensure t
   :defer t)
-(use-package vc-fossil
+(use-package gitconfig-mode
+  :ensure t
+  :defer t
+  :mode
+  (("\\.gitconfig.*\\'" . gitconfig-mode)
+
+   ;; SubGit-generated Git submodules files
+   ("\\.gitsvnextmodules\\'" . gitconfig-mode)
+   ;; migration-generated Git submodules files
+   ("\\.gitsvnexternals\\'" . gitconfig-mode)))
+(use-package gitignore-mode
+  :ensure t
+  :defer t)
+
+(use-package git-gutter
+  :ensure t
+  :defer t)
+(use-package git-gutter-fringe
+  :ensure t
+  :defer t)
+
+;;;
+;;; GitHub
+;;;
+(use-package gist
+  :ensure t
+  :defer t)
+
+;;;
+;;; Magit
+;;;
+(use-package magit
+  :load-path
+  "~/.emacs.d/site-lisp/magit"
+  :config
+  (add-hook 'magit-mode-hook 'magit-load-config-extensions))
+
+;;;
+;;; Microsoft Team Foundation Server
+;;;
+(use-package tfs
+  :ensure t
+  :defer t)
+(use-package vc-tfs
+  :ensure t
+  :defer t
+  :init
+  (use-package vc
+    :defer t))
+
+;;;
+;;; Mercurial
+;;;
+(use-package monky
+  :ensure t
+  :defer t)
+
+;;;
+;;; Perforce
+;;;
+(use-package p4
+  :ensure t
+  :defer t)
+
+;;;
+;;; Subversion
+;;;
+(use-package psvn
   :ensure t
   :defer t)
 
@@ -753,15 +814,6 @@
    ("authorized_keys2?\\'" . ssh-authorized-keys-mode)))
 
 ;;;
-;;; Magit
-;;;
-(use-package magit
-  :load-path
-  "~/.emacs.d/site-lisp/magit"
-  :config
-  (add-hook 'magit-mode-hook 'magit-load-config-extensions))
-
-;;;
 ;;; C-family programming languages
 ;;;
 (use-package cc-mode
@@ -1040,40 +1092,6 @@
   :ensure t
   :defer t)
 (use-package virtualenv
-  :ensure t
-  :defer t)
-
-;;;
-;;; Git
-;;;
-(use-package gitattributes-mode
-  :ensure t
-  :defer t)
-(use-package gitconfig-mode
-  :ensure t
-  :defer t
-  :mode
-  (("\\.gitconfig.*\\'" . gitconfig-mode)
-
-   ;; SubGit-generated Git submodules files
-   ("\\.gitsvnextmodules\\'" . gitconfig-mode)
-   ;; migration-generated Git submodules files
-   ("\\.gitsvnexternals\\'" . gitconfig-mode)))
-(use-package gitignore-mode
-  :ensure t
-  :defer t)
-
-(use-package git-gutter
-  :ensure t
-  :defer t)
-(use-package git-gutter-fringe
-  :ensure t
-  :defer t)
-
-;;;
-;;; GitHub
-;;;
-(use-package gist
   :ensure t
   :defer t)
 
