@@ -459,10 +459,11 @@
 ;;; Processing programming language
 (use-package processing-mode
   :ensure t
-  :defer t)
-(use-package processing-snippets
-  :ensure t
-  :defer t)
+  :defer t
+  :init
+  (use-package processing-snippets
+    :ensure t
+    :defer t))
 
 ;;; Protobuf
 (use-package protobuf-mode
