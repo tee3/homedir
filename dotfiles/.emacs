@@ -363,12 +363,6 @@
   :defer t)
 
 ;;; Windows support
-(use-package dos
-  :ensure t
-  :defer t)
-(use-package ntcmd
-  :ensure t
-  :defer t)
 (use-package powershell
   :ensure t
   :defer t)
