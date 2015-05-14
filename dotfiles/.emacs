@@ -337,7 +337,8 @@
   :defer t)
 (use-package undo-tree
   :ensure t
-  :defer t)
+  :defer t
+  :diminish undo-tree-mode)
 (use-package writeroom-mode
   :ensure t
   :defer t)
