@@ -25,9 +25,6 @@
  ;; If there is more than one, they won't work right.
  '(Info-additional-directory-list (quote ("/usr/local/share/info")))
  '(auto-compression-mode t nil (jka-compr))
- '(c-indent-comments-syntactically-p t)
- '(c-macro-shrink-window-flag t)
- '(c-strict-syntax-p t)
  '(calculator-bind-escape t)
  '(calculator-electric-mode nil)
  '(column-number-mode t)
@@ -38,24 +35,17 @@
  '(display-time-mode t)
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(fringe-mode 4 nil (fringe))
- '(global-cwarn-mode t)
  '(global-font-lock-mode t nil (font-lock))
  '(gnus-select-method (quote (nntp "news.gmane.org")))
  '(gud-pdb-command-name "python -m pdb")
- '(hide-ifdef-lines t)
  '(history-delete-duplicates t)
  '(icomplete-mode t)
- '(inferior-js-program-command "v8 --shell")
  '(inhibit-startup-screen t)
  '(large-file-warning-threshold nil)
- '(linum-format "%4d ")
- '(matlab-shell-command-switches "-nodesktop")
- '(matlab-shell-mode-hook nil)
  '(menu-bar-mode nil)
  '(mouse-wheel-mode t)
  '(ns-pop-up-frames nil)
  '(paren-mode (quote sexp) nil (paren))
- '(projectile-switch-project-action (quote projectile-dired))
  '(query-user-mail-address nil)
  '(save-place t nil (saveplace))
  '(savehist-mode t nil (savehist))
@@ -67,15 +57,9 @@
  '(split-height-threshold 0)
  '(sql-sqlite-program "sqlite3")
  '(tags-loop-revert-buffers t)
- '(tcl-application "tclsh")
- '(tcl-auto-newline nil)
  '(tempo-interactive t)
- '(text-mode-hook
-   (quote
-    (turn-on-auto-fill text-mode-hook-identify)))
  '(tool-bar-mode nil)
  '(truncate-lines t)
- '(vc-make-backup-files t)
  '(version-control t)
  '(visible-bell t)
  '(whitespace-check-indent-whitespace t))
@@ -431,7 +415,9 @@
 ;;; Version Control Systems
 ;;;
 (use-package vc
-  :defer t)
+  :defer t
+  :init
+  (setq vc-make-backup-files t))
 (use-package vc-tfs
   :ensure t
   :defer t)
@@ -541,7 +527,9 @@
 ;;; Tcl programming language
 ;;;
 (use-package tcl
-  :defer t)
+  :defer t
+  :init
+  (setq tcl-application "tclsh"))
 
 ;;;
 ;;; Go programming language
@@ -703,7 +691,9 @@
   :defer t
   :mode
   (("[Jj]akefile.*\\'" . js-mode)
-   ("\\.jake\\'" . js-mode)))
+   ("\\.jake\\'" . js-mode))
+  :init
+  (setq inferior-js-program-command "v8 --shell"))
 
 ;;;
 ;;; C# programming language
@@ -843,7 +833,9 @@
   :init
   (use-package cwarn
     :defer t
-    :diminish cwarn-mode)
+    :diminish cwarn-mode
+    :init
+    (global-cwarn-mode t))
   (use-package google-c-style
     :ensure t
     :defer t)
@@ -858,7 +850,11 @@
     (add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode))
   (use-package hideif
     :defer t
-    :diminish hide-ifdef-mode)
+    :diminish hide-ifdef-mode
+    :init
+    (hide-ifdef-mode nil))
+  (setq c-indent-comments-syntactically-p t)
+  (setq c-strict-syntax-p t)
   :config
   (add-hook 'c-mode-hook
             (lambda ()
@@ -1109,6 +1105,8 @@
                             (setq indent-tabs-mode nil)))
 (use-package linum
   :defer t
+  :init
+  (setq linum-format "%4d ")
   :config
   (add-hook 'prog-mode-hook (lambda ()
                               (linum-mode 1))))
@@ -1120,6 +1118,8 @@
 ;;;
 ;;; Text mode hooks (additional)
 ;;;
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'text-mode-hook 'text-mode-hook-identify)
 (add-hook 'text-mode-hook (lambda ()
                             (setq indent-tabs-mode nil)))
 (use-package linum
@@ -1205,6 +1205,8 @@
   :diminish projectile-mode
   :init
   (projectile-global-mode)
+
+  (setq projectile-switch-project-action 'projectile-dired)
 
   ;; @tood workaround for an issue with tramp
   (setq projectile-mode-line " Projectile"))
