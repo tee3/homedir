@@ -1265,9 +1265,7 @@
     :bind ("C-c ! h" . helm-flycheck))
   (use-package helm-flyspell
     :ensure t
-    :defer t
-    ;; @todo the :bind below does not work for some reason
-    :bind ("C-;" . helm-flyspell-correct))
+    :defer t)
   (use-package helm-projectile
     :ensure t
     :defer t)
