@@ -620,19 +620,13 @@
 ;;;
 (use-package matlab-mode
   :ensure t
-  :defer t
-  :mode
-  (("\\.m\\'" . matlab-mode)))
+  :defer t)
 
 ;;;
 ;;; GNU Octave
 ;;;
-(use-package octave-mode
-  :disabled t
-  :ensure t
-  :defer t
-  :mode
-  (("\\.m\\'" . octave-mode)))
+(use-package octave
+  :defer t)
 
 ;;;
 ;;; PHP programming language
