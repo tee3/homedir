@@ -1352,7 +1352,6 @@
   (use-package jazz-theme :ensure t :defer t)
   (use-package jujube-theme :ensure t :defer t)
   (use-package late-night-theme :ensure t :defer t)
-  (use-package lenlen-theme :ensure t :defer t)
   (use-package leuven-theme :ensure t :defer t)
   (use-package light-soap-theme :ensure t :defer t)
   (use-package lush-theme :ensure t :defer t)
