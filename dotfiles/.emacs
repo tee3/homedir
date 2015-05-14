@@ -124,10 +124,7 @@
   (when (>= emacs-major-version 23)
     (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/")))
 
-  (package-initialize)
-
-  ;; Update the package list from the network
-  (package-refresh-contents))
+  (package-initialize))
 
 ;;;
 ;;; Bootstrap use-package
