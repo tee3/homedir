@@ -93,7 +93,7 @@
  '(tempo-interactive t)
  '(text-mode-hook
    (quote
-    (turn-on-flyspell turn-on-auto-fill text-mode-hook-identify)))
+    (turn-on-auto-fill text-mode-hook-identify)))
  '(tool-bar-mode nil)
  '(truncate-lines t)
  '(vc-directory-exclusion-list (quote ("SCCS" "RCS" "CVS" ".svn" "_MTN")))
@@ -379,7 +379,9 @@
   :init
   (use-package flyspell-lazy
     :ensure t
-    :defer t))
+    :defer t)
+  :config
+  (add-hook 'text-mode-hook 'turn-on-flyspell))
 
 ;;; Ibuffer
 (use-package ibuffer
