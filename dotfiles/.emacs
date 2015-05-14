@@ -324,6 +324,14 @@
 (use-package nav
   :ensure t
   :defer t)
+(use-package paredit
+  :ensure t
+  :defer t
+  :diminish paredit-mode
+  :init
+  (use-package paredit-everywhere
+    :ensure t
+    :defer t))
 (use-package smooth-scroll
   :ensure t
   :defer t)
