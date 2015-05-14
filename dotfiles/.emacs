@@ -278,12 +278,6 @@
   :defer t)
 
 ;;; Tags
-(use-package ctags
-  :ensure t
-  :defer t)
-(use-package ctags-update
-  :ensure t
-  :defer t)
 (use-package gtags
   :ensure t
   :defer t)
