@@ -297,9 +297,6 @@
 (use-package abbrev
   :defer t
   :diminish abbrev-mode)
-(use-package darkroom
-  :ensure t
-  :defer t)
 (use-package dedicated
   :ensure t
   :defer t)
