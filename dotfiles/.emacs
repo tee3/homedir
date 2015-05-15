@@ -1125,14 +1125,12 @@
   :defer t
   :mode
   (("\\.h[cd]f\\'" . c-mode)
-   ("\\.l[cd]f\\'" . c-mode)
-
-   ("\\.gel\\'" . c-mode)))
-
+   ("\\.l[cd]f\\'" . c-mode)))
 (use-package js-mode
   :defer t
   :mode
-  (("\\.tcf\\'" . js-mode)
+  (("\\.gel\\'" . js-mode)
+   ("\\.tcf\\'" . js-mode)
    ("\\.tci\\'" . js-mode)
    ("\\.tcp\\'" . js-mode)
    ("\\.xs\\'" . js-mode)))
