@@ -165,6 +165,11 @@
   :ensure t
   :defer t)
 
+;;; Evil (vi) emulation
+(use-package evil
+  :ensure t
+  :defer t)
+
 ;;; Text mode hooks
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'text-mode-hook 'text-mode-hook-identify)
@@ -530,11 +535,6 @@
 
 ;;; Tags
 (use-package gtags
-  :ensure t
-  :defer t)
-
-;;; Evil (vi) emulation
-(use-package evil
   :ensure t
   :defer t)
 
