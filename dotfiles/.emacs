@@ -262,6 +262,11 @@
   :ensure t
   :defer t)
 
+;;; Org
+(use-package org
+  :ensure t
+  :defer t)
+
 ;;; Markdown formats
 (use-package adoc-mode
   :ensure t
@@ -489,11 +494,6 @@
 
 ;;; Programming
 (use-package howdoi
-  :ensure t
-  :defer t)
-
-;;; Org
-(use-package org
   :ensure t
   :defer t)
 
