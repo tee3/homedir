@@ -133,7 +133,9 @@
   :ensure t
   :defer t)
 (use-package linum
-  :defer t)
+  :defer t
+  :init
+  (setq linum-format "%4d "))
 (use-package nav
   :ensure t
   :defer t)
@@ -179,8 +181,6 @@
                             (setq indent-tabs-mode nil)))
 (use-package linum
   :defer t
-  :init
-  (setq linum-format "%4d ")
   :config
   (add-hook 'prog-mode-hook (lambda ()
                               (linum-mode 1))))
