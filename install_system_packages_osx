@@ -32,6 +32,10 @@ fi
 brew update
 brew doctor
 
+# upgrade all installed packages
+brew update
+brew upgrade --all
+
 # make sure git is installed early
 brew install git
 brew update
