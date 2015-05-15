@@ -3,6 +3,7 @@ autopep8
 docformatter
 flake8
 jedi
+nose
 pep257
 pep8
 pep8-naming
