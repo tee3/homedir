@@ -251,13 +251,12 @@
     :ensure t
     :init
     (ido-ubiquitous-mode t))
-  (progn
-    (ido-mode t)
-    (ido-everywhere t)
+  (ido-mode t)
+  (ido-everywhere t)
 
-    (setq ido-use-filename-at-point 'guess)
-    (setq ido-use-url-at-point t)
-    (setq ido-confirm-unique-completion t)))
+  (setq ido-use-filename-at-point 'guess)
+  (setq ido-use-url-at-point t)
+  (setq ido-confirm-unique-completion t))
 
 ;;; Occur
 (use-package ioccur
