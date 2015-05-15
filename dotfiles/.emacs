@@ -820,9 +820,7 @@
   :defer t
   :mode
   (("[Jj]akefile.*\\'" . js-mode)
-   ("\\.jake\\'" . js-mode))
-  :init
-  (setq inferior-js-program-command "v8 --shell"))
+   ("\\.jake\\'" . js-mode)))
 
 ;;;
 ;;; XML
@@ -1048,7 +1046,9 @@
   :defer t)
 (use-package js-comint
   :ensure t
-  :defer t)
+  :defer t
+  :init
+  (setq inferior-js-program-command "v8 --shell"))
 (use-package tern
   :ensure t
   :defer t
