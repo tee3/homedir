@@ -113,10 +113,26 @@
 (use-package jade-mode
   :ensure t
   :defer t)
+(use-package markdown-mode
+  :ensure t
+  :defer t
+  :mode
+  (("\\.markdown\\'" . markdown-mode)
+   ("\\.md\\'" . markdown-mode))
+  :init
+  (use-package markdown-mode+
+    :ensure t
+    :defer t))
 (use-package markup-faces
   :ensure t
   :defer t)
 (use-package pandoc-mode
+  :ensure t
+  :defer t)
+(use-package rst
+  ;; @todo Add options "--verbose --strict --date --time"
+  :defer t)
+(use-package sphinx-frontend
   :ensure t
   :defer t)
 
@@ -502,17 +518,6 @@
     (setq ido-use-filename-at-point 'guess)
     (setq ido-use-url-at-point t)
     (setq ido-confirm-unique-completion t)))
-
-;;;
-;;; ReStructuredText
-;;;
-;;; @todo Add options to the rst-compile-toolsets "--verbose --strict --date --time"
-;;;
-(use-package rst
-  :defer t)
-(use-package sphinx-frontend
-  :ensure t
-  :defer t)
 
 ;;;
 ;;; vimrc
@@ -1049,20 +1054,6 @@
 ;;;
 (use-package generic-x
   :defer t)
-
-;;;
-;;; Markdown
-;;;
-(use-package markdown-mode
-  :ensure t
-  :defer t
-  :mode
-  (("\\.markdown\\'" . markdown-mode)
-   ("\\.md\\'" . markdown-mode))
-  :init
-  (use-package markdown-mode+
-    :ensure t
-    :defer t))
 
 ;;;
 ;;; Python programming language
