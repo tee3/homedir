@@ -399,6 +399,31 @@
 (use-package applescript-mode
   :ensure t
   :defer t)
+(use-package asm-mode
+  :defer t
+  :mode
+  (("\\.[sh][56][45x]\\'" . asm-mode)))
+(use-package coffee-mode
+  :ensure t
+  :defer t)
+(use-package cperl-mode
+  :ensure t
+  :defer t)
+(use-package csharp-mode
+  :disabled t
+  :ensure t
+  :defer t
+  :init
+  (use-package omnisharp
+    :disabled t
+    :ensure t
+    :defer t))
+(use-package d-mode
+  :ensure t
+  :defer t)
+(use-package fish-mode
+  :ensure t
+  :defer t)
 (use-package haskell-mode
   :ensure t
   :defer t
@@ -412,13 +437,38 @@
       :defer t
       :config
       (add-to-list 'company-backends 'company-ghc t))))
-
 (use-package jgraph-mode
   :ensure t
   :defer t)
 (use-package lua-mode
   :ensure t
   :defer t)
+(use-package matlab-mode
+  :ensure t
+  :defer t)
+(use-package octave
+  :defer t)
+(use-package php-mode
+  :ensure t
+  :defer t)
+(use-package powershell
+  :ensure t
+  :defer t)
+(use-package processing-mode
+  :ensure t
+  :defer t
+  :init
+  (use-package processing-snippets
+    :ensure t
+    :defer t))
+(use-package swift-mode
+  :disabled t
+  :ensure t
+  :defer t)
+(use-package tcl
+  :defer t
+  :init
+  (setq tcl-application "tclsh"))
 (use-package tidy
   :ensure t
   :defer t)
@@ -449,33 +499,13 @@
   :ensure t
   :defer t)
 
-;;; Perl programming language
-(use-package cperl-mode
-  :ensure t
-  :defer t)
-
 ;;; Tags
 (use-package gtags
   :ensure t
   :defer t)
 
-;;; D programming language
-(use-package d-mode
-  :ensure t
-  :defer t)
-
 ;;; Evil (vi) emulation
 (use-package evil
-  :ensure t
-  :defer t)
-
-;;; Windows support
-(use-package powershell
-  :ensure t
-  :defer t)
-
-;;; Fish shell programming
-(use-package fish-mode
   :ensure t
   :defer t)
 
@@ -496,15 +526,6 @@
 (use-package howdoi
   :ensure t
   :defer t)
-
-;;; Processing programming language
-(use-package processing-mode
-  :ensure t
-  :defer t
-  :init
-  (use-package processing-snippets
-    :ensure t
-    :defer t))
 
 ;;; SSH
 (use-package ssh
@@ -653,14 +674,6 @@
   (("\\.gp\\'" . gnuplot-mode)))
 
 ;;;
-;;; Tcl programming language
-;;;
-(use-package tcl
-  :defer t
-  :init
-  (setq tcl-application "tclsh"))
-
-;;;
 ;;; Go programming language
 ;;;
 (use-package go-mode
@@ -718,34 +731,6 @@
 
                             ;; format before save
                             (add-hook 'before-save-hook 'gofmt-before-save))))
-
-;;;
-;;; Swift programming language
-;;;
-(use-package swift-mode
-  :disabled t
-  :ensure t
-  :defer t)
-
-;;;
-;;; MATLAB
-;;;
-(use-package matlab-mode
-  :ensure t
-  :defer t)
-
-;;;
-;;; GNU Octave
-;;;
-(use-package octave
-  :defer t)
-
-;;;
-;;; PHP programming language
-;;;
-(use-package php-mode
-  :ensure t
-  :defer t)
 
 ;;;
 ;;; Ruby programming language
@@ -814,18 +799,6 @@
    ("\\.jake\\'" . js-mode))
   :init
   (setq inferior-js-program-command "v8 --shell"))
-
-;;;
-;;; C# programming language
-;;;
-(use-package csharp-mode
-  :disabled t
-  :ensure t
-  :defer t)
-(use-package omnisharp
-  :disabled t
-  :ensure t
-  :defer t)
 
 ;;;
 ;;; XML
@@ -1075,21 +1048,6 @@
 (use-package nodejs-repl
   :ensure t
   :defer t)
-
-;;;
-;;; CoffeeScript programming language
-;;;
-(use-package coffee-mode
-  :ensure t
-  :defer t)
-
-;;;
-;;; Assembler programming language
-;;;
-(use-package asm-mode
-  :defer t
-  :mode
-  (("\\.[sh][56][45x]\\'" . asm-mode)))
 
 ;;;
 ;;; Generic modes
