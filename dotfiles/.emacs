@@ -660,6 +660,11 @@
   (("[Jj]amroot\\'" . jam-mode)
    ("[Jj]amfile\\'" . jam-mode)
    ("\\.jam\\'" . jam-mode))
+  :init
+  (use-package linum
+    :defer t)
+  (use-package flyspell
+    :defer t)
   :config
   (add-hook 'jam-mode-hook (lambda ()
                              (setq indent-tabs-mode nil)))
