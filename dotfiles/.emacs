@@ -311,7 +311,8 @@
   :defer t
   :mode
   (("\\.markdown\\'" . markdown-mode)
-   ("\\.md\\'" . markdown-mode))
+   ("\\.md\\'" . markdown-mode)
+   ("README\.md\\'" . gfm-mode))
   :init
   (use-package markdown-mode+
     :ensure t
