@@ -153,9 +153,39 @@
 (use-package crontab-mode
   :ensure t
   :defer t)
+(use-package csv-mode
+  :ensure t
+  :defer t)
 (use-package dockerfile-mode
   :ensure t
   :defer t)
+(use-package gitattributes-mode
+  :ensure t
+  :defer t)
+(use-package gitconfig-mode
+  :ensure t
+  :defer t
+  :mode
+  (("\\.gitconfig.*\\'" . gitconfig-mode)
+
+   ;; SubGit-generated Git submodules files
+   ("\\.gitsvnextmodules\\'" . gitconfig-mode)
+   ;; migration-generated Git submodules files
+   ("\\.gitsvnexternals\\'" . gitconfig-mode)))
+(use-package gitignore-mode
+  :ensure t
+  :defer t)
+(use-package graphviz-dot-mode
+  :ensure t
+  :defer t)
+(use-package irfc
+  :ensure t
+  :defer t)
+(use-package json-mode
+  :ensure t
+  :defer t
+  :mode
+  (("\\.json\\'" . json-mode)))
 (use-package nginx-mode
   :ensure t
   :defer t)
@@ -165,10 +195,27 @@
 (use-package osx-plist
   :ensure t
   :defer t)
+(use-package pov-mode
+  :ensure t
+  :defer t)
+(use-package protobuf-mode
+  :ensure t
+  :defer t)
+(use-package ssh-config-mode
+  :ensure t
+  :defer t
+  :mode
+  ((".ssh/config\\'" . ssh-config-mode)
+   ("sshd?_config\\'" . ssh-config-mode)
+   ("known_hosts\\'" . ssh-known-hosts-mode)
+   ("authorized_keys2?\\'" . ssh-authorized-keys-mode)))
 (use-package syslog-mode
   :ensure t
   :defer t)
 (use-package toml-mode
+  :ensure t
+  :defer t)
+(use-package vimrc-mode
   :ensure t
   :defer t)
 (use-package yaml-mode
@@ -177,9 +224,6 @@
 
 ;;; Programming languages
 (use-package applescript-mode
-  :ensure t
-  :defer t)
-(use-package graphviz-dot-mode
   :ensure t
   :defer t)
 (use-package haskell-mode
@@ -200,9 +244,6 @@
   :ensure t
   :defer t)
 (use-package lua-mode
-  :ensure t
-  :defer t)
-(use-package pov-mode
   :ensure t
   :defer t)
 (use-package tidy
@@ -237,14 +278,6 @@
 
 ;;; Perl programming language
 (use-package cperl-mode
-  :ensure t
-  :defer t)
-
-;;; File formats
-(use-package csv-mode
-  :ensure t
-  :defer t)
-(use-package irfc
   :ensure t
   :defer t)
 
@@ -397,11 +430,6 @@
     :ensure t
     :defer t))
 
-;;; Protobuf
-(use-package protobuf-mode
-  :ensure t
-  :defer t)
-
 ;;; SSH
 (use-package ssh
   :ensure t
@@ -428,23 +456,6 @@
 ;;;
 ;;; Git
 ;;;
-(use-package gitattributes-mode
-  :ensure t
-  :defer t)
-(use-package gitconfig-mode
-  :ensure t
-  :defer t
-  :mode
-  (("\\.gitconfig.*\\'" . gitconfig-mode)
-
-   ;; SubGit-generated Git submodules files
-   ("\\.gitsvnextmodules\\'" . gitconfig-mode)
-   ;; migration-generated Git submodules files
-   ("\\.gitsvnexternals\\'" . gitconfig-mode)))
-(use-package gitignore-mode
-  :ensure t
-  :defer t)
-
 (use-package git-gutter
   :ensure t
   :defer t)
@@ -518,13 +529,6 @@
     (setq ido-use-filename-at-point 'guess)
     (setq ido-use-url-at-point t)
     (setq ido-confirm-unique-completion t)))
-
-;;;
-;;; vimrc
-;;;
-(use-package vimrc-mode
-  :ensure t
-  :defer t)
 
 ;;;
 ;;; Make
@@ -723,15 +727,6 @@
   :defer t)
 
 ;;;
-;;; JSON
-;;;
-(use-package json-mode
-  :ensure t
-  :defer t
-  :mode
-  (("\\.json\\'" . json-mode)))
-
-;;;
 ;;; Objective-J programming language
 ;;;
 (use-package objj-mode
@@ -805,18 +800,6 @@
   :defer t
   :mode
   (("\\.docbook\\'" . nxml-mode)))
-
-;;;
-;;; SSH
-;;;
-(use-package ssh-config-mode
-  :ensure t
-  :defer t
-  :mode
-  ((".ssh/config\\'" . ssh-config-mode)
-   ("sshd?_config\\'" . ssh-config-mode)
-   ("known_hosts\\'" . ssh-known-hosts-mode)
-   ("authorized_keys2?\\'" . ssh-authorized-keys-mode)))
 
 ;;;
 ;;; C-family programming languages
