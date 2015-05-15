@@ -287,6 +287,9 @@
 (use-package vimgolf
   :ensure t
   :defer t)
+(use-package howdoi
+  :ensure t
+  :defer t)
 
 ;;; Org
 (use-package org
@@ -547,11 +550,6 @@
   :diminish google-this-mode
   :init
   (google-this-mode 1))
-
-;;; Programming
-(use-package howdoi
-  :ensure t
-  :defer t)
 
 ;;; SSH
 (use-package ssh
