@@ -89,7 +89,7 @@ brew install e2fsprogs
 brew install emacs --cocoa
 brew install emscripten
 brew install enscript
-brew install ext2fuse
+#brew install ext2fuse
 brew install fop
 brew install fortune
 HOMEBREW_KEEP_INFO=1 brew install gcc
@@ -145,8 +145,8 @@ brew install netperf
 brew install nmap
 brew install node
 brew install nuttcp
-brew install ntfs-3g
-brew install osxfuse
+#brew install ntfs-3g
+#brew install osxfuse
 brew install nuttcp
 brew install p0f
 brew install p7zip
@@ -159,7 +159,7 @@ brew install socat
 brew install sqlite
 brew install srecord
 brew install ssh-copy-id
-brew install sshfs
+#brew install sshfs
 brew install stow
 brew install stress
 brew install subgit
