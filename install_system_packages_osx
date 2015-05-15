@@ -93,8 +93,8 @@ brew install ext2fuse
 brew install fop
 brew install fortune
 HOMEBREW_KEEP_INFO=1 brew install gcc
-brew install gcc43
-brew install gcc44
+#brew install gcc43
+#brew install gcc44
 brew install gcc45
 brew install gcc46
 brew install gcc47
