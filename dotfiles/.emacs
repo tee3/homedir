@@ -163,6 +163,32 @@
   :ensure t
   :defer t)
 
+;;; Text mode hooks
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'text-mode-hook 'text-mode-hook-identify)
+(add-hook 'text-mode-hook (lambda ()
+                            (setq indent-tabs-mode nil)))
+(use-package linum
+  :defer t
+  :config
+  (add-hook 'text-mode-hook (lambda ()
+                              (linum-mode 1))))
+
+;;; Programming mode hooks
+(add-hook 'prog-mode-hook (lambda ()
+                            (setq indent-tabs-mode nil)))
+(use-package linum
+  :defer t
+  :init
+  (setq linum-format "%4d ")
+  :config
+  (add-hook 'prog-mode-hook (lambda ()
+                              (linum-mode 1))))
+(use-package flyspell
+  :defer t
+  :config
+  (add-hook 'prog-mode-hook 'flyspell-prog-mode))
+
 ;;; Company
 (use-package company
   :ensure t
@@ -1106,36 +1132,6 @@
    ("\\.tci\\'" . js-mode)
    ("\\.tcp\\'" . js-mode)
    ("\\.xs\\'" . js-mode)))
-
-;;;
-;;; Programming mode hooks
-;;;
-(add-hook 'prog-mode-hook (lambda ()
-                            (setq indent-tabs-mode nil)))
-(use-package linum
-  :defer t
-  :init
-  (setq linum-format "%4d ")
-  :config
-  (add-hook 'prog-mode-hook (lambda ()
-                              (linum-mode 1))))
-(use-package flyspell
-  :defer t
-  :config
-  (add-hook 'prog-mode-hook 'flyspell-prog-mode))
-
-;;;
-;;; Text mode hooks (additional)
-;;;
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
-(add-hook 'text-mode-hook 'text-mode-hook-identify)
-(add-hook 'text-mode-hook (lambda ()
-                            (setq indent-tabs-mode nil)))
-(use-package linum
-  :defer t
-  :config
-  (add-hook 'text-mode-hook (lambda ()
-                              (linum-mode 1))))
 
 ;;;
 ;;; Flycheck
