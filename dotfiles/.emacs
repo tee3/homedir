@@ -103,7 +103,9 @@
           (message "%s required but not configured" name)
         (message "%s is not available." name)))))
 
+;;;
 ;;; Emacs
+;;;
 (use-package abbrev
   :defer t
   :diminish abbrev-mode)
@@ -295,12 +297,16 @@
   :ensure t
   :defer t)
 
+;;;
 ;;; Org
+;;;
 (use-package org
   :ensure t
   :defer t)
 
+;;;
 ;;; Markdown formats
+;;;
 (use-package adoc-mode
   :ensure t
   :defer t)
@@ -344,7 +350,9 @@
   :ensure t
   :defer t)
 
+;;;
 ;;; Configuration files
+;;;
 (use-package apache-mode
   :ensure t
   :defer t)
@@ -429,7 +437,9 @@
   :ensure t
   :defer t)
 
+;;;
 ;;; Programming languages
+;;;
 (use-package applescript-mode
   :ensure t
   :defer t)
@@ -564,9 +574,7 @@
   :init
   (setq vc-make-backup-files t))
 
-;;;
 ;;; Fossil
-;;;
 (use-package vc-fossil
   :ensure t
   :defer t
@@ -574,9 +582,7 @@
   (use-package vc
     :defer t))
 
-;;;
 ;;; Git
-;;;
 (use-package git-gutter
   :ensure t
   :defer t)
@@ -584,25 +590,19 @@
   :ensure t
   :defer t)
 
-;;;
 ;;; GitHub
-;;;
 (use-package gist
   :ensure t
   :defer t)
 
-;;;
 ;;; Magit
-;;;
 (use-package magit
   :load-path
   "~/.emacs.d/site-lisp/magit"
   :config
   (add-hook 'magit-mode-hook 'magit-load-config-extensions))
 
-;;;
 ;;; Microsoft Team Foundation Server
-;;;
 (use-package tfs
   :ensure t
   :defer t)
@@ -613,30 +613,22 @@
   (use-package vc
     :defer t))
 
-;;;
 ;;; Mercurial
-;;;
 (use-package monky
   :ensure t
   :defer t)
 
-;;;
 ;;; Perforce
-;;;
 (use-package p4
   :ensure t
   :defer t)
 
-;;;
 ;;; Subversion
-;;;
 (use-package psvn
   :ensure t
   :defer t)
 
-;;;
 ;;; Make
-;;;
 (use-package make-mode
   :defer t
   :mode
@@ -645,14 +637,10 @@
   (add-hook 'makefile-mode-hook (lambda ()
                                   (setq indent-tabs-mode t))))
 
-;;;
 ;;; Boost.Build programming language
-;;;
-;;; @todo no official support for this yet
+;;; @todo fill in
 
-;;;
 ;;; Jam programming language
-;;;
 (use-package jam-mode
   :ensure t
   :mode
@@ -671,9 +659,7 @@
                              (linum-mode 1)))
   (add-hook 'jam-mode-hook 'flyspell-prog-mode))
 
-;;;
 ;;; CMake
-;;;
 (use-package cmake-mode
   :ensure t
   :defer t
@@ -702,9 +688,7 @@
   :mode
   (("\\.gp\\'" . gnuplot-mode)))
 
-;;;
 ;;; Go programming language
-;;;
 (use-package go-mode
   :ensure t
   :defer t
@@ -761,9 +745,7 @@
                             ;; format before save
                             (add-hook 'before-save-hook 'gofmt-before-save))))
 
-;;;
 ;;; Ruby programming language
-;;;
 (use-package ruby-mode
   :defer t
   :mode
@@ -799,9 +781,7 @@
   :ensure t
   :defer t)
 
-;;;
 ;;; Objective-J programming language
-;;;
 (use-package objj-mode
   :load-path "~/opt/local/share/emacs/site-lisp"
   :mode
@@ -818,18 +798,14 @@
     :mode
     (("\\.sj\\'" . js-mode))))
 
-;;;
 ;;; Jake
-;;;
 (use-package js-mode
   :defer t
   :mode
   (("[Jj]akefile.*\\'" . js-mode)
    ("\\.jake\\'" . js-mode)))
 
-;;;
 ;;; XML
-;;;
 (use-package nxml
   :defer t
   :mode
@@ -839,18 +815,14 @@
    ("\\.rng\\'" . nxml-mode)
    ("\\.xhtml\\'" . nxml-mode)))
 
-;;;
 ;;; DITA
-;;;
 (use-package nxml
   :defer t
   :mode
   (("\\.dita\\'" . nxml-mode)
    ("\\.ditamap\\'" . nxml-mode)))
 
-;;;
 ;;; DocBook
-;;;
 (use-package docbook
   :ensure t
   :defer t)
@@ -860,9 +832,7 @@
   :mode
   (("\\.docbook\\'" . nxml-mode)))
 
-;;;
 ;;; C-family programming languages
-;;;
 (use-package cc-mode
   :defer t
   :preface
@@ -1044,9 +1014,7 @@
   :ensure t
   :defer t))
 
-;;;
 ;;; JavaScript programming language
-;;;
 (use-package js-mode
   :defer t)
 (use-package js-comint
@@ -1071,22 +1039,16 @@
   (add-hook 'js-mode-hook (lambda ()
                             (tern-mode t))))
 
-;;;
 ;;; node.js
-;;;
 (use-package nodejs-repl
   :ensure t
   :defer t)
 
-;;;
 ;;; Generic modes
-;;;
 (use-package generic-x
   :defer t)
 
-;;;
 ;;; Python programming language
-;;;
 (use-package elpy
   :ensure t
   :init
@@ -1115,11 +1077,7 @@
   :ensure t
   :defer t)
 
-;;;
 ;;; Code Composer Studio and DSP/BIOS mode
-;;;
-;;;    TextConf script types
-;;;
 (use-package cc-mode
   :defer t
   :mode
