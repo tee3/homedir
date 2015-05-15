@@ -103,6 +103,165 @@
           (message "%s required but not configured" name)
         (message "%s is not available." name)))))
 
+;;; Emacs
+(use-package abbrev
+  :defer t
+  :diminish abbrev-mode)
+(use-package dedicated
+  :ensure t
+  :defer t)
+(use-package diminish
+  :ensure t
+  :defer t)
+(use-package eldoc
+  :defer t
+  :diminish eldoc-mode)
+(use-package electric-case
+  :ensure t
+  :defer t)
+(use-package expand-region
+  :ensure t
+  :defer t
+  :bind ("C-c =" . er/expand-region))
+(use-package fm
+  :ensure t
+  :defer t)
+(use-package hideshow
+  :defer t
+  :diminish hs-minor-mode)
+(use-package hide-comnt
+  :ensure t
+  :defer t)
+(use-package linum
+  :defer t)
+(use-package nav
+  :ensure t
+  :defer t)
+(use-package paredit
+  :ensure t
+  :defer t
+  :diminish paredit-mode
+  :init
+  (use-package paredit-everywhere
+    :ensure t
+    :defer t))
+(use-package smart-mode-line
+  :ensure t
+  :defer t
+  :init
+  (setq sml/theme nil)
+
+  (sml/setup))
+(use-package smooth-scroll
+  :ensure t
+  :defer t)
+(use-package undo-tree
+  :ensure t
+  :defer t
+  :diminish undo-tree-mode)
+(use-package writeroom-mode
+  :ensure t
+  :defer t)
+
+;;; Company
+(use-package company
+  :ensure t
+  :defer t
+  :diminish company-mode
+  :config
+  (add-hook 'after-init-hook 'global-company-mode))
+
+;;; Flyspell
+(use-package flyspell
+  :defer t
+  :diminish flyspell-mode
+  :init
+  (use-package flyspell-lazy
+    :ensure t
+    :defer t)
+  :config
+  (add-hook 'text-mode-hook 'turn-on-flyspell))
+
+;;; Helm
+(use-package helm
+  :ensure t
+  :defer t
+  :diminish helm-mode
+  :init
+  (use-package helm-flycheck
+    :ensure t
+    :defer t
+    :bind ("C-c ! h" . helm-flycheck))
+  (use-package helm-flyspell
+    :ensure t
+    :defer t)
+  (use-package helm-projectile
+    :ensure t
+    :defer t)
+  (helm-mode 1))
+
+;;; Ibuffer
+(use-package ibuffer
+  :ensure t
+  :defer t
+  :init
+  (use-package ibuffer-vc
+    :ensure t
+    :defer t)
+  (use-package ibuffer-tramp
+    :ensure t
+    :defer t)
+  (use-package ibuffer-git
+    :ensure t
+    :defer t)
+  (use-package ibuffer-projectile
+    :ensure t
+    :defer t))
+
+;;; Ido
+(use-package ido
+  :init
+  (use-package ido-ubiquitous
+    :ensure t
+    :init
+    (ido-ubiquitous-mode t))
+  (progn
+    (ido-mode t)
+    (ido-everywhere t)
+
+    (setq ido-use-filename-at-point 'guess)
+    (setq ido-use-url-at-point t)
+    (setq ido-confirm-unique-completion t)))
+
+;;; Occur
+(use-package ioccur
+  :ensure t
+  :defer t)
+(use-package noccur
+  :ensure t
+  :defer t)
+
+;;; Projectile
+(use-package projectile
+  :ensure t
+  :defer t
+  :diminish projectile-mode
+  :init
+  (projectile-global-mode)
+
+  (setq projectile-switch-project-action 'projectile-dired)
+
+  ;; @tood workaround for an issue with tramp
+  (setq projectile-mode-line " Projectile"))
+
+;;; Learning Emacs
+(use-package guru-mode
+  :ensure t
+  :defer t)
+(use-package vimgolf
+  :ensure t
+  :defer t)
+
 ;;; Markdown formats
 (use-package adoc-mode
   :ensure t
@@ -189,7 +348,16 @@
 (use-package nginx-mode
   :ensure t
   :defer t)
-(use-package ninja-mode
+(use-package irfc
+  :ensure t
+  :defer t)
+(use-package jgraph-mode
+  :ensure t
+  :defer t)
+(use-package json-mode
+  :ensure t
+  :defer t)
+(use-package nginx-mode
   :ensure t
   :defer t)
 (use-package osx-plist
@@ -291,53 +459,6 @@
   :ensure t
   :defer t)
 
-;;; Emacs
-(use-package abbrev
-  :defer t
-  :diminish abbrev-mode)
-(use-package dedicated
-  :ensure t
-  :defer t)
-(use-package diminish
-  :ensure t
-  :defer t)
-(use-package eldoc
-  :defer t
-  :diminish eldoc-mode)
-(use-package electric-case
-  :ensure t
-  :defer t)
-(use-package fm
-  :ensure t
-  :defer t)
-(use-package hideshow
-  :defer t
-  :diminish hs-minor-mode)
-(use-package hide-comnt
-  :ensure t
-  :defer t)
-(use-package nav
-  :ensure t
-  :defer t)
-(use-package paredit
-  :ensure t
-  :defer t
-  :diminish paredit-mode
-  :init
-  (use-package paredit-everywhere
-    :ensure t
-    :defer t))
-(use-package smooth-scroll
-  :ensure t
-  :defer t)
-(use-package undo-tree
-  :ensure t
-  :defer t
-  :diminish undo-tree-mode)
-(use-package writeroom-mode
-  :ensure t
-  :defer t)
-
 ;;; Evil (vi) emulation
 (use-package evil
   :ensure t
@@ -353,35 +474,6 @@
   :ensure t
   :defer t)
 
-;;; Flyspell
-(use-package flyspell
-  :defer t
-  :diminish flyspell-mode
-  :init
-  (use-package flyspell-lazy
-    :ensure t
-    :defer t)
-  :config
-  (add-hook 'text-mode-hook 'turn-on-flyspell))
-
-;;; Ibuffer
-(use-package ibuffer
-  :ensure t
-  :defer t
-  :init
-  (use-package ibuffer-vc
-    :ensure t
-    :defer t)
-  (use-package ibuffer-tramp
-    :ensure t
-    :defer t)
-  (use-package ibuffer-git
-    :ensure t
-    :defer t)
-  (use-package ibuffer-projectile
-    :ensure t
-    :defer t))
-
 ;;; Scheme programming language
 (use-package geiser
   :ensure t
@@ -395,24 +487,8 @@
   :init
   (google-this-mode 1))
 
-;;; Learning Emacs
-(use-package guru-mode
-  :ensure t
-  :defer t)
-(use-package vimgolf
-  :ensure t
-  :defer t)
-
 ;;; Programming
 (use-package howdoi
-  :ensure t
-  :defer t)
-
-;;; Occur
-(use-package ioccur
-  :ensure t
-  :defer t)
-(use-package noccur
   :ensure t
   :defer t)
 
@@ -512,23 +588,6 @@
 (use-package psvn
   :ensure t
   :defer t)
-
-;;;
-;;; Ido
-;;;
-(use-package ido
-  :init
-  (use-package ido-ubiquitous
-    :ensure t
-    :init
-    (ido-ubiquitous-mode t))
-  (progn
-    (ido-mode t)
-    (ido-everywhere t)
-
-    (setq ido-use-filename-at-point 'guess)
-    (setq ido-use-url-at-point t)
-    (setq ido-confirm-unique-completion t)))
 
 ;;;
 ;;; Make
@@ -1135,16 +1194,6 @@
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
 ;;;
-;;; Company
-;;;
-(use-package company
-  :ensure t
-  :defer t
-  :diminish company-mode
-  :config
-  (add-hook 'after-init-hook 'global-company-mode))
-
-;;;
 ;;; YouCompleteMe
 ;;;
 (use-package ycmd
@@ -1189,50 +1238,6 @@
   (rtags-enable-standard-keybindings c-mode-base-map "\C-xt"))
 
 ;;;
-;;; Projectile
-;;;
-(use-package projectile
-  :ensure t
-  :defer t
-  :diminish projectile-mode
-  :init
-  (projectile-global-mode)
-
-  (setq projectile-switch-project-action 'projectile-dired)
-
-  ;; @tood workaround for an issue with tramp
-  (setq projectile-mode-line " Projectile"))
-
-;;;
-;;; Helm
-;;;
-(use-package helm
-  :ensure t
-  :defer t
-  :diminish helm-mode
-  :init
-  (use-package helm-flycheck
-    :ensure t
-    :defer t
-    :bind ("C-c ! h" . helm-flycheck))
-  (use-package helm-flyspell
-    :ensure t
-    :defer t)
-  (use-package helm-projectile
-    :ensure t
-    :defer t)
-
-  (helm-mode 1))
-
-;;;
-;;; Expand region
-;;;
-(use-package expand-region
-  :ensure t
-  :defer t
-  :bind ("C-c =" . er/expand-region))
-
-;;;
 ;;; Rainbow modes
 ;;;
 (use-package rainbow-delimiters
@@ -1247,17 +1252,6 @@
   :defer t
   :init
   (rainbow-identifiers-mode))
-
-;;;
-;;; Smart mode line
-;;;
-(use-package smart-mode-line
-  :ensure t
-  :defer t
-  :init
-  (setq sml/theme nil)
-
-  (sml/setup))
 
 ;;;
 ;;; Themes
