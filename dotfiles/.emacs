@@ -293,9 +293,6 @@
   :ensure t
   :defer t
   :init
-  (use-package yas-jit
-    :ensure t
-    :defer t)
   (yas-global-mode 1))
 
 ;;; Learning Emacs
