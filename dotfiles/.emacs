@@ -731,9 +731,6 @@
   (use-package go-projectile
     :ensure t
     :defer t)
-  (use-package go-snippets
-    :ensure t
-    :defer t)
   (use-package go-stacktracer
     :ensure t
     :defer t)
