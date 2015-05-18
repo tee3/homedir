@@ -286,6 +286,18 @@
   ;; @tood workaround for an issue with tramp
   (setq projectile-mode-line " Projectile"))
 
+;;;
+;;; Snippets
+;;;
+(use-package yasnippet
+  :ensure t
+  :defer t
+  :init
+  (use-package yas-jit
+    :ensure t
+    :defer t)
+  (yas-global-mode 1))
+
 ;;; Learning Emacs
 (use-package guru-mode
   :ensure t
