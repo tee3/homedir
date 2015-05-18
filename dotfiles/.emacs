@@ -230,7 +230,9 @@
     :defer t)
   (use-package helm-projectile
     :ensure t
-    :defer t)
+    :defer t
+    :init
+    (helm-projectile-on))
   (helm-mode 1))
 
 ;;; Ibuffer
