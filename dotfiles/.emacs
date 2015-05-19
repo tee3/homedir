@@ -224,6 +224,8 @@
   :defer t
   :diminish helm-mode
   :init
+  (use-package helm-config
+    :ensure helm)
   (use-package helm-flycheck
     :ensure t
     :defer t
@@ -236,6 +238,10 @@
     :defer t
     :init
     (helm-projectile-on))
+  (setq helm-candidate-number-limit nil)
+  (setq helm-quick-update t)
+  (setq helm-ff-skip-boring-files t)
+
   (helm-mode 1))
 
 ;;; Ibuffer
