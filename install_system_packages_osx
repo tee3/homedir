@@ -19,6 +19,7 @@ brew_taps="
     homebrew/nginx
     homebrew/python
     homebrew/science
+    homebrew/tex
     homebrew/versions
 "
 
