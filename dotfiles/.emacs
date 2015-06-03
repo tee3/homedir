@@ -1301,7 +1301,8 @@
   (use-package zenburn-theme :ensure t :defer t)
   (use-package zonokai-theme :ensure t :defer t)
 
-  (cond ((display-graphic-p)
+  (cond (t nil) ;; do not choose any themes by default
+        ((display-graphic-p)
          (when (member 'solarized-dark (custom-available-themes))
            (load-theme 'solarized-dark t t)
 
