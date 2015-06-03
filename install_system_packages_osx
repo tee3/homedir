@@ -15,6 +15,7 @@ brew_taps="
     homebrew/completions
     dart-lang/dart
     homebrew/dupes
+    homebrew/fuse
     homebrew/headonly
     homebrew/nginx
     homebrew/python
