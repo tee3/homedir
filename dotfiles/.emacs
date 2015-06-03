@@ -141,6 +141,10 @@
   :defer t
   :init
   (setq linum-format "%4d "))
+(use-package locate
+  :defer t
+  :config
+  (when (equal system-type 'darwin) (setq locate-command "mdfind")))
 (use-package nav
   :ensure t
   :defer t)
