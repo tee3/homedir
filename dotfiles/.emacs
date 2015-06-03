@@ -1310,8 +1310,7 @@
          (when (member 'cyberpunk (custom-available-themes))
            (load-theme 'cyberpunk t t)
 
-           (enable-theme 'cyberpunk)))
-        (t nil)))
+           (enable-theme 'cyberpunk)))))
 
 ;;;
 ;;; Start the emacs server (emacsserver/emacsclient)
