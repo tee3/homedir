@@ -91,7 +91,7 @@ brew install docbook-xsl
 brew install docker
 brew install doxygen
 brew install e2fsprogs
-brew install emacs --cocoa
+brew install emacs --with-cocoa
 brew install emscripten
 brew install enscript
 #brew install ext2fuse
