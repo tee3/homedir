@@ -49,6 +49,7 @@ sudo aptitude -y install arp-scan
 #sudo aptitude -y install arpoison
 #sudo aptitude -y install autoconf
 #sudo aptitude -y install automake
+sudo aptitude -y install avahi-daemon
 #sudo aptitude -y install avrdude
 #sudo aptitude -y install avr-binutils
 #sudo aptitude -y install avr-gcc

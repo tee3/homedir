@@ -46,6 +46,7 @@ sudo yum -y install arp-scan
 #sudo yum -y install arpoison
 #sudo yum -y install autoconf
 #sudo yum -y install automake
+sudo yum -y install avahi-daemon
 #sudo yum -y install avrdude
 sudo yum -y install avr-binutils
 sudo yum -y install avr-gcc
