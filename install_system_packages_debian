@@ -27,155 +27,155 @@ sudo aptitude update
 sudo aptitude safe-upgrade
 
 # install packages for homedir installer
-sudo aptitude install wget
-sudo aptitude install stow
-sudo aptitude install diffutils
+sudo aptitude -y install wget
+sudo aptitude -y install stow
+sudo aptitude -y install diffutils
 
 # install interpreters prior to other packages
-sudo aptitude install python
+sudo aptitude -y install python
 # @todo we don't need python3 at this point
-#sudo aptitude install python3
-sudo aptitude install ruby
-#sudo aptitude install ruby-devel
+#sudo aptitude -y install python3
+sudo aptitude -y install ruby
+#sudo aptitude -y install ruby-devel
 
 # install version control systems
-sudo aptitude install git
-sudo aptitude install mercurial
-sudo aptitude install subversion
+sudo aptitude -y install git
+sudo aptitude -y install mercurial
+sudo aptitude -y install subversion
 
 # install all taps with the right options
-sudo aptitude install arp-scan
-#sudo aptitude install arp-sk
-#sudo aptitude install arpoison
-#sudo aptitude install autoconf
-#sudo aptitude install automake
-#sudo aptitude install avrdude
-#sudo aptitude install avr-binutils
-#sudo aptitude install avr-gcc
-sudo aptitude install bash-completion
-#sudo aptitude install bear
-#sudo aptitude install boost
-#sudo aptitude install boost-bcp
-sudo aptitude install boost-build
-#sudo aptitude install casperjs
-sudo aptitude install clang
-#sudo aptitude install clang-format
-sudo aptitude install cmake
-sudo aptitude install cppcheck
-#sudo aptitude install dart
-#sudo aptitude install dns2tcp
-#sudo aptitude install dnstop
-#sudo aptitude install docbook
-#sudo aptitude install docbook-xsl
-#sudo aptitude install docker
-sudo aptitude install doxygen
-#sudo aptitude install e2fsprogs
-sudo aptitude install emacs
-#sudo aptitude install emscripten
-sudo aptitude install enscript
-#sudo aptitude install ext2fuse
-#sudo aptitude install fop
-#sudo aptitude install fortune
-sudo aptitude install gcc
-sudo aptitude install g++
-#sudo aptitude install gcc43
-#sudo aptitude install g++-4.3
-#sudo aptitude install gcc44
-#sudo aptitude install g++-4.4
-#sudo aptitude install gcc45
-#sudo aptitude install g++-4.5
-#sudo aptitude install gcc46
-#sudo aptitude install g++-4.6
-#sudo aptitude install gcc47
-#sudo aptitude install g++-4.7
-#sudo aptitude install gcc48
-#sudo aptitude install g++-4.8
-#sudo aptitude install gcc49
-#sudo aptitude install g++-4.9
-#sudo aptitude install gcc5
-#sudo aptitude install g++-5
-#sudo aptitude install git-flow
-#sudo aptitude install git-hooks
-#sudo aptitude install git-lfs
-#sudo aptitude install git-test
-#sudo aptitude install glew
-#sudo aptitude install glfw3
-#sudo aptitude install glib
-#sudo aptitude install glm
-sudo aptitude install global
-#sudo aptitude install gnu-typist
-sudo aptitude install golang-go
-#sudo aptitude install gource
-#sudo aptitude install graphviz
-sudo aptitude install guile-2.0
-sudo aptitude install highlight
-#sudo aptitude install htop-osx
-#sudo aptitude install httping
-#sudo aptitude install httpry
-sudo aptitude install hunspell
-sudo aptitude install iperf
-sudo aptitude install ipv6calc
-sudo aptitude install jam
-#sudo aptitude install jansson
-#sudo aptitude install jasper
-#sudo aptitude install jpeg
-#sudo aptitude install jsdoc-toolkit
-#sudo aptitude install jsl
-#sudo aptitude install jsmin
-#sudo aptitude install json-c
-#sudo aptitude install jsonpp
-#sudo aptitude install legit
-sudo aptitude install llvm
-#sudo aptitude install llvm33
-#sudo aptitude install llvm34
-#sudo aptitude install llvm35
-#sudo aptitude install markdown
-#sudo aptitude install mscgen
-#sudo aptitude install netcat
-#sudo aptitude install netperf
-sudo aptitude install nmap
-sudo aptitude install nodejs
-sudo aptitude install nuttcp
-#sudo aptitude install ntfs-3g
-#sudo aptitude install osxfuse
-#sudo aptitude install nuttcp
-#sudo aptitude install p0f
-#sudo aptitude install p7zip
-#sudo aptitude install parallel
-#sudo aptitude install phantomjs
-#sudo aptitude install pinentry
-#sudo aptitude install pkg-config
-sudo aptitude install shellcheck
-sudo aptitude install socat
-sudo aptitude install sqlite
-sudo aptitude install srecord
-#sudo aptitude install ssh-copy-id
-sudo aptitude install sshfs
-sudo aptitude install stow
-#sudo aptitude install stress
-#sudo aptitude install subgit
-#sudo aptitude install swig
-sudo aptitude install tcpdump
-#sudo aptitude install tcpflow
-#sudo aptitude install tcping
-sudo aptitude install tcpreplay
-#sudo aptitude install tcptrace
-sudo aptitude install tcptraceroute
-sudo aptitude install tcptrack
-#sudo aptitude install termshare
-sudo aptitude install tig
-sudo aptitude install tmux
-sudo aptitude install tree
-#sudo aptitude install v8
-sudo aptitude install vim
-#sudo aptitude install vegeta
-#sudo aptitude install webp
-sudo aptitude install wget
-#sudo aptitude install wireshark
-#sudo aptitude install xctool
-#sudo aptitude install xmlformat
-#sudo aptitude install xmlstarlet
-#sudo aptitude install xmlto
+sudo aptitude -y install arp-scan
+#sudo aptitude -y install arp-sk
+#sudo aptitude -y install arpoison
+#sudo aptitude -y install autoconf
+#sudo aptitude -y install automake
+#sudo aptitude -y install avrdude
+#sudo aptitude -y install avr-binutils
+#sudo aptitude -y install avr-gcc
+sudo aptitude -y install bash-completion
+#sudo aptitude -y install bear
+#sudo aptitude -y install boost
+#sudo aptitude -y install boost-bcp
+sudo aptitude -y install boost-build
+#sudo aptitude -y install casperjs
+sudo aptitude -y install clang
+#sudo aptitude -y install clang-format
+sudo aptitude -y install cmake
+sudo aptitude -y install cppcheck
+#sudo aptitude -y install dart
+#sudo aptitude -y install dns2tcp
+#sudo aptitude -y install dnstop
+#sudo aptitude -y install docbook
+#sudo aptitude -y install docbook-xsl
+#sudo aptitude -y install docker
+sudo aptitude -y install doxygen
+#sudo aptitude -y install e2fsprogs
+sudo aptitude -y install emacs
+#sudo aptitude -y install emscripten
+sudo aptitude -y install enscript
+#sudo aptitude -y install ext2fuse
+#sudo aptitude -y install fop
+#sudo aptitude -y install fortune
+sudo aptitude -y install gcc
+sudo aptitude -y install g++
+#sudo aptitude -y install gcc43
+#sudo aptitude -y install g++-4.3
+#sudo aptitude -y install gcc44
+#sudo aptitude -y install g++-4.4
+#sudo aptitude -y install gcc45
+#sudo aptitude -y install g++-4.5
+#sudo aptitude -y install gcc46
+#sudo aptitude -y install g++-4.6
+#sudo aptitude -y install gcc47
+#sudo aptitude -y install g++-4.7
+#sudo aptitude -y install gcc48
+#sudo aptitude -y install g++-4.8
+#sudo aptitude -y install gcc49
+#sudo aptitude -y install g++-4.9
+#sudo aptitude -y install gcc5
+#sudo aptitude -y install g++-5
+#sudo aptitude -y install git-flow
+#sudo aptitude -y install git-hooks
+#sudo aptitude -y install git-lfs
+#sudo aptitude -y install git-test
+#sudo aptitude -y install glew
+#sudo aptitude -y install glfw3
+#sudo aptitude -y install glib
+#sudo aptitude -y install glm
+sudo aptitude -y install global
+#sudo aptitude -y install gnu-typist
+sudo aptitude -y install golang-go
+#sudo aptitude -y install gource
+#sudo aptitude -y install graphviz
+sudo aptitude -y install guile-2.0
+sudo aptitude -y install highlight
+#sudo aptitude -y install htop-osx
+#sudo aptitude -y install httping
+#sudo aptitude -y install httpry
+sudo aptitude -y install hunspell
+sudo aptitude -y install iperf
+sudo aptitude -y install ipv6calc
+sudo aptitude -y install jam
+#sudo aptitude -y install jansson
+#sudo aptitude -y install jasper
+#sudo aptitude -y install jpeg
+#sudo aptitude -y install jsdoc-toolkit
+#sudo aptitude -y install jsl
+#sudo aptitude -y install jsmin
+#sudo aptitude -y install json-c
+#sudo aptitude -y install jsonpp
+#sudo aptitude -y install legit
+sudo aptitude -y install llvm
+#sudo aptitude -y install llvm33
+#sudo aptitude -y install llvm34
+#sudo aptitude -y install llvm35
+#sudo aptitude -y install markdown
+#sudo aptitude -y install mscgen
+#sudo aptitude -y install netcat
+#sudo aptitude -y install netperf
+sudo aptitude -y install nmap
+sudo aptitude -y install nodejs
+sudo aptitude -y install nuttcp
+#sudo aptitude -y install ntfs-3g
+#sudo aptitude -y install osxfuse
+#sudo aptitude -y install nuttcp
+#sudo aptitude -y install p0f
+#sudo aptitude -y install p7zip
+#sudo aptitude -y install parallel
+#sudo aptitude -y install phantomjs
+#sudo aptitude -y install pinentry
+#sudo aptitude -y install pkg-config
+sudo aptitude -y install shellcheck
+sudo aptitude -y install socat
+sudo aptitude -y install sqlite
+sudo aptitude -y install srecord
+#sudo aptitude -y install ssh-copy-id
+sudo aptitude -y install sshfs
+sudo aptitude -y install stow
+#sudo aptitude -y install stress
+#sudo aptitude -y install subgit
+#sudo aptitude -y install swig
+sudo aptitude -y install tcpdump
+#sudo aptitude -y install tcpflow
+#sudo aptitude -y install tcping
+sudo aptitude -y install tcpreplay
+#sudo aptitude -y install tcptrace
+sudo aptitude -y install tcptraceroute
+sudo aptitude -y install tcptrack
+#sudo aptitude -y install termshare
+sudo aptitude -y install tig
+sudo aptitude -y install tmux
+sudo aptitude -y install tree
+#sudo aptitude -y install v8
+sudo aptitude -y install vim
+#sudo aptitude -y install vegeta
+#sudo aptitude -y install webp
+sudo aptitude -y install wget
+#sudo aptitude -y install wireshark
+#sudo aptitude -y install xctool
+#sudo aptitude -y install xmlformat
+#sudo aptitude -y install xmlstarlet
+#sudo aptitude -y install xmlto
 
 # cleanup
 sudo apt-get autoremove

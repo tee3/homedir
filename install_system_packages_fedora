@@ -24,155 +24,155 @@ sudo yum check
 sudo yum update
 
 # install packages for homedir installer
-sudo yum install wget
-sudo yum install stow
-sudo yum install diffutils
+sudo yum -y install wget
+sudo yum -y install stow
+sudo yum -y install diffutils
 
 # install interpreters prior to other packages
-sudo yum install python
+sudo yum -y install python
 # @todo we don't need python3 at this point
-#sudo yum install python3
-sudo yum install ruby
-sudo yum install ruby-devel
+#sudo yum -y install python3
+sudo yum -y install ruby
+sudo yum -y install ruby-devel
 
 # install version control systems
-sudo yum install git
-sudo yum install mercurial
-sudo yum install subversion
+sudo yum -y install git
+sudo yum -y install mercurial
+sudo yum -y install subversion
 
 # install all taps with the right options
-sudo yum install arp-scan
-#sudo yum install arp-sk
-#sudo yum install arpoison
-#sudo yum install autoconf
-#sudo yum install automake
-#sudo yum install avrdude
-sudo yum install avr-binutils
-sudo yum install avr-gcc
-sudo yum install bash-completion
-#sudo yum install bear
-sudo yum install boost
-#sudo yum install boost-bcp
-sudo yum install boost-build
-#sudo yum install casperjs
-sudo yum install clang
-#sudo yum install clang-format
-sudo yum install cmake
-sudo yum install cppcheck
-#sudo yum install dart
-#sudo yum install dns2tcp
-#sudo yum install dnstop
-#sudo yum install docbook
-#sudo yum install docbook-xsl
-#sudo yum install docker
-sudo yum install doxygen
-#sudo yum install e2fsprogs
-sudo yum install emacs-nox
-#sudo yum install emscripten
-sudo yum install enscript
-#sudo yum install ext2fuse
-#sudo yum install fop
-#sudo yum install fortune
-sudo yum install gcc
-sudo yum install gcc-c++
-#sudo yum install gcc43
-#sudo yum install gcc43-c++
-#sudo yum install gcc44
-#sudo yum install gcc44-c++
-#sudo yum install gcc45
-#sudo yum install gcc45-c++
-#sudo yum install gcc46
-#sudo yum install gcc46-c++
-#sudo yum install gcc47
-#sudo yum install gcc47-c++
-#sudo yum install gcc48
-#sudo yum install gcc48-c++
-#sudo yum install gcc49
-#sudo yum install gcc49-c++
-#sudo yum install gcc5
-#sudo yum install gcc5-c++
-#sudo yum install git-flow
-#sudo yum install git-hooks
-#sudo yum install git-lfs
-#sudo yum install git-test
-#sudo yum install glew
-#sudo yum install glfw3
-#sudo yum install glib
-#sudo yum install glm
-sudo yum install global
-#sudo yum install gnu-typist
-sudo yum install golang
-#sudo yum install gource
-#sudo yum install graphviz
-sudo yum install guile
-sudo yum install highlight
-#sudo yum install htop-osx
-#sudo yum install httping
-#sudo yum install httpry
-sudo yum install hunspell
-sudo yum install iperf
-sudo yum install ipv6calc
-sudo yum install jam
-#sudo yum install jansson
-#sudo yum install jasper
-#sudo yum install jpeg
-#sudo yum install jsdoc-toolkit
-#sudo yum install jsl
-#sudo yum install jsmin
-#sudo yum install json-c
-#sudo yum install jsonpp
-#sudo yum install legit
-sudo yum install llvm
-#sudo yum install llvm33
-#sudo yum install llvm34
-#sudo yum install llvm35
-#sudo yum install markdown
-#sudo yum install mscgen
-#sudo yum install netcat
-#sudo yum install netperf
-sudo yum install nmap
-sudo yum install nodejs
-sudo yum install nuttcp
-#sudo yum install ntfs-3g
-#sudo yum install osxfuse
-#sudo yum install nuttcp
-#sudo yum install p0f
-#sudo yum install p7zip
-#sudo yum install parallel
-#sudo yum install phantomjs
-#sudo yum install pinentry
-#sudo yum install pkg-config
-sudo yum install ShellCheck
-sudo yum install socat
-sudo yum install sqlite
-sudo yum install srecord
-#sudo yum install ssh-copy-id
-sudo yum install sshfs
-sudo yum install stow
-#sudo yum install stress
-#sudo yum install subgit
-#sudo yum install swig
-sudo yum install tcpdump
-#sudo yum install tcpflow
-sudo yum install tcping
-sudo yum install tcpreplay
-#sudo yum install tcptrace
-sudo yum install tcptraceroute
-sudo yum install tcptrack
-#sudo yum install termshare
-sudo yum install tig
-sudo yum install tmux
-sudo yum install tree
-sudo yum install v8
-#sudo yum install vegeta
-sudo yum install vim
-#sudo yum install webp
-sudo yum install wget
-#sudo yum install wireshark
-#sudo yum install xctool
-#sudo yum install xmlformat
-#sudo yum install xmlstarlet
-#sudo yum install xmlto
+sudo yum -y install arp-scan
+#sudo yum -y install arp-sk
+#sudo yum -y install arpoison
+#sudo yum -y install autoconf
+#sudo yum -y install automake
+#sudo yum -y install avrdude
+sudo yum -y install avr-binutils
+sudo yum -y install avr-gcc
+sudo yum -y install bash-completion
+#sudo yum -y install bear
+sudo yum -y install boost
+#sudo yum -y install boost-bcp
+sudo yum -y install boost-build
+#sudo yum -y install casperjs
+sudo yum -y install clang
+#sudo yum -y install clang-format
+sudo yum -y install cmake
+sudo yum -y install cppcheck
+#sudo yum -y install dart
+#sudo yum -y install dns2tcp
+#sudo yum -y install dnstop
+#sudo yum -y install docbook
+#sudo yum -y install docbook-xsl
+#sudo yum -y install docker
+sudo yum -y install doxygen
+#sudo yum -y install e2fsprogs
+sudo yum -y install emacs-nox
+#sudo yum -y install emscripten
+sudo yum -y install enscript
+#sudo yum -y install ext2fuse
+#sudo yum -y install fop
+#sudo yum -y install fortune
+sudo yum -y install gcc
+sudo yum -y install gcc-c++
+#sudo yum -y install gcc43
+#sudo yum -y install gcc43-c++
+#sudo yum -y install gcc44
+#sudo yum -y install gcc44-c++
+#sudo yum -y install gcc45
+#sudo yum -y install gcc45-c++
+#sudo yum -y install gcc46
+#sudo yum -y install gcc46-c++
+#sudo yum -y install gcc47
+#sudo yum -y install gcc47-c++
+#sudo yum -y install gcc48
+#sudo yum -y install gcc48-c++
+#sudo yum -y install gcc49
+#sudo yum -y install gcc49-c++
+#sudo yum -y install gcc5
+#sudo yum -y install gcc5-c++
+#sudo yum -y install git-flow
+#sudo yum -y install git-hooks
+#sudo yum -y install git-lfs
+#sudo yum -y install git-test
+#sudo yum -y install glew
+#sudo yum -y install glfw3
+#sudo yum -y install glib
+#sudo yum -y install glm
+sudo yum -y install global
+#sudo yum -y install gnu-typist
+sudo yum -y install golang
+#sudo yum -y install gource
+#sudo yum -y install graphviz
+sudo yum -y install guile
+sudo yum -y install highlight
+#sudo yum -y install htop-osx
+#sudo yum -y install httping
+#sudo yum -y install httpry
+sudo yum -y install hunspell
+sudo yum -y install iperf
+sudo yum -y install ipv6calc
+sudo yum -y install jam
+#sudo yum -y install jansson
+#sudo yum -y install jasper
+#sudo yum -y install jpeg
+#sudo yum -y install jsdoc-toolkit
+#sudo yum -y install jsl
+#sudo yum -y install jsmin
+#sudo yum -y install json-c
+#sudo yum -y install jsonpp
+#sudo yum -y install legit
+sudo yum -y install llvm
+#sudo yum -y install llvm33
+#sudo yum -y install llvm34
+#sudo yum -y install llvm35
+#sudo yum -y install markdown
+#sudo yum -y install mscgen
+#sudo yum -y install netcat
+#sudo yum -y install netperf
+sudo yum -y install nmap
+sudo yum -y install nodejs
+sudo yum -y install nuttcp
+#sudo yum -y install ntfs-3g
+#sudo yum -y install osxfuse
+#sudo yum -y install nuttcp
+#sudo yum -y install p0f
+#sudo yum -y install p7zip
+#sudo yum -y install parallel
+#sudo yum -y install phantomjs
+#sudo yum -y install pinentry
+#sudo yum -y install pkg-config
+sudo yum -y install ShellCheck
+sudo yum -y install socat
+sudo yum -y install sqlite
+sudo yum -y install srecord
+#sudo yum -y install ssh-copy-id
+sudo yum -y install sshfs
+sudo yum -y install stow
+#sudo yum -y install stress
+#sudo yum -y install subgit
+#sudo yum -y install swig
+sudo yum -y install tcpdump
+#sudo yum -y install tcpflow
+sudo yum -y install tcping
+sudo yum -y install tcpreplay
+#sudo yum -y install tcptrace
+sudo yum -y install tcptraceroute
+sudo yum -y install tcptrack
+#sudo yum -y install termshare
+sudo yum -y install tig
+sudo yum -y install tmux
+sudo yum -y install tree
+sudo yum -y install v8
+#sudo yum -y install vegeta
+sudo yum -y install vim
+#sudo yum -y install webp
+sudo yum -y install wget
+#sudo yum -y install wireshark
+#sudo yum -y install xctool
+#sudo yum -y install xmlformat
+#sudo yum -y install xmlstarlet
+#sudo yum -y install xmlto
 
 # cleanup
 sudo yum autoremove
