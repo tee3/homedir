@@ -550,7 +550,13 @@
     :defer t))
 (use-package swift-mode
   :ensure t
-  :defer t)
+  :defer t
+  :init
+  (use-package flycheck
+    :ensure t
+    :defer t)
+  :config
+  (add-to-list 'flycheck-checkers 'swift))
 (use-package tcl
   :defer t
   :init
