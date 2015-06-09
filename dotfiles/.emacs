@@ -549,7 +549,6 @@
     :ensure t
     :defer t))
 (use-package swift-mode
-  :disabled t
   :ensure t
   :defer t)
 (use-package tcl
