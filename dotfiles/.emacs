@@ -131,6 +131,15 @@
 (use-package fm
   :ensure t
   :defer t)
+(use-package frame
+  :defer t
+  :config
+  (when (display-graphic-p)
+    (cond ((member "Source Code Pro" (font-family-list))
+           (set-frame-font "Source Code Pro"))))
+  (when (display-graphic-p)
+    (add-to-list 'default-frame-alist '(width . 160))
+    (add-to-list 'default-frame-alist '(height . 50))))
 (use-package hideshow
   :defer t
   :diminish hs-minor-mode)
