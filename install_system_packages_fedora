@@ -135,6 +135,7 @@ sudo yum -y install nmap
 sudo yum -y install nodejs
 sudo yum -y install nuttcp
 #sudo yum -y install ntfs-3g
+sudo yum -y install openocd
 #sudo yum -y install osxfuse
 #sudo yum -y install nuttcp
 #sudo yum -y install p0f

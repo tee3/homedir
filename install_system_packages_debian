@@ -138,6 +138,7 @@ sudo aptitude -y install nmap
 sudo aptitude -y install nodejs
 sudo aptitude -y install nuttcp
 #sudo aptitude -y install ntfs-3g
+sudo aptitude -y install openocd
 #sudo aptitude -y install osxfuse
 #sudo aptitude -y install nuttcp
 #sudo aptitude -y install p0f

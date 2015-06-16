@@ -153,6 +153,7 @@ brew install nuttcp
 #brew install ntfs-3g
 #brew install osxfuse
 brew install nuttcp
+brew install openocd
 brew install p0f
 brew install p7zip
 brew install parallel
