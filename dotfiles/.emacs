@@ -467,6 +467,9 @@
 (use-package syslog-mode
   :ensure t
   :defer t)
+(use-package systemd
+  :ensure t
+  :defer t)
 (use-package toml-mode
   :ensure t
   :defer t)
