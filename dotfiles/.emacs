@@ -42,7 +42,6 @@
  '(icomplete-mode t)
  '(inhibit-startup-screen t)
  '(large-file-warning-threshold nil)
- '(menu-bar-mode nil)
  '(mouse-wheel-mode t)
  '(ns-pop-up-frames nil)
  '(paren-mode (quote sexp) nil (paren))
@@ -154,6 +153,11 @@
   :defer t
   :config
   (when (equal system-type 'darwin) (setq locate-command "mdfind")))
+(use-package menu-bar
+  :defer t
+  :config
+  (when (not (display-graphic-p))
+    (menu-bar-mode -1)))
 (use-package nav
   :ensure t
   :defer t)
