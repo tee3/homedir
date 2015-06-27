@@ -1018,6 +1018,11 @@
   :ensure t
   :defer t
   :init
+  (use-package flycheck-clangcheck
+    :ensure t
+    ;; this will not be added to flycheck-checkers if deferred
+    ;; :defer t
+    )
   (use-package flycheck-google-cpplint
     :ensure t
     ;; this will not be added to flycheck-checkers if deferred
