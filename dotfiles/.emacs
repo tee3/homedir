@@ -550,11 +550,14 @@
     :defer t))
 (use-package swift-mode
   :ensure t
-  :defer t
+  ;; this will not be added to flycheck-checkers if deferred
+  ;; :defer t 
   :init
   (use-package flycheck
     :ensure t
-    :defer t)
+    ;; swift will not be added to flycheck-checkers if deferred
+    ;; :defer t
+    )
   :config
   (add-to-list 'flycheck-checkers 'swift))
 (use-package tcl
@@ -1017,7 +1020,9 @@
   :init
   (use-package flycheck-google-cpplint
     :ensure t
-    :defer t))
+    ;; this will not be added to flycheck-checkers if deferred
+    ;; :defer t
+    ))
 (use-package demangle-mode
   :ensure t
   :defer t)
@@ -1051,7 +1056,9 @@
     :init
     (use-package flycheck-irony
       :ensure t
-      :defer t)))
+      ;; this will not be added to flycheck-checkers if deferred
+      ;; :defer t
+      )))
 (use-package objc-font-lock
   :ensure t
   :defer t)
@@ -1077,7 +1084,6 @@
     :init
     (use-package company-tern
       :ensure t
-      :defer t
       :config
       (add-to-list 'company-backends 'company-tern t)))
   :config
@@ -1111,7 +1117,9 @@
   :init
   (use-package flycheck-pyflakes
     :ensure t
-    :defer t))
+    ;; this will not be added to flycheck-checkers if deferred
+    ;; :defer t
+    ))
 (use-package pip-requirements
   :ensure t
   :defer t)
@@ -1147,7 +1155,9 @@
   :init
   (use-package flycheck-package
     :ensure t
-    :defer t)
+    ;; this will not be added to flycheck-checkers if deferred
+    ;; :defer t
+    )
   :config
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
@@ -1165,7 +1175,6 @@
     :init
     (use-package company-ycmd
       :ensure t
-      :defer t
       :config
       (add-to-list 'company-backends 'company-ycmd t)))
   (use-package flycheck
@@ -1174,7 +1183,9 @@
     :init
     (use-package flycheck-ycmd
       :ensure t
-      :defer t)))
+      ;; this will not be added to flycheck-checkers if deferred
+      ;; :defer t
+      )))
 
 ;;;
 ;;; rtags
