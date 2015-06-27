@@ -521,7 +521,8 @@
     :init
     (use-package company-ghc
       :ensure t
-      :defer t
+      ;; this will not be added to company-backends if deferred
+      ;; :defer t
       :config
       (add-to-list 'company-backends 'company-ghc t))))
 (use-package jgraph-mode
@@ -582,7 +583,8 @@
     :init
     (use-package company-auctex
       :ensure t
-      :defer t
+      ;; this will not be added to company-backends if deferred
+      ;; :defer t
       :config
       (add-to-list 'company-backends 'company-auctex t))))
 
@@ -750,7 +752,8 @@
     :init
     (use-package company-go
       :ensure t
-      :defer t
+      ;; this will not be added to company-backends if deferred
+      ;; :defer t
       :config
       (add-to-list 'company-backends 'company-go t)))
   (use-package go-direx
@@ -758,7 +761,8 @@
     :defer t)
   (use-package go-eldoc
     :ensure t
-    :defer t
+    ;; this will not be added to company-backends if deferred
+    ;; :defer t
     :config
     (add-hook 'go-mode-hook 'go-eldoc-setup))
   (use-package go-errcheck
@@ -816,7 +820,8 @@
     :init
     (use-package company-inf-ruby
       :ensure t
-      :defer t
+      ;; this will not be added to company-backends if deferred
+      ;; :defer t
       :config
       (add-to-list 'company-backends 'company-inf-ruby t))))
 (use-package rspec-mode
@@ -1011,7 +1016,8 @@
   :init
   (use-package company-c-headers
     :ensure t
-    :defer t
+    ;; this will not be added to company-backends if deferred
+    ;; :defer t
     :config
     (add-to-list 'company-backends 'company-c-headers t)))
 (use-package flycheck
