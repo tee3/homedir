@@ -33,7 +33,6 @@
  '(desktop-save-mode t)
  '(dired-kept-versions 6)
  '(display-time-mode t)
- '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(fringe-mode 4 nil (fringe))
  '(global-font-lock-mode t nil (font-lock))
  '(gnus-select-method (quote (nntp "news.gmane.org")))
@@ -117,6 +116,11 @@
 (use-package diminish
   :ensure t
   :defer t)
+(use-package ediff
+  :ensure t
+  :defer t
+  :init
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 (use-package eldoc
   :defer t
   :diminish eldoc-mode)
