@@ -7,14 +7,29 @@ This directory is intended to be tracked using git and shared across
 multiple machines and so should be designed to work well across
 different types of Unix systems.
 
-To set up a new system or update an existing system for a user, run
-the following commands when logged in as that user.  Note that all
-system packages should be installed prior to the `install` script
-so all support applications are properly set up.
+# rationale
 
-```
-$ ./install
-```
+This is a very simple way of keeping home directories synchronized
+across systems.  This was the easiest approach to getting something
+going without learning a lot of new systems.
+
+At some point, some of the more complex ways of doing this might
+become useful.
+
+# requirements
+
+The `install` script must be run from this directory and the `HOME`
+environment variable must be set properly.
+
+* `sh`
+* `stow`
+* `diff`
+
+# bootstrap
+
+This assumes a bootstrapped system with a user named `administrator`
+as an administrator of the machine.  This is especially useful with a
+"minimal installation" Linux machine.
 
 To install system packages for Fedora-based systems (via yum), run the
 following script as a user with `sudo` permission.
@@ -37,29 +52,53 @@ script as the administrator of the system.
 $ ./install_system_packages_osx
 ```
 
-# rationale
+## fedora
 
-This is a very simple way of keeping home directories synchronized
-across systems.  This was the easiest approach to getting something
-going without learning a lot of new systems.
+1. log in as `root`
+2. install `sudo`
+3. `usermod administrator -a -G wheel`
+4. log out
+5. log in to `administrator`
+6. `sudo yum install git`
+7. `git clone https://github.com/tee3/homedir ~/Development/homedir`
+8. `cd ~/Development/homedir`
+9. `./install_system_packages_debian`
 
-At some point, some of the more complex ways of doing this might
-become useful.
+## debian
 
-# requirements
+1. log in as `root`
+2. install `sudo`
+3. `adduser administrator sudo`
+4, log out
+5. log in to `administrator`
+6. `sudo apt-get install git`
+7. `git clone https://github.com/tee3/homedir ~/Development/homedir`
+8. `cd ~/Development/homedir`
+9. `./install_system_packages_debian`
 
-The `install` script must be run from this directory and the `HOME`
-environment variable must be set properly.
+## os x
 
-* `sh`
-* `stow`
-* `diff`
+1. install Xcode
+2. install Xcode command-line tools
+3. `./install_system_pacakges_osx`
 
 # install
 
+To set up a new system or update an existing system for a user, run
+the following commands when logged in as that user.  Note that all
+system packages should be installed prior to the `install` script via
+the bootstrap procedure above so all support applications are properly
+set up.
+
 The `install` script checks for the requirements and then helps the
 user set up a home directory.  There is special support for features
-that require it.
+that require it.  It is not recommended to install the `~/opt/local`
+directories or the scripting language tools for the `administrator`
+user.
+
+```
+$ ./install
+```
 
 ## support for `~/opt/local`
 
