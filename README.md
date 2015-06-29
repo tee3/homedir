@@ -150,3 +150,8 @@ Ruby gems are installed using the user protocol and a Gemfile
 Node.js modules are installed to the user's home directory under
 `~/.node_modules` and a text file (`node-packages.txt`) defines the
 installed Node.js modules.
+
+## support for emacs
+
+Emacs packages are installed and configured automatically by the
+included `~/.emacs` initialization file.
