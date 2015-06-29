@@ -69,6 +69,18 @@ if [ ! -z "${git}" -a -x "${git}" ]; then
         touch ~/.gitconfig.machine
     fi
 
+    # set up a credential helper
+    if [ "${machine}" = linux ]; then
+        git config -f ~/.gitconfig.machine credential.helper 'cache --timeout 3600'
+    elif [ "${machine}" = osx ]; then
+        git config -f ~/.gitconfig.machine credential.helper 'osxkeychain'
+    elif [ "${machine}" = windows ]; then
+        git config -f ~/.gitconfig.machine credential.helper 'winstore'
+    else
+        echo "error: unknown machine ${machine}."
+        exit 1
+    fi
+
     # set up user-specific ~/.gitconfig
     if [ ! -e ~/.gitconfig.user ]; then
         echo "~/.gitconfig.user is used for user-specific settings to .gitconfig."
