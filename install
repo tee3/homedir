@@ -19,6 +19,24 @@ if [ -z "${HOME}" ]; then
     exit 1
 fi
 
+# ask user for the type of machine
+read -p "Enter machine type {linux, osx, windows}: " machine
+if [ ! -z "${machine}" ]; then
+    if [ "${machine}" = linux ]; then
+        echo "Installing for Linux"
+    elif [ "${machine}" = osx ]; then
+        echo "Installing for OS X"
+    elif [ "${machine}" = windows ]; then
+        echo "Installing for Windows"
+    else
+        echo "error: unknown machine ${machine}, aborting"
+        exit 1
+    fi
+else
+    echo "error: machine must be set, aborting"
+    exit 1
+fi
+
 # create ~/opt/local if desired
 if [ ! -d ~/opt -o ! -d ~/opt/local ]; then
     read -p "create ~/opt/local? (y/n)?: " yn
