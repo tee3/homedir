@@ -654,8 +654,8 @@
 
 ;;; Magit
 (use-package magit
-  :load-path
-  "~/.emacs.d/site-lisp/magit/lisp"
+  :ensure t
+  :defer t
   :config
   (add-hook 'magit-mode-hook 'magit-load-config-extensions))
 
