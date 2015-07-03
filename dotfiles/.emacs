@@ -813,7 +813,9 @@
     :defer t)
   (use-package ruby-electric
     :ensure t
-    :defer t))
+    :defer t
+    :config
+    (add-hook 'ruby-mode-hook 'ruby-electric-mode)))
 (use-package inf-ruby
   :ensure t
   :defer t
@@ -827,7 +829,8 @@
       ;; this will not be added to company-backends if deferred
       ;; :defer t
       :config
-      (add-to-list 'company-backends 'company-inf-ruby t))))
+      (add-to-list 'company-backends 'company-inf-ruby t))
+    (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)))
 (use-package rspec-mode
   :ensure t
   :defer t)
