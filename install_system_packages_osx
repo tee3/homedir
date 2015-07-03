@@ -139,10 +139,11 @@ brew install jsmin
 brew install json-c
 brew install jsonpp
 brew install legit
-brew install llvm
+#brew install llvm
 brew install llvm33
 brew install llvm34
 brew install llvm35
+brew install llvm36
 brew install markdown
 #brew install mscgen --without-gd
 brew install netcat
