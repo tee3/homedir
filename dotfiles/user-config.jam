@@ -49,47 +49,6 @@ else if [ os.name ] = MACOSX
     using darwin : 4.5 : /usr/local/bin/g++-4.5 ;
 }
 
-# Cross compilers
-
-# ARM compiler
-
-if [ os.name ] = NT
-{
-    #! @todo gcc for arm
-}
-else if [ os.name ] = CYGWIN
-{
-    #! @todo gcc for arm
-}
-else if [ os.name ] = LINUX
-{
-    #! @todo gcc for arm
-}
-else if [ os.name ] = MACOSX
-{
-    #! @todo gcc for arm
-    using gcc : arm : $(HOME)/opt/gcc-arm-none-eabi-4_8-2014q1/bin/arm-none-eabi-g++ ;
-}
-
-# AVR compiler
-
-if [ os.name ] = NT
-{
-    #! @todo gcc for avr
-}
-else if [ os.name ] = CYGWIN
-{
-    #! @todo gcc for avr
-}
-else if [ os.name ] = LINUX
-{
-    #! @todo gcc for avr
-}
-else if [ os.name ] = MACOSX
-{
-    #! @todo gcc for avr
-}
-
 # MPI
 
 if [ os.name ] = MAXOSX
