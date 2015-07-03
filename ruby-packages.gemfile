@@ -3,5 +3,9 @@ source 'https://rubygems.org'
 # Development
 gem 'travis-lint'
 
+# Development - Robe
+gem 'pry'
+gem 'pry-doc'
+
 # Fun
 gem 'lolcat'

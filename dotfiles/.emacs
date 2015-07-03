@@ -807,6 +807,13 @@
     :defer t
     :config
     (add-hook 'ruby-mode-hook 'ruby-electric-mode)))
+(use-package robe
+  :ensure t
+  :defer t
+  :diminish robe-mode
+  :config
+  (add-hook 'ruby-mode-hook 'robe-mode)
+  (add-to-list 'company-backends 'company-robe t))
 (use-package inf-ruby
   :ensure t
   :defer t
