@@ -24,10 +24,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
- '(desktop-globals-to-save
-   (quote
-    (desktop-missing-file-warning tags-file-name tags-table-list search-ring regexp-search-ring register-alist file-name-history kill-ring)))
- '(desktop-save-mode t)
  '(dired-kept-versions 6)
  '(display-time-mode t)
  '(fringe-mode 4 nil (fringe))
@@ -105,6 +101,10 @@
 (use-package dedicated
   :ensure t
   :defer t)
+(use-package desktop
+  :config
+  (add-to-list 'desktop-globals-to-save 'kill-ring 1)
+  (desktop-save-mode))
 (use-package diminish
   :ensure t
   :defer t)
