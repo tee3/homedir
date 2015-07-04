@@ -165,6 +165,7 @@
     :ensure t
     :defer t)
   :config
+  (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
   (add-hook 'lisp-mode-hook 'enable-paredit-mode)
   (add-hook 'scheme-mode-hook 'enable-paredit-mode))
 (use-package smart-mode-line
