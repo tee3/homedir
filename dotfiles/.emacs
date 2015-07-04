@@ -23,13 +23,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(Info-additional-directory-list (quote ("/usr/local/share/info")))
- '(auto-compression-mode t nil (jka-compr))
- '(calculator-bind-escape t)
- '(calculator-electric-mode nil)
  '(column-number-mode t)
- '(current-language-environment "English")
- '(desktop-globals-to-save (quote (desktop-missing-file-warning tags-file-name tags-table-list search-ring regexp-search-ring register-alist file-name-history kill-ring)))
+ '(desktop-globals-to-save
+   (quote
+    (desktop-missing-file-warning tags-file-name tags-table-list search-ring regexp-search-ring register-alist file-name-history kill-ring)))
  '(desktop-save-mode t)
  '(dired-kept-versions 6)
  '(display-time-mode t)
@@ -40,11 +37,8 @@
  '(history-delete-duplicates t)
  '(icomplete-mode t)
  '(inhibit-startup-screen t)
- '(large-file-warning-threshold nil)
  '(mouse-wheel-mode t)
  '(ns-pop-up-frames nil)
- '(paren-mode (quote sexp) nil (paren))
- '(query-user-mail-address nil)
  '(save-place t nil (saveplace))
  '(savehist-mode t nil (savehist))
  '(scroll-bar-mode nil)
@@ -55,12 +49,10 @@
  '(split-height-threshold 0)
  '(sql-sqlite-program "sqlite3")
  '(tags-loop-revert-buffers t)
- '(tempo-interactive t)
  '(tool-bar-mode nil)
  '(truncate-lines t)
  '(version-control t)
- '(visible-bell t)
- '(whitespace-check-indent-whitespace t))
+ '(visible-bell t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
