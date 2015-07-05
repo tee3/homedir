@@ -158,7 +158,8 @@
   :defer t)
 (use-package paredit
   :ensure t
-  :defer t
+  ;; the hooks below will not be added to if deferred
+  ;; :defer t
   :diminish paredit-mode
   :init
   (use-package paredit-everywhere
