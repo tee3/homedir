@@ -33,7 +33,6 @@
  '(scroll-conservatively 100)
  '(show-paren-mode t)
  '(size-indication-mode t)
- '(speedbar-use-images nil)
  '(split-height-threshold 0)
  '(sql-sqlite-program "sqlite3")
  '(tags-loop-revert-buffers t)
@@ -192,6 +191,13 @@
 (use-package smooth-scroll
   :ensure t
   :defer t)
+(use-package speedbar
+  :defer t
+  :init
+  (use-package sb-image
+    :defer t
+    :init
+    (setq speedbar-use-images nil)))
 (use-package undo-tree
   :ensure t
   :defer t
