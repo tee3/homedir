@@ -34,7 +34,6 @@
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(split-height-threshold 0)
- '(tags-loop-revert-buffers t)
  '(tool-bar-mode nil)
  '(truncate-lines t)
  '(version-control t)
@@ -113,6 +112,10 @@
 (use-package electric-case
   :ensure t
   :defer t)
+(use-package etags
+  :defer t
+  :init
+  (setq tags-loop-revert-buffers t))
 (use-package expand-region
   :ensure t
   :defer t
