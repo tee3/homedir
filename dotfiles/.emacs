@@ -26,7 +26,6 @@
  '(display-time-mode t)
  '(global-font-lock-mode t nil (font-lock))
  '(history-delete-duplicates t)
- '(icomplete-mode t)
  '(inhibit-startup-screen t)
  '(mouse-wheel-mode t)
  '(ns-pop-up-frames nil)
@@ -146,6 +145,10 @@
 (use-package hide-comnt
   :ensure t
   :defer t)
+(use-package icomplete
+  :defer t
+  :init
+  (icomplete-mode nil))
 (use-package linum
   :defer t
   :init
