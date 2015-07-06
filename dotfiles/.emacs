@@ -34,7 +34,6 @@
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(split-height-threshold 0)
- '(sql-sqlite-program "sqlite3")
  '(tags-loop-revert-buffers t)
  '(tool-bar-mode nil)
  '(truncate-lines t)
@@ -573,6 +572,10 @@
   (use-package processing-snippets
     :ensure t
     :defer t))
+(use-package sql
+  :defer t
+  :init
+  (setq sql-sqlite-program "sqlite3"))
 (use-package swift-mode
   :ensure t
   ;; this will not be added to flycheck-checkers if deferred
