@@ -23,7 +23,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
- '(dired-kept-versions 6)
  '(display-time-mode t)
  '(fringe-mode 4 nil (fringe))
  '(global-font-lock-mode t nil (font-lock))
@@ -107,6 +106,10 @@
 (use-package diminish
   :ensure t
   :defer t)
+(use-package dired
+  :defer t
+  :init
+  (setq dired-kept-versions 6))
 (use-package ediff
   :ensure t
   :defer t
