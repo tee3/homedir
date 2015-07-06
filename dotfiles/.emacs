@@ -24,7 +24,6 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(display-time-mode t)
- '(fringe-mode 4 nil (fringe))
  '(global-font-lock-mode t nil (font-lock))
  '(gnus-select-method (quote (nntp "news.gmane.org")))
  '(gud-pdb-command-name "python -m pdb")
@@ -139,6 +138,10 @@
       (add-to-list 'default-frame-alist '(font . "Source Code Pro")))
     (add-to-list 'default-frame-alist '(width . 160))
     (add-to-list 'default-frame-alist '(height . 50))))
+(use-package fringe-mode
+  :defer t
+  :init
+  (setq fringe-mode '(4 . nil)))
 (use-package hideshow
   :defer t
   :diminish hs-minor-mode)
