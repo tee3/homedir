@@ -25,7 +25,6 @@
  '(column-number-mode t)
  '(display-time-mode t)
  '(global-font-lock-mode t nil (font-lock))
- '(gnus-select-method (quote (nntp "news.gmane.org")))
  '(history-delete-duplicates t)
  '(icomplete-mode t)
  '(inhibit-startup-screen t)
@@ -347,6 +346,14 @@
 (use-package org
   :ensure t
   :defer t)
+
+;;;
+;;; Gnus
+;;;
+(use-package gnus
+  :defer t
+  :init
+  (setq gnus-select-method '(nntp "news.gmane.org")))
 
 ;;;
 ;;; Markdown formats
