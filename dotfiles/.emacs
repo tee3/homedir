@@ -36,7 +36,6 @@
  '(split-height-threshold 0)
  '(tool-bar-mode nil)
  '(truncate-lines t)
- '(version-control t)
  '(visible-bell t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -134,6 +133,10 @@
       (add-to-list 'default-frame-alist '(font . "Source Code Pro")))
     (add-to-list 'default-frame-alist '(width . 160))
     (add-to-list 'default-frame-alist '(height . 50))))
+(use-package files
+  :defer t
+  :init
+  (setq version-control t))
 (use-package fringe-mode
   :defer t
   :init
