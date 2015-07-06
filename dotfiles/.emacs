@@ -29,8 +29,6 @@
  '(inhibit-startup-screen t)
  '(mouse-wheel-mode t)
  '(ns-pop-up-frames nil)
- '(save-place t nil (saveplace))
- '(savehist-mode t nil (savehist))
  '(scroll-bar-mode nil)
  '(scroll-conservatively 100)
  '(show-paren-mode t)
@@ -178,6 +176,12 @@
   (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
   (add-hook 'lisp-mode-hook 'enable-paredit-mode)
   (add-hook 'scheme-mode-hook 'enable-paredit-mode))
+(use-package savehist
+  :config
+  (savehist-mode nil))
+(use-package saveplace
+  :init
+  (setq-default save-place t))
 (use-package smart-mode-line
   :ensure t
   :defer t
