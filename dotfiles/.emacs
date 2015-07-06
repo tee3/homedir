@@ -26,7 +26,6 @@
  '(display-time-mode t)
  '(global-font-lock-mode t nil (font-lock))
  '(gnus-select-method (quote (nntp "news.gmane.org")))
- '(gud-pdb-command-name "python -m pdb")
  '(history-delete-duplicates t)
  '(icomplete-mode t)
  '(inhibit-startup-screen t)
@@ -1126,6 +1125,10 @@
   :defer t)
 
 ;;; Python programming language
+(use-package python
+  :defer t
+  :init
+  (setq gud-pdb-command-name "python -m pdb"))
 (use-package elpy
   :ensure t
   :init
