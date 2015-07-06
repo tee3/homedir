@@ -12,39 +12,6 @@
 (add-to-list 'load-path (expand-file-name "~/opt/local/share/emacs/site-lisp") t)
 
 ;;;
-;;; Custom Parameters
-;;;
-;;;    This is the way to set defaults since this is the variable set
-;;;    by the configuration menus in Emacs itself.
-;;;
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(column-number-mode t)
- '(display-time-mode t)
- '(global-font-lock-mode t nil (font-lock))
- '(history-delete-duplicates t)
- '(inhibit-startup-screen t)
- '(mouse-wheel-mode t)
- '(ns-pop-up-frames nil)
- '(scroll-bar-mode nil)
- '(scroll-conservatively 100)
- '(show-paren-mode t)
- '(size-indication-mode t)
- '(split-height-threshold 0)
- '(tool-bar-mode nil)
- '(truncate-lines t)
- '(visible-bell t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
-;;;
 ;;; Set up package
 ;;;
 (when (require 'package nil :noerror)
@@ -83,6 +50,26 @@
 ;;;
 ;;; Emacs
 ;;;
+(setq column-number-mode t)
+(setq display-time-mode t)
+(global-font-lock-mode)
+(setq history-delete-duplicates t)
+(setq inhibit-startup-screen t)
+(setq mouse-wheel-mode t)
+(setq ns-pop-up-frames nil)
+(scroll-bar-mode -1)
+(setq scroll-conservatively 100)
+(show-paren-mode t)
+(setq size-indication-mode t)
+(setq split-height-threshold 0)
+(tool-bar-mode -1)
+(setq-default truncate-lines t)
+(setq visible-bell t)
+
+(use-package cus-edit
+  :init
+  (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
+  (load custom-file 'noerror))
 (use-package abbrev
   :defer t
   :diminish abbrev-mode)
