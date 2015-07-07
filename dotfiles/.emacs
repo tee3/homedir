@@ -690,6 +690,13 @@
 (use-package monky
   :ensure t
   :defer t)
+(use-package hgignore-mode
+  :ensure t
+  :defer t)
+(use-package conf-mode
+  :defer t
+  :mode
+  ((".hgrc.*\\'" . conf-mode)))
 
 ;;; Perforce
 (use-package p4
