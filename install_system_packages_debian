@@ -153,6 +153,7 @@ sudo aptitude -y install sqlite
 sudo aptitude -y install srecord
 #sudo aptitude -y install ssh-copy-id
 sudo aptitude -y install sshfs
+#sudo aptitude -y install stdman
 sudo aptitude -y install stow
 #sudo aptitude -y install stress
 #sudo aptitude -y install subgit

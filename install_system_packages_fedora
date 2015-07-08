@@ -150,6 +150,7 @@ sudo yum -y install sqlite
 sudo yum -y install srecord
 #sudo yum -y install ssh-copy-id
 sudo yum -y install sshfs
+#sudo yum -y install stdman
 sudo yum -y install stow
 #sudo yum -y install stress
 #sudo yum -y install subgit
