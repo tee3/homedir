@@ -264,7 +264,7 @@
   (use-package helm-projectile
     :ensure t
     :defer t
-    :init
+    :config
     (helm-projectile-on))
   (setq helm-candidate-number-limit nil)
   (setq helm-quick-update t)
