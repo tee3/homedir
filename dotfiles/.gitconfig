@@ -23,5 +23,5 @@
 	smudge = git lfs smudge %f
 	required = true
 [include]
-	path = ~/.gitconfig.machine	
+	path = ~/.gitconfig.machine
 	path = ~/.gitconfig.user
