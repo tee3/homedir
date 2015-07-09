@@ -43,25 +43,28 @@ since many packages are not installed by default.
 6. `sudo yum install git`
 7. `git clone https://github.com/tee3/homedir ~/Development/homedir`
 8. `cd ~/Development/homedir`
-9. `./install_system_packages_debian`
+9. `./install_system_packages_fedora`
+10. `sudo shutdown -r now`
 
 ## debian
 
 1. log in as `root`
 2. install `sudo`
 3. `adduser administrator sudo`
-4, log out
+4. log out
 5. log in to `administrator`
 6. `sudo apt-get install git`
 7. `git clone https://github.com/tee3/homedir ~/Development/homedir`
 8. `cd ~/Development/homedir`
 9. `./install_system_packages_debian`
+10. `sudo shutdown -r now`
 
 ## os x
 
 1. install Xcode
 2. install Xcode command-line tools
 3. `./install_system_pacakges_osx`
+4. `sudo shutdown -r now`
 
 # install system packages
 
@@ -76,8 +79,8 @@ $ ./install_system_packages_fedora
 
 ## debian
 
-To install system packages for Debian-based systems (via yum), run the
-following script as a user with `sudo` permission.
+To install system packages for Debian-based systems (via apt-get), run
+the following script as a user with `sudo` permission.
 
 ```
 $ ./install_system_packages_debian
