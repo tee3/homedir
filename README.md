@@ -69,6 +69,10 @@ since many packages are not installed by default.
 
 # install system packages
 
+Installing system packages should be done as necessary as it updates
+the system as well as installs system packages added after the initial
+bootstrap of the system.
+
 ## fedora
 
 To install system packages for Fedora-based systems (via yum), run the
@@ -90,7 +94,8 @@ $ ./install_system_packages_debian
 ## os x
 
 To install system packages for OS X (via Homebrew), run the following
-script as the administrator of the system.
+script as the administrator of the system.  Note that this does not
+use `sudo` as Homebrew does not require it.
 
 ```
 $ ./install_system_packages_osx
