@@ -25,11 +25,9 @@ environment variable must be set properly.
 * `stow`
 * `diff`
 
-# bootstrap
+# install system packages
 
-This assumes a bootstrapped system with a user named `administrator`
-as an administrator of the machine.  This is especially useful with a
-"minimal installation" Linux machine.
+## fedora
 
 To install system packages for Fedora-based systems (via yum), run the
 following script as a user with `sudo` permission.
@@ -38,6 +36,8 @@ following script as a user with `sudo` permission.
 $ ./install_system_packages_fedora
 ```
 
+## debian
+
 To install system packages for Debian-based systems (via yum), run the
 following script as a user with `sudo` permission.
 
@@ -45,12 +45,20 @@ following script as a user with `sudo` permission.
 $ ./install_system_packages_debian
 ```
 
+## os x
+
 To install system packages for OS X (via Homebrew), run the following
 script as the administrator of the system.
 
 ```
 $ ./install_system_packages_osx
 ```
+
+# bootstrap
+
+This assumes a bootstrapped system with a user named `administrator`
+as an administrator of the machine.  This is especially useful with a
+"minimal installation" Linux machine.
 
 ## fedora
 
