@@ -16,14 +16,57 @@ going without learning a lot of new systems.
 At some point, some of the more complex ways of doing this might
 become useful.
 
+## supported systems
+
+- OS X
+- Linux
+
+While the `install` portion of this system supports Cygwin- or
+MSYS-based systems, the package managers for those systems are not
+supported.
+
 # requirements
 
-The `install` script must be run from this directory and the `HOME`
-environment variable must be set properly.
+The install family of scripts assumes that they are run from the root
+of the `tee3/homedir` directory.
+
+## install
+
+The `HOME` environment variable must be set properly.  Note that this
+is almost always true in Unix environments, but may not be correct for
+some Unix emulation layers such as MSYS or Cygwin.
 
 * `sh`
 * `stow`
 * `diff`
+
+## bootstrap
+
+* `administrator` user
+
+### linux
+
+* `yum`- or `apt-get`-based Linux system
+* `root` access
+
+## os x
+
+* Homebrew
+* administrator priveleges (but not `sudo`)
+
+## install system packages
+
+* `administrator` user
+
+### linux
+
+* `yum`- or `apt-get`-based Linux system
+* `sudo`
+
+### os x
+
+* Homebrew
+* administrator privileges (but not `sudo`)
 
 # bootstrap
 
@@ -107,6 +150,12 @@ Installing system packages should be done as necessary as it updates
 the system as well as installs system packages added after the initial
 bootstrap of the system.
 
+NOTE: Installing system packages should really be generalized a bit
+since packages required for work are the same regardless of which
+system you are on.  A package list with a script for each system that
+processes the list and turns it into commands to Homebrew, `apt-get`,
+`yum`, etc. would be an interesting approach.
+
 ## fedora
 
 To install system packages for Fedora-based systems (via yum), run the
@@ -167,25 +216,6 @@ designed for git configuration parameters that are user-specific.
 
 The install script will migrate the user name/email from
 `~/.gitconfig` to `~/.gitconfig.user` as required.
-
-## support for installing system packages
-
-This system has direct support for OS X and Linux (both Fedora- and
-Debian-based).
-
-NOTE: Installing system packages should really be generalized a bit
-since packages required for work are the same regardless of which
-system you are on.  A package list with a script for each system that
-processes the list and turns it into commands to Homebrew, `apt-get`,
-`yum`, etc. would be an interesting approach.
-
-### requirements for os x
-
-- administrator privileges (not `sudo` or `root` permissions)
-
-### requirements for linux
-
-- `sudo` or `root`
 
 ## support for python packages
 
