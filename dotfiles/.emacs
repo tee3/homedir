@@ -52,17 +52,12 @@
 ;;;
 (setq column-number-mode t)
 (setq display-time-mode t)
-(global-font-lock-mode)
 (setq history-delete-duplicates t)
 (setq inhibit-startup-screen t)
 (setq mouse-wheel-mode t)
 (setq ns-pop-up-frames nil)
-(scroll-bar-mode -1)
 (setq scroll-conservatively 100)
-(show-paren-mode t)
-(setq size-indication-mode t)
 (setq split-height-threshold 0)
-(tool-bar-mode -1)
 (setq-default truncate-lines t)
 (setq visible-bell t)
 
@@ -124,6 +119,9 @@
   :defer t
   :init
   (setq version-control t))
+(use-package font-core
+  :config
+  (global-font-lock-mode))
 (use-package fringe-mode
   :defer t
   :init
@@ -167,12 +165,21 @@
   (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
   (add-hook 'lisp-mode-hook 'enable-paredit-mode)
   (add-hook 'scheme-mode-hook 'enable-paredit-mode))
+(use-package paren
+  :config
+  (show-paren-mode t))
 (use-package savehist
   :config
   (savehist-mode nil))
 (use-package saveplace
   :init
   (setq-default save-place t))
+(use-package scroll-bar
+  :config
+  (scroll-bar-mode -1))
+(use-package simple
+  :init
+  (setq size-indication-mode t))
 (use-package smart-mode-line
   :ensure t
   :defer t
@@ -190,6 +197,9 @@
     :defer t
     :init
     (setq speedbar-use-images nil)))
+(use-package tool-bar
+  :config
+  (tool-bar-mode -1))
 (use-package undo-tree
   :ensure t
   :defer t
