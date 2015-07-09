@@ -35,37 +35,71 @@ since many packages are not installed by default.
 
 ## fedora
 
-1. log in as `root`
-2. `yum install sudo`
-3. `usermod administrator -a -G wheel`
-4. log out
-5. log in as `administrator`
-6. `sudo yum install git`
-7. `git clone https://github.com/tee3/homedir ~/Development/homedir`
-8. `cd ~/Development/homedir`
-9. `./install_system_packages_fedora`
-10. `sudo shutdown -r now`
+From the login terminal of the system, log in as `root` and then
+install `sudo` and give `administrator` `sudo` priveleges.
+
+```
+login: root
+password: 
+# yum install sudo
+# usermod administrator -a -G wheel
+# exit
+```
+
+From the login terminal of the system, log in as `administrator` and
+then install `git`, clone the `tee3/homedir` repository and install
+the system packages.  At the end of this process, the machine will
+reboot, so make sure there is no one else logged in.
+
+```
+login: administrator
+password: 
+$ sudo yum install git
+$ git clone https://github.com/tee3/homedir ~/Development/homedir
+$ cd ~/Development/homedir
+$ ./install_system_packages_fedora
+$ sudo shutdown -r now
+```
 
 ## debian
 
-1. log in as `root`
-2. `apt-get install sudo`
-3. `adduser administrator sudo`
-4. log out
-5. log in as `administrator`
-6. `sudo apt-get install git`
-7. `git clone https://github.com/tee3/homedir ~/Development/homedir`
-8. `cd ~/Development/homedir`
-9. `./install_system_packages_debian`
-10. `sudo shutdown -r now`
+From the login terminal of the system, log in as `root` and then
+install `sudo` and give `administrator` `sudo` priveleges.
+
+```
+login: root
+password: 
+# apt-get install sudo
+# adduser administrator sudo
+# exit
+```
+
+From the login terminal of the system, log in as `administrator` and
+then install `git`, clone the `tee3/homedir` repository and install
+the system packages.  At the end of this process, the machine will
+reboot, so make sure there is no one else logged in.
+
+```
+login: administrator
+password: 
+$ sudo apt-get install git
+$ git clone https://github.com/tee3/homedir ~/Development/homedir
+$ cd ~/Development/homedir
+$ ./install_system_packages_debian
+$ sudo shutdown -r now
+```
 
 ## os x
 
-1. log in as `administrator`
-2. install Xcode
-3. install Xcode command-line tools
-4. `./install_system_pacakges_osx`
-5. `sudo shutdown -r now`
+Install Xcode and the Xcode Command-Line Tools while logged in to the
+graphical system as `administrator`.  From a `Terminal.app` window
+install the system packages.  At the end of this process, the machine
+will reboot, so make sure there is no one else logged in.
+
+```
+$ ./install_system_pacakges_osx
+$ sudo shutdown -r now
+```
 
 # install system packages
 
