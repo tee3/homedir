@@ -61,10 +61,11 @@ since many packages are not installed by default.
 
 ## os x
 
-1. install Xcode
-2. install Xcode command-line tools
-3. `./install_system_pacakges_osx`
-4. `sudo shutdown -r now`
+1. log in as `administrator`
+2. install Xcode
+3. install Xcode command-line tools
+4. `./install_system_pacakges_osx`
+5. `sudo shutdown -r now`
 
 # install system packages
 
