@@ -27,9 +27,11 @@ environment variable must be set properly.
 
 # bootstrap
 
-This assumes a bootstrapped system with a user named `administrator`
-as an administrator of the machine.  This is especially useful with a
-"minimal installation" Linux machine.
+The process below assumes a system with a user named `administrator`
+that may or may not yet have `sudo` priveleges.
+
+This is especially useful with a "minimal installation" Linux machine
+since many packages are not installed by default.
 
 ## fedora
 
@@ -90,7 +92,7 @@ script as the administrator of the system.
 $ ./install_system_packages_osx
 ```
 
-# install
+# install user configuraton and packages
 
 To set up a new system or update an existing system for a user, run
 the following commands when logged in as that user.  Note that all
