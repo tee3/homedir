@@ -36,10 +36,10 @@ since many packages are not installed by default.
 ## fedora
 
 1. log in as `root`
-2. install `sudo`
+2. `yum install sudo`
 3. `usermod administrator -a -G wheel`
 4. log out
-5. log in to `administrator`
+5. log in as `administrator`
 6. `sudo yum install git`
 7. `git clone https://github.com/tee3/homedir ~/Development/homedir`
 8. `cd ~/Development/homedir`
@@ -49,10 +49,10 @@ since many packages are not installed by default.
 ## debian
 
 1. log in as `root`
-2. install `sudo`
+2. `apt-get install sudo`
 3. `adduser administrator sudo`
 4. log out
-5. log in to `administrator`
+5. log in as `administrator`
 6. `sudo apt-get install git`
 7. `git clone https://github.com/tee3/homedir ~/Development/homedir`
 8. `cd ~/Development/homedir`
