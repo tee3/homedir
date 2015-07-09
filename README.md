@@ -25,35 +25,6 @@ environment variable must be set properly.
 * `stow`
 * `diff`
 
-# install system packages
-
-## fedora
-
-To install system packages for Fedora-based systems (via yum), run the
-following script as a user with `sudo` permission.
-
-```
-$ ./install_system_packages_fedora
-```
-
-## debian
-
-To install system packages for Debian-based systems (via yum), run the
-following script as a user with `sudo` permission.
-
-```
-$ ./install_system_packages_debian
-```
-
-## os x
-
-To install system packages for OS X (via Homebrew), run the following
-script as the administrator of the system.
-
-```
-$ ./install_system_packages_osx
-```
-
 # bootstrap
 
 This assumes a bootstrapped system with a user named `administrator`
@@ -89,6 +60,35 @@ as an administrator of the machine.  This is especially useful with a
 1. install Xcode
 2. install Xcode command-line tools
 3. `./install_system_pacakges_osx`
+
+# install system packages
+
+## fedora
+
+To install system packages for Fedora-based systems (via yum), run the
+following script as a user with `sudo` permission.
+
+```
+$ ./install_system_packages_fedora
+```
+
+## debian
+
+To install system packages for Debian-based systems (via yum), run the
+following script as a user with `sudo` permission.
+
+```
+$ ./install_system_packages_debian
+```
+
+## os x
+
+To install system packages for OS X (via Homebrew), run the following
+script as the administrator of the system.
+
+```
+$ ./install_system_packages_osx
+```
 
 # install
 
