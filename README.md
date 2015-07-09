@@ -134,10 +134,11 @@ $ sudo shutdown -r now
 
 ## os x
 
-Install Xcode and the Xcode Command-Line Tools while logged in to the
-graphical system as `administrator`.  From a `Terminal.app` window
-install the system packages.  At the end of this process, the machine
-will reboot, so make sure there is no one else logged in.
+Install Xcode and the Xcode Command-Line Tools, as well as Homebrew,
+while logged in to the graphical system as `administrator`.  From a
+`Terminal.app` window install the system packages.  At the end of this
+process, the machine will reboot, so make sure there is no one else
+logged in.
 
 ```
 $ ./install_system_pacakges_osx
