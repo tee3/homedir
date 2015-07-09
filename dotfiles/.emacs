@@ -482,7 +482,11 @@
    ("authorized_keys2?\\'" . ssh-authorized-keys-mode)))
 (use-package syslog-mode
   :ensure t
-  :defer t)
+  :defer t
+  :mode
+  (("/var/log.*\\'" . syslog-mode))
+  :config
+  (add-hook 'find-file-hooks 'syslog-find-file-func))
 (use-package systemd
   :ensure t
   :defer t)
