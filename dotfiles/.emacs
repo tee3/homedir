@@ -332,7 +332,11 @@
 ;;; Occur
 (use-package ioccur
   :ensure t
-  :defer t)
+  :defer t
+  :init
+  (use-package desktop
+    :defer t)
+  (add-to-list 'desktop-globals-to-save 'ioccur-history))
 (use-package noccur
   :ensure t
   :defer t)
