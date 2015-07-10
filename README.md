@@ -83,7 +83,7 @@ install `sudo` and give `administrator` `sudo` priveleges.
 
 ```
 login: root
-password: 
+password: ************
 # yum install sudo
 # usermod administrator -a -G wheel
 # exit
@@ -96,7 +96,7 @@ reboot, so make sure there is no one else logged in.
 
 ```
 login: administrator
-password: 
+password: ************
 $ sudo yum install git
 $ git clone https://github.com/tee3/homedir ~/Development/homedir
 $ cd ~/Development/homedir
@@ -111,7 +111,7 @@ install `sudo` and give `administrator` `sudo` priveleges.
 
 ```
 login: root
-password: 
+password: ************
 # apt-get install sudo
 # adduser administrator sudo
 # exit
@@ -124,7 +124,7 @@ reboot, so make sure there is no one else logged in.
 
 ```
 login: administrator
-password: 
+password: ************
 $ sudo apt-get install git
 $ git clone https://github.com/tee3/homedir ~/Development/homedir
 $ cd ~/Development/homedir
