@@ -73,7 +73,6 @@
   :defer t)
 (use-package desktop
   :config
-  (add-to-list 'desktop-globals-to-save 'kill-ring 1)
   (desktop-save-mode))
 (use-package diminish
   :ensure t
@@ -181,7 +180,11 @@
   (scroll-bar-mode -1))
 (use-package simple
   :init
-  (setq size-indication-mode t))
+  (use-package desktop
+    :defer t)
+  (setq size-indication-mode t)
+  :config
+  (add-to-list 'desktop-globals-to-save 'kill-ring 1))
 (use-package smart-mode-line
   :ensure t
   :defer t
