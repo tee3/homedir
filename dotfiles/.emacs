@@ -494,9 +494,7 @@
   :ensure t
   :defer t
   :mode
-  (("/var/log.*\\'" . syslog-mode))
-  :config
-  (add-hook 'find-file-hooks 'syslog-find-file-func))
+  (("/var/log.*\\'" . syslog-mode)))
 (use-package systemd
   :ensure t
   :defer t)
