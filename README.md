@@ -1,20 +1,18 @@
 # homedir
 
-This directory contains both dot files to populate that home directory
-and scripts to set up a home directory and packages.
+This project contains a system to set up a Unix-based system to a
+useable state for my purposes.  This includes installing system
+packages (if required) as well as setting up a home directory and
+user-specific packages.
 
-This directory is intended to be tracked using git and shared across
-multiple machines and so should be designed to work well across
-different types of Unix systems.
+This is intended to be tracked using git and shared across multiple
+machines and so should be designed to work well across different types
+of Unix systems.
 
 # rationale
 
-This is a very simple way of keeping home directories synchronized
-across systems.  This was the easiest approach to getting something
-going without learning a lot of new systems.
-
-At some point, some of the more complex ways of doing this might
-become useful.
+This is a very simple way of keeping configurations consistent across
+systems.
 
 ## supported systems
 
