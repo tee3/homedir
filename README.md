@@ -33,6 +33,7 @@ date and all required packages are installed.
 * program configurations (dot files)
 * ~/opt/local
 * user-installable programs
+* user services (launchd, systemd)
 
 ## supported systems
 

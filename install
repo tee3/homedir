@@ -201,6 +201,34 @@ if ! ${stow} --target="${HOME}" dotfiles ; then
     fi
 fi
 
+# ask to install any services
+read -p "Install services (launchd or systemd)? (y/n)?: " yn
+if [ "${yn}" = "y" ]; then
+    if [ "${machine}" = linux ]; then
+        # @todo untested
+        for f in $(pwd)/services/systemd/*.plist; do
+            ln -i -v -s "${f}" ~/.config/systemd/user
+
+            b=$(basename "${f}" .service)
+            systemctl --user enable "${b}"
+        done
+    elif [ "${machine}" = osx ]; then
+        for f in $(pwd)/services/launchd/*.plist; do
+            ln -i -v -s "${f}" ~/Library/LaunchAgents
+
+            b=$(basename "${f}" .plist)
+            l=user/"$(id -u)"/"${b}"
+            launchctl enable "${l}"
+        done
+    elif [ "${machine}" = windows ]; then
+        echo "error: services install not implemented yet for windows"
+        exit 1
+    else
+        echo "error: unknown machine ${machine}."
+        exit 1
+    fi
+fi
+
 # ask to install python packages
 read -p "Install Python packages? (y/n)?: " yn
 if [ "${yn}" = "y" ]; then
