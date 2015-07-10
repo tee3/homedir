@@ -745,18 +745,15 @@
 (use-package cmake-mode
   :ensure t
   :defer t
-  :mode
-  (("CMakeLists\\.txt\\'" . cmake-mode)
-   ("\\.cmake\\'" . cmake-mode)))
-(use-package cmake-font-lock
-  :ensure t
-  :defer t)
-(use-package cmake-project
-  :ensure t
-  :defer t)
-(use-package cpputils-cmake
-  :ensure t
-  :defer t)
+  :init
+  (use-package cmake-font-lock
+    :ensure t
+    :defer t)
+  (use-package cmake-project
+    :ensure t
+    :defer t)
+  :config
+  (add-hook 'cmake-mode-hook 'cmake-font-lock-activate))
 
 ;;;
 ;;; Gnuplot
