@@ -159,7 +159,9 @@
     (menu-bar-mode -1)))
 (use-package nav
   :ensure t
-  :defer t)
+  :defer t
+  :config
+  (nav-disable-overeager-window-splitting))
 (use-package paredit
   :ensure t
   ;; the hooks below will not be added to if deferred
