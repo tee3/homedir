@@ -898,13 +898,13 @@
     (add-to-list 'compilation-error-regexp-alist-alist
                  '(objj-acorn "^\\(WARNING\\|ERROR\\) line \\([0-9]+\\) in file:\\([^:]+\\):\\(.*\\)$" 3 2))
     (add-to-list 'compilation-error-regexp-alist 'objj-acorn))
-  (use-package js-mode
+  (use-package js
     :defer t
     :mode
     (("\\.sj\\'" . js-mode))))
 
 ;;; Jake
-(use-package js-mode
+(use-package js
   :defer t
   :mode
   (("[Jj]akefile.*\\'" . js-mode)
@@ -1129,7 +1129,7 @@
   :defer t))
 
 ;;; JavaScript programming language
-(use-package js-mode
+(use-package js
   :defer t)
 (use-package js-comint
   :ensure t
@@ -1202,7 +1202,7 @@
   :mode
   (("\\.h[cd]f\\'" . c-mode)
    ("\\.l[cd]f\\'" . c-mode)))
-(use-package js-mode
+(use-package js
   :defer t
   :mode
   (("\\.gel\\'" . js-mode)
