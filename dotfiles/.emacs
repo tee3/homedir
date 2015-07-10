@@ -88,7 +88,11 @@
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 (use-package eldoc
   :defer t
-  :diminish eldoc-mode)
+  :diminish eldoc-mode
+  :config
+  (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
+  (add-hook 'lisp-interaction-mode-hook 'eldoc-mode)
+  (add-hook 'eval-expression-minibuffer-setup-hook 'eldoc-mode))
 (use-package electric-case
   :ensure t
   :defer t)
