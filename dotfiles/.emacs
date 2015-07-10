@@ -1109,6 +1109,7 @@
   :ensure t
   :defer t)
 (use-package malinka
+  :disabled t
   :ensure t
   :defer t))
 
