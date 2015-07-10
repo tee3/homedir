@@ -82,7 +82,6 @@
   :init
   (setq dired-kept-versions 6))
 (use-package ediff
-  :ensure t
   :defer t
   :init
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
