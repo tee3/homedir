@@ -378,7 +378,10 @@
 ;;;
 (use-package adoc-mode
   :ensure t
-  :defer t)
+  :defer t
+  :mode
+  ((".asciidoc\\'" . adoc-mode)
+   (".adoc\\'" . adoc-mode)))
 (use-package creole-mode
   :ensure t
   :defer t)
@@ -389,9 +392,7 @@
   :ensure t
   :defer t
   :mode
-  (("\\.markdown\\'" . markdown-mode)
-   ("\\.md\\'" . markdown-mode)
-   ("README\.md\\'" . gfm-mode))
+  (("README\.md\\'" . gfm-mode))
   :init
   (use-package markdown-mode+
     :ensure t
@@ -828,9 +829,6 @@
 ;;; Ruby programming language
 (use-package ruby-mode
   :defer t
-  :mode
-  (("[Rr]akefile\\'" . ruby-mode)
-   ("\\.rake\\'" . ruby-mode))
   :init
   (use-package ruby-compilation
     :ensure t
