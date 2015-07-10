@@ -136,7 +136,7 @@
 (use-package icomplete
   :defer t
   :init
-  (icomplete-mode nil))
+  (icomplete-mode))
 (use-package linum
   :defer t
   :init
@@ -169,10 +169,10 @@
   (add-hook 'scheme-mode-hook 'enable-paredit-mode))
 (use-package paren
   :config
-  (show-paren-mode t))
+  (show-paren-mode))
 (use-package savehist
   :config
-  (savehist-mode nil))
+  (savehist-mode))
 (use-package saveplace
   :init
   (setq-default save-place t))
@@ -245,7 +245,7 @@
   :defer t
   :diminish company-mode
   :config
-  (add-hook 'after-init-hook 'global-company-mode))
+  (global-company-mode))
 
 ;;; Flyspell
 (use-package flyspell
@@ -283,7 +283,7 @@
   (setq helm-quick-update t)
   (setq helm-ff-skip-boring-files t)
 
-  (helm-mode 1))
+  (helm-mode))
 
 ;;; Ibuffer
 (use-package ibuffer
@@ -310,8 +310,8 @@
     :ensure t
     :init
     (ido-ubiquitous-mode t))
-  (ido-mode t)
-  (ido-everywhere t)
+  (ido-mode 1)
+  (ido-everywhere)
 
   (setq ido-use-filename-at-point 'guess)
   (setq ido-use-url-at-point t)
@@ -345,7 +345,7 @@
   :ensure t
   :defer t
   :init
-  (yas-global-mode 1))
+  (yas-global-mode))
 
 ;;; Learning Emacs
 (use-package guru-mode
@@ -647,7 +647,7 @@
   :defer t
   :diminish google-this-mode
   :init
-  (google-this-mode 1))
+  (google-this-mode))
 
 ;;; SSH
 (use-package ssh
@@ -1025,7 +1025,7 @@
     :defer t
     :diminish hide-ifdef-mode
     :init
-    (hide-ifdef-mode nil))
+    (hide-ifdef-mode))
   (setq c-indent-comments-syntactically-p t)
   (setq c-strict-syntax-p t)
   :config
@@ -1225,7 +1225,7 @@
     ;; :defer t
     )
   :config
-  (add-hook 'after-init-hook #'global-flycheck-mode))
+  (global-flycheck-mode))
 
 ;;;
 ;;; YouCompleteMe
