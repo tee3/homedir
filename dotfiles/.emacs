@@ -100,7 +100,8 @@
 (use-package expand-region
   :ensure t
   :defer t
-  :bind ("C-c =" . er/expand-region))
+  :bind
+  ("C-c =" . er/expand-region))
 (use-package fm
   :ensure t
   :defer t)
@@ -143,7 +144,8 @@
 (use-package locate
   :defer t
   :config
-  (when (equal system-type 'darwin) (setq locate-command "mdfind")))
+  (when (equal system-type 'darwin)
+    (setq locate-command "mdfind")))
 (use-package menu-bar
   :defer t
   :config
@@ -267,7 +269,8 @@
   (use-package helm-flycheck
     :ensure t
     :defer t
-    :bind ("C-c ! h" . helm-flycheck))
+    :bind
+    ("C-c ! h" . helm-flycheck))
   (use-package helm-flyspell
     :ensure t
     :defer t)
@@ -584,7 +587,7 @@
 (use-package swift-mode
   :ensure t
   ;; this will not be added to flycheck-checkers if deferred
-  ;; :defer t 
+  ;; :defer t
   :init
   (use-package flycheck
     :ensure t
@@ -830,7 +833,7 @@
     :defer t)
   :config
   (add-hook 'go-mode-hook (lambda ()
-                            ;; allow use of tags as it is required by go fmt
+                            ;; allow use of tabs as it is required by go fmt
 			    (setq indent-tabs-mode t)
 
                             ;; format before save
@@ -928,7 +931,6 @@
 (use-package docbook
   :ensure t
   :defer t)
-
 (use-package nxml
   :defer t
   :mode
