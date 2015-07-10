@@ -689,6 +689,10 @@
   :ensure t
   :defer t
   :config
+  (add-hook 'magit-status-headers-hook 'magit-insert-remote-header t)
+  (add-hook 'magit-status-headers-hook 'magit-insert-user-header t)
+  (add-hook 'magit-status-headers-hook 'magit-insert-repo-header t)
+
   (add-hook 'magit-mode-hook 'magit-load-config-extensions))
 
 ;;; Microsoft Team Foundation Server
