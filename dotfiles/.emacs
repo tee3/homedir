@@ -600,9 +600,7 @@
   :config
   (add-to-list 'flycheck-checkers 'swift))
 (use-package tcl
-  :defer t
-  :init
-  (setq tcl-application "tclsh"))
+  :defer t)
 (use-package tidy
   :ensure t
   :defer t)
