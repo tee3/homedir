@@ -107,7 +107,10 @@
   ("C-c =" . er/expand-region))
 (use-package fm
   :ensure t
-  :defer t)
+  :defer t
+  :config
+  (add-hook 'occur-mode-hook 'fm-start)
+  (add-hook 'compilation-mode-hook 'fm-start))
 (use-package frame
   :defer t
   :config
