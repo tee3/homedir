@@ -1107,7 +1107,9 @@
       )))
 (use-package objc-font-lock
   :ensure t
-  :defer t)
+  :defer t
+  :config
+  (objc-font-lock-global-mode))
 (use-package malinka
   :disabled t
   :ensure t
