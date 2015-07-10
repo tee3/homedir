@@ -14,6 +14,26 @@ of Unix systems.
 This is a very simple way of keeping configurations consistent across
 systems.
 
+# overview
+
+## bootstrap
+
+Bootstrapping a system involves making sure the `administrator` user
+is present and satisfies the minimal requirements for an administrator
+of the system.  It also ensures that required system packages are
+installed.
+
+## system packages
+
+Installing system packages involves ensuring that the system is up to
+date and all required packages are installed.
+
+## user
+
+* program configurations (dot files)
+* ~/opt/local
+* user-installable programs
+
 ## supported systems
 
 * OS X
