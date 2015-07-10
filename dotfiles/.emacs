@@ -456,17 +456,6 @@
 (use-package irfc
   :ensure t
   :defer t)
-(use-package json-mode
-  :ensure t
-  :defer t
-  :mode
-  (("\\.json\\'" . json-mode)))
-(use-package nginx-mode
-  :ensure t
-  :defer t)
-(use-package irfc
-  :ensure t
-  :defer t)
 (use-package jgraph-mode
   :ensure t
   :defer t)
@@ -556,9 +545,6 @@
       ;; :defer t
       :config
       (add-to-list 'company-backends 'company-ghc t))))
-(use-package jgraph-mode
-  :ensure t
-  :defer t)
 (use-package lua-mode
   :ensure t
   :defer t)
