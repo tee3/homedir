@@ -688,6 +688,8 @@
 (use-package magit
   :ensure t
   :defer t
+  :init
+  (setq magit-popup-use-prefix-argument 'default)
   :config
   (add-hook 'magit-status-headers-hook 'magit-insert-remote-header t)
   (add-hook 'magit-status-headers-hook 'magit-insert-user-header t)
