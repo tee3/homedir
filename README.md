@@ -18,8 +18,8 @@ become useful.
 
 ## supported systems
 
-- OS X
-- Linux
+* OS X
+* Linux
 
 While the `install` portion of this system supports Cygwin- or
 MSYS-based systems, the package managers for those systems are not
