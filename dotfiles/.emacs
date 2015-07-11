@@ -564,8 +564,8 @@
 (use-package lua-mode
   :ensure t
   :defer t)
-(use-package matlab-mode
-  :ensure t
+(use-package matlab
+  :ensure matlab-mode
   :defer t)
 (use-package octave
   :defer t)
