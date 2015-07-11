@@ -546,6 +546,7 @@
 (use-package git-gutter
   :ensure t)
 (use-package git-gutter-fringe
+  :disabled t
   :ensure t)
 
 ;;; GitHub
