@@ -66,52 +66,41 @@
   (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
   (load custom-file 'noerror))
 (use-package abbrev
-  :defer t
   :diminish abbrev-mode)
 (use-package dedicated
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package desktop
   :config
   (desktop-save-mode))
 (use-package diminish
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package dired
-  :defer t
   :init
   (setq dired-kept-versions 6))
 (use-package ediff
-  :defer t
   :init
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 (use-package eldoc
-  :defer t
   :diminish eldoc-mode
   :config
   (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
   (add-hook 'lisp-interaction-mode-hook 'eldoc-mode)
   (add-hook 'eval-expression-minibuffer-setup-hook 'eldoc-mode))
 (use-package electric-case
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package etags
-  :defer t
   :init
   (setq tags-loop-revert-buffers t))
 (use-package expand-region
   :ensure t
-  :defer t
   :bind
   ("C-c =" . er/expand-region))
 (use-package fm
   :ensure t
-  :defer t
   :config
   (add-hook 'occur-mode-hook 'fm-start)
   (add-hook 'compilation-mode-hook 'fm-start))
 (use-package frame
-  :defer t
   :config
   (when (display-graphic-p)
     (when (member "Source Code Pro" (font-family-list))
@@ -122,54 +111,42 @@
     (add-to-list 'default-frame-alist '(width . 160))
     (add-to-list 'default-frame-alist '(height . 50))))
 (use-package files
-  :defer t
   :init
   (setq version-control t))
 (use-package font-core
   :config
   (global-font-lock-mode))
 (use-package fringe-mode
-  :defer t
   :init
   (setq fringe-mode '(4 . nil)))
 (use-package hideshow
-  :defer t
   :diminish hs-minor-mode)
 (use-package hide-comnt
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package icomplete
-  :defer t
   :init
   (icomplete-mode))
 (use-package linum
-  :defer t
   :init
   (setq linum-format "%4d "))
 (use-package locate
-  :defer t
   :config
   (when (equal system-type 'darwin)
     (setq locate-command "mdfind")))
 (use-package menu-bar
-  :defer t
   :config
   (when (not (display-graphic-p))
     (menu-bar-mode -1)))
 (use-package nav
   :ensure t
-  :defer t
   :config
   (nav-disable-overeager-window-splitting))
 (use-package paredit
   :ensure t
-  ;; the hooks below will not be added to if deferred
-  ;; :defer t
   :diminish paredit-mode
   :init
   (use-package paredit-everywhere
-    :ensure t
-    :defer t)
+    :ensure t)
   :config
   (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
   (add-hook 'lisp-mode-hook 'enable-paredit-mode)
@@ -188,26 +165,21 @@
   (scroll-bar-mode -1))
 (use-package simple
   :init
-  (use-package desktop
-    :defer t)
+  (use-package desktop)
   (setq size-indication-mode t)
   :config
   (add-to-list 'desktop-globals-to-save 'kill-ring 1))
 (use-package smart-mode-line
   :ensure t
-  :defer t
   :init
   (setq sml/theme nil)
 
   (sml/setup))
 (use-package smooth-scroll
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package speedbar
-  :defer t
   :init
   (use-package sb-image
-    :defer t
     :init
     (setq speedbar-use-images nil)))
 (use-package tool-bar
@@ -215,16 +187,13 @@
   (tool-bar-mode -1))
 (use-package undo-tree
   :ensure t
-  :defer t
   :diminish undo-tree-mode)
 (use-package writeroom-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; Evil (vi) emulation
 (use-package evil
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; Text mode hooks
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
@@ -232,7 +201,6 @@
 (add-hook 'text-mode-hook (lambda ()
                             (setq indent-tabs-mode nil)))
 (use-package linum
-  :defer t
   :config
   (add-hook 'text-mode-hook (lambda ()
                               (linum-mode 1))))
@@ -241,53 +209,44 @@
 (add-hook 'prog-mode-hook (lambda ()
                             (setq indent-tabs-mode nil)))
 (use-package linum
-  :defer t
   :config
   (add-hook 'prog-mode-hook (lambda ()
                               (linum-mode 1))))
 (use-package flyspell
-  :defer t
   :config
   (add-hook 'prog-mode-hook 'flyspell-prog-mode))
 
 ;;; Company
 (use-package company
   :ensure t
-  :defer t
   :diminish company-mode
   :config
   (global-company-mode))
 
 ;;; Flyspell
 (use-package flyspell
-  :defer t
   :diminish flyspell-mode
   :init
   (use-package flyspell-lazy
-    :ensure t
-    :defer t)
+    :ensure t)
   :config
   (add-hook 'text-mode-hook 'turn-on-flyspell))
 
 ;;; Helm
 (use-package helm
   :ensure t
-  :defer t
   :diminish helm-mode
   :init
   (use-package helm-config
     :ensure helm)
   (use-package helm-flycheck
     :ensure t
-    :defer t
     :bind
     ("C-c ! h" . helm-flycheck))
   (use-package helm-flyspell
-    :ensure t
-    :defer t)
+    :ensure t)
   (use-package helm-projectile
     :ensure t
-    :defer t
     :config
     (helm-projectile-on))
   (setq helm-candidate-number-limit nil)
@@ -299,20 +258,15 @@
 ;;; Ibuffer
 (use-package ibuffer
   :ensure t
-  :defer t
   :init
   (use-package ibuffer-vc
-    :ensure t
-    :defer t)
+    :ensure t)
   (use-package ibuffer-tramp
-    :ensure t
-    :defer t)
+    :ensure t)
   (use-package ibuffer-git
-    :ensure t
-    :defer t)
+    :ensure t)
   (use-package ibuffer-projectile
-    :ensure t
-    :defer t))
+    :ensure t))
 
 ;;; Ido
 (use-package ido
@@ -331,19 +285,15 @@
 ;;; Occur
 (use-package ioccur
   :ensure t
-  :defer t
   :init
-  (use-package desktop
-    :defer t)
+  (use-package desktop)
   (add-to-list 'desktop-globals-to-save 'ioccur-history))
 (use-package noccur
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; Projectile
 (use-package projectile
   :ensure t
-  :defer t
   :diminish projectile-mode
   :init
   (projectile-global-mode)
@@ -358,33 +308,27 @@
 ;;;
 (use-package yasnippet
   :ensure t
-  :defer t
   :config
   (yas-global-mode))
 
 ;;; Learning Emacs
 (use-package guru-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package vimgolf
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package howdoi
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;;
 ;;; Org
 ;;;
 (use-package org
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;;
 ;;; Gnus
 ;;;
 (use-package gnus
-  :defer t
   :init
   (setq gnus-select-method '(nntp "news.gmane.org")))
 
@@ -393,69 +337,51 @@
 ;;;
 (use-package adoc-mode
   :ensure t
-  :defer t
   :mode
   ((".asciidoc\\'" . adoc-mode)
    (".adoc\\'" . adoc-mode)))
 (use-package creole-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package jade-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package markdown-mode
   :ensure t
-  :defer t
   :mode
   (("README\.md\\'" . gfm-mode))
   :init
   (use-package markdown-mode+
-    :ensure t
-    :defer t))
+    :ensure t))
 (use-package markup-faces
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package pandoc-mode
-  :ensure t
-  :defer t)
-(use-package rst
-  ;; @todo Add options "--verbose --strict --date --time"
-  :defer t)
+  :ensure t)
+(use-package rst)
 (use-package sphinx-frontend
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; Utilities
 (use-package ascii
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; Android development
 (use-package android-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;;
 ;;; Configuration files
 ;;;
 (use-package apache-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package crontab-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package csv-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package dockerfile-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package gitattributes-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package gitconfig-mode
   :ensure t
-  :defer t
   :mode
   (("\\.gitconfig.*\\'" . gitconfig-mode)
 
@@ -464,35 +390,25 @@
    ;; migration-generated Git submodules files
    ("\\.gitsvnexternals\\'" . gitconfig-mode)))
 (use-package gitignore-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package graphviz-dot-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package irfc
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package jgraph-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package json-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package nginx-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package osx-plist
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package pov-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package protobuf-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package ssh-config-mode
   :ensure t
-  :defer t
   :mode
   ((".ssh/config\\'" . ssh-config-mode)
    ("sshd?_config\\'" . ssh-config-mode)
@@ -500,195 +416,145 @@
    ("authorized_keys2?\\'" . ssh-authorized-keys-mode)))
 (use-package syslog-mode
   :ensure t
-  :defer t
   :mode
   (("/var/log.*\\'" . syslog-mode)))
 (use-package systemd
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package toml-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package vimrc-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package yaml-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;;
 ;;; Programming languages
 ;;;
 (use-package applescript-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package asm-mode
-  :defer t
   :mode
   (("\\.[sh][56][45x]\\'" . asm-mode)))
 (use-package coffee-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package cperl-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package csharp-mode
   :disabled t
   :ensure t
-  :defer t
   :init
   (use-package omnisharp
     :disabled t
-    :ensure t
-    :defer t))
+    :ensure t))
 (use-package d-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package fish-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package haskell-mode
   :ensure t
-  :defer t
   :init
   (use-package company
     :ensure t
-    :defer t
     :init
     (use-package company-ghc
       :ensure t
-      ;; this will not be added to company-backends if deferred
-      ;; :defer t
       :config
       (add-to-list 'company-backends 'company-ghc t))))
 (use-package lua-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package matlab
-  :ensure matlab-mode
-  :defer t)
-(use-package octave
-  :defer t)
+  :ensure matlab-mode)
+(use-package octave)
 (use-package php-mode
   :disabled t
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package powershell
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package processing-mode
   :ensure t
-  :defer t
   :init
   (use-package processing-snippets
-    :ensure t
-    :defer t))
+    :ensure t))
 (use-package sql
-  :defer t
   :init
   (setq sql-sqlite-program "sqlite3"))
 (use-package swift-mode
   :ensure t
-  ;; this will not be added to flycheck-checkers if deferred
-  ;; :defer t
   :init
   (use-package flycheck
-    :ensure t
-    ;; swift will not be added to flycheck-checkers if deferred
-    ;; :defer t
-    )
+    :ensure t)
   :config
   (add-to-list 'flycheck-checkers 'swift))
-(use-package tcl
-  :defer t)
+(use-package tcl)
 (use-package tidy
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package web-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; TeX and LaTeX
 (use-package tex-site
   :ensure auctex
-  :defer t
   :init
   (use-package company
     :ensure t
-    :defer t
     :init
     (use-package company-auctex
       :ensure t
-      ;; this will not be added to company-backends if deferred
-      ;; :defer t
       :config
       (add-to-list 'company-backends 'company-auctex t))))
 
 ;;; OpenGL
 (use-package cuda-mode
   :disabled t
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package glsl-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; Tags
 (use-package gtags
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; Scheme programming language
 (use-package geiser
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; Google
 (use-package google-this
   :ensure t
-  :defer t
   :diminish google-this-mode
   :init
   (google-this-mode))
 
 ;;; SSH
 (use-package ssh
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;;
 ;;; Version Control Systems
 ;;;
 (use-package vc
-  :defer t
   :init
   (setq vc-make-backup-files t))
 
 ;;; Fossil
 (use-package vc-fossil
   :ensure t
-  :defer t
   :init
-  (use-package vc
-    :defer t))
+  (use-package vc))
 
 ;;; Git
 (use-package git-gutter
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package git-gutter-fringe
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; GitHub
 (use-package gist
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; Magit
 (use-package magit
   :ensure t
-  :defer t
   :init
   (setq magit-popup-use-prefix-argument 'default)
   :config
@@ -700,40 +566,31 @@
 
 ;;; Microsoft Team Foundation Server
 (use-package tfs
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package vc-tfs
   :ensure t
-  :defer t
   :init
-  (use-package vc
-    :defer t))
+  (use-package vc))
 
 ;;; Mercurial
 (use-package monky
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package hgignore-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package conf-mode
-  :defer t
   :mode
   ((".hgrc.*\\'" . conf-mode)))
 
 ;;; Perforce
 (use-package p4
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; Subversion
 (use-package psvn
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; Make
 (use-package make-mode
-  :defer t
   :mode
   (("Makefile.*\\'" . makefile-mode))
   :config
@@ -751,10 +608,8 @@
    ("[Jj]amfile\\'" . jam-mode)
    ("\\.jam\\'" . jam-mode))
   :init
-  (use-package linum
-    :defer t)
-  (use-package flyspell
-    :defer t)
+  (use-package linum)
+  (use-package flyspell)
   :config
   (add-hook 'jam-mode-hook (lambda ()
                              (setq indent-tabs-mode nil)))
@@ -765,14 +620,11 @@
 ;;; CMake
 (use-package cmake-mode
   :ensure t
-  :defer t
   :init
   (use-package cmake-font-lock
-    :ensure t
-    :defer t)
+    :ensure t)
   (use-package cmake-project
-    :ensure t
-    :defer t)
+    :ensure t)
   :config
   (add-hook 'cmake-mode-hook 'cmake-font-lock-activate))
 
@@ -780,62 +632,45 @@
 ;;; Gnuplot
 ;;;
 (use-package gnuplot
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package gnuplot-mode
   :ensure t
-  :defer t
   :mode
   (("\\.gp\\'" . gnuplot-mode)))
 
 ;;; Go programming language
 (use-package go-mode
   :ensure t
-  :defer t
   :init
   (use-package company
     :ensure t
-    :defer t
     :init
     (use-package company-go
       :ensure t
-      ;; this will not be added to company-backends if deferred
-      ;; :defer t
       :config
       (add-to-list 'company-backends 'company-go t)))
   (use-package go-direx
-    :ensure t
-    :defer t)
+    :ensure t)
   (use-package go-eldoc
     :ensure t
-    ;; this will not be added to company-backends if deferred
-    ;; :defer t
     :config
     (add-hook 'go-mode-hook 'go-eldoc-setup))
   (use-package go-errcheck
-    :ensure t
-    :defer t)
+    :ensure t)
   (use-package go-play
-    :ensure t
-    :defer t)
+    :ensure t)
   (use-package go-projectile
-    :ensure t
-    :defer t)
+    :ensure t)
   (use-package go-stacktracer
-    :ensure t
-    :defer t)
+    :ensure t)
   (use-package golint
-    :ensure t
-    :defer t)
+    :ensure t)
   (use-package gore-mode
-    :ensure t
-    :defer t)
+    :ensure t)
   (use-package gotest
-    :ensure t
-    :defer t)
+    :ensure t)
   (use-package govet
-    :ensure t
-    :defer t)
+    :ensure t)
   :config
   (add-hook 'go-mode-hook (lambda ()
                             ;; allow use of tabs as it is required by go fmt
@@ -846,47 +681,36 @@
 
 ;;; Ruby programming language
 (use-package ruby-mode
-  :defer t
   :init
   (use-package ruby-compilation
-    :ensure t
-    :defer t)
+    :ensure t)
   (use-package ruby-electric
     :ensure t
-    :defer t
     :config
     (add-hook 'ruby-mode-hook 'ruby-electric-mode)))
 (use-package robe
   :ensure t
-  :defer t
   :diminish robe-mode
   :config
   (add-hook 'ruby-mode-hook 'robe-mode)
   (add-to-list 'company-backends 'company-robe t))
 (use-package inf-ruby
   :ensure t
-  :defer t
   :init
   (use-package company
     :ensure t
-    :defer t
     :init
     (use-package company-inf-ruby
       :ensure t
-      ;; this will not be added to company-backends if deferred
-      ;; :defer t
       :config
       (add-to-list 'company-backends 'company-inf-ruby t))
     (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)))
 (use-package rspec-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package rbenv
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package bundler
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; Objective-J programming language
 (use-package objj-mode
@@ -895,26 +719,22 @@
   (("\\.j\\'" . objj-mode))
   :init
   (use-package compile
-    :defer t
     :config
     (add-to-list 'compilation-error-regexp-alist-alist
                  '(objj-acorn "^\\(WARNING\\|ERROR\\) line \\([0-9]+\\) in file:\\([^:]+\\):\\(.*\\)$" 3 2))
     (add-to-list 'compilation-error-regexp-alist 'objj-acorn))
   (use-package js
-    :defer t
     :mode
     (("\\.sj\\'" . js-mode))))
 
 ;;; Jake
 (use-package js
-  :defer t
   :mode
   (("[Jj]akefile.*\\'" . js-mode)
    ("\\.jake\\'" . js-mode)))
 
 ;;; XML
 (use-package nxml
-  :defer t
   :mode
   (("\\.xml\\'" . nxml-mode)
    ("\\.xsl\\'" . nxml-mode)
@@ -924,23 +744,19 @@
 
 ;;; DITA
 (use-package nxml
-  :defer t
   :mode
   (("\\.dita\\'" . nxml-mode)
    ("\\.ditamap\\'" . nxml-mode)))
 
 ;;; DocBook
 (use-package docbook
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package nxml
-  :defer t
   :mode
   (("\\.docbook\\'" . nxml-mode)))
 
 ;;; C-family programming languages
 (use-package cc-mode
-  :defer t
   :preface
   (defconst tbrown-c-style
     '((c-basic-offset . 3)
@@ -1007,16 +823,13 @@
     "MSVC C Programming Style")
   :init
   (use-package cwarn
-    :defer t
     :diminish cwarn-mode
     :init
     (global-cwarn-mode t))
   (use-package google-c-style
-    :ensure t
-    :defer t)
+    :ensure t)
   (use-package c-eldoc
     :ensure t
-    :defer t
     :init
     ;; add more as desired, superset of what you'd like to use
     (setq c-eldoc-includes "-I.")
@@ -1024,7 +837,6 @@
     (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
     (add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode))
   (use-package hideif
-    :defer t
     :diminish hide-ifdef-mode
     :init
     (hide-ifdef-mode))
@@ -1065,89 +877,61 @@
               ))
 (use-package company
   :ensure t
-  :defer t
   :init
   (use-package company-c-headers
     :ensure t
-    ;; this will not be added to company-backends if deferred
-    ;; :defer t
     :config
     (add-to-list 'company-backends 'company-c-headers t)))
 (use-package flycheck
   :ensure t
-  :defer t
   :init
   (use-package flycheck-clangcheck
-    :ensure t
-    ;; this will not be added to flycheck-checkers if deferred
-    ;; :defer t
-    )
+    :ensure t)
   (use-package flycheck-google-cpplint
-    :ensure t
-    ;; this will not be added to flycheck-checkers if deferred
-    ;; :defer t
-    ))
+    :ensure t))
 (use-package demangle-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package disaster
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package dummy-h-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package irony
   :disabled t
   :ensure t
-  :defer t
   :init
   (use-package company
     :ensure t
-    :defer t
     :init
     (use-package company-irony
-      :ensure t
-      :defer t))
+      :ensure t))
   (use-package eldoc
-    :defer t
     :init
     (use-package irony-eldoc
-      :ensure t
-      :defer t))
+      :ensure t))
   (use-package flycheck
     :ensure t
-    :defer t
     :init
     (use-package flycheck-irony
-      :ensure t
-      ;; this will not be added to flycheck-checkers if deferred
-      ;; :defer t
-      )))
+      :ensure t)))
 (use-package objc-font-lock
   :ensure t
-  :defer t
   :config
   (objc-font-lock-global-mode))
 (use-package malinka
   :disabled t
-  :ensure t
-  :defer t))
+  :ensure t))
 
 ;;; JavaScript programming language
-(use-package js
-  :defer t)
+(use-package js)
 (use-package js-comint
   :ensure t
-  :defer t
   :init
   (setq inferior-js-program-command "v8 --shell"))
 (use-package tern
   :ensure t
-  :defer t
   :init
   (use-package company
     :ensure t
-    :defer t
     :init
     (use-package company-tern
       :ensure t
@@ -1159,16 +943,13 @@
 
 ;;; node.js
 (use-package nodejs-repl
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; Generic modes
-(use-package generic-x
-  :defer t)
+(use-package generic-x)
 
 ;;; Python programming language
 (use-package python
-  :defer t
   :init
   (setq gud-pdb-command-name "python -m pdb"))
 (use-package elpy
@@ -1180,35 +961,25 @@
   (when (require 'flycheck nil :noerror)
     (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))))
 (use-package py-autopep8
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package flycheck
   :ensure t
-  :defer t
   :init
   (use-package flycheck-pyflakes
-    :ensure t
-    ;; this will not be added to flycheck-checkers if deferred
-    ;; :defer t
-    ))
+    :ensure t))
 (use-package pip-requirements
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package nose
-  :ensure t
-  :defer t)
+  :ensure t)
 (use-package virtualenv
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; Code Composer Studio and DSP/BIOS mode
 (use-package cc-mode
-  :defer t
   :mode
   (("\\.h[cd]f\\'" . c-mode)
    ("\\.l[cd]f\\'" . c-mode)))
 (use-package js
-  :defer t
   :mode
   (("\\.gel\\'" . js-mode)
    ("\\.tcf\\'" . js-mode)
@@ -1221,14 +992,10 @@
 ;;;
 (use-package flycheck
   :ensure t
-  :defer t
   :diminish flycheck-mode
   :init
   (use-package flycheck-package
-    :ensure t
-    ;; this will not be added to flycheck-checkers if deferred
-    ;; :defer t
-    )
+    :ensure t)
   :config
   (global-flycheck-mode))
 
@@ -1238,11 +1005,9 @@
 (use-package ycmd
   :disabled t
   :ensure t
-  :defer t
   :init
   (use-package company
     :ensure t
-    :defer t
     :init
     (use-package company-ycmd
       :ensure t
@@ -1250,13 +1015,9 @@
       (add-to-list 'company-backends 'company-ycmd t)))
   (use-package flycheck
     :ensure t
-    :defer t
     :init
     (use-package flycheck-ycmd
-      :ensure t
-      ;; this will not be added to flycheck-checkers if deferred
-      ;; :defer t
-      )))
+      :ensure t)))
 
 ;;;
 ;;; rtags
@@ -1267,7 +1028,6 @@
   :init
   (use-package company
     :ensure t
-    :defer t
     :init
     (use-package company-rtags
       :load-path
@@ -1283,13 +1043,11 @@
 (use-package rainbow-delimiters
   :disabled t
   :ensure t
-  :defer t
   :init
   (global-rainbow-delimiters-mode))
 (use-package rainbow-identifiers
   :disabled t
   :ensure t
-  :defer t
   :init
   (rainbow-identifiers-mode))
 
@@ -1429,7 +1187,6 @@
 ;;; Start the emacs server (emacsserver/emacsclient)
 ;;;
 (use-package server
-  :defer t
   :config
   (unless (server-running-p)
     (server-start)))
