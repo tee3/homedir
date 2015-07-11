@@ -570,6 +570,7 @@
 (use-package octave
   :defer t)
 (use-package php-mode
+  :disabled t
   :ensure t
   :defer t)
 (use-package powershell
@@ -625,6 +626,7 @@
 
 ;;; OpenGL
 (use-package cuda-mode
+  :disabled t
   :ensure t
   :defer t)
 (use-package glsl-mode
