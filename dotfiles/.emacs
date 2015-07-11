@@ -359,7 +359,7 @@
 (use-package yasnippet
   :ensure t
   :defer t
-  :init
+  :config
   (yas-global-mode))
 
 ;;; Learning Emacs
