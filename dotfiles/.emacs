@@ -1024,14 +1024,14 @@
 ;;;
 (use-package rtags
   :load-path
-  "~/opt/local/src/rtags/src"
+  "~/opt/local/share/emacs/site-lisp/rtags"
   :init
   (use-package company
     :ensure t
     :init
     (use-package company-rtags
       :load-path
-      "~/opt/local/src/rtags/src"
+      "~/opt/local/share/emacs/site-lisp/rtags"
       :config
       (add-to-list 'company-backends 'company-rtags t)))
   :config
