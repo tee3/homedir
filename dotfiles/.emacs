@@ -715,7 +715,6 @@
 
 ;;; Objective-J programming language
 (use-package objj-mode
-  :load-path "~/opt/local/share/emacs/site-lisp"
   :mode
   (("\\.j\\'" . objj-mode))
   :init
