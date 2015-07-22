@@ -510,8 +510,8 @@
 (use-package glsl-mode
   :ensure t)
 
-;;; Tags
-(use-package gtags
+;;; GNU Global
+(use-package ggtags
   :ensure t)
 
 ;;; Scheme programming language
