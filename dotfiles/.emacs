@@ -568,10 +568,6 @@
 ;;; Microsoft Team Foundation Server
 (use-package tfs
   :ensure t)
-(use-package vc-tfs
-  :ensure t
-  :init
-  (use-package vc))
 
 ;;; Mercurial
 (use-package monky
