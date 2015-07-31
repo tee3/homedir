@@ -116,7 +116,7 @@
 (use-package font-core
   :config
   (global-font-lock-mode))
-(use-package fringe-mode
+(use-package fringe
   :init
   (setq fringe-mode '(4 . nil)))
 (use-package hideshow
