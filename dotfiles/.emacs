@@ -499,9 +499,7 @@
     :ensure t
     :init
     (use-package company-auctex
-      :ensure t
-      :config
-      (add-to-list 'company-backends 'company-auctex t))))
+      :ensure t)))
 
 ;;; OpenGL
 (use-package cuda-mode
