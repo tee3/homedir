@@ -300,7 +300,7 @@
 
   (setq projectile-switch-project-action 'projectile-dired)
 
-  ;; @tood workaround for an issue with tramp
+  ;; @todo workaround for an issue with tramp
   (setq projectile-mode-line " Projectile"))
 
 ;;;
