@@ -147,6 +147,7 @@ sudo aptitude -y install openocd
 #sudo aptitude -y install phantomjs
 #sudo aptitude -y install pinentry
 #sudo aptitude -y install pkg-config
+#sudo aptitude -y install rtags
 sudo aptitude -y install shellcheck
 sudo aptitude -y install socat
 sudo aptitude -y install sqlite

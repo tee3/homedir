@@ -144,6 +144,7 @@ sudo yum -y install openocd
 #sudo yum -y install phantomjs
 #sudo yum -y install pinentry
 #sudo yum -y install pkg-config
+#sudo yum -y install rtags
 sudo yum -y install ShellCheck
 sudo yum -y install socat
 sudo yum -y install sqlite
