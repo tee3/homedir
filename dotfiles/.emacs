@@ -1024,6 +1024,7 @@
     :ensure t
     :init
     (use-package company-rtags
+      :ensure rtags
       :load-path
       "~/opt/local/share/emacs/site-lisp/rtags"
       :config
