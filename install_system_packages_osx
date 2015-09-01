@@ -161,7 +161,7 @@ brew install parallel
 brew install phantomjs
 brew install pinentry
 brew install pkg-config
-brew install rtags
+brew install rtags --HEAD
 brew install shellcheck
 brew install socat
 brew install sqlite
