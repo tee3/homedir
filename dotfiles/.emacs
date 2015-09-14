@@ -708,7 +708,15 @@
   :ensure t)
 
 ;;; Objective-J programming language
-(use-package objj-mode
+(use-package objc-mode
+  :preface
+  (define-derived-mode objj-mode objc-mode
+    "Objective-J"
+    "Major mode for editing Objective-J files."
+    (setq c-basic-offset 4)             ;; 4 spaces for tab
+    (setq indent-tabs-mode nil)         ;; Spaces, not tabs
+    (c-set-offset 'substatement-open 0) ;; Curly brace on next line
+    )
   :mode
   (("\\.j\\'" . objj-mode))
   :init
