@@ -160,6 +160,8 @@ process, the machine will reboot, so make sure there is no one else
 logged in.
 
 ```
+$ git clone https://github.com/tee3/homedir ~/Development/homedir
+$ cd ~/Development/homedir
 $ ./install_system_packages_osx
 $ sudo shutdown -r now
 ```
