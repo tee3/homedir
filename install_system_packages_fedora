@@ -18,7 +18,8 @@ if [ -z "$(which yum 2> /dev/null)" ]; then
 fi
 
 # update and check packages
-sudo yum check
+# @todo disable for now, dnf does not support this
+#sudo yum check
 
 # upgrade existing packages
 sudo yum update
