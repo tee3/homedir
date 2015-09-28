@@ -136,6 +136,7 @@ sudo aptitude -y install llvm
 #sudo aptitude -y install netperf
 sudo aptitude -y install nmap
 sudo aptitude -y install nodejs
+sudo aptitude -y install npm
 sudo aptitude -y install nuttcp
 #sudo aptitude -y install ntfs-3g
 sudo aptitude -y install openocd
