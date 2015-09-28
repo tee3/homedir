@@ -104,6 +104,8 @@ fi
 # Node.js
 if [ ! -z "$(which node 2> /dev/null)" ]; then
     export PATH=~/.node_modules/bin:${PATH}
+    export MANPATH=~/.node_modules/share/man:${MANPATH}
+    export NODE_PATH=~/.node_modules/lib/node_modules:${NODE_PATH}
 fi
 
 # Go
