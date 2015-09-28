@@ -32,7 +32,12 @@ fi
 
 # update and check packages
 brew update
-brew doctor
+if ! brew doctor ; then
+    read -p "brew doctor failed, continue anyway (y/n)?: " yn
+    if [ "${yn}" != "y" ]; then
+	exit 1
+    fi
+fi
 
 # upgrade all installed packages
 brew update
