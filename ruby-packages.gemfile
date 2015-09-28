@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 # Development
+gem 'bundler'
 gem 'travis-lint'
 
 # Development - Robe
