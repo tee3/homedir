@@ -1,7 +1,7 @@
 # homedir
 
 This project contains a system to set up a Unix-based system to a
-useable state for my purposes.  This includes installing system
+usable state for my purposes.  This includes installing system
 packages (if required) as well as setting up a home directory and
 user-specific packages.
 
@@ -71,7 +71,7 @@ some Unix emulation layers such as MSYS or Cygwin.
 ## os x
 
 * Homebrew
-* administrator priveleges (but not `sudo`)
+* administrator privileges (but not `sudo`)
 
 ## install system packages
 
@@ -90,7 +90,7 @@ some Unix emulation layers such as MSYS or Cygwin.
 # bootstrap
 
 The process below assumes a system with a user named `administrator`
-that may or may not yet have `sudo` priveleges.
+that may or may not yet have `sudo` privileges.
 
 This is especially useful with a "minimal installation" Linux machine
 since many packages are not installed by default.
@@ -98,7 +98,7 @@ since many packages are not installed by default.
 ## fedora
 
 From the login terminal of the system, log in as `root` and then
-install `sudo` and give `administrator` `sudo` priveleges.
+install `sudo` and give `administrator` `sudo` privileges.
 
 ```
 login: root
@@ -126,7 +126,7 @@ $ sudo shutdown -r now
 ## debian
 
 From the login terminal of the system, log in as `root` and then
-install `sudo` and give `administrator` `sudo` priveleges.
+install `sudo` and give `administrator` `sudo` privileges.
 
 ```
 login: root
@@ -160,7 +160,7 @@ process, the machine will reboot, so make sure there is no one else
 logged in.
 
 ```
-$ ./install_system_pacakges_osx
+$ ./install_system_packages_osx
 $ sudo shutdown -r now
 ```
 
@@ -204,7 +204,7 @@ use `sudo` as Homebrew does not require it.
 $ ./install_system_packages_osx
 ```
 
-# install user configuraton and packages
+# install user configuration and packages
 
 To set up a new system or update an existing system for a user, run
 the following commands when logged in as that user.  Note that all
