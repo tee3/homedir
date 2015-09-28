@@ -23,7 +23,7 @@ is present and satisfies the minimal requirements for an administrator
 of the system.  It also ensures that required system packages are
 installed.
 
-## system packages
+## system
 
 Installing system packages involves ensuring that the system is up to
 date and all required packages are installed.
@@ -35,7 +35,7 @@ date and all required packages are installed.
 * user-installable programs
 * user services (launchd, systemd)
 
-## supported systems
+# supported systems
 
 * OS X
 * Linux
@@ -49,16 +49,6 @@ supported.
 The install family of scripts assumes that they are run from the root
 of the `tee3/homedir` directory.
 
-## install
-
-The `HOME` environment variable must be set properly.  Note that this
-is almost always true in Unix environments, but may not be correct for
-some Unix emulation layers such as MSYS or Cygwin.
-
-* `sh`
-* `stow`
-* `diff`
-
 ## bootstrap
 
 * `administrator` user
@@ -68,12 +58,12 @@ some Unix emulation layers such as MSYS or Cygwin.
 * `yum`- or `apt-get`-based Linux system
 * `root` access
 
-## os x
+### os x
 
 * Homebrew
 * administrator privileges (but not `sudo`)
 
-## install system packages
+## system
 
 * `administrator` user
 
@@ -86,6 +76,16 @@ some Unix emulation layers such as MSYS or Cygwin.
 
 * Homebrew
 * administrator privileges (but not `sudo`)
+
+## user
+
+The `HOME` environment variable must be set properly.  Note that this
+is almost always true in Unix environments, but may not be correct for
+some Unix emulation layers such as MSYS or Cygwin.
+
+* `sh`
+* `stow`
+* `diff`
 
 # bootstrap
 
@@ -164,7 +164,7 @@ $ ./install_system_packages_osx
 $ sudo shutdown -r now
 ```
 
-# install system packages
+# system
 
 Installing system packages should be done as necessary as it updates
 the system as well as installs system packages added after the initial
@@ -204,7 +204,7 @@ use `sudo` as Homebrew does not require it.
 $ ./install_system_packages_osx
 ```
 
-# install user configuration and packages
+# user
 
 To set up a new system or update an existing system for a user, run
 the following commands when logged in as that user.  Note that all
