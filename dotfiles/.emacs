@@ -96,6 +96,7 @@
   :bind
   ("C-c =" . er/expand-region))
 (use-package fm
+  :disabled t
   :ensure t
   :config
   (add-hook 'occur-mode-hook 'fm-start)
