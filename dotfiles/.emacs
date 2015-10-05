@@ -721,6 +721,20 @@
   :mode
   (("\\.j\\'" . objj-mode))
   :init
+  (use-package flycheck
+    :ensure t
+    :config
+    (flycheck-define-checker objj-capp-lint
+      "A flycheck checker for Objective-J based on capp_lint."
+      :command
+      ("capp_lint" source)
+      :error-patterns
+      ((warning line-start line ": " (message) "." line-end))
+      :modes
+      (objj-mode))
+    (add-to-list 'flycheck-checkers 'objj-capp-lint)
+    (add-hook 'objj-mode-hook (lambda ()
+                                (flycheck-select-checker 'objj-capp-lint))))
   (use-package compile
     :config
     (add-to-list 'compilation-error-regexp-alist-alist
