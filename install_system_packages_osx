@@ -85,7 +85,6 @@ brew install boost-build
 brew install casperjs
 brew install cmake
 brew install cppcheck
-brew install cups-pdf
 brew install dart
 brew install dns2tcp
 brew install dnstop
