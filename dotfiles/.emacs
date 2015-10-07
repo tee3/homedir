@@ -713,16 +713,18 @@
 ;;; Objective-J programming language
 (use-package objc-mode
   :preface
-  (define-derived-mode objj-mode objc-mode
-    "Objective-J"
-    "Major mode for editing Objective-J files."
-    (setq c-basic-offset 4)             ;; 4 spaces for tab
-    (setq indent-tabs-mode nil)         ;; Spaces, not tabs
-    (c-set-offset 'substatement-open 0) ;; Curly brace on next line
-    )
+  (defconst cappuccino-objj-style
+    '((c-basic-offset . 4)
+      (tab-width . 8)
+      (indent-tabs-mode . nil)
+      (c-offsets-alist
+       (substatement-open . 0))))
   :mode
   (("\\.j\\'" . objj-mode))
   :init
+  (define-derived-mode objj-mode objc-mode
+    "Objective-J"
+    "Major mode for editing Objective-J files.")
   (use-package flycheck
     :ensure t
     :config
@@ -745,6 +747,13 @@
   (use-package js
     :mode
     (("\\.sj\\'" . js-mode))))
+; @todo this should be up in use-package, but are not being called
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (c-add-style "cappuccino" cappuccino-objj-style t)))
+(add-hook 'objj-mode-hook
+          (lambda ()
+            (c-set-style "cappuccino")))
 
 ;;; Jake
 (use-package js
