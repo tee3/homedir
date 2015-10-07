@@ -74,8 +74,6 @@ brew install subversion17
 brew install arp-scan
 brew install arp-sk
 brew install arpoison
-brew install autoconf
-brew install automake
 #brew install avrdude
 #brew install avr-binutils
 #brew install avr-gcc
