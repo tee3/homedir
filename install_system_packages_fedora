@@ -45,8 +45,6 @@ sudo yum -y install subversion
 sudo yum -y install arp-scan
 #sudo yum -y install arp-sk
 #sudo yum -y install arpoison
-#sudo yum -y install autoconf
-#sudo yum -y install automake
 sudo yum -y install avahi
 #sudo yum -y install avrdude
 sudo yum -y install avr-binutils
