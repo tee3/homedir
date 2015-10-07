@@ -187,6 +187,7 @@
   :config
   (tool-bar-mode -1))
 (use-package undo-tree
+  :disabled t
   :ensure t
   :diminish undo-tree-mode)
 (use-package writeroom-mode
@@ -194,6 +195,7 @@
 
 ;;; Evil (vi) emulation
 (use-package evil
+  :disabled t
   :ensure t)
 
 ;;; Text mode hooks
