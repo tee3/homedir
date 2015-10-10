@@ -1,4 +1,6 @@
 tern
 eslint
 jshint
+semistandard
+semistandard-format
 electron-prebuilt
