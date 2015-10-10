@@ -1,4 +1,4 @@
 tern
-eshint
+eslint
 jshint
 electron-prebuilt
