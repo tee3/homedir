@@ -302,6 +302,7 @@
   (projectile-global-mode)
 
   (setq projectile-switch-project-action 'projectile-dired)
+  (setq projectile-use-git-grep t)
 
   ;; @todo workaround for an issue with tramp
   (setq projectile-mode-line " Projectile"))
