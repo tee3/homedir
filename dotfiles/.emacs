@@ -967,6 +967,10 @@
 (use-package js-comint
   :ensure t
   :init
+  (use-package flycheck
+    :ensure t
+    :init
+    (setq flycheck-javascript-standard-executable "semistandard"))
   (setq inferior-js-program-command "v8 --shell"))
 (use-package tern
   :ensure t
