@@ -2,6 +2,7 @@
 tern
 eslint
 jshint
+jslint
 semistandard
 semistandard-format
 
