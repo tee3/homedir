@@ -963,6 +963,55 @@
   :ensure t))
 
 ;;; JavaScript programming language
+(use-package flycheck
+  :ensure t
+  :config
+  (flycheck-def-option-var flycheck-jslint-language-edition nil javascript-jslint
+    "The language edition to use in Jslint.
+
+The value of this variable is either a string denoting a language
+edition, or nil, to use the default edition.  When non-nil,
+pass the language edition via the `--edition' option."
+    :type '(choice (const :tag "Default edition" nil)
+                   (string :tag "Language edition"))
+    :safe #'stringp)
+  (make-variable-buffer-local 'flycheck-jslint-language-edition)
+
+  (flycheck-def-option-var flycheck-jslint-global-variables nil javascript-jslint
+    "Additional global variables for Jslint.
+
+The value of this variable is a list of strings, where each
+string is an additional global variable to pass to Jslint, via the `--predef'
+option."
+    :type '(repeat (string :tag "Global variables"))
+    :safe #'flycheck-string-list-p)
+
+  (flycheck-def-option-var flycheck-jslint-options nil javascript-jslint
+    "Additional options for Jslint.
+
+The value of this variable is a list of strings, where each
+string is an additional options, including the leading --, to
+pass to Jslint."
+    :type '(repeat (string :tag "Options"))
+    :safe #'flycheck-string-list-p)
+
+  (flycheck-define-checker javascript-jslint
+    "A Javascript syntax and style checker using jslint.
+
+See URL `http://www.jslint.com'."
+    :command
+    ("jslint"
+     "--terse"
+     (option "--edition" flycheck-jslint-language-edition concat)
+     (option-list "--predef=" flycheck-jslint-global-variables concat)
+     (eval flycheck-jslint-options)
+     source)
+    :error-patterns
+    ((error (file-name) ":" line ":" column ": " (message)))
+    :modes
+    (js-mode js2-mode js3-mode))
+  (add-to-list 'flycheck-checkers 'javascript-jslint))
+
 (use-package js)
 (use-package js-comint
   :ensure t
