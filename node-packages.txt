@@ -1,10 +1,11 @@
 # JavaScript Development Tools
-tern
 eslint
 jshint
 jslint
 semistandard
 semistandard-format
+
+tern
 
 # Application development
 electron-prebuilt
