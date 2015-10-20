@@ -478,7 +478,11 @@
   :ensure t
   :init
   (use-package processing-snippets
-    :ensure t))
+    :ensure t)
+  (use-package flycheck-processing
+    :ensure t
+    :init
+    (flycheck-processing-setup)))
 (use-package sql
   :init
   (setq sql-sqlite-program "sqlite3"))
