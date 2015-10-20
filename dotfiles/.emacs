@@ -402,7 +402,9 @@
 (use-package jgraph-mode
   :ensure t)
 (use-package json-mode
-  :ensure t)
+  :ensure t
+  :mode
+  ("jslintrc\\'" . json-mode))
 (use-package nginx-mode
   :ensure t)
 (use-package osx-plist
