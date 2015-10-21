@@ -68,7 +68,7 @@ brew upgrade --all
 brew install bazaar
 brew install git
 brew install mercurial
-brew install subversion17
+brew install subversion
 
 # install all taps with the right options
 brew install arp-scan
