@@ -16,7 +16,7 @@ if [ -z "${npm}" -o ! -x "${npm}" ]; then
     exit 1
 fi
 
-node_modules=$(cat node-packages.txt)
+node_modules=$(grep -v "^#" node-packages.txt)
 for m in ${node_modules} ; do
     ${npm} install --global --prefix="${HOME}"/.node_modules "${m}"
 done
