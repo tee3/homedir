@@ -5,6 +5,8 @@ jslint
 semistandard
 semistandard-format
 
+jsonlint
+
 tern
 
 # Application development
