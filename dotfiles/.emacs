@@ -125,6 +125,7 @@
 (use-package hide-comnt
   :ensure t)
 (use-package icomplete
+  :disabled t
   :init
   (icomplete-mode))
 (use-package linum
@@ -278,6 +279,7 @@
 
 ;;; Ido
 (use-package ido
+  :disabled t
   :init
   (use-package ido-ubiquitous
     :ensure t
