@@ -190,6 +190,9 @@
   :disabled t
   :ensure t
   :diminish undo-tree-mode)
+(use-package winner
+  :init
+  (winner-mode))
 (use-package writeroom-mode
   :ensure t)
 
