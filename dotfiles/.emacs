@@ -243,6 +243,8 @@
   :ensure t
   :diminish helm-mode
   :init
+  (use-package helm-company
+    :ensure t)
   (use-package helm-config
     :ensure helm)
   (use-package helm-flycheck
