@@ -60,7 +60,6 @@ sudo aptitude -y install boost-build
 sudo aptitude -y install clang
 sudo aptitude -y install cmake
 sudo aptitude -y install cppcheck
-#sudo aptitude -y install dart
 #sudo aptitude -y install dns2tcp
 #sudo aptitude -y install dnstop
 #sudo aptitude -y install docbook

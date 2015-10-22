@@ -13,7 +13,6 @@ brew_taps="
     homebrew/apache
     homebrew/binary
     homebrew/completions
-    dart-lang/dart
     homebrew/dupes
     homebrew/fuse
     homebrew/headonly
@@ -85,7 +84,6 @@ brew install boost-build
 brew install casperjs
 brew install cmake
 brew install cppcheck
-brew install dart
 brew install dns2tcp
 brew install dnstop
 brew install docbook
