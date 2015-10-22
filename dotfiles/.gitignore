@@ -23,6 +23,7 @@ Temporary Items
 # Emacs
 *~
 \#*\#
+.dir-locals.el
 
 # Foreign revision control
 .svn/
