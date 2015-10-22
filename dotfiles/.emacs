@@ -772,10 +772,7 @@
     :config
     (add-to-list 'compilation-error-regexp-alist-alist
                  '(objj-acorn "^\\(WARNING\\|ERROR\\) line \\([0-9]+\\) in file:\\([^:]+\\):\\(.*\\)$" 3 2))
-    (add-to-list 'compilation-error-regexp-alist 'objj-acorn))
-  (use-package js
-    :mode
-    (("\\.sj\\'" . js-mode))))
+    (add-to-list 'compilation-error-regexp-alist 'objj-acorn)))
 ; @todo this should be up in use-package, but are not being called
 (add-hook 'c-mode-common-hook
           (lambda ()
