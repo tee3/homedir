@@ -58,7 +58,6 @@ sudo yum -y install boost-build
 sudo yum -y install clang
 sudo yum -y install cmake
 sudo yum -y install cppcheck
-#sudo yum -y install dart
 #sudo yum -y install dns2tcp
 #sudo yum -y install dnstop
 #sudo yum -y install docbook
