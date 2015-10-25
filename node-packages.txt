@@ -1,5 +1,6 @@
 # JavaScript Development Tools
 eslint
+jscs
 jshint
 jslint
 semistandard
