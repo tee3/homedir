@@ -100,6 +100,7 @@ sudo aptitude -y install g++
 #sudo aptitude -y install glib
 #sudo aptitude -y install glm
 sudo aptitude -y install global
+#sudo aptitude -y install glslang
 #sudo aptitude -y install gnu-typist
 sudo aptitude -y install golang-go
 #sudo aptitude -y install gource
