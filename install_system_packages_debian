@@ -57,6 +57,7 @@ sudo aptitude -y install bash-completion
 #sudo aptitude -y install boost-bcp
 sudo aptitude -y install boost-build
 #sudo aptitude -y install casperjs
+sudo aptitude -y install cflow
 sudo aptitude -y install clang
 sudo aptitude -y install cmake
 sudo aptitude -y install cppcheck
