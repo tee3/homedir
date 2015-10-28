@@ -114,6 +114,7 @@ brew install glfw3
 brew install glib
 brew install glm
 HOMEBREW_KEEP_INFO=1 brew install global --with-exuberant-ctags
+brew install glslang
 HOMEBREW_KEEP_INFO=1 brew install gnu-typist
 brew install go
 brew install gource

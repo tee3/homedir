@@ -98,6 +98,7 @@ sudo yum -y install gcc-c++
 #sudo yum -y install glib
 #sudo yum -y install glm
 sudo yum -y install global
+#sudo yum -y install glslang
 #sudo yum -y install gnu-typist
 sudo yum -y install golang
 #sudo yum -y install gource
