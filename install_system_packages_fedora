@@ -55,6 +55,7 @@ sudo yum -y install boost
 #sudo yum -y install boost-bcp
 sudo yum -y install boost-build
 #sudo yum -y install casperjs
+sudo yum -y install cflow
 sudo yum -y install clang
 sudo yum -y install cmake
 sudo yum -y install cppcheck

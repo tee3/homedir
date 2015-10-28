@@ -82,6 +82,7 @@ brew install boost
 #brew install boost-bcp
 brew install boost-build
 brew install casperjs
+brew install cflow
 brew install cmake
 brew install cppcheck
 brew install dns2tcp
