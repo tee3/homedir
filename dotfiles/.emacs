@@ -1037,6 +1037,9 @@ See URL `http://www.jslint.com'."
 (use-package tern
   :ensure t
   :init
+  (use-package js
+    :mode
+    (("\\.tern-project\\'" . json-mode)))
   (use-package company
     :ensure t
     :init
