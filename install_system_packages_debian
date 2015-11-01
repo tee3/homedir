@@ -118,7 +118,6 @@ sudo aptitude -y install jam
 #sudo aptitude -y install jansson
 #sudo aptitude -y install jasper
 #sudo aptitude -y install jpeg
-#sudo aptitude -y install jsdoc-toolkit
 #sudo aptitude -y install jsl
 #sudo aptitude -y install jsmin
 #sudo aptitude -y install json-c
