@@ -116,7 +116,6 @@ sudo yum -y install jam
 #sudo yum -y install jansson
 #sudo yum -y install jasper
 #sudo yum -y install jpeg
-#sudo yum -y install jsdoc-toolkit
 #sudo yum -y install jsl
 #sudo yum -y install jsmin
 #sudo yum -y install json-c
