@@ -1055,6 +1055,12 @@
 (use-package jq-mode
   :ensure t
   :pin melpa)
+(use-package skewer-mode
+  :ensure t
+  :config
+  (add-hook 'js-mode-hook 'skewer-mode)
+  (add-hook 'css-mode-hook 'skewer-css-mode)
+  (add-hook 'html-mode-hook 'skewer-html-mode))
 
 ;;; Typescript programming language
 (use-package typescript-mode
