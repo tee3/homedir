@@ -809,6 +809,13 @@
   ((c-mode . hide-ifdef-mode)
    (c++-mode . hide-ifdef-mode)))
 
+(use-package skewer-mode
+  :ensure t
+  :config
+  (add-hook 'js-mode-hook 'skewer-mode)
+  (add-hook 'css-mode-hook 'skewer-css-mode)
+  (add-hook 'html-mode-hook 'skewer-html-mode))
+
 ;;; Flymake
 (use-package flymake
   :ensure t
