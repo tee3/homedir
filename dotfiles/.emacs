@@ -1141,6 +1141,12 @@
 (use-package jsonnet-mode
   :ensure t
   :pin melpa)
+(use-package skewer-mode
+  :ensure t
+  :config
+  (add-hook 'js-mode-hook 'skewer-mode)
+  (add-hook 'css-mode-hook 'skewer-css-mode)
+  (add-hook 'html-mode-hook 'skewer-html-mode))
 
 ;;; Typescript programming language
 (when (< emacs-major-version 30)
