@@ -102,7 +102,6 @@ sudo yum -y install global
 #sudo yum -y install glslang
 #sudo yum -y install gnu-typist
 sudo yum -y install golang
-#sudo yum -y install gource
 #sudo yum -y install graphviz
 sudo yum -y install guile
 sudo yum -y install highlight
@@ -116,6 +115,7 @@ sudo yum -y install jam
 #sudo yum -y install jansson
 #sudo yum -y install jasper
 #sudo yum -y install jpeg
+#sudo yum -y install jrnl
 #sudo yum -y install jsl
 #sudo yum -y install jsmin
 #sudo yum -y install json-c
@@ -125,6 +125,7 @@ sudo yum -y install llvm
 #sudo yum -y install llvm33
 #sudo yum -y install llvm34
 #sudo yum -y install llvm35
+#sudo yum -y install llvm36
 #sudo yum -y install markdown
 #sudo yum -y install mscgen
 #sudo yum -y install netcat
