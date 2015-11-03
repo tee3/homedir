@@ -148,7 +148,7 @@ brew install openocd
 brew install p0f
 brew install p7zip
 brew install parallel
-brew install phantomjs
+#brew install phantomjs
 brew install pinentry
 brew install pkg-config
 brew install rtags --HEAD
