@@ -97,7 +97,7 @@ if [ ! -z "$(which python 2> /dev/null)" ]; then
 fi
 
 # Ruby
-if [ ! -z "$(which ruby 2> /dev/null)" -a ! -z "$(which gem 2> /dev/null)" ]; then
+if [ ! -z "$(which ruby 2> /dev/null)" ] && [ ! -z "$(which gem 2> /dev/null)" ]; then
     export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin":${PATH}
 fi
 
