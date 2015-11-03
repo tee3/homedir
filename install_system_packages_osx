@@ -95,7 +95,6 @@ brew install emacs --with-cocoa
 brew install emscripten
 brew install enscript
 #brew install ext2fuse
-brew install fop
 brew install fortune
 #HOMEBREW_KEEP_INFO=1 brew install gcc
 #brew install gcc43
@@ -118,7 +117,6 @@ HOMEBREW_KEEP_INFO=1 brew install global --with-exuberant-ctags
 brew install glslang
 HOMEBREW_KEEP_INFO=1 brew install gnu-typist
 brew install go
-brew install gource
 brew install graphviz
 HOMEBREW_KEEP_INFO=1 brew install guile
 brew install highlight
