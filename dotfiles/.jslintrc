@@ -1,0 +1,7 @@
+{
+    "terse": true,
+    "edition": "es5",
+    "maxerr": 10000,
+    "browser": true,
+    "nomen": true
+}
