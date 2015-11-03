@@ -68,11 +68,10 @@ sudo aptitude -y install cppcheck
 #sudo aptitude -y install docker
 sudo aptitude -y install doxygen
 #sudo aptitude -y install e2fsprogs
-sudo aptitude -y install emacs
+sudo aptitude -y install emacs-nox
 #sudo aptitude -y install emscripten
 sudo aptitude -y install enscript
 #sudo aptitude -y install ext2fuse
-#sudo aptitude -y install fop
 #sudo aptitude -y install fortune
 sudo aptitude -y install gcc
 sudo aptitude -y install g++
@@ -104,7 +103,6 @@ sudo aptitude -y install global
 #sudo aptitude -y install glslang
 #sudo aptitude -y install gnu-typist
 sudo aptitude -y install golang-go
-#sudo aptitude -y install gource
 #sudo aptitude -y install graphviz
 sudo aptitude -y install guile-2.0
 sudo aptitude -y install highlight
@@ -118,6 +116,7 @@ sudo aptitude -y install jam
 #sudo aptitude -y install jansson
 #sudo aptitude -y install jasper
 #sudo aptitude -y install jpeg
+#sudo aptitude -y install jrnl
 #sudo aptitude -y install jsl
 #sudo aptitude -y install jsmin
 #sudo aptitude -y install json-c
@@ -127,6 +126,7 @@ sudo aptitude -y install llvm
 #sudo aptitude -y install llvm33
 #sudo aptitude -y install llvm34
 #sudo aptitude -y install llvm35
+#sudo aptitude -y install llvm36
 #sudo aptitude -y install markdown
 #sudo aptitude -y install mscgen
 #sudo aptitude -y install netcat
@@ -135,7 +135,6 @@ sudo aptitude -y install nmap
 sudo aptitude -y install nodejs
 sudo aptitude -y install npm
 sudo aptitude -y install nuttcp
-#sudo aptitude -y install ntfs-3g
 sudo aptitude -y install openocd
 #sudo aptitude -y install osxfuse
 #sudo aptitude -y install nuttcp
@@ -169,8 +168,8 @@ sudo aptitude -y install tig
 sudo aptitude -y install tmux
 sudo aptitude -y install tree
 #sudo aptitude -y install v8
-sudo aptitude -y install vim
 #sudo aptitude -y install vegeta
+sudo aptitude -y install vim
 #sudo aptitude -y install webp
 sudo aptitude -y install wget
 #sudo aptitude -y install wireshark
