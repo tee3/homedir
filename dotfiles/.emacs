@@ -156,6 +156,9 @@
 (use-package paren
   :config
   (show-paren-mode))
+(use-package pcomplete
+  :config
+  (add-hook 'shell-mode-hook 'pcomplete-shell-setup))
 (use-package savehist
   :config
   (savehist-mode))
