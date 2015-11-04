@@ -33,6 +33,7 @@ sudo aptitude -y install diffutils
 
 # install interpreters prior to other packages
 sudo aptitude -y install python
+#sudo aptitude -y install python-devel
 # @todo we don't need python3 at this point
 #sudo aptitude -y install python3
 sudo aptitude -y install ruby
@@ -42,6 +43,12 @@ sudo aptitude -y install ruby
 sudo aptitude -y install git
 sudo aptitude -y install mercurial
 sudo aptitude -y install subversion
+
+# install basic tools
+sudo aptitude -y install autoconf
+sudo aptitude -y install tar
+sudo aptitude -y install bzip2
+sudo aptitude -y install patch
 
 # install all taps with the right options
 sudo aptitude -y install arp-scan

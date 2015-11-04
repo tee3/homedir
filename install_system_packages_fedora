@@ -31,6 +31,7 @@ sudo yum -y install diffutils
 
 # install interpreters prior to other packages
 sudo yum -y install python
+sudo yum -y install python-devel
 # @todo we don't need python3 at this point
 #sudo yum -y install python3
 sudo yum -y install ruby
@@ -40,6 +41,12 @@ sudo yum -y install ruby-devel
 sudo yum -y install git
 sudo yum -y install mercurial
 sudo yum -y install subversion
+
+# install basic tools
+sudo yum -y install autoconf
+sudo yum -y install tar
+sudo yum -y install bzip2
+sudo yum -y install patch
 
 # install all taps with the right options
 sudo yum -y install arp-scan
