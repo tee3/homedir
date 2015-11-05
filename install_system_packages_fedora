@@ -68,6 +68,8 @@ sudo yum -y install boost-build
 #sudo yum -y install casperjs
 sudo yum -y install cflow
 sudo yum -y install clang
+sudo yum -y install clang-devel
+sudo yum -y install clang-libs
 sudo yum -y install cmake
 sudo yum -y install cppcheck
 #sudo yum -y install dns2tcp
@@ -128,6 +130,7 @@ sudo yum -y install llvm
 #sudo yum -y install llvm35
 #sudo yum -y install llvm36
 sudo yum -y install lrzsz
+sudo yum -y install llvm-devel
 #sudo yum -y install markdown
 #sudo yum -y install mscgen
 #sudo yum -y install netcat
