@@ -96,7 +96,7 @@ brew install emscripten
 brew install enscript
 #brew install ext2fuse
 brew install fortune
-#HOMEBREW_KEEP_INFO=1 brew install gcc
+#brew install gcc
 #brew install gcc43
 #brew install gcc44
 brew install gcc45
@@ -104,7 +104,7 @@ brew install gcc46
 brew install gcc47
 brew install gcc48
 brew install gcc49
-HOMEBREW_KEEP_INFO=1 brew install gcc5
+brew install gcc5
 brew install git-flow
 brew install git-hooks
 brew install git-lfs
@@ -113,12 +113,12 @@ brew install glew
 brew install glfw3
 brew install glib
 brew install glm
-HOMEBREW_KEEP_INFO=1 brew install global --with-exuberant-ctags
+brew install global --with-exuberant-ctags
 brew install glslang
-HOMEBREW_KEEP_INFO=1 brew install gnu-typist
+brew install gnu-typist
 brew install go
 brew install graphviz
-HOMEBREW_KEEP_INFO=1 brew install guile
+brew install guile
 brew install highlight
 brew install htop-osx
 brew install httping
