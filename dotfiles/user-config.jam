@@ -38,17 +38,12 @@ else if [ os.name ] = MACOSX
     # other comilers, both system and optional
     using clang : 3.6 : /usr/local/bin/clang++-3.6 ;
     using clang : 3.5 : /usr/local/bin/clang++-3.5 ;
-    using clang : 3.4 : /usr/local/bin/clang++-3.4 ;
-    using clang : 3.3 : /usr/local/bin/clang++-3.3 ;
 
     using darwin ;
 
     using darwin : 5   : /usr/local/bin/g++-5 ;
     using darwin : 4.9 : /usr/local/bin/g++-4.9 ;
     using darwin : 4.8 : /usr/local/bin/g++-4.8 ;
-    using darwin : 4.7 : /usr/local/bin/g++-4.7 ;
-    using darwin : 4.6 : /usr/local/bin/g++-4.6 ;
-    using darwin : 4.5 : /usr/local/bin/g++-4.5 ;
 }
 
 # MPI

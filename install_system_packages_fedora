@@ -74,16 +74,6 @@ sudo yum -y install enscript
 #sudo yum -y install fortune
 sudo yum -y install gcc
 sudo yum -y install gcc-c++
-#sudo yum -y install gcc43
-#sudo yum -y install gcc43-c++
-#sudo yum -y install gcc44
-#sudo yum -y install gcc44-c++
-#sudo yum -y install gcc45
-#sudo yum -y install gcc45-c++
-#sudo yum -y install gcc46
-#sudo yum -y install gcc46-c++
-#sudo yum -y install gcc47
-#sudo yum -y install gcc47-c++
 #sudo yum -y install gcc48
 #sudo yum -y install gcc48-c++
 #sudo yum -y install gcc49
@@ -122,8 +112,6 @@ sudo yum -y install jam
 #sudo yum -y install jsonpp
 #sudo yum -y install legit
 sudo yum -y install llvm
-#sudo yum -y install llvm33
-#sudo yum -y install llvm34
 #sudo yum -y install llvm35
 #sudo yum -y install llvm36
 #sudo yum -y install markdown
