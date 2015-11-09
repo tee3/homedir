@@ -75,16 +75,6 @@ sudo aptitude -y install enscript
 #sudo aptitude -y install fortune
 sudo aptitude -y install gcc
 sudo aptitude -y install g++
-#sudo aptitude -y install gcc43
-#sudo aptitude -y install g++-4.3
-#sudo aptitude -y install gcc44
-#sudo aptitude -y install g++-4.4
-#sudo aptitude -y install gcc45
-#sudo aptitude -y install g++-4.5
-#sudo aptitude -y install gcc46
-#sudo aptitude -y install g++-4.6
-#sudo aptitude -y install gcc47
-#sudo aptitude -y install g++-4.7
 #sudo aptitude -y install gcc48
 #sudo aptitude -y install g++-4.8
 #sudo aptitude -y install gcc49
@@ -123,8 +113,6 @@ sudo aptitude -y install jam
 #sudo aptitude -y install jsonpp
 #sudo aptitude -y install legit
 sudo aptitude -y install llvm
-#sudo aptitude -y install llvm33
-#sudo aptitude -y install llvm34
 #sudo aptitude -y install llvm35
 #sudo aptitude -y install llvm36
 #sudo aptitude -y install markdown
