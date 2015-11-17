@@ -50,6 +50,10 @@ sudo aptitude -y install tar
 sudo aptitude -y install bzip2
 sudo aptitude -y install patch
 
+# install fuse
+#sudo aptitude -y install gitfs
+sudo aptitude -y install sshfs
+
 # install all taps with the right options
 sudo aptitude -y install arp-scan
 #sudo aptitude -y install arp-sk
@@ -145,7 +149,6 @@ sudo aptitude -y install socat
 sudo aptitude -y install sqlite
 sudo aptitude -y install srecord
 #sudo aptitude -y install ssh-copy-id
-sudo aptitude -y install sshfs
 #sudo aptitude -y install stdman
 sudo aptitude -y install stow
 #sudo aptitude -y install stress
