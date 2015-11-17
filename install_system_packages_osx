@@ -69,6 +69,10 @@ brew install git
 brew install mercurial
 brew install subversion
 
+# install fuse
+#brew install gitfs
+brew install sshfs
+
 # install all taps with the right options
 brew install arp-scan
 brew install arp-sk
@@ -157,7 +161,6 @@ brew install socat
 brew install sqlite
 brew install srecord
 brew install ssh-copy-id
-#brew install sshfs
 brew install stdman
 brew install stow
 brew install stress

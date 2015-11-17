@@ -48,6 +48,10 @@ sudo yum -y install tar
 sudo yum -y install bzip2
 sudo yum -y install patch
 
+# install fuse
+#sudo yum -y install gitfs
+sudo yum -y install sshfs
+
 # install all taps with the right options
 sudo yum -y install arp-scan
 #sudo yum -y install arp-sk
@@ -145,7 +149,6 @@ sudo yum -y install socat
 sudo yum -y install sqlite
 sudo yum -y install srecord
 #sudo yum -y install ssh-copy-id
-sudo yum -y install sshfs
 #sudo yum -y install stdman
 sudo yum -y install stow
 #sudo yum -y install stress
