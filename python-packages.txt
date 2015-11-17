@@ -2,13 +2,16 @@
 autopep8
 docformatter
 flake8
+importmagic
 jedi
 nose
 pep257
 pep8
 pep8-naming
 pylint
+rope
 virtualenv
+yapf
 
 # reStructuredText
 #breathe
