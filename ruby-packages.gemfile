@@ -8,7 +8,7 @@ gem 'pry'
 gem 'pry-doc'
 
 # Continuous Integration
-gem 'travis-lint'
+gem 'travis'
 
 # Fun
 gem 'lolcat'
