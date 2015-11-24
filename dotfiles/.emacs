@@ -20,11 +20,11 @@
   (when (< emacs-major-version 24)
     (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
   (when (>= emacs-major-version 23)
-    (add-to-list 'package-archives '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")))
+    (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/")))
   (when (>= emacs-major-version 23)
     (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/")))
   (when (>= emacs-major-version 23)
-    (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/")))
+    (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/")))
 
   (package-initialize)
 
