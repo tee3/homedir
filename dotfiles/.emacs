@@ -18,13 +18,13 @@
 
   ;; add packages libraries
   (when (< emacs-major-version 24)
-    (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t))
+    (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t))
   (when (>= emacs-major-version 23)
-    (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t))
+    (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t))
   (when (>= emacs-major-version 23)
-    (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t))
+    (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t))
   (when (>= emacs-major-version 23)
-    (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t))
+    (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t))
 
   (package-initialize))
 
