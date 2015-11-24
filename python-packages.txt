@@ -23,5 +23,8 @@ html2rest
 #pygit2
 #PyGithub
 
+# Miscellaneous
+speedtest-cli
+
 # Fun
 #beets
