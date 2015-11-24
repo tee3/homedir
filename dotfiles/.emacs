@@ -1032,9 +1032,7 @@ See URL `http://www.jslint.com'."
 
 (use-package js)
 (use-package js-comint
-  :ensure t
-  :init
-  (setq inferior-js-program-command "v8 --shell"))
+  :ensure t)
 (use-package flycheck
   :ensure t
   :init
