@@ -6,7 +6,7 @@ set -u
 
 dotfiledirs="dotfiles"
 
-# requires running form the root od the dotfiles directory
+# requires running form the root of the dotfiles directory
 rootdir=$(cd "$(dirname ./install)" && pwd)
 if [ "${rootdir}" != "${PWD}" ]; then
     echo "must be run from the root of the dotfiles directory"
@@ -54,7 +54,7 @@ if [ ! -d ~/opt -o ! -d ~/opt/local ]; then
     fi
 fi
 
-# set up machine-speific ~/.bashrc
+# set up machine-specific ~/.bashrc
 if [ ! -e ~/.bashrc.local ]; then
     echo "~/.bashrc.local is used for machine-specific bash settings."
     touch ~/.bashrc.local
