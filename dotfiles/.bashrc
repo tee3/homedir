@@ -78,10 +78,10 @@ if [ -f /usr/share/bash-completion/bash_completion ]; then
 fi
 
 # Add local optional to path
-if [ -d ~/opt/local/bin ]; then
-    export PATH=~/opt/local/bin:"${PATH}"
-    export LD_LIBRARY_PATH=~/opt/local/lib
-    export DYLD_LIBRARY_PATH=~/opt/local/lib
+if [ -d "${HOME}"/opt/local/bin ]; then
+    export PATH="${HOME}"/opt/local/bin:"${PATH}"
+    export LD_LIBRARY_PATH="${HOME}"/opt/local/lib
+    export DYLD_LIBRARY_PATH="${HOME}"/opt/local/lib
 fi
 
 # History
@@ -103,22 +103,22 @@ fi
 
 # Node.js
 if [ ! -z "$(which node 2> /dev/null)" ]; then
-    export PATH=~/.node_modules/bin:${PATH}
-    export MANPATH=~/.node_modules/share/man:${MANPATH}
-    export NODE_PATH=~/.node_modules/lib/node_modules:${NODE_PATH}
+    export PATH="${HOME}"/.node_modules/bin:${PATH}
+    export MANPATH="${HOME}"/.node_modules/share/man:${MANPATH}
+    export NODE_PATH="${HOME}"/.node_modules/lib/node_modules:${NODE_PATH}
 fi
 
 # Go
 if [ ! -z "$(which go 2> /dev/null)" ]; then
-    export GOPATH=~/Development/go:${GOPATH}
-    export PATH=~/Development/go/bin:${PATH}
+    export GOPATH="${HOME}"/Development/go:${GOPATH}
+    export PATH="${HOME}"/Development/go/bin:${PATH}
 fi
 
 # Cappuccino
-if [ -e ~/opt/local/narwhal ]; then
+if [ -e "${HOME}"/opt/local/narwhal ]; then
     export NARWHAL_ENGINE=jsc
-    export PATH=~/opt/local/narwhal/bin:${PATH}
-    export CAPP_BUILD=~/opt/local/src/cappuccino/Build
+    export PATH="${HOME}"/opt/local/narwhal/bin:${PATH}
+    export CAPP_BUILD="${HOME}"/opt/local/src/cappuccino/Build
 fi
 
 # Emacs
@@ -131,6 +131,6 @@ fi
 export CCACHE_DISABLE=""
 
 # local bashrc
-if [ -e ~/.bashrc.local ]; then
-    source ~/.bashrc.local
+if [ -e "${HOME}"/.bashrc.local ]; then
+    source "${HOME}"/.bashrc.local
 fi
