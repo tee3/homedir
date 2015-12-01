@@ -587,6 +587,8 @@
 ;;; GitHub
 (use-package gist
   :ensure t)
+(use-package github-issues
+  :ensure t)
 
 ;;; Magit
 (use-package magit
