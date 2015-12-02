@@ -1,6 +1,3 @@
---verbose
---progress
-
 --no-startup-project
 
 --enable-compiler-manager
