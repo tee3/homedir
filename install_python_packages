@@ -5,13 +5,13 @@
 set -u
 
 python=$(which python 2> /dev/null)
-if [ -z "${python}" -o ! -x "${python}" ]; then
+if [ -z "${python}" ] || [ ! -x "${python}" ]; then
     echo "error: Python not installed, not installing Python packages."
     exit 1
 fi
 
 pip="$(python -c 'import site ; print site.USER_BASE')/bin/pip"
-if [ -z "${pip}" -o ! -x "${pip}" ]; then
+if [ -z "${pip}" ] || [ ! -x "${pip}" ]; then
     wget https://bootstrap.pypa.io/get-pip.py
     if [ ! -e get-pip.py ]; then
         echo "warning: pip failed to install, not installing Python packages."
@@ -22,7 +22,7 @@ if [ -z "${pip}" -o ! -x "${pip}" ]; then
     rm get-pip.py
 fi
 
-if [ -z "${pip}" -o ! -x "${pip}" ]; then
+if [ -z "${pip}" ] || [ ! -x "${pip}" ]; then
     echo "error: pip not installing, not installing Python packages."
     exit 1
 fi
