@@ -20,7 +20,7 @@ if [ -z "${HOME}" ]; then
 fi
 
 # ask user for the type of machine
-read -p "Enter machine type {linux, osx, windows}: " machine
+read -r -p "Enter machine type {linux, osx, windows}: " machine
 if [ ! -z "${machine}" ]; then
     if [ "${machine}" = linux ]; then
         echo "Installing for Linux"
@@ -39,7 +39,7 @@ fi
 
 # create ~/opt/local if desired
 if [ ! -d "${HOME}"/opt ] || [ ! -d "${HOME}"/opt/local ]; then
-    read -p "create ~/opt/local? (y/n)?: " yn
+    read -r -p "create ~/opt/local? (y/n)?: " yn
     if [ "${yn}" = "y" ]; then
         mkdir -p "${HOME}"/opt/local/bin
         mkdir -p "${HOME}"/opt/local/include
@@ -92,7 +92,7 @@ if [ ! -z "${git}" ] && [ -x "${git}" ]; then
     email=$(${git} config --global user.email)
 
     if [ ! -z "${name}" ] && [ ! -z "${email}" ]; then
-        read -p "use '${name} <${email}>' (y/n): " yn
+        read -r -p "use '${name} <${email}>' (y/n): " yn
         if [ "${yn}" = "n" ]; then
             name=
             email=
@@ -107,7 +107,7 @@ if [ ! -z "${git}" ] && [ -x "${git}" ]; then
         email=$(${git} config -f "${HOME}"/.gitconfig.user user.email)
 
         if [ ! -z "${name}" ] && [ ! -z "${email}" ]; then
-            read -p "use '${name} <${email}>' (y/n): " yn
+            read -r -p "use '${name} <${email}>' (y/n): " yn
             if [ "${yn}" = "n" ]; then
                 name=
                 email=
@@ -119,12 +119,12 @@ if [ ! -z "${git}" ] && [ -x "${git}" ]; then
     fi
 
     if [ -z "${name}" ] || [ -z "${email}" ]; then
-        read -p "Enter git user name: " name
-        read -p "Enter git user email: " email
+        read -r -p "Enter git user name: " name
+        read -r -p "Enter git user email: " email
     fi
 
     if [ ! -z "${name}" ] && [ ! -z "${email}" ]; then
-        read -p "setting git user to '${name} <${email}>' (y/n): " yn
+        read -r -p "setting git user to '${name} <${email}>' (y/n): " yn
         if [ "${yn}" = "y" ]; then
             # set user name/email in user-specific config
             ${git} config -f "${HOME}"/.gitconfig.user user.name "${name}"
@@ -132,7 +132,7 @@ if [ ! -z "${git}" ] && [ -x "${git}" ]; then
         fi
     fi
 
-    read -p "clear git user name/email (y/n): " yn
+    read -r -p "clear git user name/email (y/n): " yn
     if [ "${yn}" = "y" ]; then
         ${git} config --global --unset user.name
         ${git} config --global --unset user.email
@@ -180,12 +180,12 @@ if ! ${stow} --target="${HOME}" dotfiles ; then
             if [ -e "${home_f}" ]; then
                 if [ "${f}" != "${home_f}" ]; then
                     if ${diff} "${f}" "${home_f}" ; then
-                        read -p "${f} is identical to ${home_f}.  Overwrite (y/n)?: " yn
+                        read -r -p "${f} is identical to ${home_f}.  Overwrite (y/n)?: " yn
                         if [ "${yn}" = "y" ]; then
                             rm -i "${home_f}"
                         fi
                     else
-                        read -p "${f} is different than ${home_f}.  Overwrite anyway (y/n)?: " yn
+                        read -r -p "${f} is different than ${home_f}.  Overwrite anyway (y/n)?: " yn
                         if [ "${yn}" = "y" ]; then
                             rm -i "${home_f}"
                         fi
@@ -202,7 +202,7 @@ if ! ${stow} --target="${HOME}" dotfiles ; then
 fi
 
 # ask to install any services
-read -p "Install services (launchd or systemd)? (y/n)?: " yn
+read -r -p "Install services (launchd or systemd)? (y/n)?: " yn
 if [ "${yn}" = "y" ]; then
     if [ "${machine}" = linux ]; then
         # @todo untested
@@ -230,7 +230,7 @@ if [ "${yn}" = "y" ]; then
 fi
 
 # ask to install python packages
-read -p "Install Python packages? (y/n)?: " yn
+read -r -p "Install Python packages? (y/n)?: " yn
 if [ "${yn}" = "y" ]; then
     if ! ./install_python_packages ; then
         echo "warning: failed to install Python packages."
@@ -238,7 +238,7 @@ if [ "${yn}" = "y" ]; then
 fi
 
 # ask to install ruby packages
-read -p "Install Ruby packages? (y/n)?: " yn
+read -r -p "Install Ruby packages? (y/n)?: " yn
 if [ "${yn}" = "y" ]; then
     if ! ./install_ruby_packages ; then
         echo "warning: failed to install Ruby packages."
@@ -246,7 +246,7 @@ if [ "${yn}" = "y" ]; then
 fi
 
 # ask to install node packages
-read -p "Install Node packages? (y/n)?: " yn
+read -r -p "Install Node packages? (y/n)?: " yn
 if [ "${yn}" = "y" ]; then
     if ! ./install_node_packages ; then
         echo "warning: failed to install Node.js packages."
@@ -254,7 +254,7 @@ if [ "${yn}" = "y" ]; then
 fi
 
 # ask to install go packages
-read -p "Install Go packages? (y/n)?: " yn
+read -r -p "Install Go packages? (y/n)?: " yn
 if [ "${yn}" = "y" ]; then
     if ! ./install_go_packages ; then
         echo "warning: failed to install Go packages."
