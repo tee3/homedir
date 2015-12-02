@@ -10,7 +10,5 @@ if [ -z "${go}" ] || [ ! -x "${go}" ]; then
     exit 1
 fi
 
-# @todo assume go version >= 1.5
-
 GOPATH=~/opt/local/src/go go get -u github.com/rogpeppe/godef
 GOPATH=~/opt/local/src/go go get -u github.com/nsf/gocode
