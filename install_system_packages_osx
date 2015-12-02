@@ -32,7 +32,8 @@ fi
 # update and check packages
 brew update
 if ! brew doctor ; then
-    read -r -p "brew doctor failed, continue anyway (y/n)?: " yn
+    echo "brew doctor failed, continue anyway (y/n)?: \c"
+    read -r yn
     if [ "${yn}" != "y" ]; then
 	exit 1
     fi
