@@ -114,13 +114,6 @@ if [ ! -z "$(which go 2> /dev/null)" ]; then
     export PATH="${HOME}"/Development/go/bin:${PATH}
 fi
 
-# Cappuccino
-if [ -e "${HOME}"/opt/local/narwhal ]; then
-    export NARWHAL_ENGINE=jsc
-    export PATH="${HOME}"/opt/local/narwhal/bin:${PATH}
-    export CAPP_BUILD="${HOME}"/opt/local/src/cappuccino/Build
-fi
-
 # Emacs
 if [ ! -z "$(which emacsclient 2> /dev/null)" ]; then
     export ALTERNATE_EDITOR=
