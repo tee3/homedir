@@ -14,3 +14,7 @@ fi
 
 GOPATH=~/opt/local/src/go go get -u github.com/rogpeppe/godef
 GOPATH=~/opt/local/src/go go get -u github.com/nsf/gocode
+
+# Utilities
+
+GOPATH=~/opt/local/src/go go get github.com/joewalnes/websocketd
