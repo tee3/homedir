@@ -110,8 +110,7 @@ fi
 
 # Go
 if [ ! -z "$(which go 2> /dev/null)" ]; then
-    export GOPATH="${HOME}"/Development/go:${GOPATH}
-    export PATH="${HOME}"/Development/go/bin:${PATH}
+    export PATH="${HOME}"/opt/local/src/go/bin:${PATH}
 fi
 
 # Emacs
