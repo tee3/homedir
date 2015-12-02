@@ -10,5 +10,7 @@ if [ -z "${go}" ] || [ ! -x "${go}" ]; then
     exit 1
 fi
 
+# Development
+
 GOPATH=~/opt/local/src/go go get -u github.com/rogpeppe/godef
 GOPATH=~/opt/local/src/go go get -u github.com/nsf/gocode
