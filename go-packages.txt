@@ -1,5 +1,7 @@
 # Development
 
+golang.org/x/tools/cmd/callgraph
+
 github.com/rogpeppe/godef
 github.com/nsf/gocode
 
