@@ -5,13 +5,13 @@
 set -u
 
 node=$(which node 2> /dev/null)
-if [ -z "${node}" -o ! -x "${node}" ]; then
+if [ -z "${node}" ] || [ ! -x "${node}" ]; then
     echo "error: node is not installed, skipping node module installation"
     exit 1
 fi
 
 npm=$(which npm 2> /dev/null)
-if [ -z "${npm}" -o ! -x "${npm}" ]; then
+if [ -z "${npm}" ] || [ ! -x "${npm}" ]; then
     echo "error: npm is not installed, skipping node module installation"
     exit 1
 fi

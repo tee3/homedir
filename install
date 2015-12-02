@@ -38,7 +38,7 @@ else
 fi
 
 # create ~/opt/local if desired
-if [ ! -d "${HOME}"/opt -o ! -d "${HOME}"/opt/local ]; then
+if [ ! -d "${HOME}"/opt ] || [ ! -d "${HOME}"/opt/local ]; then
     read -p "create ~/opt/local? (y/n)?: " yn
     if [ "${yn}" = "y" ]; then
         mkdir -p "${HOME}"/opt/local/bin
@@ -62,7 +62,7 @@ fi
 
 # configure the user name/email for git
 git=$(which git 2> /dev/null)
-if [ ! -z "${git}" -a -x "${git}" ]; then
+if [ ! -z "${git}" ] && [ -x "${git}" ]; then
     # set up machine-specific ~/.gitconfig
     if [ ! -e "${HOME}"/.gitconfig.machine ]; then
         echo "~/.gitconfig.machine is used for machine-specific settings to .gitconfig."
@@ -91,7 +91,7 @@ if [ ! -z "${git}" -a -x "${git}" ]; then
     name=$(${git} config --global user.name)
     email=$(${git} config --global user.email)
 
-    if [ ! -z "${name}" -a ! -z "${email}" ]; then
+    if [ ! -z "${name}" ] && [ ! -z "${email}" ]; then
         read -p "use '${name} <${email}>' (y/n): " yn
         if [ "${yn}" = "n" ]; then
             name=
@@ -102,11 +102,11 @@ if [ ! -z "${git}" -a -x "${git}" ]; then
         email=
     fi
 
-    if [ -z "${name}" -a -z "${email}" ]; then
+    if [ -z "${name}" ] && [ -z "${email}" ]; then
         name=$(${git} config -f "${HOME}"/.gitconfig.user user.name)
         email=$(${git} config -f "${HOME}"/.gitconfig.user user.email)
 
-        if [ ! -z "${name}" -a ! -z "${email}" ]; then
+        if [ ! -z "${name}" ] && [ ! -z "${email}" ]; then
             read -p "use '${name} <${email}>' (y/n): " yn
             if [ "${yn}" = "n" ]; then
                 name=
@@ -118,12 +118,12 @@ if [ ! -z "${git}" -a -x "${git}" ]; then
         fi
     fi
 
-    if [ -z "${name}" -o -z "${email}" ]; then
+    if [ -z "${name}" ] || [ -z "${email}" ]; then
         read -p "Enter git user name: " name
         read -p "Enter git user email: " email
     fi
 
-    if [ ! -z "${name}" -a ! -z "${email}" ]; then
+    if [ ! -z "${name}" ] && [ ! -z "${email}" ]; then
         read -p "setting git user to '${name} <${email}>' (y/n): " yn
         if [ "${yn}" = "y" ]; then
             # set user name/email in user-specific config
@@ -141,7 +141,7 @@ fi
 
 # configure mercurial
 hg=$(which hg 2> /dev/null)
-if [ ! -z "${hg}" -a -x "${hg}" ]; then
+if [ ! -z "${hg}" ] && [ -x "${hg}" ]; then
     # set up machine-specific ~/.hgrc
     if [ ! -e "${HOME}"/.hgrc.machine ]; then
         echo "~/.hgrc.machine is used for machine-specific settings to .hgrc."
@@ -159,7 +159,7 @@ fi
 
 # requires stow
 stow=$(which stow 2> /dev/null)
-if [ -z "${stow}" -o ! -x "${stow}" ]; then
+if [ -z "${stow}" ] || [ ! -x "${stow}" ]; then
     echo "'stow' is not available"
     exit 1
 fi
@@ -168,7 +168,7 @@ fi
 if ! ${stow} --target="${HOME}" dotfiles ; then
     # requires diff
     diff=$(which diff 2> /dev/null)
-    if [ -z "${diff}" -o ! -x "${diff}" ]; then
+    if [ -z "${diff}" ] || [ ! -x "${diff}" ]; then
         echo "'diff' is not available"
         exit 1
     fi
