@@ -1242,6 +1242,7 @@ See URL `http://www.jslint.com'."
   (use-package planet-theme :ensure t :defer t)
   (use-package professional-theme :ensure t :defer t)
   (use-package purple-haze-theme :ensure t :defer t)
+  (use-package quasi-monochrome-theme :ensure t :defer t)
   (use-package railscasts-theme :ensure t :defer t)
   (use-package seti-theme :ensure t :defer t)
   (use-package smyx-theme :ensure t :defer t)
