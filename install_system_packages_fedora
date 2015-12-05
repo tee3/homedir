@@ -132,6 +132,7 @@ sudo yum -y install llvm
 sudo yum -y install nmap
 sudo yum -y install nodejs
 sudo yum -y install npm
+sudo yum -y install ntp
 sudo yum -y install nuttcp
 #sudo yum -y install ntfs-3g
 sudo yum -y install openocd
