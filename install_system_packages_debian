@@ -133,6 +133,7 @@ sudo aptitude -y install llvm
 sudo aptitude -y install nmap
 sudo aptitude -y install nodejs
 sudo aptitude -y install npm
+sudo aptitude -y install ntp
 sudo aptitude -y install nuttcp
 sudo aptitude -y install openocd
 #sudo aptitude -y install osxfuse
