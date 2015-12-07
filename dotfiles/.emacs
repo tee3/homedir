@@ -1181,6 +1181,7 @@ See URL `http://www.jslint.com'."
   (use-package badger-theme :ensure t :defer t)
   (use-package base16-theme :ensure t :defer t)
   (use-package basic-theme :ensure t :defer t)
+  (use-package borland-blue-theme :ensure t :defer t)
   (use-package birds-of-paradise-plus-theme :ensure t :defer t)
   (use-package bubbleberry-theme :ensure t :defer t)
   (use-package busybee-theme :ensure t :defer t)
