@@ -62,7 +62,7 @@ if [ ! -e "${HOME}"/.bashrc.local ]; then
     touch "${HOME}"/.bashrc.local
 fi
 
-# configure the user name/email for git
+# configure git
 git=$(which git 2> /dev/null)
 if [ ! -z "${git}" ] && [ -x "${git}" ]; then
     # set up machine-specific ~/.gitconfig
@@ -89,12 +89,16 @@ if [ ! -z "${git}" ] && [ -x "${git}" ]; then
         touch "${HOME}"/.gitconfig.user
     fi
 
-    # get user and email from git config
-    name=$(${git} config --global user.name)
-    email=$(${git} config --global user.email)
+    # configure user name and email for git
+    name=
+    email=
 
+    # if not set, suggest user name and email from global git config
     if [ ! -z "${name}" ] && [ ! -z "${email}" ]; then
-        echo "use '${name} <${email}>' (y/n): \c"
+        name=$(${git} config --global user.name)
+        email=$(${git} config --global user.email)
+
+        echo "use current global user information '${name} <${email}>' for git (y/n): \c"
         read -r yn
         if [ "${yn}" = "n" ]; then
             name=
@@ -105,12 +109,13 @@ if [ ! -z "${git}" ] && [ -x "${git}" ]; then
         email=
     fi
 
+    # if not set, suggest user name and email from user-specific git confg
     if [ -z "${name}" ] && [ -z "${email}" ]; then
         name=$(${git} config -f "${HOME}"/.gitconfig.user user.name)
         email=$(${git} config -f "${HOME}"/.gitconfig.user user.email)
 
         if [ ! -z "${name}" ] && [ ! -z "${email}" ]; then
-            echo "use '${name} <${email}>' (y/n): \c"
+            echo "use current user-specific user information '${name} <${email}>' for git (y/n): \c"
             read -r yn
             if [ "${yn}" = "n" ]; then
                 name=
@@ -129,8 +134,9 @@ if [ ! -z "${git}" ] && [ -x "${git}" ]; then
         read -r email
     fi
 
+    # set the user-specific git config and clear the global git config
     if [ ! -z "${name}" ] && [ ! -z "${email}" ]; then
-        echo "setting git user to '${name} <${email}>' (y/n): \c"
+        echo "setting user-specific user information to '${name} <${email}>' for git (y/n): \c"
         read -r yn
         if [ "${yn}" = "y" ]; then
             # set user name/email in user-specific config
