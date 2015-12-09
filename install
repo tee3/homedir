@@ -38,6 +38,42 @@ else
     exit 1
 fi
 
+# ask user for name and email address
+name=
+email=
+
+if [ ! -z "${name}" ] || [ ! -z "${email}" ]; then
+    echo "use default '${name} <${email}>' (y/n): \c"
+    read -r yn
+    if [ "${yn}" = "n" ]; then
+        name=
+        email=
+    fi
+fi
+
+if [ -z "${name}" ] && [ -z "${email}" ]; then
+    echo "Do you want to configure a default name and email address (y/n): \c"
+    read -r yn
+    if [ "${yn}" = "y" ]; then
+        echo "Enter the user's full name (${name}): \c"
+        read -r s
+        if [ ! -z "${s}" ]; then
+            name=${s}
+        fi
+        echo "Enter the user's email address (${email}): \c"
+        read -r s
+        if [ ! -z "${s}" ]; then
+            email=${s}
+        fi
+        echo "use '${name} <${email}>' (y/n): \c"
+        read -r yn
+        if [ "${yn}" = "n" ]; then
+            name=
+            email=
+        fi
+    fi
+fi
+
 # create ~/opt/local if desired
 if [ ! -d "${HOME}"/opt ] || [ ! -d "${HOME}"/opt/local ]; then
     echo "create ~/opt/local? (y/n)?: \c"
@@ -115,6 +151,21 @@ if [ ! -z "${git}" ] && [ -x "${git}" ]; then
 
         if [ ! -z "${proposed_name}" ] && [ ! -z "${proposed_email}" ]; then
             echo "use current user-specific user information '${proposed_name} <${proposed_email}>' for git (y/n): \c"
+            read -r yn
+            if [ "${yn}" = "y" ]; then
+                git_name=${proposed_name}
+                git_email=${proposed_email}
+            fi
+        fi
+    fi
+
+    # if not set, suggest default user name and email
+    if [ -z "${git_name}" ] && [ -z "${git_email}" ]; then
+        proposed_name=${name}
+        proposed_email=${email}
+
+        if [ ! -z "${proposed_name}" ] && [ ! -z "${proposed_email}" ]; then
+            echo "use default '${proposed_name} <${proposed_email}>' for git (y/n): \c"
             read -r yn
             if [ "${yn}" = "y" ]; then
                 git_name=${proposed_name}
@@ -365,6 +416,16 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
         fi
     fi
 
+    # if not set, suggest the default user's full name for emacs
+    if [ -z "${emacs_name}" ]; then
+        proposed_name=${name}
+        echo "use default user's full name '${proposed_name}' for emacs (y/n): \c"
+        read -r yn
+        if [ "${yn}" = "y" ]; then
+            emacs_name=${proposed_name}
+        fi
+    fi
+
     # if not set, ask user for the user's full name for emacs
     if [ -z "${emacs_name}" ]; then
         echo "Enter the user's full name for emacs: \c"
@@ -394,6 +455,16 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
             if [ "${yn}" = "y" ]; then
                 emacs_email=${proposed_email}
             fi
+        fi
+    fi
+
+    # if not set, suggest the default user's email for emacs
+    if [ -z "${emacs_email}" ]; then
+        proposed_email=${email}
+        echo "use default user's email address '${proposed_email}' for emacs (y/n): \c"
+        read -r yn
+        if [ "${yn}" = "y" ]; then
+            emacs_email=${proposed_email}
         fi
     fi
 
