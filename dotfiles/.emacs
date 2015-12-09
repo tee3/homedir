@@ -343,13 +343,6 @@
   :ensure t)
 
 ;;;
-;;; Gnus
-;;;
-(use-package gnus
-  :init
-  (setq gnus-select-method '(nntp "news.gmane.org")))
-
-;;;
 ;;; Markdown formats
 ;;;
 (use-package adoc-mode
