@@ -1309,5 +1309,13 @@ See URL `http://www.jslint.com'."
   (unless (server-running-p)
     (server-start)))
 
+;;;
+;;; Load user- and machine-specific settings
+;;;
+(if (file-exists-p (expand-file-name "~/.emacs.machine.el"))
+    (load-file (expand-file-name "~/.emacs.machine.el")))
+(if (file-exists-p (expand-file-name "~/.emacs.user.el"))
+    (load-file (expand-file-name "~/.emacs.user.el")))
+
 (provide '.emacs)
 ;;; .emacs ends here
