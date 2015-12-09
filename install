@@ -90,11 +90,11 @@ if [ ! -z "${git}" ] && [ -x "${git}" ]; then
     fi
 
     # configure user name and email for git
-    name=
-    email=
+    git_name=
+    git_email=
 
     # if not set, suggest user name and email from global git config
-    if [ -z "${name}" ] && [ -z "${email}" ]; then
+    if [ -z "${git_name}" ] && [ -z "${git_email}" ]; then
         proposed_name=$(${git} config --global user.name)
         proposed_email=$(${git} config --global user.email)
 
@@ -102,14 +102,14 @@ if [ ! -z "${git}" ] && [ -x "${git}" ]; then
             echo "use current global user information '${proposed_name} <${proposed_email}>' for git (y/n): \c"
             read -r yn
             if [ "${yn}" = "y" ]; then
-                name=${proposed_name}
-                email=${proposed_email}
+                git_name=${proposed_name}
+                git_email=${proposed_email}
             fi
         fi
     fi
 
     # if not set, suggest user name and email from user-specific git confg
-    if [ -z "${name}" ] && [ -z "${email}" ]; then
+    if [ -z "${git_name}" ] && [ -z "${git_email}" ]; then
         proposed_name=$(${git} config -f "${HOME}"/.gitconfig.user user.name)
         proposed_email=$(${git} config -f "${HOME}"/.gitconfig.user user.email)
 
@@ -117,31 +117,31 @@ if [ ! -z "${git}" ] && [ -x "${git}" ]; then
             echo "use current user-specific user information '${proposed_name} <${proposed_email}>' for git (y/n): \c"
             read -r yn
             if [ "${yn}" = "y" ]; then
-                name=${proposed_name}
-                email=${proposed_email}
+                git_name=${proposed_name}
+                git_email=${proposed_email}
             fi
         fi
     fi
 
     # if not set, ask the user for name
-    if [ -z "${name}" ]; then
+    if [ -z "${git_name}" ]; then
         echo "Enter git user name: \c"
-        read -r name
+        read -r git_name
     fi
     # if not set, ask the user for email
-    if [ -z "${email}" ]; then
+    if [ -z "${git_email}" ]; then
         echo "Enter git user email: \c"
-        read -r email
+        read -r git_email
     fi
 
     # set the user-specific git config and clear the global git config
-    if [ ! -z "${name}" ] || [ ! -z "${email}" ]; then
-        echo "setting user-specific user information to '${name} <${email}>' for git (y/n): \c"
+    if [ ! -z "${git_name}" ] || [ ! -z "${git_email}" ]; then
+        echo "setting user-specific user information to '${git_name} <${git_email}>' for git (y/n): \c"
         read -r yn
         if [ "${yn}" = "y" ]; then
             # set user name/email in user-specific config
-            ${git} config -f "${HOME}"/.gitconfig.user user.name "${name}"
-            ${git} config -f "${HOME}"/.gitconfig.user user.email "${email}"
+            ${git} config -f "${HOME}"/.gitconfig.user user.name "${git_name}"
+            ${git} config -f "${HOME}"/.gitconfig.user user.email "${git_email}"
 
             # if present, clear user in global git config
             if [ ! -z "$(${git} config --global user.name)" ] || [ ! -z "$(${git} config --global user.email)" ]; then
