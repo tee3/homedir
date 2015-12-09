@@ -142,14 +142,12 @@ if [ ! -z "${git}" ] && [ -x "${git}" ]; then
             # set user name/email in user-specific config
             ${git} config -f "${HOME}"/.gitconfig.user user.name "${name}"
             ${git} config -f "${HOME}"/.gitconfig.user user.email "${email}"
-        fi
-    fi
 
-    echo "clear git user name/email (y/n): \c"
-    read -r yn
-    if [ "${yn}" = "y" ]; then
-        ${git} config --global --unset user.name
-        ${git} config --global --unset user.email
+            # if present, clear user in global git config
+            if [ ! -z "$(${git} config --global user.name)" ] || [ ! -z "$(${git} config --global user.email)" ]; then
+                ${git} config --global --remove-section user
+            fi
+        fi
     fi
 fi
 
