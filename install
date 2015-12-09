@@ -244,6 +244,40 @@ if [ "${yn}" = "y" ]; then
     fi
 fi
 
+# configure emacs
+emacs=$(which emacs 2> /dev/null)
+if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
+    # set up machine-specific ~/.emacs
+    if [ ! -e "${HOME}"/.emacs.machine.el ]; then
+        echo "~/.emacs.machine is used for machine-specific settings to .emacs."
+        touch "${HOME}"/.emacs.machine.el
+        echo ";;; package --- Machine-specific Emacs initialization." >> "${HOME}"/.emacs.machine.el
+        echo "" >> "${HOME}"/.emacs.machine.el
+        echo ";;; Commentary:" >> "${HOME}"/.emacs.machine.el
+        echo "" >> "${HOME}"/.emacs.machine.el
+        echo ";;; Code:" >> "${HOME}"/.emacs.machine.el
+        echo "" >> "${HOME}"/.emacs.machine.el
+        echo "(provide '.emacs.machine)" >> "${HOME}"/.emacs.machine.el
+        echo "" >> "${HOME}"/.emacs.machine.el
+        echo ";;; .emacs.machine.el ends here" >> "${HOME}"/.emacs.machine.el
+    fi
+
+    # set up user-specific ~/.emacs
+    if [ ! -e "${HOME}"/.emacs.user.el ]; then
+        echo "~/.emacs.user is used for user-specific settings to .emacs."
+        touch "${HOME}"/.emacs.user.el
+        echo ";;; package --- User-specific Emacs initialization." >> "${HOME}"/.emacs.user.el
+        echo "" >> "${HOME}"/.emacs.user.el
+        echo ";;; Commentary:" >> "${HOME}"/.emacs.user.el
+        echo "" >> "${HOME}"/.emacs.user.el
+        echo ";;; Code:" >> "${HOME}"/.emacs.user.el
+        echo "" >> "${HOME}"/.emacs.user.el
+        echo "(provide '.emacs.user)" >> "${HOME}"/.emacs.user.el
+        echo "" >> "${HOME}"/.emacs.user.el
+        echo ";;; .emacs.user.el ends here" >> "${HOME}"/.emacs.user.el
+    fi
+fi
+
 # ask to install python packages
 echo "Install Python packages? (y/n)?: \c"
 read -r yn
