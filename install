@@ -38,6 +38,70 @@ else
     exit 1
 fi
 
+# create ~/opt/local if desired
+if [ ! -d "${HOME}"/opt ] || [ ! -d "${HOME}"/opt/local ]; then
+    echo "create ~/opt/local? (y/n)?: \c"
+    read -r yn
+    if [ "${yn}" = "y" ]; then
+        mkdir -p "${HOME}"/opt/local/bin
+        mkdir -p "${HOME}"/opt/local/include
+        mkdir -p "${HOME}"/opt/local/lib
+        mkdir -p "${HOME}"/opt/local/man
+        mkdir -p "${HOME}"/opt/local/mnt
+        mkdir -p "${HOME}"/opt/local/share
+        mkdir -p "${HOME}"/opt/local/src
+
+        # populate ~/opt/local if it exists and desired
+        echo "nothing installed to ~/opt/local by default"
+    fi
+fi
+
+# requires stow
+stow=$(which stow 2> /dev/null)
+if [ -z "${stow}" ] || [ ! -x "${stow}" ]; then
+    echo "'stow' is not available"
+    exit 1
+fi
+
+# attempt to stow the dotfiles directory, clean up if fails.
+if ! ${stow} --target="${HOME}" dotfiles ; then
+    # requires diff
+    diff=$(which diff 2> /dev/null)
+    if [ -z "${diff}" ] || [ ! -x "${diff}" ]; then
+        echo "'diff' is not available"
+        exit 1
+    fi
+
+    # allow user to clean up existing files
+    for d in ${dotfiledirs} ; do
+        for f in $(find ${d} -type f) ; do
+            home_f="${HOME}"/$(basename "${f}")
+            if [ -e "${home_f}" ]; then
+                if [ "${f}" != "${home_f}" ]; then
+                    if ${diff} "${f}" "${home_f}" ; then
+                        echo "${f} is identical to ${home_f}.  Overwrite (y/n)?: \c"
+                        read -r yn
+                        if [ "${yn}" = "y" ]; then
+                            rm -i "${home_f}"
+                        fi
+                    else
+                        echo "${f} is different than ${home_f}.  Overwrite anyway (y/n)?: \c"
+                        read -r yn
+                        if [ "${yn}" = "y" ]; then
+                            rm -i "${home_f}"
+                        fi
+                    fi
+                fi
+            fi
+        done
+    done
+
+    if ! ${stow} --target="${HOME}" dotfiles ; then
+        echo "error: some targets could not be linked to home directory."
+        exit 1
+    fi
+fi
+
 # ask user for name and email address
 name=
 email=
@@ -74,21 +138,32 @@ if [ -z "${name}" ] && [ -z "${email}" ]; then
     fi
 fi
 
-# create ~/opt/local if desired
-if [ ! -d "${HOME}"/opt ] || [ ! -d "${HOME}"/opt/local ]; then
-    echo "create ~/opt/local? (y/n)?: \c"
-    read -r yn
-    if [ "${yn}" = "y" ]; then
-        mkdir -p "${HOME}"/opt/local/bin
-        mkdir -p "${HOME}"/opt/local/include
-        mkdir -p "${HOME}"/opt/local/lib
-        mkdir -p "${HOME}"/opt/local/man
-        mkdir -p "${HOME}"/opt/local/mnt
-        mkdir -p "${HOME}"/opt/local/share
-        mkdir -p "${HOME}"/opt/local/src
+# ask to install any services
+echo "Install services (launchd or systemd)? (y/n)?: \c"
+read -r yn
+if [ "${yn}" = "y" ]; then
+    if [ "${machine}" = linux ]; then
+        # @todo untested
+        for f in $(pwd)/services/systemd/*.plist; do
+            ln -i -v -s "${f}" "${HOME}"/.config/systemd/user
 
-        # populate ~/opt/local if it exists and desired
-        echo "nothing installed to ~/opt/local by default"
+            b=$(basename "${f}" .service)
+            systemctl --user enable "${b}"
+        done
+    elif [ "${machine}" = osx ]; then
+        for f in $(pwd)/services/launchd/*.plist; do
+            ln -i -v -s "${f}" "${HOME}"/Library/LaunchAgents
+
+            b=$(basename "${f}" .plist)
+            l=user/"$(id -u)"/"${b}"
+            launchctl enable "${l}"
+        done
+    elif [ "${machine}" = windows ]; then
+        echo "error: services install not implemented yet for windows"
+        exit 1
+    else
+        echo "error: unknown machine ${machine}."
+        exit 1
     fi
 fi
 
@@ -218,81 +293,6 @@ if [ ! -z "${hg}" ] && [ -x "${hg}" ]; then
     fi
 
     #! @todo use hg to set up user
-fi
-
-# requires stow
-stow=$(which stow 2> /dev/null)
-if [ -z "${stow}" ] || [ ! -x "${stow}" ]; then
-    echo "'stow' is not available"
-    exit 1
-fi
-
-# attempt to stow the dotfiles directory, clean up if fails.
-if ! ${stow} --target="${HOME}" dotfiles ; then
-    # requires diff
-    diff=$(which diff 2> /dev/null)
-    if [ -z "${diff}" ] || [ ! -x "${diff}" ]; then
-        echo "'diff' is not available"
-        exit 1
-    fi
-
-    # allow user to clean up existing files
-    for d in ${dotfiledirs} ; do
-        for f in $(find ${d} -type f) ; do
-            home_f="${HOME}"/$(basename "${f}")
-            if [ -e "${home_f}" ]; then
-                if [ "${f}" != "${home_f}" ]; then
-                    if ${diff} "${f}" "${home_f}" ; then
-                        echo "${f} is identical to ${home_f}.  Overwrite (y/n)?: \c"
-                        read -r yn
-                        if [ "${yn}" = "y" ]; then
-                            rm -i "${home_f}"
-                        fi
-                    else
-                        echo "${f} is different than ${home_f}.  Overwrite anyway (y/n)?: \c"
-                        read -r yn
-                        if [ "${yn}" = "y" ]; then
-                            rm -i "${home_f}"
-                        fi
-                    fi
-                fi
-            fi
-        done
-    done
-
-    if ! ${stow} --target="${HOME}" dotfiles ; then
-        echo "error: some targets could not be linked to home directory."
-        exit 1
-    fi
-fi
-
-# ask to install any services
-echo "Install services (launchd or systemd)? (y/n)?: \c"
-read -r yn
-if [ "${yn}" = "y" ]; then
-    if [ "${machine}" = linux ]; then
-        # @todo untested
-        for f in $(pwd)/services/systemd/*.plist; do
-            ln -i -v -s "${f}" "${HOME}"/.config/systemd/user
-
-            b=$(basename "${f}" .service)
-            systemctl --user enable "${b}"
-        done
-    elif [ "${machine}" = osx ]; then
-        for f in $(pwd)/services/launchd/*.plist; do
-            ln -i -v -s "${f}" "${HOME}"/Library/LaunchAgents
-
-            b=$(basename "${f}" .plist)
-            l=user/"$(id -u)"/"${b}"
-            launchctl enable "${l}"
-        done
-    elif [ "${machine}" = windows ]; then
-        echo "error: services install not implemented yet for windows"
-        exit 1
-    else
-        echo "error: unknown machine ${machine}."
-        exit 1
-    fi
 fi
 
 # configure emacs
