@@ -262,6 +262,65 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
         echo ";;; .emacs.machine.el ends here" >> "${HOME}"/.emacs.machine.el
     fi
 
+    # ensure that emacs knows a good host name
+    emacs_hostname=
+
+    # if not set, suggest the global system name for emacs
+    if [ -z "${emacs_hostname}" ]; then
+        proposed_hostname=$(${emacs} --batch --no-init-file --eval "(princ system-name)")
+
+        if [ ! -z "${proposed_hostname}" ]; then
+            echo "use current emacs system-name '${proposed_hostname}' for emacs (y/n): \c"
+            read -r yn
+            if [ "${yn}" = "y" ]; then
+                emacs_hostname=${proposed_hostname}
+            fi
+        fi
+    fi
+
+    # if not set, suggest the user-specific system name for emacs
+    if [ -z "${emacs_hostname}" ]; then
+        proposed_hostname=$(${emacs} --batch --no-init-file --load "${HOME}"/.emacs.user.el --eval "(princ system-name)")
+
+        if [ ! -z "${proposed_hostname}" ]; then
+            echo "use user-specific emacs system-name '${proposed_hostname}' for emacs (y/n): \c"
+            read -r yn
+            if [ "${yn}" = "y" ]; then
+                emacs_hostname=${proposed_hostname}
+            fi
+        fi
+    fi
+
+    # if not set, suggest the hostname of the computer for emacs
+    if [ -z "${emacs_hostname}" ]; then
+        proposed_hostname=$(hostname)
+
+        if [ ! -z "${proposed_hostname}" ]; then
+            echo "use hostname '${proposed_hostname}' for emacs (y/n): \c"
+            read -r yn
+            if [ "${yn}" = "y" ]; then
+                emacs_hostname=${proposed_hostname}
+            fi
+        fi
+    fi
+
+    # if not set, ask the user for the hostname
+    if [ -z "${emacs_hostname}" ]; then
+        echo "Enter system-name for emacs: \c"
+        read -r emacs_hostname
+    fi
+
+    # set the system-name for emacs
+    # @todo nice to edit the lisp s-expressions directly
+    if [ ! -z "${emacs_hostname}" ]; then
+        echo "use system-name '${emacs_hostname}' for emacs (y/n) \c"
+        read -r yn
+        if [ "${yn}" = "y" ]; then
+            echo "Add the following to ~/.emacs.machine.el"
+            echo "   (setq system-name \"${emacs_hostname}\")"
+        fi
+    fi
+
     # set up user-specific ~/.emacs
     if [ ! -e "${HOME}"/.emacs.user.el ]; then
         echo "~/.emacs.user is used for user-specific settings to .emacs."
@@ -275,6 +334,92 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
         echo "(provide '.emacs.user)" >> "${HOME}"/.emacs.user.el
         echo "" >> "${HOME}"/.emacs.user.el
         echo ";;; .emacs.user.el ends here" >> "${HOME}"/.emacs.user.el
+    fi
+
+    emacs_name=
+    emacs_email=
+
+    # if not set, suggest the global user's full name for emacs
+    if [ -z "${emacs_name}" ]; then
+        proposed_name=$(${emacs} --batch --no-init-file --eval "(princ user-full-name)")
+
+        if [ ! -z "${proposed_name}" ]; then
+            echo "use current global user's full name '${proposed_name}' for emacs (y/n): \c"
+            read -r yn
+            if [ "${yn}" = "y" ]; then
+                emacs_name=${proposed_name}
+            fi
+        fi
+    fi
+
+    # if not set, suggest the user-specific user's full name for emacs
+    if [ -z "${emacs_name}" ]; then
+        proposed_name=$(${emacs} --batch --no-init-file --load "${HOME}"/.emacs.user.el --eval "(princ user-full-name)")
+
+        if [ ! -z "${proposed_name}" ]; then
+            echo "use current user-specific user's full name '${proposed_name}' for emacs (y/n): \c"
+            read -r yn
+            if [ "${yn}" = "y" ]; then
+                emacs_name=${proposed_name}
+            fi
+        fi
+    fi
+
+    # if not set, ask user for the user's full name for emacs
+    if [ -z "${emacs_name}" ]; then
+        echo "Enter the user's full name for emacs: \c"
+        read -r emacs_name
+    fi
+
+    # if not set, suggest the global user's email for emacs
+    if [ -z "${emacs_email}" ]; then
+        proposed_email=$(${emacs} --batch --no-init-file --eval "(princ user-mail-address)")
+
+        if [ ! -z "${proposed_email}" ]; then
+            echo "use current global user's email '${proposed_email}' for emacs (y/n): \c"
+            read -r yn
+            if [ "${yn}" = "y" ]; then
+                emacs_email=${proposed_email}
+            fi
+        fi
+    fi
+
+    # if not set, suggest the user-specific user's email for emacs
+    if [ -z "${emacs_email}" ]; then
+        proposed_email=$(${emacs} --batch --no-init-file --load "${HOME}"/.emacs.user.el --eval "(princ user-mail-address)")
+
+        if [ ! -z "${proposed_email}" ]; then
+            echo "use current user-specific user's email '${proposed_email}' for emacs (y/n): \c"
+            read -r yn
+            if [ "${yn}" = "y" ]; then
+                emacs_email=${proposed_email}
+            fi
+        fi
+    fi
+
+    # if not set, ask user for the user's email for emacs
+    if [ -z "${emacs_email}" ]; then
+        echo "Enter the user's email for emacs: \c"
+        read -r emacs_email
+    fi
+
+    # set the user's full name and email for emacs
+    # @todo nice to edit the lisp s-expressions directly
+    if [ ! -z "${emacs_name}" ]; then
+        echo "use user's full name '${emacs_name}' for emacs (y/n): \c"
+        read -r yn
+        if [ "${yn}" = "y" ]; then
+            echo "Add the following to ~/.emacs.user.el"
+            echo "   (setq user-full-name \"${emacs_name}\")"
+        fi
+    fi
+    if [ ! -z "${emacs_email}" ]; then
+        echo "use user's email '${emacs_email}' for emacs (y/n): \c"
+        read -r yn
+        if [ "${yn}" = "y" ]; then
+            echo "Add the following to ~/.emacs.user.el"
+            echo "   (setq user-mail-address \"${emacs_email}\")"
+        fi
     fi
 fi
 
