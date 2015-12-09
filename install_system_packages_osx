@@ -47,10 +47,39 @@ brew upgrade --all
 brew install git
 brew update
 
-# re-tap all taps and update Homebrew
-for t in $(brew tap) ; do brew untap "${t}" ; done
+# notify of unspecified taps
+for t0 in $(brew tap) ; do
+    present=false
+    for t1 in ${brew_taps} ; do
+        if [ "${t0}" = "${t1}" ]; then
+            present=true
+        fi
+    done
+
+    if [ "${present}" = "false" ]; then
+        echo "warning: tap ${t0} is unspecified."
+    fi
+done
+
+# tap any missing taps and repair all taps
+for t0 in ${brew_taps} ; do
+    present=false
+    for t1 in $(brew tap) ; do
+        if [ "${t0}" = "${t1}" ]; then
+            present=true
+        fi
+    done
+
+    if [ "${present}" = "false" ]; then
+        brew tap --full "${t0}"
+    fi
+done
 brew update
-for t in ${brew_taps} ; do brew tap "${t}" ; done
+
+# repair all taps
+for t in $(brew tap) ; do
+    brew tap --repair "${t}"
+done
 brew update
 
 # upgrade existing packages
