@@ -1,25 +1,40 @@
-#!/bin/sh
+#!/usr/bin/env python
 #
 # Install Node packages in the node-packages.txt package list.
 
-set -u
+import sys
+import os
+import subprocess
 
-node=$(which node 2> /dev/null)
-if [ -z "${node}" ] || [ ! -x "${node}" ]; then
-    node=$(which nodejs 2> /dev/null)
-    if [ -z "${node}" ] || [ ! -x "${node}" ]; then
-        echo "error: node is not installed, skipping node module installation"
-        exit 1
-    fi
-fi
 
-npm=$(which npm 2> /dev/null)
-if [ -z "${npm}" ] || [ ! -x "${npm}" ]; then
-    echo "error: npm is not installed, skipping node module installation"
-    exit 1
-fi
+def emulate_run(s):
+    if subprocess.call(s, shell=True) == 0:
+        return True
+    return False
 
-node_packages=$(grep -v "^#" node-packages.txt)
-for m in ${node_packages} ; do
-    ${npm} install --global --prefix="${HOME}"/.node_modules "${m}"
-done
+
+def emulate_backtick(s):
+    try:
+        output = subprocess.check_output(s, shell=True).rstrip("\n")
+    except:
+        output = ""
+
+    return output
+
+HOME = os.environ["HOME"]
+
+node = emulate_backtick("which node 2> /dev/null")
+if node == "":
+    node = emulate_backtick("which nodejs 2> /dev/null")
+    if node == "":
+        print "error: node is not installed, skipping node module installation"
+        sys.exit(1)
+
+npm = emulate_backtick("which npm 2> /dev/null")
+if npm == "":
+    print "error: npm is not installed, skipping node module installation"
+    sys.exit(1)
+
+node_packages = emulate_backtick("grep -v \"^#\" node-packages.txt")
+for m in node_packages.split():
+    emulate_run(npm + " install --global --prefix=\"" + os.path.join(HOME, ".node_modules") + "\" \"" + m + "\"")

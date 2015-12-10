@@ -1,22 +1,39 @@
-#!/bin/sh
+#!/usr/bin/env python
 #
 # Install Ruby modules in the ruby-packages.gemfile Gemfile.
 
-set -u
+import sys
+import os
+import subprocess
 
-ruby=$(which ruby 2> /dev/null)
-if [ -z "${ruby}" ] || [ ! -x "${ruby}" ]; then
-    echo "error: Ruby not installed, not installing Ruby packages."
-    exit 1
-fi
 
-gem=$(which gem 2> /dev/null)
-if [ -z "${gem}" ] || [ ! -x "${gem}" ]; then
-    echo "error: gem is not available, skipping Ruby module installation"
-    exit 1
-fi
+def emulate_run(s):
+    if subprocess.call(s, shell=True) == 0:
+        return True
+    return False
+
+
+def emulate_backtick(s):
+    try:
+        output = subprocess.check_output(s, shell=True).rstrip("\n")
+    except:
+        output = ""
+
+    return output
+
+HOME = os.environ["HOME"]
+
+ruby = emulate_backtick("which ruby 2> /dev/null")
+if ruby == "":
+    print "error: Ruby not installed, not installing Ruby packages."
+    sys.exit(1)
+
+gem = emulate_backtick("which gem 2> /dev/null")
+if gem == "":
+    print "error: gem is not available, skipping Ruby module installation"
+    sys.exit(1)
 
 # location of gems with --user-install
-gemdir="$(ruby -rubygems -e 'puts Gem.user_dir')"
+gemdir = emulate_backtick(ruby + " -rubygems -e 'puts Gem.user_dir'")
 
-${gem} install --user-install --bindir="${gemdir}"/bin --file ruby-packages.gemfile
+emulate_run(gem + " install --user-install --bindir=\"" + os.path.join(gemdir, "bin") + "\" --file ruby-packages.gemfile")

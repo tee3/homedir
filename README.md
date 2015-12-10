@@ -83,7 +83,7 @@ The `HOME` environment variable must be set properly.  Note that this
 is almost always true in Unix environments, but may not be correct for
 some Unix emulation layers such as MSYS or Cygwin.
 
-* `sh`
+* `python`
 * `stow`
 * `diff`
 * `which`
@@ -241,6 +241,9 @@ user set up a home directory.  There is special support for features
 that require it.  It is not recommended to install the `~/opt/local`
 directories or the scripting language tools for the `administrator`
 user.
+
+Note that the `install` script and its supported scripts require
+Python.
 
 ```
 $ ./install

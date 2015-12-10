@@ -1,16 +1,33 @@
-#!/bin/sh
+#!/usr/bin/env python
 #
 # Install Go packages.
 
-set -u
+import sys
+import os
+import subprocess
 
-go=$(which go 2> /dev/null)
-if [ -z "${go}" ] || [ ! -x "${go}" ]; then
-    echo "error: Go not installed, not installing Go packages."
-    exit 1
-fi
 
-go_packages=$(grep -v "^#" go-packages.txt)
-for m in ${go_packages} ; do
-    GOPATH="${HOME}"/opt/local/src/go "${go}" get -u "${m}"
-done
+def emulate_run(s):
+    if subprocess.call(s, shell=True) == 0:
+        return True
+    return False
+
+
+def emulate_backtick(s):
+    try:
+        output = subprocess.check_output(s, shell=True).rstrip("\n")
+    except:
+        output = ""
+
+    return output
+
+HOME = os.environ["HOME"]
+
+go = emulate_backtick("which go 2> /dev/null")
+if go == "":
+    print "error: Go not installed, not installing Go packages."
+    sys.exit(1)
+
+go_packages = emulate_backtick("grep -v \"^#\" go-packages.txt")
+for m in go_packages.split():
+    emulate_run("GOPATH=\"" + os.path.join(HOME, "opt", "local", "src", "go") + "\"" + go + "\" get -u \"" + m + "\"")
