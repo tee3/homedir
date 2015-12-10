@@ -1,13 +1,13 @@
 # homedir
 
-This project contains a system to set up a Unix-based system to a
-usable state for my purposes.  This includes installing system
-packages (if required) as well as setting up a home directory and
-user-specific packages.
+This project contains a system to set up a system to a usable state
+for my purposes.  This includes installing system packages (if
+required) as well as setting up a home directory and user-specific
+packages.
 
 This is intended to be tracked using git and shared across multiple
 machines and so should be designed to work well across different types
-of Unix systems.
+of systems that support Python and the various programs.
 
 # rationale
 
@@ -39,6 +39,7 @@ date and all required packages are installed.
 
 * OS X
 * Linux
+* Windows
 
 While the `install` portion of this system supports Cygwin- or
 MSYS-based systems, the package managers for those systems are not
@@ -63,6 +64,10 @@ of the `tee3/homedir` directory.
 * Homebrew
 * administrator privileges (but not `sudo`)
 
+### windows
+
+* administrator privileges
+
 ## system
 
 * `administrator` user
@@ -77,6 +82,10 @@ of the `tee3/homedir` directory.
 * Homebrew
 * administrator privileges (but not `sudo`)
 
+### windows
+
+* extremely limited support
+
 ## user
 
 The `HOME` environment variable must be set properly.  Note that this
@@ -84,7 +93,7 @@ is almost always true in Unix environments, but may not be correct for
 some Unix emulation layers such as MSYS or Cygwin.
 
 * `python`
-* `stow`
+* `stow` (except on Windows)
 
 For installing user services, the following programs are required.
 
@@ -182,6 +191,22 @@ $ ./install_system_packages_osx
 $ sudo shutdown -r now
 ```
 
+## windows
+
+There is very limited support for installing system packages under
+Windows.
+
+Install Visual C++ and the Visual C++ Build Tools, while logged in to
+the graphical system as `administrator`.  From a `Git cmd.exe` window,
+install the system packages.  At the end of this process, reboot the
+machine.
+
+```
+C:> git clone https://github.com/tee3/homedir C:\Users\administrator\Development\homedir
+C:> cd C:\Users\administrator\Development\homedir
+C:> install_system_packages_windows
+```
+
 # system
 
 Installing system packages should be done as necessary as it updates
@@ -223,6 +248,18 @@ use `sudo` as Homebrew does not require it.
 
 ```
 $ ./install_system_packages_osx
+```
+
+## windows
+
+NOTE: Windows package support is lacking as there is no useful package
+system for Windows yet.
+
+To install system packages for Windows, run the following script as
+the administrator of the system.
+
+```
+C:> install_system_packages_windows
 ```
 
 # user
