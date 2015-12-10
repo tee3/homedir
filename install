@@ -69,8 +69,9 @@ if ((not os.path.isdir(os.path.join(HOME, "opt"))) or
         os.makedirs(os.path.join(HOME, "opt", "local", "share"))
         os.makedirs(os.path.join(HOME, "opt", "local", "src"))
 
-        # populate ~/opt/local if it exists and desired
-        print "Nothing installed to ~/opt/local by default."
+# populate ~/opt/local if it exists and desired
+if os.path.isdir(os.path.join(HOME, "opt", "local", "bin")):
+    print "Nothing installed to ~/opt/local by default."
 
 # requires stow
 stow = distutils.spawn.find_executable("stow")
