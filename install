@@ -40,8 +40,7 @@ if os.environ["HOME"] == "":
 HOME = os.environ["HOME"]
 
 # ask user for the type of machine
-print "Enter machine type {linux, osx, windows}: ",
-machine = raw_input()
+machine = raw_input("Enter machine type {linux, osx, windows}: ")
 if machine != "":
     if machine == "linux":
         print "Installing for Linux."
@@ -59,8 +58,7 @@ else:
 # create ~/opt/local if desired
 if ((not os.path.isdir(os.path.join(HOME, "opt"))) or
     (not os.path.isdir(os.path.join(HOME, "opt", "local")))):
-    print "Create ~/opt/local? (y/n): ",
-    yn = raw_input()
+    yn = raw_input("Create ~/opt/local? (y/n): ")
     if yn == "y":
         os.makedirs(os.path.join(HOME, "opt", "local", "bin"))
         os.makedirs(os.path.join(HOME, "opt", "local", "include"))
@@ -90,13 +88,11 @@ if not emulate_run([stow, "--target", HOME, dotfiledirs]):
             if os.path.exists(home_f):
                 if f != home_f:
                     if filecmp.cmp(f, home_f, False):
-                        print "%s is identical to %s.  Overwrite? (y/n): " % (f, home_f),
-                        yn = raw_input()
+                        yn = raw_input("%s is identical to %s.  Overwrite? (y/n): " % (f, home_f))
                         if yn == "y":
                             os.remove(home_f)
                     else:
-                        print "%s is different than %s.  Overwrite anyway? (y/n): " % (f, home_f),
-                        yn = raw_input()
+                        yn = raw_input("%s is different than %s.  Overwrite anyway? (y/n): " % (f, home_f))
                         if yn == "y":
                             os.remove(home_f)
 
@@ -109,33 +105,27 @@ name = ""
 email = ""
 
 if name != "" or email != "":
-    print "Use the default '%s <%s>'? (y/n): " % (name, email),
-    yn = raw_input()
+    yn = raw_input("Use the default '%s <%s>'? (y/n): " % (name, email))
     if yn == "n":
         name = ""
         email = ""
 
 if name == "" and email == "":
-    print "Do you want to configure a default name and email address? (y/n): ",
-    yn = raw_input()
+    yn = raw_input("Do you want to configure a default name and email address? (y/n): ")
     if yn == "y":
-        print "Enter the user's full name (%s): " % (name),
-        s = raw_input()
+        s = raw_input("Enter the user's full name (%s): " % (name))
         if s != "":
             name = s
-        print "Enter the user's email address (%s): " % (email),
-        s = raw_input()
+        s = raw_input("Enter the user's email address (%s): " % (email))
         if s != "":
             email = s
-        print "Use '%s <%s>'? (y/n): " % (name, email),
-        yn = raw_input()
+        yn = raw_input("Use '%s <%s>'? (y/n): " % (name, email))
         if yn == "n":
             name = ""
             email = ""
 
 # ask to install any services
-print "Install services (launchd or systemd)? (y/n): ",
-yn = raw_input()
+yn = raw_input("Install services (launchd or systemd)? (y/n): ")
 if yn == "y":
     if machine == "linux":
         # @todo untested
@@ -216,8 +206,7 @@ if git:
         proposed_email = emulate_backtick([git, "config", "--global", "user.email"])
 
         if proposed_name != "" or proposed_email != "":
-            print "Use the current global user information '%s <%s>' for git? (y/n): " % (proposed_name, proposed_email),
-            yn = raw_input()
+            yn = raw_input("Use the current global user information '%s <%s>' for git? (y/n): " % (proposed_name, proposed_email))
             if yn == "y":
                 git_name = proposed_name
                 git_email = proposed_email
@@ -228,8 +217,7 @@ if git:
         proposed_email = emulate_backtick([git, "config", "-f", gitconfig_user, "user.email"])
 
         if proposed_name != "" and proposed_email != "":
-            print "Use the current user-specific user information '%s <%s>' for git? (y/n): " % (proposed_name, proposed_email),
-            yn = raw_input()
+            yn = raw_input("Use the current user-specific user information '%s <%s>' for git? (y/n): " % (proposed_name, proposed_email))
             if yn == "y":
                 git_name = proposed_name
                 git_email = proposed_email
@@ -240,25 +228,21 @@ if git:
         proposed_email = email
 
         if proposed_name != "" and proposed_email != "":
-            print "Use the default '%s <%s>' for git? (y/n): " % (proposed_name, proposed_email),
-            yn = raw_input()
+            yn = raw_input("Use the default '%s <%s>' for git? (y/n): " % (proposed_name, proposed_email))
             if yn == "y":
                 git_name = proposed_name
                 git_email = proposed_email
 
     # if not set, ask the user for name
     if git_name == "":
-        print "Enter git user name: ",
-        git_name = raw_input()
+        git_name = raw_input("Enter git user name: ")
     # if not set, ask the user for email
     if git_email == "":
-        print "Enter git user email: ",
-        git_email = raw_input()
+        git_email = raw_input("Enter git user email: ")
 
     # set the user-specific git config and clear the global git config
     if git_name != "" or git_email != "":
-        print "Setting the user-specific user information to '%s <%s>' for git? (y/n): " % (git_name, git_email),
-        yn = raw_input()
+        yn = raw_input("Setting the user-specific user information to '%s <%s>' for git? (y/n): " % (git_name, git_email))
         if yn == "y":
             # set user name/email in user-specific config
             emulate_run([git, "config", "-f", gitconfig_user, "user.name", git_name])
@@ -310,8 +294,7 @@ if emacs:
         proposed_hostname = emulate_backtick([emacs, "--batch", "--no-init-file", "--eval", "(princ system-name)"])
 
         if proposed_hostname != "":
-            print "Use the current emacs system-name '%s' for emacs? (y/n): " % (proposed_hostname),
-            yn = raw_input()
+            yn = raw_input("Use the current emacs system-name '%s' for emacs? (y/n): " % (proposed_hostname))
             if yn == "y":
                 emacs_hostname = proposed_hostname
 
@@ -320,8 +303,7 @@ if emacs:
         proposed_hostname = emulate_backtick([emacs, "--batch", "--no-init-file", "--load", emacs_machine, "--eval", "(princ system-name)"])
 
         if proposed_hostname != "":
-            print "Use the user-specific emacs system-name '%s' for emacs? (y/n): " % (proposed_hostname),
-            yn = raw_input()
+            yn = raw_input("Use the user-specific emacs system-name '%s' for emacs? (y/n): " % (proposed_hostname))
             if yn == "y":
                 emacs_hostname = proposed_hostname
 
@@ -330,21 +312,18 @@ if emacs:
         proposed_hostname = os.uname()[1]
 
         if proposed_hostname != "":
-            print "Use the hostname '%s' for emacs? (y/n): " % (proposed_hostname),
-            yn = raw_input()
+            yn = raw_input("Use the hostname '%s' for emacs? (y/n): " % (proposed_hostname))
             if yn == "y":
                 emacs_hostname = proposed_hostname
 
     # if not set, ask the user for the hostname
     if emacs_hostname == "":
-        print "Enter system-name for emacs: ",
-        emacs_hostname = raw_input()
+        emacs_hostname = raw_input("Enter system-name for emacs: ")
 
     # set the system-name for emacs
     # @todo nice to edit the lisp s-expressions directly
     if emacs_hostname != "":
-        print "Use the system-name '%s' for emacs? (y/n) " % (emacs_hostname),
-        yn = raw_input()
+        yn = raw_input("Use the system-name '%s' for emacs? (y/n) " % (emacs_hostname))
         if yn == "y":
             print "Add the following to ~/.emacs.machine.el:"
             print "   (setq system-name \"%s\")" % (emacs_hostname)
@@ -372,8 +351,7 @@ if emacs:
         proposed_name = emulate_backtick([emacs, "--batch", "--no-init-file", "--eval", "(princ user-full-name)"])
 
         if proposed_name != "":
-            print "Use the current global user's full name '%s' for emacs? (y/n): " % (proposed_name),
-            yn = raw_input()
+            yn = raw_input("Use the current global user's full name '%s' for emacs? (y/n): " % (proposed_name))
             if yn == "y":
                 emacs_name = proposed_name
 
@@ -382,31 +360,27 @@ if emacs:
         proposed_name = emulate_backtick([emacs, "--batch", "--no-init-file", "--load", emacs_user, "--eval", "(princ user-full-name)"])
 
         if proposed_name != "":
-            print "Use the current user-specific user's full name '%s' for emacs? (y/n): " % (proposed_name),
-            yn = raw_input()
+            yn = raw_input("Use the current user-specific user's full name '%s' for emacs? (y/n): " % (proposed_name))
             if yn == "y":
                 emacs_name = proposed_name
 
     # if not set, suggest the default user's full name for emacs
     if emacs_name == "":
         proposed_name = name
-        print "Use the default user's full name '%s' for emacs? (y/n): " % (proposed_name),
-        yn = raw_input()
+        yn = raw_input("Use the default user's full name '%s' for emacs? (y/n): " % (proposed_name))
         if yn == "y":
             emacs_name = proposed_name
 
     # if not set, ask user for the user's full name for emacs
     if emacs_name == "":
-        print "Enter the user's full name for emacs: ",
-        emacs_name = raw_input()
+        emacs_name = raw_input("Enter the user's full name for emacs: ")
 
     # if not set, suggest the global user's email for emacs
     if emacs_email == "":
         proposed_email = emulate_backtick([emacs, "--batch", "--no-init-file", "--eval", "(princ user-mail-address)"])
 
         if proposed_email != "":
-            print "Use the current global user's email '%s' for emacs? (y/n): " % (proposed_email),
-            yn = raw_input()
+            yn = raw_input("Use the current global user's email '%s' for emacs? (y/n): " % (proposed_email))
             if yn == "y":
                 emacs_email = proposed_email
 
@@ -415,63 +389,54 @@ if emacs:
         proposed_email = emulate_backtick([emacs, "--batch", "--no-init-file", "--load", emacs_user, "--eval", "(princ user-mail-address)"])
 
         if proposed_email != "":
-            print "Use the current user-specific user's email '%s' for emacs? (y/n): " % (proposed_email),
-            yn = raw_input()
+            yn = raw_input("Use the current user-specific user's email '%s' for emacs? (y/n): " % (proposed_email))
             if yn == "y":
                 emacs_email = proposed_email
 
     # if not set, suggest the default user's email for emacs
     if emacs_email == "":
         proposed_email = email
-        print "Use the default user's email address '%s' for emacs? (y/n): " % (proposed_email),
-        yn = raw_input()
+        yn = raw_input("Use the default user's email address '%s' for emacs? (y/n): " % (proposed_email))
         if yn == "y":
             emacs_email = proposed_email
 
     # if not set, ask user for the user's email for emacs
     if emacs_email == "":
-        print "Enter the user's email for emacs: ",
-        emacs_email = raw_input()
+        emacs_email = raw_input("Enter the user's email for emacs: ")
 
     # set the user's full name and email for emacs
     # @todo nice to edit the lisp s-expressions directly
     if emacs_name != "":
-        print "Use the user's full name '%s' for emacs? (y/n): " % (emacs_name),
-        yn = raw_input()
+        yn = raw_input("Use the user's full name '%s' for emacs? (y/n): " % (emacs_name))
         if yn == "y":
             print "Add the following to ~/.emacs.user.el:"
             print "   (setq user-full-name \"%s\")" % (emacs_name)
     if emacs_email != "":
-        print "Use the user's email '%s' for emacs? (y/n): " % (emacs_email),
-        yn = raw_input()
+        yn = raw_input("Use the user's email '%s' for emacs? (y/n): " % (emacs_email))
         if yn == "y":
             print "Add the following to ~/.emacs.user.el:"
             print "   (setq user-mail-address \"%s\")" % (emacs_email)
 
 # ask to install python packages
-print "Install Python packages? (y/n): ",
-yn = raw_input()
+yn = raw_input("Install Python packages? (y/n): ")
 if yn == "y":
     if not emulate_run([os.path.abspath("install_python_packages")]):
         print "warning: failed to install Python packages."
 
 # ask to install ruby packages
-print "Install Ruby packages? (y/n): ",
-yn = raw_input()
+yn = raw_input("Install Ruby packages? (y/n): ")
 if yn == "y":
     if not emulate_run([os.path.abspath("install_ruby_packages")]):
         print "warning: failed to install Ruby packages."
 
 # ask to install node packages
-print "Install Node packages? (y/n): ",
-yn = raw_input()
+yn = raw_input("Install Node packages? (y/n): ")
 if yn == "y":
     if not emulate_run([os.path.abspath("install_node_packages")]):
         print "warning: failed to install Node.js packages."
 
 # ask to install go packages
-print "Install Go packages? (y/n): ",
-yn = raw_input()
+yn = raw_input("Install Go packages? (y/n): ")
 if yn == "y":
     if not emulate_run([os.path.abspath("install_go_packages")]):
         print "warning: failed to install Go packages."
