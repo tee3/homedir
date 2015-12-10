@@ -1,6 +1,7 @@
 # JavaScript Development Tools
 jsdoc
 
+esformatter
 eslint
 jscs
 jshint
