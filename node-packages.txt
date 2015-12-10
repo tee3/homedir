@@ -8,7 +8,9 @@ jslint
 semistandard
 semistandard-format
 
+json
 jsonlint
+json-diff
 
 tern
 
