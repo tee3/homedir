@@ -13,15 +13,6 @@ def emulate_run(s):
         return True
     return False
 
-
-def emulate_backtick(s):
-    try:
-        output = subprocess.check_output(s, shell=True).rstrip("\n")
-    except:
-        output = ""
-
-    return output
-
 HOME = os.environ["HOME"]
 
 node = distutils.spawn.find_executable("node")
@@ -36,6 +27,7 @@ if not npm:
     print "error: npm is not installed, skipping node module installation"
     sys.exit(1)
 
-node_packages = emulate_backtick("grep -v \"^#\" node-packages.txt")
-for m in node_packages.split():
-    emulate_run(npm + " install --global --prefix=\"" + os.path.join(HOME, ".node_modules") + "\" \"" + m + "\"")
+with open("node-packages.txt", "r") as f:
+    for line in f:
+        if line != "" and line[0] != "#":
+            emulate_run(npm + " install --global --prefix=\"" + os.path.join(HOME, ".node_modules") + "\" \"" + line + "\"")
