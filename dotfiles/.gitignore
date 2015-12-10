@@ -44,3 +44,6 @@ xcuserdata/
 
 # Tern
 .tern-port
+
+# Clang Tooling
+compile_commands.json
