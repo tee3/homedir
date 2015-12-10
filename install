@@ -331,7 +331,7 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
 
     # if not set, suggest the user-specific system name for emacs
     if [ -z "${emacs_hostname}" ]; then
-        proposed_hostname=$(${emacs} --batch --no-init-file --load "${HOME}"/.emacs.user.el --eval "(princ system-name)")
+        proposed_hostname=$(${emacs} --batch --no-init-file --load "${HOME}"/.emacs.machine.el --eval "(princ system-name)")
 
         if [ ! -z "${proposed_hostname}" ]; then
             echo "use user-specific emacs system-name '${proposed_hostname}' for emacs (y/n): \c"
