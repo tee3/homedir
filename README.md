@@ -86,6 +86,25 @@ some Unix emulation layers such as MSYS or Cygwin.
 * `sh`
 * `stow`
 * `diff`
+* `which`
+* `ln`
+
+For installing user services, the following programs are required.
+
+* `launchctl` for OS X
+* `systemctl` for Linux
+
+To configure some useful programs, those programs must exist on the
+system.
+
+* `bash`
+* `git`
+* `mercurial`
+* `emacs`
+* `python`
+* `ruby`
+* `node.js`
+* `go`
 
 # bootstrap
 
