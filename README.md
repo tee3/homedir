@@ -197,6 +197,9 @@ system you are on.  A package list with a script for each system that
 processes the list and turns it into commands to Homebrew, `apt-get`,
 `yum`, etc. would be an interesting approach.
 
+The system install scripts are written in the least-common denominator
+language for the system on which it runs.
+
 ## fedora
 
 To install system packages for Fedora-based systems (via yum), run the
