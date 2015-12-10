@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Install Node modules in the node-packages.txt package list.
+# Install Node packages in the node-packages.txt package list.
 
 set -u
 
@@ -16,7 +16,7 @@ if [ -z "${npm}" ] || [ ! -x "${npm}" ]; then
     exit 1
 fi
 
-node_modules=$(grep -v "^#" node-packages.txt)
-for m in ${node_modules} ; do
+node_packages=$(grep -v "^#" node-packages.txt)
+for m in ${node_packages} ; do
     ${npm} install --global --prefix="${HOME}"/.node_modules "${m}"
 done
