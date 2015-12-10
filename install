@@ -9,13 +9,13 @@ dotfiledirs="dotfiles"
 # requires running form the root of the dotfiles directory
 rootdir=$(cd "$(dirname ./install)" && pwd)
 if [ "${rootdir}" != "${PWD}" ]; then
-    echo "must be run from the root of the dotfiles directory"
+    echo "error: must be run from the root of the dotfiles directory."
     exit 1
 fi
 
 # requires HOME.
 if [ -z "${HOME}" ]; then
-    echo "HOME is not set, aborting"
+    echo "error: HOME is not set, aborting."
     exit 1
 fi
 
@@ -24,23 +24,23 @@ echo "Enter machine type {linux, osx, windows}: \c"
 read -r machine
 if [ ! -z "${machine}" ]; then
     if [ "${machine}" = linux ]; then
-        echo "Installing for Linux"
+        echo "Installing for Linux."
     elif [ "${machine}" = osx ]; then
-        echo "Installing for OS X"
+        echo "Installing for OS X."
     elif [ "${machine}" = windows ]; then
-        echo "Installing for Windows"
+        echo "Installing for Windows."
     else
-        echo "error: unknown machine ${machine}, aborting"
+        echo "error: unknown machine ${machine}, aborting."
         exit 1
     fi
 else
-    echo "error: machine must be set, aborting"
+    echo "error: machine must be set, aborting."
     exit 1
 fi
 
 # create ~/opt/local if desired
 if [ ! -d "${HOME}"/opt ] || [ ! -d "${HOME}"/opt/local ]; then
-    echo "create ~/opt/local? (y/n)?: \c"
+    echo "Create ~/opt/local? (y/n): \c"
     read -r yn
     if [ "${yn}" = "y" ]; then
         mkdir -p "${HOME}"/opt/local/bin
@@ -52,14 +52,14 @@ if [ ! -d "${HOME}"/opt ] || [ ! -d "${HOME}"/opt/local ]; then
         mkdir -p "${HOME}"/opt/local/src
 
         # populate ~/opt/local if it exists and desired
-        echo "nothing installed to ~/opt/local by default"
+        echo "Nothing installed to ~/opt/local by default."
     fi
 fi
 
 # requires stow
 stow=$(which stow 2> /dev/null)
 if [ -z "${stow}" ] || [ ! -x "${stow}" ]; then
-    echo "'stow' is not available"
+    echo "error: 'stow' is not available."
     exit 1
 fi
 
@@ -68,7 +68,7 @@ if ! ${stow} --target="${HOME}" dotfiles ; then
     # requires diff
     diff=$(which diff 2> /dev/null)
     if [ -z "${diff}" ] || [ ! -x "${diff}" ]; then
-        echo "'diff' is not available"
+        echo "error: 'diff' is not available."
         exit 1
     fi
 
@@ -79,13 +79,13 @@ if ! ${stow} --target="${HOME}" dotfiles ; then
             if [ -e "${home_f}" ]; then
                 if [ "${f}" != "${home_f}" ]; then
                     if ${diff} "${f}" "${home_f}" ; then
-                        echo "${f} is identical to ${home_f}.  Overwrite (y/n)?: \c"
+                        echo "${f} is identical to ${home_f}.  Overwrite? (y/n): \c"
                         read -r yn
                         if [ "${yn}" = "y" ]; then
                             rm -i "${home_f}"
                         fi
                     else
-                        echo "${f} is different than ${home_f}.  Overwrite anyway (y/n)?: \c"
+                        echo "${f} is different than ${home_f}.  Overwrite anyway? (y/n): \c"
                         read -r yn
                         if [ "${yn}" = "y" ]; then
                             rm -i "${home_f}"
@@ -107,7 +107,7 @@ name=
 email=
 
 if [ ! -z "${name}" ] || [ ! -z "${email}" ]; then
-    echo "use default '${name} <${email}>' (y/n): \c"
+    echo "Use the default '${name} <${email}>'? (y/n): \c"
     read -r yn
     if [ "${yn}" = "n" ]; then
         name=
@@ -116,7 +116,7 @@ if [ ! -z "${name}" ] || [ ! -z "${email}" ]; then
 fi
 
 if [ -z "${name}" ] && [ -z "${email}" ]; then
-    echo "Do you want to configure a default name and email address (y/n): \c"
+    echo "Do you want to configure a default name and email address? (y/n): \c"
     read -r yn
     if [ "${yn}" = "y" ]; then
         echo "Enter the user's full name (${name}): \c"
@@ -129,7 +129,7 @@ if [ -z "${name}" ] && [ -z "${email}" ]; then
         if [ ! -z "${s}" ]; then
             email=${s}
         fi
-        echo "use '${name} <${email}>' (y/n): \c"
+        echo "Use '${name} <${email}>'? (y/n): \c"
         read -r yn
         if [ "${yn}" = "n" ]; then
             name=
@@ -139,7 +139,7 @@ if [ -z "${name}" ] && [ -z "${email}" ]; then
 fi
 
 # ask to install any services
-echo "Install services (launchd or systemd)? (y/n)?: \c"
+echo "Install services (launchd or systemd)? (y/n): \c"
 read -r yn
 if [ "${yn}" = "y" ]; then
     if [ "${machine}" = linux ]; then
@@ -159,7 +159,7 @@ if [ "${yn}" = "y" ]; then
             launchctl enable "${l}"
         done
     elif [ "${machine}" = windows ]; then
-        echo "error: services install not implemented yet for windows"
+        echo "error: services install not implemented yet for windows."
         exit 1
     else
         echo "error: unknown machine ${machine}."
@@ -170,7 +170,7 @@ fi
 # set up machine-specific ~/.bashrc
 bashrc_local=${HOME}/.bashrc.local
 if [ ! -e "${bashrc_local}" ]; then
-    echo "~/.bashrc.local is used for machine-specific bash settings."
+    echo "Note that ~/.bashrc.local is used for machine-specific bash settings."
     touch "${bashrc_local}"
 fi
 
@@ -180,7 +180,7 @@ if [ ! -z "${git}" ] && [ -x "${git}" ]; then
     # set up machine-specific ~/.gitconfig
     gitconfig_machine=${HOME}/.gitconfig.machine
     if [ ! -e "${gitconfig_machine}" ]; then
-        echo "~/.gitconfig.machine is used for machine-specific settings to .gitconfig."
+        echo "Note that ~/.gitconfig.machine is used for machine-specific settings to .gitconfig."
         touch "${gitconfig_machine}"
     fi
 
@@ -199,7 +199,7 @@ if [ ! -z "${git}" ] && [ -x "${git}" ]; then
     # set up user-specific ~/.gitconfig
     gitconfig_user=${HOME}/.gitconfig.user
     if [ ! -e "${gitconfig_user}" ]; then
-        echo "~/.gitconfig.user is used for user-specific settings to .gitconfig."
+        echo "Note that ~/.gitconfig.user is used for user-specific settings to .gitconfig."
         touch "${gitconfig_user}"
     fi
 
@@ -213,7 +213,7 @@ if [ ! -z "${git}" ] && [ -x "${git}" ]; then
         proposed_email=$(${git} config --global user.email)
 
         if [ ! -z "${proposed_name}" ] || [ ! -z "${proposed_email}" ]; then
-            echo "use current global user information '${proposed_name} <${proposed_email}>' for git (y/n): \c"
+            echo "Use the current global user information '${proposed_name} <${proposed_email}>' for git? (y/n): \c"
             read -r yn
             if [ "${yn}" = "y" ]; then
                 git_name=${proposed_name}
@@ -228,7 +228,7 @@ if [ ! -z "${git}" ] && [ -x "${git}" ]; then
         proposed_email=$(${git} config -f "${gitconfig_user}" user.email)
 
         if [ ! -z "${proposed_name}" ] && [ ! -z "${proposed_email}" ]; then
-            echo "use current user-specific user information '${proposed_name} <${proposed_email}>' for git (y/n): \c"
+            echo "Use the current user-specific user information '${proposed_name} <${proposed_email}>' for git? (y/n): \c"
             read -r yn
             if [ "${yn}" = "y" ]; then
                 git_name=${proposed_name}
@@ -243,7 +243,7 @@ if [ ! -z "${git}" ] && [ -x "${git}" ]; then
         proposed_email=${email}
 
         if [ ! -z "${proposed_name}" ] && [ ! -z "${proposed_email}" ]; then
-            echo "use default '${proposed_name} <${proposed_email}>' for git (y/n): \c"
+            echo "Use the default '${proposed_name} <${proposed_email}>' for git? (y/n): \c"
             read -r yn
             if [ "${yn}" = "y" ]; then
                 git_name=${proposed_name}
@@ -265,7 +265,7 @@ if [ ! -z "${git}" ] && [ -x "${git}" ]; then
 
     # set the user-specific git config and clear the global git config
     if [ ! -z "${git_name}" ] || [ ! -z "${git_email}" ]; then
-        echo "setting user-specific user information to '${git_name} <${git_email}>' for git (y/n): \c"
+        echo "Set user-specific user information to '${git_name} <${git_email}>' for git? (y/n): \c"
         read -r yn
         if [ "${yn}" = "y" ]; then
             # set user name/email in user-specific config
@@ -284,14 +284,14 @@ if [ ! -z "${hg}" ] && [ -x "${hg}" ]; then
     # set up machine-specific ~/.hgrc
     hgrc_machine=${HOME}/.hgrc.machine
     if [ ! -e "${hgrc_machine}" ]; then
-        echo "~/.hgrc.machine is used for machine-specific settings to .hgrc."
+        echo "Note that ~/.hgrc.machine is used for machine-specific settings to .hgrc."
         touch "${hgrc_machine}"
     fi
 
     # set up user-specific ~/.hgrc
     hgrc_user=${HOME}/.hgrc.user
     if [ ! -e "${hgrc_user}" ]; then
-        echo "~/.hgrc.user is used for user-specific settings to .hgrc."
+        echo "Note that ~/.hgrc.user is used for user-specific settings to .hgrc."
         touch "${hgrc_user}"
     fi
 
@@ -304,7 +304,7 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
     # set up machine-specific ~/.emacs
     emacs_machine=${HOME}/.emacs.machine.el
     if [ ! -e "${emacs_machine}" ]; then
-        echo "~/.emacs.machine.el is used for machine-specific settings to .emacs."
+        echo "Note that ~/.emacs.machine.el is used for machine-specific settings to .emacs."
         touch "${emacs_machine}"
         echo ";;; package --- Machine-specific Emacs initialization." >> "${emacs_machine}"
         echo "" >> "${emacs_machine}"
@@ -325,7 +325,7 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
         proposed_hostname=$(${emacs} --batch --no-init-file --eval "(princ system-name)")
 
         if [ ! -z "${proposed_hostname}" ]; then
-            echo "use current emacs system-name '${proposed_hostname}' for emacs (y/n): \c"
+            echo "Use the current emacs system-name '${proposed_hostname}' for emacs? (y/n): \c"
             read -r yn
             if [ "${yn}" = "y" ]; then
                 emacs_hostname=${proposed_hostname}
@@ -338,7 +338,7 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
         proposed_hostname=$(${emacs} --batch --no-init-file --load "${emacs_machine}" --eval "(princ system-name)")
 
         if [ ! -z "${proposed_hostname}" ]; then
-            echo "use user-specific emacs system-name '${proposed_hostname}' for emacs (y/n): \c"
+            echo "Use the user-specific emacs system-name '${proposed_hostname}' for emacs? (y/n): \c"
             read -r yn
             if [ "${yn}" = "y" ]; then
                 emacs_hostname=${proposed_hostname}
@@ -351,7 +351,7 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
         proposed_hostname=$(hostname)
 
         if [ ! -z "${proposed_hostname}" ]; then
-            echo "use hostname '${proposed_hostname}' for emacs (y/n): \c"
+            echo "Use the hostname '${proposed_hostname}' for emacs? (y/n): \c"
             read -r yn
             if [ "${yn}" = "y" ]; then
                 emacs_hostname=${proposed_hostname}
@@ -368,10 +368,10 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
     # set the system-name for emacs
     # @todo nice to edit the lisp s-expressions directly
     if [ ! -z "${emacs_hostname}" ]; then
-        echo "use system-name '${emacs_hostname}' for emacs (y/n) \c"
+        echo "Use the system-name '${emacs_hostname}' for emacs? (y/n): \c"
         read -r yn
         if [ "${yn}" = "y" ]; then
-            echo "Add the following to ~/.emacs.machine.el"
+            echo "Add the following to ~/.emacs.machine.el:"
             echo "   (setq system-name \"${emacs_hostname}\")"
         fi
     fi
@@ -379,7 +379,7 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
     # set up user-specific ~/.emacs
     emacs_user=${HOME}/.emacs.user.el
     if [ ! -e "${emacs_user}" ]; then
-        echo "~/.emacs.user.el is used for user-specific settings to .emacs."
+        echo "Note that ~/.emacs.user.el is used for user-specific settings to .emacs."
         touch "${emacs_user}"
         echo ";;; package --- User-specific Emacs initialization." >> "${emacs_user}"
         echo "" >> "${emacs_user}"
@@ -400,7 +400,7 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
         proposed_name=$(${emacs} --batch --no-init-file --eval "(princ user-full-name)")
 
         if [ ! -z "${proposed_name}" ]; then
-            echo "use current global user's full name '${proposed_name}' for emacs (y/n): \c"
+            echo "Use the current global user's full name '${proposed_name}' for emacs? (y/n): \c"
             read -r yn
             if [ "${yn}" = "y" ]; then
                 emacs_name=${proposed_name}
@@ -413,7 +413,7 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
         proposed_name=$(${emacs} --batch --no-init-file --load "${emacs_user}" --eval "(princ user-full-name)")
 
         if [ ! -z "${proposed_name}" ]; then
-            echo "use current user-specific user's full name '${proposed_name}' for emacs (y/n): \c"
+            echo "Use the current user-specific user's full name '${proposed_name}' for emacs? (y/n): \c"
             read -r yn
             if [ "${yn}" = "y" ]; then
                 emacs_name=${proposed_name}
@@ -424,7 +424,7 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
     # if not set, suggest the default user's full name for emacs
     if [ -z "${emacs_name}" ]; then
         proposed_name=${name}
-        echo "use default user's full name '${proposed_name}' for emacs (y/n): \c"
+        echo "Use the default user's full name '${proposed_name}' for emacs? (y/n): \c"
         read -r yn
         if [ "${yn}" = "y" ]; then
             emacs_name=${proposed_name}
@@ -442,7 +442,7 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
         proposed_email=$(${emacs} --batch --no-init-file --eval "(princ user-mail-address)")
 
         if [ ! -z "${proposed_email}" ]; then
-            echo "use current global user's email '${proposed_email}' for emacs (y/n): \c"
+            echo "Use the current global user's email '${proposed_email}' for emacs? (y/n): \c"
             read -r yn
             if [ "${yn}" = "y" ]; then
                 emacs_email=${proposed_email}
@@ -455,7 +455,7 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
         proposed_email=$(${emacs} --batch --no-init-file --load "${emacs_user}" --eval "(princ user-mail-address)")
 
         if [ ! -z "${proposed_email}" ]; then
-            echo "use current user-specific user's email '${proposed_email}' for emacs (y/n): \c"
+            echo "Use the current user-specific user's email '${proposed_email}' for emacs? (y/n): \c"
             read -r yn
             if [ "${yn}" = "y" ]; then
                 emacs_email=${proposed_email}
@@ -466,7 +466,7 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
     # if not set, suggest the default user's email for emacs
     if [ -z "${emacs_email}" ]; then
         proposed_email=${email}
-        echo "use default user's email address '${proposed_email}' for emacs (y/n): \c"
+        echo "Use the default user's email address '${proposed_email}' for emacs? (y/n): \c"
         read -r yn
         if [ "${yn}" = "y" ]; then
             emacs_email=${proposed_email}
@@ -482,25 +482,25 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
     # set the user's full name and email for emacs
     # @todo nice to edit the lisp s-expressions directly
     if [ ! -z "${emacs_name}" ]; then
-        echo "use user's full name '${emacs_name}' for emacs (y/n): \c"
+        echo "Use the user's full name '${emacs_name}' for emacs? (y/n): \c"
         read -r yn
         if [ "${yn}" = "y" ]; then
-            echo "Add the following to ~/.emacs.user.el"
+            echo "Add the following to ~/.emacs.user.el:"
             echo "   (setq user-full-name \"${emacs_name}\")"
         fi
     fi
     if [ ! -z "${emacs_email}" ]; then
-        echo "use user's email '${emacs_email}' for emacs (y/n): \c"
+        echo "Use the user's email '${emacs_email}' for emacs? (y/n): \c"
         read -r yn
         if [ "${yn}" = "y" ]; then
-            echo "Add the following to ~/.emacs.user.el"
+            echo "Add the following to ~/.emacs.user.el:"
             echo "   (setq user-mail-address \"${emacs_email}\")"
         fi
     fi
 fi
 
 # ask to install python packages
-echo "Install Python packages? (y/n)?: \c"
+echo "Install Python packages? (y/n): \c"
 read -r yn
 if [ "${yn}" = "y" ]; then
     if ! ./install_python_packages ; then
@@ -509,7 +509,7 @@ if [ "${yn}" = "y" ]; then
 fi
 
 # ask to install ruby packages
-echo "Install Ruby packages? (y/n)?: \c"
+echo "Install Ruby packages? (y/n): \c"
 read -r yn
 if [ "${yn}" = "y" ]; then
     if ! ./install_ruby_packages ; then
@@ -518,7 +518,7 @@ if [ "${yn}" = "y" ]; then
 fi
 
 # ask to install node packages
-echo "Install Node packages? (y/n)?: \c"
+echo "Install Node packages? (y/n): \c"
 read -r yn
 if [ "${yn}" = "y" ]; then
     if ! ./install_node_packages ; then
@@ -527,7 +527,7 @@ if [ "${yn}" = "y" ]; then
 fi
 
 # ask to install go packages
-echo "Install Go packages? (y/n)?: \c"
+echo "Install Go packages? (y/n): \c"
 read -r yn
 if [ "${yn}" = "y" ]; then
     if ! ./install_go_packages ; then
