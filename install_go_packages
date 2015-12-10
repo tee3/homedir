@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Install Go modules.
+# Install Go packages.
 
 set -u
 
@@ -10,11 +10,7 @@ if [ -z "${go}" ] || [ ! -x "${go}" ]; then
     exit 1
 fi
 
-# Development
-
-GOPATH="${HOME}"/opt/local/src/go "${go}" get -u github.com/rogpeppe/godef
-GOPATH="${HOME}"/opt/local/src/go "${go}" get -u github.com/nsf/gocode
-
-# Utilities
-
-GOPATH="${HOME}"/opt/local/src/go "${go}" get github.com/joewalnes/websocketd
+go_packages=$(grep -v "^#" go-packages.txt)
+for m in ${go_packages} ; do
+    GOPATH="${HOME}"/opt/local/src/go "${go}" get -u "${m}"
+done
