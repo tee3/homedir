@@ -144,7 +144,7 @@ read -r yn
 if [ "${yn}" = "y" ]; then
     if [ "${machine}" = linux ]; then
         # @todo untested
-        for f in $(pwd)/services/systemd/*.plist; do
+        for f in $(pwd)/services/systemd/*.service; do
             ln -i -v -s "${f}" "${HOME}"/.config/systemd/user
 
             b=$(basename "${f}" .service)
