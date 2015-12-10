@@ -10,8 +10,9 @@ import distutils.spawn
 import urllib2
 
 
-def emulate_run(s):
-    if subprocess.call(s, shell=True) == 0:
+def emulate_run(args, env=None):
+    p = subprocess.Popen(args, env=env)
+    if p.wait() == 0:
         return True
     return False
 
@@ -34,7 +35,7 @@ if not pip:
             print "warning: pip failed to install, not installing Python packages."
             sys.exit(1)
 
-        emulate_run(python + " get-pip.py --user")
+        emulate_run([python, "get-pip.py", "--user"])
         os.remove("get-pip.py")
 
     if os.path.exists(pippath):
@@ -44,4 +45,4 @@ if not pip and not os.path.exists(pip):
     print "error: pip not installing, not installing Python packages."
     sys.exit(1)
 
-emulate_run(pip + " install --user --upgrade -r python-packages.txt")
+sys.exit(emulate_run([pip, "install", "--user", "--upgrade", "-r", "python-packages.txt"]))

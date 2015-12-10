@@ -8,8 +8,9 @@ import subprocess
 import distutils.spawn
 
 
-def emulate_run(s):
-    if subprocess.call(s, shell=True) == 0:
+def emulate_run(args, env=None):
+    p = subprocess.Popen(args, env=env)
+    if p.wait() == 0:
         return True
     return False
 
@@ -27,7 +28,11 @@ if not npm:
     print "error: npm is not installed, skipping node module installation"
     sys.exit(1)
 
+error = False
 with open("node-packages.txt", "r") as f:
     for line in f:
         if line != "" and line[0] != "#":
-            emulate_run(npm + " install --global --prefix=\"" + os.path.join(HOME, ".node_modules") + "\" \"" + line + "\"")
+            if not emulate_run([npm, "install", "--global", "--prefix", os.path.join(HOME, ".node_modules"), line]):
+                error = True
+
+sys.exit(1 if error else 0)
