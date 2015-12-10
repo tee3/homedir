@@ -7,6 +7,7 @@ import sys
 import os
 import subprocess
 import distutils.spawn
+import urllib2
 
 
 def emulate_run(s):
@@ -21,17 +22,25 @@ if not python:
     print "error: Python not installed, not installing Python packages."
     sys.exit(1)
 
-pip = os.path.join(site.USER_BASE, "bin", "pip")
-if not os.path.exists(pip):
-    emulate_run("wget https://bootstrap.pypa.io/get-pip.py")
-    if not os.path.exists("get-pip.py"):
-        print "warning: pip failed to install, not installing Python packages."
-        sys.exit(1)
+pip = distutils.spawn.find_executable("pip")
+if not pip:
+    pippath = os.path.join(site.USER_BASE, "bin", "pip")
+    if not os.path.exists(pippath):
+        r = urllib2.urlopen("https://bootstrap.pypa.io/get-pip.py")
+        with open("get-pip.py", "w") as f:
+            f.write(r.read())
 
-    emulate_run(python + " get-pip.py --user")
-    os.remove("get-pip.py")
+        if not os.path.exists("get-pip.py"):
+            print "warning: pip failed to install, not installing Python packages."
+            sys.exit(1)
 
-if not os.path.exists(pip):
+        emulate_run(python + " get-pip.py --user")
+        os.remove("get-pip.py")
+
+    if os.path.exists(pippath):
+        pip = pippath
+
+if not pip and not os.path.exists(pip):
     print "error: pip not installing, not installing Python packages."
     sys.exit(1)
 
