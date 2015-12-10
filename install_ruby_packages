@@ -5,6 +5,7 @@
 import sys
 import os
 import subprocess
+import distutils.spawn
 
 
 def emulate_run(s):
@@ -23,13 +24,13 @@ def emulate_backtick(s):
 
 HOME = os.environ["HOME"]
 
-ruby = emulate_backtick("which ruby 2> /dev/null")
-if ruby == "":
+ruby = distutils.spawn.find_executable("ruby")
+if not ruby:
     print "error: Ruby not installed, not installing Ruby packages."
     sys.exit(1)
 
-gem = emulate_backtick("which gem 2> /dev/null")
-if gem == "":
+gem = distutils.spawn.find_executable("gem")
+if not gem:
     print "error: gem is not available, skipping Ruby module installation"
     sys.exit(1)
 
