@@ -269,10 +269,8 @@ if [ ! -z "${git}" ] && [ -x "${git}" ]; then
             ${git} config -f "${HOME}"/.gitconfig.user user.name "${git_name}"
             ${git} config -f "${HOME}"/.gitconfig.user user.email "${git_email}"
 
-            # if present, clear user in global git config
-            if [ ! -z "$(${git} config --global user.name)" ] || [ ! -z "$(${git} config --global user.email)" ]; then
-                ${git} config --global --remove-section user
-            fi
+            # clear user in global git config
+            ${git} config --global --remove-section user
         fi
     fi
 fi
