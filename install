@@ -7,6 +7,7 @@ import os
 import subprocess
 import glob
 import distutils.spawn
+import filecmp
 
 
 def emulate_run(s):
@@ -79,12 +80,6 @@ if not stow:
 
 # attempt to stow the dotfiles directory, clean up if fails.
 if not emulate_run(stow + " --target=\"" + HOME + "\" \"" + dotfiledirs + "\""):
-    # requires diff
-    diff = distutils.spawn.find_executable("diff")
-    if not diff:
-        print "error: 'diff' is not available."
-        sys.exit(1)
-
     # allow user to clean up existing files
     for root, directories, files in os.walk(dotfiledirs):
         for n in files:
@@ -92,7 +87,7 @@ if not emulate_run(stow + " --target=\"" + HOME + "\" \"" + dotfiledirs + "\""):
             home_f = os.path.join(HOME, n)
             if os.path.exists(home_f):
                 if f != home_f:
-                    if emulate_run(diff + " " + f + " " + home_f):
+                    if filecmp.cmp(f, home_f, False):
                         print "%s is identical to %s.  Overwrite? (y/n): " % (f, home_f),
                         yn = raw_input()
                         if yn == "y":
