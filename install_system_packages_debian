@@ -33,11 +33,11 @@ sudo aptitude -y install diffutils
 
 # install interpreters prior to other packages
 sudo aptitude -y install python
-#sudo aptitude -y install python-devel
+sudo aptitude -y install python-dev
 # @todo we don't need python3 at this point
 #sudo aptitude -y install python3
 sudo aptitude -y install ruby
-#sudo aptitude -y install ruby-devel
+sudo aptitude -y install ruby-dev
 
 # install version control systems
 sudo aptitude -y install git
@@ -103,7 +103,7 @@ sudo aptitude -y install g++
 sudo aptitude -y install global
 #sudo aptitude -y install glslang
 #sudo aptitude -y install gnu-typist
-sudo aptitude -y install golang-go
+sudo aptitude -y install golang
 #sudo aptitude -y install graphviz
 sudo aptitude -y install guile-2.0
 sudo aptitude -y install highlight
@@ -132,6 +132,7 @@ sudo aptitude -y install llvm
 #sudo aptitude -y install netperf
 sudo aptitude -y install nmap
 sudo aptitude -y install nodejs
+sudo aptitude -y install nodejs-dev
 sudo aptitude -y install npm
 sudo aptitude -y install ntp
 sudo aptitude -y install nuttcp
