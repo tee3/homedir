@@ -168,36 +168,39 @@ if [ "${yn}" = "y" ]; then
 fi
 
 # set up machine-specific ~/.bashrc
-if [ ! -e "${HOME}"/.bashrc.local ]; then
+bashrc_local=${HOME}/.bashrc.local
+if [ ! -e "${bashrc_local}" ]; then
     echo "~/.bashrc.local is used for machine-specific bash settings."
-    touch "${HOME}"/.bashrc.local
+    touch "${bashrc_local}"
 fi
 
 # configure git
 git=$(which git 2> /dev/null)
 if [ ! -z "${git}" ] && [ -x "${git}" ]; then
     # set up machine-specific ~/.gitconfig
-    if [ ! -e "${HOME}"/.gitconfig.machine ]; then
+    gitconfig_machine=${HOME}/.gitconfig.machine
+    if [ ! -e "${gitconfig_machine}" ]; then
         echo "~/.gitconfig.machine is used for machine-specific settings to .gitconfig."
-        touch "${HOME}"/.gitconfig.machine
+        touch "${gitconfig_machine}"
     fi
 
     # set up a credential helper
     if [ "${machine}" = linux ]; then
-        git config -f "${HOME}"/.gitconfig.machine credential.helper 'cache --timeout 3600'
+        git config -f "${gitconfig_machine}" credential.helper 'cache --timeout 3600'
     elif [ "${machine}" = osx ]; then
-        git config -f "${HOME}"/.gitconfig.machine credential.helper 'osxkeychain'
+        git config -f "${gitconfig_machine}" credential.helper 'osxkeychain'
     elif [ "${machine}" = windows ]; then
-        git config -f "${HOME}"/.gitconfig.machine credential.helper 'winstore'
+        git config -f "${gitconfig_machine}" credential.helper 'winstore'
     else
         echo "error: unknown machine ${machine}."
         exit 1
     fi
 
     # set up user-specific ~/.gitconfig
-    if [ ! -e "${HOME}"/.gitconfig.user ]; then
+    gitconfig_user=${HOME}/.gitconfig.user
+    if [ ! -e "${gitconfig_user}" ]; then
         echo "~/.gitconfig.user is used for user-specific settings to .gitconfig."
-        touch "${HOME}"/.gitconfig.user
+        touch "${gitconfig_user}"
     fi
 
     # configure user name and email for git
@@ -221,8 +224,8 @@ if [ ! -z "${git}" ] && [ -x "${git}" ]; then
 
     # if not set, suggest user name and email from user-specific git confg
     if [ -z "${git_name}" ] && [ -z "${git_email}" ]; then
-        proposed_name=$(${git} config -f "${HOME}"/.gitconfig.user user.name)
-        proposed_email=$(${git} config -f "${HOME}"/.gitconfig.user user.email)
+        proposed_name=$(${git} config -f "${gitconfig_user}" user.name)
+        proposed_email=$(${git} config -f "${gitconfig_user}" user.email)
 
         if [ ! -z "${proposed_name}" ] && [ ! -z "${proposed_email}" ]; then
             echo "use current user-specific user information '${proposed_name} <${proposed_email}>' for git (y/n): \c"
@@ -266,8 +269,8 @@ if [ ! -z "${git}" ] && [ -x "${git}" ]; then
         read -r yn
         if [ "${yn}" = "y" ]; then
             # set user name/email in user-specific config
-            ${git} config -f "${HOME}"/.gitconfig.user user.name "${git_name}"
-            ${git} config -f "${HOME}"/.gitconfig.user user.email "${git_email}"
+            ${git} config -f "${gitconfig_user}" user.name "${git_name}"
+            ${git} config -f "${gitconfig_user}" user.email "${git_email}"
 
             # clear user in global git config
             ${git} config --global --remove-section user
@@ -279,15 +282,17 @@ fi
 hg=$(which hg 2> /dev/null)
 if [ ! -z "${hg}" ] && [ -x "${hg}" ]; then
     # set up machine-specific ~/.hgrc
-    if [ ! -e "${HOME}"/.hgrc.machine ]; then
+    hgrc_machine=${HOME}/.hgrc.machine
+    if [ ! -e "${hgrc_machine}" ]; then
         echo "~/.hgrc.machine is used for machine-specific settings to .hgrc."
-        touch "${HOME}"/.hgrc.machine
+        touch "${hgrc_machine}"
     fi
 
     # set up user-specific ~/.hgrc
-    if [ ! -e "${HOME}"/.hgrc.user ]; then
+    hgrc_user=${HOME}/.hgrc.user
+    if [ ! -e "${hgrc_user}" ]; then
         echo "~/.hgrc.user is used for user-specific settings to .hgrc."
-        touch "${HOME}"/.hgrc.user
+        touch "${hgrc_user}"
     fi
 
     #! @todo use hg to set up user
@@ -297,18 +302,19 @@ fi
 emacs=$(which emacs 2> /dev/null)
 if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
     # set up machine-specific ~/.emacs
-    if [ ! -e "${HOME}"/.emacs.machine.el ]; then
+    emacs_machine=${HOME}/.emacs.machine.el
+    if [ ! -e "${emacs_machine}" ]; then
         echo "~/.emacs.machine.el is used for machine-specific settings to .emacs."
-        touch "${HOME}"/.emacs.machine.el
-        echo ";;; package --- Machine-specific Emacs initialization." >> "${HOME}"/.emacs.machine.el
-        echo "" >> "${HOME}"/.emacs.machine.el
-        echo ";;; Commentary:" >> "${HOME}"/.emacs.machine.el
-        echo "" >> "${HOME}"/.emacs.machine.el
-        echo ";;; Code:" >> "${HOME}"/.emacs.machine.el
-        echo "" >> "${HOME}"/.emacs.machine.el
-        echo "(provide '.emacs.machine)" >> "${HOME}"/.emacs.machine.el
-        echo "" >> "${HOME}"/.emacs.machine.el
-        echo ";;; .emacs.machine.el ends here" >> "${HOME}"/.emacs.machine.el
+        touch "${emacs_machine}"
+        echo ";;; package --- Machine-specific Emacs initialization." >> "${emacs_machine}"
+        echo "" >> "${emacs_machine}"
+        echo ";;; Commentary:" >> "${emacs_machine}"
+        echo "" >> "${emacs_machine}"
+        echo ";;; Code:" >> "${emacs_machine}"
+        echo "" >> "${emacs_machine}"
+        echo "(provide '.emacs.machine)" >> "${emacs_machine}"
+        echo "" >> "${emacs_machine}"
+        echo ";;; .emacs.machine.el ends here" >> "${emacs_machine}"
     fi
 
     # ensure that emacs knows a good host name
@@ -329,7 +335,7 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
 
     # if not set, suggest the user-specific system name for emacs
     if [ -z "${emacs_hostname}" ]; then
-        proposed_hostname=$(${emacs} --batch --no-init-file --load "${HOME}"/.emacs.machine.el --eval "(princ system-name)")
+        proposed_hostname=$(${emacs} --batch --no-init-file --load "${emacs_machine}" --eval "(princ system-name)")
 
         if [ ! -z "${proposed_hostname}" ]; then
             echo "use user-specific emacs system-name '${proposed_hostname}' for emacs (y/n): \c"
@@ -371,18 +377,19 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
     fi
 
     # set up user-specific ~/.emacs
-    if [ ! -e "${HOME}"/.emacs.user.el ]; then
+    emacs_user=${HOME}/.emacs.user.el
+    if [ ! -e "${emacs_user}" ]; then
         echo "~/.emacs.user.el is used for user-specific settings to .emacs."
-        touch "${HOME}"/.emacs.user.el
-        echo ";;; package --- User-specific Emacs initialization." >> "${HOME}"/.emacs.user.el
-        echo "" >> "${HOME}"/.emacs.user.el
-        echo ";;; Commentary:" >> "${HOME}"/.emacs.user.el
-        echo "" >> "${HOME}"/.emacs.user.el
-        echo ";;; Code:" >> "${HOME}"/.emacs.user.el
-        echo "" >> "${HOME}"/.emacs.user.el
-        echo "(provide '.emacs.user)" >> "${HOME}"/.emacs.user.el
-        echo "" >> "${HOME}"/.emacs.user.el
-        echo ";;; .emacs.user.el ends here" >> "${HOME}"/.emacs.user.el
+        touch "${emacs_user}"
+        echo ";;; package --- User-specific Emacs initialization." >> "${emacs_user}"
+        echo "" >> "${emacs_user}"
+        echo ";;; Commentary:" >> "${emacs_user}"
+        echo "" >> "${emacs_user}"
+        echo ";;; Code:" >> "${emacs_user}"
+        echo "" >> "${emacs_user}"
+        echo "(provide '.emacs.user)" >> "${emacs_user}"
+        echo "" >> "${emacs_user}"
+        echo ";;; .emacs.user.el ends here" >> "${emacs_user}"
     fi
 
     emacs_name=
@@ -403,7 +410,7 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
 
     # if not set, suggest the user-specific user's full name for emacs
     if [ -z "${emacs_name}" ]; then
-        proposed_name=$(${emacs} --batch --no-init-file --load "${HOME}"/.emacs.user.el --eval "(princ user-full-name)")
+        proposed_name=$(${emacs} --batch --no-init-file --load "${emacs_user}" --eval "(princ user-full-name)")
 
         if [ ! -z "${proposed_name}" ]; then
             echo "use current user-specific user's full name '${proposed_name}' for emacs (y/n): \c"
@@ -445,7 +452,7 @@ if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
 
     # if not set, suggest the user-specific user's email for emacs
     if [ -z "${emacs_email}" ]; then
-        proposed_email=$(${emacs} --batch --no-init-file --load "${HOME}"/.emacs.user.el --eval "(princ user-mail-address)")
+        proposed_email=$(${emacs} --batch --no-init-file --load "${emacs_user}" --eval "(princ user-mail-address)")
 
         if [ ! -z "${proposed_email}" ]; then
             echo "use current user-specific user's email '${proposed_email}' for emacs (y/n): \c"
