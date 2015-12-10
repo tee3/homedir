@@ -1,0 +1,8 @@
+# Development
+
+github.com/rogpeppe/godef
+github.com/nsf/gocode
+
+# Utilities
+
+github.com/joewalnes/websocketd
