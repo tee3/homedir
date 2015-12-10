@@ -6,6 +6,7 @@ import sys
 import os
 import subprocess
 import glob
+import distutils.spawn
 
 
 def emulate_run(s):
@@ -71,16 +72,16 @@ if ((not os.path.isdir(os.path.join(HOME, "opt"))) or
         print "Nothing installed to ~/opt/local by default."
 
 # requires stow
-stow = emulate_backtick("which stow 2> /dev/null")
-if stow == "":
+stow = distutils.spawn.find_executable("stow")
+if not stow:
     print "error: 'stow' is not available."
     sys.exit(1)
 
 # attempt to stow the dotfiles directory, clean up if fails.
 if not emulate_run(stow + " --target=\"" + HOME + "\" \"" + dotfiledirs + "\""):
     # requires diff
-    diff = emulate_backtick("which diff 2> /dev/null")
-    if diff == "":
+    diff = distutils.spawn.find_executable("diff")
+    if not diff:
         print "error: 'diff' is not available."
         sys.exit(1)
 
@@ -183,8 +184,8 @@ if not os.path.exists(bashrc_local):
     open(bashrc_local, 'a').close()
 
 # configure git
-git = emulate_backtick("which git 2> /dev/null")
-if git != "":
+git = distutils.spawn.find_executable("git")
+if git:
     # set up machine-specific ~/.gitconfig
     gitconfig_machine = os.path.join(HOME, ".gitconfig.machine")
     if not os.path.exists(gitconfig_machine):
@@ -270,8 +271,8 @@ if git != "":
             emulate_run(git + " config --global --remove-section user")
 
 # configure mercurial
-hg = emulate_backtick("which hg 2> /dev/null")
-if hg != "":
+hg = distutils.spawn.find_executable("hg")
+if hg:
     # set up machine-specific ~/.hgrc
     hgrc_machine = os.path.join(HOME, ".hgrc.machine")
     if not os.path.exists(hgrc_machine):
@@ -287,8 +288,8 @@ if hg != "":
     # @todo use hg to set up user
 
 # configure emacs
-emacs = emulate_backtick("which emacs 2> /dev/null")
-if emacs != "":
+emacs = distutils.spawn.find_executable("emacs")
+if emacs:
     # set up machine-specific ~/.emacs
     emacs_machine = os.path.join(HOME, ".emacs.machine.el")
     if not os.path.exists(emacs_machine):

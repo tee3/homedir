@@ -5,6 +5,7 @@
 import sys
 import os
 import subprocess
+import distutils.spawn
 
 
 def emulate_run(s):
@@ -23,15 +24,15 @@ def emulate_backtick(s):
 
 HOME = os.environ["HOME"]
 
-node = emulate_backtick("which node 2> /dev/null")
-if node == "":
-    node = emulate_backtick("which nodejs 2> /dev/null")
-    if node == "":
+node = distutils.spawn.find_executable("node")
+if not node:
+    node = distutils.spawn.find_executable("nodejs")
+    if not node:
         print "error: node is not installed, skipping node module installation"
         sys.exit(1)
 
-npm = emulate_backtick("which npm 2> /dev/null")
-if npm == "":
+npm = distutils.spawn.find_executable("npm")
+if not npm:
     print "error: npm is not installed, skipping node module installation"
     sys.exit(1)
 

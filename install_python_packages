@@ -5,6 +5,7 @@
 import sys
 import os
 import subprocess
+import distutils.spawn
 
 
 def emulate_run(s):
@@ -23,8 +24,8 @@ def emulate_backtick(s):
 
 HOME = os.environ["HOME"]
 
-python = emulate_backtick("which python 2> /dev/null")
-if python == "":
+python = distutils.spawn.find_executable("python")
+if not python:
     print "error: Python not installed, not installing Python packages."
     sys.exit(1)
 

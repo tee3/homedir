@@ -5,6 +5,7 @@
 import sys
 import os
 import subprocess
+import distutils.spawn
 
 
 def emulate_run(s):
@@ -23,8 +24,8 @@ def emulate_backtick(s):
 
 HOME = os.environ["HOME"]
 
-go = emulate_backtick("which go 2> /dev/null")
-if go == "":
+go = distutils.spawn.find_executable("go")
+if not go:
     print "error: Go not installed, not installing Go packages."
     sys.exit(1)
 
