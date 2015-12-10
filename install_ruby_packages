@@ -8,15 +8,16 @@ import subprocess
 import distutils.spawn
 
 
-def emulate_run(s):
-    if subprocess.call(s, shell=True) == 0:
+def emulate_run(args, env=None):
+    p = subprocess.Popen(args, env=env)
+    if p.wait() == 0:
         return True
     return False
 
 
-def emulate_backtick(s):
+def emulate_backtick(args):
     try:
-        output = subprocess.check_output(s, shell=True).rstrip("\n")
+        output = subprocess.check_output(args).rstrip("\n")
     except:
         output = ""
 
@@ -35,6 +36,6 @@ if not gem:
     sys.exit(1)
 
 # location of gems with --user-install
-gemdir = emulate_backtick(ruby + " -rubygems -e 'puts Gem.user_dir'")
+gemdir = emulate_backtick([ruby, "-rubygems", "-e", "puts Gem.user_dir"])
 
-emulate_run(gem + " install --user-install --bindir=\"" + os.path.join(gemdir, "bin") + "\" --file ruby-packages.gemfile")
+sys.exit(emulate_run([gem, "install", "--user-install", "--bindir", os.path.join(gemdir, "bin"), "--file", "ruby-packages.gemfile"]))

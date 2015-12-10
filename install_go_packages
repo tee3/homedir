@@ -8,8 +8,9 @@ import subprocess
 import distutils.spawn
 
 
-def emulate_run(s):
-    if subprocess.call(s, shell=True) == 0:
+def emulate_run(args, env=None):
+    p = subprocess.Popen(args, env=env)
+    if p.wait() == 0:
         return True
     return False
 
@@ -20,7 +21,13 @@ if not go:
     print "error: Go not installed, not installing Go packages."
     sys.exit(1)
 
+error = False
 with open("go-packages.txt", "r") as f:
     for line in f:
         if line != "" and line[0] != "#":
-            emulate_run("GOPATH=\"" + os.path.join(HOME, "opt", "local", "src", "go") + "\"" + go + "\" get -u \"" + line + "\"")
+            e = os.environ
+            e["GOPATH"] = os.path.join(HOME, "opt", "local", "src", "go")
+            if not emulate_run([go, "get", "-u", line], env=e):
+                error = True
+
+sys.exit(1 if error else 0)

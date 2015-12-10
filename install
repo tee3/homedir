@@ -10,15 +10,16 @@ import distutils.spawn
 import filecmp
 
 
-def emulate_run(s):
-    if subprocess.call(s, shell=True) == 0:
+def emulate_run(args, env=None):
+    p = subprocess.Popen(args, env=env)
+    if p.wait() == 0:
         return True
     return False
 
 
-def emulate_backtick(s):
+def emulate_backtick(args):
     try:
-        output = subprocess.check_output(s, shell=True).rstrip("\n")
+        output = subprocess.check_output(args).rstrip("\n")
     except:
         output = ""
 
@@ -80,7 +81,7 @@ if not stow:
     sys.exit(1)
 
 # attempt to stow the dotfiles directory, clean up if fails.
-if not emulate_run(stow + " --target=\"" + HOME + "\" \"" + dotfiledirs + "\""):
+if not emulate_run([stow, "--target", HOME, dotfiledirs]):
     # allow user to clean up existing files
     for root, directories, files in os.walk(dotfiledirs):
         for n in files:
@@ -99,7 +100,7 @@ if not emulate_run(stow + " --target=\"" + HOME + "\" \"" + dotfiledirs + "\""):
                         if yn == "y":
                             os.remove(home_f)
 
-    if not emulate_run(stow + " --target=\"" + HOME + "\" \"" + dotfiledirs + "\""):
+    if not emulate_run([stow, "--target", HOME, dotfiledirs]):
         print "error: some targets could not be linked to home directory."
         sys.exit(1)
 
@@ -145,12 +146,12 @@ if yn == "y":
             os.makedirs(dst_d)
 
         for f in glob.iglob(src_d):
-            emulate_run("ln -i -v -s \"" + f + "\" \"" + dst_d + "\"")
+            emulate_run(["ln", "-i", "-v", "-s", f, dst_d])
 
             b, e = os.path.splitext(f)
             assert e == ".service"
 
-            emulate_run("systemctl --user enable \"" + b + "\"")
+            emulate_run(["systemctl", "--user", "enable", b])
     elif machine == "osx":
         src_d = os.path.join(os.getcwd(), "services", "launchd", "*.plist")
         dst_d = os.path.join(HOME, "Library", "LaunchAgents")
@@ -159,13 +160,13 @@ if yn == "y":
             os.makedirs(dst_d)
 
         for f in glob.iglob(src_d):
-            emulate_run("ln -i -v -s \"" + f + "\" \"" + dst_d + "\"")
+            emulate_run(["ln", "-i", "-v", "-s", f, dst_d])
 
             b, e = os.path.splitext(f)
             assert e == ".plist"
             l = "user/%d/%s" % (os.getuid(), b)
 
-            emulate_run("launchctl enable \"" + l + "\"")
+            emulate_run(["launchctl", "enable", l])
     elif machine == "windows":
         print "error: services install not implemented yet for windows."
         sys.exit(1)
@@ -190,11 +191,11 @@ if git:
 
     # set up a credential helper
     if machine == "linux":
-        emulate_run("git config -f \"" + gitconfig_machine + "\" credential.helper 'cache --timeout 3600'")
+        emulate_run([git, "config", "-f", gitconfig_machine, "credential.helper", "cache --timeout 3600"])
     elif machine == "osx":
-        emulate_run("git config -f \"" + gitconfig_machine + "\" credential.helper 'osxkeychain'")
+        emulate_run([git, "config", "-f", gitconfig_machine, "credential.helper", "osxkeychain"])
     elif machine == "windows":
-        emulate_run("git config -f \"" + gitconfig_machine + "\" credential.helper 'winstore'")
+        emulate_run([git, "config", "-f", gitconfig_machine, "credential.helper", "winstore"])
     else:
         print "error: unknown machine '%s'." % (machine)
         sys.exit(1)
@@ -211,8 +212,8 @@ if git:
 
     # if not set, suggest user name and email from global git config
     if git_name == "" and git_email == "":
-        proposed_name = emulate_backtick(git + " config --global user.name")
-        proposed_email = emulate_backtick(git + " config --global user.email")
+        proposed_name = emulate_backtick([git, "config", "--global", "user.name"])
+        proposed_email = emulate_backtick([git, "config", "--global", "user.email"])
 
         if proposed_name != "" or proposed_email != "":
             print "Use the current global user information '%s <%s>' for git? (y/n): " % (proposed_name, proposed_email),
@@ -223,8 +224,8 @@ if git:
 
     # if not set, suggest user name and email from user-specific git confg
     if git_name == "" and git_email == "":
-        proposed_name = emulate_backtick(git + " config -f \"" + gitconfig_user + "\" user.name")
-        proposed_email = emulate_backtick(git + " config -f \"" + gitconfig_user + "\" user.email")
+        proposed_name = emulate_backtick([git, "config", "-f", gitconfig_user, "user.name"])
+        proposed_email = emulate_backtick([git, "config", "-f", gitconfig_user, "user.email"])
 
         if proposed_name != "" and proposed_email != "":
             print "Use the current user-specific user information '%s <%s>' for git? (y/n): " % (proposed_name, proposed_email),
@@ -260,11 +261,11 @@ if git:
         yn = raw_input()
         if yn == "y":
             # set user name/email in user-specific config
-            emulate_run(git + " config -f \"" + gitconfig_user + "\" user.name \"" + git_name + "\"")
-            emulate_run(git + " config -f \"" + gitconfig_user + "\" user.email \"" + git_email + "\"")
+            emulate_run([git, "config", "-f", gitconfig_user, "user.name", git_name])
+            emulate_run([git, "config", "-f", gitconfig_user, "user.email", git_email])
 
             # clear user in global git config
-            emulate_run(git + " config --global --remove-section user")
+            emulate_run([git, "config", "--global", "--remove-section", "user"])
 
 # configure mercurial
 hg = distutils.spawn.find_executable("hg")
@@ -306,7 +307,7 @@ if emacs:
 
     # if not set, suggest the global system name for emacs
     if emacs_hostname == "":
-        proposed_hostname = emulate_backtick(emacs + " --batch --no-init-file --eval \"(princ system-name)\"")
+        proposed_hostname = emulate_backtick([emacs, "--batch", "--no-init-file", "--eval", "(princ system-name)"])
 
         if proposed_hostname != "":
             print "Use the current emacs system-name '%s' for emacs? (y/n): " % (proposed_hostname),
@@ -316,7 +317,7 @@ if emacs:
 
     # if not set, suggest the user-specific system name for emacs
     if emacs_hostname == "":
-        proposed_hostname = emulate_backtick(emacs + " --batch --no-init-file --load \"" + emacs_machine + "\" --eval \"(princ system-name)\"")
+        proposed_hostname = emulate_backtick([emacs, "--batch", "--no-init-file", "--load", emacs_machine, "--eval", "(princ system-name)"])
 
         if proposed_hostname != "":
             print "Use the user-specific emacs system-name '%s' for emacs? (y/n): " % (proposed_hostname),
@@ -368,7 +369,7 @@ if emacs:
 
     # if not set, suggest the global user's full name for emacs
     if emacs_name == "":
-        proposed_name = emulate_backtick(emacs + " --batch --no-init-file --eval \"(princ user-full-name)\"")
+        proposed_name = emulate_backtick([emacs, "--batch", "--no-init-file", "--eval", "(princ user-full-name)"])
 
         if proposed_name != "":
             print "Use the current global user's full name '%s' for emacs? (y/n): " % (proposed_name),
@@ -378,7 +379,7 @@ if emacs:
 
     # if not set, suggest the user-specific user's full name for emacs
     if emacs_name == "":
-        proposed_name = emulate_backtick(emacs + " --batch --no-init-file --load \"" + emacs_user + "\" --eval \"(princ user-full-name)\"")
+        proposed_name = emulate_backtick([emacs, "--batch", "--no-init-file", "--load", emacs_user, "--eval", "(princ user-full-name)"])
 
         if proposed_name != "":
             print "Use the current user-specific user's full name '%s' for emacs? (y/n): " % (proposed_name),
@@ -401,7 +402,7 @@ if emacs:
 
     # if not set, suggest the global user's email for emacs
     if emacs_email == "":
-        proposed_email = emulate_backtick(emacs + " --batch --no-init-file --eval \"(princ user-mail-address)\"")
+        proposed_email = emulate_backtick([emacs, "--batch", "--no-init-file", "--eval", "(princ user-mail-address)"])
 
         if proposed_email != "":
             print "Use the current global user's email '%s' for emacs? (y/n): " % (proposed_email),
@@ -411,7 +412,7 @@ if emacs:
 
     # if not set, suggest the user-specific user's email for emacs
     if emacs_email == "":
-        proposed_email = emulate_backtick(emacs + " --batch --no-init-file --load \"" + emacs_user + "\" --eval \"(princ user-mail-address)\"")
+        proposed_email = emulate_backtick([emacs, "--batch", "--no-init-file", "--load", emacs_user, "--eval", "(princ user-mail-address)"])
 
         if proposed_email != "":
             print "Use the current user-specific user's email '%s' for emacs? (y/n): " % (proposed_email),
@@ -451,26 +452,26 @@ if emacs:
 print "Install Python packages? (y/n): ",
 yn = raw_input()
 if yn == "y":
-    if not emulate_run(os.path.abspath("install_python_packages")):
+    if not emulate_run([os.path.abspath("install_python_packages")]):
         print "warning: failed to install Python packages."
 
 # ask to install ruby packages
 print "Install Ruby packages? (y/n): ",
 yn = raw_input()
 if yn == "y":
-    if not emulate_run(os.path.abspath("install_ruby_packages")):
+    if not emulate_run([os.path.abspath("install_ruby_packages")]):
         print "warning: failed to install Ruby packages."
 
 # ask to install node packages
 print "Install Node packages? (y/n): ",
 yn = raw_input()
 if yn == "y":
-    if not emulate_run(os.path.abspath("install_node_packages")):
+    if not emulate_run([os.path.abspath("install_node_packages")]):
         print "warning: failed to install Node.js packages."
 
 # ask to install go packages
 print "Install Go packages? (y/n): ",
 yn = raw_input()
 if yn == "y":
-    if not emulate_run(os.path.abspath("install_go_packages")):
+    if not emulate_run([os.path.abspath("install_go_packages")]):
         print "warning: failed to install Go packages."
