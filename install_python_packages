@@ -1,30 +1,45 @@
-#!/bin/sh
+#!/usr/bin/env python
 #
 # Install Python modules in the python-packages.txt requirements file.
 
-set -u
+import sys
+import os
+import subprocess
 
-python=$(which python 2> /dev/null)
-if [ -z "${python}" ] || [ ! -x "${python}" ]; then
-    echo "error: Python not installed, not installing Python packages."
-    exit 1
-fi
 
-pip="$(python -c 'import site ; print site.USER_BASE')/bin/pip"
-if [ -z "${pip}" ] || [ ! -x "${pip}" ]; then
-    wget https://bootstrap.pypa.io/get-pip.py
-    if [ ! -e get-pip.py ]; then
-        echo "warning: pip failed to install, not installing Python packages."
-        exit 1
-    fi
+def emulate_run(s):
+    if subprocess.call(s, shell=True) == 0:
+        return True
+    return False
 
-    ${python} get-pip.py --user
-    rm get-pip.py
-fi
 
-if [ -z "${pip}" ] || [ ! -x "${pip}" ]; then
-    echo "error: pip not installing, not installing Python packages."
-    exit 1
-fi
+def emulate_backtick(s):
+    try:
+        output = subprocess.check_output(s, shell=True).rstrip("\n")
+    except:
+        output = ""
 
-${pip} install --user --upgrade -r python-packages.txt
+    return output
+
+HOME = os.environ["HOME"]
+
+python = emulate_backtick("which python 2> /dev/null")
+if python == "":
+    print "error: Python not installed, not installing Python packages."
+    sys.exit(1)
+
+pip = os.path.join(emulate_backtick(python + " -c 'import site ; print site.USER_BASE'"), "bin", "pip")
+if not os.path.exists(pip):
+    emulate_run("wget https://bootstrap.pypa.io/get-pip.py")
+    if not os.path.exists("get-pip.py"):
+        print "warning: pip failed to install, not installing Python packages."
+        sys.exit(1)
+
+    emulate_run(python + " get-pip.py --user")
+    os.remove("get-pip.py")
+
+if not os.path.exists(pip):
+    print "error: pip not installing, not installing Python packages."
+    sys.exit(1)
+
+emulate_run(pip + " install --user --upgrade -r python-packages.txt")

@@ -1,536 +1,479 @@
-#!/bin/sh
+#!/usr/bin/env python
 #
 # Set up a home directory on a Unix system.
 
-set -u
+import sys
+import os
+import subprocess
+import glob
 
-dotfiledirs="dotfiles"
+
+def emulate_run(s):
+    if subprocess.call(s, shell=True) == 0:
+        return True
+    return False
+
+
+def emulate_backtick(s):
+    try:
+        output = subprocess.check_output(s, shell=True).rstrip("\n")
+    except:
+        output = ""
+
+    return output
+
+dotfiledirs = "dotfiles"
 
 # requires running form the root of the dotfiles directory
-rootdir=$(cd "$(dirname ./install)" && pwd)
-if [ "${rootdir}" != "${PWD}" ]; then
-    echo "error: must be run from the root of the dotfiles directory."
-    exit 1
-fi
+rootdir = os.path.abspath(os.path.dirname("install.py"))
+if rootdir != os.getcwd():
+    print "error: must be run from the root of the dotfiles directory."
+    sys.exit(1)
 
 # requires HOME.
-if [ -z "${HOME}" ]; then
-    echo "error: HOME is not set, aborting."
-    exit 1
-fi
+if os.environ["HOME"] == "":
+    print "error: HOME is not set, aborting."
+    sys.exit(1)
+HOME = os.environ["HOME"]
 
 # ask user for the type of machine
-echo "Enter machine type {linux, osx, windows}: \c"
-read -r machine
-if [ ! -z "${machine}" ]; then
-    if [ "${machine}" = linux ]; then
-        echo "Installing for Linux."
-    elif [ "${machine}" = osx ]; then
-        echo "Installing for OS X."
-    elif [ "${machine}" = windows ]; then
-        echo "Installing for Windows."
-    else
-        echo "error: unknown machine ${machine}, aborting."
-        exit 1
-    fi
-else
-    echo "error: machine must be set, aborting."
-    exit 1
-fi
+print "Enter machine type {linux, osx, windows}: ",
+machine = raw_input()
+if machine != "":
+    if machine == "linux":
+        print "Installing for Linux."
+    elif machine == "osx":
+        print "Installing for OS X."
+    elif machine == "windows":
+        print "Installing for Windows."
+    else:
+        print "error: unknown machine '%s', aborting." % (machine)
+        sys.exit(1)
+else:
+    print "error: machine must be set, aborting."
+    sys.exit(1)
 
 # create ~/opt/local if desired
-if [ ! -d "${HOME}"/opt ] || [ ! -d "${HOME}"/opt/local ]; then
-    echo "Create ~/opt/local? (y/n): \c"
-    read -r yn
-    if [ "${yn}" = "y" ]; then
-        mkdir -p "${HOME}"/opt/local/bin
-        mkdir -p "${HOME}"/opt/local/include
-        mkdir -p "${HOME}"/opt/local/lib
-        mkdir -p "${HOME}"/opt/local/man
-        mkdir -p "${HOME}"/opt/local/mnt
-        mkdir -p "${HOME}"/opt/local/share
-        mkdir -p "${HOME}"/opt/local/src
+if ((not os.path.isdir(os.path.join(HOME, "opt"))) or
+    (not os.path.isdir(os.path.join(HOME, "opt", "local")))):
+    print "Create ~/opt/local? (y/n): ",
+    yn = raw_input()
+    if yn == "y":
+        os.makedirs(os.path.join(HOME, "opt", "local", "bin"))
+        os.makedirs(os.path.join(HOME, "opt", "local", "include"))
+        os.makedirs(os.path.join(HOME, "opt", "local", "lib"))
+        os.makedirs(os.path.join(HOME, "opt", "local", "man"))
+        os.makedirs(os.path.join(HOME, "opt", "local", "mnt"))
+        os.makedirs(os.path.join(HOME, "opt", "local", "share"))
+        os.makedirs(os.path.join(HOME, "opt", "local", "src"))
 
         # populate ~/opt/local if it exists and desired
-        echo "Nothing installed to ~/opt/local by default."
-    fi
-fi
+        print "Nothing installed to ~/opt/local by default."
 
 # requires stow
-stow=$(which stow 2> /dev/null)
-if [ -z "${stow}" ] || [ ! -x "${stow}" ]; then
-    echo "error: 'stow' is not available."
-    exit 1
-fi
+stow = emulate_backtick("which stow 2> /dev/null")
+if stow == "":
+    print "error: 'stow' is not available."
+    sys.exit(1)
 
 # attempt to stow the dotfiles directory, clean up if fails.
-if ! ${stow} --target="${HOME}" dotfiles ; then
+if not emulate_run(stow + " --target=\"" + HOME + "\" \"" + dotfiledirs + "\""):
     # requires diff
-    diff=$(which diff 2> /dev/null)
-    if [ -z "${diff}" ] || [ ! -x "${diff}" ]; then
-        echo "error: 'diff' is not available."
-        exit 1
-    fi
+    diff = emulate_backtick("which diff 2> /dev/null")
+    if diff == "":
+        print "error: 'diff' is not available."
+        sys.exit(1)
 
     # allow user to clean up existing files
-    for d in ${dotfiledirs} ; do
-        for f in $(find ${d} -type f) ; do
-            home_f="${HOME}"/$(basename "${f}")
-            if [ -e "${home_f}" ]; then
-                if [ "${f}" != "${home_f}" ]; then
-                    if ${diff} "${f}" "${home_f}" ; then
-                        echo "${f} is identical to ${home_f}.  Overwrite? (y/n): \c"
-                        read -r yn
-                        if [ "${yn}" = "y" ]; then
-                            rm -i "${home_f}"
-                        fi
-                    else
-                        echo "${f} is different than ${home_f}.  Overwrite anyway? (y/n): \c"
-                        read -r yn
-                        if [ "${yn}" = "y" ]; then
-                            rm -i "${home_f}"
-                        fi
-                    fi
-                fi
-            fi
-        done
-    done
+    for root, directories, files in os.walk(dotfiledirs):
+        for n in files:
+            f = os.path.join(root, n)
+            home_f = os.path.join(HOME, n)
+            if os.path.exists(home_f):
+                if f != home_f:
+                    if emulate_run(diff + " " + f + " " + home_f):
+                        print "%s is identical to %s.  Overwrite? (y/n): " % (f, home_f),
+                        yn = raw_input()
+                        if yn == "y":
+                            os.remove(home_f)
+                    else:
+                        print "%s is different than %s.  Overwrite anyway? (y/n): " % (f, home_f),
+                        yn = raw_input()
+                        if yn == "y":
+                            os.remove(home_f)
 
-    if ! ${stow} --target="${HOME}" dotfiles ; then
-        echo "error: some targets could not be linked to home directory."
-        exit 1
-    fi
-fi
+    if not emulate_run(stow + " --target=\"" + HOME + "\" \"" + dotfiledirs + "\""):
+        print "error: some targets could not be linked to home directory."
+        sys.exit(1)
 
 # ask user for name and email address
-name=
-email=
+name = ""
+email = ""
 
-if [ ! -z "${name}" ] || [ ! -z "${email}" ]; then
-    echo "Use the default '${name} <${email}>'? (y/n): \c"
-    read -r yn
-    if [ "${yn}" = "n" ]; then
-        name=
-        email=
-    fi
-fi
+if name != "" or email != "":
+    print "Use the default '%s <%s>'? (y/n): " % (name, email),
+    yn = raw_input()
+    if yn == "n":
+        name = ""
+        email = ""
 
-if [ -z "${name}" ] && [ -z "${email}" ]; then
-    echo "Do you want to configure a default name and email address? (y/n): \c"
-    read -r yn
-    if [ "${yn}" = "y" ]; then
-        echo "Enter the user's full name (${name}): \c"
-        read -r s
-        if [ ! -z "${s}" ]; then
-            name=${s}
-        fi
-        echo "Enter the user's email address (${email}): \c"
-        read -r s
-        if [ ! -z "${s}" ]; then
-            email=${s}
-        fi
-        echo "Use '${name} <${email}>'? (y/n): \c"
-        read -r yn
-        if [ "${yn}" = "n" ]; then
-            name=
-            email=
-        fi
-    fi
-fi
+if name == "" and email == "":
+    print "Do you want to configure a default name and email address? (y/n): ",
+    yn = raw_input()
+    if yn == "y":
+        print "Enter the user's full name (%s): " % (name),
+        s = raw_input()
+        if s != "":
+            name = s
+        print "Enter the user's email address (%s): " % (email),
+        s = raw_input()
+        if s != "":
+            email = s
+        print "Use '%s <%s>'? (y/n): " % (name, email),
+        yn = raw_input()
+        if yn == "n":
+            name = ""
+            email = ""
 
 # ask to install any services
-echo "Install services (launchd or systemd)? (y/n): \c"
-read -r yn
-if [ "${yn}" = "y" ]; then
-    if [ "${machine}" = linux ]; then
+print "Install services (launchd or systemd)? (y/n): ",
+yn = raw_input()
+if yn == "y":
+    if machine == "linux":
         # @todo untested
-        for f in $(pwd)/services/systemd/*.service; do
-            ln -i -v -s "${f}" "${HOME}"/.config/systemd/user
+        src_d = os.path.join(os.getcwd(), "services", "systemd", "*.service")
+        dst_d = os.path.join(HOME, ".config", "systemd", "user")
 
-            b=$(basename "${f}" .service)
-            systemctl --user enable "${b}"
-        done
-    elif [ "${machine}" = osx ]; then
-        for f in $(pwd)/services/launchd/*.plist; do
-            ln -i -v -s "${f}" "${HOME}"/Library/LaunchAgents
+        if not os.path.exists(dst_d):
+            os.makedirs(dst_d)
 
-            b=$(basename "${f}" .plist)
-            l=user/"$(id -u)"/"${b}"
-            launchctl enable "${l}"
-        done
-    elif [ "${machine}" = windows ]; then
-        echo "error: services install not implemented yet for windows."
-        exit 1
-    else
-        echo "error: unknown machine ${machine}."
-        exit 1
-    fi
-fi
+        for f in glob.iglob(src_d):
+            emulate_run("ln -i -v -s \"" + f + "\" \"" + dst_d + "\"")
+
+            b, e = os.path.splitext(f)
+            assert e == ".service"
+
+            emulate_run("systemctl --user enable \"" + b + "\"")
+    elif machine == "osx":
+        src_d = os.path.join(os.getcwd(), "services", "launchd", "*.plist")
+        dst_d = os.path.join(HOME, "Library", "LaunchAgents")
+
+        if not os.path.exists(dst_d):
+            os.makedirs(dst_d)
+
+        for f in glob.iglob(src_d):
+            emulate_run("ln -i -v -s \"" + f + "\" \"" + dst_d + "\"")
+
+            b, e = os.path.splitext(f)
+            assert e == ".plist"
+            l = "user/%d/%s" % (os.getuid(), b)
+
+            emulate_run("launchctl enable \"" + l + "\"")
+    elif machine == "windows":
+        print "error: services install not implemented yet for windows."
+        sys.exit(1)
+    else:
+        print "error: unknown machine '%s'." % (machine)
+        sys.exit(1)
 
 # set up machine-specific ~/.bashrc
-bashrc_local=${HOME}/.bashrc.local
-if [ ! -e "${bashrc_local}" ]; then
-    echo "Note that ~/.bashrc.local is used for machine-specific bash settings."
-    touch "${bashrc_local}"
-fi
+bashrc_local = os.path.join(HOME, ".bashrc.local")
+if not os.path.exists(bashrc_local):
+    print "Note that ~/.bashrc.local is used for machine-specific bash settings."
+    open(bashrc_local, 'a').close()
 
 # configure git
-git=$(which git 2> /dev/null)
-if [ ! -z "${git}" ] && [ -x "${git}" ]; then
+git = emulate_backtick("which git 2> /dev/null")
+if git != "":
     # set up machine-specific ~/.gitconfig
-    gitconfig_machine=${HOME}/.gitconfig.machine
-    if [ ! -e "${gitconfig_machine}" ]; then
-        echo "Note that ~/.gitconfig.machine is used for machine-specific settings to .gitconfig."
-        touch "${gitconfig_machine}"
-    fi
+    gitconfig_machine = os.path.join(HOME, ".gitconfig.machine")
+    if not os.path.exists(gitconfig_machine):
+        print "Note that ~/.gitconfig.machine is used for machine-specific settings to .gitconfig."
+        open(gitconfig_machine, 'a').close()
 
     # set up a credential helper
-    if [ "${machine}" = linux ]; then
-        git config -f "${gitconfig_machine}" credential.helper 'cache --timeout 3600'
-    elif [ "${machine}" = osx ]; then
-        git config -f "${gitconfig_machine}" credential.helper 'osxkeychain'
-    elif [ "${machine}" = windows ]; then
-        git config -f "${gitconfig_machine}" credential.helper 'winstore'
-    else
-        echo "error: unknown machine ${machine}."
-        exit 1
-    fi
+    if machine == "linux":
+        emulate_run("git config -f \"" + gitconfig_machine + "\" credential.helper 'cache --timeout 3600'")
+    elif machine == "osx":
+        emulate_run("git config -f \"" + gitconfig_machine + "\" credential.helper 'osxkeychain'")
+    elif machine == "windows":
+        emulate_run("git config -f \"" + gitconfig_machine + "\" credential.helper 'winstore'")
+    else:
+        print "error: unknown machine '%s'." % (machine)
+        sys.exit(1)
 
     # set up user-specific ~/.gitconfig
-    gitconfig_user=${HOME}/.gitconfig.user
-    if [ ! -e "${gitconfig_user}" ]; then
-        echo "Note that ~/.gitconfig.user is used for user-specific settings to .gitconfig."
-        touch "${gitconfig_user}"
-    fi
+    gitconfig_user = os.path.join(HOME, ".gitconfig.user")
+    if not os.path.exists(gitconfig_user):
+        print "Note that ~/.gitconfig.user is used for user-specific settings to .gitconfig."
+        open(gitconfig_user, 'a').close()
 
     # configure user name and email for git
-    git_name=
-    git_email=
+    git_name = ""
+    git_email = ""
 
     # if not set, suggest user name and email from global git config
-    if [ -z "${git_name}" ] && [ -z "${git_email}" ]; then
-        proposed_name=$(${git} config --global user.name)
-        proposed_email=$(${git} config --global user.email)
+    if git_name == "" and git_email == "":
+        proposed_name = emulate_backtick(git + " config --global user.name")
+        proposed_email = emulate_backtick(git + " config --global user.email")
 
-        if [ ! -z "${proposed_name}" ] || [ ! -z "${proposed_email}" ]; then
-            echo "Use the current global user information '${proposed_name} <${proposed_email}>' for git? (y/n): \c"
-            read -r yn
-            if [ "${yn}" = "y" ]; then
-                git_name=${proposed_name}
-                git_email=${proposed_email}
-            fi
-        fi
-    fi
+        if proposed_name != "" or proposed_email != "":
+            print "Use the current global user information '%s <%s>' for git? (y/n): " % (proposed_name, proposed_email),
+            yn = raw_input()
+            if yn == "y":
+                git_name = proposed_name
+                git_email = proposed_email
 
     # if not set, suggest user name and email from user-specific git confg
-    if [ -z "${git_name}" ] && [ -z "${git_email}" ]; then
-        proposed_name=$(${git} config -f "${gitconfig_user}" user.name)
-        proposed_email=$(${git} config -f "${gitconfig_user}" user.email)
+    if git_name == "" and git_email == "":
+        proposed_name = emulate_backtick(git + " config -f \"" + gitconfig_user + "\" user.name")
+        proposed_email = emulate_backtick(git + " config -f \"" + gitconfig_user + "\" user.email")
 
-        if [ ! -z "${proposed_name}" ] && [ ! -z "${proposed_email}" ]; then
-            echo "Use the current user-specific user information '${proposed_name} <${proposed_email}>' for git? (y/n): \c"
-            read -r yn
-            if [ "${yn}" = "y" ]; then
-                git_name=${proposed_name}
-                git_email=${proposed_email}
-            fi
-        fi
-    fi
+        if proposed_name != "" and proposed_email != "":
+            print "Use the current user-specific user information '%s <%s>' for git? (y/n): " % (proposed_name, proposed_email),
+            yn = raw_input()
+            if yn == "y":
+                git_name = proposed_name
+                git_email = proposed_email
 
     # if not set, suggest default user name and email
-    if [ -z "${git_name}" ] && [ -z "${git_email}" ]; then
-        proposed_name=${name}
-        proposed_email=${email}
+    if git_name == "" and git_email == "":
+        proposed_name = name
+        proposed_email = email
 
-        if [ ! -z "${proposed_name}" ] && [ ! -z "${proposed_email}" ]; then
-            echo "Use the default '${proposed_name} <${proposed_email}>' for git? (y/n): \c"
-            read -r yn
-            if [ "${yn}" = "y" ]; then
-                git_name=${proposed_name}
-                git_email=${proposed_email}
-            fi
-        fi
-    fi
+        if proposed_name != "" and proposed_email != "":
+            print "Use the default '%s <%s>' for git? (y/n): " % (proposed_name, proposed_email),
+            yn = raw_input()
+            if yn == "y":
+                git_name = proposed_name
+                git_email = proposed_email
 
     # if not set, ask the user for name
-    if [ -z "${git_name}" ]; then
-        echo "Enter git user name: \c"
-        read -r git_name
-    fi
+    if git_name == "":
+        print "Enter git user name: ",
+        git_name = raw_input()
     # if not set, ask the user for email
-    if [ -z "${git_email}" ]; then
-        echo "Enter git user email: \c"
-        read -r git_email
-    fi
+    if git_email == "":
+        print "Enter git user email: ",
+        git_email = raw_input()
 
     # set the user-specific git config and clear the global git config
-    if [ ! -z "${git_name}" ] || [ ! -z "${git_email}" ]; then
-        echo "Set user-specific user information to '${git_name} <${git_email}>' for git? (y/n): \c"
-        read -r yn
-        if [ "${yn}" = "y" ]; then
+    if git_name != "" or git_email != "":
+        print "Setting the user-specific user information to '%s <%s>' for git? (y/n): " % (git_name, git_email),
+        yn = raw_input()
+        if yn == "y":
             # set user name/email in user-specific config
-            ${git} config -f "${gitconfig_user}" user.name "${git_name}"
-            ${git} config -f "${gitconfig_user}" user.email "${git_email}"
+            emulate_run(git + " config -f \"" + gitconfig_user + "\" user.name \"" + git_name + "\"")
+            emulate_run(git + " config -f \"" + gitconfig_user + "\" user.email \"" + git_email + "\"")
 
             # clear user in global git config
-            ${git} config --global --remove-section user
-        fi
-    fi
-fi
+            emulate_run(git + " config --global --remove-section user")
 
 # configure mercurial
-hg=$(which hg 2> /dev/null)
-if [ ! -z "${hg}" ] && [ -x "${hg}" ]; then
+hg = emulate_backtick("which hg 2> /dev/null")
+if hg != "":
     # set up machine-specific ~/.hgrc
-    hgrc_machine=${HOME}/.hgrc.machine
-    if [ ! -e "${hgrc_machine}" ]; then
-        echo "Note that ~/.hgrc.machine is used for machine-specific settings to .hgrc."
-        touch "${hgrc_machine}"
-    fi
+    hgrc_machine = os.path.join(HOME, ".hgrc.machine")
+    if not os.path.exists(hgrc_machine):
+        print "Note that ~/.hgrc.machine is used for machine-specific settings to .hgrc."
+        open(hgrc_machine, 'a').close()
 
     # set up user-specific ~/.hgrc
-    hgrc_user=${HOME}/.hgrc.user
-    if [ ! -e "${hgrc_user}" ]; then
-        echo "Note that ~/.hgrc.user is used for user-specific settings to .hgrc."
-        touch "${hgrc_user}"
-    fi
+    hgrc_user = os.path.join(HOME, ".hgrc.user")
+    if not os.path.exists(hgrc_user):
+        print "Note that ~/.hgrc.user is used for user-specific settings to .hgrc."
+        open(hgrc_user, 'a').close()
 
-    #! @todo use hg to set up user
-fi
+    # @todo use hg to set up user
 
 # configure emacs
-emacs=$(which emacs 2> /dev/null)
-if [ ! -z "${emacs}" ] && [ -x "${emacs}" ]; then
+emacs = emulate_backtick("which emacs 2> /dev/null")
+if emacs != "":
     # set up machine-specific ~/.emacs
-    emacs_machine=${HOME}/.emacs.machine.el
-    if [ ! -e "${emacs_machine}" ]; then
-        echo "Note that ~/.emacs.machine.el is used for machine-specific settings to .emacs."
-        touch "${emacs_machine}"
-        echo ";;; package --- Machine-specific Emacs initialization." >> "${emacs_machine}"
-        echo "" >> "${emacs_machine}"
-        echo ";;; Commentary:" >> "${emacs_machine}"
-        echo "" >> "${emacs_machine}"
-        echo ";;; Code:" >> "${emacs_machine}"
-        echo "" >> "${emacs_machine}"
-        echo "(provide '.emacs.machine)" >> "${emacs_machine}"
-        echo "" >> "${emacs_machine}"
-        echo ";;; .emacs.machine.el ends here" >> "${emacs_machine}"
-    fi
+    emacs_machine = os.path.join(HOME, ".emacs.machine.el")
+    if not os.path.exists(emacs_machine):
+        print "Note that ~/.emacs.machine.el is used for machine-specific settings to .emacs."
+        with open(emacs_machine, 'a') as f:
+            print >>f, ";;; package --- Machine-specific Emacs initialization."
+            print >>f, ""
+            print >>f, ";;; Commentary:"
+            print >>f, ""
+            print >>f, ";;; Code:"
+            print >>f, ""
+            print >>f, "(provide '.emacs.machine)"
+            print >>f, ""
+            print >>f, ";;; .emacs.machine.el ends here"
 
     # ensure that emacs knows a good host name
-    emacs_hostname=
+    emacs_hostname = ""
 
     # if not set, suggest the global system name for emacs
-    if [ -z "${emacs_hostname}" ]; then
-        proposed_hostname=$(${emacs} --batch --no-init-file --eval "(princ system-name)")
+    if emacs_hostname == "":
+        proposed_hostname = emulate_backtick(emacs + " --batch --no-init-file --eval \"(princ system-name)\"")
 
-        if [ ! -z "${proposed_hostname}" ]; then
-            echo "Use the current emacs system-name '${proposed_hostname}' for emacs? (y/n): \c"
-            read -r yn
-            if [ "${yn}" = "y" ]; then
-                emacs_hostname=${proposed_hostname}
-            fi
-        fi
-    fi
+        if proposed_hostname != "":
+            print "Use the current emacs system-name '%s' for emacs? (y/n): " % (proposed_hostname),
+            yn = raw_input()
+            if yn == "y":
+                emacs_hostname = proposed_hostname
 
     # if not set, suggest the user-specific system name for emacs
-    if [ -z "${emacs_hostname}" ]; then
-        proposed_hostname=$(${emacs} --batch --no-init-file --load "${emacs_machine}" --eval "(princ system-name)")
+    if emacs_hostname == "":
+        proposed_hostname = emulate_backtick(emacs + " --batch --no-init-file --load \"" + emacs_machine + "\" --eval \"(princ system-name)\"")
 
-        if [ ! -z "${proposed_hostname}" ]; then
-            echo "Use the user-specific emacs system-name '${proposed_hostname}' for emacs? (y/n): \c"
-            read -r yn
-            if [ "${yn}" = "y" ]; then
-                emacs_hostname=${proposed_hostname}
-            fi
-        fi
-    fi
+        if proposed_hostname != "":
+            print "Use the user-specific emacs system-name '%s' for emacs? (y/n): " % (proposed_hostname),
+            yn = raw_input()
+            if yn == "y":
+                emacs_hostname = proposed_hostname
 
     # if not set, suggest the hostname of the computer for emacs
-    if [ -z "${emacs_hostname}" ]; then
-        proposed_hostname=$(hostname)
+    if emacs_hostname == "":
+        proposed_hostname = os.uname()[1]
 
-        if [ ! -z "${proposed_hostname}" ]; then
-            echo "Use the hostname '${proposed_hostname}' for emacs? (y/n): \c"
-            read -r yn
-            if [ "${yn}" = "y" ]; then
-                emacs_hostname=${proposed_hostname}
-            fi
-        fi
-    fi
+        if proposed_hostname != "":
+            print "Use the hostname '%s' for emacs? (y/n): " % (proposed_hostname),
+            yn = raw_input()
+            if yn == "y":
+                emacs_hostname = proposed_hostname
 
     # if not set, ask the user for the hostname
-    if [ -z "${emacs_hostname}" ]; then
-        echo "Enter system-name for emacs: \c"
-        read -r emacs_hostname
-    fi
+    if emacs_hostname == "":
+        print "Enter system-name for emacs: ",
+        emacs_hostname = raw_input()
 
     # set the system-name for emacs
     # @todo nice to edit the lisp s-expressions directly
-    if [ ! -z "${emacs_hostname}" ]; then
-        echo "Use the system-name '${emacs_hostname}' for emacs? (y/n): \c"
-        read -r yn
-        if [ "${yn}" = "y" ]; then
-            echo "Add the following to ~/.emacs.machine.el:"
-            echo "   (setq system-name \"${emacs_hostname}\")"
-        fi
-    fi
+    if emacs_hostname != "":
+        print "Use the system-name '%s' for emacs? (y/n) " % (emacs_hostname),
+        yn = raw_input()
+        if yn == "y":
+            print "Add the following to ~/.emacs.machine.el:"
+            print "   (setq system-name \"%s\")" % (emacs_hostname)
 
     # set up user-specific ~/.emacs
-    emacs_user=${HOME}/.emacs.user.el
-    if [ ! -e "${emacs_user}" ]; then
-        echo "Note that ~/.emacs.user.el is used for user-specific settings to .emacs."
-        touch "${emacs_user}"
-        echo ";;; package --- User-specific Emacs initialization." >> "${emacs_user}"
-        echo "" >> "${emacs_user}"
-        echo ";;; Commentary:" >> "${emacs_user}"
-        echo "" >> "${emacs_user}"
-        echo ";;; Code:" >> "${emacs_user}"
-        echo "" >> "${emacs_user}"
-        echo "(provide '.emacs.user)" >> "${emacs_user}"
-        echo "" >> "${emacs_user}"
-        echo ";;; .emacs.user.el ends here" >> "${emacs_user}"
-    fi
+    emacs_user = os.path.join(HOME, ".emacs.user.el")
+    if not os.path.exists(emacs_user):
+        print "Note that ~/.emacs.user.el is used for user-specific settings to .emacs."
+        with open(emacs_user, 'a') as f:
+            print >>f, ";;; package --- User-specific Emacs initialization."
+            print >>f, ""
+            print >>f, ";;; Commentary:"
+            print >>f, ""
+            print >>f, ";;; Code:"
+            print >>f, ""
+            print >>f, "(provide '.emacs.user)"
+            print >>f, ""
+            print >>f, ";;; .emacs.user.el ends here"
 
-    emacs_name=
-    emacs_email=
+    emacs_name = ""
+    emacs_email = ""
 
     # if not set, suggest the global user's full name for emacs
-    if [ -z "${emacs_name}" ]; then
-        proposed_name=$(${emacs} --batch --no-init-file --eval "(princ user-full-name)")
+    if emacs_name == "":
+        proposed_name = emulate_backtick(emacs + " --batch --no-init-file --eval \"(princ user-full-name)\"")
 
-        if [ ! -z "${proposed_name}" ]; then
-            echo "Use the current global user's full name '${proposed_name}' for emacs? (y/n): \c"
-            read -r yn
-            if [ "${yn}" = "y" ]; then
-                emacs_name=${proposed_name}
-            fi
-        fi
-    fi
+        if proposed_name != "":
+            print "Use the current global user's full name '%s' for emacs? (y/n): " % (proposed_name),
+            yn = raw_input()
+            if yn == "y":
+                emacs_name = proposed_name
 
     # if not set, suggest the user-specific user's full name for emacs
-    if [ -z "${emacs_name}" ]; then
-        proposed_name=$(${emacs} --batch --no-init-file --load "${emacs_user}" --eval "(princ user-full-name)")
+    if emacs_name == "":
+        proposed_name = emulate_backtick(emacs + " --batch --no-init-file --load \"" + emacs_user + "\" --eval \"(princ user-full-name)\"")
 
-        if [ ! -z "${proposed_name}" ]; then
-            echo "Use the current user-specific user's full name '${proposed_name}' for emacs? (y/n): \c"
-            read -r yn
-            if [ "${yn}" = "y" ]; then
-                emacs_name=${proposed_name}
-            fi
-        fi
-    fi
+        if proposed_name != "":
+            print "Use the current user-specific user's full name '%s' for emacs? (y/n): " % (proposed_name),
+            yn = raw_input()
+            if yn == "y":
+                emacs_name = proposed_name
 
     # if not set, suggest the default user's full name for emacs
-    if [ -z "${emacs_name}" ]; then
-        proposed_name=${name}
-        echo "Use the default user's full name '${proposed_name}' for emacs? (y/n): \c"
-        read -r yn
-        if [ "${yn}" = "y" ]; then
-            emacs_name=${proposed_name}
-        fi
-    fi
+    if emacs_name == "":
+        proposed_name = name
+        print "Use the default user's full name '%s' for emacs? (y/n): " % (proposed_name),
+        yn = raw_input()
+        if yn == "y":
+            emacs_name = proposed_name
 
     # if not set, ask user for the user's full name for emacs
-    if [ -z "${emacs_name}" ]; then
-        echo "Enter the user's full name for emacs: \c"
-        read -r emacs_name
-    fi
+    if emacs_name == "":
+        print "Enter the user's full name for emacs: ",
+        emacs_name = raw_input()
 
     # if not set, suggest the global user's email for emacs
-    if [ -z "${emacs_email}" ]; then
-        proposed_email=$(${emacs} --batch --no-init-file --eval "(princ user-mail-address)")
+    if emacs_email == "":
+        proposed_email = emulate_backtick(emacs + " --batch --no-init-file --eval \"(princ user-mail-address)\"")
 
-        if [ ! -z "${proposed_email}" ]; then
-            echo "Use the current global user's email '${proposed_email}' for emacs? (y/n): \c"
-            read -r yn
-            if [ "${yn}" = "y" ]; then
-                emacs_email=${proposed_email}
-            fi
-        fi
-    fi
+        if proposed_email != "":
+            print "Use the current global user's email '%s' for emacs? (y/n): " % (proposed_email),
+            yn = raw_input()
+            if yn == "y":
+                emacs_email = proposed_email
 
     # if not set, suggest the user-specific user's email for emacs
-    if [ -z "${emacs_email}" ]; then
-        proposed_email=$(${emacs} --batch --no-init-file --load "${emacs_user}" --eval "(princ user-mail-address)")
+    if emacs_email == "":
+        proposed_email = emulate_backtick(emacs + " --batch --no-init-file --load \"" + emacs_user + "\" --eval \"(princ user-mail-address)\"")
 
-        if [ ! -z "${proposed_email}" ]; then
-            echo "Use the current user-specific user's email '${proposed_email}' for emacs? (y/n): \c"
-            read -r yn
-            if [ "${yn}" = "y" ]; then
-                emacs_email=${proposed_email}
-            fi
-        fi
-    fi
+        if proposed_email != "":
+            print "Use the current user-specific user's email '%s' for emacs? (y/n): " % (proposed_email),
+            yn = raw_input()
+            if yn == "y":
+                emacs_email = proposed_email
 
     # if not set, suggest the default user's email for emacs
-    if [ -z "${emacs_email}" ]; then
-        proposed_email=${email}
-        echo "Use the default user's email address '${proposed_email}' for emacs? (y/n): \c"
-        read -r yn
-        if [ "${yn}" = "y" ]; then
-            emacs_email=${proposed_email}
-        fi
-    fi
+    if emacs_email == "":
+        proposed_email = email
+        print "Use the default user's email address '%s' for emacs? (y/n): " % (proposed_email),
+        yn = raw_input()
+        if yn == "y":
+            emacs_email = proposed_email
 
     # if not set, ask user for the user's email for emacs
-    if [ -z "${emacs_email}" ]; then
-        echo "Enter the user's email for emacs: \c"
-        read -r emacs_email
-    fi
+    if emacs_email == "":
+        print "Enter the user's email for emacs: ",
+        emacs_email = raw_input()
 
     # set the user's full name and email for emacs
     # @todo nice to edit the lisp s-expressions directly
-    if [ ! -z "${emacs_name}" ]; then
-        echo "Use the user's full name '${emacs_name}' for emacs? (y/n): \c"
-        read -r yn
-        if [ "${yn}" = "y" ]; then
-            echo "Add the following to ~/.emacs.user.el:"
-            echo "   (setq user-full-name \"${emacs_name}\")"
-        fi
-    fi
-    if [ ! -z "${emacs_email}" ]; then
-        echo "Use the user's email '${emacs_email}' for emacs? (y/n): \c"
-        read -r yn
-        if [ "${yn}" = "y" ]; then
-            echo "Add the following to ~/.emacs.user.el:"
-            echo "   (setq user-mail-address \"${emacs_email}\")"
-        fi
-    fi
-fi
+    if emacs_name != "":
+        print "Use the user's full name '%s' for emacs? (y/n): " % (emacs_name),
+        yn = raw_input()
+        if yn == "y":
+            print "Add the following to ~/.emacs.user.el:"
+            print "   (setq user-full-name \"%s\")" % (emacs_name)
+    if emacs_email != "":
+        print "Use the user's email '%s' for emacs? (y/n): " % (emacs_email),
+        yn = raw_input()
+        if yn == "y":
+            print "Add the following to ~/.emacs.user.el:"
+            print "   (setq user-mail-address \"%s\")" % (emacs_email)
 
 # ask to install python packages
-echo "Install Python packages? (y/n): \c"
-read -r yn
-if [ "${yn}" = "y" ]; then
-    if ! ./install_python_packages ; then
-        echo "warning: failed to install Python packages."
-    fi
-fi
+print "Install Python packages? (y/n): ",
+yn = raw_input()
+if yn == "y":
+    if not emulate_run(os.path.abspath("install_python_packages")):
+        print "warning: failed to install Python packages."
 
 # ask to install ruby packages
-echo "Install Ruby packages? (y/n): \c"
-read -r yn
-if [ "${yn}" = "y" ]; then
-    if ! ./install_ruby_packages ; then
-        echo "warning: failed to install Ruby packages."
-    fi
-fi
+print "Install Ruby packages? (y/n): ",
+yn = raw_input()
+if yn == "y":
+    if not emulate_run(os.path.abspath("install_ruby_packages")):
+        print "warning: failed to install Ruby packages."
 
 # ask to install node packages
-echo "Install Node packages? (y/n): \c"
-read -r yn
-if [ "${yn}" = "y" ]; then
-    if ! ./install_node_packages ; then
-        echo "warning: failed to install Node.js packages."
-    fi
-fi
+print "Install Node packages? (y/n): ",
+yn = raw_input()
+if yn == "y":
+    if not emulate_run(os.path.abspath("install_node_packages")):
+        print "warning: failed to install Node.js packages."
 
 # ask to install go packages
-echo "Install Go packages? (y/n): \c"
-read -r yn
-if [ "${yn}" = "y" ]; then
-    if ! ./install_go_packages ; then
-        echo "warning: failed to install Go packages."
-    fi
-fi
+print "Install Go packages? (y/n): ",
+yn = raw_input()
+if yn == "y":
+    if not emulate_run(os.path.abspath("install_go_packages")):
+        print "warning: failed to install Go packages."
