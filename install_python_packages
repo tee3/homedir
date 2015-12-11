@@ -27,7 +27,7 @@ pip = distutils.spawn.find_executable("pip")
 if not pip:
     pippath = os.path.join(site.USER_BASE, "bin", "pip")
     if not os.path.exists(pippath):
-        r = urllib2.urlopen("https://bootstrap.pypa.io/get-pip.py")
+        r = urllib2.urlopen("http://bootstrap.pypa.io/get-pip.py")
         with open("get-pip.py", "w") as f:
             f.write(r.read())
 
