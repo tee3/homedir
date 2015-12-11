@@ -146,7 +146,7 @@ if yn == "y":
             os.makedirs(dst_d)
 
         for f in glob.iglob(src_d):
-            emulate_run(["ln", "-i", "-v", "-s", f, dst_d])
+            os.symlink(f, dst_d)
 
             b, e = os.path.splitext(f)
             assert e == ".service"
@@ -160,7 +160,7 @@ if yn == "y":
             os.makedirs(dst_d)
 
         for f in glob.iglob(src_d):
-            emulate_run(["ln", "-i", "-v", "-s", f, dst_d])
+            os.symlink(f, dst_d)
 
             b, e = os.path.splitext(f)
             assert e == ".plist"

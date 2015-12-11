@@ -85,7 +85,6 @@ some Unix emulation layers such as MSYS or Cygwin.
 
 * `python`
 * `stow`
-* `ln`
 
 For installing user services, the following programs are required.
 
