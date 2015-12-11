@@ -24,6 +24,8 @@ if not go:
 error = False
 with open("go-packages.txt", "r") as f:
     for line in f:
+        line = line.strip()
+        line = line.rstrip("\n")
         if line != "" and line[0] != "#":
             e = os.environ
             e["GOPATH"] = os.path.join(HOME, "opt", "local", "src", "go")

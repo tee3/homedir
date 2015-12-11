@@ -31,6 +31,8 @@ if not npm:
 error = False
 with open("node-packages.txt", "r") as f:
     for line in f:
+        line = line.strip()
+        line = line.rstrip("\n")
         if line != "" and line[0] != "#":
             if not emulate_run([npm, "install", "--global", "--prefix", os.path.join(HOME, ".node_modules"), line]):
                 error = True
