@@ -447,23 +447,23 @@ if emacs:
 # ask to install python packages
 yn = raw_input("Install Python packages? (y/n): ")
 if yn == "y":
-    if not emulate_run([os.path.abspath("install_python_packages")]):
+    if not emulate_run([sys.executable, os.path.abspath("install_python_packages")]):
         print "warning: failed to install Python packages."
 
 # ask to install ruby packages
 yn = raw_input("Install Ruby packages? (y/n): ")
 if yn == "y":
-    if not emulate_run([os.path.abspath("install_ruby_packages")]):
+    if not emulate_run([sys.executable, os.path.abspath("install_ruby_packages")]):
         print "warning: failed to install Ruby packages."
 
 # ask to install node packages
 yn = raw_input("Install Node packages? (y/n): ")
 if yn == "y":
-    if not emulate_run([os.path.abspath("install_node_packages")]):
+    if not emulate_run([sys.executable, os.path.abspath("install_node_packages")]):
         print "warning: failed to install Node.js packages."
 
 # ask to install go packages
 yn = raw_input("Install Go packages? (y/n): ")
 if yn == "y":
-    if not emulate_run([os.path.abspath("install_go_packages")]):
+    if not emulate_run([sys.executable, os.path.abspath("install_go_packages")]):
         print "warning: failed to install Go packages."
