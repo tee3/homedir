@@ -7,6 +7,7 @@ import os
 import subprocess
 import glob
 import distutils.spawn
+import shutil
 import filecmp
 
 
@@ -75,29 +76,55 @@ if os.path.isdir(os.path.join(HOME, "opt", "local", "bin")):
 # requires stow
 stow = distutils.spawn.find_executable("stow")
 if not stow:
-    print "error: 'stow' is not available."
-    sys.exit(1)
+    print "warning: 'stow' is not available."
 
-# attempt to stow the dotfiles directory, clean up if fails.
-if not emulate_run([stow, "--target", HOME, dotfiledirs]):
-    # allow user to clean up existing files
+    yn = raw_input("Continue without using stow (only recommended on Windows)? (y/n) ")
+    if yn != "y":
+        sys.exit(1)
+
+if stow:
+    # attempt to stow the dotfiles directory, clean up if fails.
+    if not emulate_run([stow, "--target", HOME, dotfiledirs]):
+        # allow user to clean up existing files
+        for root, directories, files in os.walk(dotfiledirs):
+            for n in files:
+                f = os.path.join(root, n)
+                home_f = os.path.join(HOME, n)
+                if os.path.exists(home_f):
+                    if f != home_f:
+                        if filecmp.cmp(f, home_f, False):
+                            yn = raw_input("%s is identical to %s.  Overwrite? (y/n): " % (f, home_f))
+                            if yn == "y":
+                                os.remove(home_f)
+                        else:
+                            yn = raw_input("%s is different than %s.  Overwrite anyway? (y/n): " % (f, home_f))
+                            if yn == "y":
+                                os.remove(home_f)
+
+        if not emulate_run([stow, "--target", HOME, dotfiledirs]):
+            print "error: some targets could not be linked to home directory."
+            sys.exit(1)
+else:
+    identical = True
     for root, directories, files in os.walk(dotfiledirs):
         for n in files:
             f = os.path.join(root, n)
             home_f = os.path.join(HOME, n)
+
+            if not os.path.exists(home_f):
+                shutil.copy(f, home_f)
+
             if os.path.exists(home_f):
                 if f != home_f:
-                    if filecmp.cmp(f, home_f, False):
-                        yn = raw_input("%s is identical to %s.  Overwrite? (y/n): " % (f, home_f))
-                        if yn == "y":
-                            os.remove(home_f)
-                    else:
+                    if not filecmp.cmp(f, home_f):
                         yn = raw_input("%s is different than %s.  Overwrite anyway? (y/n): " % (f, home_f))
                         if yn == "y":
-                            os.remove(home_f)
+                            shutil.copy(f, home_f)
+                        else:
+                            identical = False
 
-    if not emulate_run([stow, "--target", HOME, dotfiledirs]):
-        print "error: some targets could not be linked to home directory."
+    if not identical:
+        print "error: not all targets copied to the home directory."
         sys.exit(1)
 
 # ask user for name and email address
