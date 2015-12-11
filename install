@@ -163,7 +163,11 @@ if yn == "y":
             os.makedirs(dst_d)
 
         for f in glob.iglob(src_d):
-            os.symlink(f, dst_d)
+            dst_f = os.path.join(dst_d, os.path.basename(f))
+            if os.path.exists(dst_f):
+                print "warning: %s exists, skipping %s." % (dst_f, f)
+            else:
+                os.symlink(f, dst_d)
 
             b, e = os.path.splitext(f)
             assert e == ".service"
@@ -177,7 +181,11 @@ if yn == "y":
             os.makedirs(dst_d)
 
         for f in glob.iglob(src_d):
-            os.symlink(f, dst_d)
+            dst_f = os.path.join(dst_d, os.path.basename(f))
+            if os.path.exists(dst_f):
+                print "warning: %s exists, skipping %s." % (dst_f, f)
+            else:
+                os.symlink(f, dst_d)
 
             b, e = os.path.splitext(f)
             assert e == ".plist"
