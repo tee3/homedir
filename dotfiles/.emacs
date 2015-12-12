@@ -543,6 +543,9 @@
   :ensure t)
 
 ;;; Scheme programming language
+(use-package scheme-mode
+  :mode
+  (("\\.guile\\'" . scheme-mode)))
 (use-package geiser
   :ensure t)
 
