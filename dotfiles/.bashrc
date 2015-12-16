@@ -19,10 +19,10 @@ if [ -e /usr/local/bin/brew ]; then
         export DICTIONARY=en_US
     fi
 
-    # Subversion 1.7 from Homebrew
-    if [ -e "$(brew --prefix subversion17)" ] ; then
+    # Subversion from Homebrew
+    if [ -e "$(brew --prefix subversion)" ] ; then
         export RUBYLIB=${brew_prefix}/lib/ruby:${RUBYLIB}
-        export PERL5LIB="$(brew --prefix subversion17)"/Library/Perl/5.16:${PERL5LIB}
+        export PERL5LIB="$(brew --prefix subversion)"/Library/Perl/5.16:${PERL5LIB}
         export PYTHONPATH=${brew_prefix}/lib/svn-python:${PYTHONPATH}
     fi
 
