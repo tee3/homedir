@@ -19,13 +19,6 @@ if [ -e /usr/local/bin/brew ]; then
         export DICTIONARY=en_US
     fi
 
-    # Emacs.app from Homebrew
-    if [ -e "$(brew --prefix emacs)" ]; then
-        #alias Emacs.app="emacsclient -c -n"
-        #alias Emacs.app="emacsclient -c -n -a open $(brew --prefix emacs)/Emacs.app"
-        alias Emacs.app="open $(brew --prefix emacs)/Emacs.app"
-    fi
-
     # Subversion 1.7 from Homebrew
     if [ -e "$(brew --prefix subversion17)" ] ; then
         export RUBYLIB=${brew_prefix}/lib/ruby:${RUBYLIB}
