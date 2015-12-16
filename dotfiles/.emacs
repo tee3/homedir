@@ -372,6 +372,8 @@
 ;;; Utilities
 (use-package ascii
   :ensure t)
+(use-package list-unicode-display
+  :ensure t)
 
 ;;; Android development
 (use-package android-mode
