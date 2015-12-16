@@ -116,6 +116,12 @@ fi
 # never use ccache, no matter what
 export CCACHE_DISABLE=""
 
+# manage ssh-agent
+keychain="$(command -v keychain 2> /dev/null)"
+if [ -n "${keychain}" ]; then
+    eval "$("${keychain}" --eval --quiet --nogui --inherit any --ignore-missing)"
+fi
+
 # local profile
 if [ -e "${HOME}"/.profile.local ]; then
     . "${HOME}"/.profile.local
