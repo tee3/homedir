@@ -58,11 +58,6 @@ if [ -e /usr/local/bin/brew ]; then
     if [ -e "$(brew --prefix docbook)" ]; then
         export XML_CATALOG_FILES=${brew_prefix}/etc/xml/catalog
     fi
-
-    # Android SDK from Homebrew
-    if [ -e "$(brew --prefix android-sdk)" ]; then
-        export ANDROID_SDK_ROOT=$(brew --prefix android-sdk)
-    fi
 fi
 
 # Completion
