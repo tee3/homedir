@@ -1,6 +1,3 @@
-# change escape key to Ctrl-^ (for emacs)
-escape ^^^^
-
 # make scrollback big
 defscrollback 1000000
 
