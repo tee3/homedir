@@ -448,7 +448,10 @@
   :ensure t)
 (use-package asm-mode
   :mode
-  (("\\.[sh][56][45x]\\'" . asm-mode)))
+  (("\\.[sh][56][45x]\\'" . asm-mode))
+  :config
+  (add-hook 'asm-mode-hook (lambda ()
+                                  (setq indent-tabs-mode t))))
 (use-package coffee-mode
   :ensure t)
 (use-package cperl-mode
