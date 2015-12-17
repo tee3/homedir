@@ -125,6 +125,7 @@ sudo yum -y install jam
 sudo yum -y install llvm
 #sudo yum -y install llvm35
 #sudo yum -y install llvm36
+sudo yum -y install lrzsz
 #sudo yum -y install markdown
 #sudo yum -y install mscgen
 #sudo yum -y install netcat
@@ -145,6 +146,7 @@ sudo yum -y install openocd
 #sudo yum -y install pinentry
 #sudo yum -y install pkg-config
 #sudo yum -y install rtags
+sudo yum -y install screen
 sudo yum -y install ShellCheck
 sudo yum -y install socat
 sudo yum -y install sqlite

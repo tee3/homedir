@@ -126,6 +126,7 @@ sudo aptitude -y install jam
 sudo aptitude -y install llvm
 #sudo aptitude -y install llvm35
 #sudo aptitude -y install llvm36
+sudo aptitude -y install lrzsz
 #sudo aptitude -y install markdown
 #sudo aptitude -y install mscgen
 #sudo aptitude -y install netcat
@@ -146,6 +147,7 @@ sudo aptitude -y install openocd
 #sudo aptitude -y install pinentry
 #sudo aptitude -y install pkg-config
 #sudo aptitude -y install rtags
+sudo aptitude -y install screen
 sudo aptitude -y install shellcheck
 sudo aptitude -y install socat
 sudo aptitude -y install sqlite
