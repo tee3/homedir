@@ -164,6 +164,11 @@
 (use-package pcomplete
   :config
   (add-hook 'shell-mode-hook 'pcomplete-shell-setup))
+(use-package bash-completion
+  :ensure t
+  :pin melpa
+  :config
+  (bash-completion-setup))
 (use-package savehist
   :config
   (savehist-mode))
