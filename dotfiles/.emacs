@@ -67,12 +67,14 @@
   (load custom-file 'noerror))
 (use-package abbrev)
 (use-package dedicated
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package desktop
   :config
   (desktop-save-mode))
 (use-package diminish
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package dired
   :init
   (setq dired-kept-versions 6))
@@ -85,17 +87,20 @@
   (add-hook 'lisp-interaction-mode-hook 'eldoc-mode)
   (add-hook 'eval-expression-minibuffer-setup-hook 'eldoc-mode))
 (use-package electric-case
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package etags
   :init
   (setq tags-loop-revert-buffers t))
 (use-package expand-region
   :ensure t
+  :pin melpa
   :bind
   ("C-c =" . er/expand-region))
 (use-package fm
   :disabled t
   :ensure t
+  :pin melpa
   :config
   (add-hook 'occur-mode-hook 'fm-start)
   (add-hook 'compilation-mode-hook 'fm-start))
@@ -120,7 +125,8 @@
   (setq fringe-mode '(4 . nil)))
 (use-package hideshow)
 (use-package hide-comnt
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package icomplete
   :disabled t
   :init
@@ -138,13 +144,16 @@
     (menu-bar-mode -1)))
 (use-package nav
   :ensure t
+  :pin melpa
   :config
   (nav-disable-overeager-window-splitting))
 (use-package paredit
   :ensure t
+  :pin melpa
   :init
   (use-package paredit-everywhere
-    :ensure t)
+    :ensure t
+    :pin melpa)
   :config
   (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
   (add-hook 'lisp-mode-hook 'enable-paredit-mode)
@@ -171,7 +180,8 @@
   :config
   (add-to-list 'desktop-globals-to-save 'kill-ring 1))
 (use-package smooth-scroll
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package speedbar
   :init
   (use-package sb-image
@@ -182,17 +192,20 @@
   (tool-bar-mode -1))
 (use-package undo-tree
   :disabled t
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package winner
   :init
   (winner-mode))
 (use-package writeroom-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 
 ;;; Evil (vi) emulation
 (use-package evil
   :disabled t
-  :ensure t)
+  :ensure t
+  :pin melpa)
 
 ;;; Text mode hooks
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
@@ -218,6 +231,7 @@
 ;;; Company
 (use-package company
   :ensure t
+  :pin melpa
   :config
   (global-company-mode))
 
@@ -225,29 +239,36 @@
 (use-package flyspell
   :init
   (use-package flyspell-lazy
-    :ensure t)
+    :ensure t
+    :pin melpa)
   :config
   (add-hook 'text-mode-hook 'turn-on-flyspell))
 
 ;;; Helm
 (use-package helm
   :ensure t
+  :pin melpa
   :bind
   ("M-x" . helm-M-x)
   ("C-x C-f" . helm-find-files)
   :init
   (use-package helm-company
-    :ensure t)
+    :ensure t
+    :pin melpa)
   (use-package helm-config
-    :ensure helm)
+    :ensure helm
+    :pin melpa)
   (use-package helm-flycheck
     :ensure t
+    :pin melpa
     :bind
     ("C-c ! h" . helm-flycheck))
   (use-package helm-flyspell
-    :ensure t)
+    :ensure t
+    :pin melpa)
   (use-package helm-projectile
     :ensure t
+    :pin melpa
     :config
     (helm-projectile-on))
   (setq helm-candidate-number-limit nil)
@@ -259,15 +280,20 @@
 ;;; Ibuffer
 (use-package ibuffer
   :ensure t
+  :pin melpa
   :init
   (use-package ibuffer-vc
-    :ensure t)
+    :ensure t
+    :pin melpa)
   (use-package ibuffer-tramp
-    :ensure t)
+    :ensure t
+    :pin melpa)
   (use-package ibuffer-git
-    :ensure t)
+    :ensure t
+    :pin melpa)
   (use-package ibuffer-projectile
-    :ensure t))
+    :ensure t
+    :pin melpa))
 
 ;;; Ido
 (use-package ido
@@ -275,6 +301,7 @@
   :init
   (use-package ido-ubiquitous
     :ensure t
+    :pin melpa
     :init
     (ido-ubiquitous-mode t))
   (ido-mode 1)
@@ -287,15 +314,18 @@
 ;;; Occur
 (use-package ioccur
   :ensure t
+  :pin melpa
   :init
   (use-package desktop)
   (add-to-list 'desktop-globals-to-save 'ioccur-history))
 (use-package noccur
-  :ensure t)
+  :ensure t
+  :pin melpa)
 
 ;;; Projectile
 (use-package projectile
   :ensure t
+  :pin melpa
   :init
   (projectile-global-mode)
 
@@ -310,75 +340,97 @@
 ;;;
 (use-package yasnippet
   :ensure t
+  :pin melpa
   :config
   (yas-global-mode))
 
 ;;; Learning Emacs
 (use-package guru-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package vimgolf
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package howdoi
-  :ensure t)
+  :ensure t
+  :pin melpa)
 
 ;;;
 ;;; Org
 ;;;
 (use-package org
-  :ensure t)
+  :ensure t
+  :pin melpa)
 
 ;;;
 ;;; Markdown formats
 ;;;
 (use-package adoc-mode
   :ensure t
+  :pin melpa
   :mode
   ((".asciidoc\\'" . adoc-mode)
    (".adoc\\'" . adoc-mode)))
 (use-package creole-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package jade-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package markdown-mode
   :ensure t
+  :pin melpa
   :mode
   (("README\.md\\'" . gfm-mode))
   :init
   (use-package markdown-mode+
-    :ensure t))
+    :ensure t
+    :pin melpa))
 (use-package markup-faces
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package pandoc-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package rst)
 (use-package sphinx-frontend
-  :ensure t)
+  :ensure t
+  :pin melpa)
 
 ;;; Utilities
 (use-package ascii
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package list-unicode-display
-  :ensure t)
+  :ensure t
+  :pin melpa)
 
 ;;; Android development
 (use-package android-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 
 ;;;
 ;;; Configuration files
 ;;;
 (use-package apache-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package crontab-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package csv-mode
-  :ensure t)
+  :ensure t
+  :pin gnu)
 (use-package dockerfile-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package gitattributes-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package gitconfig-mode
   :ensure t
+  :pin melpa
   :mode
   (("\\.gitconfig.*\\'" . gitconfig-mode)
 
@@ -387,27 +439,37 @@
    ;; migration-generated Git submodules files
    ("\\.gitsvnexternals\\'" . gitconfig-mode)))
 (use-package gitignore-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package graphviz-dot-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package irfc
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package jgraph-mode
-  :ensure t)
+  :ensure t
+  :pin gnu)
 (use-package json-mode
   :ensure t
+  :pin melpa
   :mode
   ("jslintrc\\'" . json-mode))
 (use-package nginx-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package osx-plist
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package pov-mode
-  :ensure t)
+  :ensure t
+  :pin marmalade)
 (use-package protobuf-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package ssh-config-mode
   :ensure t
+  :pin melpa
   :mode
   ((".ssh/config\\'" . ssh-config-mode)
    ("sshd?_config\\'" . ssh-config-mode)
@@ -415,22 +477,28 @@
    ("authorized_keys2?\\'" . ssh-authorized-keys-mode)))
 (use-package syslog-mode
   :ensure t
+  :pin melpa
   :mode
   (("/var/log.*\\'" . syslog-mode)))
 (use-package systemd
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package toml-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package vimrc-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package yaml-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 
 ;;;
 ;;; Programming languages
 ;;;
 (use-package applescript-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package asm-mode
   :mode
   (("\\.[sh][56][45x]\\'" . asm-mode))
@@ -438,62 +506,82 @@
   (add-hook 'asm-mode-hook (lambda ()
                                   (setq indent-tabs-mode t))))
 (use-package coffee-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package cperl-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package csharp-mode
   :disabled t
   :ensure t
+  :pin melpa
   :init
   (use-package omnisharp
     :disabled t
-    :ensure t))
+    :ensure t
+    :pin melpa))
 (use-package d-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package fish-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package haskell-mode
   :ensure t
+  :pin melpa
   :init
   (use-package company
     :ensure t
+    :pin melpa
     :init
     (use-package company-ghc
       :ensure t
+      :pin melpa
       :config
       (add-to-list 'company-backends 'company-ghc t))))
 (use-package llvm-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package lua-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package matlab
-  :ensure matlab-mode)
+  :ensure matlab-mode
+  :pin melpa)
 (use-package octave)
 (use-package php-mode
   :disabled t
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package powershell
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package processing-mode
   :ensure t
+  :pin melpa
   :init
   (use-package processing-snippets
-    :ensure t))
+    :ensure t
+    :pin melpa))
 (use-package sql
   :init
   (setq sql-sqlite-program "sqlite3"))
 (use-package swift-mode
   :ensure t
+  :pin melpa
   :init
   (use-package flycheck
-    :ensure t)
+    :ensure t
+    :pin melpa)
   :config
   (add-to-list 'flycheck-checkers 'swift))
 (use-package tcl)
 (use-package tidy
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package web-mode
   :ensure t
+  :pin melpa
   :init
   (defun tbrown-web-mode-setup ()
     (setq web-mode-markup-indent-offset 2)
@@ -510,9 +598,11 @@
 ;;; TeX and LaTeX
 (use-package tex-site
   :ensure auctex
+  :pin melpa
   :init
   (use-package company
     :ensure t
+    :pin melpa
     :init
     (use-package company-auctex
       :ensure t)))
@@ -520,30 +610,36 @@
 ;;; OpenGL
 (use-package cuda-mode
   :disabled t
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package glsl-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 
 ;;; GNU Global
 (use-package ggtags
-  :ensure t)
+  :ensure t
+  :pin melpa)
 
 ;;; Scheme programming language
 (use-package scheme-mode
   :mode
   (("\\.guile\\'" . scheme-mode)))
 (use-package geiser
-  :ensure t)
+  :ensure t
+  :pin melpa)
 
 ;;; Google
 (use-package google-this
   :ensure t
+  :pin melpa
   :init
   (google-this-mode))
 
 ;;; SSH
 (use-package ssh
-  :ensure t)
+  :ensure t
+  :pin melpa)
 
 ;;;
 ;;; Version Control Systems
@@ -555,25 +651,31 @@
 ;;; Fossil
 (use-package vc-fossil
   :ensure t
+  :pin melpa
   :init
   (use-package vc))
 
 ;;; Git
 (use-package git-gutter
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package git-gutter-fringe
   :disabled t
-  :ensure t)
+  :ensure t
+  :pin melpa)
 
 ;;; GitHub
 (use-package gist
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package github-issues
-  :ensure t)
+  :ensure t
+  :pin melpa)
 
 ;;; Magit
 (use-package magit
   :ensure t
+  :pin melpa
   :init
   (setq magit-popup-use-prefix-argument 'default)
   :config
@@ -585,24 +687,29 @@
 
 ;;; Microsoft Team Foundation Server
 (use-package tfs
-  :ensure t)
+  :ensure t
+  :pin melpa)
 
 ;;; Mercurial
 (use-package monky
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package hgignore-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package conf-mode
   :mode
   ((".hgrc.*\\'" . conf-mode)))
 
 ;;; Perforce
 (use-package p4
-  :ensure t)
+  :ensure t
+  :pin melpa)
 
 ;;; Subversion
 (use-package psvn
-  :ensure t)
+  :ensure t
+  :pin melpa)
 
 ;;; Make
 (use-package make-mode
@@ -618,6 +725,7 @@
 ;;; Jam programming language
 (use-package jam-mode
   :ensure t
+  :pin marmalade
   :mode
   (("[Jj]amroot\\'" . jam-mode)
    ("[Jj]amfile\\'" . jam-mode)
@@ -635,11 +743,14 @@
 ;;; CMake
 (use-package cmake-mode
   :ensure t
+  :pin melpa
   :init
   (use-package cmake-font-lock
-    :ensure t)
+    :ensure t
+    :pin melpa)
   (use-package cmake-project
-    :ensure t)
+    :ensure t
+    :pin melpa)
   :config
   (add-hook 'cmake-mode-hook 'cmake-font-lock-activate))
 
@@ -647,45 +758,60 @@
 ;;; Gnuplot
 ;;;
 (use-package gnuplot
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package gnuplot-mode
   :ensure t
+  :pin melpa
   :mode
   (("\\.gp\\'" . gnuplot-mode)))
 
 ;;; Go programming language
 (use-package go-mode
   :ensure t
+  :pin melpa
   :init
   (use-package company
     :ensure t
+    :pin melpa
     :init
     (use-package company-go
       :ensure t
+      :pin melpa
       :config
       (add-to-list 'company-backends 'company-go t)))
   (use-package go-direx
-    :ensure t)
+    :ensure t
+    :pin melpa)
   (use-package go-eldoc
     :ensure t
+    :pin melpa
     :config
     (add-hook 'go-mode-hook 'go-eldoc-setup))
   (use-package go-errcheck
-    :ensure t)
+    :ensure t
+    :pin melpa)
   (use-package go-play
-    :ensure t)
+    :ensure t
+    :pin marmalade)
   (use-package go-projectile
-    :ensure t)
+    :ensure t
+    :pin melpa)
   (use-package go-stacktracer
-    :ensure t)
+    :ensure t
+    :pin melpa)
   (use-package golint
-    :ensure t)
+    :ensure t
+    :pin melpa)
   (use-package gore-mode
-    :ensure t)
+    :ensure t
+    :pin melpa)
   (use-package gotest
-    :ensure t)
+    :ensure t
+    :pin melpa)
   (use-package govet
-    :ensure t)
+    :ensure t
+    :pin melpa)
   :config
   (add-hook 'go-mode-hook (lambda ()
                             ;; allow use of tabs as it is required by go fmt
@@ -698,33 +824,42 @@
 (use-package ruby-mode
   :init
   (use-package ruby-compilation
-    :ensure t)
+    :ensure t
+    :pin melpa)
   (use-package ruby-electric
     :ensure t
+    :pin melpa
     :config
     (add-hook 'ruby-mode-hook 'ruby-electric-mode)))
 (use-package robe
   :ensure t
+  :pin melpa
   :config
   (add-hook 'ruby-mode-hook 'robe-mode)
   (add-to-list 'company-backends 'company-robe t))
 (use-package inf-ruby
   :ensure t
+  :pin melpa
   :init
   (use-package company
     :ensure t
+    :pin melpa
     :init
     (use-package company-inf-ruby
       :ensure t
+      :pin melpa
       :config
       (add-to-list 'company-backends 'company-inf-ruby t))
     (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)))
 (use-package rspec-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package rbenv
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package bundler
-  :ensure t)
+  :ensure t
+  :pin melpa)
 
 ;;; Objective-J programming language
 (use-package objc-mode
@@ -743,6 +878,7 @@
     "Major mode for editing Objective-J files.")
   (use-package flycheck
     :ensure t
+    :pin melpa
     :config
     (flycheck-define-checker objj-capp-lint
       "A flycheck checker for Objective-J based on capp_lint."
@@ -791,7 +927,8 @@
 
 ;;; DocBook
 (use-package docbook
-  :ensure t)
+  :ensure t
+  :pin gnu)
 (use-package nxml
   :mode
   (("\\.docbook\\'" . nxml-mode)))
@@ -865,11 +1002,13 @@
   :init
   (use-package cwarn
     :init
-    (global-cwarn-mode t))
+    (global-cwarn-mode t)))
   (use-package google-c-style
-    :ensure t)
+    :ensure t
+    :pin melpa)
   (use-package c-eldoc
     :ensure t
+    :pin melpa
     :init
     ;; add more as desired, superset of what you'd like to use
     (setq c-eldoc-includes "-I.")
@@ -916,53 +1055,70 @@
               ))
 (use-package company
   :ensure t
+  :pin melpa
   :init
   (use-package company-c-headers
     :ensure t
+    :pin melpa
     :config
     (add-to-list 'company-backends 'company-c-headers t)))
 (use-package flycheck
   :ensure t
+  :pin melpa
   :init
   (use-package flycheck-clangcheck
-    :ensure t)
+    :ensure t
+    :pin melpa)
   (use-package flycheck-google-cpplint
-    :ensure t))
+    :ensure t
+    :pin melpa))
 (use-package demangle-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package disaster
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package dummy-h-mode
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package irony
   :disabled t
   :ensure t
+  :pin melpa
   :init
   (use-package company
     :ensure t
+    :pin melpa
     :init
     (use-package company-irony
-      :ensure t))
+      :ensure t
+      :pin melpa))
   (use-package eldoc
     :init
     (use-package irony-eldoc
-      :ensure t))
+      :ensure t
+      :pin melpa))
   (use-package flycheck
     :ensure t
+    :pin melpa
     :init
     (use-package flycheck-irony
-      :ensure t)))
+      :ensure t
+      :pin melpa)))
 (use-package objc-font-lock
   :ensure t
+  :pin melpa
   :config
   (objc-font-lock-global-mode))
 (use-package malinka
   :disabled t
-  :ensure t))
+  :ensure t
+  :pin melpa)
 
 ;;; JavaScript programming language
 (use-package flycheck
   :ensure t
+  :pin melpa
   :config
   (flycheck-def-option-var flycheck-jslint-language-edition nil javascript-jslint
     "The language edition to use in Jslint.
@@ -1012,22 +1168,27 @@ See URL `http://www.jslint.com'."
 
 (use-package js)
 (use-package js-comint
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package flycheck
   :ensure t
+  :pin melpa
   :init
   (setq flycheck-javascript-standard-executable "semistandard"))
 (use-package tern
   :ensure t
+  :pin melpa
   :init
   (use-package js
     :mode
     (("\\.tern-project\\'" . json-mode)))
   (use-package company
     :ensure t
+    :pin melpa
     :init
     (use-package company-tern
       :ensure t
+      :pin melpa
       :config
       (add-to-list 'company-backends 'company-tern t)))
   :config
@@ -1036,7 +1197,8 @@ See URL `http://www.jslint.com'."
 
 ;;; node.js
 (use-package nodejs-repl
-  :ensure t)
+  :ensure t
+  :pin melpa)
 
 ;;; Generic modes
 (use-package generic-x)
@@ -1047,6 +1209,7 @@ See URL `http://www.jslint.com'."
   (setq gud-pdb-command-name "python -m pdb"))
 (use-package elpy
   :ensure t
+  :pin melpa
   :init
   (elpy-enable)
 
@@ -1054,18 +1217,24 @@ See URL `http://www.jslint.com'."
   (when (require 'flycheck nil :noerror)
     (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))))
 (use-package py-autopep8
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package flycheck
   :ensure t
+  :pin melpa
   :init
   (use-package flycheck-pyflakes
-    :ensure t))
+    :ensure t
+    :pin melpa))
 (use-package pip-requirements
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package nose
-  :ensure t)
+  :ensure t
+  :pin melpa)
 (use-package virtualenv
-  :ensure t)
+  :ensure t
+  :pin melpa)
 
 ;;; Code Composer Studio and DSP/BIOS mode
 (use-package cc-mode
@@ -1085,9 +1254,11 @@ See URL `http://www.jslint.com'."
 ;;;
 (use-package flycheck
   :ensure t
+  :pin melpa
   :init
   (use-package flycheck-package
-    :ensure t)
+    :ensure t
+    :pin melpa)
   :config
   (global-flycheck-mode))
 
@@ -1097,35 +1268,44 @@ See URL `http://www.jslint.com'."
 (use-package ycmd
   :disabled t
   :ensure t
+  :pin melpa
   :init
   (use-package company
     :ensure t
+    :pin melpa
     :init
     (use-package company-ycmd
       :ensure t
+      :pin melpa
       :config
       (add-to-list 'company-backends 'company-ycmd t)))
   (use-package flycheck
     :ensure t
+    :pin melpa
     :init
     (use-package flycheck-ycmd
-      :ensure t)))
+      :ensure t
+      :pin melpa)))
 
 ;;;
 ;;; rtags
 ;;;
 (use-package rtags
   :ensure t
+  :pin melpa
   :init
   (use-package company
     :ensure t
+    :pin melpa
     :init
     (use-package company-rtags
       :ensure rtags
+      :pin melpa
       :config
       (add-to-list 'company-backends 'company-rtags t)))
   (use-package popup
-    :ensure t)
+    :ensure t
+    :pin melpa)
   :config
   (rtags-enable-standard-keybindings c-mode-base-map "\C-xt"))
 
@@ -1135,11 +1315,13 @@ See URL `http://www.jslint.com'."
 (use-package rainbow-delimiters
   :disabled t
   :ensure t
+  :pin melpa
   :init
   (global-rainbow-delimiters-mode))
 (use-package rainbow-identifiers
   :disabled t
   :ensure t
+  :pin melpa
   :init
   (rainbow-identifiers-mode))
 
@@ -1147,12 +1329,12 @@ See URL `http://www.jslint.com'."
 ;;; Themes
 ;;;
 (when (>= emacs-major-version 24)
-  (use-package cyberpunk-theme :ensure t :defer t)
-  (use-package grandshell-theme :ensure t :defer t)
-  (use-package monokai-theme :ensure t :defer t)
-  (use-package paper-theme :ensure t :defer t)
-  (use-package solarized-theme :ensure t :defer t)
-  (use-package termbright-theme :ensure t :defer t)
+  (use-package cyberpunk-theme :ensure t :pin melpa :defer t)
+  (use-package grandshell-theme :ensure t :pin melpa :defer t)
+  (use-package monokai-theme :ensure t :pin melpa :defer t)
+  (use-package paper-theme :ensure t :pin melpa :defer t)
+  (use-package solarized-theme :ensure t :pin melpa :defer t)
+  (use-package termbright-theme :ensure t :pin melpa :defer t)
 
   (cond (t nil) ;; do not choose any themes by default
         ((display-graphic-p)
