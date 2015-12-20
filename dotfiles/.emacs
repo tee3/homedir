@@ -170,12 +170,6 @@
   (setq size-indication-mode t)
   :config
   (add-to-list 'desktop-globals-to-save 'kill-ring 1))
-(use-package smart-mode-line
-  :ensure t
-  :init
-  (setq sml/theme nil)
-
-  (sml/setup))
 (use-package smooth-scroll
   :ensure t)
 (use-package speedbar
