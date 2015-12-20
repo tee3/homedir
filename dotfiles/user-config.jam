@@ -9,7 +9,7 @@ if [ os.name ] = NT
   # this is the default system compiler
   using msvc ;
 
-  # other comilers, both system and optional
+  # other compilers, both system and optional
   using clang ;
 
   #! @todo is a gcc compiler for Windows
@@ -19,7 +19,7 @@ else if [ os.name ] = CYGWIN
   # this is the default system compiler
   using gcc ;
 
-  # other comilers, both system and optional
+  # other compilers, both system and optional
   using clang ;
 }
 else if [ os.name ] = LINUX
@@ -27,7 +27,7 @@ else if [ os.name ] = LINUX
   # this is the default system compiler
   using gcc ;
 
-  # other comilers, both system and optional
+  # other compilers, both system and optional
   using clang ;
 }
 else if [ os.name ] = MACOSX
@@ -35,7 +35,7 @@ else if [ os.name ] = MACOSX
   # this is the default system compiler
   using clang ;
 
-  # other comilers, both system and optional
+  # other compilers, both system and optional
   using clang : 3.6 : /usr/local/bin/clang++-3.6 ;
   using clang : 3.5 : /usr/local/bin/clang++-3.5 ;
 
