@@ -65,8 +65,7 @@
   :init
   (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
   (load custom-file 'noerror))
-(use-package abbrev
-  :diminish abbrev-mode)
+(use-package abbrev)
 (use-package dedicated
   :ensure t)
 (use-package desktop
@@ -81,7 +80,6 @@
   :init
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 (use-package eldoc
-  :diminish eldoc-mode
   :config
   (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
   (add-hook 'lisp-interaction-mode-hook 'eldoc-mode)
@@ -120,8 +118,7 @@
 (use-package fringe
   :init
   (setq fringe-mode '(4 . nil)))
-(use-package hideshow
-  :diminish hs-minor-mode)
+(use-package hideshow)
 (use-package hide-comnt
   :ensure t)
 (use-package icomplete
@@ -145,7 +142,6 @@
   (nav-disable-overeager-window-splitting))
 (use-package paredit
   :ensure t
-  :diminish paredit-mode
   :init
   (use-package paredit-everywhere
     :ensure t)
@@ -192,8 +188,7 @@
   (tool-bar-mode -1))
 (use-package undo-tree
   :disabled t
-  :ensure t
-  :diminish undo-tree-mode)
+  :ensure t)
 (use-package winner
   :init
   (winner-mode))
@@ -229,13 +224,11 @@
 ;;; Company
 (use-package company
   :ensure t
-  :diminish company-mode
   :config
   (global-company-mode))
 
 ;;; Flyspell
 (use-package flyspell
-  :diminish flyspell-mode
   :init
   (use-package flyspell-lazy
     :ensure t)
@@ -245,7 +238,6 @@
 ;;; Helm
 (use-package helm
   :ensure t
-  :diminish helm-mode
   :bind
   ("M-x" . helm-M-x)
   ("C-x C-f" . helm-find-files)
@@ -310,7 +302,6 @@
 ;;; Projectile
 (use-package projectile
   :ensure t
-  :diminish projectile-mode
   :init
   (projectile-global-mode)
 
@@ -553,7 +544,6 @@
 ;;; Google
 (use-package google-this
   :ensure t
-  :diminish google-this-mode
   :init
   (google-this-mode))
 
@@ -721,7 +711,6 @@
     (add-hook 'ruby-mode-hook 'ruby-electric-mode)))
 (use-package robe
   :ensure t
-  :diminish robe-mode
   :config
   (add-hook 'ruby-mode-hook 'robe-mode)
   (add-to-list 'company-backends 'company-robe t))
@@ -881,7 +870,6 @@
     "MSVC C Programming Style")
   :init
   (use-package cwarn
-    :diminish cwarn-mode
     :init
     (global-cwarn-mode t))
   (use-package google-c-style
@@ -895,7 +883,6 @@
     (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
     (add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode))
   (use-package hideif
-    :diminish hide-ifdef-mode
     :init
     (hide-ifdef-mode))
   (setq c-indent-comments-syntactically-p t)
@@ -1104,7 +1091,6 @@ See URL `http://www.jslint.com'."
 ;;;
 (use-package flycheck
   :ensure t
-  :diminish flycheck-mode
   :init
   (use-package flycheck-package
     :ensure t)
