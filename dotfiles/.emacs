@@ -104,16 +104,6 @@
   :config
   (add-hook 'occur-mode-hook 'fm-start)
   (add-hook 'compilation-mode-hook 'fm-start))
-(use-package frame
-  :config
-  (when (display-graphic-p)
-    (when (member "Source Code Pro" (font-family-list))
-      (set-frame-font "Source Code Pro")))
-  (when (display-graphic-p)
-    (when (member "Source Code Pro" (font-family-list))
-      (add-to-list 'default-frame-alist '(font . "Source Code Pro")))
-    (add-to-list 'default-frame-alist '(width . 160))
-    (add-to-list 'default-frame-alist '(height . 50))))
 (use-package files
   :init
   (setq version-control t))
