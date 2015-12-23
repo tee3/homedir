@@ -220,7 +220,7 @@ if git:
     elif machine == "osx":
         emulate_run([git, "config", "-f", gitconfig_machine, "credential.helper", "osxkeychain"])
     elif machine == "windows":
-        emulate_run([git, "config", "-f", gitconfig_machine, "credential.helper", "winstore"])
+        emulate_run([git, "config", "-f", gitconfig_machine, "credential.helper", "wincred"])
     else:
         print "error: unknown machine '%s'." % (machine)
         sys.exit(1)
