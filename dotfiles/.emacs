@@ -155,6 +155,7 @@
   :config
   (add-hook 'shell-mode-hook 'pcomplete-shell-setup))
 (use-package bash-completion
+  :disabled t
   :ensure t
   :pin melpa
   :config
