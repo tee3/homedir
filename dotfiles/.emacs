@@ -1302,6 +1302,9 @@ See URL `http://www.jslint.com'."
   (use-package popup
     :ensure t
     :pin melpa)
+  ; required for auto-completion
+  (setq rtags-autostart-diagnostics t)
+  (setq rtags-completions-enabled t)
   :config
   (rtags-enable-standard-keybindings c-mode-base-map "\C-xt"))
 
