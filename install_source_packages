@@ -32,11 +32,38 @@ def install_msvc_c_style(basedir):
         'https://github.com/tee3/msvc-c-style.git',
         os.path.join(basedir,'src','msvc-c-style'))
 
+def install_rtags(basedir):
+    d = os.path.join(basedir,'src','rtags')
+
+    git_clone_update_pull_ff_only(
+        'https://github.com/andersbakken/rtags.git',
+        d)
+
+    command = ['git', '-C', d, 'clean', '-d', '-X', '-f']
+    subprocess.check_call(command)
+
+    build = os.path.join(d,'Release')
+    if not os.path.exists(build):
+        os.makedirs(build)
+
+    command = [
+        'cmake',
+        '..',
+        '-DCMAKE_BUILD_TYPE=Release',
+        '-DCMAKE_INSTALL_PREFIX:PATH=' + basedir
+    ]
+    subprocess.check_call(command, cwd=build)
+    command = ['make']
+    subprocess.check_call(command, cwd=build)
+    command = ['make', 'install']
+    subprocess.check_call(command, cwd=build)
+
 HOME = os.getenv('HOME')
 
 prefix = os.path.join(HOME,'opt','local')
 
 install_tee3_c_style(prefix)
 install_msvc_c_style(prefix)
+install_rtags(prefix)
 
 sys.exit(0)
