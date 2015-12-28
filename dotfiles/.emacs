@@ -1235,21 +1235,24 @@ See URL `http://www.jslint.com'."
 ;;; rtags
 ;;;
 (use-package rtags
-  :ensure t
-  :pin melpa
+  :load-path
+  "~/opt/local/share/emacs/site-lisp/rtags"
   :init
   (use-package company
     :ensure t
     :pin melpa
     :init
     (use-package company-rtags
-      :ensure rtags
-      :pin melpa
+      :load-path
+      "~/opt/local/share/emacs/site-lisp/rtags"
       :config
       (add-to-list 'company-backends 'company-rtags t)))
   (use-package popup
     :ensure t
     :pin melpa)
+  ;; ensure the right executables are used
+  (setq rtags-path "~/opt/local/bin")
+
   ; required for auto-completion
   (setq rtags-autostart-diagnostics t)
   (setq rtags-completions-enabled t)
