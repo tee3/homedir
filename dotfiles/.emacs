@@ -340,9 +340,7 @@
 ;;;
 (use-package yasnippet
   :ensure t
-  :pin melpa
-  :config
-  (yas-global-mode))
+  :pin melpa)
 
 ;;; Learning Emacs
 (use-package guru-mode
@@ -561,6 +559,7 @@
   :pin melpa
   :init
   (use-package processing-snippets
+    :disabled t
     :ensure t
     :pin melpa))
 (use-package sql
