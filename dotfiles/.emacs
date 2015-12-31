@@ -1004,6 +1004,7 @@
     :ensure t
     :pin melpa)
   (use-package c-eldoc
+    :disabled t
     :ensure t
     :pin melpa
     :init
