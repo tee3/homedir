@@ -51,7 +51,8 @@
 ;;; Emacs
 ;;;
 (setq column-number-mode t)
-(setq display-time-mode t)
+(display-time-mode t)
+(setq display-time-day-and-date t)
 (setq history-delete-duplicates t)
 (setq inhibit-startup-screen t)
 (setq mouse-wheel-mode t)
