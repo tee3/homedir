@@ -66,7 +66,8 @@
   :init
   (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
   (load custom-file 'noerror))
-(use-package abbrev)
+(use-package abbrev
+  :diminish abbrev-mode)
 (use-package dedicated
   :ensure t
   :pin melpa)
@@ -114,7 +115,8 @@
 (use-package fringe
   :init
   (setq fringe-mode '(4 . nil)))
-(use-package hideshow)
+(use-package hideshow
+  :diminish hs-minor-mode)
 (use-package hide-comnt
   :ensure t
   :pin melpa)
@@ -141,6 +143,7 @@
 (use-package paredit
   :ensure t
   :pin melpa
+  :diminish paredit-mode
   :init
   (use-package paredit-everywhere
     :ensure t
@@ -234,6 +237,7 @@
 
 ;;; Flyspell
 (use-package flyspell
+  :diminish flyspell-mode
   :init
   (use-package flyspell-lazy
     :ensure t
@@ -245,6 +249,7 @@
 (use-package helm
   :ensure t
   :pin melpa
+  :diminish helm-mode
   :bind
   ("M-x" . helm-M-x)
   ("C-x C-f" . helm-find-files)
@@ -323,14 +328,12 @@
 (use-package projectile
   :ensure t
   :pin melpa
+  :diminish projectile-mode
   :init
   (projectile-global-mode)
 
   (setq projectile-switch-project-action 'projectile-dired)
-  (setq projectile-use-git-grep t)
-
-  ;; @todo workaround for an issue with tramp
-  (setq projectile-mode-line " Projectile"))
+  (setq projectile-use-git-grep t))
 
 ;;;
 ;;; Snippets
@@ -630,6 +633,7 @@
 (use-package google-this
   :ensure t
   :pin melpa
+  :diminish google-this-mode
   :init
   (google-this-mode))
 
@@ -998,6 +1002,7 @@
     "MSVC C Programming Style")
   :init
   (use-package cwarn
+    :diminish cwarn-mode
     :init
     (global-cwarn-mode t)))
   (use-package google-c-style
