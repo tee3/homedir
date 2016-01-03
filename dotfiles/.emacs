@@ -52,7 +52,7 @@
 ;;;
 (setq column-number-mode t)
 (display-time-mode t)
-(setq display-time-day-and-date t)
+(setq display-time-day-and-date nil)
 (setq history-delete-duplicates t)
 (setq inhibit-startup-screen t)
 (setq mouse-wheel-mode t)
