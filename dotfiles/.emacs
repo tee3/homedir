@@ -1003,7 +1003,7 @@
   (use-package cwarn
     :diminish cwarn-mode
     :init
-    (global-cwarn-mode t)))
+    (global-cwarn-mode t))
   (use-package google-c-style
     :ensure t
     :pin melpa)
@@ -1054,7 +1054,7 @@
               ;; (setq c-insert-tab-function nil)
 
               (hs-minor-mode t)
-              ))
+              )))
 (use-package company
   :ensure t
   :pin melpa
