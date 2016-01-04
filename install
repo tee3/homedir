@@ -452,6 +452,12 @@ if emacs:
             print "Add the following to ~/.emacs.user.el:"
             print "   (setq user-mail-address \"%s\")" % (emacs_email)
 
+# ask to install source packages
+yn = raw_input("Install source packages? (y/n): ")
+if yn == "y":
+    if not emulate_run([sys.executable, os.path.abspath("install_source_packages")]):
+        print "warning: failed to install source packages."
+
 # ask to install python packages
 yn = raw_input("Install Python packages? (y/n): ")
 if yn == "y":
