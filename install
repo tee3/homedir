@@ -40,20 +40,18 @@ if os.environ["HOME"] == "":
     sys.exit(1)
 HOME = os.environ["HOME"]
 
-# ask user for the type of machine
-machine = raw_input("Enter machine type {linux, osx, windows}: ")
-if machine != "":
-    if machine == "linux":
-        print "Installing for Linux."
-    elif machine == "osx":
-        print "Installing for OS X."
-    elif machine == "windows":
-        print "Installing for Windows."
-    else:
-        print "error: unknown machine '%s', aborting." % (machine)
-        sys.exit(1)
+machine = None
+if sys.platform.startswith('linux'):
+    print "Installing for Linux."
+    machine = "linux"
+elif sys.platform.startswith('darwin'):
+    print "Installing for OS X."
+    machine = "osx"
+elif sys.platform.startswith('win32'):
+    print "Installing for Windows."
+    machine = "windows"
 else:
-    print "error: machine must be set, aborting."
+    print "error: unknown machine '%s', aborting." % (machine)
     sys.exit(1)
 
 # create ~/opt/local if desired
