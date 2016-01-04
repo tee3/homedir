@@ -1,0 +1,9 @@
+#!/usr/bin/env python
+#
+# Install source packages to ~/opt/local
+
+import sys
+
+print 'No source packages to install'
+
+sys.exit(0)
