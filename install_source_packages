@@ -3,7 +3,34 @@
 # Install source packages to ~/opt/local
 
 import sys
+import os
+import subprocess
 
-print 'No source packages to install'
+def git_clone_update_pull_ff_only(url, directory):
+    """Clone, update, and pull --ff-only the given url to the given
+    directory.
+
+    """
+    if not os.path.exists(directory):
+        command = ['git', 'clone', url, directory]
+        subprocess.check_call(command)
+
+    command = ['git', '-C', directory, 'pull', '--ff-only']
+    subprocess.check_call(command)
+    command = ['git', '-C', directory, 'submodule', 'init']
+    subprocess.check_call(command)
+    command = ['git', '-C', directory, 'submodule', 'update']
+    subprocess.check_call(command)
+
+def install_tee3_c_style(basedir):
+    git_clone_update_pull_ff_only(
+        'https://github.com/tee3/tee3-c-style.git',
+        os.path.join(basedir,'src','tee3-c-style'))
+
+HOME = os.getenv('HOME')
+
+prefix = os.path.join(HOME,'opt','local')
+
+install_tee3_c_style(prefix)
 
 sys.exit(0)
