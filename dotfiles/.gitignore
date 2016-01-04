@@ -47,3 +47,7 @@ xcuserdata/
 
 # Clang Tooling
 compile_commands.json
+
+# Node Tooling
+npm-config.log
+npm-debug.log
