@@ -936,38 +936,6 @@
 ;;; C-family programming languages
 (use-package cc-mode
   :preface
-  (defconst tbrown-c-style
-    '((c-basic-offset . 3)
-      (tab-width . 8)
-      (indent-tabs-mode . nil)
-
-      ;; (c-comment-only-line-offset . 4)
-      ;; (c-block-comment-prefix . X)
-      ;; (c-comment-prefix . X)
-
-      ;; (c-cleanup-list . (scope-operator
-      ;;                    empty-defun-braces
-      ;;                    defun-close-semi))
-      (c-hanging-braces-alist . ((brace-list-open)
-                                 (substatement-open before after)
-                                 (block-close . c-snug-do-while)))
-      ;; (c-hanging-colons-alist . ((member-init-intro before)
-      ;;                            (inher-intro)
-      ;;                            (case-label after)
-      ;;                            (label after)
-      ;;                            (access-label after)))
-      ;; (c-hanging-semi&comma-alist . ())
-      (c-backslash-column . 76)
-      (c-backslash-max-column . 152)
-      ;; (c-special-indent-hook . nil)
-      ;; (c-label-minimum-indentation . nil)
-      (c-offsets-alist . ((arglist-close . c-lineup-arglist)
-                          (substatement-open . 0)
-                          (inline-open . 0)
-                          (case-label . +)))
-      )
-    "tbrown C Programming Style")
-
   (defconst msvc-c-style
     '((c-basic-offset . 4)
       (tab-width . 4)
@@ -1004,6 +972,9 @@
     :diminish cwarn-mode
     :init
     (global-cwarn-mode t))
+  (use-package tee3-c-style
+    :load-path
+    "~/opt/local/src/tee3-c-style")
   (use-package google-c-style
     :ensure t
     :pin melpa)
@@ -1025,14 +996,14 @@
   :config
   (add-hook 'c-mode-hook
             (lambda ()
-              (c-set-style "tbrown")))
+              (c-set-style "tee3")))
   (add-hook 'c++-mode-hook
             (lambda ()
-              (c-set-style "tbrown")))
+              (c-set-style "tee3")))
   (add-hook 'c-mode-common-hook
             (lambda ()
               ;; Add the personal styles defined above.
-              (c-add-style "tbrown" tbrown-c-style t)
+              (c-add-style "tee3" tee3-c-style t)
               (c-add-style "msvc" msvc-c-style t)
 
               ;;
