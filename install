@@ -47,6 +47,9 @@ if sys.platform.startswith('linux'):
 elif sys.platform.startswith('darwin'):
     print "Installing for OS X."
     machine = "osx"
+elif sys.platform.startswith('cygwin'):
+    print "Installing for Cygwin."
+    machine = "cygwin"
 elif sys.platform.startswith('win32'):
     print "Installing for Windows."
     machine = "windows"
@@ -190,6 +193,9 @@ if yn == "y":
             l = "user/%d/%s" % (os.getuid(), b)
 
             emulate_run(["launchctl", "enable", l])
+    elif machine == "cygwin":
+        print "error: services install not implemented yet for Cygwin."
+        sys.exit(1)
     elif machine == "windows":
         print "error: services install not implemented yet for windows."
         sys.exit(1)
@@ -217,6 +223,8 @@ if git:
         emulate_run([git, "config", "-f", gitconfig_machine, "credential.helper", "cache --timeout 3600"])
     elif machine == "osx":
         emulate_run([git, "config", "-f", gitconfig_machine, "credential.helper", "osxkeychain"])
+    elif machine == "cygwin":
+        emulate_run([git, "config", "-f", gitconfig_machine, "credential.helper", "cache --timeout 3600"])
     elif machine == "windows":
         emulate_run([git, "config", "-f", gitconfig_machine, "credential.helper", "wincred"])
     else:
