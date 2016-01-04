@@ -27,10 +27,16 @@ def install_tee3_c_style(basedir):
         'https://github.com/tee3/tee3-c-style.git',
         os.path.join(basedir,'src','tee3-c-style'))
 
+def install_msvc_c_style(basedir):
+    git_clone_update_pull_ff_only(
+        'https://github.com/tee3/msvc-c-style.git',
+        os.path.join(basedir,'src','msvc-c-style'))
+
 HOME = os.getenv('HOME')
 
 prefix = os.path.join(HOME,'opt','local')
 
 install_tee3_c_style(prefix)
+install_msvc_c_style(prefix)
 
 sys.exit(0)
