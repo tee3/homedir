@@ -31,6 +31,12 @@ def guess_name_and_email():
     name = ""
     email = ""
 
+    # Check some environment variables
+    if name == "" and "NAME" in os.environ:
+        name = os.environ["NAME"]
+    if email == "" and "EMAIL" in os.environ:
+        email = os.environ["EMAIL"]
+
     return name, email
 
 def request_name_and_email(iname, iemail):
