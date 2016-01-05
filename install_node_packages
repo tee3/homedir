@@ -8,7 +8,7 @@ import subprocess
 import distutils.spawn
 
 # requires HOME.
-if os.environ["HOME"] == "":
+if "HOME" not in os.environ or os.environ["HOME"] == "":
     print "error: HOME is not set, aborting."
     sys.exit(1)
 HOME = os.environ["HOME"]
