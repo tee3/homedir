@@ -40,6 +40,9 @@ if os.environ["HOME"] == "":
     sys.exit(1)
 HOME = os.environ["HOME"]
 
+# default the prefix to ~/opt/local
+prefix = os.path.join(HOME, "opt", "local")
+
 machine = None
 if sys.platform.startswith('linux'):
     print "Installing for Linux."
@@ -58,21 +61,16 @@ else:
     sys.exit(1)
 
 # create ~/opt/local if desired
-if ((not os.path.isdir(os.path.join(HOME, "opt"))) or
-    (not os.path.isdir(os.path.join(HOME, "opt", "local")))):
-    yn = raw_input("Create ~/opt/local? (y/n): ")
+if not os.path.isdir(prefix):
+    yn = raw_input("Create %s? (y/n): " % prefix)
     if yn == "y":
-        os.makedirs(os.path.join(HOME, "opt", "local", "bin"))
-        os.makedirs(os.path.join(HOME, "opt", "local", "include"))
-        os.makedirs(os.path.join(HOME, "opt", "local", "lib"))
-        os.makedirs(os.path.join(HOME, "opt", "local", "man"))
-        os.makedirs(os.path.join(HOME, "opt", "local", "mnt"))
-        os.makedirs(os.path.join(HOME, "opt", "local", "share"))
-        os.makedirs(os.path.join(HOME, "opt", "local", "src"))
-
-# populate ~/opt/local if it exists and desired
-if os.path.isdir(os.path.join(HOME, "opt", "local", "bin")):
-    print "Nothing installed to ~/opt/local by default."
+        os.makedirs(os.path.join(prefix, "bin"))
+        os.makedirs(os.path.join(prefix, "include"))
+        os.makedirs(os.path.join(prefix, "lib"))
+        os.makedirs(os.path.join(prefix, "man"))
+        os.makedirs(os.path.join(prefix, "mnt"))
+        os.makedirs(os.path.join(prefix, "share"))
+        os.makedirs(os.path.join(prefix, "src"))
 
 # requires stow
 stow = distutils.spawn.find_executable("stow")

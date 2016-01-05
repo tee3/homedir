@@ -1,10 +1,14 @@
 #!/usr/bin/env python
 #
-# Install source packages to ~/opt/local
+# Install source packages to ~/opt/local.
+#
+# This script assumes that all source package dependencies are already
+# installed.
 
 import sys
 import os
 import subprocess
+
 
 def git_clone_update_pull_ff_only(url, directory):
     """Clone, update, and pull --ff-only the given url to the given
@@ -22,27 +26,30 @@ def git_clone_update_pull_ff_only(url, directory):
     command = ['git', '-C', directory, 'submodule', 'update']
     subprocess.check_call(command)
 
+
 def install_tee3_c_style(basedir):
     git_clone_update_pull_ff_only(
         'https://github.com/tee3/tee3-c-style.git',
-        os.path.join(basedir,'src','tee3-c-style'))
+        os.path.join(basedir, 'src', 'tee3-c-style'))
+
 
 def install_msvc_c_style(basedir):
     git_clone_update_pull_ff_only(
         'https://github.com/tee3/msvc-c-style.git',
-        os.path.join(basedir,'src','msvc-c-style'))
+        os.path.join(basedir, 'src', 'msvc-c-style'))
+
 
 def install_rtags(basedir):
-    d = os.path.join(basedir,'src','rtags')
+    rtagsdir = os.path.join(basedir, 'src', 'rtags')
 
     git_clone_update_pull_ff_only(
         'https://github.com/andersbakken/rtags.git',
-        d)
+        rtagsdir)
 
-    command = ['git', '-C', d, 'clean', '-d', '-X', '-f']
+    command = ['git', '-C', rtagsdir, 'clean', '-d', '-X', '-f']
     subprocess.check_call(command)
 
-    build = os.path.join(d,'Release')
+    build = os.path.join(rtagsdir, 'Release')
     if not os.path.exists(build):
         os.makedirs(build)
 
@@ -58,10 +65,16 @@ def install_rtags(basedir):
     command = ['make', 'install']
     subprocess.check_call(command, cwd=build)
 
-HOME = os.getenv('HOME')
+# requires HOME.
+if os.environ["HOME"] == "":
+    print "error: HOME is not set, aborting."
+    sys.exit(1)
+HOME = os.environ["HOME"]
 
-prefix = os.path.join(HOME,'opt','local')
+# default the prefix to ~/opt/local
+prefix = os.path.join(HOME, 'opt', 'local')
 
+# install desired source packages
 install_tee3_c_style(prefix)
 install_msvc_c_style(prefix)
 install_rtags(prefix)
