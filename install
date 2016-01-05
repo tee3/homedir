@@ -26,6 +26,31 @@ def emulate_backtick(args):
 
     return output
 
+
+def guess_name_and_email():
+    name = ""
+    email = ""
+
+    return name, email
+
+def request_name_and_email(iname, iemail):
+    name = iname
+    email = iemail
+
+    while True:
+        yn = raw_input("Use '%s' as the user's full name? (y/n): " % (name))
+        if yn == "y":
+            break
+        name = raw_input("Enter the user's full name: ")
+    while True:
+        yn = raw_input("Use '%s' as the user's email address? (y/n): " % (email))
+        if yn == "y":
+            break
+        email = raw_input("Enter the user's email address: ")
+
+    return name, email
+
+
 dotfiledirs = "dotfiles"
 
 # requires running form the root of the dotfiles directory
@@ -127,28 +152,12 @@ else:
         sys.exit(1)
 
 # ask user for name and email address
-name = ""
-email = ""
+name, email = guess_name_and_email()
+print "Defaulting user's full name and email address to '%s <%s>'." % (name, email)
 
-if name != "" or email != "":
-    yn = raw_input("Use the default '%s <%s>'? (y/n): " % (name, email))
-    if yn == "n":
-        name = ""
-        email = ""
-
-if name == "" and email == "":
-    yn = raw_input("Do you want to configure a default name and email address? (y/n): ")
-    if yn == "y":
-        s = raw_input("Enter the user's full name (%s): " % (name))
-        if s != "":
-            name = s
-        s = raw_input("Enter the user's email address (%s): " % (email))
-        if s != "":
-            email = s
-        yn = raw_input("Use '%s <%s>'? (y/n): " % (name, email))
-        if yn == "n":
-            name = ""
-            email = ""
+yn = raw_input("Do you want to configure a name and email address? (y/n): ")
+if yn == "y":
+    name, email = request_name_and_email(name,email)
 
 # ask to install any services
 yn = raw_input("Install services (launchd or systemd)? (y/n): ")
