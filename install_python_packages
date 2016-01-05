@@ -9,6 +9,9 @@ import subprocess
 import distutils.spawn
 import urllib2
 
+python = distutils.spawn.find_executable("python")
+pip = distutils.spawn.find_executable("pip")
+
 
 def emulate_run(args, env=None):
     p = subprocess.Popen(args, env=env)
@@ -16,14 +19,10 @@ def emulate_run(args, env=None):
         return True
     return False
 
-HOME = os.environ["HOME"]
-
-python = distutils.spawn.find_executable("python")
 if not python:
     print "error: Python not installed, not installing Python packages."
     sys.exit(1)
 
-pip = distutils.spawn.find_executable("pip")
 if not pip:
     pippath = os.path.join(site.USER_BASE, "bin", "pip")
     if not os.path.exists(pippath):

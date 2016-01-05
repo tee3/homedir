@@ -7,6 +7,14 @@ import os
 import subprocess
 import distutils.spawn
 
+# requires HOME.
+if os.environ["HOME"] == "":
+    print "error: HOME is not set, aborting."
+    sys.exit(1)
+HOME = os.environ["HOME"]
+
+go = distutils.spawn.find_executable("go")
+
 
 def emulate_run(args, env=None):
     p = subprocess.Popen(args, env=env)
@@ -14,9 +22,6 @@ def emulate_run(args, env=None):
         return True
     return False
 
-HOME = os.environ["HOME"]
-
-go = distutils.spawn.find_executable("go")
 if not go:
     print "error: Go not installed, not installing Go packages."
     sys.exit(1)

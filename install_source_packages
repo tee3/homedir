@@ -9,6 +9,15 @@ import sys
 import os
 import subprocess
 
+# requires HOME.
+if os.environ["HOME"] == "":
+    print "error: HOME is not set, aborting."
+    sys.exit(1)
+HOME = os.environ["HOME"]
+
+# default the prefix to ~/opt/local
+prefix = os.path.join(HOME, 'opt', 'local')
+
 
 def git_clone_update_pull_ff_only(url, directory):
     """Clone, update, and pull --ff-only the given url to the given
@@ -64,15 +73,6 @@ def install_rtags(basedir):
     subprocess.check_call(command, cwd=build)
     command = ['make', 'install']
     subprocess.check_call(command, cwd=build)
-
-# requires HOME.
-if os.environ["HOME"] == "":
-    print "error: HOME is not set, aborting."
-    sys.exit(1)
-HOME = os.environ["HOME"]
-
-# default the prefix to ~/opt/local
-prefix = os.path.join(HOME, 'opt', 'local')
 
 # install desired source packages
 install_tee3_c_style(prefix)

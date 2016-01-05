@@ -10,6 +10,46 @@ import distutils.spawn
 import shutil
 import filecmp
 
+dotfiledirs = "dotfiles"
+
+# requires running form the root of the dotfiles directory
+rootdir = os.path.abspath(os.path.dirname("install.py"))
+if rootdir != os.getcwd():
+    print "error: must be run from the root of the dotfiles directory."
+    sys.exit(1)
+
+# requires HOME.
+if os.environ["HOME"] == "":
+    print "error: HOME is not set, aborting."
+    sys.exit(1)
+HOME = os.environ["HOME"]
+
+# default the prefix to ~/opt/local
+prefix = os.path.join(HOME, "opt", "local")
+
+machine = None
+if sys.platform.startswith('linux'):
+    print "Installing for Linux."
+    machine = "linux"
+elif sys.platform.startswith('darwin'):
+    print "Installing for OS X."
+    machine = "osx"
+elif sys.platform.startswith('cygwin'):
+    print "Installing for Cygwin."
+    machine = "cygwin"
+elif sys.platform.startswith('win32'):
+    print "Installing for Windows."
+    machine = "windows"
+else:
+    print "error: unknown machine '%s', aborting." % (machine)
+    sys.exit(1)
+
+# find executables
+stow = distutils.spawn.find_executable("stow")
+git = distutils.spawn.find_executable("git")
+hg = distutils.spawn.find_executable("hg")
+emacs = distutils.spawn.find_executable("emacs")
+
 
 def emulate_run(args, env=None):
     p = subprocess.Popen(args, env=env)
@@ -57,40 +97,6 @@ def request_name_and_email(iname, iemail):
     return name, email
 
 
-dotfiledirs = "dotfiles"
-
-# requires running form the root of the dotfiles directory
-rootdir = os.path.abspath(os.path.dirname("install.py"))
-if rootdir != os.getcwd():
-    print "error: must be run from the root of the dotfiles directory."
-    sys.exit(1)
-
-# requires HOME.
-if os.environ["HOME"] == "":
-    print "error: HOME is not set, aborting."
-    sys.exit(1)
-HOME = os.environ["HOME"]
-
-# default the prefix to ~/opt/local
-prefix = os.path.join(HOME, "opt", "local")
-
-machine = None
-if sys.platform.startswith('linux'):
-    print "Installing for Linux."
-    machine = "linux"
-elif sys.platform.startswith('darwin'):
-    print "Installing for OS X."
-    machine = "osx"
-elif sys.platform.startswith('cygwin'):
-    print "Installing for Cygwin."
-    machine = "cygwin"
-elif sys.platform.startswith('win32'):
-    print "Installing for Windows."
-    machine = "windows"
-else:
-    print "error: unknown machine '%s', aborting." % (machine)
-    sys.exit(1)
-
 # create ~/opt/local if desired
 if not os.path.isdir(prefix):
     yn = raw_input("Create %s? (y/n): " % prefix)
@@ -104,7 +110,6 @@ if not os.path.isdir(prefix):
         os.makedirs(os.path.join(prefix, "src"))
 
 # requires stow
-stow = distutils.spawn.find_executable("stow")
 if not stow:
     print "warning: 'stow' is not available."
 
@@ -223,7 +228,6 @@ if not os.path.exists(bashrc_local):
     open(bashrc_local, 'a').close()
 
 # configure git
-git = distutils.spawn.find_executable("git")
 if git:
     # set up machine-specific ~/.gitconfig
     gitconfig_machine = os.path.join(HOME, ".gitconfig.machine")
@@ -306,7 +310,6 @@ if git:
             emulate_run([git, "config", "--global", "--remove-section", "user"])
 
 # configure mercurial
-hg = distutils.spawn.find_executable("hg")
 if hg:
     # set up machine-specific ~/.hgrc
     hgrc_machine = os.path.join(HOME, ".hgrc.machine")
@@ -323,7 +326,6 @@ if hg:
     # @todo use hg to set up user
 
 # configure emacs
-emacs = distutils.spawn.find_executable("emacs")
 if emacs:
     # set up machine-specific ~/.emacs
     emacs_machine = os.path.join(HOME, ".emacs.machine.el")
