@@ -7,6 +7,15 @@ import os
 import subprocess
 import distutils.spawn
 
+# requires HOME.
+if os.environ["HOME"] == "":
+    print "error: HOME is not set, aborting."
+    sys.exit(1)
+HOME = os.environ["HOME"]
+
+node = distutils.spawn.find_executable("node")
+npm = distutils.spawn.find_executable("npm")
+
 
 def emulate_run(args, env=None):
     p = subprocess.Popen(args, env=env)
@@ -14,16 +23,12 @@ def emulate_run(args, env=None):
         return True
     return False
 
-HOME = os.environ["HOME"]
-
-node = distutils.spawn.find_executable("node")
 if not node:
     node = distutils.spawn.find_executable("nodejs")
     if not node:
         print "error: node is not installed, skipping node module installation"
         sys.exit(1)
 
-npm = distutils.spawn.find_executable("npm")
 if not npm:
     print "error: npm is not installed, skipping node module installation"
     sys.exit(1)
