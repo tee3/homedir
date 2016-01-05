@@ -191,7 +191,8 @@ if yn == "y":
             b, e = os.path.splitext(f)
             assert e == ".service"
 
-            emulate_run(["systemctl", "--user", "enable", b])
+            if not emulate_run(["systemctl", "--user", "enable", b]):
+                print "warning: failed to enable systemd service at %s." %f
     elif machine == "osx":
         src_d = os.path.join(os.getcwd(), "services", "launchd", "*.plist")
         dst_d = os.path.join(HOME, "Library", "LaunchAgents")
@@ -208,9 +209,10 @@ if yn == "y":
 
             b, e = os.path.splitext(f)
             assert e == ".plist"
-            l = "user/%d/%s" % (os.getuid(), b)
 
-            emulate_run(["launchctl", "enable", l])
+            emulate_run(["launchctl", "unload", f])
+            if not emulate_run(["launchctl", "load", f]):
+                print "warning: failed to load launchd service at %s." %f
     elif machine == "cygwin":
         print "error: services install not implemented yet for Cygwin."
         sys.exit(1)
