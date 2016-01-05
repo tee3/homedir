@@ -55,7 +55,7 @@ def install_rtags(basedir):
         'https://github.com/andersbakken/rtags.git',
         rtagsdir)
 
-    command = ['git', '-C', rtagsdir, 'clean', '-d', '-X', '-f']
+    command = ['git', '-C', rtagsdir, 'clean', '-d', '-x', '-f']
     subprocess.check_call(command)
 
     build = os.path.join(rtagsdir, 'Release')
