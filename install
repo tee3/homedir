@@ -343,47 +343,49 @@ if emacs:
             print >>f, ""
             print >>f, ";;; .emacs.machine.el ends here"
 
-    # ensure that emacs knows a good host name
-    emacs_hostname = ""
+    yn = raw_input("Configure system-specific emacs? (y/n): ")
+    if yn == "y":
+        # ensure that emacs knows a good host name
+        emacs_hostname = ""
 
-    # if not set, suggest the global system name for emacs
-    if emacs_hostname == "":
-        proposed_hostname = emulate_backtick([emacs, "--batch", "--no-init-file", "--eval", "(princ system-name)"])
+        # if not set, suggest the global system name for emacs
+        if emacs_hostname == "":
+            proposed_hostname = emulate_backtick([emacs, "--batch", "--no-init-file", "--eval", "(princ system-name)"])
 
-        if proposed_hostname != "":
-            yn = raw_input("Use the current emacs system-name '%s' for emacs? (y/n): " % (proposed_hostname))
+            if proposed_hostname != "":
+                yn = raw_input("Use the current emacs system-name '%s' for emacs? (y/n): " % (proposed_hostname))
+                if yn == "y":
+                    emacs_hostname = proposed_hostname
+
+        # if not set, suggest the user-specific system name for emacs
+        if emacs_hostname == "":
+            proposed_hostname = emulate_backtick([emacs, "--batch", "--no-init-file", "--load", emacs_machine, "--eval", "(princ system-name)"])
+
+            if proposed_hostname != "":
+                yn = raw_input("Use the user-specific emacs system-name '%s' for emacs? (y/n): " % (proposed_hostname))
+                if yn == "y":
+                    emacs_hostname = proposed_hostname
+
+        # if not set, suggest the hostname of the computer for emacs
+        if emacs_hostname == "":
+            proposed_hostname = os.uname()[1]
+
+            if proposed_hostname != "":
+                yn = raw_input("Use the hostname '%s' for emacs? (y/n): " % (proposed_hostname))
+                if yn == "y":
+                    emacs_hostname = proposed_hostname
+
+        # if not set, ask the user for the hostname
+        if emacs_hostname == "":
+            emacs_hostname = raw_input("Enter system-name for emacs: ")
+
+        # set the system-name for emacs
+        # @todo nice to edit the lisp s-expressions directly
+        if emacs_hostname != "":
+            yn = raw_input("Use the system-name '%s' for emacs? (y/n) " % (emacs_hostname))
             if yn == "y":
-                emacs_hostname = proposed_hostname
-
-    # if not set, suggest the user-specific system name for emacs
-    if emacs_hostname == "":
-        proposed_hostname = emulate_backtick([emacs, "--batch", "--no-init-file", "--load", emacs_machine, "--eval", "(princ system-name)"])
-
-        if proposed_hostname != "":
-            yn = raw_input("Use the user-specific emacs system-name '%s' for emacs? (y/n): " % (proposed_hostname))
-            if yn == "y":
-                emacs_hostname = proposed_hostname
-
-    # if not set, suggest the hostname of the computer for emacs
-    if emacs_hostname == "":
-        proposed_hostname = os.uname()[1]
-
-        if proposed_hostname != "":
-            yn = raw_input("Use the hostname '%s' for emacs? (y/n): " % (proposed_hostname))
-            if yn == "y":
-                emacs_hostname = proposed_hostname
-
-    # if not set, ask the user for the hostname
-    if emacs_hostname == "":
-        emacs_hostname = raw_input("Enter system-name for emacs: ")
-
-    # set the system-name for emacs
-    # @todo nice to edit the lisp s-expressions directly
-    if emacs_hostname != "":
-        yn = raw_input("Use the system-name '%s' for emacs? (y/n) " % (emacs_hostname))
-        if yn == "y":
-            print "Add the following to ~/.emacs.machine.el:"
-            print "   (setq system-name \"%s\")" % (emacs_hostname)
+                print "Add the following to ~/.emacs.machine.el:"
+                print "   (setq system-name \"%s\")" % (emacs_hostname)
 
     # set up user-specific ~/.emacs
     emacs_user = os.path.join(HOME, ".emacs.user.el")
@@ -400,79 +402,81 @@ if emacs:
             print >>f, ""
             print >>f, ";;; .emacs.user.el ends here"
 
-    emacs_name = ""
-    emacs_email = ""
+    yn = raw_input("Configure user-specific emacs? (y/n): ")
+    if yn == "y":
+        emacs_name = ""
+        emacs_email = ""
 
-    # if not set, suggest the global user's full name for emacs
-    if emacs_name == "":
-        proposed_name = emulate_backtick([emacs, "--batch", "--no-init-file", "--eval", "(princ user-full-name)"])
+        # if not set, suggest the global user's full name for emacs
+        if emacs_name == "":
+            proposed_name = emulate_backtick([emacs, "--batch", "--no-init-file", "--eval", "(princ user-full-name)"])
 
-        if proposed_name != "":
-            yn = raw_input("Use the current global user's full name '%s' for emacs? (y/n): " % (proposed_name))
+            if proposed_name != "":
+                yn = raw_input("Use the current global user's full name '%s' for emacs? (y/n): " % (proposed_name))
+                if yn == "y":
+                    emacs_name = proposed_name
+
+        # if not set, suggest the user-specific user's full name for emacs
+        if emacs_name == "":
+            proposed_name = emulate_backtick([emacs, "--batch", "--no-init-file", "--load", emacs_user, "--eval", "(princ user-full-name)"])
+
+            if proposed_name != "":
+                yn = raw_input("Use the current user-specific user's full name '%s' for emacs? (y/n): " % (proposed_name))
+                if yn == "y":
+                    emacs_name = proposed_name
+
+        # if not set, suggest the default user's full name for emacs
+        if emacs_name == "":
+            proposed_name = name
+            yn = raw_input("Use the default user's full name '%s' for emacs? (y/n): " % (proposed_name))
             if yn == "y":
                 emacs_name = proposed_name
 
-    # if not set, suggest the user-specific user's full name for emacs
-    if emacs_name == "":
-        proposed_name = emulate_backtick([emacs, "--batch", "--no-init-file", "--load", emacs_user, "--eval", "(princ user-full-name)"])
+        # if not set, ask user for the user's full name for emacs
+        if emacs_name == "":
+            emacs_name = raw_input("Enter the user's full name for emacs: ")
 
-        if proposed_name != "":
-            yn = raw_input("Use the current user-specific user's full name '%s' for emacs? (y/n): " % (proposed_name))
-            if yn == "y":
-                emacs_name = proposed_name
+        # if not set, suggest the global user's email for emacs
+        if emacs_email == "":
+            proposed_email = emulate_backtick([emacs, "--batch", "--no-init-file", "--eval", "(princ user-mail-address)"])
 
-    # if not set, suggest the default user's full name for emacs
-    if emacs_name == "":
-        proposed_name = name
-        yn = raw_input("Use the default user's full name '%s' for emacs? (y/n): " % (proposed_name))
-        if yn == "y":
-            emacs_name = proposed_name
+            if proposed_email != "":
+                yn = raw_input("Use the current global user's email '%s' for emacs? (y/n): " % (proposed_email))
+                if yn == "y":
+                    emacs_email = proposed_email
 
-    # if not set, ask user for the user's full name for emacs
-    if emacs_name == "":
-        emacs_name = raw_input("Enter the user's full name for emacs: ")
+        # if not set, suggest the user-specific user's email for emacs
+        if emacs_email == "":
+            proposed_email = emulate_backtick([emacs, "--batch", "--no-init-file", "--load", emacs_user, "--eval", "(princ user-mail-address)"])
 
-    # if not set, suggest the global user's email for emacs
-    if emacs_email == "":
-        proposed_email = emulate_backtick([emacs, "--batch", "--no-init-file", "--eval", "(princ user-mail-address)"])
+            if proposed_email != "":
+                yn = raw_input("Use the current user-specific user's email '%s' for emacs? (y/n): " % (proposed_email))
+                if yn == "y":
+                    emacs_email = proposed_email
 
-        if proposed_email != "":
-            yn = raw_input("Use the current global user's email '%s' for emacs? (y/n): " % (proposed_email))
-            if yn == "y":
-                emacs_email = proposed_email
-
-    # if not set, suggest the user-specific user's email for emacs
-    if emacs_email == "":
-        proposed_email = emulate_backtick([emacs, "--batch", "--no-init-file", "--load", emacs_user, "--eval", "(princ user-mail-address)"])
-
-        if proposed_email != "":
-            yn = raw_input("Use the current user-specific user's email '%s' for emacs? (y/n): " % (proposed_email))
+        # if not set, suggest the default user's email for emacs
+        if emacs_email == "":
+            proposed_email = email
+            yn = raw_input("Use the default user's email address '%s' for emacs? (y/n): " % (proposed_email))
             if yn == "y":
                 emacs_email = proposed_email
 
-    # if not set, suggest the default user's email for emacs
-    if emacs_email == "":
-        proposed_email = email
-        yn = raw_input("Use the default user's email address '%s' for emacs? (y/n): " % (proposed_email))
-        if yn == "y":
-            emacs_email = proposed_email
+        # if not set, ask user for the user's email for emacs
+        if emacs_email == "":
+            emacs_email = raw_input("Enter the user's email for emacs: ")
 
-    # if not set, ask user for the user's email for emacs
-    if emacs_email == "":
-        emacs_email = raw_input("Enter the user's email for emacs: ")
-
-    # set the user's full name and email for emacs
-    # @todo nice to edit the lisp s-expressions directly
-    if emacs_name != "":
-        yn = raw_input("Use the user's full name '%s' for emacs? (y/n): " % (emacs_name))
-        if yn == "y":
-            print "Add the following to ~/.emacs.user.el:"
-            print "   (setq user-full-name \"%s\")" % (emacs_name)
-    if emacs_email != "":
-        yn = raw_input("Use the user's email '%s' for emacs? (y/n): " % (emacs_email))
-        if yn == "y":
-            print "Add the following to ~/.emacs.user.el:"
-            print "   (setq user-mail-address \"%s\")" % (emacs_email)
+        # set the user's full name and email for emacs
+        # @todo nice to edit the lisp s-expressions directly
+        if emacs_name != "":
+            yn = raw_input("Use the user's full name '%s' for emacs? (y/n): " % (emacs_name))
+            if yn == "y":
+                print "Add the following to ~/.emacs.user.el:"
+                print "   (setq user-full-name \"%s\")" % (emacs_name)
+        if emacs_email != "":
+            yn = raw_input("Use the user's email '%s' for emacs? (y/n): " % (emacs_email))
+            if yn == "y":
+                print "Add the following to ~/.emacs.user.el:"
+                print "   (setq user-mail-address \"%s\")" % (emacs_email)
 
 # ask to install source packages
 yn = raw_input("Install source packages? (y/n): ")
