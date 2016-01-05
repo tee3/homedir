@@ -254,60 +254,61 @@ if git:
         print "Note that ~/.gitconfig.user is used for user-specific settings to .gitconfig."
         open(gitconfig_user, 'a').close()
 
+    # move user section and email for git to the user file
+    user_section_empty = True
+    proposed_name = emulate_backtick([git, "config", "--global", "user.name"])
+    if proposed_name != "":
+        user_section_empty = False
+        print "Moving user.name '%s' %s: " % (proposed_name, gitconfig_user)
+        emulate_run([git, "config", "-f", gitconfig_user, "user.name", proposed_name])
+        emulate_run([git, "config", "--global", "--unset", "user.name"])
+
+    proposed_email = emulate_backtick([git, "config", "--global", "user.email"])
+    if proposed_email != "":
+        user_section_empty = False
+        print "Moving user.email '%s' %s: " % (proposed_email, gitconfig_user)
+        emulate_run([git, "config", "-f", gitconfig_user, "user.email", proposed_email])
+        emulate_run([git, "config", "--global", "--unset", "user.email"])
+
+    proposed_signingKey = emulate_backtick([git, "config", "--global", "user.signingKey"])
+    if proposed_signingKey != "":
+        user_section_empty = False
+        print "Moving user.signingKey '%s' %s: " % (proposed_signingKey, gitconfig_user)
+        emulate_run([git, "config", "-f", gitconfig_user, "user.signingKey", proposed_signingKey])
+        emulate_run([git, "config", "--global", "--unset", "user.signingKey"])
+
+    if not user_section_empty:
+        emulate_run([git, "config", "--global", "--remove-section", "user"])
+
+    git_name = emulate_backtick([git, "config", "-f", gitconfig_user, "user.name"])
+    git_email = emulate_backtick([git, "config", "-f", gitconfig_user, "user.email"])
+
     # configure user name and email for git
-    git_name = ""
-    git_email = ""
-
-    # if not set, suggest user name and email from global git config
-    if git_name == "" and git_email == "":
-        proposed_name = emulate_backtick([git, "config", "--global", "user.name"])
-        proposed_email = emulate_backtick([git, "config", "--global", "user.email"])
-
-        if proposed_name != "" or proposed_email != "":
-            yn = raw_input("Use the current global user information '%s <%s>' for git? (y/n): " % (proposed_name, proposed_email))
-            if yn == "y":
-                git_name = proposed_name
-                git_email = proposed_email
-
-    # if not set, suggest user name and email from user-specific git confg
-    if git_name == "" and git_email == "":
-        proposed_name = emulate_backtick([git, "config", "-f", gitconfig_user, "user.name"])
-        proposed_email = emulate_backtick([git, "config", "-f", gitconfig_user, "user.email"])
-
-        if proposed_name != "" and proposed_email != "":
-            yn = raw_input("Use the current user-specific user information '%s <%s>' for git? (y/n): " % (proposed_name, proposed_email))
-            if yn == "y":
-                git_name = proposed_name
-                git_email = proposed_email
-
-    # if not set, suggest default user name and email
-    if git_name == "" and git_email == "":
-        proposed_name = name
-        proposed_email = email
-
-        if proposed_name != "" and proposed_email != "":
-            yn = raw_input("Use the default '%s <%s>' for git? (y/n): " % (proposed_name, proposed_email))
-            if yn == "y":
-                git_name = proposed_name
-                git_email = proposed_email
-
-    # if not set, ask the user for name
-    if git_name == "":
-        git_name = raw_input("Enter git user name: ")
-    # if not set, ask the user for email
-    if git_email == "":
-        git_email = raw_input("Enter git user email: ")
-
-    # set the user-specific git config and clear the global git config
     if git_name != "" or git_email != "":
-        yn = raw_input("Setting the user-specific user information to '%s <%s>' for git? (y/n): " % (git_name, git_email))
-        if yn == "y":
-            # set user name/email in user-specific config
-            emulate_run([git, "config", "-f", gitconfig_user, "user.name", git_name])
-            emulate_run([git, "config", "-f", gitconfig_user, "user.email", git_email])
+        print "Using '%s <%s>' for the global git user name/email." % (git_name, git_email)
+    else:
+        print "The global git user name/email is not set up." % (git_name, git_email)
+    yn = raw_input("Set up the global git user name/email? (y/n): ")
+    if yn == "y":
+        # if not set, initialize with default user name and email
+        if git_name == "":
+            git_name = name
+        if git_email == "":
+            git_email = email
 
-            # clear user in global git config
-            emulate_run([git, "config", "--global", "--remove-section", "user"])
+        # request from the user
+        git_name, git_email = request_name_and_email(git_name,git_email)
+
+        # set user name/email in user-specific config
+        if git_name != "":
+            emulate_run([git, "config", "-f", gitconfig_user, "user.name", git_name])
+        else:
+            emulate_run([git, "config", "-f", gitconfig_user, "--unset", "user.name"])
+
+        if git_email != "":
+            emulate_run([git, "config", "-f", gitconfig_user, "user.email", git_email])
+        else:
+            emulate_run([git, "config", "-f", gitconfig_user, "--unset", "user.email"])
 
 # configure mercurial
 if hg:
