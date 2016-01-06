@@ -19,7 +19,9 @@ if exist "%CMDRUBYROOT%" set PATH=%HOME%\.gem\ruby\2.2.0\bin;%PATH%
 
 REM Node.js
 set CMDNODEJSROOT=C:\nodejs
-if exist "%CMDNODEJSROOT%" set PATH=%HOME%\.node_modules;%PATH
+set CMDNPMPREFIX=%HOME%\.node_modules
+if exist "%CMDNODEJSROOT%" set PATH=%CMDNPMPREFIX%\bin;%PATH%
+if exist "%CMDNODEJSROOT%" set NODE_PATH=%CMDNPMPREFIX%\lib\node_modules:%NODE_PATH%
 
 REM Go
 set CMDGOROOT=C:\Go
