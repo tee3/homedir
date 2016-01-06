@@ -34,6 +34,7 @@ date and all required packages are installed.
 * ~/opt/local
 * user-installable programs
 * user services (launchd, systemd)
+* special support for Windows `cmd`
 
 # supported systems
 
@@ -302,6 +303,13 @@ Python.
 ```
 $ ./install
 ```
+
+## support for `cmd`
+
+This contains some minimal support for `cmd` such that HOME is set
+properly and development tools are properly set up.  This models how
+`bash` is initialized by adding a `~/.cmdrc.bat` file (and
+`~/.cmdrc.local.bat` file) that is executed on starting `cmd`.
 
 ## support for `~/opt/local`
 

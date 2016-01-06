@@ -229,6 +229,24 @@ if not os.path.exists(bashrc_local):
     print "Note that ~/.bashrc.local is used for machine-specific bash settings."
     open(bashrc_local, 'a').close()
 
+# create a link to run cmd with inputs
+cmd = distutils.spawn.find_executable("cmd.exe")
+if cmd:
+    cmd_shortcut = os.path.join(HOME, 'Desktop', 'homedir cmd.lnk')
+
+    cmd_shortcut_name, cmd_shortcut_ext = os.path.splitext(os.path.basename(cmd_shortcut))
+
+    if not os.path.exists(cmd_shortcut):
+        print "Create a shortcut at \"%s\" containing the following command." % (cmd_shortcut)
+        print "\tTarget: %s /c start %s\.cmd.bat" % (cmd, HOME)
+        print "\tName: %s" % (os.path.basename(cmd_shortcut_name))
+
+# set up machine-specific ~/.cmdrc.bat
+cmdrc_local = os.path.join(HOME, ".cmdrc.local.bat")
+if not os.path.exists(cmdrc_local):
+    print "Note that ~/.cmdrc.local.bat is used for machine-specific cmd settings."
+    open(cmdrc_local, 'a').close()
+
 # configure git
 if git:
     # set up machine-specific ~/.gitconfig
