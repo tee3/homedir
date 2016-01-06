@@ -202,7 +202,21 @@ required in order to install programs for all users.
    privileges.
 
 2. Install Git For Windows and allow it to add itself to the PATH,
-   assuming it is installed to `C:\Git`.
+   assuming it is installed to `C:\Git`.  Use the following options when installing.
+
+   1. Enable the "Use Git from the Windows Command Prompt" option to
+      use Git directly in `cmd` without using Bash.  Note that this
+      still allows the use of Git Bash, but defaults to using Windows
+      `cmd`.
+
+   2. Enable the "Checkout Windows-style, commit Unix-style line
+      endings" so Windows tools are comfortable and Git repositories
+      are in the canonical form.
+
+   3. Enable the "Use Windows' default console window" option.
+
+   4. Enable the "Enable file system caching" option to increase
+      performance.
 
 3. Install Python 2.7 and allow it to add itself to the PATH, assuming
    it is instsalled to `C:\Python27`.
