@@ -84,7 +84,7 @@ of the `tee3/homedir` directory.
 
 ### windows
 
-* extremely limited support
+* Adminsitrator privileges
 
 ## user
 
@@ -194,18 +194,38 @@ $ sudo shutdown -r now
 ## windows
 
 There is very limited support for installing system packages under
-Windows.
+Windows and such is a manual process.  Administrator privileges is
+required in order to install programs for all users.
 
-Install Visual C++ and the Visual C++ Build Tools, while logged in to
-the graphical system as `administrator`.  From a `Git cmd.exe` window,
-install the system packages.  At the end of this process, reboot the
-machine.
+1. Log in to the graphical system as a user with Administrator
+   privileges.
+
+2. Install Git For Windows and allow it to add itself to the PATH,
+   assuming it is installed to `C:\Git`.
+
+3. Install Python 2.7 and allow it to add itself to the PATH, assuming
+   it is instsalled to `C:\Python27`.
+
+4. Install Visual C++ and the Visual C++ Build Tools.
+
+5. (Optional) Install Ruby and allow it to add itself to the PATH,
+   assuming it is installed to `C:\Ruby22-x64`.
+
+5. (Optional) Install Go and allow it to add itself to the PATH,
+   assuming it is installed to `C:\Go`.
+
+5. (Optional) Install Node.JS and allow it to add itself to the PATH,
+   installing to `C:\nodejs`.
+
+5. From a `cmd` window, install the system packages.
 
 ```
 C:> git clone https://github.com/tee3/homedir C:\Users\administrator\Development\homedir
 C:> cd C:\Users\administrator\Development\homedir
 C:> install_system_packages_windows
 ```
+
+7. At the end of this process, reboot the machine.
 
 # system
 
