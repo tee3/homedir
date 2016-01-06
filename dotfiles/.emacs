@@ -174,6 +174,16 @@
   :config
   (show-paren-mode))
 (use-package pcomplete
+  :init
+  (use-package pcmpl-git
+    :ensure t
+    :pin melpa)
+  (use-package pcmpl-homebrew
+    :ensure t
+    :pin melpa)
+  (use-package pcmpl-pip
+    :ensure t
+    :pin melpa)
   :config
   (add-hook 'shell-mode-hook 'pcomplete-shell-setup))
 (use-package bash-completion
