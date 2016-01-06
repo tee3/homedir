@@ -91,9 +91,10 @@ fi
 
 # Node.js
 if [ ! -z "$(which node 2> /dev/null)" ]; then
-    export PATH="${HOME}"/.node_modules/bin:${PATH}
-    export MANPATH="${HOME}"/.node_modules/share/man:${MANPATH}
-    export NODE_PATH="${HOME}"/.node_modules/lib/node_modules:${NODE_PATH}
+    npm_prefix=$(npm prefix -g)
+    export PATH="${npm_prefix}"/bin:${PATH}
+    export MANPATH="${npm_prefix}"/share/man:${MANPATH}
+    export NODE_PATH="${npm_prefix}"/lib/node_modules:${NODE_PATH}
 fi
 
 # Go
