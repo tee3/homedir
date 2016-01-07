@@ -188,6 +188,7 @@ brew install parallel
 brew install pinentry
 brew install pkg-config
 brew install shellcheck
+brew install sloccount
 brew install socat
 brew install sqlite
 brew install srecord
