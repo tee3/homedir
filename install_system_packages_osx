@@ -134,6 +134,7 @@ brew install gcc
 brew install gcc48
 brew install gcc49
 #brew install gcc5
+brew install gcc6
 brew install git-flow
 brew install git-hooks
 brew install git-lfs
