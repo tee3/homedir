@@ -147,6 +147,7 @@ sudo yum -y install openocd
 #sudo yum -y install pkg-config
 sudo yum -y install screen
 sudo yum -y install ShellCheck
+sudo yum -y install sloccount
 sudo yum -y install socat
 sudo yum -y install sqlite
 sudo yum -y install srecord
