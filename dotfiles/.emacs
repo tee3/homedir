@@ -1257,7 +1257,7 @@ See URL `http://www.jslint.com'."
   (setq rtags-autostart-diagnostics t)
   (setq rtags-completions-enabled t)
   :config
-  (rtags-enable-standard-keybindings c-mode-base-map "\C-xt"))
+  (rtags-enable-standard-keybindings))
 
 ;;;
 ;;; Rainbow modes
