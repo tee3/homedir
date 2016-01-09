@@ -342,20 +342,28 @@ The install script will migrate the user name/email from
 
 ## support for python packages
 
-Python packages are installed using the user protocol and are defined
-in a requirements file (`python-packages.txt`) defines the installed
-Python packages.
+Python packages are installed using the user protocol and a
+requirements file defines the installed Python packages.
+
+See [python-packages.txt](./python-packages.txt) for a list
+of installed Python packages.
 
 ## support for ruby packages
 
-Ruby gems are installed using the user protocol and a Gemfile
-(`ruby-packages.gemfile`) defines the installed Ruby packages.
+Ruby gems are installed using the user protocol and a Gemfile defines
+the installed Ruby packages.
+
+See [ruby-packages.gemfile](./ruby-packages.gemfile) for a list
+of installed Ruby packages.
 
 ## support for node.js packages
 
 Node.js modules are installed to the user's home directory under
-`~/.node_modules` and a text file (`node-packages.txt`) defines the
-installed Node.js modules.
+`~/.node_modules` and a text file defines the installed Node.js
+modules.
+
+See the [node-packages.txt](./node-packages.txt) for a list of
+installed Node.js packages.
 
 ## support for emacs
 
