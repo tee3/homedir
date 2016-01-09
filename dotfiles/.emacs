@@ -656,13 +656,16 @@
   (use-package vc))
 
 ;;; Git
-(use-package git-gutter
+(use-package diff-hl
   :ensure t
-  :pin melpa)
-(use-package git-gutter-fringe
-  :disabled t
-  :ensure t
-  :pin melpa)
+  :pin melpa
+  :config
+  (global-diff-hl-mode)
+
+  (diff-hl-flydiff-mode)
+  (unless (window-system) (diff-hl-margin-mode))
+
+  (add-hook 'dired-mode-hook 'diff-hl-dired-mode))
 
 ;;; GitHub
 (use-package gist
