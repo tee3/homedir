@@ -61,6 +61,7 @@
 (setq split-height-threshold 0)
 (setq-default truncate-lines t)
 (setq visible-bell t)
+(setq version-control t)
 
 (use-package cus-edit
   :init
@@ -106,9 +107,6 @@
   :config
   (add-hook 'occur-mode-hook 'fm-start)
   (add-hook 'compilation-mode-hook 'fm-start))
-(use-package files
-  :init
-  (setq version-control t))
 (use-package font-core
   :config
   (global-font-lock-mode))
