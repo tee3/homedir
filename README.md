@@ -373,6 +373,15 @@ Go packages are installed to the user's home directory under
 See the [go-packages.txt](./go-packages.txt) for a list of
 installed Go packages.
 
+## support for source packages
+
+There is a script to support installing packages that are not
+supported by a standard package manager or require special
+consideration.
+
+See the bottom of the [script](./install_source_packages) to see what
+source packages are currently installed.
+
 ## support for emacs
 
 Emacs packages are installed and configured automatically by the
