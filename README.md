@@ -365,6 +365,14 @@ modules.
 See the [node-packages.txt](./node-packages.txt) for a list of
 installed Node.js packages.
 
+## support for go packages
+
+Go packages are installed to the user's home directory under
+~/opt/local/src/go and a text file defines the installed Go packages.
+
+See the [go-packages.txt](./go-packages.txt) for a list of
+installed Go packages.
+
 ## support for emacs
 
 Emacs packages are installed and configured automatically by the
