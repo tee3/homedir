@@ -667,6 +667,9 @@
   (unless (window-system) (diff-hl-margin-mode))
 
   (add-hook 'dired-mode-hook 'diff-hl-dired-mode))
+(use-package git-timemachine
+  :ensure t
+  :pin melpa)
 
 ;;; GitHub
 (use-package gist
