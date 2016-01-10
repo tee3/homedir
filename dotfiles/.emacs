@@ -1176,6 +1176,13 @@ See URL `http://www.jslint.com'."
    ("\\.tcp\\'" . js-mode)
    ("\\.xs\\'" . js-mode)))
 
+;;; Homebrew
+(use-package homebrew-mode
+  :ensure t
+  :pin melpa
+  :init
+  (global-homebrew-mode))
+
 ;;;
 ;;; Flycheck
 ;;;
