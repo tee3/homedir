@@ -14,7 +14,10 @@ if "HOME" not in os.environ or os.environ["HOME"] == "":
 HOME = os.environ["HOME"]
 
 node = distutils.spawn.find_executable("node")
-npm = distutils.spawn.find_executable("npm")
+if sys.platform.startswith('win32'):
+    npm = 'npm.cmd'
+else:
+    npm = distutils.spawn.find_executable("npm")
 
 
 def emulate_run(args, env=None):
