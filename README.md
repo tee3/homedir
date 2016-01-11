@@ -314,8 +314,16 @@ user.
 Note that the `install` script and its supported scripts require
 Python.
 
+On POSIX systems:
+
 ```
 $ ./install
+```
+
+On Windows systems:
+
+```
+C:\> python install
 ```
 
 ## support for `cmd`
