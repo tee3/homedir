@@ -40,4 +40,6 @@ if not gem:
 # location of gems with --user-install
 gemdir = emulate_backtick([ruby, "-rubygems", "-e", "puts Gem.user_dir"])
 
-sys.exit(emulate_run([gem, "install", "--user-install", "--bindir", os.path.join(gemdir, "bin"), "--file", "ruby-packages.gemfile"]))
+error = not emulate_run([gem, "install", "--user-install", "--bindir", os.path.join(gemdir, "bin"), "--file", "ruby-packages.gemfile"])
+
+sys.exit(1 if error else 0)
