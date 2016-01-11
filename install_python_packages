@@ -44,4 +44,6 @@ if not pip and not os.path.exists(pip):
     print "error: pip not installing, not installing Python packages."
     sys.exit(1)
 
-sys.exit(emulate_run([pip, "install", "--user", "--upgrade", "-r", "python-packages.txt"]))
+error = not emulate_run([pip, "install", "--user", "--upgrade", "-r", "python-packages.txt"])
+
+sys.exit(1 if error else 0)
