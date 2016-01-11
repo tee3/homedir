@@ -14,7 +14,7 @@ if "HOME" not in os.environ or os.environ["HOME"] == "":
 HOME = os.environ["HOME"]
 
 node = distutils.spawn.find_executable("node")
-npm = "npm"
+npm = distutils.spawn.find_executable("npm")
 
 
 def emulate_run(args, env=None):

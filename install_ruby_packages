@@ -8,7 +8,7 @@ import subprocess
 import distutils.spawn
 
 ruby = distutils.spawn.find_executable("ruby")
-gem = "gem"
+gem = distutils.spawn.find_executable("gem")
 
 
 def emulate_run(args, env=None):
