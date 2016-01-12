@@ -31,7 +31,7 @@ date and all required packages are installed.
 ## user
 
 * program configurations (dot files)
-* ~/opt/local
+* `~/opt/local`
 * user-installable programs
 * user services (launchd, systemd)
 * special support for Windows `cmd`
@@ -376,7 +376,8 @@ installed Node.js packages.
 ## support for go packages
 
 Go packages are installed to the user's home directory under
-~/opt/local/src/go and a text file defines the installed Go packages.
+`~/opt/local/src/go` and a text file defines the installed Go
+packages.
 
 See the [go-packages.txt](./go-packages.txt) for a list of
 installed Go packages.
