@@ -336,6 +336,23 @@ On Windows systems:
 C:\> python install
 ```
 
+## Support for sensitive information
+
+Each supported feature provides `local`, `machine`, or `user`-specific
+files for configuration local to a particular machine or user that is
+not appropriate to put on a public server.  This includes things like
+names, email addresses, keys, certificates, and other sensitive
+information.
+
+## support for `bash`
+
+This contains support for the Bourne Again Shell (Bash) by including
+`~/.bash_profile`, `~/.bashrc`, `~/.bash_logout`, and
+`~/.bashrc.local` files.
+
+The configuration system generates a `~/.bashrc.local` file for local
+configuration.  It is initially empty.
+
 ## support for `cmd`
 
 This contains some minimal support for `cmd` such that HOME is set
@@ -343,15 +360,33 @@ properly and development tools are properly set up.  This models how
 `bash` is initialized by adding a `~/.cmdrc.bat` file (and
 `~/.cmdrc.local.bat` file) that is executed on starting `cmd`.
 
+The configuration system generates a `~/.cmdrc.local.bat` file for
+local configuration.  It is initially empty.
+
 ## support for emacs
 
-Emacs packages are installed and configured automatically by the
-included `~/.emacs` initialization file.
+This contains a `~/.emacs` file, which installs and configures Emacs
+packages automatically via `use-package` and `package`.
+
+The configuration system generates `~/.emacs.machine.el` and
+`~/.emacs.user.el` for local machine and user configuration.  These
+files initially contain only boilerplate for Emacs Lisp file.  The
+configuration system optionally will provide the user with suggestions
+to set up these files to properly set the system's name and the user's
+name and email address since these are often detected incorrectly by
+Emacs.
 
 ## support for git
 
-The `~/.gitconfig` file includes a file named `~/.gitconfig.user`
-designed for git configuration parameters that are user-specific.
+This includes `~/.gitconfig`, `~/.gitignore`, and `~/.gitattributes`
+files to configure Git.  This is intended to be portable across all
+systems including Windows.
+
+The `~/.gitconfig` file includes files named `~/.gitconfig.machine`
+and `~/.gitconfig.user` for machine-specific and user-specific
+configuration parameters.  This is intended for configuration
+parameters that are sensitive and should not be shared on a public
+server.
 
 The install script will migrate the user name/email from
 `~/.gitconfig` to `~/.gitconfig.user` as required.
@@ -361,7 +396,7 @@ The install script will migrate the user name/email from
 The `install` script will build a directory structure at `~/opt/local`
 if it does not exist.
 
-In the future, this may also be populated.
+This is populated with source packages described below.
 
 ## support for python packages
 
@@ -388,6 +423,11 @@ modules.
 See the [node-packages.txt](./node-packages.txt) for a list of
 installed Node.js packages.
 
+Note that this might be done more cleanly by using a `package.json`
+file and the `npm` install machinery for it directly instead of a text
+file of `npm` package names.  Unfortunately, I have not figured out
+how to do this yet.
+
 ## support for go packages
 
 Go packages are installed to the user's home directory under
@@ -403,5 +443,9 @@ There is a script to support installing packages that are not
 supported by a standard package manager or require special
 consideration.
 
-See the bottom of the [script](./install_source_packages) to see what
-source packages are currently installed.
+* tee3-c-style
+* msvc-c-style
+* rtags
+
+See the bottom of the [script](./install_source_packages) for an more
+up-to-date list of source packages.
