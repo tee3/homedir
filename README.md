@@ -85,7 +85,7 @@ of the `tee3/homedir` directory.
 
 ### windows
 
-* Adminsitrator privileges
+* Administrator privileges
 
 ## user
 
@@ -219,7 +219,7 @@ required in order to install programs for all users.
       performance.
 
 3. Install Python 2.7 and allow it to add itself to the PATH, assuming
-   it is instsalled to `C:\Python27`.
+   it is installed to `C:\Python27`.
 
 4. Install Visual C++ and the Visual C++ Build Tools.
 
