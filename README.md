@@ -333,12 +333,10 @@ properly and development tools are properly set up.  This models how
 `bash` is initialized by adding a `~/.cmdrc.bat` file (and
 `~/.cmdrc.local.bat` file) that is executed on starting `cmd`.
 
-## support for `~/opt/local`
+## support for emacs
 
-The `install` script will build a directory structure at `~/opt/local`
-if it does not exist.
-
-In the future, this may also be populated.
+Emacs packages are installed and configured automatically by the
+included `~/.emacs` initialization file.
 
 ## support for git
 
@@ -347,6 +345,13 @@ designed for git configuration parameters that are user-specific.
 
 The install script will migrate the user name/email from
 `~/.gitconfig` to `~/.gitconfig.user` as required.
+
+## support for `~/opt/local`
+
+The `install` script will build a directory structure at `~/opt/local`
+if it does not exist.
+
+In the future, this may also be populated.
 
 ## support for python packages
 
@@ -390,8 +395,3 @@ consideration.
 
 See the bottom of the [script](./install_source_packages) to see what
 source packages are currently installed.
-
-## support for emacs
-
-Emacs packages are installed and configured automatically by the
-included `~/.emacs` initialization file.
