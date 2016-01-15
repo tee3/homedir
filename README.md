@@ -1,18 +1,28 @@
 # homedir
 
-This project contains a system to set up a system to a usable state
-for my purposes.  This includes installing system packages (if
-required) as well as setting up a home directory and user-specific
-packages.
+This project contains an approach to maintain several systems with a
+minimum of fuss.  To accomplish this, there are scripts to install
+system packages (if required), set up a home directory for a user, and
+install user-specific packages.  Configurations for many programs are
+installed by default and some programs are handled specially.
 
-This is intended to be tracked using git and shared across multiple
+This supports all UNIX and Windows platforms.  Other platforms may or
+may not work depending on their approach to user configuration and
+support for Python.
+
+The home directory is intended to be tracked using git and shared
+publicly.  It is intended to be used unchanged across multiple
 machines and so should be designed to work well across different types
-of systems that support Python and the various programs.
+of systems that support Python and the various programs.  Sensitive
+information is provided for by including hooks to local files that are
+are not included in the shared repository.
 
 # rationale
 
-This is a very simple way of keeping configurations consistent across
-systems.
+Keeping the configuration of several systems consistent is
+challenging.  There are some high-level tools for doing so, but are
+complicated to set up.  This intends to be a fairly straightforward
+approach to the problem.
 
 # overview
 
