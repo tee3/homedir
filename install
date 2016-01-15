@@ -10,6 +10,53 @@ import distutils.spawn
 import shutil
 import filecmp
 
+
+def emulate_run(args, env=None):
+    p = subprocess.Popen(args, env=env)
+    if p.wait() == 0:
+        return True
+    return False
+
+
+def emulate_backtick(args):
+    try:
+        output = subprocess.check_output(args).rstrip('\n')
+    except:
+        output = ''
+
+    return output
+
+
+def guess_name_and_email():
+    name = ''
+    email = ''
+
+    # Check some environment variables
+    if name == '' and 'NAME' in os.environ:
+        name = os.environ['NAME']
+    if email == '' and 'EMAIL' in os.environ:
+        email = os.environ['EMAIL']
+
+    return name, email
+
+
+def request_name_and_email(iname, iemail):
+    name = iname
+    email = iemail
+
+    while True:
+        yn = raw_input('Use "%s" as the user\'s full name? (y/n): ' % (name))
+        if yn == 'y':
+            break
+        name = raw_input('Enter the user\'s full name: ')
+    while True:
+        yn = raw_input('Use "%s" as the user\'s email address? (y/n): ' % (email))
+        if yn == 'y':
+            break
+        email = raw_input('Enter the user\'s email address: ')
+
+    return name, email
+
 dotfiledirs = 'dotfiles'
 
 # requires running form the root of the dotfiles directory
@@ -50,480 +97,434 @@ git = distutils.spawn.find_executable('git')
 hg = distutils.spawn.find_executable('hg')
 emacs = distutils.spawn.find_executable('emacs')
 
-
-def emulate_run(args, env=None):
-    p = subprocess.Popen(args, env=env)
-    if p.wait() == 0:
-        return True
-    return False
-
-
-def emulate_backtick(args):
-    try:
-        output = subprocess.check_output(args).rstrip('\n')
-    except:
-        output = ''
-
-    return output
-
-
-def guess_name_and_email():
-    name = ''
-    email = ''
-
-    # Check some environment variables
-    if name == '' and 'NAME' in os.environ:
-        name = os.environ['NAME']
-    if email == '' and 'EMAIL' in os.environ:
-        email = os.environ['EMAIL']
-
-    return name, email
-
-def request_name_and_email(iname, iemail):
-    name = iname
-    email = iemail
-
-    while True:
-        yn = raw_input('Use "%s" as the user\'s full name? (y/n): ' % (name))
+if __name__ == '__main__':
+    # create ~/opt/local if desired
+    if not os.path.isdir(prefix):
+        yn = raw_input('Create %s? (y/n): ' % prefix)
         if yn == 'y':
-            break
-        name = raw_input('Enter the user\'s full name: ')
-    while True:
-        yn = raw_input('Use "%s" as the user\'s email address? (y/n): ' % (email))
-        if yn == 'y':
-            break
-        email = raw_input('Enter the user\'s email address: ')
+            os.makedirs(os.path.join(prefix, 'bin'))
+            os.makedirs(os.path.join(prefix, 'include'))
+            os.makedirs(os.path.join(prefix, 'lib'))
+            os.makedirs(os.path.join(prefix, 'man'))
+            os.makedirs(os.path.join(prefix, 'mnt'))
+            os.makedirs(os.path.join(prefix, 'share'))
+            os.makedirs(os.path.join(prefix, 'src'))
 
-    return name, email
+    # requires stow
+    if not stow:
+        print 'warning: "stow" is not available.'
 
+        yn = raw_input('Continue without using stow (only recommended on Windows)? (y/n) ')
+        if yn != 'y':
+            sys.exit(1)
 
-# create ~/opt/local if desired
-if not os.path.isdir(prefix):
-    yn = raw_input('Create %s? (y/n): ' % prefix)
-    if yn == 'y':
-        os.makedirs(os.path.join(prefix, 'bin'))
-        os.makedirs(os.path.join(prefix, 'include'))
-        os.makedirs(os.path.join(prefix, 'lib'))
-        os.makedirs(os.path.join(prefix, 'man'))
-        os.makedirs(os.path.join(prefix, 'mnt'))
-        os.makedirs(os.path.join(prefix, 'share'))
-        os.makedirs(os.path.join(prefix, 'src'))
+    if stow:
+        # attempt to stow the dotfiles directory, clean up if fails.
+        if not emulate_run([stow, '--target', HOME, dotfiledirs]):
+            # allow user to clean up existing files
+            for root, directories, files in os.walk(dotfiledirs):
+                for n in files:
+                    f = os.path.join(root, n)
+                    home_f = os.path.join(HOME, n)
+                    if os.path.exists(home_f):
+                        if f != home_f:
+                            if filecmp.cmp(f, home_f, False):
+                                yn = raw_input('%s is identical to %s.  Overwrite? (y/n): ' % (f, home_f))
+                                if yn == 'y':
+                                    os.remove(home_f)
+                            else:
+                                yn = raw_input('%s is different than %s.  Overwrite anyway? (y/n): ' % (f, home_f))
+                                if yn == 'y':
+                                    os.remove(home_f)
 
-# requires stow
-if not stow:
-    print 'warning: "stow" is not available.'
-
-    yn = raw_input('Continue without using stow (only recommended on Windows)? (y/n) ')
-    if yn != 'y':
-        sys.exit(1)
-
-if stow:
-    # attempt to stow the dotfiles directory, clean up if fails.
-    if not emulate_run([stow, '--target', HOME, dotfiledirs]):
-        # allow user to clean up existing files
+            if not emulate_run([stow, '--target', HOME, dotfiledirs]):
+                print 'error: some targets could not be linked to home directory.'
+                sys.exit(1)
+    else:
+        identical = True
         for root, directories, files in os.walk(dotfiledirs):
             for n in files:
                 f = os.path.join(root, n)
                 home_f = os.path.join(HOME, n)
+
+                if not os.path.exists(home_f):
+                    shutil.copy(f, home_f)
+
                 if os.path.exists(home_f):
                     if f != home_f:
-                        if filecmp.cmp(f, home_f, False):
-                            yn = raw_input('%s is identical to %s.  Overwrite? (y/n): ' % (f, home_f))
-                            if yn == 'y':
-                                os.remove(home_f)
-                        else:
+                        if not filecmp.cmp(f, home_f):
                             yn = raw_input('%s is different than %s.  Overwrite anyway? (y/n): ' % (f, home_f))
                             if yn == 'y':
-                                os.remove(home_f)
+                                shutil.copy(f, home_f)
+                            else:
+                                identical = False
 
-        if not emulate_run([stow, '--target', HOME, dotfiledirs]):
-            print 'error: some targets could not be linked to home directory.'
+        if not identical:
+            print 'error: not all targets copied to the home directory.'
             sys.exit(1)
-else:
-    identical = True
-    for root, directories, files in os.walk(dotfiledirs):
-        for n in files:
-            f = os.path.join(root, n)
-            home_f = os.path.join(HOME, n)
 
-            if not os.path.exists(home_f):
-                shutil.copy(f, home_f)
+    # ask user for name and email address
+    name, email = guess_name_and_email()
+    print 'Defaulting user\'s full name and email address to "%s <%s>".' % (name, email)
 
-            if os.path.exists(home_f):
-                if f != home_f:
-                    if not filecmp.cmp(f, home_f):
-                        yn = raw_input('%s is different than %s.  Overwrite anyway? (y/n): ' % (f, home_f))
-                        if yn == 'y':
-                            shutil.copy(f, home_f)
-                        else:
-                            identical = False
-
-    if not identical:
-        print 'error: not all targets copied to the home directory.'
-        sys.exit(1)
-
-# ask user for name and email address
-name, email = guess_name_and_email()
-print 'Defaulting user\'s full name and email address to "%s <%s>".' % (name, email)
-
-yn = raw_input('Do you want to configure a name and email address? (y/n): ')
-if yn == 'y':
-    name, email = request_name_and_email(name,email)
-
-# ask to install any services
-yn = raw_input('Install services (launchd or systemd)? (y/n): ')
-if yn == 'y':
-    if machine == 'linux':
-        # @todo untested
-        src_d = os.path.join(os.getcwd(), 'services', 'systemd', '*.service')
-        dst_d = os.path.join(HOME, '.config', 'systemd', 'user')
-
-        if not os.path.exists(dst_d):
-            os.makedirs(dst_d)
-
-        for f in glob.iglob(src_d):
-            dst_f = os.path.join(dst_d, os.path.basename(f))
-            if os.path.exists(dst_f):
-                print 'warning: %s exists, skipping %s.' % (dst_f, f)
-            else:
-                os.symlink(f, dst_d)
-
-            b, e = os.path.splitext(f)
-            assert e == '.service'
-
-            if not emulate_run(['systemctl', '--user', 'enable', b]):
-                print 'warning: failed to enable systemd service at %s.' %f
-    elif machine == 'osx':
-        src_d = os.path.join(os.getcwd(), 'services', 'launchd', '*.plist')
-        dst_d = os.path.join(HOME, 'Library', 'LaunchAgents')
-
-        if not os.path.exists(dst_d):
-            os.makedirs(dst_d)
-
-        for f in glob.iglob(src_d):
-            dst_f = os.path.join(dst_d, os.path.basename(f))
-            if os.path.exists(dst_f):
-                print 'warning: %s exists, skipping %s.' % (dst_f, f)
-            else:
-                os.symlink(f, dst_d)
-
-            b, e = os.path.splitext(f)
-            assert e == '.plist'
-
-            emulate_run(['launchctl', 'unload', f])
-            if not emulate_run(['launchctl', 'load', f]):
-                print 'warning: failed to load launchd service at %s.' %f
-    elif machine == 'cygwin':
-        print 'error: services install not implemented yet for Cygwin.'
-        sys.exit(1)
-    elif machine == 'windows':
-        print 'error: services install not implemented yet for windows.'
-        sys.exit(1)
-    else:
-        print 'error: unknown machine "%s".' % (machine)
-        sys.exit(1)
-
-# set up machine-specific ~/.bashrc
-bashrc_local = os.path.join(HOME, '.bashrc.local')
-if not os.path.exists(bashrc_local):
-    print 'Note that ~/.bashrc.local is used for machine-specific bash settings.'
-    open(bashrc_local, 'a').close()
-
-# create a link to run cmd with inputs
-cmd = distutils.spawn.find_executable('cmd.exe')
-if cmd:
-    cmd_shortcut = os.path.join(HOME, 'Desktop', 'homedir cmd.lnk')
-
-    cmd_shortcut_name, cmd_shortcut_ext = os.path.splitext(os.path.basename(cmd_shortcut))
-
-    if not os.path.exists(cmd_shortcut):
-        print 'Create a shortcut at "%s" containing the following command.' % (cmd_shortcut)
-        print '\tTarget: %s /c start %s\.cmd.bat' % (cmd, HOME)
-        print '\tName: %s' % (os.path.basename(cmd_shortcut_name))
-
-# set up machine-specific ~/.cmdrc.bat
-cmdrc_local = os.path.join(HOME, '.cmdrc.local.bat')
-if not os.path.exists(cmdrc_local):
-    print 'Note that ~/.cmdrc.local.bat is used for machine-specific cmd settings.'
-    open(cmdrc_local, 'a').close()
-
-# configure git
-if git:
-    # set up machine-specific ~/.gitconfig
-    gitconfig_machine = os.path.join(HOME, '.gitconfig.machine')
-    if not os.path.exists(gitconfig_machine):
-        print 'Note that ~/.gitconfig.machine is used for machine-specific settings to .gitconfig.'
-        open(gitconfig_machine, 'a').close()
-
-    # set up a credential helper
-    if machine == 'linux':
-        emulate_run([git, 'config', '-f', gitconfig_machine, 'credential.helper', 'cache --timeout 3600'])
-    elif machine == 'osx':
-        emulate_run([git, 'config', '-f', gitconfig_machine, 'credential.helper', 'osxkeychain'])
-    elif machine == 'cygwin':
-        emulate_run([git, 'config', '-f', gitconfig_machine, 'credential.helper', 'cache --timeout 3600'])
-    elif machine == 'windows':
-        emulate_run([git, 'config', '-f', gitconfig_machine, 'credential.helper', 'wincred'])
-    else:
-        print 'error: unknown machine "%s".' % (machine)
-        sys.exit(1)
-
-    # set up user-specific ~/.gitconfig
-    gitconfig_user = os.path.join(HOME, '.gitconfig.user')
-    if not os.path.exists(gitconfig_user):
-        print 'Note that ~/.gitconfig.user is used for user-specific settings to .gitconfig.'
-        open(gitconfig_user, 'a').close()
-
-    # move user section and email for git to the user file
-    user_section_empty = True
-    proposed_name = emulate_backtick([git, 'config', '--global', 'user.name'])
-    if proposed_name != '':
-        user_section_empty = False
-        print 'Moving user.name "%s" %s: ' % (proposed_name, gitconfig_user)
-        emulate_run([git, 'config', '-f', gitconfig_user, 'user.name', proposed_name])
-        emulate_run([git, 'config', '--global', '--unset', 'user.name'])
-
-    proposed_email = emulate_backtick([git, 'config', '--global', 'user.email'])
-    if proposed_email != '':
-        user_section_empty = False
-        print 'Moving user.email "%s" %s: ' % (proposed_email, gitconfig_user)
-        emulate_run([git, 'config', '-f', gitconfig_user, 'user.email', proposed_email])
-        emulate_run([git, 'config', '--global', '--unset', 'user.email'])
-
-    proposed_signingKey = emulate_backtick([git, 'config', '--global', 'user.signingKey'])
-    if proposed_signingKey != '':
-        user_section_empty = False
-        print 'Moving user.signingKey "%s" %s: ' % (proposed_signingKey, gitconfig_user)
-        emulate_run([git, 'config', '-f', gitconfig_user, 'user.signingKey', proposed_signingKey])
-        emulate_run([git, 'config', '--global', '--unset', 'user.signingKey'])
-
-    if not user_section_empty:
-        emulate_run([git, 'config', '--global', '--remove-section', 'user'])
-
-    git_name = emulate_backtick([git, 'config', '-f', gitconfig_user, 'user.name'])
-    git_email = emulate_backtick([git, 'config', '-f', gitconfig_user, 'user.email'])
-
-    # configure user name and email for git
-    if git_name != '' or git_email != '':
-        print 'Using "%s <%s>" for the global git user name/email.' % (git_name, git_email)
-    else:
-        print 'The global git user name/email is not set up.' % (git_name, git_email)
-    yn = raw_input('Set up the global git user name/email? (y/n): ')
+    yn = raw_input('Do you want to configure a name and email address? (y/n): ')
     if yn == 'y':
-        # if not set, initialize with default user name and email
-        if git_name == '':
-            git_name = name
-        if git_email == '':
-            git_email = email
+        name, email = request_name_and_email(name,email)
 
-        # request from the user
-        git_name, git_email = request_name_and_email(git_name,git_email)
+    # ask to install any services
+    yn = raw_input('Install services (launchd or systemd)? (y/n): ')
+    if yn == 'y':
+        if machine == 'linux':
+            # @todo untested
+            src_d = os.path.join(os.getcwd(), 'services', 'systemd', '*.service')
+            dst_d = os.path.join(HOME, '.config', 'systemd', 'user')
 
-        # set user name/email in user-specific config
-        if git_name != '':
-            emulate_run([git, 'config', '-f', gitconfig_user, 'user.name', git_name])
+            if not os.path.exists(dst_d):
+                os.makedirs(dst_d)
+
+            for f in glob.iglob(src_d):
+                dst_f = os.path.join(dst_d, os.path.basename(f))
+                if os.path.exists(dst_f):
+                    print 'warning: %s exists, skipping %s.' % (dst_f, f)
+                else:
+                    os.symlink(f, dst_d)
+
+                b, e = os.path.splitext(f)
+                assert e == '.service'
+
+                if not emulate_run(['systemctl', '--user', 'enable', b]):
+                    print 'warning: failed to enable systemd service at %s.' %f
+        elif machine == 'osx':
+            src_d = os.path.join(os.getcwd(), 'services', 'launchd', '*.plist')
+            dst_d = os.path.join(HOME, 'Library', 'LaunchAgents')
+
+            if not os.path.exists(dst_d):
+                os.makedirs(dst_d)
+
+            for f in glob.iglob(src_d):
+                dst_f = os.path.join(dst_d, os.path.basename(f))
+                if os.path.exists(dst_f):
+                    print 'warning: %s exists, skipping %s.' % (dst_f, f)
+                else:
+                    os.symlink(f, dst_d)
+
+                b, e = os.path.splitext(f)
+                assert e == '.plist'
+
+                emulate_run(['launchctl', 'unload', f])
+                if not emulate_run(['launchctl', 'load', f]):
+                    print 'warning: failed to load launchd service at %s.' %f
+        elif machine == 'cygwin':
+            print 'error: services install not implemented yet for Cygwin.'
+            sys.exit(1)
+        elif machine == 'windows':
+            print 'error: services install not implemented yet for windows.'
+            sys.exit(1)
         else:
-            emulate_run([git, 'config', '-f', gitconfig_user, '--unset', 'user.name'])
+            print 'error: unknown machine "%s".' % (machine)
+            sys.exit(1)
 
-        if git_email != '':
-            emulate_run([git, 'config', '-f', gitconfig_user, 'user.email', git_email])
+    # set up machine-specific ~/.bashrc
+    bashrc_local = os.path.join(HOME, '.bashrc.local')
+    if not os.path.exists(bashrc_local):
+        print 'Note that ~/.bashrc.local is used for machine-specific bash settings.'
+        open(bashrc_local, 'a').close()
+
+    # create a link to run cmd with inputs
+    cmd = distutils.spawn.find_executable('cmd.exe')
+    if cmd:
+        cmd_shortcut = os.path.join(HOME, 'Desktop', 'homedir cmd.lnk')
+
+        cmd_shortcut_name, cmd_shortcut_ext = os.path.splitext(os.path.basename(cmd_shortcut))
+
+        if not os.path.exists(cmd_shortcut):
+            print 'Create a shortcut at "%s" containing the following command.' % (cmd_shortcut)
+            print '\tTarget: %s /c start %s\.cmd.bat' % (cmd, HOME)
+            print '\tName: %s' % (os.path.basename(cmd_shortcut_name))
+
+    # set up machine-specific ~/.cmdrc.bat
+    cmdrc_local = os.path.join(HOME, '.cmdrc.local.bat')
+    if not os.path.exists(cmdrc_local):
+        print 'Note that ~/.cmdrc.local.bat is used for machine-specific cmd settings.'
+        open(cmdrc_local, 'a').close()
+
+    # configure git
+    if git:
+        # set up machine-specific ~/.gitconfig
+        gitconfig_machine = os.path.join(HOME, '.gitconfig.machine')
+        if not os.path.exists(gitconfig_machine):
+            print 'Note that ~/.gitconfig.machine is used for machine-specific settings to .gitconfig.'
+            open(gitconfig_machine, 'a').close()
+
+        # set up a credential helper
+        if machine == 'linux':
+            emulate_run([git, 'config', '-f', gitconfig_machine, 'credential.helper', 'cache --timeout 3600'])
+        elif machine == 'osx':
+            emulate_run([git, 'config', '-f', gitconfig_machine, 'credential.helper', 'osxkeychain'])
+        elif machine == 'cygwin':
+            emulate_run([git, 'config', '-f', gitconfig_machine, 'credential.helper', 'cache --timeout 3600'])
+        elif machine == 'windows':
+            emulate_run([git, 'config', '-f', gitconfig_machine, 'credential.helper', 'wincred'])
         else:
-            emulate_run([git, 'config', '-f', gitconfig_user, '--unset', 'user.email'])
+            print 'error: unknown machine "%s".' % (machine)
+            sys.exit(1)
 
-# configure mercurial
-if hg:
-    # set up machine-specific ~/.hgrc
-    hgrc_machine = os.path.join(HOME, '.hgrc.machine')
-    if not os.path.exists(hgrc_machine):
-        print 'Note that ~/.hgrc.machine is used for machine-specific settings to .hgrc.'
-        open(hgrc_machine, 'a').close()
+        # set up user-specific ~/.gitconfig
+        gitconfig_user = os.path.join(HOME, '.gitconfig.user')
+        if not os.path.exists(gitconfig_user):
+            print 'Note that ~/.gitconfig.user is used for user-specific settings to .gitconfig.'
+            open(gitconfig_user, 'a').close()
 
-    # set up user-specific ~/.hgrc
-    hgrc_user = os.path.join(HOME, '.hgrc.user')
-    if not os.path.exists(hgrc_user):
-        print 'Note that ~/.hgrc.user is used for user-specific settings to .hgrc.'
-        open(hgrc_user, 'a').close()
+        # move user section and email for git to the user file
+        user_section_empty = True
+        proposed_name = emulate_backtick([git, 'config', '--global', 'user.name'])
+        if proposed_name != '':
+            user_section_empty = False
+            print 'Moving user.name "%s" %s: ' % (proposed_name, gitconfig_user)
+            emulate_run([git, 'config', '-f', gitconfig_user, 'user.name', proposed_name])
+            emulate_run([git, 'config', '--global', '--unset', 'user.name'])
 
-    # @todo use hg to set up user
+        proposed_email = emulate_backtick([git, 'config', '--global', 'user.email'])
+        if proposed_email != '':
+            user_section_empty = False
+            print 'Moving user.email "%s" %s: ' % (proposed_email, gitconfig_user)
+            emulate_run([git, 'config', '-f', gitconfig_user, 'user.email', proposed_email])
+            emulate_run([git, 'config', '--global', '--unset', 'user.email'])
 
-# configure emacs
-if emacs:
-    # set up machine-specific ~/.emacs
-    emacs_machine = os.path.join(HOME, '.emacs.machine.el')
-    if not os.path.exists(emacs_machine):
-        print 'Note that ~/.emacs.machine.el is used for machine-specific settings to .emacs.'
-        with open(emacs_machine, 'a') as f:
-            print >>f, ";;; package --- Machine-specific Emacs initialization."
-            print >>f, ""
-            print >>f, ";;; Commentary:"
-            print >>f, ""
-            print >>f, ";;; Code:"
-            print >>f, ""
-            print >>f, "(provide '.emacs.machine)"
-            print >>f, ""
-            print >>f, ";;; .emacs.machine.el ends here"
+        proposed_signingKey = emulate_backtick([git, 'config', '--global', 'user.signingKey'])
+        if proposed_signingKey != '':
+            user_section_empty = False
+            print 'Moving user.signingKey "%s" %s: ' % (proposed_signingKey, gitconfig_user)
+            emulate_run([git, 'config', '-f', gitconfig_user, 'user.signingKey', proposed_signingKey])
+            emulate_run([git, 'config', '--global', '--unset', 'user.signingKey'])
 
-    yn = raw_input('Configure system-specific emacs? (y/n): ')
-    if yn == 'y':
-        # ensure that emacs knows a good host name
-        emacs_hostname = ''
+        if not user_section_empty:
+            emulate_run([git, 'config', '--global', '--remove-section', 'user'])
 
-        # if not set, suggest the global system name for emacs
-        if emacs_hostname == '':
-            proposed_hostname = emulate_backtick([emacs, '--batch', '--no-init-file', '--eval', '(princ system-name)'])
+        git_name = emulate_backtick([git, 'config', '-f', gitconfig_user, 'user.name'])
+        git_email = emulate_backtick([git, 'config', '-f', gitconfig_user, 'user.email'])
 
-            if proposed_hostname != '':
-                yn = raw_input('Use the current emacs system-name "%s" for emacs? (y/n): ' % (proposed_hostname))
+        # configure user name and email for git
+        if git_name != '' or git_email != '':
+            print 'Using "%s <%s>" for the global git user name/email.' % (git_name, git_email)
+        else:
+            print 'The global git user name/email is not set up.' % (git_name, git_email)
+        yn = raw_input('Set up the global git user name/email? (y/n): ')
+        if yn == 'y':
+            # if not set, initialize with default user name and email
+            if git_name == '':
+                git_name = name
+            if git_email == '':
+                git_email = email
+
+            # request from the user
+            git_name, git_email = request_name_and_email(git_name,git_email)
+
+            # set user name/email in user-specific config
+            if git_name != '':
+                emulate_run([git, 'config', '-f', gitconfig_user, 'user.name', git_name])
+            else:
+                emulate_run([git, 'config', '-f', gitconfig_user, '--unset', 'user.name'])
+
+            if git_email != '':
+                emulate_run([git, 'config', '-f', gitconfig_user, 'user.email', git_email])
+            else:
+                emulate_run([git, 'config', '-f', gitconfig_user, '--unset', 'user.email'])
+
+    # configure mercurial
+    if hg:
+        # set up machine-specific ~/.hgrc
+        hgrc_machine = os.path.join(HOME, '.hgrc.machine')
+        if not os.path.exists(hgrc_machine):
+            print 'Note that ~/.hgrc.machine is used for machine-specific settings to .hgrc.'
+            open(hgrc_machine, 'a').close()
+
+        # set up user-specific ~/.hgrc
+        hgrc_user = os.path.join(HOME, '.hgrc.user')
+        if not os.path.exists(hgrc_user):
+            print 'Note that ~/.hgrc.user is used for user-specific settings to .hgrc.'
+            open(hgrc_user, 'a').close()
+
+        # @todo use hg to set up user
+
+    # configure emacs
+    if emacs:
+        # set up machine-specific ~/.emacs
+        emacs_machine = os.path.join(HOME, '.emacs.machine.el')
+        if not os.path.exists(emacs_machine):
+            print 'Note that ~/.emacs.machine.el is used for machine-specific settings to .emacs.'
+            with open(emacs_machine, 'a') as f:
+                print >>f, ";;; package --- Machine-specific Emacs initialization."
+                print >>f, ""
+                print >>f, ";;; Commentary:"
+                print >>f, ""
+                print >>f, ";;; Code:"
+                print >>f, ""
+                print >>f, "(provide '.emacs.machine)"
+                print >>f, ""
+                print >>f, ";;; .emacs.machine.el ends here"
+
+        yn = raw_input('Configure system-specific emacs? (y/n): ')
+        if yn == 'y':
+            # ensure that emacs knows a good host name
+            emacs_hostname = ''
+
+            # if not set, suggest the global system name for emacs
+            if emacs_hostname == '':
+                proposed_hostname = emulate_backtick([emacs, '--batch', '--no-init-file', '--eval', '(princ system-name)'])
+
+                if proposed_hostname != '':
+                    yn = raw_input('Use the current emacs system-name "%s" for emacs? (y/n): ' % (proposed_hostname))
+                    if yn == 'y':
+                        emacs_hostname = proposed_hostname
+
+            # if not set, suggest the user-specific system name for emacs
+            if emacs_hostname == '':
+                proposed_hostname = emulate_backtick([emacs, '--batch', '--no-init-file', '--load', emacs_machine, '--eval', '(princ system-name)'])
+
+                if proposed_hostname != '':
+                    yn = raw_input('Use the user-specific emacs system-name "%s" for emacs? (y/n): ' % (proposed_hostname))
+                    if yn == 'y':
+                        emacs_hostname = proposed_hostname
+
+            # if not set, suggest the hostname of the computer for emacs
+            if emacs_hostname == '':
+                proposed_hostname = os.uname()[1]
+
+                if proposed_hostname != '':
+                    yn = raw_input('Use the hostname "%s" for emacs? (y/n): ' % (proposed_hostname))
+                    if yn == 'y':
+                        emacs_hostname = proposed_hostname
+
+            # if not set, ask the user for the hostname
+            if emacs_hostname == '':
+                emacs_hostname = raw_input('Enter system-name for emacs: ')
+
+            # set the system-name for emacs
+            # @todo nice to edit the lisp s-expressions directly
+            if emacs_hostname != '':
+                yn = raw_input('Use the system-name "%s" for emacs? (y/n) ' % (emacs_hostname))
                 if yn == 'y':
-                    emacs_hostname = proposed_hostname
+                    print 'Add the following to ~/.emacs.machine.el:'
+                    print '   (setq system-name "%s")' % (emacs_hostname)
 
-        # if not set, suggest the user-specific system name for emacs
-        if emacs_hostname == '':
-            proposed_hostname = emulate_backtick([emacs, '--batch', '--no-init-file', '--load', emacs_machine, '--eval', '(princ system-name)'])
+        # set up user-specific ~/.emacs
+        emacs_user = os.path.join(HOME, '.emacs.user.el')
+        if not os.path.exists(emacs_user):
+            print 'Note that ~/.emacs.user.el is used for user-specific settings to .emacs.'
+            with open(emacs_user, 'a') as f:
+                print >>f, ";;; package --- User-specific Emacs initialization."
+                print >>f, ""
+                print >>f, ";;; Commentary:"
+                print >>f, ""
+                print >>f, ";;; Code:"
+                print >>f, ""
+                print >>f, "(provide '.emacs.user)"
+                print >>f, ""
+                print >>f, ";;; .emacs.user.el ends here"
 
-            if proposed_hostname != '':
-                yn = raw_input('Use the user-specific emacs system-name "%s" for emacs? (y/n): ' % (proposed_hostname))
-                if yn == 'y':
-                    emacs_hostname = proposed_hostname
+        yn = raw_input('Configure user-specific emacs? (y/n): ')
+        if yn == 'y':
+            emacs_name = ''
+            emacs_email = ''
 
-        # if not set, suggest the hostname of the computer for emacs
-        if emacs_hostname == '':
-            proposed_hostname = os.uname()[1]
+            # if not set, suggest the global user's full name for emacs
+            if emacs_name == '':
+                proposed_name = emulate_backtick([emacs, '--batch', '--no-init-file', '--eval', '(princ user-full-name)'])
 
-            if proposed_hostname != '':
-                yn = raw_input('Use the hostname "%s" for emacs? (y/n): ' % (proposed_hostname))
-                if yn == 'y':
-                    emacs_hostname = proposed_hostname
+                if proposed_name != '':
+                    yn = raw_input('Use the current global user\'s full name "%s" for emacs? (y/n): ' % (proposed_name))
+                    if yn == 'y':
+                        emacs_name = proposed_name
 
-        # if not set, ask the user for the hostname
-        if emacs_hostname == '':
-            emacs_hostname = raw_input('Enter system-name for emacs: ')
+            # if not set, suggest the user-specific user's full name for emacs
+            if emacs_name == '':
+                proposed_name = emulate_backtick([emacs, '--batch', '--no-init-file', '--load', emacs_user, '--eval', '(princ user-full-name)'])
 
-        # set the system-name for emacs
-        # @todo nice to edit the lisp s-expressions directly
-        if emacs_hostname != '':
-            yn = raw_input('Use the system-name "%s" for emacs? (y/n) ' % (emacs_hostname))
-            if yn == 'y':
-                print 'Add the following to ~/.emacs.machine.el:'
-                print '   (setq system-name "%s")' % (emacs_hostname)
+                if proposed_name != '':
+                    yn = raw_input('Use the current user-specific user\'s full name "%s" for emacs? (y/n): ' % (proposed_name))
+                    if yn == 'y':
+                        emacs_name = proposed_name
 
-    # set up user-specific ~/.emacs
-    emacs_user = os.path.join(HOME, '.emacs.user.el')
-    if not os.path.exists(emacs_user):
-        print 'Note that ~/.emacs.user.el is used for user-specific settings to .emacs.'
-        with open(emacs_user, 'a') as f:
-            print >>f, ";;; package --- User-specific Emacs initialization."
-            print >>f, ""
-            print >>f, ";;; Commentary:"
-            print >>f, ""
-            print >>f, ";;; Code:"
-            print >>f, ""
-            print >>f, "(provide '.emacs.user)"
-            print >>f, ""
-            print >>f, ";;; .emacs.user.el ends here"
-
-    yn = raw_input('Configure user-specific emacs? (y/n): ')
-    if yn == 'y':
-        emacs_name = ''
-        emacs_email = ''
-
-        # if not set, suggest the global user's full name for emacs
-        if emacs_name == '':
-            proposed_name = emulate_backtick([emacs, '--batch', '--no-init-file', '--eval', '(princ user-full-name)'])
-
-            if proposed_name != '':
-                yn = raw_input('Use the current global user\'s full name "%s" for emacs? (y/n): ' % (proposed_name))
+            # if not set, suggest the default user's full name for emacs
+            if emacs_name == '':
+                proposed_name = name
+                yn = raw_input('Use the default user\'s full name "%s" for emacs? (y/n): ' % (proposed_name))
                 if yn == 'y':
                     emacs_name = proposed_name
 
-        # if not set, suggest the user-specific user's full name for emacs
-        if emacs_name == '':
-            proposed_name = emulate_backtick([emacs, '--batch', '--no-init-file', '--load', emacs_user, '--eval', '(princ user-full-name)'])
+            # if not set, ask user for the user's full name for emacs
+            if emacs_name == '':
+                emacs_name = raw_input('Enter the user\'s full name for emacs: ')
 
-            if proposed_name != '':
-                yn = raw_input('Use the current user-specific user\'s full name "%s" for emacs? (y/n): ' % (proposed_name))
-                if yn == 'y':
-                    emacs_name = proposed_name
+            # if not set, suggest the global user's email for emacs
+            if emacs_email == '':
+                proposed_email = emulate_backtick([emacs, '--batch', '--no-init-file', '--eval', '(princ user-mail-address)'])
 
-        # if not set, suggest the default user's full name for emacs
-        if emacs_name == '':
-            proposed_name = name
-            yn = raw_input('Use the default user\'s full name "%s" for emacs? (y/n): ' % (proposed_name))
-            if yn == 'y':
-                emacs_name = proposed_name
+                if proposed_email != '':
+                    yn = raw_input('Use the current global user\'s email "%s" for emacs? (y/n): ' % (proposed_email))
+                    if yn == 'y':
+                        emacs_email = proposed_email
 
-        # if not set, ask user for the user's full name for emacs
-        if emacs_name == '':
-            emacs_name = raw_input('Enter the user\'s full name for emacs: ')
+            # if not set, suggest the user-specific user's email for emacs
+            if emacs_email == '':
+                proposed_email = emulate_backtick([emacs, '--batch', '--no-init-file', '--load', emacs_user, '--eval', '(princ user-mail-address)'])
 
-        # if not set, suggest the global user's email for emacs
-        if emacs_email == '':
-            proposed_email = emulate_backtick([emacs, '--batch', '--no-init-file', '--eval', '(princ user-mail-address)'])
+                if proposed_email != '':
+                    yn = raw_input('Use the current user-specific user\'s email "%s" for emacs? (y/n): ' % (proposed_email))
+                    if yn == 'y':
+                        emacs_email = proposed_email
 
-            if proposed_email != '':
-                yn = raw_input('Use the current global user\'s email "%s" for emacs? (y/n): ' % (proposed_email))
-                if yn == 'y':
-                    emacs_email = proposed_email
-
-        # if not set, suggest the user-specific user's email for emacs
-        if emacs_email == '':
-            proposed_email = emulate_backtick([emacs, '--batch', '--no-init-file', '--load', emacs_user, '--eval', '(princ user-mail-address)'])
-
-            if proposed_email != '':
-                yn = raw_input('Use the current user-specific user\'s email "%s" for emacs? (y/n): ' % (proposed_email))
+            # if not set, suggest the default user's email for emacs
+            if emacs_email == '':
+                proposed_email = email
+                yn = raw_input('Use the default user\'s email address "%s" for emacs? (y/n): ' % (proposed_email))
                 if yn == 'y':
                     emacs_email = proposed_email
 
-        # if not set, suggest the default user's email for emacs
-        if emacs_email == '':
-            proposed_email = email
-            yn = raw_input('Use the default user\'s email address "%s" for emacs? (y/n): ' % (proposed_email))
-            if yn == 'y':
-                emacs_email = proposed_email
+            # if not set, ask user for the user's email for emacs
+            if emacs_email == '':
+                emacs_email = raw_input('Enter the user\'s email for emacs: ')
 
-        # if not set, ask user for the user's email for emacs
-        if emacs_email == '':
-            emacs_email = raw_input('Enter the user\'s email for emacs: ')
+            # set the user's full name and email for emacs
+            # @todo nice to edit the lisp s-expressions directly
+            if emacs_name != '':
+                yn = raw_input('Use the user\'s full name "%s" for emacs? (y/n): ' % (emacs_name))
+                if yn == 'y':
+                    print 'Add the following to ~/.emacs.user.el:'
+                    print '   (setq user-full-name "%s")' % (emacs_name)
+            if emacs_email != '':
+                yn = raw_input('Use the user\'s email "%s" for emacs? (y/n): ' % (emacs_email))
+                if yn == 'y':
+                    print 'Add the following to ~/.emacs.user.el:'
+                    print '   (setq user-mail-address "%s")' % (emacs_email)
 
-        # set the user's full name and email for emacs
-        # @todo nice to edit the lisp s-expressions directly
-        if emacs_name != '':
-            yn = raw_input('Use the user\'s full name "%s" for emacs? (y/n): ' % (emacs_name))
-            if yn == 'y':
-                print 'Add the following to ~/.emacs.user.el:'
-                print '   (setq user-full-name "%s")' % (emacs_name)
-        if emacs_email != '':
-            yn = raw_input('Use the user\'s email "%s" for emacs? (y/n): ' % (emacs_email))
-            if yn == 'y':
-                print 'Add the following to ~/.emacs.user.el:'
-                print '   (setq user-mail-address "%s")' % (emacs_email)
+    # ask to install source packages
+    yn = raw_input('Install source packages? (y/n): ')
+    if yn == 'y':
+        if not emulate_run([sys.executable, os.path.abspath('install_source_packages')]):
+            print 'warning: failed to install source packages.'
 
-# ask to install source packages
-yn = raw_input('Install source packages? (y/n): ')
-if yn == 'y':
-    if not emulate_run([sys.executable, os.path.abspath('install_source_packages')]):
-        print 'warning: failed to install source packages.'
+    # ask to install python packages
+    yn = raw_input('Install Python packages? (y/n): ')
+    if yn == 'y':
+        if not emulate_run([sys.executable, os.path.abspath('install_python_packages')]):
+            print 'warning: failed to install Python packages.'
 
-# ask to install python packages
-yn = raw_input('Install Python packages? (y/n): ')
-if yn == 'y':
-    if not emulate_run([sys.executable, os.path.abspath('install_python_packages')]):
-        print 'warning: failed to install Python packages.'
+    # ask to install ruby packages
+    yn = raw_input('Install Ruby packages? (y/n): ')
+    if yn == 'y':
+        if not emulate_run([sys.executable, os.path.abspath('install_ruby_packages')]):
+            print 'warning: failed to install Ruby packages.'
 
-# ask to install ruby packages
-yn = raw_input('Install Ruby packages? (y/n): ')
-if yn == 'y':
-    if not emulate_run([sys.executable, os.path.abspath('install_ruby_packages')]):
-        print 'warning: failed to install Ruby packages.'
+    # ask to install node packages
+    yn = raw_input('Install Node packages? (y/n): ')
+    if yn == 'y':
+        if not emulate_run([sys.executable, os.path.abspath('install_node_packages')]):
+            print 'warning: failed to install Node.js packages.'
 
-# ask to install node packages
-yn = raw_input('Install Node packages? (y/n): ')
-if yn == 'y':
-    if not emulate_run([sys.executable, os.path.abspath('install_node_packages')]):
-        print 'warning: failed to install Node.js packages.'
-
-# ask to install go packages
-yn = raw_input('Install Go packages? (y/n): ')
-if yn == 'y':
-    if not emulate_run([sys.executable, os.path.abspath('install_go_packages')]):
-        print 'warning: failed to install Go packages.'
+    # ask to install go packages
+    yn = raw_input('Install Go packages? (y/n): ')
+    if yn == 'y':
+        if not emulate_run([sys.executable, os.path.abspath('install_go_packages')]):
+            print 'warning: failed to install Go packages.'

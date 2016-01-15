@@ -9,9 +9,6 @@ import subprocess
 import distutils.spawn
 import urllib2
 
-python = distutils.spawn.find_executable('python')
-pip = distutils.spawn.find_executable('pip')
-
 
 def emulate_run(args, env=None):
     p = subprocess.Popen(args, env=env)
@@ -19,31 +16,35 @@ def emulate_run(args, env=None):
         return True
     return False
 
-if not python:
-    print 'error: Python not installed, not installing Python packages.'
-    sys.exit(1)
+python = distutils.spawn.find_executable('python')
+pip = distutils.spawn.find_executable('pip')
 
-if not pip:
-    pippath = os.path.join(site.USER_BASE, 'bin', 'pip')
-    if not os.path.exists(pippath):
-        r = urllib2.urlopen('http://bootstrap.pypa.io/get-pip.py')
-        with open('get-pip.py', 'w') as f:
-            f.write(r.read())
+if __name__ == '__main__':
+    if not python:
+        print 'error: Python not installed, not installing Python packages.'
+        sys.exit(1)
 
-        if not os.path.exists('get-pip.py'):
-            print 'warning: pip failed to install, not installing Python packages.'
-            sys.exit(1)
+    if not pip:
+        pippath = os.path.join(site.USER_BASE, 'bin', 'pip')
+        if not os.path.exists(pippath):
+            r = urllib2.urlopen('http://bootstrap.pypa.io/get-pip.py')
+            with open('get-pip.py', 'w') as f:
+                f.write(r.read())
 
-        emulate_run([python, 'get-pip.py', '--user'])
-        os.remove('get-pip.py')
+            if not os.path.exists('get-pip.py'):
+                print 'warning: pip failed to install, not installing Python packages.'
+                sys.exit(1)
 
-    if os.path.exists(pippath):
-        pip = pippath
+            emulate_run([python, 'get-pip.py', '--user'])
+            os.remove('get-pip.py')
 
-if not pip and not os.path.exists(pip):
-    print 'error: pip not installing, not installing Python packages.'
-    sys.exit(1)
+        if os.path.exists(pippath):
+            pip = pippath
 
-error = not emulate_run([pip, 'install', '--user', '--upgrade', '-r', 'python-packages.txt'])
+    if not pip and not os.path.exists(pip):
+        print 'error: pip not installing, not installing Python packages.'
+        sys.exit(1)
 
-sys.exit(1 if error else 0)
+    error = not emulate_run([pip, 'install', '--user', '--upgrade', '-r', 'python-packages.txt'])
+
+    sys.exit(1 if error else 0)
