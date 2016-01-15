@@ -8,12 +8,12 @@ import subprocess
 import distutils.spawn
 
 # requires HOME.
-if "HOME" not in os.environ or os.environ["HOME"] == "":
-    print "error: HOME is not set, aborting."
+if 'HOME' not in os.environ or os.environ['HOME'] == '':
+    print 'error: HOME is not set, aborting.'
     sys.exit(1)
-HOME = os.environ["HOME"]
+HOME = os.environ['HOME']
 
-go = distutils.spawn.find_executable("go")
+go = distutils.spawn.find_executable('go')
 
 
 def emulate_run(args, env=None):
@@ -23,18 +23,18 @@ def emulate_run(args, env=None):
     return False
 
 if not go:
-    print "error: Go not installed, not installing Go packages."
+    print 'error: Go not installed, not installing Go packages.'
     sys.exit(1)
 
 error = False
-with open("go-packages.txt", "r") as f:
+with open('go-packages.txt', 'r') as f:
     for line in f:
         line = line.strip()
-        line = line.rstrip("\n")
-        if line != "" and line[0] != "#":
+        line = line.rstrip('\n')
+        if line != '' and line[0] != '#':
             e = os.environ
-            e["GOPATH"] = os.path.join(HOME, "opt", "local", "src", "go")
-            if not emulate_run([go, "get", "-u", line], env=e):
+            e['GOPATH'] = os.path.join(HOME, 'opt', 'local', 'src', 'go')
+            if not emulate_run([go, 'get', '-u', line], env=e):
                 error = True
 
 sys.exit(1 if error else 0)

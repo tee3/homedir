@@ -7,11 +7,11 @@ import os
 import subprocess
 import distutils.spawn
 
-ruby = distutils.spawn.find_executable("ruby")
+ruby = distutils.spawn.find_executable('ruby')
 if sys.platform.startswith('win32'):
     gem = 'gem.bat'
 else:
-    gem = distutils.spawn.find_executable("gem")
+    gem = distutils.spawn.find_executable('gem')
 
 
 def emulate_run(args, env=None):
@@ -23,23 +23,23 @@ def emulate_run(args, env=None):
 
 def emulate_backtick(args):
     try:
-        output = subprocess.check_output(args).rstrip("\n")
+        output = subprocess.check_output(args).rstrip('\n')
     except:
-        output = ""
+        output = ''
 
     return output
 
 if not ruby:
-    print "error: Ruby not installed, not installing Ruby packages."
+    print 'error: Ruby not installed, not installing Ruby packages.'
     sys.exit(1)
 
 if not gem:
-    print "error: gem is not available, skipping Ruby module installation"
+    print 'error: gem is not available, skipping Ruby module installation'
     sys.exit(1)
 
 # location of gems with --user-install
-gemdir = emulate_backtick([ruby, "-rubygems", "-e", "puts Gem.user_dir"])
+gemdir = emulate_backtick([ruby, '-rubygems', '-e', 'puts Gem.user_dir'])
 
-error = not emulate_run([gem, "install", "--user-install", "--bindir", os.path.join(gemdir, "bin"), "--file", "ruby-packages.gemfile"])
+error = not emulate_run([gem, 'install', '--user-install', '--bindir', os.path.join(gemdir, 'bin'), '--file', 'ruby-packages.gemfile'])
 
 sys.exit(1 if error else 0)
