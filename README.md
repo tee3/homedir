@@ -191,7 +191,7 @@ $ sudo shutdown -r now
 
 Install Xcode and the Xcode Command-Line Tools, as well as Homebrew,
 while logged in to the graphical system as `administrator`.  From a
-`Terminal.app` window install the system packages.  At the end of this
+Terminal.app window install the system packages.  At the end of this
 process, the machine will reboot, so make sure there is no one else
 logged in.
 
@@ -228,8 +228,8 @@ required in order to install programs for all users.
    4. Enable the "Enable file system caching" option to increase
       performance.
 
-3. Install Python 2.7 and allow it to add itself to the PATH, assuming
-   it is installed to `C:\Python27`.
+3. Install Python 2.7 and allow it to add itself to the `PATH`,
+   assuming it is installed to `C:\Python27`.
 
 4. Install Visual C++ and the Visual C++ Build Tools.
 
@@ -269,8 +269,8 @@ language for the system on which it runs.
 
 ## fedora
 
-To install system packages for Fedora-based systems (via yum), run the
-following script as a user with `sudo` permission.
+To install system packages for Fedora-based systems (via `yum`), run
+the following script as a user with `sudo` permission.
 
 ```
 $ ./install_system_packages_fedora
@@ -278,8 +278,8 @@ $ ./install_system_packages_fedora
 
 ## debian
 
-To install system packages for Debian-based systems (via apt-get), run
-the following script as a user with `sudo` permission.
+To install system packages for Debian-based systems (via `apt-get`),
+run the following script as a user with `sudo` permission.
 
 ```
 $ ./install_system_packages_debian
@@ -443,9 +443,9 @@ There is a script to support installing packages that are not
 supported by a standard package manager or require special
 consideration.
 
-* tee3-c-style
-* msvc-c-style
-* rtags
+* `tee3-c-style`
+* `msvc-c-style`
+* `rtags`
 
 See the bottom of the [script](./install_source_packages) for an more
 up-to-date list of source packages.
