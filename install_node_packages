@@ -7,6 +7,13 @@ import os
 import subprocess
 import distutils.spawn
 
+
+def emulate_run(args, env=None):
+    p = subprocess.Popen(args, env=env)
+    if p.wait() == 0:
+        return True
+    return False
+
 # requires HOME.
 if 'HOME' not in os.environ or os.environ['HOME'] == '':
     print 'error: HOME is not set, aborting.'
@@ -19,30 +26,24 @@ if sys.platform.startswith('win32'):
 else:
     npm = distutils.spawn.find_executable('npm')
 
-
-def emulate_run(args, env=None):
-    p = subprocess.Popen(args, env=env)
-    if p.wait() == 0:
-        return True
-    return False
-
-if not node:
-    node = distutils.spawn.find_executable('nodejs')
+if __name__ == '__main__':
     if not node:
-        print 'error: node is not installed, skipping node module installation'
+        node = distutils.spawn.find_executable('nodejs')
+        if not node:
+            print 'error: node is not installed, skipping node module installation'
+            sys.exit(1)
+
+    if not npm:
+        print 'error: npm is not installed, skipping node module installation'
         sys.exit(1)
 
-if not npm:
-    print 'error: npm is not installed, skipping node module installation'
-    sys.exit(1)
+    error = False
+    with open('node-packages.txt', 'r') as f:
+        for line in f:
+            line = line.strip()
+            line = line.rstrip('\n')
+            if line != '' and line[0] != '#':
+                if not emulate_run([npm, 'install', '--global', line]):
+                    error = True
 
-error = False
-with open('node-packages.txt', 'r') as f:
-    for line in f:
-        line = line.strip()
-        line = line.rstrip('\n')
-        if line != '' and line[0] != '#':
-            if not emulate_run([npm, 'install', '--global', line]):
-                error = True
-
-sys.exit(1 if error else 0)
+    sys.exit(1 if error else 0)
