@@ -119,6 +119,7 @@ brew install casperjs
 brew install cflow
 brew install cmake
 brew install cppcheck
+brew install dfu-util
 brew install dns2tcp
 brew install dnstop
 brew install docbook
