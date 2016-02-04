@@ -72,6 +72,7 @@ sudo yum -y install clang-devel
 sudo yum -y install clang-libs
 sudo yum -y install cmake
 sudo yum -y install cppcheck
+sudo yum -y install dfu-util
 #sudo yum -y install dns2tcp
 #sudo yum -y install dnstop
 #sudo yum -y install docbook
