@@ -308,7 +308,7 @@ if __name__ == '__main__':
         if git_name != '' or git_email != '':
             print 'Using "%s <%s>" for the global git user name/email.' % (git_name, git_email)
         else:
-            print 'The global git user name/email is not set up.' % (git_name, git_email)
+            print 'The global git user name/email is not set up.'
         yn = raw_input('Set up the global git user name/email? (y/n): ')
         if yn == 'y':
             # if not set, initialize with default user name and email
