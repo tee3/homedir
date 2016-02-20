@@ -1292,6 +1292,8 @@ See URL `http://www.jslint.com'."
   (use-package paper-theme :ensure t :pin melpa :defer t)
   (use-package solarized-theme :ensure t :pin melpa :defer t)
   (use-package termbright-theme :ensure t :pin melpa :defer t)
+  (use-package zenburn-theme :ensure t :pin melpa :defer t)
+  (use-package zerodark-theme :ensure t :pin melpa :defer t)
 
   (cond (t nil) ;; do not choose any themes by default
         ((display-graphic-p)
