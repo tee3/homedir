@@ -64,9 +64,9 @@ sudo aptitude -y install avahi-daemon
 #sudo aptitude -y install avr-gcc
 sudo aptitude -y install bash-completion
 #sudo aptitude -y install bear
-#sudo aptitude -y install boost
-#sudo aptitude -y install boost-bcp
-sudo aptitude -y install boost-build
+sudo aptitude -y install libboost-dev
+#sudo aptitude -y install libboost-bcp-dev
+sudo aptitude -y install libboost-tools-dev
 #sudo aptitude -y install casperjs
 sudo aptitude -y install cflow
 sudo aptitude -y install clang
