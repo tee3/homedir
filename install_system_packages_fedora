@@ -65,6 +65,7 @@ sudo yum -y install bash-completion
 sudo yum -y install boost
 #sudo yum -y install boost-bcp
 sudo yum -y install boost-build
+sudo yum -y install boost-devel
 #sudo yum -y install casperjs
 sudo yum -y install cflow
 sudo yum -y install clang
