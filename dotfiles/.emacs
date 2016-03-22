@@ -1254,6 +1254,13 @@ See URL `http://www.jslint.com'."
       "~/opt/local/share/emacs/site-lisp/rtags"
       :config
       (add-to-list 'company-backends 'company-rtags t)))
+  (use-package flycheck
+    :ensure t
+    :pin melpa
+    :init
+    (use-package flycheck-rtags
+      :load-path
+      "~/opt/local/src/emacs/site-lisp/rtags"))
   (use-package popup
     :ensure t
     :pin melpa)
