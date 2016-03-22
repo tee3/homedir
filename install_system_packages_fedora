@@ -131,6 +131,8 @@ sudo yum -y install jam
 sudo yum -y install llvm
 #sudo yum -y install llvm35
 #sudo yum -y install llvm36
+#sudo yum -y install llvm37
+#sudo yum -y install llvm38
 sudo yum -y install lrzsz
 sudo yum -y install llvm-devel
 #sudo yum -y install markdown

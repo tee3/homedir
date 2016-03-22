@@ -130,6 +130,8 @@ sudo aptitude -y install libclang-dev
 sudo aptitude -y install llvm
 #sudo aptitude -y install llvm35
 #sudo aptitude -y install llvm36
+#sudo aptitude -y install llvm37
+#sudo aptitude -y install llvm38
 sudo aptitude -y install lrzsz
 sudo aptitude -y install llvm-dev
 sudo aptitude -y install llvm-runtime

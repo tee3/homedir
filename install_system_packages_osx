@@ -171,6 +171,7 @@ brew install llvm
 brew install llvm35 --with-clang --with-lldb --with-lld
 brew install llvm36 --with-clang --with-lldb --with-lld
 #brew install llvm37 --with-clang --with-lldb --with-lld
+#brew install llvm38 --with-clang --with-lldb --with-lld
 brew install lrzsz
 brew install markdown
 #brew install mscgen --without-gd
