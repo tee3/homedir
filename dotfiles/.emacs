@@ -1294,6 +1294,7 @@ See URL `http://www.jslint.com'."
 ;;;
 (when (>= emacs-major-version 24)
   (use-package cyberpunk-theme :ensure t :pin melpa :defer t)
+  (use-package goose-theme :ensure t :pin melpa-stable :defer t)
   (use-package grandshell-theme :ensure t :pin melpa :defer t)
   (use-package monokai-theme :ensure t :pin melpa :defer t)
   (use-package paper-theme :ensure t :pin melpa :defer t)
