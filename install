@@ -175,8 +175,7 @@ if __name__ == '__main__':
     yn = raw_input('Install services (launchd or systemd)? (y/n): ')
     if yn == 'y':
         if machine == 'linux':
-            # @todo untested
-            src_d = os.path.join(os.getcwd(), 'services', 'systemd', '*.service')
+            src_d = os.path.join(os.getcwd(), 'services', 'systemd', '*')
             dst_d = os.path.join(HOME, '.config', 'systemd', 'user')
 
             if not os.path.exists(dst_d):
@@ -187,13 +186,15 @@ if __name__ == '__main__':
                 if os.path.exists(dst_f):
                     print 'warning: %s exists, skipping %s.' % (dst_f, f)
                 else:
-                    os.symlink(f, dst_d)
+                    os.symlink(f, dst_f)
 
                 b, e = os.path.splitext(f)
-                assert e == '.service'
+                assert e == '.service' or e == '.socket'
 
-                if not emulate_run(['systemctl', '--user', 'enable', b]):
+                if not emulate_run(['systemctl', '--user', 'enable', os.path.basename(b) + e]):
                     print 'warning: failed to enable systemd service at %s.' %f
+                if not emulate_run(['systemctl', '--user', 'start', os.path.basename(b) + e]):
+                    print 'warning: failed to start systemd service at %s.' %f
         elif machine == 'osx':
             src_d = os.path.join(os.getcwd(), 'services', 'launchd', '*.plist')
             dst_d = os.path.join(HOME, 'Library', 'LaunchAgents')
