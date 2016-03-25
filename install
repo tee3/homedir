@@ -192,9 +192,9 @@ if __name__ == '__main__':
                 assert e == '.service' or e == '.socket'
 
                 if not emulate_run(['systemctl', '--user', 'enable', os.path.basename(b) + e]):
-                    print 'warning: failed to enable systemd service at %s.' %f
+                    print 'warning: failed to enable systemd service at %s.' % (f)
                 if not emulate_run(['systemctl', '--user', 'start', os.path.basename(b) + e]):
-                    print 'warning: failed to start systemd service at %s.' %f
+                    print 'warning: failed to start systemd service at %s.' % (f)
         elif machine == 'osx':
             src_d = os.path.join(os.getcwd(), 'services', 'launchd', '*.plist')
             dst_d = os.path.join(HOME, 'Library', 'LaunchAgents')
@@ -214,7 +214,7 @@ if __name__ == '__main__':
 
                 emulate_run(['launchctl', 'unload', f])
                 if not emulate_run(['launchctl', 'load', f]):
-                    print 'warning: failed to load launchd service at %s.' %f
+                    print 'warning: failed to load launchd service at %s.' % (f)
         elif machine == 'cygwin':
             print 'error: services install not implemented yet for Cygwin.'
             sys.exit(1)
