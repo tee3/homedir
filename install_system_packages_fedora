@@ -100,6 +100,7 @@ sudo yum -y install gcc-c++
 #sudo yum -y install git-flow
 #sudo yum -y install git-hooks
 #sudo yum -y install git-lfs
+sudo yum -y install git-svn
 #sudo yum -y install git-test
 #sudo yum -y install glew
 #sudo yum -y install glfw3
