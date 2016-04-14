@@ -98,6 +98,7 @@ sudo aptitude -y install g++
 #sudo aptitude -y install git-flow
 #sudo aptitude -y install git-hooks
 #sudo aptitude -y install git-lfs
+sudo aptitude -y install git-svn
 #sudo aptitude -y install git-test
 #sudo aptitude -y install glew
 #sudo aptitude -y install glfw3
