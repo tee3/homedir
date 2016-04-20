@@ -26,16 +26,16 @@
   (when (>= emacs-major-version 23)
     (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/")))
 
-  (package-initialize)
-
-  ;; Update the package list from the network
-  (package-refresh-contents))
+  (package-initialize))
 
 ;;;
 ;;; Bootstrap use-package
 ;;;
 (when (require 'package nil :noerror)
   (when (not (package-installed-p 'use-package))
+
+    (package-refresh-contents)
+
     (package-install 'use-package)))
 
 (unless (require 'use-package nil :noerror)
