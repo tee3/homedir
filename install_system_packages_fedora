@@ -113,7 +113,7 @@ sudo yum -y install golang
 #sudo yum -y install graphviz
 sudo yum -y install guile
 sudo yum -y install highlight
-#sudo yum -y install htop-osx
+sudo yum -y install htop
 #sudo yum -y install httping
 #sudo yum -y install httpry
 sudo yum -y install hunspell
