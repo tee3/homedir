@@ -113,7 +113,7 @@ sudo aptitude -y install golang
 #sudo aptitude -y install graphviz
 sudo aptitude -y install guile-2.0
 sudo aptitude -y install highlight
-#sudo aptitude -y install htop-osx
+sudo aptitude -y install htop
 #sudo aptitude -y install httping
 #sudo aptitude -y install httpry
 sudo aptitude -y install hunspell
