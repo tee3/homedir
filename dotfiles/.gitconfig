@@ -25,6 +25,8 @@
 	stat = true
 [status]
 	submoduleSummary = true
+[stash]
+	showPatch = true
 [svn]
 	findcopiesharder = true
 	pushmergeinfo = true
