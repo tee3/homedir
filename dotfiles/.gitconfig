@@ -17,6 +17,8 @@
 	httpd = webrick
 [log]
 	follow = true
+[merge]
+#	renormalize = true
 [svn]
 	findcopiesharder = true
 	pushmergeinfo = true
