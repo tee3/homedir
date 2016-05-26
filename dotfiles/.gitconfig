@@ -11,12 +11,12 @@
 	safecrlf = true
 	whitespace = blank-at-eol,space-before-tab,tab-in-indent,blank-at-eof
 [diff]
-#	renames	= copies
+	renames	= copies
 [instaweb]
 	local = true
 	httpd = webrick
 [svn]
-#	findcopiesharder = true
+	findcopiesharder = true
 	pushmergeinfo = true
 	edit = false
 	followparent = true
