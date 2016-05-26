@@ -1,6 +1,7 @@
 [color]
 	ui = auto
 [apply]
+	ignoreWhitespace = false
 	whitespace = warn
 [core]
 	excludesfile = ~/.gitignore
