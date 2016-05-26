@@ -21,6 +21,8 @@
 #	renormalize = true
 [push]
 	recurseSubmodules = check
+[rebase]
+	stat = true
 [svn]
 	findcopiesharder = true
 	pushmergeinfo = true
