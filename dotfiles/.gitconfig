@@ -23,6 +23,8 @@
 	recurseSubmodules = check
 [rebase]
 	stat = true
+[status]
+	submoduleSummary = true
 [svn]
 	findcopiesharder = true
 	pushmergeinfo = true
