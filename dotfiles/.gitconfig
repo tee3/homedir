@@ -19,6 +19,8 @@
 	follow = true
 [merge]
 #	renormalize = true
+[push]
+	recurseSubmodules = check
 [svn]
 	findcopiesharder = true
 	pushmergeinfo = true
