@@ -9,6 +9,7 @@
 	quotepath = false
 #	autocrlf = true
 	safecrlf = true
+	whitespace = blank-at-eol,space-before-tab,tab-in-indent,blank-at-eof
 [diff]
 #	renames	= copies
 [instaweb]
