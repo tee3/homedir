@@ -64,7 +64,9 @@
 (setq term-buffer-maximum-size 0)
 
 (when (equal system-type 'darwin)
-  (setq ns-pop-up-frames nil))
+  (setq ns-pop-up-frames nil)
+
+  (set-keyboard-coding-system nil))
 
 (use-package cus-edit
   :init
