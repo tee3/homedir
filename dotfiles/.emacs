@@ -66,7 +66,12 @@
 (when (equal system-type 'darwin)
   (setq ns-pop-up-frames nil)
 
-  (set-keyboard-coding-system nil))
+  (set-keyboard-coding-system nil)
+
+  (setq ns-right-alternate-modifier 'none)
+  (setq ns-right-command-modifier 'none)
+  (setq ns-right-control-modifier 'none)
+  (setq ns-right-option-modifier 'none))
 
 (use-package cus-edit
   :init
