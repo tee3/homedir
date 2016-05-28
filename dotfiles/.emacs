@@ -323,6 +323,8 @@
   (ido-mode 1)
   (ido-everywhere)
 
+  (setq ido-enable-flex-matching t)
+
   (setq ido-use-filename-at-point 'guess)
   (setq ido-use-url-at-point t)
   (setq ido-confirm-unique-completion t))
