@@ -708,6 +708,8 @@
   (setq magit-branch-popup-show-variables nil)
   (setq magit-popup-show-common-commands nil)
   :config
+  (add-hook 'magit-status-sections-hook 'magit-insert-worktrees)
+
   (add-hook 'magit-status-headers-hook 'magit-insert-remote-header t)
   (add-hook 'magit-status-headers-hook 'magit-insert-user-header t)
   (add-hook 'magit-status-headers-hook 'magit-insert-repo-header t)
