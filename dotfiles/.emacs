@@ -700,6 +700,10 @@
   :ensure t
   :pin melpa
   :init
+  ; trash doesn't work properly on OS X
+  (when (equal system-type 'darwin)
+    (setq magit-delete-by-moving-to-trash nil))
+
   (setq magit-popup-use-prefix-argument 'default)
   :config
   (add-hook 'magit-status-headers-hook 'magit-insert-remote-header t)
