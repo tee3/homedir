@@ -56,13 +56,15 @@
 (setq history-delete-duplicates t)
 (setq inhibit-startup-screen t)
 (setq mouse-wheel-mode t)
-(setq ns-pop-up-frames nil)
 (setq scroll-conservatively 100)
 (setq split-height-threshold 0)
 (setq-default truncate-lines t)
 (setq visible-bell t)
 (setq version-control t)
 (setq term-buffer-maximum-size 0)
+
+(when (equal system-type 'darwin)
+  (setq ns-pop-up-frames nil))
 
 (use-package cus-edit
   :init
