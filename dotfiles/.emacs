@@ -715,6 +715,8 @@
   (add-hook 'magit-status-headers-hook 'magit-insert-repo-header t)
 
   (add-hook 'magit-mode-hook 'magit-load-config-extensions))
+
+  (global-magit-file-mode)
 (use-package magit-svn
   :ensure t)
 
