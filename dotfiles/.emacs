@@ -708,6 +708,8 @@
   (setq magit-branch-popup-show-variables nil)
   (setq magit-popup-show-common-commands nil)
   :config
+  (global-magit-file-mode)
+
   (add-hook 'magit-status-sections-hook 'magit-insert-worktrees)
 
   (add-hook 'magit-status-headers-hook 'magit-insert-remote-header t)
@@ -716,7 +718,6 @@
 
   (add-hook 'magit-mode-hook 'magit-load-config-extensions))
 
-  (global-magit-file-mode)
 (use-package magit-svn
   :ensure t)
 
