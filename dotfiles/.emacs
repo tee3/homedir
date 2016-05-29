@@ -231,6 +231,11 @@
 ;;; Programming mode hooks
 (add-hook 'prog-mode-hook (lambda ()
                             (setq indent-tabs-mode nil)))
+
+(use-package hideshow
+  :config
+  (add-hook 'prog-mode-hook 'hs-minor-mode))
+
 (use-package linum
   :config
   (add-hook 'prog-mode-hook (lambda ()
@@ -1070,8 +1075,6 @@
 
               ;; (setq c-tab-always-indent t)
               ;; (setq c-insert-tab-function nil)
-
-              (hs-minor-mode t)
               )))
 (use-package company
   :ensure t
