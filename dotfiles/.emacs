@@ -79,6 +79,12 @@
   (setq ns-right-control-modifier 'none)
   (setq ns-right-option-modifier 'none))
 
+(when (equal system-type 'windows-nt)
+  (setq w32-pass-lwindow-to-system nil)
+  (setq w32-lwindow-modifier 'super)
+  (setq w32-pass-apps-to-system nil)
+  (setq w32-apps-modifier 'hyper))
+
 (use-package cus-edit
   :init
   (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
