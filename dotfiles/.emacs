@@ -149,11 +149,6 @@
   :config
   (when (not (display-graphic-p))
     (menu-bar-mode -1)))
-(use-package nav
-  :ensure t
-  :pin melpa
-  :config
-  (nav-disable-overeager-window-splitting))
 (use-package paredit
   :ensure t
   :pin melpa
