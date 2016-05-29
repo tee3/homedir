@@ -1044,6 +1044,10 @@
     (add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode))
   (use-package hideif
     :init
+    (setq hide-ifdef-read-only t)
+    (setq hide-ifdef-initially t)
+    (setq hide-ifdef-lines t)
+
     (hide-ifdef-mode))
   (setq c-indent-comments-syntactically-p t)
   (setq c-strict-syntax-p t)
