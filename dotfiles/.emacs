@@ -387,17 +387,6 @@
   :init
   (counsel-mode -1))
 
-;;; Occur
-(use-package ioccur
-  :ensure t
-  :pin melpa
-  :init
-  (use-package desktop)
-  (add-to-list 'desktop-globals-to-save 'ioccur-history))
-(use-package noccur
-  :ensure t
-  :pin melpa)
-
 ;;; Projectile
 (use-package projectile
   :ensure t
