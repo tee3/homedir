@@ -265,13 +265,12 @@
   :ensure t
   :pin melpa
   :diminish helm-mode
-  :bind
-  ("M-x" . helm-M-x)
-  ("C-x C-f" . helm-find-files)
   :init
   (use-package helm-company
     :ensure t
-    :pin melpa)
+    :pin melpa
+    :bind
+    ("C-x c C-i" . helm-company))
   (use-package helm-config
     :ensure helm
     :pin melpa)
@@ -279,20 +278,28 @@
     :ensure t
     :pin melpa
     :bind
-    ("C-c ! h" . helm-flycheck))
+    ("C-x c C-c ! h" . helm-flycheck))
   (use-package helm-flyspell
     :ensure t
-    :pin melpa)
+    :pin melpa
+    :bind
+    ("C-x c M-$" . helm-flyspell-correct))
   (use-package helm-projectile
     :ensure t
     :pin melpa
+    :bind
+    ("C-x c C-c p e" . helm-projectile-recentf)
+    ("C-x c C-c p f" . helm-projectile-find-file)
+    ("C-x c C-c p g" . helm-projectile-find-file-dwim)
+    ("C-x c C-c p p" . helm-projectile-switch-project)
+    ("C-x c C-c p s g" . helm-projectile-grep)
     :config
-    (helm-projectile-on))
+    (helm-projectile-toggle -1))
   (setq helm-candidate-number-limit nil)
   (setq helm-quick-update t)
   (setq helm-ff-skip-boring-files t)
 
-  (helm-mode))
+  (helm-mode -1))
 
 ;;; Ibuffer
 (use-package ibuffer
