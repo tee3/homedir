@@ -409,13 +409,6 @@
   (setq projectile-switch-project-action 'projectile-dired)
   (setq projectile-use-git-grep t))
 
-;;;
-;;; Snippets
-;;;
-(use-package yasnippet
-  :ensure t
-  :pin melpa)
-
 ;;; Learning Emacs
 (use-package guru-mode
   :ensure t
@@ -630,12 +623,7 @@
   :pin melpa)
 (use-package processing-mode
   :ensure t
-  :pin melpa
-  :init
-  (use-package processing-snippets
-    :disabled t
-    :ensure t
-    :pin melpa))
+  :pin melpa)
 (use-package sql
   :init
   (setq sql-sqlite-program "sqlite3"))
