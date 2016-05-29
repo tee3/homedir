@@ -354,6 +354,35 @@
   :init
   (ivy-mode -1))
 
+;;; Counsel
+(use-package counsel
+  :disabled t
+  :ensure t
+  :pin melpa
+  :diminish counsel-mode
+  :bind
+  ("C-c c M-x" . counsel-M-x)
+  ("C-c c C-i" . counsel-company)
+  ("C-c c C-x C-f" . counsel-find-file)
+  ("C-c c M-." . counsel-find-symbol)
+
+  ("C-c c M-s o" . counsel-grep)
+
+  ("C-c c C-x r b" . counsel-bookmark)
+  ("C-c c C-x r l" . counsel-bookmark)
+
+  ("C-c c C-h b" . counsel-describe-bindings)
+  ("C-c c C-h f" . counsel-describe-function)
+  ("C-c c C-h v" . counsel-describe-variable)
+  ("C-c c C-h S" . counsel-info-lookup-symbol)
+
+  ("C-c c C-c p s f" . counsel-git)
+  ("C-c c C-c p s g" . counsel-git-grep)
+
+  ("C-c c C-x v L" . counsel-git-log)
+  :init
+  (counsel-mode -1))
+
 ;;; Occur
 (use-package ioccur
   :ensure t
