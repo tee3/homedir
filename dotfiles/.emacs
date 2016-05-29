@@ -701,6 +701,9 @@
 (use-package magit
   :ensure t
   :pin melpa
+  :preface
+  (defun tee3-magit-choose-completing-read-function ()
+    (if ido-everywhere (setq magit-completing-read-function 'magit-ido-completing-read)))
   :init
   ; trash doesn't work properly on OS X
   (when (equal system-type 'darwin)
@@ -718,7 +721,9 @@
   (add-hook 'magit-status-headers-hook 'magit-insert-user-header t)
   (add-hook 'magit-status-headers-hook 'magit-insert-repo-header t)
 
-  (add-hook 'magit-mode-hook 'magit-load-config-extensions))
+  (add-hook 'magit-mode-hook 'magit-load-config-extensions)
+
+  (add-hook 'magit-mode-hook `tee3-magit-choose-completing-read-function))
 
 (use-package magit-svn
   :ensure t)
