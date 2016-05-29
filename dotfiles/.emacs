@@ -178,6 +178,9 @@
   :pin melpa
   :config
   (bash-completion-setup))
+(use-package recentf
+  :init
+  (recentf-mode 1))
 (use-package savehist
   :config
   (savehist-mode))
