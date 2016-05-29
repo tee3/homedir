@@ -135,7 +135,6 @@
   :ensure t
   :pin melpa)
 (use-package icomplete
-  :disabled t
   :init
   (icomplete-mode))
 (use-package linum
