@@ -768,6 +768,8 @@
   (defun tee3-magit-choose-completing-read-function ()
     (if ido-everywhere (setq magit-completing-read-function 'magit-ido-completing-read)))
   :init
+  (use-package magit-svn
+    :ensure t)
   ; trash doesn't work properly on OS X
   (when (equal system-type 'darwin)
     (setq magit-delete-by-moving-to-trash nil))
@@ -787,9 +789,6 @@
   (add-hook 'magit-mode-hook 'magit-load-config-extensions)
 
   (add-hook 'magit-mode-hook `tee3-magit-choose-completing-read-function))
-
-(use-package magit-svn
-  :ensure t)
 
 ;;; Microsoft Team Foundation Server
 (use-package tfs
