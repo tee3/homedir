@@ -261,7 +261,6 @@
 
 ;;; Helm
 (use-package helm
-  :disabled t
   :ensure t
   :pin melpa
   :diminish helm-mode
