@@ -261,6 +261,7 @@
 
 ;;; Helm
 (use-package helm
+  :disabled t
   :ensure t
   :pin melpa
   :diminish helm-mode
@@ -313,7 +314,6 @@
 
 ;;; Ido
 (use-package ido
-  :disabled t
   :init
   (use-package ido-ubiquitous
     :ensure t
