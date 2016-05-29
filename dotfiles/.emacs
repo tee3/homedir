@@ -323,6 +323,9 @@
   (ido-mode 1)
   (ido-everywhere)
 
+  (setq ido-ignore-directories '())
+  (setq ido-ignore-files '())
+
   (setq ido-enable-flex-matching t)
 
   (setq ido-use-filename-at-point 'guess)
