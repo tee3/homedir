@@ -130,7 +130,9 @@
   :init
   (setq fringe-mode '(4 . nil)))
 (use-package hideshow
-  :diminish hs-minor-mode)
+  :diminish hs-minor-mode
+  :init
+  (setq hs-hide-comments-when-hiding-all t))
 (use-package hide-comnt
   :ensure t
   :pin melpa)
