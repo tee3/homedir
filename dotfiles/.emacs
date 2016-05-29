@@ -342,6 +342,18 @@
   (setq ido-use-url-at-point t)
   (setq ido-confirm-unique-completion t))
 
+;;; Ivy
+(use-package ivy
+  :disabled t
+  :ensure ivy
+  :pin melpa
+  :diminish ivy-mode
+  :bind
+  ("C-c i C-x C-b" . ivy-switch-buffer)
+  ("C-c i C-x 4 b" . ivy-switch-buffer-other-window)
+  :init
+  (ivy-mode -1))
+
 ;;; Occur
 (use-package ioccur
   :ensure t
