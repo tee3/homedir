@@ -257,13 +257,6 @@
   :config
   (add-hook 'prog-mode-hook 'flyspell-prog-mode))
 
-;;; Company
-(use-package company
-  :ensure t
-  :pin melpa
-  :config
-  (global-company-mode))
-
 ;;; Flyspell
 (use-package flyspell
   :diminish flyspell-mode
@@ -280,11 +273,6 @@
   :pin melpa
   :diminish helm-mode
   :init
-  (use-package helm-company
-    :ensure t
-    :pin melpa
-    :bind
-    ("C-x c C-i" . helm-company))
   (use-package helm-config
     :ensure helm
     :pin melpa)
@@ -383,7 +371,6 @@
   :diminish counsel-mode
   :bind
   ("C-c c M-x" . counsel-M-x)
-  ("C-c c C-i" . counsel-company)
   ("C-c c C-x C-f" . counsel-find-file)
   ("C-c c M-." . counsel-find-symbol)
 
@@ -599,17 +586,7 @@
   :pin melpa)
 (use-package haskell-mode
   :ensure t
-  :pin melpa
-  :init
-  (use-package company
-    :ensure t
-    :pin melpa
-    :init
-    (use-package company-ghc
-      :ensure t
-      :pin melpa
-      :config
-      (add-to-list 'company-backends 'company-ghc t))))
+  :pin melpa)
 (use-package llvm-mode
   :ensure t
   :pin melpa)
@@ -665,14 +642,7 @@
 ;;; TeX and LaTeX
 (use-package tex-site
   :ensure auctex
-  :pin melpa
-  :init
-  (use-package company
-    :ensure t
-    :pin melpa
-    :init
-    (use-package company-auctex
-      :ensure t)))
+  :pin melpa)
 
 ;;; OpenGL
 (use-package cuda-mode
@@ -865,15 +835,6 @@
   :ensure t
   :pin melpa
   :init
-  (use-package company
-    :ensure t
-    :pin melpa
-    :init
-    (use-package company-go
-      :ensure t
-      :pin melpa
-      :config
-      (add-to-list 'company-backends 'company-go t)))
   (use-package go-direx
     :ensure t
     :pin melpa)
@@ -929,22 +890,10 @@
   :ensure t
   :pin melpa
   :config
-  (add-hook 'ruby-mode-hook 'robe-mode)
-  (add-to-list 'company-backends 'company-robe t))
+  (add-hook 'ruby-mode-hook 'robe-mode))
 (use-package inf-ruby
   :ensure t
-  :pin melpa
-  :init
-  (use-package company
-    :ensure t
-    :pin melpa
-    :init
-    (use-package company-inf-ruby
-      :ensure t
-      :pin melpa
-      :config
-      (add-to-list 'company-backends 'company-inf-ruby t))
-    (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)))
+  :pin melpa)
 (use-package rspec-mode
   :ensure t
   :pin melpa)
@@ -1093,15 +1042,6 @@
               ;; (setq c-tab-always-indent t)
               ;; (setq c-insert-tab-function nil)
               )))
-(use-package company
-  :ensure t
-  :pin melpa
-  :init
-  (use-package company-c-headers
-    :ensure t
-    :pin melpa
-    :config
-    (add-to-list 'company-backends 'company-c-headers t)))
 (use-package flycheck
   :ensure t
   :pin melpa
@@ -1126,13 +1066,6 @@
   :ensure t
   :pin melpa
   :init
-  (use-package company
-    :ensure t
-    :pin melpa
-    :init
-    (use-package company-irony
-      :ensure t
-      :pin melpa))
   (use-package eldoc
     :init
     (use-package irony-eldoc
@@ -1222,15 +1155,6 @@ See URL `http://www.jslint.com'."
   (use-package js
     :mode
     (("\\.tern-project\\'" . json-mode)))
-  (use-package company
-    :ensure t
-    :pin melpa
-    :init
-    (use-package company-tern
-      :ensure t
-      :pin melpa
-      :config
-      (add-to-list 'company-backends 'company-tern t)))
   :config
   (add-hook 'js-mode-hook (lambda ()
                             (tern-mode t))))
@@ -1302,15 +1226,6 @@ See URL `http://www.jslint.com'."
   :ensure t
   :pin melpa
   :init
-  (use-package company
-    :ensure t
-    :pin melpa
-    :init
-    (use-package company-ycmd
-      :ensure t
-      :pin melpa
-      :config
-      (add-to-list 'company-backends 'company-ycmd t)))
   (use-package flycheck
     :ensure t
     :pin melpa
@@ -1326,15 +1241,6 @@ See URL `http://www.jslint.com'."
   :load-path
   "~/opt/local/share/emacs/site-lisp/rtags"
   :init
-  (use-package company
-    :ensure t
-    :pin melpa
-    :init
-    (use-package company-rtags
-      :load-path
-      "~/opt/local/share/emacs/site-lisp/rtags"
-      :config
-      (add-to-list 'company-backends 'company-rtags t)))
   (use-package flycheck
     :ensure t
     :pin melpa
