@@ -214,6 +214,9 @@
 (use-package tool-bar
   :config
   (tool-bar-mode -1))
+(use-package tooltip
+  :init
+  (setq tooltip-mode nil))
 (use-package undo-tree
   :disabled t
   :ensure t
