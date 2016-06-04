@@ -1061,23 +1061,6 @@
 (use-package dummy-h-mode
   :ensure t
   :pin melpa)
-(use-package irony
-  :disabled t
-  :ensure t
-  :pin melpa
-  :init
-  (use-package eldoc
-    :init
-    (use-package irony-eldoc
-      :ensure t
-      :pin melpa))
-  (use-package flycheck
-    :ensure t
-    :pin melpa
-    :init
-    (use-package flycheck-irony
-      :ensure t
-      :pin melpa)))
 (use-package objc-font-lock
   :ensure t
   :pin melpa
