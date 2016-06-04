@@ -1218,15 +1218,17 @@ See URL `http://www.jslint.com'."
     (use-package flycheck-rtags
       :load-path
       "~/opt/local/src/emacs/site-lisp/rtags"))
-  (use-package popup
-    :ensure t
-    :pin melpa)
+
   ;; ensure the right executables are used
   (setq rtags-path "~/opt/local/bin")
 
   ; required for auto-completion
   (setq rtags-autostart-diagnostics t)
   (setq rtags-completions-enabled t)
+
+  (setq rtags-close-taglist-on-selection t)
+  (setq rtags-tracking t)
+  (setq rtags-use-filename-completion nil)
   :config
   (rtags-enable-standard-keybindings))
 
