@@ -97,6 +97,7 @@ sudo aptitude -y install g++
 #sudo aptitude -y install g++-5
 #sudo aptitude -y install gcc6
 #sudo aptitude -y install g++-6
+sudo aptitude -y install gdb
 #sudo aptitude -y install git-flow
 #sudo aptitude -y install git-hooks
 #sudo aptitude -y install git-lfs
