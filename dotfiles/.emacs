@@ -151,6 +151,9 @@
   :config
   (when (equal system-type 'darwin)
     (setq locate-command "mdfind")))
+(use-package minibuf-elfef
+  :init
+  (minibuffer-electric-default-mode))
 (use-package menu-bar
   :config
   (when (not (display-graphic-p))
