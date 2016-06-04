@@ -61,7 +61,6 @@
 (setq-default truncate-lines t)
 (setq visible-bell t)
 (setq version-control t)
-(setq term-buffer-maximum-size 0)
 
 (when (equal system-type 'darwin)
   (setq ns-pop-up-frames nil)
@@ -206,6 +205,9 @@
   (use-package sb-image
     :init
     (setq speedbar-use-images nil)))
+(use-package term
+  :init
+  (setq term-buffer-maximum-size 0))
 (use-package tool-bar
   :config
   (tool-bar-mode -1))
