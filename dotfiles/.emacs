@@ -1219,22 +1219,6 @@ See URL `http://www.jslint.com'."
   (global-flycheck-mode))
 
 ;;;
-;;; YouCompleteMe
-;;;
-(use-package ycmd
-  :disabled t
-  :ensure t
-  :pin melpa
-  :init
-  (use-package flycheck
-    :ensure t
-    :pin melpa
-    :init
-    (use-package flycheck-ycmd
-      :ensure t
-      :pin melpa)))
-
-;;;
 ;;; rtags
 ;;;
 (use-package rtags
