@@ -1247,15 +1247,7 @@ See URL `http://www.jslint.com'."
 (use-package python
   :init
   (setq gud-pdb-command-name "python -m pdb"))
-(use-package elpy
-  :ensure t
-  :pin melpa
-  :init
-  (elpy-enable)
 
-  ;; disable flymake if flycheck is available
-  (when (require 'flycheck nil :noerror)
-    (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))))
 (use-package py-autopep8
   :ensure t
   :pin melpa)
