@@ -97,6 +97,7 @@ sudo yum -y install gcc-c++
 #sudo yum -y install gcc5-c++
 #sudo yum -y install gcc6
 #sudo yum -y install gcc6-c++
+sudo yum -y install gdb
 #sudo yum -y install git-flow
 #sudo yum -y install git-hooks
 #sudo yum -y install git-lfs
