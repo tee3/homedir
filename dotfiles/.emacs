@@ -326,6 +326,12 @@
 
 ;;; Ido
 (use-package ido
+  :preface
+  (defun tee3-ido-kill-ring ()
+    (interactive)
+    (ido-completing-read "Yank text: " kill-ring))
+  :bind
+  ("C-c C-y" . tee3-ido-kill-ring)
   :init
   (use-package ido-ubiquitous
     :ensure t
