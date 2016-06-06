@@ -1227,7 +1227,14 @@ See URL `http://www.jslint.com'."
   (setq rtags-completions-enabled t)
 
   (setq rtags-close-taglist-on-selection t)
+
+  (setq rtags-display-summary-as-tooltip nil)
+  (setq rtags-display-current-error-as-tooltip nil)
+  (setq rtags-popup-results-buffer nil)
+  (setq rtags-tooltips-enabled nil)
+
   (setq rtags-tracking t)
+  (setq rtags-track-container t)
   (setq rtags-use-filename-completion nil)
   :config
   (rtags-enable-standard-keybindings))
