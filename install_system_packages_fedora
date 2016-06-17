@@ -136,8 +136,8 @@ sudo yum -y install llvm
 #sudo yum -y install llvm36
 #sudo yum -y install llvm37
 #sudo yum -y install llvm38
-sudo yum -y install lrzsz
 sudo yum -y install llvm-devel
+sudo yum -y install lrzsz
 #sudo yum -y install markdown
 #sudo yum -y install mscgen
 #sudo yum -y install netcat
@@ -145,13 +145,12 @@ sudo yum -y install llvm-devel
 sudo yum -y install nmap
 sudo yum -y install nodejs
 sudo yum -y install npm
+#sudo yum -y install ntfs-3g
 sudo yum -y install ntp
 sudo yum -y install nuttcp
-#sudo yum -y install ntfs-3g
 #sudo yum -y install open-completion
 sudo yum -y install openocd
 #sudo yum -y install osxfuse
-#sudo yum -y install nuttcp
 #sudo yum -y install p0f
 #sudo yum -y install p7zip
 #sudo yum -y install parallel
