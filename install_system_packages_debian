@@ -98,6 +98,7 @@ sudo aptitude -y install g++
 #sudo aptitude -y install gcc6
 #sudo aptitude -y install g++-6
 sudo aptitude -y install gdb
+#sudo aptitude -y install gem-completion
 #sudo aptitude -y install git-flow
 #sudo aptitude -y install git-hooks
 #sudo aptitude -y install git-lfs
@@ -129,6 +130,7 @@ sudo aptitude -y install jam
 #sudo aptitude -y install jsmin
 #sudo aptitude -y install json-c
 #sudo aptitude -y install jsonpp
+#sudo aptitude -y install launchctl-completion
 #sudo aptitude -y install legit
 sudo aptitude -y install libclang-dev
 sudo aptitude -y install llvm
@@ -149,6 +151,7 @@ sudo aptitude -y install nodejs-dev
 sudo aptitude -y install npm
 sudo aptitude -y install ntp
 sudo aptitude -y install nuttcp
+#sudo aptitude -y install open-completion
 sudo aptitude -y install openocd
 #sudo aptitude -y install osxfuse
 #sudo aptitude -y install nuttcp
@@ -157,7 +160,9 @@ sudo aptitude -y install openocd
 #sudo aptitude -y install parallel
 #sudo aptitude -y install phantomjs
 #sudo aptitude -y install pinentry
+#sudo aptitude -y install pip-completion
 #sudo aptitude -y install pkg-config
+#sudo aptitude -y install ruby-completion
 sudo aptitude -y install screen
 sudo aptitude -y install shellcheck
 sudo aptitude -y install sloccount

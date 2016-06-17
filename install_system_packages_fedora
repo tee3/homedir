@@ -98,6 +98,7 @@ sudo yum -y install gcc-c++
 #sudo yum -y install gcc6
 #sudo yum -y install gcc6-c++
 sudo yum -y install gdb
+#sudo yum -y install gem-completion
 #sudo yum -y install git-flow
 #sudo yum -y install git-hooks
 #sudo yum -y install git-lfs
@@ -147,6 +148,7 @@ sudo yum -y install npm
 sudo yum -y install ntp
 sudo yum -y install nuttcp
 #sudo yum -y install ntfs-3g
+#sudo yum -y install open-completion
 sudo yum -y install openocd
 #sudo yum -y install osxfuse
 #sudo yum -y install nuttcp
@@ -155,7 +157,9 @@ sudo yum -y install openocd
 #sudo yum -y install parallel
 #sudo yum -y install phantomjs
 #sudo yum -y install pinentry
+#sudo yum -y install pip-completion
 #sudo yum -y install pkg-config
+#sudo yum -y install ruby-completion
 sudo yum -y install screen
 sudo yum -y install ShellCheck
 sudo yum -y install sloccount
