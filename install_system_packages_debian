@@ -138,9 +138,9 @@ sudo aptitude -y install llvm
 #sudo aptitude -y install llvm36
 #sudo aptitude -y install llvm37
 #sudo aptitude -y install llvm38
-sudo aptitude -y install lrzsz
 sudo aptitude -y install llvm-dev
 sudo aptitude -y install llvm-runtime
+sudo aptitude -y install lrzsz
 #sudo aptitude -y install markdown
 #sudo aptitude -y install mscgen
 #sudo aptitude -y install netcat
@@ -149,12 +149,12 @@ sudo aptitude -y install nmap
 sudo aptitude -y install nodejs
 sudo aptitude -y install nodejs-dev
 sudo aptitude -y install npm
+#sudo aptitude -y install ntfs-3g
 sudo aptitude -y install ntp
 sudo aptitude -y install nuttcp
 #sudo aptitude -y install open-completion
 sudo aptitude -y install openocd
 #sudo aptitude -y install osxfuse
-#sudo aptitude -y install nuttcp
 #sudo aptitude -y install p0f
 #sudo aptitude -y install p7zip
 #sudo aptitude -y install parallel
