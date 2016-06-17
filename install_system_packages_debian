@@ -86,6 +86,7 @@ sudo aptitude -y install emacs-nox
 #sudo aptitude -y install emscripten
 sudo aptitude -y install enscript
 #sudo aptitude -y install ext2fuse
+#sudo aptitude -y install fop
 #sudo aptitude -y install fortune
 sudo aptitude -y install gcc
 sudo aptitude -y install g++
@@ -133,6 +134,8 @@ sudo aptitude -y install jam
 #sudo aptitude -y install launchctl-completion
 #sudo aptitude -y install legit
 sudo aptitude -y install libclang-dev
+#sudo aptitude -y install lldb
+#sudo aptitude -y install lld
 sudo aptitude -y install llvm
 #sudo aptitude -y install llvm35
 #sudo aptitude -y install llvm36
