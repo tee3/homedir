@@ -137,6 +137,7 @@ brew install gcc49
 brew install gcc5
 #brew install gcc6
 brew install gdb
+brew install gem-completion
 brew install git-flow
 brew install git-hooks
 brew install git-lfs
@@ -167,6 +168,7 @@ brew install jsl
 brew install jsmin
 brew install json-c
 brew install jsonpp
+brew install launchctl-completion
 brew install legit
 brew install llvm
 brew install llvm35 --with-clang --with-lldb --with-lld
@@ -184,13 +186,16 @@ brew install nuttcp
 #brew install ntfs-3g
 #brew install osxfuse
 brew install nuttcp
+brew install open-completion
 brew install openocd
 brew install p0f
 brew install p7zip
 brew install parallel
 #brew install phantomjs
 brew install pinentry
+brew install pip-completion
 brew install pkg-config
+brew install ruby-completion
 brew install shellcheck
 brew install sloccount
 brew install socat
