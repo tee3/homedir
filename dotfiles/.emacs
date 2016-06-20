@@ -844,36 +844,12 @@
   :ensure t
   :pin melpa
   :init
-  (use-package go-direx
-    :ensure t
-    :pin melpa)
   (use-package go-eldoc
     :ensure t
     :pin melpa
     :config
     (add-hook 'go-mode-hook 'go-eldoc-setup))
-  (use-package go-errcheck
-    :ensure t
-    :pin melpa)
-  (use-package go-play
-    :ensure t
-    :pin marmalade)
   (use-package go-projectile
-    :ensure t
-    :pin melpa)
-  (use-package go-stacktracer
-    :ensure t
-    :pin melpa)
-  (use-package golint
-    :ensure t
-    :pin melpa)
-  (use-package gore-mode
-    :ensure t
-    :pin melpa)
-  (use-package gotest
-    :ensure t
-    :pin melpa)
-  (use-package govet
     :ensure t
     :pin melpa)
   :config
