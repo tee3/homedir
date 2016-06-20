@@ -1252,6 +1252,24 @@ See URL `http://www.jslint.com'."
     (setq clang-format-executable "/usr/local/opt/llvm/bin/clang-format")))
 
 ;;;
+;;; Clang Tidy
+;;;
+(use-package flycheck-clang-tidy
+  :ensure t
+  :pin melpa
+  :init
+  (use-package flycheck
+    :ensure t
+    :pin melpa)
+  (when (equal system-type 'darwin)
+    (setq flycheck-c/c++-clang-tidy-executable "/usr/local/opt/llvm/bin/clang-tidy")))
+(use-package yaml-mode
+  :ensure t
+  :pin melpa
+  :mode
+  ((".clang-tidy\\'" . yaml-mode)))
+
+;;;
 ;;; Flycheck
 ;;;
 (use-package flycheck
