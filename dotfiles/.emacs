@@ -995,8 +995,9 @@
     (setq hide-ifdef-read-only t)
     (setq hide-ifdef-initially t)
     (setq hide-ifdef-lines t)
-
-    (hide-ifdef-mode))
+    :config
+    (add-hook 'c-mode-hook 'hide-ifdef-mode)
+    (add-hook 'c++-mode-hook 'hide-ifdef-mode))
   (setq c-indent-comments-syntactically-p t)
   (setq c-strict-syntax-p t)
   :config
