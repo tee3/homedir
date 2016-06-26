@@ -9,6 +9,7 @@ import sys
 import os
 import subprocess
 import filecmp
+import shutil
 
 
 def git_clone_update_pull_ff_only(url, directory):
@@ -57,6 +58,8 @@ def install_git_svn_update_externals(basedir):
     if not os.path.exists (target):
         if hasattr(os, 'symlink'):
             os.symlink(source,target)
+        else:
+            shutil.copyfile(source,target)
 
 
 def install_rtags(basedir):
