@@ -8,6 +8,19 @@
 set -e
 set -u
 
+release=$(cat /etc/fedora-release)
+version=0
+if [ "${release}" = "Fedora release 22 (Twenty Two)" ]; then
+    version=22
+elif [ "${release}" = "Fedora release 23 (Twenty Three)" ]; then
+    version=23
+elif [ "${release}" = "Fedora release 24 (Twenty Four)" ]; then
+    version=24
+fi
+
+echo "${release}"
+echo "${version}"
+
 # additional repositories
 #! @todo none right now
 
@@ -144,7 +157,9 @@ sudo yum -y install lrzsz
 #sudo yum -y install netperf
 sudo yum -y install nmap
 sudo yum -y install nodejs
-sudo yum -y install npm
+if [ "${version}" -lt 24 ]; then
+    sudo yum -y install npm
+fi
 #sudo yum -y install ntfs-3g
 sudo yum -y install ntp
 sudo yum -y install nuttcp
