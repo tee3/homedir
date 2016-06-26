@@ -8,6 +8,7 @@
 import sys
 import os
 import subprocess
+import filecmp
 
 
 def git_clone_update_pull_ff_only(url, directory):
@@ -37,6 +38,25 @@ def install_msvc_c_style(basedir):
     git_clone_update_pull_ff_only(
         'https://github.com/tee3/msvc-c-style.git',
         os.path.join(basedir, 'src', 'msvc-c-style'))
+
+
+def install_git_svn_update_externals(basedir):
+    git_clone_update_pull_ff_only(
+        'https://github.com/tee3/git-svn-update-externals.git',
+        os.path.join(basedir, 'src', 'git-svn-update-externals'))
+
+    source = os.path.join(basedir, 'src', 'git-svn-update-externals', 'git-svn-update-externals')
+    target = os.path.join(basedir, 'bin', 'git-svn-update-externals')
+
+    if os.path.exists (target):
+        if not filecmp.cmp(target, source, False):
+            yn = raw_input('%s is different than %s.  Overwrite anyway? (y/n): ' % (source, target))
+            if yn == 'y':
+                os.remove(target)
+
+    if not os.path.exists (target):
+        if hasattr(os, 'symlink'):
+            os.symlink(source,target)
 
 
 def install_rtags(basedir):
@@ -78,6 +98,7 @@ if __name__ == '__main__':
     # install desired source packages
     install_tee3_c_style(prefix)
     install_msvc_c_style(prefix)
+    install_git_svn_update_externals(prefix)
     if not sys.platform.startswith('win32'):
         install_rtags(prefix)
 
