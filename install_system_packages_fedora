@@ -70,6 +70,7 @@ sudo yum -y install arp-scan
 #sudo yum -y install arp-sk
 #sudo yum -y install arpoison
 sudo yum -y install avahi
+sudo yum -y install avahi-tools
 #sudo yum -y install avrdude
 sudo yum -y install avr-binutils
 sudo yum -y install avr-gcc
@@ -160,6 +161,7 @@ sudo yum -y install nodejs
 if [ "${version}" -lt 24 ]; then
     sudo yum -y install npm
 fi
+sudo yum -y install nss-mdns
 #sudo yum -y install ntfs-3g
 sudo yum -y install ntp
 sudo yum -y install nuttcp

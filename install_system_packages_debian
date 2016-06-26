@@ -134,6 +134,7 @@ sudo aptitude -y install jam
 #sudo aptitude -y install launchctl-completion
 #sudo aptitude -y install legit
 sudo aptitude -y install libclang-dev
+sudo aptitude -y install libnss-mdns
 #sudo aptitude -y install lldb
 #sudo aptitude -y install lld
 sudo aptitude -y install llvm
