@@ -720,6 +720,14 @@
   :ensure t
   :pin melpa)
 
+;;; Gitolite
+(use-package gitolite-clone
+  :ensure t
+  :pin melpa
+  :init
+  (setq gitolite-clone-username "git")
+  (setq gitolite-clone-host "localhost"))
+
 ;;; GitHub
 (use-package gist
   :ensure t
