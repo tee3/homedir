@@ -673,7 +673,9 @@
   (("\\.guile\\'" . scheme-mode)))
 (use-package geiser
   :ensure t
-  :pin melpa)
+  :pin melpa
+  :init
+  (setq geiser-mode-start-repl-p t))
 
 ;;; Google
 (use-package google-this
