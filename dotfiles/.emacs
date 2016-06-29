@@ -1003,7 +1003,7 @@
   (use-package hideif
     :init
     (setq hide-ifdef-read-only t)
-    (setq hide-ifdef-initially t)
+    (setq hide-ifdef-initially nil)
     (setq hide-ifdef-lines t)
     :config
     (add-hook 'c-mode-hook 'hide-ifdef-mode)
