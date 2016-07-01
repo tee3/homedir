@@ -446,6 +446,7 @@ consideration.
 * `tee3-c-style`
 * `msvc-c-style`
 * `rtags`
+* `boost`
 
 See the bottom of the [script](./install_source_packages) for an more
 up-to-date list of source packages.

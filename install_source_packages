@@ -88,6 +88,23 @@ def install_rtags(basedir):
     command = ['make', 'install']
     subprocess.check_call(command, cwd=build)
 
+
+def install_boost(basedir):
+    boostdir = os.path.join(basedir, 'src', 'boost', 'boost.git')
+
+    git_clone_update_pull_ff_only(
+        'https://github.com/boostorg/boost.git',
+        boostdir)
+
+    command = ['git', '-C', boostdir, 'clean', '-d', '-x', '-f']
+    subprocess.check_call(command)
+
+    if sys.platform.startswith('win32'):
+        command = [os.path.join ('.', 'bootstrap.bat')]
+    else:
+        command = [os.path.join ('.', 'bootstrap.sh')]
+    subprocess.check_call(command, cwd=boostdir)
+
 # requires HOME.
 if 'HOME' not in os.environ or os.environ['HOME'] == '':
     print 'error: HOME is not set, aborting.'
@@ -104,5 +121,6 @@ if __name__ == '__main__':
     install_git_svn_update_externals(prefix)
     if not sys.platform.startswith('win32'):
         install_rtags(prefix)
+    install_boost(prefix)
 
     sys.exit(0)
