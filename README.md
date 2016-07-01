@@ -445,6 +445,7 @@ consideration.
 
 * `tee3-c-style`
 * `msvc-c-style`
+* `git-svn-update-externals`
 * `rtags`
 * `boost`
 
