@@ -100,9 +100,9 @@ def install_boost(basedir):
     subprocess.check_call(command)
 
     if sys.platform.startswith('win32'):
-        command = [os.path.join ('.', 'bootstrap.bat')]
+        command = [os.path.join (boostdir, 'bootstrap.bat')]
     else:
-        command = [os.path.join ('.', 'bootstrap.sh')]
+        command = [os.path.join (boostdir, 'bootstrap.sh')]
     subprocess.check_call(command, cwd=boostdir)
 
 # requires HOME.
