@@ -184,10 +184,10 @@ ${pm_install} jsonpp
 ${pm_install} launchctl-completion
 ${pm_install} legit
 ${pm_install} llvm --with-lldb
-${pm_install} llvm35 --with-lld --with-lldb
-${pm_install} llvm36 --with-lld --with-lldb
-${pm_install} llvm37 --with-lld --with-lldb
-${pm_install} llvm38 --with-lld --with-lldb
+#${pm_install} llvm35 --with-lld --with-lldb
+#${pm_install} llvm36 --with-lld --with-lldb
+#${pm_install} llvm37 --with-lld --with-lldb
+#${pm_install} llvm38 --with-lld --with-lldb
 ${pm_install} lrzsz
 ${pm_install} markdown
 #${pm_install} mscgen --without-gd
