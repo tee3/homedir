@@ -8,6 +8,9 @@
 set -e
 set -u
 
+# package manager
+pm=
+
 # additional repositories
 brew_taps="
     homebrew/apache
@@ -25,14 +28,21 @@ brew_taps="
 
 # check if Homebrew is installed
 if [ -z "$(which brew 2> /dev/null)" ]; then
-    echo "error: Homebrew (brew) not found."
+    echo "warning: Homewbrew (brew) not found."
+else
+    pm="brew"
+fi
+
+# check if package manager is installed
+if [ -z "${pm}" ]; then
+    echo "error: Package manager not found."
     exit 1
 fi
 
 # update and check packages
-brew update
-if ! brew doctor ; then
-    echo "brew doctor failed, continue anyway (y/n)?: \c"
+${pm} update
+if ! ${pm} doctor ; then
+    echo "${pm} doctor failed, continue anyway (y/n)?: \c"
     read -r yn
     if [ "${yn}" != "y" ]; then
 	exit 1
@@ -40,15 +50,15 @@ if ! brew doctor ; then
 fi
 
 # upgrade all installed packages
-brew update
-brew upgrade --all
+${pm} update
+${pm} upgrade --all
 
 # make sure git is installed early
-brew install git
-brew update
+${pm} install git
+${pm} update
 
 # notify of unspecified taps
-for t0 in $(brew tap) ; do
+for t0 in $(${pm} tap) ; do
     present=false
     for t1 in ${brew_taps} ; do
         if [ "${t0}" = "${t1}" ]; then
@@ -64,169 +74,169 @@ done
 # tap any missing taps and repair all taps
 for t0 in ${brew_taps} ; do
     present=false
-    for t1 in $(brew tap) ; do
+    for t1 in $(${pm} tap) ; do
         if [ "${t0}" = "${t1}" ]; then
             present=true
         fi
     done
 
     if [ "${present}" = "false" ]; then
-        brew tap --full "${t0}"
+        ${pm} tap --full "${t0}"
     fi
 done
-brew update
+${pm} update
 
 # repair all taps
-for t in $(brew tap) ; do
-    brew tap --repair "${t}"
+for t in $(${pm} tap) ; do
+    ${pm} tap --repair "${t}"
 done
-brew update
+${pm} update
 
 # upgrade existing packages
-brew upgrade --all
+${pm} upgrade --all
 
 # install interpreters prior to other packages
 # @todo use system python
-#brew install python
+#${pm} install python
 # @todo we don't need python3 at this point
-#brew install python3
+#${pm} install python3
 # @todo use system ruby
-#brew install ruby
+#${pm} install ruby
 
 # install version control systems
-brew install bazaar
-brew install git
-brew install mercurial
-brew install subversion
+${pm} install bazaar
+${pm} install git
+${pm} install mercurial
+${pm} install subversion
 
 # install fuse
-#brew install gitfs
-brew install sshfs
+#${pm} install gitfs
+${pm} install sshfs
 
 # install all taps with the right options
-brew install arp-scan
-brew install arp-sk
-brew install arpoison
-#brew install avrdude
-#brew install avr-binutils
-#brew install avr-gcc
-brew install bash-completion
-brew install bear
-brew install boost
-#brew install boost-bcp
-brew install boost-build
-brew install casperjs
-brew install cflow
-brew install cmake
-brew install cppcheck
-brew install dfu-util
-brew install dns2tcp
-brew install dnstop
-brew install docbook
-brew install docbook-xsl
-brew install docker
-brew install doxygen
-brew install emacs --with-cocoa
-brew install emscripten
-brew install enscript
-#brew install ext2fuse
-brew install fortune
-brew install gcc
-brew install gcc48
-brew install gcc49
-brew install gcc5
-#brew install gcc6
-brew install gdb
-brew install gem-completion
-brew install git-flow
-brew install git-hooks
-brew install git-lfs
-brew install git-test
-brew install glew
-brew install glfw3
-brew install glib
-brew install glm
-brew install global --with-exuberant-ctags
-brew install glslang
-brew install gnu-typist
-brew install go
-brew install graphviz
-brew install guile
-brew install highlight
-brew install htop-osx
-brew install httping
-brew install httpry
-brew install hunspell
-brew install iperf
-brew install ipv6calc
-brew install jam
-brew install jansson
-brew install jasper
-brew install jpeg
-brew install jrnl
-brew install jsl
-brew install jsmin
-brew install json-c
-brew install jsonpp
-brew install launchctl-completion
-brew install legit
-brew install llvm --with-clang --with-clang-extra-tools --with-libcxx --with-lld --with-lldb
-brew install llvm35 --with-lld --with-lldb
-brew install llvm36 --with-lld --with-lldb
-brew install llvm37 --with-lld --with-lldb
-brew install llvm38 --with-lld --with-lldb
-brew install lrzsz
-brew install markdown
-#brew install mscgen --without-gd
-brew install netcat
-brew install netperf
-brew install nmap
-brew install node
-#brew install ntfs-3g
-brew install nuttcp
-brew install open-completion
-brew install openocd
-#brew install osxfuse
-brew install p0f
-brew install p7zip
-brew install parallel
-#brew install phantomjs
-brew install pinentry
-brew install pip-completion
-brew install pkg-config
-brew install ruby-completion
-brew install shellcheck
-brew install sloccount
-brew install socat
-brew install sqlite
-brew install srecord
-brew install ssh-copy-id
-brew install stdman
-brew install stow
-brew install stress
-brew install subgit
-brew install swig
-brew install tcpdump
-brew install tcpflow
-brew install tcping
-brew install tcpreplay
-brew install tcptrace
-brew install tcptraceroute
-brew install tcptrack
-brew install termshare
-brew install tig
-brew install tmux
-brew install tree
-brew install v8
-#brew install vegeta
-brew install vim
-brew install webp
-brew install wget
-#brew install wireshark
-brew install xctool
-brew install xmlformat
-brew install xmlstarlet
-brew install xmlto
+${pm} install arp-scan
+${pm} install arp-sk
+${pm} install arpoison
+#${pm} install avrdude
+#${pm} install avr-binutils
+#${pm} install avr-gcc
+${pm} install bash-completion
+${pm} install bear
+${pm} install boost
+#${pm} install boost-bcp
+${pm} install boost-build
+${pm} install casperjs
+${pm} install cflow
+${pm} install cmake
+${pm} install cppcheck
+${pm} install dfu-util
+${pm} install dns2tcp
+${pm} install dnstop
+${pm} install docbook
+${pm} install docbook-xsl
+${pm} install docker
+${pm} install doxygen
+${pm} install emacs --with-cocoa
+${pm} install emscripten
+${pm} install enscript
+#${pm} install ext2fuse
+${pm} install fortune
+${pm} install gcc
+${pm} install gcc48
+${pm} install gcc49
+${pm} install gcc5
+#${pm} install gcc6
+${pm} install gdb
+${pm} install gem-completion
+${pm} install git-flow
+${pm} install git-hooks
+${pm} install git-lfs
+${pm} install git-test
+${pm} install glew
+${pm} install glfw3
+${pm} install glib
+${pm} install glm
+${pm} install global --with-exuberant-ctags
+${pm} install glslang
+${pm} install gnu-typist
+${pm} install go
+${pm} install graphviz
+${pm} install guile
+${pm} install highlight
+${pm} install htop-osx
+${pm} install httping
+${pm} install httpry
+${pm} install hunspell
+${pm} install iperf
+${pm} install ipv6calc
+${pm} install jam
+${pm} install jansson
+${pm} install jasper
+${pm} install jpeg
+${pm} install jrnl
+${pm} install jsl
+${pm} install jsmin
+${pm} install json-c
+${pm} install jsonpp
+${pm} install launchctl-completion
+${pm} install legit
+${pm} install llvm --with-clang --with-clang-extra-tools --with-libcxx --with-lld --with-lldb
+${pm} install llvm35 --with-lld --with-lldb
+${pm} install llvm36 --with-lld --with-lldb
+${pm} install llvm37 --with-lld --with-lldb
+${pm} install llvm38 --with-lld --with-lldb
+${pm} install lrzsz
+${pm} install markdown
+#${pm} install mscgen --without-gd
+${pm} install netcat
+${pm} install netperf
+${pm} install nmap
+${pm} install node
+#${pm} install ntfs-3g
+${pm} install nuttcp
+${pm} install open-completion
+${pm} install openocd
+#${pm} install osxfuse
+${pm} install p0f
+${pm} install p7zip
+${pm} install parallel
+#${pm} install phantomjs
+${pm} install pinentry
+${pm} install pip-completion
+${pm} install pkg-config
+${pm} install ruby-completion
+${pm} install shellcheck
+${pm} install sloccount
+${pm} install socat
+${pm} install sqlite
+${pm} install srecord
+${pm} install ssh-copy-id
+${pm} install stdman
+${pm} install stow
+${pm} install stress
+${pm} install subgit
+${pm} install swig
+${pm} install tcpdump
+${pm} install tcpflow
+${pm} install tcping
+${pm} install tcpreplay
+${pm} install tcptrace
+${pm} install tcptraceroute
+${pm} install tcptrack
+${pm} install termshare
+${pm} install tig
+${pm} install tmux
+${pm} install tree
+${pm} install v8
+#${pm} install vegeta
+${pm} install vim
+${pm} install webp
+${pm} install wget
+#${pm} install wireshark
+${pm} install xctool
+${pm} install xmlformat
+${pm} install xmlstarlet
+${pm} install xmlto
 
 # cleanup
-brew cleanup -s
+${pm} cleanup -s
