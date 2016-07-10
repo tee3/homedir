@@ -42,6 +42,14 @@ fi
 
 # update and check packages
 ${pm_update}
+if ! ${pm_check} ; then
+    echo "warning: Package manager check failed, continue anyway (y/n)?: \c"
+    read -r yn
+    if [ "${yn}" != "y" ]; then
+	exit 1
+    fi
+fi
+${pm_update}
 
 # upgrade existing packages
 ${pm_upgrade}
