@@ -63,10 +63,6 @@ ${pm_update}
 # upgrade all installed packages
 ${pm_upgrade}
 
-# make sure git is installed early
-${pm_install} git
-${pm_update}
-
 # notify of unspecified taps
 for t0 in $(${pm} tap) ; do
     present=false
