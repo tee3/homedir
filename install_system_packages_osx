@@ -58,9 +58,9 @@ if ! ${pm_check} ; then
 	exit 1
     fi
 fi
+${pm_update}
 
 # upgrade all installed packages
-${pm_update}
 ${pm_upgrade}
 
 # make sure git is installed early
