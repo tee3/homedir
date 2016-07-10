@@ -8,9 +8,6 @@
 set -e
 set -u
 
-# additional repositories
-#! @todo none right now
-
 # install aptitude
 sudo apt-get install aptitude
 
@@ -39,6 +36,9 @@ if [ -z "${pm}" ]; then
     echo "error: Package manager not found."
     exit 1
 fi
+
+# additional repositories
+#! @todo none right now
 
 # update and check packages
 ${pm_update}

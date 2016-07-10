@@ -16,21 +16,6 @@ pm_upgrade=
 pm_install=
 pm_cleanup=
 
-# additional repositories
-brew_taps="
-    homebrew/apache
-    homebrew/binary
-    homebrew/completions
-    homebrew/dupes
-    homebrew/fuse
-    homebrew/headonly
-    homebrew/nginx
-    homebrew/python
-    homebrew/science
-    homebrew/tex
-    homebrew/versions
-"
-
 # check if Homebrew is installed
 if [ -z "$(which brew 2> /dev/null)" ]; then
     echo "warning: Homewbrew (brew) not found."
@@ -49,19 +34,20 @@ if [ -z "${pm}" ]; then
     exit 1
 fi
 
-# update and check packages
-${pm_update}
-if ! ${pm_check} ; then
-    echo "warning: Package manager check failed, continue anyway (y/n)?: \c"
-    read -r yn
-    if [ "${yn}" != "y" ]; then
-	exit 1
-    fi
-fi
-${pm_update}
-
-# upgrade all installed packages
-${pm_upgrade}
+# additional repositories
+brew_taps="
+    homebrew/apache
+    homebrew/binary
+    homebrew/completions
+    homebrew/dupes
+    homebrew/fuse
+    homebrew/headonly
+    homebrew/nginx
+    homebrew/python
+    homebrew/science
+    homebrew/tex
+    homebrew/versions
+"
 
 # notify of unspecified taps
 for t0 in $(${pm} tap) ; do
@@ -96,6 +82,17 @@ ${pm_update}
 for t in $(${pm} tap) ; do
     ${pm} tap --repair "${t}"
 done
+${pm_update}
+
+# update and check packages
+${pm_update}
+if ! ${pm_check} ; then
+    echo "warning: Package manager check failed, continue anyway (y/n)?: \c"
+    read -r yn
+    if [ "${yn}" != "y" ]; then
+	exit 1
+    fi
+fi
 ${pm_update}
 
 # upgrade existing packages
