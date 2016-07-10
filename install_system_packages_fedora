@@ -29,9 +29,6 @@ pm_upgrade=
 pm_install=
 pm_cleanup=
 
-# additional repositories
-#! @todo none right now
-
 # check if yum is installed
 if [ -z "$(which yum 2> /dev/null)" ]; then
     echo "warning: yum not found."
@@ -49,6 +46,9 @@ if [ -z "${pm}" ]; then
     echo "error: Package manager not found."
     exit 1
 fi
+
+# additional repositories
+#! @todo none right now
 
 # update and check packages
 ${pm_update}
