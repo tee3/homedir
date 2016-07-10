@@ -21,195 +21,205 @@ fi
 echo "${release}"
 echo "${version}"
 
+# package manager
+pm=
+
 # additional repositories
 #! @todo none right now
 
 # check if yum is installed
 if [ -z "$(which yum 2> /dev/null)" ]; then
-    echo "error: yum not found."
+    echo "warning: yum not found."
+else
+    pm="sudo yum"
+fi
+
+# check if package manager is installed
+if [ -z "${pm}" ]; then
+    echo "error: Package manager not found."
     exit 1
 fi
 
 # update and check packages
 # @todo disable for now, dnf does not support this
-#sudo yum check
+#${pm} check
 
 # upgrade existing packages
-sudo yum update
+${pm} update
 
 # install packages for homedir installer
-sudo yum -y install wget
-sudo yum -y install stow
-sudo yum -y install diffutils
+${pm} -y install wget
+${pm} -y install stow
+${pm} -y install diffutils
 
 # install interpreters prior to other packages
-sudo yum -y install python
-sudo yum -y install python-devel
+${pm} -y install python
+${pm} -y install python-devel
 # @todo we don't need python3 at this point
-#sudo yum -y install python3
-sudo yum -y install ruby
-sudo yum -y install ruby-devel
+#${pm} -y install python3
+${pm} -y install ruby
+${pm} -y install ruby-devel
 
 # install version control systems
-sudo yum -y install git
-sudo yum -y install mercurial
-sudo yum -y install subversion
+${pm} -y install git
+${pm} -y install mercurial
+${pm} -y install subversion
 
 # install basic tools
-sudo yum -y install autoconf
-sudo yum -y install tar
-sudo yum -y install bzip2
-sudo yum -y install patch
+${pm} -y install autoconf
+${pm} -y install tar
+${pm} -y install bzip2
+${pm} -y install patch
 
 # install fuse
-#sudo yum -y install gitfs
-sudo yum -y install sshfs
+#${pm} -y install gitfs
+${pm} -y install sshfs
 
 # install all taps with the right options
-sudo yum -y install arp-scan
-#sudo yum -y install arp-sk
-#sudo yum -y install arpoison
-sudo yum -y install avahi
-sudo yum -y install avahi-tools
-#sudo yum -y install avrdude
-sudo yum -y install avr-binutils
-sudo yum -y install avr-gcc
-sudo yum -y install bash-completion
-#sudo yum -y install bear
-sudo yum -y install boost
-#sudo yum -y install boost-bcp
-sudo yum -y install boost-build
-sudo yum -y install boost-devel
-#sudo yum -y install casperjs
-sudo yum -y install cflow
-sudo yum -y install clang
-sudo yum -y install clang-devel
-sudo yum -y install clang-libs
-sudo yum -y install cmake
-sudo yum -y install cppcheck
-sudo yum -y install dfu-util
-#sudo yum -y install dns2tcp
-#sudo yum -y install dnstop
-#sudo yum -y install docbook
-#sudo yum -y install docbook-xsl
-#sudo yum -y install docker
-sudo yum -y install doxygen
-#sudo yum -y install e2fsprogs
-sudo yum -y install emacs-nox
-#sudo yum -y install emscripten
-sudo yum -y install enscript
-#sudo yum -y install ext2fuse
-#sudo yum -y install fop
-#sudo yum -y install fortune
-sudo yum -y install gcc
-sudo yum -y install gcc-c++
-#sudo yum -y install gcc48
-#sudo yum -y install gcc48-c++
-#sudo yum -y install gcc49
-#sudo yum -y install gcc49-c++
-#sudo yum -y install gcc5
-#sudo yum -y install gcc5-c++
-#sudo yum -y install gcc6
-#sudo yum -y install gcc6-c++
-sudo yum -y install gdb
-#sudo yum -y install gem-completion
-#sudo yum -y install git-flow
-#sudo yum -y install git-hooks
-#sudo yum -y install git-lfs
-sudo yum -y install git-svn
-#sudo yum -y install git-test
-#sudo yum -y install glew
-#sudo yum -y install glfw3
-#sudo yum -y install glib
-#sudo yum -y install glm
-sudo yum -y install global
-#sudo yum -y install glslang
-#sudo yum -y install gnu-typist
-sudo yum -y install golang
-#sudo yum -y install graphviz
-sudo yum -y install guile
-sudo yum -y install highlight
-sudo yum -y install htop
-#sudo yum -y install httping
-#sudo yum -y install httpry
-sudo yum -y install hunspell
-sudo yum -y install iperf
-sudo yum -y install ipv6calc
-sudo yum -y install jam
-#sudo yum -y install jansson
-#sudo yum -y install jasper
-#sudo yum -y install jpeg
-#sudo yum -y install jrnl
-#sudo yum -y install jsl
-#sudo yum -y install jsmin
-#sudo yum -y install json-c
-#sudo yum -y install jsonpp
-#sudo yum -y install legit
-sudo yum -y install llvm
-#sudo yum -y install llvm35
-#sudo yum -y install llvm36
-#sudo yum -y install llvm37
-#sudo yum -y install llvm38
-sudo yum -y install llvm-devel
-sudo yum -y install lrzsz
-#sudo yum -y install markdown
-#sudo yum -y install mscgen
-#sudo yum -y install netcat
-#sudo yum -y install netperf
-sudo yum -y install nmap
-sudo yum -y install nodejs
+${pm} -y install arp-scan
+#${pm} -y install arp-sk
+#${pm} -y install arpoison
+${pm} -y install avahi
+${pm} -y install avahi-tools
+#${pm} -y install avrdude
+${pm} -y install avr-binutils
+${pm} -y install avr-gcc
+${pm} -y install bash-completion
+#${pm} -y install bear
+${pm} -y install boost
+#${pm} -y install boost-bcp
+${pm} -y install boost-build
+${pm} -y install boost-devel
+#${pm} -y install casperjs
+${pm} -y install cflow
+${pm} -y install clang
+${pm} -y install clang-devel
+${pm} -y install clang-libs
+${pm} -y install cmake
+${pm} -y install cppcheck
+${pm} -y install dfu-util
+#${pm} -y install dns2tcp
+#${pm} -y install dnstop
+#${pm} -y install docbook
+#${pm} -y install docbook-xsl
+#${pm} -y install docker
+${pm} -y install doxygen
+#${pm} -y install e2fsprogs
+${pm} -y install emacs-nox
+#${pm} -y install emscripten
+${pm} -y install enscript
+#${pm} -y install ext2fuse
+#${pm} -y install fop
+#${pm} -y install fortune
+${pm} -y install gcc
+${pm} -y install gcc-c++
+#${pm} -y install gcc48
+#${pm} -y install gcc48-c++
+#${pm} -y install gcc49
+#${pm} -y install gcc49-c++
+#${pm} -y install gcc5
+#${pm} -y install gcc5-c++
+#${pm} -y install gcc6
+#${pm} -y install gcc6-c++
+${pm} -y install gdb
+#${pm} -y install gem-completion
+#${pm} -y install git-flow
+#${pm} -y install git-hooks
+#${pm} -y install git-lfs
+${pm} -y install git-svn
+#${pm} -y install git-test
+#${pm} -y install glew
+#${pm} -y install glfw3
+#${pm} -y install glib
+#${pm} -y install glm
+${pm} -y install global
+#${pm} -y install glslang
+#${pm} -y install gnu-typist
+${pm} -y install golang
+#${pm} -y install graphviz
+${pm} -y install guile
+${pm} -y install highlight
+${pm} -y install htop
+#${pm} -y install httping
+#${pm} -y install httpry
+${pm} -y install hunspell
+${pm} -y install iperf
+${pm} -y install ipv6calc
+${pm} -y install jam
+#${pm} -y install jansson
+#${pm} -y install jasper
+#${pm} -y install jpeg
+#${pm} -y install jrnl
+#${pm} -y install jsl
+#${pm} -y install jsmin
+#${pm} -y install json-c
+#${pm} -y install jsonpp
+#${pm} -y install legit
+${pm} -y install llvm
+#${pm} -y install llvm35
+#${pm} -y install llvm36
+#${pm} -y install llvm37
+#${pm} -y install llvm38
+${pm} -y install llvm-devel
+${pm} -y install lrzsz
+#${pm} -y install markdown
+#${pm} -y install mscgen
+#${pm} -y install netcat
+#${pm} -y install netperf
+${pm} -y install nmap
+${pm} -y install nodejs
 if [ "${version}" -lt 24 ]; then
-    sudo yum -y install npm
+    "${pm}" -y install npm
 fi
-sudo yum -y install nss-mdns
-#sudo yum -y install ntfs-3g
-sudo yum -y install ntp
-sudo yum -y install nuttcp
-#sudo yum -y install open-completion
-sudo yum -y install openocd
-#sudo yum -y install osxfuse
-#sudo yum -y install p0f
-#sudo yum -y install p7zip
-#sudo yum -y install parallel
-#sudo yum -y install phantomjs
-#sudo yum -y install pinentry
-#sudo yum -y install pip-completion
-#sudo yum -y install pkg-config
-#sudo yum -y install ruby-completion
-sudo yum -y install screen
-sudo yum -y install ShellCheck
-sudo yum -y install sloccount
-sudo yum -y install socat
-sudo yum -y install sqlite
-sudo yum -y install srecord
-#sudo yum -y install ssh-copy-id
-#sudo yum -y install stdman
-sudo yum -y install stow
-#sudo yum -y install stress
-#sudo yum -y install subgit
-#sudo yum -y install swig
-sudo yum -y install tcpdump
-#sudo yum -y install tcpflow
-sudo yum -y install tcping
-sudo yum -y install tcpreplay
-#sudo yum -y install tcptrace
-sudo yum -y install tcptraceroute
-sudo yum -y install tcptrack
-#sudo yum -y install termshare
-sudo yum -y install tig
-sudo yum -y install tmux
-sudo yum -y install tree
-sudo yum -y install v8
-#sudo yum -y install vegeta
-sudo yum -y install vim
-#sudo yum -y install webp
-sudo yum -y install wget
-#sudo yum -y install wireshark
-#sudo yum -y install xctool
-#sudo yum -y install xmlformat
-#sudo yum -y install xmlstarlet
-#sudo yum -y install xmlto
+${pm} -y install nss-mdns
+#${pm} -y install ntfs-3g
+${pm} -y install ntp
+${pm} -y install nuttcp
+#${pm} -y install open-completion
+${pm} -y install openocd
+#${pm} -y install osxfuse
+#${pm} -y install p0f
+#${pm} -y install p7zip
+#${pm} -y install parallel
+#${pm} -y install phantomjs
+#${pm} -y install pinentry
+#${pm} -y install pip-completion
+#${pm} -y install pkg-config
+#${pm} -y install ruby-completion
+${pm} -y install screen
+${pm} -y install ShellCheck
+${pm} -y install sloccount
+${pm} -y install socat
+${pm} -y install sqlite
+${pm} -y install srecord
+#${pm} -y install ssh-copy-id
+#${pm} -y install stdman
+${pm} -y install stow
+#${pm} -y install stress
+#${pm} -y install subgit
+#${pm} -y install swig
+${pm} -y install tcpdump
+#${pm} -y install tcpflow
+${pm} -y install tcping
+${pm} -y install tcpreplay
+#${pm} -y install tcptrace
+${pm} -y install tcptraceroute
+${pm} -y install tcptrack
+#${pm} -y install termshare
+${pm} -y install tig
+${pm} -y install tmux
+${pm} -y install tree
+${pm} -y install v8
+#${pm} -y install vegeta
+${pm} -y install vim
+#${pm} -y install webp
+${pm} -y install wget
+#${pm} -y install wireshark
+#${pm} -y install xctool
+#${pm} -y install xmlformat
+#${pm} -y install xmlstarlet
+#${pm} -y install xmlto
 
 # cleanup
-sudo yum autoremove
-sudo yum clean all
+${pm} autoremove
+${pm} clean all
