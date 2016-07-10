@@ -29,16 +29,30 @@ pm_upgrade=
 pm_install=
 pm_cleanup=
 
-# check if yum is installed
-if [ -z "$(which yum 2> /dev/null)" ]; then
-    echo "warning: yum not found."
+# check if dnf is installed
+if [ -z "$(which dnf 2> /dev/null)" ]; then
+    echo "warning: dnf not found."
 else
-    pm="yum"
+    pm="dnf"
     pm_check="true"
     pm_update="sudo ${pm} update"
     pm_upgrade="true"
     pm_install="sudo ${pm} -y install"
     pm_cleanup="sudo ${pm} autoremove && ${pm} clean all"
+fi
+
+# check if yum is installed, if package manager is not
+if [ -z "${pm}" ]; then
+    if [ -z "$(which yum 2> /dev/null)" ]; then
+        echo "warning: yum not found."
+    else
+        pm="yum"
+        pm_check="true"
+        pm_update="sudo ${pm} update"
+        pm_upgrade="true"
+        pm_install="sudo ${pm} -y install"
+        pm_cleanup="sudo ${pm} autoremove && ${pm} clean all"
+    fi
 fi
 
 # check if package manager is installed
