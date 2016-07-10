@@ -18,9 +18,6 @@ elif [ "${release}" = "Fedora release 24 (Twenty Four)" ]; then
     version=24
 fi
 
-echo "${release}"
-echo "${version}"
-
 # package manager
 pm=
 pm_check=
