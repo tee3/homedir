@@ -16,12 +16,22 @@ sudo apt-get install aptitude
 
 # package manager
 pm=
+pm_check=
+pm_update=
+pm_upgrade=
+pm_install=
+pm_cleanup=
 
 # check if aptitude is installed
 if [ -z "$(which aptitude 2> /dev/null)" ]; then
     echo "warning: aptitude not found"
 else
-    pm="sudo aptitude"
+    pm="aptitude"
+    pm_check="true"
+    pm_update="sudo ${pm} update"
+    pm_upgrade="sudo ${pm} safe-upgrade"
+    pm_install="sudo ${pm} -y install"
+    pm_cleanup="sudo ${pm} clean && ${pm} autoclean"
 fi
 
 # check if package manager is installed
@@ -31,187 +41,186 @@ if [ -z "${pm}" ]; then
 fi
 
 # update and check packages
-${pm} update
+${pm_update}
 
 # upgrade existing packages
-${pm} safe-upgrade
+${pm_upgrade}
 
 # install packages for homedir installer
-${pm} -y install wget
-${pm} -y install stow
-${pm} -y install diffutils
+${pm_install} wget
+${pm_install} stow
+${pm_install} diffutils
 
 # install interpreters prior to other packages
-${pm} -y install python
-${pm} -y install python-dev
+${pm_install} python
+${pm_install} python-dev
 # @todo we don't need python3 at this point
-#${pm} -y install python3
-${pm} -y install ruby
-${pm} -y install ruby-dev
+#${pm_install} python3
+${pm_install} ruby
+${pm_install} ruby-dev
 
 # install version control systems
-${pm} -y install git
-${pm} -y install mercurial
-${pm} -y install subversion
+${pm_install} git
+${pm_install} mercurial
+${pm_install} subversion
 
 # install basic tools
-${pm} -y install autoconf
-${pm} -y install tar
-${pm} -y install bzip2
-${pm} -y install patch
+${pm_install} autoconf
+${pm_install} tar
+${pm_install} bzip2
+${pm_install} patch
 
 # install fuse
-#${pm} -y install gitfs
-${pm} -y install sshfs
+#${pm_install} gitfs
+${pm_install} sshfs
 
 # install all taps with the right options
-${pm} -y install arp-scan
-#${pm} -y install arp-sk
-#${pm} -y install arpoison
-${pm} -y install avahi-autoipd
-${pm} -y install avahi-daemon
-${pm} -y install avahi-utils
-#${pm} -y install avrdude
-#${pm} -y install avr-binutils
-#${pm} -y install avr-gcc
-${pm} -y install bash-completion
-#${pm} -y install bear
-${pm} -y install libboost-dev
-#${pm} -y install libboost-bcp-dev
-${pm} -y install libboost-tools-dev
-#${pm} -y install casperjs
-${pm} -y install cflow
-${pm} -y install clang
-${pm} -y install cmake
-${pm} -y install cppcheck
-${pm} -y install dfu-util
-#${pm} -y install dns2tcp
-#${pm} -y install dnstop
-#${pm} -y install docbook
-#${pm} -y install docbook-xsl
-#${pm} -y install docker
-${pm} -y install doxygen
-#${pm} -y install e2fsprogs
-${pm} -y install emacs-nox
-#${pm} -y install emscripten
-${pm} -y install enscript
-#${pm} -y install ext2fuse
-#${pm} -y install fop
-#${pm} -y install fortune
-${pm} -y install gcc
-${pm} -y install g++
-#${pm} -y install gcc48
-#${pm} -y install g++-4.8
-#${pm} -y install gcc49
-#${pm} -y install g++-4.9
-#${pm} -y install gcc5
-#${pm} -y install g++-5
-#${pm} -y install gcc6
-#${pm} -y install g++-6
-${pm} -y install gdb
-#${pm} -y install gem-completion
-#${pm} -y install git-flow
-#${pm} -y install git-hooks
-#${pm} -y install git-lfs
-${pm} -y install git-svn
-#${pm} -y install git-test
-#${pm} -y install glew
-#${pm} -y install glfw3
-#${pm} -y install glib
-#${pm} -y install glm
-${pm} -y install global
-#${pm} -y install glslang
-#${pm} -y install gnu-typist
-${pm} -y install golang
-#${pm} -y install graphviz
-${pm} -y install guile-2.0
-${pm} -y install highlight
-${pm} -y install htop
-#${pm} -y install httping
-#${pm} -y install httpry
-${pm} -y install hunspell
-${pm} -y install iperf
-${pm} -y install ipv6calc
-${pm} -y install jam
-#${pm} -y install jansson
-#${pm} -y install jasper
-#${pm} -y install jpeg
-#${pm} -y install jrnl
-#${pm} -y install jsl
-#${pm} -y install jsmin
-#${pm} -y install json-c
-#${pm} -y install jsonpp
-#${pm} -y install launchctl-completion
-#${pm} -y install legit
-${pm} -y install libclang-dev
-${pm} -y install libnss-mdns
-#${pm} -y install lldb
-#${pm} -y install lld
-${pm} -y install llvm
-#${pm} -y install llvm35
-#${pm} -y install llvm36
-#${pm} -y install llvm37
-#${pm} -y install llvm38
-${pm} -y install llvm-dev
-${pm} -y install llvm-runtime
-${pm} -y install lrzsz
-#${pm} -y install markdown
-#${pm} -y install mscgen
-#${pm} -y install netcat
-#${pm} -y install netperf
-${pm} -y install nmap
-${pm} -y install nodejs
-${pm} -y install nodejs-dev
-${pm} -y install npm
-#${pm} -y install ntfs-3g
-${pm} -y install ntp
-${pm} -y install nuttcp
-#${pm} -y install open-completion
-${pm} -y install openocd
-#${pm} -y install osxfuse
-#${pm} -y install p0f
-#${pm} -y install p7zip
-#${pm} -y install parallel
-#${pm} -y install phantomjs
-#${pm} -y install pinentry
-#${pm} -y install pip-completion
-#${pm} -y install pkg-config
-#${pm} -y install ruby-completion
-${pm} -y install screen
-${pm} -y install shellcheck
-${pm} -y install sloccount
-${pm} -y install socat
-${pm} -y install sqlite
-${pm} -y install srecord
-#${pm} -y install ssh-copy-id
-#${pm} -y install stdman
-${pm} -y install stow
-#${pm} -y install stress
-#${pm} -y install subgit
-#${pm} -y install swig
-${pm} -y install tcpdump
-#${pm} -y install tcpflow
-#${pm} -y install tcping
-${pm} -y install tcpreplay
-#${pm} -y install tcptrace
-${pm} -y install tcptraceroute
-${pm} -y install tcptrack
-#${pm} -y install termshare
-${pm} -y install tig
-${pm} -y install tmux
-${pm} -y install tree
-#${pm} -y install v8
-#${pm} -y install vegeta
-${pm} -y install vim
-#${pm} -y install webp
-${pm} -y install wget
-#${pm} -y install wireshark
-#${pm} -y install xctool
-#${pm} -y install xmlformat
-#${pm} -y install xmlstarlet
-#${pm} -y install xmlto
+${pm_install} arp-scan
+#${pm_install} arp-sk
+#${pm_install} arpoison
+${pm_install} avahi-autoipd
+${pm_install} avahi-daemon
+${pm_install} avahi-utils
+#${pm_install} avrdude
+#${pm_install} avr-binutils
+#${pm_install} avr-gcc
+${pm_install} bash-completion
+#${pm_install} bear
+${pm_install} libboost-dev
+#${pm_install} libboost-bcp-dev
+${pm_install} libboost-tools-dev
+#${pm_install} casperjs
+${pm_install} cflow
+${pm_install} clang
+${pm_install} cmake
+${pm_install} cppcheck
+${pm_install} dfu-util
+#${pm_install} dns2tcp
+#${pm_install} dnstop
+#${pm_install} docbook
+#${pm_install} docbook-xsl
+#${pm_install} docker
+${pm_install} doxygen
+#${pm_install} e2fsprogs
+${pm_install} emacs-nox
+#${pm_install} emscripten
+${pm_install} enscript
+#${pm_install} ext2fuse
+#${pm_install} fop
+#${pm_install} fortune
+${pm_install} gcc
+${pm_install} g++
+#${pm_install} gcc48
+#${pm_install} g++-4.8
+#${pm_install} gcc49
+#${pm_install} g++-4.9
+#${pm_install} gcc5
+#${pm_install} g++-5
+#${pm_install} gcc6
+#${pm_install} g++-6
+${pm_install} gdb
+#${pm_install} gem-completion
+#${pm_install} git-flow
+#${pm_install} git-hooks
+#${pm_install} git-lfs
+${pm_install} git-svn
+#${pm_install} git-test
+#${pm_install} glew
+#${pm_install} glfw3
+#${pm_install} glib
+#${pm_install} glm
+${pm_install} global
+#${pm_install} glslang
+#${pm_install} gnu-typist
+${pm_install} golang
+#${pm_install} graphviz
+${pm_install} guile-2.0
+${pm_install} highlight
+${pm_install} htop
+#${pm_install} httping
+#${pm_install} httpry
+${pm_install} hunspell
+${pm_install} iperf
+${pm_install} ipv6calc
+${pm_install} jam
+#${pm_install} jansson
+#${pm_install} jasper
+#${pm_install} jpeg
+#${pm_install} jrnl
+#${pm_install} jsl
+#${pm_install} jsmin
+#${pm_install} json-c
+#${pm_install} jsonpp
+#${pm_install} launchctl-completion
+#${pm_install} legit
+${pm_install} libclang-dev
+${pm_install} libnss-mdns
+#${pm_install} lldb
+#${pm_install} lld
+${pm_install} llvm
+#${pm_install} llvm35
+#${pm_install} llvm36
+#${pm_install} llvm37
+#${pm_install} llvm38
+${pm_install} llvm-dev
+${pm_install} llvm-runtime
+${pm_install} lrzsz
+#${pm_install} markdown
+#${pm_install} mscgen
+#${pm_install} netcat
+#${pm_install} netperf
+${pm_install} nmap
+${pm_install} nodejs
+${pm_install} nodejs-dev
+${pm_install} npm
+#${pm_install} ntfs-3g
+${pm_install} ntp
+${pm_install} nuttcp
+#${pm_install} open-completion
+${pm_install} openocd
+#${pm_install} osxfuse
+#${pm_install} p0f
+#${pm_install} p7zip
+#${pm_install} parallel
+#${pm_install} phantomjs
+#${pm_install} pinentry
+#${pm_install} pip-completion
+#${pm_install} pkg-config
+#${pm_install} ruby-completion
+${pm_install} screen
+${pm_install} shellcheck
+${pm_install} sloccount
+${pm_install} socat
+${pm_install} sqlite
+${pm_install} srecord
+#${pm_install} ssh-copy-id
+#${pm_install} stdman
+${pm_install} stow
+#${pm_install} stress
+#${pm_install} subgit
+#${pm_install} swig
+${pm_install} tcpdump
+#${pm_install} tcpflow
+#${pm_install} tcping
+${pm_install} tcpreplay
+#${pm_install} tcptrace
+${pm_install} tcptraceroute
+${pm_install} tcptrack
+#${pm_install} termshare
+${pm_install} tig
+${pm_install} tmux
+${pm_install} tree
+#${pm_install} v8
+#${pm_install} vegeta
+${pm_install} vim
+#${pm_install} webp
+${pm_install} wget
+#${pm_install} wireshark
+#${pm_install} xctool
+#${pm_install} xmlformat
+#${pm_install} xmlstarlet
+#${pm_install} xmlto
 
 # cleanup
 sudo apt-get autoremove
-${pm} clean
-${pm} autoclean
+${pm_cleanup}

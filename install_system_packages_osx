@@ -10,6 +10,11 @@ set -u
 
 # package manager
 pm=
+pm_check=
+pm_update=
+pm_upgrade=
+pm_install=
+pm_cleanup=
 
 # additional repositories
 brew_taps="
@@ -31,6 +36,11 @@ if [ -z "$(which brew 2> /dev/null)" ]; then
     echo "warning: Homewbrew (brew) not found."
 else
     pm="brew"
+    pm_check="${pm} doctor"
+    pm_update="${pm} update"
+    pm_upgrade="${pm} upgrade --all"
+    pm_install="${pm} install"
+    pm_cleanup="${pm} cleanup -s"
 fi
 
 # check if package manager is installed
@@ -40,9 +50,9 @@ if [ -z "${pm}" ]; then
 fi
 
 # update and check packages
-${pm} update
-if ! ${pm} doctor ; then
-    echo "${pm} doctor failed, continue anyway (y/n)?: \c"
+${pm_update}
+if ! ${pm_check} ; then
+    echo "warning: Package manager check failed, continue anyway (y/n)?: \c"
     read -r yn
     if [ "${yn}" != "y" ]; then
 	exit 1
@@ -50,12 +60,12 @@ if ! ${pm} doctor ; then
 fi
 
 # upgrade all installed packages
-${pm} update
-${pm} upgrade --all
+${pm_update}
+${pm_upgrade}
 
 # make sure git is installed early
-${pm} install git
-${pm} update
+${pm_install} git
+${pm_update}
 
 # notify of unspecified taps
 for t0 in $(${pm} tap) ; do
@@ -84,159 +94,159 @@ for t0 in ${brew_taps} ; do
         ${pm} tap --full "${t0}"
     fi
 done
-${pm} update
+${pm_update}
 
 # repair all taps
 for t in $(${pm} tap) ; do
     ${pm} tap --repair "${t}"
 done
-${pm} update
+${pm_update}
 
 # upgrade existing packages
-${pm} upgrade --all
+${pm_upgrade}
 
 # install interpreters prior to other packages
 # @todo use system python
-#${pm} install python
+#${pm_install} python
 # @todo we don't need python3 at this point
-#${pm} install python3
+#${pm_install} python3
 # @todo use system ruby
-#${pm} install ruby
+#${pm_install} ruby
 
 # install version control systems
-${pm} install bazaar
-${pm} install git
-${pm} install mercurial
-${pm} install subversion
+${pm_install} bazaar
+${pm_install} git
+${pm_install} mercurial
+${pm_install} subversion
 
 # install fuse
-#${pm} install gitfs
-${pm} install sshfs
+#${pm_install} gitfs
+${pm_install} sshfs
 
 # install all taps with the right options
-${pm} install arp-scan
-${pm} install arp-sk
-${pm} install arpoison
-#${pm} install avrdude
-#${pm} install avr-binutils
-#${pm} install avr-gcc
-${pm} install bash-completion
-${pm} install bear
-${pm} install boost
-#${pm} install boost-bcp
-${pm} install boost-build
-${pm} install casperjs
-${pm} install cflow
-${pm} install cmake
-${pm} install cppcheck
-${pm} install dfu-util
-${pm} install dns2tcp
-${pm} install dnstop
-${pm} install docbook
-${pm} install docbook-xsl
-${pm} install docker
-${pm} install doxygen
-${pm} install emacs --with-cocoa
-${pm} install emscripten
-${pm} install enscript
-#${pm} install ext2fuse
-${pm} install fortune
-${pm} install gcc
-${pm} install gcc48
-${pm} install gcc49
-${pm} install gcc5
-#${pm} install gcc6
-${pm} install gdb
-${pm} install gem-completion
-${pm} install git-flow
-${pm} install git-hooks
-${pm} install git-lfs
-${pm} install git-test
-${pm} install glew
-${pm} install glfw3
-${pm} install glib
-${pm} install glm
-${pm} install global --with-exuberant-ctags
-${pm} install glslang
-${pm} install gnu-typist
-${pm} install go
-${pm} install graphviz
-${pm} install guile
-${pm} install highlight
-${pm} install htop-osx
-${pm} install httping
-${pm} install httpry
-${pm} install hunspell
-${pm} install iperf
-${pm} install ipv6calc
-${pm} install jam
-${pm} install jansson
-${pm} install jasper
-${pm} install jpeg
-${pm} install jrnl
-${pm} install jsl
-${pm} install jsmin
-${pm} install json-c
-${pm} install jsonpp
-${pm} install launchctl-completion
-${pm} install legit
-${pm} install llvm --with-clang --with-clang-extra-tools --with-libcxx --with-lld --with-lldb
-${pm} install llvm35 --with-lld --with-lldb
-${pm} install llvm36 --with-lld --with-lldb
-${pm} install llvm37 --with-lld --with-lldb
-${pm} install llvm38 --with-lld --with-lldb
-${pm} install lrzsz
-${pm} install markdown
-#${pm} install mscgen --without-gd
-${pm} install netcat
-${pm} install netperf
-${pm} install nmap
-${pm} install node
-#${pm} install ntfs-3g
-${pm} install nuttcp
-${pm} install open-completion
-${pm} install openocd
-#${pm} install osxfuse
-${pm} install p0f
-${pm} install p7zip
-${pm} install parallel
-#${pm} install phantomjs
-${pm} install pinentry
-${pm} install pip-completion
-${pm} install pkg-config
-${pm} install ruby-completion
-${pm} install shellcheck
-${pm} install sloccount
-${pm} install socat
-${pm} install sqlite
-${pm} install srecord
-${pm} install ssh-copy-id
-${pm} install stdman
-${pm} install stow
-${pm} install stress
-${pm} install subgit
-${pm} install swig
-${pm} install tcpdump
-${pm} install tcpflow
-${pm} install tcping
-${pm} install tcpreplay
-${pm} install tcptrace
-${pm} install tcptraceroute
-${pm} install tcptrack
-${pm} install termshare
-${pm} install tig
-${pm} install tmux
-${pm} install tree
-${pm} install v8
-#${pm} install vegeta
-${pm} install vim
-${pm} install webp
-${pm} install wget
-#${pm} install wireshark
-${pm} install xctool
-${pm} install xmlformat
-${pm} install xmlstarlet
-${pm} install xmlto
+${pm_install} arp-scan
+${pm_install} arp-sk
+${pm_install} arpoison
+#${pm_install} avrdude
+#${pm_install} avr-binutils
+#${pm_install} avr-gcc
+${pm_install} bash-completion
+${pm_install} bear
+${pm_install} boost
+#${pm_install} boost-bcp
+${pm_install} boost-build
+${pm_install} casperjs
+${pm_install} cflow
+${pm_install} cmake
+${pm_install} cppcheck
+${pm_install} dfu-util
+${pm_install} dns2tcp
+${pm_install} dnstop
+${pm_install} docbook
+${pm_install} docbook-xsl
+${pm_install} docker
+${pm_install} doxygen
+${pm_install} emacs --with-cocoa
+${pm_install} emscripten
+${pm_install} enscript
+#${pm_install} ext2fuse
+${pm_install} fortune
+${pm_install} gcc
+${pm_install} gcc48
+${pm_install} gcc49
+${pm_install} gcc5
+#${pm_install} gcc6
+${pm_install} gdb
+${pm_install} gem-completion
+${pm_install} git-flow
+${pm_install} git-hooks
+${pm_install} git-lfs
+${pm_install} git-test
+${pm_install} glew
+${pm_install} glfw3
+${pm_install} glib
+${pm_install} glm
+${pm_install} global --with-exuberant-ctags
+${pm_install} glslang
+${pm_install} gnu-typist
+${pm_install} go
+${pm_install} graphviz
+${pm_install} guile
+${pm_install} highlight
+${pm_install} htop-osx
+${pm_install} httping
+${pm_install} httpry
+${pm_install} hunspell
+${pm_install} iperf
+${pm_install} ipv6calc
+${pm_install} jam
+${pm_install} jansson
+${pm_install} jasper
+${pm_install} jpeg
+${pm_install} jrnl
+${pm_install} jsl
+${pm_install} jsmin
+${pm_install} json-c
+${pm_install} jsonpp
+${pm_install} launchctl-completion
+${pm_install} legit
+${pm_install} llvm --with-clang --with-clang-extra-tools --with-libcxx --with-lld --with-lldb
+${pm_install} llvm35 --with-lld --with-lldb
+${pm_install} llvm36 --with-lld --with-lldb
+${pm_install} llvm37 --with-lld --with-lldb
+${pm_install} llvm38 --with-lld --with-lldb
+${pm_install} lrzsz
+${pm_install} markdown
+#${pm_install} mscgen --without-gd
+${pm_install} netcat
+${pm_install} netperf
+${pm_install} nmap
+${pm_install} node
+#${pm_install} ntfs-3g
+${pm_install} nuttcp
+${pm_install} open-completion
+${pm_install} openocd
+#${pm_install} osxfuse
+${pm_install} p0f
+${pm_install} p7zip
+${pm_install} parallel
+#${pm_install} phantomjs
+${pm_install} pinentry
+${pm_install} pip-completion
+${pm_install} pkg-config
+${pm_install} ruby-completion
+${pm_install} shellcheck
+${pm_install} sloccount
+${pm_install} socat
+${pm_install} sqlite
+${pm_install} srecord
+${pm_install} ssh-copy-id
+${pm_install} stdman
+${pm_install} stow
+${pm_install} stress
+${pm_install} subgit
+${pm_install} swig
+${pm_install} tcpdump
+${pm_install} tcpflow
+${pm_install} tcping
+${pm_install} tcpreplay
+${pm_install} tcptrace
+${pm_install} tcptraceroute
+${pm_install} tcptrack
+${pm_install} termshare
+${pm_install} tig
+${pm_install} tmux
+${pm_install} tree
+${pm_install} v8
+#${pm_install} vegeta
+${pm_install} vim
+${pm_install} webp
+${pm_install} wget
+#${pm_install} wireshark
+${pm_install} xctool
+${pm_install} xmlformat
+${pm_install} xmlstarlet
+${pm_install} xmlto
 
 # cleanup
-${pm} cleanup -s
+${pm_cleanup}
