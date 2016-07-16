@@ -183,7 +183,7 @@ ${pm_install} json-c
 ${pm_install} jsonpp
 ${pm_install} launchctl-completion
 ${pm_install} legit
-${pm_install} llvm --with-clang --with-clang-extra-tools --with-libcxx --with-lld --with-lldb
+${pm_install} llvm --with-lldb
 ${pm_install} llvm35 --with-lld --with-lldb
 ${pm_install} llvm36 --with-lld --with-lldb
 ${pm_install} llvm37 --with-lld --with-lldb
