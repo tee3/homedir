@@ -1237,6 +1237,7 @@ See URL `http://www.jslint.com'."
   (setq rtags-tooltips-enabled nil)
 
   (setq rtags-tracking t)
+  (setq rtags-tracking-timer-interval 0.1)
   (setq rtags-track-container t)
   (setq rtags-use-filename-completion nil)
   :config
