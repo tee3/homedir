@@ -329,7 +329,12 @@
   :preface
   (defun tee3-ido-kill-ring ()
     (interactive)
-    (ido-completing-read "Yank text: " kill-ring))
+    (let ((the-text (ido-completing-read "Yank text: " kill-ring)))
+      (if (not (equal the-text ""))
+          (progn
+            (push-mark)
+            (insert the-text)
+            (exchange-mark-and-point)))))
   :bind
   ("C-c C-y" . tee3-ido-kill-ring)
   :init
