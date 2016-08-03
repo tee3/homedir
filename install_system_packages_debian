@@ -110,7 +110,7 @@ ${pm_install} dfu-util
 #${pm_install} docker
 ${pm_install} doxygen
 #${pm_install} e2fsprogs
-${pm_install} emacs-nox
+${pm_install} emacs24-nox
 #${pm_install} emscripten
 ${pm_install} enscript
 #${pm_install} ext2fuse
