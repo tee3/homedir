@@ -123,6 +123,8 @@ HOME = os.environ['HOME']
 prefix = os.path.join(HOME, 'opt', 'local')
 
 if __name__ == '__main__':
+    r = 0
+
     # install desired source packages
     install_tee3_c_style(prefix)
     install_msvc_c_style(prefix)
@@ -131,4 +133,4 @@ if __name__ == '__main__':
         install_rtags(prefix)
     install_boost(prefix)
 
-    sys.exit(0)
+    sys.exit(r)
