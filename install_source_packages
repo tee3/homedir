@@ -129,8 +129,11 @@ if __name__ == '__main__':
     install_tee3_c_style(prefix)
     install_msvc_c_style(prefix)
     install_git_svn_update_externals(prefix)
-    if not sys.platform.startswith('win32'):
-        install_rtags(prefix)
+    try:
+        if not sys.platform.startswith('win32'):
+            install_rtags(prefix)
+    except:
+        r = 1
     install_boost(prefix)
 
     sys.exit(r)
