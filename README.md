@@ -252,6 +252,70 @@ C:> install_system_packages_windows
 
 7. At the end of this process, reboot the machine.
 
+## windows subsystem for linux
+
+This is a Ubunutu-based command-line system within Windows 10
+Anniversary Edition.  As such, it is supported as if it were a Debian
+system above.
+
+1. Enable the **Developer Mode** radio button in **Settings->Update &
+   security->For developers**.
+
+2. Enable the **Windows Subsystem for Linux** in **Control
+   Panel->Programs->Turn Windows features on or off** and follow the
+   instructions and reboot.
+
+3. Run `bash` within a **Command Prompt** and agree to install Ubuntu.
+
+4. Enter `administrator` when asked for a user.
+
+5. Exit the **Command Prompt**.
+
+6. Run **Bash on Ubuntu for Windows** from the **Start Menu**, which
+   will log in as `administrator`.
+
+7. Add a user `USER` by running the following command.
+
+``` shell
+$ sudo /usr/sbin/adduser USER
+```
+
+8. Exit the **Bash on Ubuntu for Windows** shell.
+
+From the login terminal of the system, log in as `administrator` by
+running **Bash on Ubuntu for Windows ** and then install `git`, clone
+the `tee3/homedir` repository and install the system packages.
+
+```
+$ sudo apt-get install git
+$ git clone https://github.com/tee3/homedir ~/Development/homedir
+$ cd ~/Development/homedir
+$ ./install_system_packages_debian
+```
+
+Note that Windows Subsystem for Linux is supported as it is a
+`apt-get`-based system.  While this is a true Linux system, there are
+still some limitations.  It is based on Ubuntu (and an earlier version
+of Debian), and so runs some older packages.  It also seems as if the
+`init` system is not run as expected.
+
+The following provides some *ad-hoc* workarounds for these
+limitations.
+
+1. To switch to the `administrator` user, run the `lxrun` command as
+   shown below.
+
+``` batchfile
+C:\> lxrun /setdefaultuser administrator
+```
+
+2. To update the package databases, run the `lxrun` command as shown
+   below.
+
+``` batchfile
+C:\> lxrun /update
+```
+
 # system
 
 Installing system packages should be done as necessary as it updates
