@@ -34,7 +34,7 @@ else
     pm_check="true"
     pm_update="sudo ${pm} update"
     pm_upgrade="true"
-    pm_install="sudo ${pm} -y install"
+    pm_install="sudo ${pm} -q -y install"
     pm_cleanup="sudo ${pm} autoremove && ${pm} clean all"
 fi
 
@@ -47,7 +47,7 @@ if [ -z "${pm}" ]; then
         pm_check="true"
         pm_update="sudo ${pm} update"
         pm_upgrade="true"
-        pm_install="sudo ${pm} -y install"
+        pm_install="sudo ${pm} -q -y install"
         pm_cleanup="sudo ${pm} autoremove && ${pm} clean all"
     fi
 fi

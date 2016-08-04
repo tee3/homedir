@@ -9,7 +9,7 @@ set -e
 set -u
 
 # install aptitude
-sudo apt-get install aptitude
+sudo apt-get -q -y install aptitude
 
 # package manager
 pm=
@@ -27,7 +27,7 @@ else
     pm_check="true"
     pm_update="sudo ${pm} update"
     pm_upgrade="sudo ${pm} safe-upgrade"
-    pm_install="sudo ${pm} -y install"
+    pm_install="sudo apt-get -q -y install"
     pm_cleanup="sudo ${pm} clean && ${pm} autoclean"
 fi
 
@@ -230,5 +230,5 @@ ${pm_install} wget
 #${pm_install} xmlto
 
 # cleanup
-sudo apt-get autoremove
+sudo apt-get -q -y autoremove
 ${pm_cleanup}
