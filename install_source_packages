@@ -85,10 +85,10 @@ def install_rtags(basedir):
 
     command = [
         'cmake',
-        '..',
         llvm_config_option,
         '-DCMAKE_BUILD_TYPE=Release',
-        '-DCMAKE_INSTALL_PREFIX:PATH=' + basedir
+        '-DCMAKE_INSTALL_PREFIX:PATH=' + basedir,
+        '..'
     ]
     subprocess.check_call(command, cwd=build)
     command = ['make']
