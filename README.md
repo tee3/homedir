@@ -231,7 +231,8 @@ required in order to install programs for all users.
 3. Install Python 2.7 and allow it to add itself to the `PATH`,
    assuming it is installed to `C:\Python27`.
 
-4. Install Visual C++ and the Visual C++ Build Tools.
+4. Install the one or more of Visual C++ Build Tools, Visual C++
+   Express, and Visual Studio to install a working C and C++ compiler.
 
 5. (Optional) Install Ruby and allow it to add itself to the PATH,
    assuming it is installed to `C:\Ruby22-x64`.
