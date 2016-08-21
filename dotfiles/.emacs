@@ -148,7 +148,7 @@
   :config
   (when (equal system-type 'darwin)
     (setq locate-command "mdfind")))
-(use-package minibuf-elfef
+(use-package minibuf-eldef
   :init
   (minibuffer-electric-default-mode))
 (use-package menu-bar
