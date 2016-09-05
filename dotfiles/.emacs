@@ -770,7 +770,7 @@
   :config
   (global-magit-file-mode)
 
-  (add-hook 'magit-status-sections-hook 'magit-insert-worktrees)
+  (add-hook 'magit-status-sections-hook 'magit-insert-worktrees t)
 
   (add-hook 'magit-status-headers-hook 'magit-insert-remote-header t)
   (add-hook 'magit-status-headers-hook 'magit-insert-user-header t)
