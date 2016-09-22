@@ -196,7 +196,7 @@ ${pm_install} lrzsz
 #${pm_install} netperf
 ${pm_install} nmap
 ${pm_install} nodejs
-if [ "${version}" -lt 24 ]; then
+if [ "${version}" -ge 24 ]; then
     ${pm_install} npm
 fi
 ${pm_install} nss-mdns
