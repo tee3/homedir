@@ -1283,7 +1283,6 @@ See URL `http://www.jslint.com'."
   (use-package distinguished-theme :ensure t :pin melpa :defer t)
   (use-package eclipse-theme :ensure t :pin melpa :defer t)
   (use-package gandalf-theme :ensure t :pin melpa :defer t)
-  (use-package goose-theme :ensure t :pin melpa-stable :defer t)
   (use-package gotham-theme :ensure t :pin melpa :defer t)
   (use-package grandshell-theme :ensure t :pin melpa :defer t)
   (use-package greymatters-theme :ensure t :pin melpa :defer t)
