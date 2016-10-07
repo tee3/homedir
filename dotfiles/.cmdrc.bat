@@ -6,6 +6,10 @@ rem Add local optional to path
 set CMDOPTLOCAL=%HOME%\opt\local
 if exist "%CMDOPTLOCAL%" set PATH=%CMDOPTLOCAL%\bin;%PATH%
 
+rem Git
+set CMDGITROOT=C:\Git
+if exist "%CMDGITROOT%" set PATH=%CMDGITROOT%\usr\bin;%PATH%
+
 rem Python
 set CMDPYTHONROOT=C:\Python27
 if exist "%CMDPYTHONROOT%" set PATH=%CMDPYTHONROOT%;%CMDPYTHONROOT%\Scripts;%PATH%
