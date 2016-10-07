@@ -28,7 +28,7 @@ set CMDGOROOT=C:\Go
 if exist "%CMDGOROOT%" set PATH=%CMDOPTLOCAL%\src\go\bin;%PATH%
 
 rem Emacs
-set CMDEMACSROOT=C:\emacs-24.5-bin-i686-mingw32
+set CMDEMACSROOT=C:\emacs-25.1-x86_64-w64-mingw32
 if exist "%CMDEMACSROOT%" set PATH=%CMDEMACSROOT%\bin;%PATH%
 if exist "%CMDEMACSROOT%" (
    set ALTERNATE_EDITOR=
