@@ -10,6 +10,9 @@ rem Git
 set CMDGITROOT=C:\Git
 if exist "%CMDGITROOT%" set PATH=%CMDGITROOT%\usr\bin;%PATH%
 
+rem SSH
+call start-ssh-agent
+
 rem Python
 set CMDPYTHONROOT=C:\Python27
 if exist "%CMDPYTHONROOT%" set PATH=%CMDPYTHONROOT%;%CMDPYTHONROOT%\Scripts;%PATH%
