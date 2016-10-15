@@ -196,8 +196,8 @@
   :config
   (savehist-mode))
 (use-package saveplace
-  :init
-  (setq-default save-place t))
+  :config
+  (save-place-mode))
 (use-package scroll-bar
   :config
   (scroll-bar-mode -1))
