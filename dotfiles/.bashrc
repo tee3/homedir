@@ -108,6 +108,12 @@ if [ ! -z "$(which emacsclient 2> /dev/null)" ]; then
     export EDITOR="emacsclient -a vi"
 fi
 
+# MATLAB
+matlab_prefix=/Applications/MATLAB_R2016b.app
+if [ ! -z "$(which ${matlab_prefix}/bin/matlab 2> /dev/null)" ]; then
+    export PATH="${matlab_prefix}"/bin:${PATH}
+fi
+
 # never use ccache, no matter what
 export CCACHE_DISABLE=""
 
