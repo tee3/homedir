@@ -1308,6 +1308,7 @@ See URL `http://www.jslint.com'."
   (use-package subatomic-theme :ensure t :pin melpa :defer t)
   (use-package subatomic256-theme :ensure t :pin melpa :defer t)
   (use-package tangotango-theme :ensure t :pin melpa :defer t)
+  (use-package tao-theme :ensure t :pin melpa :defer t)
   (use-package termbright-theme :ensure t :pin melpa :defer t)
   (use-package ubuntu-theme :ensure t :pin melpa :defer t)
   (use-package zen-and-art-theme :ensure t :pin melpa :defer t)
