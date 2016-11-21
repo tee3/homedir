@@ -197,7 +197,8 @@
   (savehist-mode))
 (use-package saveplace
   :config
-  (save-place-mode))
+  (when (< emacs-major-version 25) (setq-default save-place t))
+  (when (>= emacs-major-version 25) (save-place-mode)))
 (use-package scroll-bar
   :config
   (scroll-bar-mode -1))
