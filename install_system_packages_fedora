@@ -237,6 +237,8 @@ ${pm_install} tcptrack
 ${pm_install} tig
 ${pm_install} tmux
 ${pm_install} tree
+${pm_install} uhd
+${pm_install} uhd-devel
 ${pm_install} v8
 #${pm_install} vegeta
 ${pm_install} vim
