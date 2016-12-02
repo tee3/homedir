@@ -237,10 +237,6 @@ ${pm_install} tcptrack
 ${pm_install} tig
 ${pm_install} tmux
 ${pm_install} tree
-${pm_install} uhd
-${pm_install} uhd-devel
-${pm_install} uhd-firmware
-${pm_install} uhd-tools
 ${pm_install} v8
 #${pm_install} vegeta
 ${pm_install} vim
