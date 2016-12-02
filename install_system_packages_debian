@@ -218,9 +218,6 @@ ${pm_install} tcptrack
 ${pm_install} tig
 ${pm_install} tmux
 ${pm_install} tree
-${pm_install} uhd-host
-${pm_install} libuhd003
-${pm_install} libuhd-dev
 #${pm_install} v8
 #${pm_install} vegeta
 ${pm_install} vim
