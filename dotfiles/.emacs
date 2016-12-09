@@ -1291,6 +1291,7 @@ See URL `http://www.jslint.com'."
   (use-package cyberpunk-theme :ensure t :pin melpa :defer t)
   (use-package distinguished-theme :ensure t :pin melpa :defer t)
   (use-package eclipse-theme :ensure t :pin melpa :defer t)
+  (use-package eink-theme :ensure t :pin melpa :defer t)
   (use-package gandalf-theme :ensure t :pin melpa :defer t)
   (use-package gotham-theme :ensure t :pin melpa :defer t)
   (use-package grandshell-theme :ensure t :pin melpa :defer t)
