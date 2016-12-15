@@ -648,7 +648,9 @@
     :pin melpa)
   (use-package flycheck-swift
     :ensure t
-    :pin melpa))
+    :pin melpa
+    :config
+    (flycheck-swift-setup)))
 (use-package tcl)
 (use-package tidy
   :ensure t
