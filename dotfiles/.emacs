@@ -1089,6 +1089,11 @@
   :pin melpa
   :config
   (objc-font-lock-global-mode))
+(use-package flycheck-objc-clang
+  :ensure t
+  :pin melpa
+  :config
+  (flycheck-objc-clang-setup))
 (use-package malinka
   :disabled t
   :ensure t
