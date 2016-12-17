@@ -23,7 +23,7 @@ else
     pm="brew"
     pm_check="${pm} doctor"
     pm_update="${pm} update"
-    pm_upgrade="${pm} upgrade --all"
+    pm_upgrade="${pm} upgrade"
     pm_install="${pm} install"
     pm_cleanup="${pm} cleanup -s"
 fi
