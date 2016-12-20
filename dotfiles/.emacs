@@ -688,7 +688,9 @@
 ;;; GNU Global
 (use-package ggtags
   :ensure t
-  :pin melpa)
+  :pin melpa
+  :init
+  (setq ggtags-mode-prefix-key (kbd "C-c g")))
 
 ;;; Scheme programming language
 (use-package scheme-mode
