@@ -32,7 +32,7 @@
   ;; add packages libraries
   (when (< emacs-major-version 24)
     (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t))
-  (when (>= emacs-major-version 23)
+  (when (>= emacs-major-version 24)
     (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t))
   (when (>= emacs-major-version 23)
     (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t))
@@ -217,8 +217,9 @@
   (savehist-mode))
 (use-package saveplace
   :config
-  (when (< emacs-major-version 25) (setq-default save-place t))
-  (when (>= emacs-major-version 25) (save-place-mode)))
+  (if (>= emacs-major-version 25)
+      (save-place-mode)
+    (setq-default save-place t)))
 (use-package scroll-bar
   :config
   (scroll-bar-mode -1))
@@ -380,6 +381,7 @@
   ("C-c C-y" . tee3-ido-kill-ring)
   :init
   (use-package ido-completing-read+
+    :if (>= emacs-major-version 25)
     :ensure t
     :pin melpa
     :init
@@ -577,6 +579,7 @@
   :ensure t
   :pin melpa)
 (use-package pov-mode
+  :disabled t
   :ensure t
   :pin marmalade)
 (use-package protobuf-mode
@@ -591,6 +594,9 @@
    ("known_hosts\\'" . ssh-known-hosts-mode)
    ("authorized_keys2?\\'" . ssh-authorized-keys-mode)))
 (use-package systemd
+  :if (or (> emacs-major-version 24)
+          (and (= emacs-major-version 24)
+               (>= emacs-minor-version 4)))
   :ensure t
   :pin melpa)
 (use-package toml-mode
@@ -622,11 +628,11 @@
   :ensure t
   :pin melpa)
 (use-package csharp-mode
+  :if (>= emacs-major-version 25)
   :ensure t
   :pin melpa
   :init
   (use-package omnisharp
-    :disabled t
     :ensure t
     :pin melpa))
 (use-package d-mode
@@ -667,6 +673,9 @@
   :init
   (setq sql-sqlite-program "sqlite3"))
 (use-package swift-mode
+  :if (or (>= emacs-major-version 25)
+           (and (= emacs-major-version 24)
+                (>= emacs-minor-version 4)))
   :ensure t
   :pin melpa)
 (use-package tcl)
@@ -757,6 +766,9 @@
 
 ;;; Git
 (use-package diff-hl
+  :if (or (> emacs-major-version 24)
+          (and (= emacs-major-version 24)
+               (>= emacs-minor-version 4)))
   :ensure t
   :pin melpa
   :config
@@ -793,6 +805,9 @@
 
 ;;; Magit
 (use-package magit
+  :if (or (> emacs-major-version 24)
+          (and (= emacs-major-version 24)
+               (>= emacs-minor-version 4)))
   :ensure t
   :pin melpa
   :preface
@@ -967,6 +982,7 @@
 
 ;;; Objective-J programming language
 (use-package objj-mode
+  :if (>= emacs-major-version 25)
   :load-path
   "~/opt/local/src/objj-mode")
 
@@ -1155,6 +1171,9 @@
 
 ;;; Homebrew
 (use-package homebrew-mode
+  :if (or (>= emacs-major-version 25)
+          (and (= emacs-major-version 24)
+               (>= emacs-minor-version 4)))
   :ensure t
   :pin melpa
   :init
@@ -1183,6 +1202,7 @@
 ;;; Flycheck
 ;;;
 (use-package flycheck
+  :if (>= emacs-major-version 25)
   :ensure t
   :pin melpa
   :init
@@ -1263,6 +1283,9 @@
 ;;; Language Server Protocol
 ;;;
 (use-package lsp-mode
+  :if (or (> emacs-major-version 25)
+          (and (= emacs-major-version 25)
+               (>= emacs-minor-version 1)))
   :ensure t
   :pin melpa
   :init
@@ -1306,12 +1329,15 @@
 ;;; Docker
 ;;;
 (use-package docker
+  :if (>= emacs-major-version 25)
   :ensure t
   :pin melpa)
 (use-package dockerfile-mode
+  :if (>= emacs-major-version 25)
   :ensure t
   :pin melpa)
 (use-package docker-compose-mode
+  :if (>= emacs-major-version 25)
   :ensure t
   :pin melpa)
 
@@ -1319,13 +1345,16 @@
 ;;; Kubernetes
 ;;;
 (use-package kubernetes
+  :if (>= emacs-major-version 25)
   :ensure t
   :pin melpa)
 
 ;;;
 ;;; Themes
 ;;;
-(when (>= emacs-major-version 24)
+(when (or (>= emacs-major-version 25)
+          (and (= emacs-major-version 24)
+               (>= emacs-minor-version 5)))
   (use-package atom-dark-theme :ensure t :pin melpa :defer t)
   (use-package basic-theme :ensure t :pin melpa :defer t)
   (use-package borland-blue-theme :ensure t :pin melpa :defer t)
