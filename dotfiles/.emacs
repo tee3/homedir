@@ -773,6 +773,9 @@
   :init
   (use-package magit-svn
     :ensure t)
+
+  (setq magit-repository-directories (quote (("~/Development" . 2))))
+
   ; trash doesn't work properly on OS X
   (when (equal system-type 'darwin)
     (setq magit-delete-by-moving-to-trash nil))
