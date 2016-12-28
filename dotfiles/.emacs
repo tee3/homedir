@@ -89,6 +89,11 @@
   :bind
   ("C-c x" . save-buffers-kill-emacs))
 
+(when (or (not (equal system-type 'darwin))
+          (or (and (>= emacs-major-version 24) (>= emacs-minor-version 4))
+              (> emacs-major-version 24)))
+  (setq delete-by-moving-to-trash t))
+
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
