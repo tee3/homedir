@@ -85,6 +85,10 @@
 (use-package files
   :init
   (setq version-control t))
+(when (or (not (equal system-type 'darwin))
+          (or (and (>= emacs-major-version 24) (>= emacs-minor-version 4))
+              (> emacs-major-version 24)))
+  (setq delete-by-moving-to-trash t))
 
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
