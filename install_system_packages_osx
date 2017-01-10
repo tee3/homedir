@@ -145,10 +145,11 @@ ${pm_install} enscript
 #${pm_install} ext2fuse
 ${pm_install} fortune
 ${pm_install} gcc
-${pm_install} gcc48
-${pm_install} gcc49
-${pm_install} gcc5
-#${pm_install} gcc6
+#${pm_install} gcc@4.6
+#${pm_install} gcc@4.7
+${pm_install} gcc@4.8
+${pm_install} gcc@4.9
+${pm_install} gcc@5
 ${pm_install} gdb
 ${pm_install} gem-completion
 ${pm_install} git-flow
@@ -184,10 +185,10 @@ ${pm_install} jsonpp
 ${pm_install} launchctl-completion
 ${pm_install} legit
 ${pm_install} llvm --with-lldb
-#${pm_install} llvm35 --with-lld --with-lldb
-#${pm_install} llvm36 --with-lld --with-lldb
-#${pm_install} llvm37 --with-lld --with-lldb
-#${pm_install} llvm38 --with-lld --with-lldb
+#${pm_install} llvm@3.5 --with-lld --with-lldb
+#${pm_install} llvm@3.6 --with-lld --with-lldb
+#${pm_install} llvm@3.7 --with-lld --with-lldb
+#${pm_install} llvm@3.8 --with-lld --with-lldb
 ${pm_install} lrzsz
 ${pm_install} markdown
 #${pm_install} mscgen --without-gd
