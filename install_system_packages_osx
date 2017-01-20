@@ -178,7 +178,7 @@ ${pm_install} jansson
 ${pm_install} jasper
 ${pm_install} jpeg
 ${pm_install} jrnl
-${pm_install} jsl
+#${pm_install} jsl
 ${pm_install} jsmin
 ${pm_install} json-c
 ${pm_install} jsonpp
