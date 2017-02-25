@@ -1,0 +1,1 @@
+setup-warehouse libs : "https://dl.bintray.com/darkangel-ua/hammer" ;
