@@ -62,6 +62,11 @@
 (setq visible-bell t)
 (setq version-control t)
 
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+
 (when (equal system-type 'darwin)
   (setq ns-pop-up-frames nil)
 
