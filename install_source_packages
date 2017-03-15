@@ -110,6 +110,50 @@ def install_boost(basedir):
         command = [os.path.join (boostdir, 'bootstrap.sh')]
     subprocess.check_call(command, cwd=boostdir)
 
+
+def install_standardese(basedir):
+    standardesedir = os.path.join(basedir, 'src', 'standardese')
+
+    git_clone_update_pull_ff_only(
+        'https://github.com/foonathan/standardese.git',
+        standardesedir)
+
+    command = ['git', '-C', standardesedir, 'clean', '-d', '-x', '-f']
+    subprocess.check_call(command)
+
+    build = os.path.join(standardesedir, 'Debug')
+    if not os.path.exists(build):
+        os.makedirs(build)
+
+    libclang_include_dir_option = ''
+    libclang_library_option = ''
+    libclang_system_include_dir_option = ''
+    if sys.platform.startswith('darwin'):
+        llvm_prefix = subprocess.check_output(['brew', '--prefix', 'llvm']).rstrip()
+        libclang_include_dir = os.path.join(llvm_prefix, 'include')
+        if libclang_include_dir:
+            libclang_include_dir_option = '-DLIBCLANG_INCLUDE_DIR=' + libclang_include_dir
+        libclang_library = os.path.join(llvm_prefix, 'lib', 'libclang.dylib')
+        if libclang_library:
+            libclang_library_option = '-DLIBCLANG_LIBRARY=' + libclang_library
+        libclang_system_include_dir = os.path.join(llvm_prefix, 'include', 'clang')
+        if libclang_system_include_dir:
+            libclang_system_include_dir_option = '-DLIBCLANG_SYSTEM_INCLUDE_DIR=' + libclang_system_include_dir
+
+    command = [
+        'cmake',
+        libclang_include_dir_option,
+        libclang_library_option,
+        libclang_system_include_dir_option,
+        '-DCMAKE_BUILD_TYPE=Debug',
+        '-DCMAKE_INSTALL_PREFIX:PATH=' + basedir,
+        '-DSTANDARDESE_BUILD_TEST=OFF',
+        '..'
+    ]
+    subprocess.check_call(command, cwd=build)
+    command = ['cmake', '--build', '.', '--target', 'install']
+    subprocess.check_call(command, cwd=build)
+
 # requires HOME.
 if 'HOME' not in os.environ or os.environ['HOME'] == '':
     print 'error: HOME is not set, aborting.'
@@ -132,5 +176,6 @@ if __name__ == '__main__':
     except:
         r = 1
     install_boost(prefix)
+    install_standardese(prefix)
 
     sys.exit(r)
