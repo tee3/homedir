@@ -26,6 +26,7 @@ else
     pm_upgrade="${pm} upgrade"
     pm_install="${pm} install"
     pm_cleanup="${pm} cleanup -s"
+    pm_cask_install="${pm} cask install"
 fi
 
 # check if package manager is installed
@@ -218,7 +219,7 @@ ${pm_install} ssh-copy-id
 ${pm_install} stdman
 ${pm_install} stow
 ${pm_install} stress
-${pm_install} subgit
+${pm_cask_install} subgit
 ${pm_install} swig
 ${pm_install} tcpdump
 ${pm_install} tcpflow
