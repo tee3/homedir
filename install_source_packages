@@ -76,8 +76,13 @@ def install_rtags(basedir):
     if not os.path.exists(build):
         os.makedirs(build)
 
+    bash_completion_option = ''
+    if sys.platform.startswith('darwin'):
+        bash_completion_option = '-DFORCE_BASH_COMPLETION_INSTALLATION=1'
+
     command = [
         'cmake',
+        bash_completion_option,
         '-DCMAKE_BUILD_TYPE=Release',
         '-DCMAKE_INSTALL_PREFIX:PATH=' + basedir,
         '..'
