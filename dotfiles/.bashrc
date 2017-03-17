@@ -46,7 +46,7 @@ if [ -e /usr/local/bin/brew ]; then
 
     # Go from Homebrew
     if [ -e "$(brew --prefix go)" ]; then
-        export PATH=$PATH:"$(brew --prefix go)"/libexec/bin
+        export PATH=${PATH}:"$(brew --prefix go)"/libexec/bin
     fi
 
     # Boost.Build from Homebrew
