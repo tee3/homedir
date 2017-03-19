@@ -757,6 +757,9 @@
 ;;;
 ;;; Programming languages
 ;;;
+(use-package ada-mode
+  :ensure ada-mode
+  :pin gnu)
 (use-package applescript-mode
   :ensure t
   :pin melpa)
