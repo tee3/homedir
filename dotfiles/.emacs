@@ -604,7 +604,6 @@
   :ensure t
   :pin melpa)
 (use-package csharp-mode
-  :disabled t
   :ensure t
   :pin melpa
   :init
