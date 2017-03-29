@@ -1,0 +1,4 @@
+# Source all local completions
+if [ -d "${HOME}"/opt/local/share/bash-completion/completions ]; then
+    source "${HOME}"/opt/local/share/bash-completion/completions/*
+fi
