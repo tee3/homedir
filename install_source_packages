@@ -76,21 +76,8 @@ def install_rtags(basedir):
     if not os.path.exists(build):
         os.makedirs(build)
 
-    dont_build_clang_option = ''
-    if sys.platform.startswith('darwin'):
-        dont_build_clang_option = '-DRTAGS_BUILD_CLANG=0'
-
-    llvm_config_option = ''
-    if sys.platform.startswith('darwin'):
-        llvm_config_dir = subprocess.check_output(['brew', '--prefix', 'llvm']).rstrip()
-        llvm_config = os.path.join(llvm_config_dir,'bin', 'llvm-config')
-        if llvm_config_dir:
-            llvm_config_option = '-DLIBCLANG_LLVM_CONFIG_EXECUTABLE=' + llvm_config
-
     command = [
         'cmake',
-        dont_build_clang_option,
-        llvm_config_option,
         '-DCMAKE_BUILD_TYPE=Release',
         '-DCMAKE_INSTALL_PREFIX:PATH=' + basedir,
         '..'
