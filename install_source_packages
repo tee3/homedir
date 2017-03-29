@@ -78,7 +78,7 @@ def install_rtags(basedir):
 
     dont_build_clang_option = ''
     if sys.platform.startswith('darwin'):
-        dont_build_clang_option = '-DRTAGS_NO_BUILD_CLANG=1'
+        dont_build_clang_option = '-DRTAGS_BUILD_CLANG=0'
 
     llvm_config_option = ''
     if sys.platform.startswith('darwin'):
