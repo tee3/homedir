@@ -185,7 +185,7 @@ ${pm_install} json-c
 ${pm_install} jsonpp
 ${pm_install} launchctl-completion
 ${pm_install} legit
-${pm_install} llvm --with-lldb
+${pm_install} llvm --HEAD --with-lldb
 ${pm_install} llvm@3.7
 ${pm_install} llvm@3.8
 ${pm_install} llvm@3.9
