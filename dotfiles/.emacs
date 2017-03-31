@@ -1080,7 +1080,10 @@
   :init
   (use-package flycheck-clangcheck
     :ensure t
-    :pin melpa)
+    :pin melpa
+    :init
+    (when (equal system-type 'darwin)
+      (setq flycheck-c/c++-clangcheck-executable "/usr/local/opt/llvm/bin/clang-check")))
   (use-package flycheck-google-cpplint
     :ensure t
     :pin melpa))
