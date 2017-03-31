@@ -1236,6 +1236,22 @@ See URL `http://www.jslint.com'."
   (global-homebrew-mode))
 
 ;;;
+;;; Clang Format
+;;;
+(use-package clang-format
+  :ensure t
+  :pin melpa
+  :init
+  (use-package yaml-mode
+    :ensure t
+    :pin melpa
+    :mode
+    ((".clang-format\\'" . yaml-mode)))
+
+  (when (equal system-type 'darwin)
+    (setq clang-format-executable "/usr/local/opt/llvm/bin/clang-format")))
+
+;;;
 ;;; Flycheck
 ;;;
 (use-package flycheck
