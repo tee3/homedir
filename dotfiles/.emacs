@@ -1319,6 +1319,16 @@ See URL `http://www.jslint.com'."
   (rtags-enable-standard-keybindings))
 
 ;;;
+;;; Language Server Protocol
+;;;
+(use-package lsp-mode
+  :disabled t
+  :load-path
+  "~/Development/emacs-lsp"
+  :config
+  (global-lsp-mode))
+
+;;;
 ;;; Rainbow modes
 ;;;
 (use-package rainbow-delimiters
