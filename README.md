@@ -48,7 +48,7 @@ date and all required packages are installed.
 
 # supported systems
 
-* OS X
+* macOS
 * Linux
 * Windows
 
@@ -70,7 +70,7 @@ of the `tee3/homedir` directory.
 * `yum`- or `apt-get`-based Linux system
 * `root` access
 
-### os x
+### macos
 
 * Homebrew
 * administrator privileges (but not `sudo`)
@@ -88,7 +88,7 @@ of the `tee3/homedir` directory.
 * `yum`- or `apt-get`-based Linux system
 * `sudo`
 
-### os x
+### macos
 
 * Homebrew
 * administrator privileges (but not `sudo`)
@@ -108,7 +108,7 @@ some Unix emulation layers such as MSYS or Cygwin.
 
 For installing user services, the following programs are required.
 
-* `launchctl` for OS X
+* `launchctl` for macOS
 * `systemctl` for Linux
 
 To configure some useful programs, those programs must exist on the
@@ -187,7 +187,7 @@ $ ./install_system_packages_debian
 $ sudo shutdown -r now
 ```
 
-## os x
+## macos
 
 Install Xcode and the Xcode Command-Line Tools, as well as Homebrew,
 while logged in to the graphical system as `administrator`.  From a
@@ -198,7 +198,7 @@ logged in.
 ```
 $ git clone https://github.com/tee3/homedir ~/Development/homedir
 $ cd ~/Development/homedir
-$ ./install_system_packages_osx
+$ ./install_system_packages_macos
 $ sudo shutdown -r now
 ```
 
@@ -350,14 +350,14 @@ run the following script as a user with `sudo` permission.
 $ ./install_system_packages_debian
 ```
 
-## os x
+## macos
 
-To install system packages for OS X (via Homebrew), run the following
+To install system packages for macOS (via Homebrew), run the following
 script as the administrator of the system.  Note that this does not
 use `sudo` as Homebrew does not require it.
 
 ```
-$ ./install_system_packages_osx
+$ ./install_system_packages_macos
 ```
 
 ## windows

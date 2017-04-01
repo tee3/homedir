@@ -79,8 +79,8 @@ if sys.platform.startswith('linux'):
     print 'Installing for Linux.'
     machine = 'linux'
 elif sys.platform.startswith('darwin'):
-    print 'Installing for OS X.'
-    machine = 'osx'
+    print 'Installing for macOS.'
+    machine = 'macos'
 elif sys.platform.startswith('cygwin'):
     print 'Installing for Cygwin.'
     machine = 'cygwin'
@@ -195,7 +195,7 @@ if __name__ == '__main__':
                     print 'warning: failed to enable systemd service at %s.' % (f)
                 if not emulate_run(['systemctl', '--user', 'start', os.path.basename(b) + e]):
                     print 'warning: failed to start systemd service at %s.' % (f)
-        elif machine == 'osx':
+        elif machine == 'macos':
             src_d = os.path.join(os.getcwd(), 'services', 'launchd', '*.plist')
             dst_d = os.path.join(HOME, 'Library', 'LaunchAgents')
 
@@ -260,7 +260,7 @@ if __name__ == '__main__':
         # set up a credential helper
         if machine == 'linux':
             emulate_run([git, 'config', '-f', gitconfig_machine, 'credential.helper', 'cache --timeout 3600'])
-        elif machine == 'osx':
+        elif machine == 'macos':
             emulate_run([git, 'config', '-f', gitconfig_machine, 'credential.helper', 'osxkeychain'])
         elif machine == 'cygwin':
             emulate_run([git, 'config', '-f', gitconfig_machine, 'credential.helper', 'cache --timeout 3600'])

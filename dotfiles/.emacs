@@ -780,7 +780,7 @@
 
   (setq magit-repository-directories (quote (("~/Development" . 2))))
 
-  ; trash doesn't work properly on OS X
+  ; trash doesn't work properly on macOS
   (when (equal system-type 'darwin)
     (setq magit-delete-by-moving-to-trash nil))
 
