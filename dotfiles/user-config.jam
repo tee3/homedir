@@ -61,7 +61,7 @@ if [ os.name ] = MAXOSX
 # Documentation
 
 using xsltproc ;
-#using boostbook ;
+using boostbook ;
 using doxygen ;
 using quickbook ;
 
