@@ -61,9 +61,25 @@ if [ os.name ] = MAXOSX
 # Documentation
 
 local docbook-xsl-path = ;
+if [ os.name ] = MACOSX
+{
+  docbook-xsl-path = /usr/local/opt/docbook-xsl/docbook-xsl ;
+}
 local docbook-dtd-path = ;
+if [ os.name ] = MACOSX
+{
+  docbook-dtd-path = /usr/local/opt/docbook/docbook/xml/4.2 ;
+}
 local boostbook-executable = ;
+if [ os.name ] = MACOSX
+{
+  boostbook-executable = $(HOME)/opt/local/src/boost/boost.git/tools/boostbook ;
+}
 local quickbook-executable = ;
+if [ os.name ] = MACOSX
+{
+  quickbook-executable = $(HOME)/opt/local/src/boost/boost.git/bin.v2/tools/quickbook/src/clang-darwin-4.2.1/release/link-static/quickbook ;
+}
 
 using xsltproc ;
 using boostbook : $(docbook-xsl-path) : $(docbook-dtd-path) : $(boostbook-executable) ;
