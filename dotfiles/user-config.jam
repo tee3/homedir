@@ -60,10 +60,15 @@ if [ os.name ] = MAXOSX
 
 # Documentation
 
+local docbook-xsl-path = ;
+local docbook-dtd-path = ;
+local boostbook-executable = ;
+local quickbook-executable = ;
+
 using xsltproc ;
-using boostbook ;
+using boostbook : $(docbook-xsl-path) : $(docbook-dtd-path) : $(boostbook-executable) ;
 using doxygen ;
-using quickbook ;
+using quickbook : $(quickbook-executable) ;
 
 if [ os.name ] = MACOSX
 {
