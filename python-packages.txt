@@ -25,6 +25,7 @@ html2rest
 
 # Miscellaneous
 speedtest-cli
+azure-cli
 
 # Fun
 #beets
