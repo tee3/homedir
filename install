@@ -207,7 +207,7 @@ if __name__ == '__main__':
                 if os.path.exists(dst_f):
                     print 'warning: %s exists, skipping %s.' % (dst_f, f)
                 else:
-                    os.symlink(f, dst_d)
+                    os.symlink(f, dst_f)
 
                 b, e = os.path.splitext(f)
                 assert e == '.plist'
