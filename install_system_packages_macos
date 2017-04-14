@@ -191,6 +191,8 @@ ${pm_install} llvm@3.8
 ${pm_install} llvm@3.9
 ${pm_install} lrzsz
 ${pm_install} markdown
+${pm_install} maven
+${pm_install} maven-completion
 #${pm_install} mscgen --without-gd
 ${pm_install} netcat
 ${pm_install} netperf

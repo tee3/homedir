@@ -191,6 +191,7 @@ ${pm_install} llvm
 ${pm_install} llvm-devel
 ${pm_install} lrzsz
 #${pm_install} markdown
+${pm_install} maven
 #${pm_install} mscgen
 #${pm_install} netcat
 #${pm_install} netperf
