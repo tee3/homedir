@@ -1325,6 +1325,10 @@ See URL `http://www.jslint.com'."
   :disabled t
   :load-path
   "~/Development/emacs-lsp"
+  :init
+  (use-package flycheck
+    :ensure t
+    :pin melpa)
   :config
   (global-lsp-mode))
 
