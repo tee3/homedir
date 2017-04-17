@@ -211,6 +211,7 @@ ${pm_install} parallel
 ${pm_install} pinentry
 ${pm_install} pip-completion
 ${pm_install} pkg-config
+${pm_install} protobuf
 ${pm_install} ruby-completion
 ${pm_install} shellcheck
 ${pm_install} sloccount
