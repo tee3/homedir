@@ -1,7 +1,6 @@
 # JavaScript Development Tools
 jsdoc
 
-esformatter
 eslint
 semistandard
 semistandard-format
