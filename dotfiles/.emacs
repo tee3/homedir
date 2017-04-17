@@ -1228,7 +1228,9 @@
   :init
   (use-package flycheck-package
     :ensure t
-    :pin melpa)
+    :pin melpa
+    :config
+    (flycheck-package-setup))
   :config
   (global-flycheck-mode))
 
