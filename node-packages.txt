@@ -3,7 +3,6 @@ jsdoc
 
 esformatter
 eslint
-jscs
 jshint
 jslint
 semistandard
