@@ -10,6 +10,7 @@ eslint-config-es5
 eslint-config-jsdoc
 eslint-config-json
 eslint-config-standard
+standard
 semistandard
 
 json
