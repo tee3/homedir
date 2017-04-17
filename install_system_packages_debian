@@ -196,6 +196,7 @@ ${pm_install} openocd
 #${pm_install} pinentry
 #${pm_install} pip-completion
 #${pm_install} pkg-config
+${pm_install} protobuf
 #${pm_install} ruby-completion
 ${pm_install} screen
 ${pm_install} shellcheck
