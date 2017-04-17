@@ -1126,6 +1126,9 @@
   :config
   (add-hook 'js-mode-hook (lambda ()
                             (tern-mode t))))
+(use-package eslint-fix
+  :ensure t
+  :pin melpa)
 
 ;;; node.js
 (use-package nodejs-repl
