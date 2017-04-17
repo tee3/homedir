@@ -1210,7 +1210,9 @@
     :ensure t
     :pin melpa)
   (when (equal system-type 'darwin)
-    (setq flycheck-c/c++-clang-tidy-executable "/usr/local/opt/llvm/bin/clang-tidy")))
+    (setq flycheck-c/c++-clang-tidy-executable "/usr/local/opt/llvm/bin/clang-tidy"))
+  :config
+  (add-hook 'flycheck-mode-hook #'flycheck-clang-tidy-setup))
 (use-package yaml-mode
   :ensure t
   :pin melpa
