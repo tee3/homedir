@@ -1106,6 +1106,17 @@
   :ensure t
   :pin melpa)
 
+;;; Java programming language
+(use-package meghanada
+  :ensure t
+  :pin melpa
+  :config
+  ;; (add-hook 'java-mode-hook (lambda ()
+  ;;                             (meghanada-mode t)
+  ;;                             (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
+  (add-hook 'java-mode-hook (lambda ()
+                              (meghanada-mode t))))
+
 ;;; JavaScript programming language
 (use-package js)
 (use-package js-comint
