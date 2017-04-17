@@ -143,6 +143,7 @@ ${pm_install} global
 ${pm_install} golang
 #${pm_install} graphviz
 ${pm_install} guile-2.0
+#${pm_install} hadolint
 ${pm_install} highlight
 ${pm_install} htop
 #${pm_install} httping
