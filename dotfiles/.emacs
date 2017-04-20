@@ -1285,15 +1285,16 @@
 ;;; Language Server Protocol
 ;;;
 (use-package lsp-mode
-  :disabled t
-  :load-path
-  "~/Development/emacs-lsp"
+  :ensure t
+  :pin melpa
   :init
   (use-package flycheck
     :ensure t
     :pin melpa)
+  (setq lsp-print-io t)
   :config
-  (global-lsp-mode))
+  (global-lsp-mode)
+  (require 'lsp-flycheck))
 
 ;;;
 ;;; Rainbow modes
