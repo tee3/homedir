@@ -1288,6 +1288,12 @@
   (use-package flycheck
     :ensure t
     :pin melpa)
+  (use-package lsp-clangd
+    :load-path
+    "~/Development/lsp-clangd"
+    :init
+    (when (equal system-type 'darwin)
+      (setq lsp-clangd-executable "/usr/local/opt/llvm/bin/clangd")))
   (use-package lsp-go
     :ensure t
     :pin melpa)
