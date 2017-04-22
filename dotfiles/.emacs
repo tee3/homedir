@@ -1288,6 +1288,9 @@
   (use-package flycheck
     :ensure t
     :pin melpa)
+  (use-package lsp-go
+    :ensure t
+    :pin melpa)
   (use-package lsp-java
     :ensure t
     :pin melpa)
