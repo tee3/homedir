@@ -1166,6 +1166,9 @@
     (when (equal system-type 'gnu/linux)
       (setq flycheck-c/c++-clangcheck-executable "/home/linuxbrew/.linuxbrew/opt/llvm/bin/clang-check")))
   (setq flycheck-javascript-standard-executable "semistandard")
+  (use-package flycheck-google-cpplint
+    :ensure t
+    :pin melpa)
   (use-package flycheck-objc-clang
     :ensure t
     :pin melpa
