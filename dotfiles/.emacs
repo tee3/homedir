@@ -1293,8 +1293,7 @@
     :pin melpa)
   (setq lsp-print-io t)
   :config
-  (global-lsp-mode)
-  (require 'lsp-flycheck))
+  (global-lsp-mode))
 
 ;;;
 ;;; Rainbow modes
