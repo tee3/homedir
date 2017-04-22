@@ -36,6 +36,9 @@ else
     pm_upgrade="true"
     pm_install="sudo ${pm} -q -y install"
     pm_cleanup="sudo ${pm} autoremove && ${pm} clean all"
+
+    sudo ${pm} install dnf-plugins-core
+    sudo ${pm} config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 fi
 
 # check if yum is installed, if package manager is not
@@ -130,7 +133,7 @@ ${pm_install} dfu-util
 #${pm_install} dnstop
 #${pm_install} docbook
 #${pm_install} docbook-xsl
-#${pm_install} docker
+${pm_install} docker-ce
 ${pm_install} doxygen
 #${pm_install} e2fsprogs
 ${pm_install} emacs-nox
