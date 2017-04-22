@@ -1288,6 +1288,9 @@
   (use-package flycheck
     :ensure t
     :pin melpa)
+  (use-package lsp-python
+    :ensure t
+    :pin melpa)
   (setq lsp-print-io t))
 
 ;;;
