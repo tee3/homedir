@@ -1282,6 +1282,7 @@
 ;;; Language Server Protocol
 ;;;
 (use-package lsp-mode
+  :disabled t
   :ensure t
   :pin melpa
   :init
