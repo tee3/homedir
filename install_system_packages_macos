@@ -157,6 +157,7 @@ ${pm_install} git-flow
 ${pm_install} git-hooks
 ${pm_install} git-lfs
 ${pm_install} git-test
+${pm_cask_install} github-desktop
 ${pm_install} glew
 ${pm_install} glfw3
 ${pm_install} glib
