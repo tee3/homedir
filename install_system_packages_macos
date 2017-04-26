@@ -138,7 +138,7 @@ ${pm_install} dns2tcp
 ${pm_install} dnstop
 ${pm_install} docbook
 ${pm_install} docbook-xsl
-${pm_install} docker
+${pm_cask_install} docker
 ${pm_install} doxygen
 ${pm_install} emacs --with-cocoa
 ${pm_install} emscripten
