@@ -100,7 +100,8 @@ if __name__ == '__main__':
 
             dst_f = os.path.join(dst_d, os.path.basename(f))
             if os.path.exists(dst_f):
-                print 'warning: %s exists, skipping %s.' % (dst_f, f)
+                if not os.path.samefile(dst_f, f):
+                    print 'warning: %s exists and is different, skipping %s.' % (dst_f, f)
             else:
                 os.symlink(f, dst_f)
 
@@ -130,7 +131,8 @@ if __name__ == '__main__':
 
             dst_f = os.path.join(dst_d, os.path.basename(f))
             if os.path.exists(dst_f):
-                print 'warning: %s exists, skipping %s.' % (dst_f, f)
+                if not os.path.samefile(dst_f, f):
+                    print 'warning: %s exists and is different, skipping %s.' % (dst_f, f)
             else:
                 os.symlink(f, dst_f)
 
