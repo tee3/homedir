@@ -77,6 +77,7 @@ of the `tee3/homedir` directory.
 
 ### windows
 
+* Chocolatey
 * administrator privileges
 
 ## system
@@ -95,6 +96,7 @@ of the `tee3/homedir` directory.
 
 ### windows
 
+* Chocolatey
 * Administrator privileges
 
 ## user
@@ -203,10 +205,11 @@ sudo shutdown -r now
 ## macos
 
 Install Xcode and the Xcode Command-Line Tools, as well as Homebrew,
-while logged in to the graphical system as `administrator`.  From a
-Terminal.app window install the system packages.  At the end of this
-process, the machine will reboot, so make sure there is no one else
-logged in.
+while logged in to the graphical system as `administrator`.
+
+From a Terminal.app window install the system packages.  At the end of
+this process, the machine will reboot, so make sure there is no one
+else logged in.
 
 ``` shell
 git clone https://github.com/tee3/homedir.git ~/Development/homedir
@@ -217,115 +220,28 @@ sudo shutdown -r now
 
 ## windows
 
-There is very limited support for installing system packages under
-Windows and such is a manual process.
+If the built-in Administrator account is not enabled, enable it or log
+in using account with administrative privileges.  It is highly
+recommended to enable the built-in Administrator account.
 
-Install the following tools using the normal Windows installation
-processes, customizing the installers as described below.
+```
+C:\> net user administrator /active:yes
+```
 
-* Emacs for Windows (64-bit, without dependencies)
+From a Windows Command (`cmd.exe`) prompt with Administrator
+privileges, install Chocolately using the instructions on the
+[Chocolately website](https://chocolatey.org).
 
-  * Move extracted file to `C:\Emacs`.
+From a Windows Command (`cmd.exe`) prompt with Administrator
+privileges, install Git Using Chocolately.
 
-* Git For Windows (64-bit)
+``` batchfile
+choco install git
+```
 
-  * Install for all users.
-
-  * Install to `C:\Git`.
-
-  * Add to `PATH`.
-
-  * Enable the "Use Git from the Windows Command Prompt" option to
-    use Git directly in `cmd` without using Bash.  Note that this
-    still allows the use of Git Bash, but defaults to using Windows
-    `cmd`.
-
-  * Enable the "Checkout Windows-style, commit Unix-style line
-    endings" so Windows tools are comfortable and Git repositories
-    are in the canonical form.
-
-  * Enable the "Use Windows' default console window" option.
-
-  * Enable the "Enable file system caching" option to increase
-    performance.
-
-* Install Python 3.6 (64-bit).
-
-  * For all users.
-
-  * Install to `C:\Python36`.
-
-  * Add to `PATH`.
-
-* Build Tools for Visual Studio 2017 or Visual Studio 2017
-
-  * Install to the default location.
-
-* Ruby 2.3 (64-bit)
-
-  * Install for all users.
-
-  * Install to `C:\Ruby23`.
-
-  * Add to `PATH`.
-
-* Rust (64-bit)
-
-  * Install for all users.
-
-  * Install to `C:\Rust`.
-
-  * Add to `PATH`.
-
-* Go 1.8 (64-bit)
-
-  * Install for all users.
-
-  * Install to `C:\Go`.
-
-  * Add to `PATH`.
-
-* Node.JS (64-bit)
-
-  * Install for all users.
-
-  * Install to `C:\nodejs`.
-
-  * Add to `PATH`.
-
-* Boost.Build from Boost C++ Libraries 1.68.0
-
-  * Install from source.
-
-  * Download `boost_1_68_0.zip` to `C:\Boost\src\boost_1_68_0.zip`.
-
-  * Extract to `C:\Boost\src\boost_1_68_0`.
-
-  * Install Boost.Build to `C:\boost-build`.
-
-    ```
-    cd C:\Boost\src\boost_1_68_0\tools\build
-    bootstrap.bat
-    b2 install
-    ```
-* Boost C++ Libraries 1.68.0
-
-  * Install from source (this will take a very long time).
-
-  * Download `boost_1_68_0.zip` to `C:\Boost\src\boost_1_68_0.zip`.
-
-  * Extract to `C:\Boost\src\boost_1_68_0`.
-
-  * Install versioned Boost C++ Libraries to `C:\Boost`.
-
-    ```
-    cd C:\Boost\src\boost_1_68_0
-    b2 --layout=versioned inetall
-    ```
-
-From a `cmd` window install the system packages.  At the end of this
-process, the machine will reboot, so make sure there is no one else
-logged in.
+From a Windows Command (`cmd.exe`) prompt with Administrator
+privileges, install the system packages.  At the end of this process,
+the machine will reboot, so make sure there is no one else logged in.
 
 ``` batchfile
 git clone https://github.com/tee3/homedir.git C:\Users\administrator\Development\homedir
@@ -442,9 +358,6 @@ use `sudo` as Homebrew does not require it.
 ```
 
 ## windows
-
-NOTE: Windows package support is lacking as there is no useful package
-system for Windows yet.
 
 To install system packages for Windows, run the following script as
 the administrator of the system.
