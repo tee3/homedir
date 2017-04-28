@@ -15,6 +15,54 @@ def emulate_run(args, env=None):
     return False
 
 
+def replace_systemd_template_specifiers(service, s):
+    """Returns a copy of the input string s with the systemd-style
+    template specifiers replaced.
+
+    """
+
+    # requires HOME.
+    if 'HOME' not in os.environ or os.environ['HOME'] == '':
+        print 'error: HOME is not set, aborting.'
+        sys.exit(1)
+    HOME = os.environ['HOME']
+    # requires USER.
+    if 'USER' not in os.environ or os.environ['USER'] == '':
+        print 'error: USER is not set, aborting.'
+        sys.exit(1)
+    USER = os.environ['USER']
+    # requires SHELL.
+    if 'SHELL' not in os.environ or os.environ['SHELL'] == '':
+        print 'error: SHELL is not set, aborting.'
+        sys.exit(1)
+    SHELL = os.environ['SHELL']
+    # requires UID.
+    #UID = str(pwd.getpwnam(USER).pw_uid)
+    # requires HOSTNAME.
+    #HOSTNAME = os.uname()[1]
+
+    s = s.replace('%n', service)
+    #s = s.replace('%N', XXX)
+    #s = s.replace('%p', XXX)
+    #s = s.replace('%P', XXX)
+    #s = s.replace('%i', XXX)
+    #s = s.replace('%I', XXX)
+    #s = s.replace('%f', XXX)
+    #s = s.replace('%t', XXX)
+    s = s.replace('%u', USER)
+    #s = s.replace('%U', UID)
+    s = s.replace('%h', HOME)
+    s = s.replace('%s', SHELL)
+    #s = s.replace('%m', XXX)
+    #s = s.replace('%b', XXX)
+    #s = s.replace('%H', HOSTNAME)
+    #s = s.replace('%v', XXX)
+
+    # must be last
+    s = s.replace('%%', '%')
+
+    return s
+
 # requires HOME.
 if 'HOME' not in os.environ or os.environ['HOME'] == '':
     print 'error: HOME is not set, aborting.'
@@ -61,15 +109,24 @@ if __name__ == '__main__':
             if not emulate_run(['systemctl', '--user', 'start', os.path.basename(b) + e]):
                 print 'warning: failed to start systemd service at %s.' % (f)
     elif machine == 'macos':
-        src_d = os.path.join(os.getcwd(), 'services', 'launchd', '*.plist')
+        src_d = os.path.join(os.getcwd(), 'services', 'launchd', '*.plist.template')
         dst_d = os.path.join(HOME, 'Library', 'LaunchAgents')
 
         if not os.path.exists(dst_d):
             os.makedirs(dst_d)
 
-        for f in glob.iglob(src_d):
+        for t in glob.iglob(src_d):
+            f, e = os.path.splitext(t)
+            assert e == '.template'
             b, e = os.path.splitext(f)
             assert e == '.plist'
+
+            s = ''
+            with open(t, 'r') as fp:
+                s = fp.read()
+            s = replace_systemd_template_specifiers(b, s)
+            with open(f, 'w') as fp:
+                fp.write(s)
 
             dst_f = os.path.join(dst_d, os.path.basename(f))
             if os.path.exists(dst_f):

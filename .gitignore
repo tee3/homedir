@@ -1,2 +1,3 @@
 /ruby-packages.gemfile.lock
 /.bundle/
+/services/launchd/*.plist
