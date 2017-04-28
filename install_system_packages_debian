@@ -128,6 +128,7 @@ ${pm_install} g++
 #${pm_install} g++-6
 ${pm_install} gdb
 #${pm_install} gem-completion
+${pm_install} git-extras
 #${pm_install} git-flow
 #${pm_install} git-hooks
 #${pm_install} git-lfs
