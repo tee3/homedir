@@ -20,9 +20,9 @@ rem @todo would be better if this used same approach as bash
 if exist "%CMDPYTHONROOT%" set PATH=%HOME%\AppData\Roaming\Python\Scripts;%PATH%
 
 rem Ruby
-set CMDRUBYROOT=C:\Ruby22-x64
+set CMDRUBYROOT=C:\Ruby23
 rem @todo would be better if this used same approach as bash
-if exist "%CMDRUBYROOT%" set PATH=%HOME%\.gem\ruby\2.2.0\bin;%PATH%
+if exist "%CMDRUBYROOT%" set PATH=%HOME%\.gem\ruby\2.3.0\bin;%PATH%
 
 rem Node.js
 set CMDNODEJSROOT=C:\nodejs
@@ -35,7 +35,7 @@ set CMDGOROOT=C:\Go
 if exist "%CMDGOROOT%" set PATH=%CMDOPTLOCAL%\src\go\bin;%PATH%
 
 rem Emacs
-set CMDEMACSROOT=C:\emacs-25.1-x86_64-w64-mingw32
+set CMDEMACSROOT=C:\Emacs
 if exist "%CMDEMACSROOT%" set PATH=%CMDEMACSROOT%\bin;%PATH%
 if exist "%CMDEMACSROOT%" (
    set ALTERNATE_EDITOR=
