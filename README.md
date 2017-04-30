@@ -240,8 +240,9 @@ processes, customizing the installers as described below.
 
   * Add to `PATH`.
 
-* Install the one or more of Visual C++ Build Tools, Visual C++
-  Express, and Visual Studio to install a working C and C++ compiler.
+* *Build Tools for Visual Studio 2017* (`vs_buildtools.exe`)
+
+  * Install to the default location.
 
 * Ruby 2.3 (64-bit)
 
