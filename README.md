@@ -205,53 +205,78 @@ $ sudo shutdown -r now
 ## windows
 
 There is very limited support for installing system packages under
-Windows and such is a manual process.  Administrator privileges is
-required in order to install programs for all users.
+Windows and such is a manual process.
 
-1. Log in to the graphical system as a user with Administrator
-   privileges.
+Install the following tools using the normal Windows installation
+processes, customizing the installers as described below.
 
-2. Install Git For Windows and allow it to add itself to the PATH,
-   assuming it is installed to `C:\Git`.  Use the following options when installing.
+* Git For Windows (64-bit)
 
-   1. Enable the "Use Git from the Windows Command Prompt" option to
-      use Git directly in `cmd` without using Bash.  Note that this
-      still allows the use of Git Bash, but defaults to using Windows
-      `cmd`.
+  * Install for all users.
 
-   2. Enable the "Checkout Windows-style, commit Unix-style line
-      endings" so Windows tools are comfortable and Git repositories
-      are in the canonical form.
+  * Install to `C:\Git`.
 
-   3. Enable the "Use Windows' default console window" option.
+  * Add to `PATH`.
 
-   4. Enable the "Enable file system caching" option to increase
-      performance.
+  * Enable the "Use Git from the Windows Command Prompt" option to
+    use Git directly in `cmd` without using Bash.  Note that this
+    still allows the use of Git Bash, but defaults to using Windows
+    `cmd`.
 
-3. Install Python 2.7 and allow it to add itself to the `PATH`,
-   assuming it is installed to `C:\Python27`.
+  * Enable the "Checkout Windows-style, commit Unix-style line
+    endings" so Windows tools are comfortable and Git repositories
+    are in the canonical form.
 
-4. Install the one or more of Visual C++ Build Tools, Visual C++
-   Express, and Visual Studio to install a working C and C++ compiler.
+  * Enable the "Use Windows' default console window" option.
 
-5. (Optional) Install Ruby and allow it to add itself to the PATH,
-   assuming it is installed to `C:\Ruby22-x64`.
+  * Enable the "Enable file system caching" option to increase
+    performance.
 
-5. (Optional) Install Go and allow it to add itself to the PATH,
-   assuming it is installed to `C:\Go`.
+* Python 2.7 (64-bit)
 
-5. (Optional) Install Node.JS and allow it to add itself to the PATH,
-   installing to `C:\nodejs`.
+  * Install for all users.
 
-5. From a `cmd` window, install the system packages.
+  * Install to `C:\Python27`.
+
+  * Add to `PATH`.
+
+* Install the one or more of Visual C++ Build Tools, Visual C++
+  Express, and Visual Studio to install a working C and C++ compiler.
+
+* (Optional) Ruby (64-bit)
+
+  * Install for all users.
+
+  * Install to `C:\Ruby22-x64`.
+
+  * Add to `PATH`.
+
+* (Optional) Go (64-bit)
+
+  * Install for all users.
+
+  * Install to `C:\Go`.
+
+  * Add to `PATH`.
+
+* (Optional) Node.JS (64-bit)
+
+  * Install for all users.
+
+  * Install to `C:\nodejs`.
+
+  * Add to `PATH`.
+
+From a `cmd` window install the system packages.  At the end of this
+process, the machine will reboot, so make sure there is no one else
+logged in.
 
 ```
 C:> git clone https://github.com/tee3/homedir C:\Users\administrator\Development\homedir
 C:> cd C:\Users\administrator\Development\homedir
 C:> install_system_packages_windows
+C:> shutdown /r
 ```
-
-7. At the end of this process, reboot the machine.
 
 ## windows subsystem for linux
 
@@ -277,9 +302,9 @@ system above.
 
 7. Add a user `USER` by running the following command.
 
-``` shell
-$ sudo /usr/sbin/adduser USER
-```
+   ``` shell
+   $ sudo /usr/sbin/adduser USER
+   ```
 
 8. Exit the **Bash on Ubuntu for Windows** shell.
 
@@ -306,16 +331,16 @@ limitations.
 1. To switch to the `administrator` user, run the `lxrun` command as
    shown below.
 
-``` batchfile
-C:\> lxrun /setdefaultuser administrator
-```
+   ``` batchfile
+   C:\> lxrun /setdefaultuser administrator
+   ```
 
 2. To update the package databases, run the `lxrun` command as shown
    below.
 
-``` batchfile
-C:\> lxrun /update
-```
+   ``` batchfile
+   C:\> lxrun /update
+   ```
 
 # system
 
