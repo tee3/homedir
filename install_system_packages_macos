@@ -52,8 +52,7 @@ ${pm_upgrade}
 # install interpreters prior to other packages
 # @todo use system python
 #${pm_install} python
-# @todo we don't need python3 at this point
-#${pm_install} python3
+${pm_install} python3
 # @todo use system ruby
 #${pm_install} ruby
 
