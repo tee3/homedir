@@ -243,15 +243,15 @@ processes, customizing the installers as described below.
 * Install the one or more of Visual C++ Build Tools, Visual C++
   Express, and Visual Studio to install a working C and C++ compiler.
 
-* (Optional) Ruby (64-bit)
+* Ruby 2.3 (64-bit)
 
   * Install for all users.
 
-  * Install to `C:\Ruby22-x64`.
+  * Install to `C:\Ruby23`.
 
   * Add to `PATH`.
 
-* (Optional) Go (64-bit)
+* Go 1.8 (64-bit)
 
   * Install for all users.
 
@@ -259,7 +259,7 @@ processes, customizing the installers as described below.
 
   * Add to `PATH`.
 
-* (Optional) Node.JS (64-bit)
+* Node.JS (64-bit)
 
   * Install for all users.
 
