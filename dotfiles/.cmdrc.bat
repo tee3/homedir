@@ -36,8 +36,8 @@ rem Node.js
 set CMDNODEJSROOT=C:\nodejs
 if not exist "%CMDNODEJSROOT%" echo NodeJS is not installed at "%CMDNODEJSROOT%".
 set CMDNPMPREFIX=%HOME%\.node_modules
-if exist "%CMDNODEJSROOT%" set PATH=%CMDNPMPREFIX%\bin;%PATH%
-if exist "%CMDNODEJSROOT%" set NODE_PATH=%CMDNPMPREFIX%\lib\node_modules:%NODE_PATH%
+if exist "%CMDNODEJSROOT%" set PATH=%CMDNPMPREFIX%;%PATH%
+if exist "%CMDNODEJSROOT%" set NODE_PATH=%CMDNPMPREFIX%\node_modules:%NODE_PATH%
 
 rem Go
 set CMDGOROOT=C:\Go
