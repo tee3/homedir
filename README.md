@@ -252,6 +252,14 @@ processes, customizing the installers as described below.
 
   * Add to `PATH`.
 
+* Install Python 3.6 (64-bit).
+
+  * For all users.
+
+  * Install to `C:\Python36`.
+
+  * Add to `PATH`.
+
 * *Build Tools for Visual Studio 2017* (`vs_buildtools.exe`)
 
   * Install to the default location.

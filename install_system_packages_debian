@@ -62,8 +62,8 @@ ${pm_install} diffutils
 # install interpreters prior to other packages
 ${pm_install} python
 ${pm_install} python-dev
-# @todo we don't need python3 at this point
-#${pm_install} python3
+${pm_install} python3
+${pm_install} python3-dev
 ${pm_install} ruby
 ${pm_install} ruby-dev
 
