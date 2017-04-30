@@ -310,7 +310,7 @@ system above.
 8. Exit the **Bash on Ubuntu for Windows** shell.
 
 From the login terminal of the system, log in as `administrator` by
-running **Bash on Ubuntu for Windows ** and then install `git`, clone
+running **Bash on Ubuntu for Windows** and then install `git`, clone
 the `tee3/homedir` repository and install the system packages.
 
 ```
