@@ -159,7 +159,7 @@ password: ************
 
 ``` shell
 sudo yum install git
-git clone https://github.com/tee3/homedir ~/Development/homedir
+git clone https://github.com/tee3/homedir.git ~/Development/homedir
 cd ~/Development/homedir
 ./install_system_packages_fedora
 sudo shutdown -r now
@@ -193,7 +193,7 @@ password: ************
 
 ``` shell
 sudo apt-get install git
-git clone https://github.com/tee3/homedir ~/Development/homedir
+git clone https://github.com/tee3/homedir.git ~/Development/homedir
 cd ~/Development/homedir
 ./install_system_packages_debian
 sudo shutdown -r now
@@ -208,7 +208,7 @@ process, the machine will reboot, so make sure there is no one else
 logged in.
 
 ``` shell
-git clone https://github.com/tee3/homedir ~/Development/homedir
+git clone https://github.com/tee3/homedir.git ~/Development/homedir
 cd ~/Development/homedir
 ./install_system_packages_macos
 sudo shutdown -r now
@@ -285,7 +285,7 @@ process, the machine will reboot, so make sure there is no one else
 logged in.
 
 ``` batchfile
-git clone https://github.com/tee3/homedir C:\Users\administrator\Development\homedir
+git clone https://github.com/tee3/homedir.git C:\Users\administrator\Development\homedir
 cd C:\Users\administrator\Development\homedir
 install_system_packages_windows
 shutdown /r
@@ -327,7 +327,7 @@ the `tee3/homedir` repository and install the system packages.
 
 ``` shell
 sudo apt-get install git
-git clone https://github.com/tee3/homedir ~/Development/homedir
+git clone https://github.com/tee3/homedir.git ~/Development/homedir
 cd ~/Development/homedir
 ./install_system_packages_debian
 ```
