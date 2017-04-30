@@ -14,6 +14,11 @@ if exist "%CMDGITROOT%" set PATH=%CMDGITROOT%\usr\bin;%PATH%
 rem SSH
 call start-ssh-agent
 
+rem Visual C++
+set CMDVISUALSTUDIOROOT=C:\Program Files (x86)\Microsoft Visual Studio\2017
+if not exist "%CMDVISUALSTUDIOROOT%" echo Build Tools for Visual Studio is not installed at "%CMDVISUALSTUDIOROOT%"
+call "%CMDVISUALSTUDIOROOT%\BuildTools\Common7\Tools\VsDevCmd.bat"
+
 rem Python
 set CMDPYTHONROOT=C:\Python27
 if not exist "%CMDPYTHONROOT%" echo Python is not installed at "%CMDPYTHONROOT%".
