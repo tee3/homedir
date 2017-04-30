@@ -136,12 +136,15 @@ since many packages are not installed by default.
 From the login terminal of the system, log in as `root` and then
 install `sudo` and give `administrator` `sudo` privileges.
 
-```
+``` shell
 login: root
 password: ************
-# yum install sudo
-# usermod administrator -a -G wheel
-# exit
+```
+
+``` shell
+yum install sudo
+usermod administrator -a -G wheel
+exit
 ```
 
 From the login terminal of the system, log in as `administrator` and
@@ -149,14 +152,17 @@ then install `git`, clone the `tee3/homedir` repository and install
 the system packages.  At the end of this process, the machine will
 reboot, so make sure there is no one else logged in.
 
-```
+``` shell
 login: administrator
 password: ************
-$ sudo yum install git
-$ git clone https://github.com/tee3/homedir ~/Development/homedir
-$ cd ~/Development/homedir
-$ ./install_system_packages_fedora
-$ sudo shutdown -r now
+```
+
+``` shell
+sudo yum install git
+git clone https://github.com/tee3/homedir ~/Development/homedir
+cd ~/Development/homedir
+./install_system_packages_fedora
+sudo shutdown -r now
 ```
 
 ## debian
@@ -164,12 +170,15 @@ $ sudo shutdown -r now
 From the login terminal of the system, log in as `root` and then
 install `sudo` and give `administrator` `sudo` privileges.
 
-```
+``` shell
 login: root
 password: ************
-# apt-get install sudo
-# adduser administrator sudo
-# exit
+```
+
+``` shell
+apt-get install sudo
+adduser administrator sudo
+exit
 ```
 
 From the login terminal of the system, log in as `administrator` and
@@ -177,14 +186,17 @@ then install `git`, clone the `tee3/homedir` repository and install
 the system packages.  At the end of this process, the machine will
 reboot, so make sure there is no one else logged in.
 
-```
+``` shell
 login: administrator
 password: ************
-$ sudo apt-get install git
-$ git clone https://github.com/tee3/homedir ~/Development/homedir
-$ cd ~/Development/homedir
-$ ./install_system_packages_debian
-$ sudo shutdown -r now
+```
+
+``` shell
+sudo apt-get install git
+git clone https://github.com/tee3/homedir ~/Development/homedir
+cd ~/Development/homedir
+./install_system_packages_debian
+sudo shutdown -r now
 ```
 
 ## macos
@@ -195,11 +207,11 @@ Terminal.app window install the system packages.  At the end of this
 process, the machine will reboot, so make sure there is no one else
 logged in.
 
-```
-$ git clone https://github.com/tee3/homedir ~/Development/homedir
-$ cd ~/Development/homedir
-$ ./install_system_packages_macos
-$ sudo shutdown -r now
+``` shell
+git clone https://github.com/tee3/homedir ~/Development/homedir
+cd ~/Development/homedir
+./install_system_packages_macos
+sudo shutdown -r now
 ```
 
 ## windows
@@ -272,11 +284,11 @@ From a `cmd` window install the system packages.  At the end of this
 process, the machine will reboot, so make sure there is no one else
 logged in.
 
-```
-C:> git clone https://github.com/tee3/homedir C:\Users\administrator\Development\homedir
-C:> cd C:\Users\administrator\Development\homedir
-C:> install_system_packages_windows
-C:> shutdown /r
+``` batchfile
+git clone https://github.com/tee3/homedir C:\Users\administrator\Development\homedir
+cd C:\Users\administrator\Development\homedir
+install_system_packages_windows
+shutdown /r
 ```
 
 ## windows subsystem for linux
@@ -304,7 +316,7 @@ system above.
 7. Add a user `USER` by running the following command.
 
    ``` shell
-   $ sudo /usr/sbin/adduser USER
+   sudo /usr/sbin/adduser USER
    ```
 
 8. Exit the **Bash on Ubuntu for Windows** shell.
@@ -313,11 +325,11 @@ From the login terminal of the system, log in as `administrator` by
 running **Bash on Ubuntu for Windows** and then install `git`, clone
 the `tee3/homedir` repository and install the system packages.
 
-```
-$ sudo apt-get install git
-$ git clone https://github.com/tee3/homedir ~/Development/homedir
-$ cd ~/Development/homedir
-$ ./install_system_packages_debian
+``` shell
+sudo apt-get install git
+git clone https://github.com/tee3/homedir ~/Development/homedir
+cd ~/Development/homedir
+./install_system_packages_debian
 ```
 
 Note that Windows Subsystem for Linux is supported as it is a
@@ -333,14 +345,14 @@ limitations.
    shown below.
 
    ``` batchfile
-   C:\> lxrun /setdefaultuser administrator
+   lxrun /setdefaultuser administrator
    ```
 
 2. To update the package databases, run the `lxrun` command as shown
    below.
 
    ``` batchfile
-   C:\> lxrun /update
+   lxrun /update
    ```
 
 # system
@@ -363,8 +375,8 @@ language for the system on which it runs.
 To install system packages for Fedora-based systems (via `yum`), run
 the following script as a user with `sudo` permission.
 
-```
-$ ./install_system_packages_fedora
+``` shell
+./install_system_packages_fedora
 ```
 
 ## debian
@@ -372,8 +384,8 @@ $ ./install_system_packages_fedora
 To install system packages for Debian-based systems (via `apt-get`),
 run the following script as a user with `sudo` permission.
 
-```
-$ ./install_system_packages_debian
+``` shell
+./install_system_packages_debian
 ```
 
 ## macos
@@ -382,8 +394,8 @@ To install system packages for macOS (via Homebrew), run the following
 script as the administrator of the system.  Note that this does not
 use `sudo` as Homebrew does not require it.
 
-```
-$ ./install_system_packages_macos
+``` shell
+./install_system_packages_macos
 ```
 
 ## windows
@@ -394,8 +406,8 @@ system for Windows yet.
 To install system packages for Windows, run the following script as
 the administrator of the system.
 
-```
-C:> install_system_packages_windows
+``` batchfile
+install_system_packages_windows
 ```
 
 # user
@@ -417,14 +429,14 @@ Python.
 
 On POSIX systems:
 
-```
-$ ./install
+``` shell
+./install
 ```
 
 On Windows systems:
 
-```
-C:\> python install
+``` batchfile
+python install
 ```
 
 ## Support for sensitive information
