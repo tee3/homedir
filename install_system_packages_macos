@@ -35,56 +35,6 @@ if [ -z "${pm}" ]; then
     exit 1
 fi
 
-# additional repositories
-brew_taps="
-    homebrew/apache
-    homebrew/binary
-    homebrew/completions
-    homebrew/dupes
-    homebrew/fuse
-    homebrew/headonly
-    homebrew/nginx
-    homebrew/python
-    homebrew/science
-    homebrew/tex
-    homebrew/versions
-"
-
-# notify of unspecified taps
-for t0 in $(${pm} tap) ; do
-    present=false
-    for t1 in ${brew_taps} ; do
-        if [ "${t0}" = "${t1}" ]; then
-            present=true
-        fi
-    done
-
-    if [ "${present}" = "false" ]; then
-        echo "warning: tap ${t0} is unspecified."
-    fi
-done
-
-# tap any missing taps and repair all taps
-for t0 in ${brew_taps} ; do
-    present=false
-    for t1 in $(${pm} tap) ; do
-        if [ "${t0}" = "${t1}" ]; then
-            present=true
-        fi
-    done
-
-    if [ "${present}" = "false" ]; then
-        ${pm} tap --full "${t0}"
-    fi
-done
-${pm_update}
-
-# repair all taps
-for t in $(${pm} tap) ; do
-    ${pm} tap --repair "${t}"
-done
-${pm_update}
-
 # update and check packages
 ${pm_update}
 if ! ${pm_check} ; then
@@ -117,7 +67,6 @@ ${pm_install} subversion
 #${pm_install} gitfs
 ${pm_install} sshfs
 
-# install all taps with the right options
 ${pm_install} arp-scan
 ${pm_install} arp-sk
 ${pm_install} arpoison
