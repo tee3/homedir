@@ -43,6 +43,7 @@ else if [ os.name ] = MACOSX
 
   using darwin ;
 
+  using darwin : 7   : /usr/local/bin/g++-7 ;
   using darwin : 6   : /usr/local/bin/g++-6 ;
   using darwin : 5   : /usr/local/bin/g++-5 ;
   using darwin : 4.9 : /usr/local/bin/g++-4.9 ;
