@@ -184,6 +184,7 @@ ${pm_install} tcptrace
 ${pm_install} tcptraceroute
 ${pm_install} tcptrack
 ${pm_install} termshare
+${pm_cask_install} basictex
 ${pm_install} tig
 ${pm_install} tmux
 ${pm_install} tree

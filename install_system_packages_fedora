@@ -242,6 +242,7 @@ ${pm_install} tcpreplay
 ${pm_install} tcptraceroute
 ${pm_install} tcptrack
 #${pm_install} termshare
+${pm_install} texlive-scheme-basic
 ${pm_install} tig
 ${pm_install} tmux
 ${pm_install} tree
