@@ -1282,16 +1282,13 @@
 ;;; Language Server Protocol
 ;;;
 (use-package lsp-mode
-  :disabled t
   :ensure t
   :pin melpa
   :init
   (use-package flycheck
     :ensure t
     :pin melpa)
-  (setq lsp-print-io t)
-  :config
-  (global-lsp-mode))
+  (setq lsp-print-io t))
 
 ;;;
 ;;; Rainbow modes
