@@ -470,7 +470,10 @@
   :init
   (use-package markdown-mode+
     :ensure t
-    :pin melpa))
+    :pin melpa)
+  (setq markdown-asymmetric-header t)
+  (setq markdown-command "cmark")
+  (setq markdown-nested-imenu-heading-index t))
 (use-package markup-faces
   :ensure t
   :pin melpa)
