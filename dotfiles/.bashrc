@@ -49,11 +49,6 @@ if [ -e /usr/local/bin/brew ]; then
         export PATH=${PATH}:"$(brew --prefix go)"/libexec/bin
     fi
 
-    # Boost.Build from Homebrew
-    if [ -e "$(brew --prefix boost-build)" ]; then
-        export BOOST_BUILD_PATH="$(brew --prefix boost-build)"/share
-    fi
-
     # DocBook from Homebrew
     if [ -e "$(brew --prefix docbook)" ]; then
         export XML_CATALOG_FILES=${brew_prefix}/etc/xml/catalog
