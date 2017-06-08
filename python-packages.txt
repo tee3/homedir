@@ -26,6 +26,7 @@ html2rest
 # Miscellaneous
 speedtest-cli
 azure-cli
+conan
 
 # Fun
 #beets
