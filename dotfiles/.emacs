@@ -421,6 +421,40 @@
   (use-package helm-config
     :ensure helm
     :pin melpa)
+  (use-package helm-dash
+    :ensure t
+    :pin melpa
+    :config
+    (dolist (docset '("AppleScript"
+                      "Bash"
+                      "Boost"
+                      "C++"
+                      "C"
+                      "CMake"
+                      "Cappuccino"
+                      "Common_Lisp"
+                      "Emacs_Lisp"
+                      "Foundation"
+                      "Go"
+                      "HTML"
+                      "JavaScript"
+                      "Java_SE8"
+                      "LaTeX"
+                      "MATLAB"
+                      "Markdown"
+                      "OpenCV_C++"
+                      "OpenGL_3"
+                      "OpenGL_4"
+                      "Processing"
+                      "Python_2"
+                      "Python_3"
+                      "Ruby_2"
+                      "Rust"
+                      "Swift"
+                      "TypeScript"
+                      "Vim"
+                      "XSLT"))
+      (helm-dash-ensure-docset-installed docset)))
   (use-package helm-flyspell
     :ensure t
     :pin melpa

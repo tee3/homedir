@@ -88,6 +88,7 @@ ${pm_install} clblas
 ${pm_install} clfft
 ${pm_install} clinfo
 ${pm_install} cmake
+${pm_cask_install} dash
 ${pm_install} cppcheck
 ${pm_install} curl
 ${pm_install} dfu-util
