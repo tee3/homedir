@@ -1325,6 +1325,13 @@
   (rainbow-identifiers-mode))
 
 ;;;
+;;; Kubernetes
+;;;
+(use-package kubernetes
+  :ensure t
+  :pin melpa)
+
+;;;
 ;;; Themes
 ;;;
 (when (>= emacs-major-version 24)
