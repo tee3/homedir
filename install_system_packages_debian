@@ -162,6 +162,7 @@ ${pm_install} jam
 #${pm_install} jsmin
 #${pm_install} json-c
 #${pm_install} jsonpp
+#${pm_install} kubernetes-cli
 #${pm_install} launchctl-completion
 #${pm_install} legit
 ${pm_install} libclang-dev
