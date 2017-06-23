@@ -774,7 +774,8 @@
     (if ido-everywhere (setq magit-completing-read-function 'magit-ido-completing-read)))
   :init
   (use-package magit-svn
-    :ensure t)
+    :ensure t
+    :pin melpa)
 
   (setq magit-repository-directories (quote (("~/Development" . 2))))
 
