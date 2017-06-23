@@ -1327,6 +1327,9 @@
 ;;;
 ;;; Kubernetes
 ;;;
+(use-package docker
+  :ensure t
+  :pin melpa)
 (use-package kubernetes
   :ensure t
   :pin melpa)
