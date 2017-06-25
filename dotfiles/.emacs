@@ -1360,6 +1360,7 @@
   (use-package farmhouse-theme :ensure t :pin melpa :defer t)
   (use-package flatland-theme :ensure t :pin melpa :defer t)
   (use-package gandalf-theme :ensure t :pin melpa :defer t)
+  (use-package github-modern-theme :ensure t :pin melpa :defer t)
   (use-package gotham-theme :ensure t :pin melpa :defer t)
   (use-package grandshell-theme :ensure t :pin melpa :defer t)
   (use-package green-phosphor-theme :ensure t :pin melpa :defer t)
