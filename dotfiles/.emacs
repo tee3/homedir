@@ -678,6 +678,12 @@
   :ensure auctex
   :pin melpa)
 
+;;; OpenCL
+(use-package opencl-mode
+  :ensure t
+  :pin melpa
+  :mode (("\\.cl\\'" . opencl-mode)))
+
 ;;; OpenGL
 (use-package cuda-mode
   :disabled t
