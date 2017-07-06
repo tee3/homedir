@@ -100,6 +100,9 @@ ${pm_install} libboost-tools-dev
 #${pm_install} casperjs
 ${pm_install} cflow
 ${pm_install} clang
+${pm_install} clblas
+${pm_install} clfft
+${pm_install} clinfo
 ${pm_install} cmake
 ${pm_install} cppcheck
 ${pm_install} dfu-util
