@@ -351,7 +351,7 @@
   :bind
   ("C-c C-y" . tee3-ido-kill-ring)
   :init
-  (use-package ido-ubiquitous
+  (use-package ido-completing-read+
     :ensure t
     :pin melpa
     :init
