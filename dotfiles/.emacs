@@ -762,6 +762,11 @@
   :init
   (setq gitolite-clone-username "git")
   (setq gitolite-clone-host "localhost"))
+(use-package gl-conf-mode
+  :ensure t
+  :pin melpa
+  :mode
+  (("gitolite\\.conf\\'" . gl-conf-mode)))
 
 ;;; GitHub
 (use-package gist
