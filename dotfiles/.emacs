@@ -1345,6 +1345,9 @@
 (use-package dockerfile-mode
   :ensure t
   :pin melpa)
+(use-package docker-compose-mode
+  :ensure t
+  :pin melpa)
 
 ;;;
 ;;; Kubernetes
