@@ -93,7 +93,6 @@ ${pm_install} ruby-devel
 
 # install version control systems
 ${pm_install} git
-${pm_install} mercurial
 ${pm_install} subversion
 
 # install basic tools
