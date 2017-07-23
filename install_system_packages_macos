@@ -59,7 +59,6 @@ ${pm_install} python3
 # install version control systems
 ${pm_install} bazaar
 ${pm_install} git
-${pm_install} mercurial
 ${pm_install} subversion
 
 # install fuse

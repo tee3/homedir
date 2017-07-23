@@ -23,6 +23,9 @@ html2rest
 #pygit2
 #PyGithub
 
+# Mercurial
+Mercurial
+
 # Miscellaneous
 speedtest-cli
 azure-cli
