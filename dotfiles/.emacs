@@ -517,9 +517,6 @@
 (use-package csv-mode
   :ensure t
   :pin gnu)
-(use-package dockerfile-mode
-  :ensure t
-  :pin melpa)
 (use-package gitattributes-mode
   :ensure t
   :pin melpa)
@@ -1340,11 +1337,18 @@
   (rainbow-identifiers-mode))
 
 ;;;
-;;; Kubernetes
+;;; Docker
 ;;;
 (use-package docker
   :ensure t
   :pin melpa)
+(use-package dockerfile-mode
+  :ensure t
+  :pin melpa)
+
+;;;
+;;; Kubernetes
+;;;
 (use-package kubernetes
   :ensure t
   :pin melpa)
