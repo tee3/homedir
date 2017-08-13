@@ -355,6 +355,10 @@
     :ensure t
     :pin melpa
     :init
+    ; @todo should not have to add this explicitly
+    (use-package memoize
+      :ensure t
+      :pin melpa)
     (ido-ubiquitous-mode t))
   (use-package ido-vertical-mode
     :ensure t
