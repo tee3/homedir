@@ -283,6 +283,11 @@
   :config
   (add-hook 'text-mode-hook 'turn-on-flyspell))
 
+;;; M-x
+(use-package amx
+  :ensure t
+  :pin melpa)
+
 ;;; Helm
 (use-package helm
   :ensure t
