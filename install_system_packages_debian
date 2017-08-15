@@ -193,6 +193,8 @@ ${pm_install} ntp
 ${pm_install} nuttcp
 #${pm_install} open-completion
 ${pm_install} openocd
+${pm_install} openssh
+${pm_install} openssh-server
 #${pm_install} osxfuse
 #${pm_install} p0f
 #${pm_install} p7zip
