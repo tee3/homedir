@@ -1409,6 +1409,7 @@
   (use-package ubuntu-theme :ensure t :pin melpa :defer t)
   (use-package zen-and-art-theme :ensure t :pin melpa :defer t)
   (use-package zenburn-theme :ensure t :pin melpa :defer t)
+  (use-package zerodark-theme :ensure t :pin melpa :defer t)
   (use-package zonokai-theme :ensure t :pin melpa :defer t)
 
   (cond (t nil) ;; do not choose any themes by default
