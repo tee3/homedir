@@ -28,7 +28,7 @@ else
     pm_update="sudo ${pm} update"
     pm_upgrade="sudo ${pm} safe-upgrade"
     pm_install="sudo apt-get -q -y install"
-    pm_cleanup="sudo ${pm} clean && ${pm} autoclean"
+    pm_cleanup="sudo ${pm} clean"
 fi
 
 # check if package manager is installed
