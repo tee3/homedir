@@ -93,7 +93,7 @@ ${pm_install} avahi-utils
 #${pm_install} avr-gcc
 ${pm_install} bash-completion
 #${pm_install} bear
-${pm_install} libboost-dev
+${pm_install} libboost-all-dev
 #${pm_install} libboost-bcp-dev
 ${pm_install} libboost-tools-dev
 #${pm_install} casperjs
