@@ -62,7 +62,9 @@ if [ -z "${pm}" ]; then
 fi
 
 # additional repositories
-#! @todo none right now
+${pm_install} curl
+
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash
 
 # update and check packages
 ${pm_update}
@@ -159,7 +161,7 @@ ${pm_install} gdb
 ${pm_install} git-extras
 #${pm_install} git-flow
 #${pm_install} git-hooks
-#${pm_install} git-lfs
+${pm_install} git-lfs
 ${pm_install} git-svn
 #${pm_install} git-test
 #${pm_install} github-desktop
