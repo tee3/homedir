@@ -232,6 +232,7 @@ ${pm_install} texlive
 ${pm_install} tig
 ${pm_install} tmux
 ${pm_install} tree
+${pm_install} unzip
 #${pm_install} v8
 #${pm_install} vault
 #${pm_install} vegeta
