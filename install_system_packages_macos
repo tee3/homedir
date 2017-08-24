@@ -83,6 +83,7 @@ ${pm_install} clfft
 ${pm_install} clinfo
 ${pm_install} cmake
 ${pm_install} cppcheck
+${pm_install} curl
 ${pm_install} dfu-util
 ${pm_install} dns2tcp
 ${pm_install} dnstop
