@@ -190,7 +190,7 @@ ${pm_install} maven
 ${pm_install} nmap
 ${pm_install} nodejs
 ${pm_install} nodejs-dev
-${pm_install} npm
+#${pm_install} npm
 #${pm_install} ntfs-3g
 ${pm_install} ntp
 ${pm_install} nuttcp
