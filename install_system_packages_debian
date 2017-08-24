@@ -179,6 +179,7 @@ ${pm_install} llvm
 ${pm_install} llvm-dev
 ${pm_install} llvm-runtime
 ${pm_install} lrzsz
+${pm_install} man-db
 #${pm_install} markdown
 ${pm_install} maven
 #${pm_install} mscgen
