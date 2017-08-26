@@ -442,9 +442,6 @@
 (use-package guru-mode
   :ensure t
   :pin melpa)
-(use-package vimgolf
-  :ensure t
-  :pin melpa)
 (use-package howdoi
   :ensure t
   :pin melpa)
@@ -520,9 +517,6 @@
 (use-package apache-mode
   :ensure t
   :pin melpa)
-(use-package crontab-mode
-  :ensure t
-  :pin melpa)
 (use-package csv-mode
   :ensure t
   :pin gnu)
@@ -571,11 +565,6 @@
    ("sshd?_config\\'" . ssh-config-mode)
    ("known_hosts\\'" . ssh-known-hosts-mode)
    ("authorized_keys2?\\'" . ssh-authorized-keys-mode)))
-(use-package syslog-mode
-  :ensure t
-  :pin melpa
-  :mode
-  (("/var/log.*\\'" . syslog-mode)))
 (use-package systemd
   :ensure t
   :pin melpa)
