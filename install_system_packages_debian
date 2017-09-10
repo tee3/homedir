@@ -177,7 +177,8 @@ ${pm_install} llvm
 #${pm_install} llvm35
 #${pm_install} llvm36
 #${pm_install} llvm37
-#${pm_install} llvm38
+#${pm_install} llvm39
+#${pm_install} llvm4
 ${pm_install} llvm-dev
 ${pm_install} llvm-runtime
 ${pm_install} lrzsz
