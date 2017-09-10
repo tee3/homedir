@@ -282,6 +282,18 @@
     :pin melpa)
   :config
   (add-hook 'text-mode-hook 'turn-on-flyspell))
+(use-package auto-correct
+  :ensure t
+  :pin gnu
+  :diminish auto-correct-mode
+  :config
+  (auto-correct-mode 1))
+(use-package captain
+  :ensure t
+  :pin gnu
+  :diminish captain-mode
+  :config
+  (global-captain-mode))
 
 ;;; M-x
 (use-package amx
