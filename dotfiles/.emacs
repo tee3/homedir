@@ -6,6 +6,17 @@
 ;;;
 ;;; Code:
 
+
+;;;
+;;; Disable support for decoding 'x-display' in Enriched Text mode
+;;; prior to Emacs 25.3 since this is a security hole.
+;;;
+(when (or (< emacs-major-version 25)
+          (and (= emacs-major-version 25) (< emacs-minor-version 3)))
+  (eval-after-load "enriched"
+    '(defun enriched-decode-display-prop (start end &optional param)
+       (list start end))))
+
 ;;;
 ;;; Update the load path to include the user's Lisp files.
 ;;;
