@@ -1417,7 +1417,6 @@
   (use-package tangotango-theme :ensure t :pin melpa :defer t)
   (use-package tao-theme :ensure t :pin melpa :defer t)
   (use-package termbright-theme :ensure t :pin melpa :defer t)
-  (use-package tronesque-theme :ensure t :pin melpa :defer t)
   (use-package ubuntu-theme :ensure t :pin melpa :defer t)
   (use-package zen-and-art-theme :ensure t :pin melpa :defer t)
   (use-package zenburn-theme :ensure t :pin melpa :defer t)
