@@ -176,6 +176,8 @@ ${pm_install} golang
 #${pm_install} graphviz
 ${pm_install} guile
 #${pm_install} hadolint
+${pm_install} hdf5
+${pm_install} hdf5-devel
 ${pm_install} highlight
 ${pm_install} htop
 #${pm_install} httping

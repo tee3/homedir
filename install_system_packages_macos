@@ -122,6 +122,7 @@ ${pm_install} go
 ${pm_install} graphviz
 ${pm_install} guile
 ${pm_install} hadolint
+${pm_install} hdf5
 ${pm_install} highlight
 ${pm_install} htop-osx
 ${pm_install} httping
