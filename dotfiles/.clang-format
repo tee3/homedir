@@ -1,5 +1,9 @@
 ---
 Language: Cpp
+Standard: Auto
+
+DisableFormat: false
+
 AccessModifierOffset: -3
 AlignAfterOpenBracket: Align
 AlignConsecutiveAssignments: false
@@ -44,7 +48,6 @@ ConstructorInitializerIndentWidth: 3
 ContinuationIndentWidth: 3
 Cpp11BracedListStyle: true
 DerivePointerAlignment: false
-DisableFormat: false
 FixNamespaceComments: false
 ForEachMacros: [ foreach, Q_FOREACH, BOOST_FOREACH ]
 IncludeCategories:
@@ -75,11 +78,10 @@ SpaceBeforeParens: Always
 SpaceInEmptyParentheses: false
 SpacesBeforeTrailingComments: 1
 SpacesInAngles: false
-SpacesInCStyleCastParentheses: false
 SpacesInContainerLiterals: true
+SpacesInCStyleCastParentheses: false
 SpacesInParentheses: false
 SpacesInSquareBrackets: false
-Standard: Auto
 TabWidth: 8
 UseTab: Never
 ...
