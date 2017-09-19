@@ -1136,6 +1136,11 @@
   :ensure t
   :pin melpa)
 
+;;; Xcode IDE
+(use-package xcode-project
+  :ensure t
+  :pin melpa)
+
 ;;; JavaScript programming language
 (use-package js)
 (use-package js-comint
