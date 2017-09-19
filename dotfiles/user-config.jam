@@ -37,6 +37,7 @@ else if [ os.name ] = MACOSX
 
   # other compilers, both system and optional
   using clang : HEAD : /usr/local/opt/llvm/bin/clang++ ;
+  using clang : 4 : /usr/local/opt/llvm@4/bin/clang++ ;
   using clang : 3.9 : /usr/local/opt/llvm@3.9/bin/clang++ ;
   using clang : 3.8 : /usr/local/bin/clang++-3.8 ;
   using clang : 3.7 : /usr/local/bin/clang++-3.7 ;
