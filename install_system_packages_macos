@@ -119,6 +119,7 @@ ${pm_install} global --with-exuberant-ctags
 ${pm_install} glslang
 ${pm_install} gnu-typist
 ${pm_install} go
+${pm_cask_install} google-chrome
 ${pm_install} graphviz
 ${pm_install} guile
 ${pm_install} hadolint
@@ -171,6 +172,7 @@ ${pm_install} pkg-config
 ${pm_install} protobuf
 ${pm_install} ruby-completion
 ${pm_install} shellcheck
+${pm_cask_install} slack
 ${pm_install} sloccount
 ${pm_install} socat
 ${pm_install} sqlite
@@ -189,6 +191,7 @@ ${pm_install} tcptrace
 ${pm_install} tcptraceroute
 ${pm_install} tcptrack
 ${pm_install} termshare
+${pm_cask_install} thunderbird
 ${pm_cask_install} basictex
 ${pm_install} tig
 ${pm_install} tmux
