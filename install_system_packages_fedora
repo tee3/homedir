@@ -173,6 +173,7 @@ ${pm_install} global
 #${pm_install} glslang
 #${pm_install} gnu-typist
 ${pm_install} golang
+${pm_install} gnupg
 #${pm_install} graphviz
 ${pm_install} guile
 #${pm_install} hadolint
