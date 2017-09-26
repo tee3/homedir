@@ -187,6 +187,8 @@ ${pm_install} hunspell
 ${pm_install} iperf
 ${pm_install} ipv6calc
 ${pm_install} jam
+${pm_install} libasan
+${pm_install} libasan-static
 #${pm_install} jansson
 #${pm_install} jasper
 #${pm_install} jpeg
