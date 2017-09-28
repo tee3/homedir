@@ -56,7 +56,7 @@ fi
 # install interpreters prior to other packages
 # @todo use system python
 #${pm_install} python
-${pm_install} python3
+#${pm_install} python3
 # @todo use system ruby
 #${pm_install} ruby
 
