@@ -39,7 +39,7 @@ else
     pm_update="sudo ${pm} update"
     pm_upgrade="true"
     pm_install="sudo ${pm} -q -y install"
-    pm_cleanup="sudo ${pm} autoremove && ${pm} clean all"
+    pm_cleanup="sudo ${pm} autoremove"
 
     sudo ${pm} install dnf-plugins-core
     sudo ${pm} config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
