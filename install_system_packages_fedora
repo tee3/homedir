@@ -141,7 +141,7 @@ ${pm_install} dfu-util
 #${pm_install} dnstop
 #${pm_install} docbook
 #${pm_install} docbook-xsl
-${pm_install} docker-ce
+#${pm_install} docker-ce
 ${pm_install} doxygen
 #${pm_install} e2fsprogs
 ${pm_install} emacs-nox
