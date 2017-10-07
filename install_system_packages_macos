@@ -49,7 +49,7 @@ ${pm_update}
 # upgrade existing packages
 ${pm_upgrade}
 # @todo work this into environment variables
-if [ $(brew cask outdated) != "" ]; then
+if [ "$(brew cask outdated)" != "" ]; then
     brew cask reinstall $(brew cask outdated)
 fi
 
