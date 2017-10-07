@@ -66,6 +66,7 @@ ${pm_install} git
 ${pm_install} subversion
 
 # install fuse
+${pm_cask_install} osxfuse
 #${pm_install} gitfs
 ${pm_install} sshfs
 

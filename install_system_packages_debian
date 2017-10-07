@@ -80,6 +80,7 @@ ${pm_install} bzip2
 ${pm_install} patch
 
 # install fuse
+${pm_install} fuse
 #${pm_install} gitfs
 ${pm_install} sshfs
 
