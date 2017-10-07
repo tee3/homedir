@@ -102,9 +102,9 @@ ${pm_install} enscript
 #${pm_install} ext2fuse
 ${pm_install} fortune
 ${pm_install} gcc
-${pm_install} gcc@4.6
-${pm_install} gcc@4.7
-${pm_install} gcc@4.8
+#${pm_install} gcc@4.6
+#${pm_install} gcc@4.7
+#${pm_install} gcc@4.8
 ${pm_install} gcc@4.9
 ${pm_install} gcc@5
 ${pm_install} gcc@6
