@@ -1401,6 +1401,7 @@
   (use-package github-modern-theme :ensure t :pin melpa :defer t)
   (use-package gotham-theme :ensure t :pin melpa :defer t)
   (use-package grandshell-theme :ensure t :pin melpa :defer t)
+  (use-package grayscale-theme :ensure t :pin melpa :defer t)
   (use-package green-phosphor-theme :ensure t :pin melpa :defer t)
   (use-package greymatters-theme :ensure t :pin melpa :defer t)
   (use-package gruber-darker-theme :ensure t :pin melpa :defer t)
