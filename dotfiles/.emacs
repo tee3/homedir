@@ -64,7 +64,6 @@
 (setq column-number-mode t)
 (display-time-mode t)
 (setq display-time-day-and-date nil)
-(setq history-delete-duplicates t)
 (setq inhibit-startup-screen t)
 (setq mouse-wheel-mode t)
 (setq scroll-conservatively 100)
@@ -211,6 +210,7 @@
 (use-package savehist
   :init
   (setq history-length t)
+  (setq history-delete-duplicates t)
   :config
   (savehist-mode))
 (use-package saveplace
