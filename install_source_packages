@@ -10,6 +10,13 @@ import os
 import subprocess
 import filecmp
 import shutil
+import distutils.spawn
+
+b2 = distutils.spawn.find_executable('b2')
+if not b2:
+    b2 = distutils.spawn.find_executable('bjam')
+if not b2:
+    print 'warning: Boost.Build was not found, skipping source packages that require it.'
 
 
 def git_clone_update_pull_ff_only(url, directory):
@@ -161,6 +168,9 @@ def install_standardese(basedir):
     subprocess.check_call(command, cwd=build)
 
 def install_commands_to_compilation_database(basedir):
+    if not b2:
+        return
+
     sourcedir = os.path.join(basedir, 'src', 'commands_to_compilation_database')
 
     git_clone_update_pull_ff_only(
@@ -168,7 +178,7 @@ def install_commands_to_compilation_database(basedir):
         sourcedir)
 
     command = [
-        'b2',
+        b2,
         'install',
         '--prefix=' + basedir
     ]
