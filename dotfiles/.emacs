@@ -209,6 +209,8 @@
   :init
   (recentf-mode 1))
 (use-package savehist
+  :init
+  (setq history-length t)
   :config
   (savehist-mode))
 (use-package saveplace
