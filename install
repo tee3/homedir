@@ -146,21 +146,35 @@ if __name__ == '__main__':
                 f = os.path.join(root, n)
                 home_f = os.path.join(HOME, n)
 
-                if not os.path.exists(home_f):
-                    shutil.copy(f, home_f)
+                if f == os.path.join(dotfiledirs, '.stow-local-ignore'):
+                    continue
 
                 if os.path.exists(home_f):
                     if f != home_f:
-                        if not filecmp.cmp(f, home_f):
+                        output = emulate_backtick(['fc', f, home_f])
+                        lines = output.splitlines()
+
+                        if lines[1] != 'FC: no differences encountered':
                             yn = raw_input('%s is different than %s.  Overwrite anyway? (y/n): ' % (f, home_f))
                             if yn == 'y':
-                                shutil.copy(f, home_f)
+                                os.remove(home_f)
                             else:
                                 identical = False
 
         if not identical:
             print 'error: not all targets copied to the home directory.'
             sys.exit(1)
+
+        for root, directories, files in os.walk(dotfiledirs):
+            for n in files:
+                f = os.path.join(root, n)
+                home_f = os.path.join(HOME, n)
+
+                if f == os.path.join(dotfiledirs, '.stow-local-ignore'):
+                    continue
+
+                if not os.path.exists(home_f):
+                    emulate_run(['cmd','/c','mklink', os.path.abspath(home_f), os.path.abspath(f)])
 
     # ask user for name and email address
     name, email = guess_name_and_email()
