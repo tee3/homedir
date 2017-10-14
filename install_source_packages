@@ -70,9 +70,9 @@ def install_git_svn_update_externals(basedir):
 
     if not os.path.exists (target):
         if hasattr(os, 'symlink'):
-            os.symlink(source,target)
+            os.symlink(source, target)
         else:
-            shutil.copyfile(source,target)
+            shutil.copyfile(source, target)
 
 
 def install_rtags(basedir):

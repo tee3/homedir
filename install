@@ -168,7 +168,7 @@ if __name__ == '__main__':
 
     yn = raw_input('Do you want to configure a name and email address? (y/n): ')
     if yn == 'y':
-        name, email = request_name_and_email(name,email)
+        name, email = request_name_and_email(name, email)
 
     # ask to install any services
     yn = raw_input('Install services (launchd or systemd)? (y/n): ')
@@ -270,7 +270,7 @@ if __name__ == '__main__':
                 git_email = email
 
             # request from the user
-            git_name, git_email = request_name_and_email(git_name,git_email)
+            git_name, git_email = request_name_and_email(git_name, git_email)
 
             # set user name/email in user-specific config
             if git_name != '':
