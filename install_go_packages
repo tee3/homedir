@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Install Go packages.
 
@@ -16,7 +16,7 @@ def emulate_run(args, env=None):
 
 # requires HOME.
 if 'HOME' not in os.environ or os.environ['HOME'] == '':
-    print 'error: HOME is not set, aborting.'
+    print('error: HOME is not set, aborting.')
     sys.exit(1)
 HOME = os.environ['HOME']
 
@@ -24,7 +24,7 @@ go = distutils.spawn.find_executable('go')
 
 if __name__ == '__main__':
     if not go:
-        print 'error: Go not installed, not installing Go packages.'
+        print('error: Go not installed, not installing Go packages.')
         sys.exit(1)
 
     error = False

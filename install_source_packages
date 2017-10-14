@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Install source packages to ~/opt/local.
 #
@@ -16,7 +16,7 @@ b2 = distutils.spawn.find_executable('b2')
 if not b2:
     b2 = distutils.spawn.find_executable('bjam')
 if not b2:
-    print 'warning: Boost.Build was not found, skipping source packages that require it.'
+    print('warning: Boost.Build was not found, skipping source packages that require it.')
 
 
 def emulate_backtick(args):
@@ -79,7 +79,7 @@ def install_git_svn_update_externals(basedir):
 
     if os.path.exists (target):
         if not filecmp.cmp(target, source, False):
-            yn = raw_input('%s is different than %s.  Overwrite anyway? (y/n): ' % (source, target))
+            yn = input('%s is different than %s.  Overwrite anyway? (y/n): ' % (source, target))
             if yn == 'y':
                 os.remove(target)
 
@@ -208,7 +208,7 @@ def install_commands_to_compilation_database(basedir):
 
 # requires HOME.
 if 'HOME' not in os.environ or os.environ['HOME'] == '':
-    print 'error: HOME is not set, aborting.'
+    print('error: HOME is not set, aborting.')
     sys.exit(1)
 HOME = os.environ['HOME']
 

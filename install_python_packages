@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Install Python modules in the python-packages.txt requirements file.
 
@@ -7,7 +7,7 @@ import sys
 import os
 import subprocess
 import distutils.spawn
-import urllib2
+import urllib.request
 
 
 def emulate_run(args, env=None):
@@ -24,18 +24,18 @@ def install_python2_packages():
     pip2 = distutils.spawn.find_executable('pip2')
 
     if not python2:
-        print 'error: Python 2 not installed, not installing Python 2 packages.'
+        print('error: Python 2 not installed, not installing Python 2 packages.')
         return False
 
     if not pip2:
         pip2path = os.path.join(site.USER_BASE, 'bin', 'pip')
         if not os.path.exists(pip2path):
-            r = urllib2.urlopen('http://bootstrap.pypa.io/get-pip.py')
+            r = urllib.request.urlopen('http://bootstrap.pypa.io/get-pip.py')
             with open('get-pip.py', 'w') as f:
                 f.write(r.read())
 
             if not os.path.exists('get-pip.py'):
-                print 'warning: pip2 failed to install, not installing Python 2 packages.'
+                print('warning: pip2 failed to install, not installing Python 2 packages.')
                 return False
 
             emulate_run([python2, 'get-pip.py', '--user'])
@@ -45,7 +45,7 @@ def install_python2_packages():
             pip2 = pip2path
 
     if not pip2 and not os.path.exists(pip2):
-        print 'error: pip2 not installing, not installing Python 2 packages.'
+        print('error: pip2 not installing, not installing Python 2 packages.')
         return False
 
     return emulate_run([pip2, 'install', '--user', '--upgrade', '-r', 'python-packages.txt'])
@@ -58,12 +58,12 @@ def install_python3_packages():
     pip3 = distutils.spawn.find_executable('pip3')
 
     if not python3:
-        print 'error: Python 3 not installed, not installing Python 3 packages.'
+        print('error: Python 3 not installed, not installing Python 3 packages.')
         return False
 
     # note that pip3 comes with Python 3, so no download is required
     if not pip3 or not os.path.exists(pip3):
-        print 'error: pip3 not installing, not installing Python 3 packages.'
+        print('error: pip3 not installing, not installing Python 3 packages.')
         return False
 
     return emulate_run([pip3, 'install', '--user', '--upgrade', '-r', 'python-packages.txt'])
