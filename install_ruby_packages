@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Install Ruby modules in the ruby-packages.gemfile Gemfile.
 
@@ -34,11 +34,11 @@ if not gem and sys.platform.startswith('win32'):
 
 if __name__ == '__main__':
     if not ruby:
-        print 'error: Ruby not installed, not installing Ruby packages.'
+        print('error: Ruby not installed, not installing Ruby packages.')
         sys.exit(1)
 
     if not gem:
-        print 'error: gem is not available, skipping Ruby module installation'
+        print('error: gem is not available, skipping Ruby module installation')
         sys.exit(1)
 
     # location of gems with --user-install

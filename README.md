@@ -444,7 +444,7 @@ On POSIX systems:
 On Windows systems:
 
 ``` batchfile
-python install
+python3 install
 ```
 
 ## Support for sensitive information
