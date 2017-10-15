@@ -1199,10 +1199,22 @@
   (add-to-list 'auto-mode-alist '(".clang-tidy\\'" . yaml-mode)))
 
 ;;;
+;;; Flymake
+;;;
+(defcustom tee3-flycheck-override-modern-flymake t
+  "Flymake is used instead of flycheck for Emacs 26 and later unless this variable is true.")
+
+(use-package flymake
+  :if (and (>= emacs-major-version 26) (not tee3-flycheck-override-modern-flymake))
+  :bind
+  ("C-c ! l" . flymake-show-diagnostics-buffer))
+
+;;;
 ;;; Flycheck
 ;;;
 (use-package flycheck
-  :if (>= emacs-major-version 25)
+  :if (or (< emacs-major-version 26)
+          tee3-flycheck-override-modern-flymake)
   :ensure t
   :pin melpa
   :init
