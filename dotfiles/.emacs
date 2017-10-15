@@ -943,24 +943,24 @@
     :ensure t
     :pin melpa
     :config
-    (add-hook 'ruby-mode-hook 'ruby-electric-mode)))
-(use-package robe
-  :ensure t
-  :pin melpa
-  :config
-  (add-hook 'ruby-mode-hook 'robe-mode))
-(use-package inf-ruby
-  :ensure t
-  :pin melpa)
-(use-package rspec-mode
-  :ensure t
-  :pin melpa)
-(use-package rbenv
-  :ensure t
-  :pin melpa)
-(use-package bundler
-  :ensure t
-  :pin melpa)
+    (add-hook 'ruby-mode-hook 'ruby-electric-mode))
+  (use-package robe
+    :ensure t
+    :pin melpa
+    :config
+    (add-hook 'ruby-mode-hook 'robe-mode))
+  (use-package inf-ruby
+    :ensure t
+    :pin melpa)
+  (use-package rspec-mode
+    :ensure t
+    :pin melpa)
+  (use-package rbenv
+    :ensure t
+    :pin melpa)
+  (use-package bundler
+    :ensure t
+    :pin melpa))
 
 ;;; Objective-J programming language
 (use-package objj-mode
