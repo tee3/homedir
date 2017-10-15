@@ -740,17 +740,16 @@
 ;;;
 (use-package vc
   :init
+  (use-package vc-fossil
+    :ensure t
+    :pin melpa
+    :init
+    (use-package vc))
+
   (setq vc-make-backup-files t)
 
   ;; do not show branch indicator
   (setq vc-display-status nil))
-
-;;; Fossil
-(use-package vc-fossil
-  :ensure t
-  :pin melpa
-  :init
-  (use-package vc))
 
 ;;; Git
 (use-package diff-hl
