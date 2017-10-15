@@ -222,17 +222,16 @@
   (scroll-bar-mode -1))
 (use-package simple
   :init
-  (use-package desktop)
   (setq size-indication-mode t)
   :config
-  (add-to-list 'desktop-globals-to-save 'kill-ring 1))
+  (eval-after-load "desktop.el"
+    (add-to-list 'desktop-globals-to-save 'kill-ring 1)))
 (use-package smooth-scroll
   :ensure t
   :pin melpa)
 (use-package speedbar
   :init
-  (use-package sb-image
-    :init
+  (eval-after-load "sb-image.el"
     (setq speedbar-use-images nil)))
 (use-package term
   :init
@@ -887,14 +886,16 @@
    ("[Jj]amfile\\'" . jam-mode)
    ("\\.jam\\'" . jam-mode))
   :init
-  (use-package linum)
-  (use-package flyspell)
   :config
   (add-hook 'jam-mode-hook (lambda ()
                              (setq indent-tabs-mode nil)))
-  (add-hook 'jam-mode-hook (lambda ()
-                             (linum-mode 1)))
-  (add-hook 'jam-mode-hook 'flyspell-prog-mode))
+
+  (eval-after-load "linum.el"
+    (add-hook 'jam-mode-hook (lambda ()
+                               (linum-mode 1))))
+
+  (eval-after-load "flyspell.el"
+    (add-hook 'jam-mode-hook 'flyspell-prog-mode)))
 
 ;;; CMake
 (use-package cmake-mode
@@ -1135,9 +1136,8 @@
   :ensure t
   :pin melpa
   :init
-  (use-package js
-    :mode
-    (("\\.tern-project\\'" . json-mode)))
+  (eval-after-load "js.el"
+    (add-to-list 'auto-mode-alist '("\\.tern-project\\'" . json-mode)))
   :config
   (add-hook 'js-mode-hook (lambda ()
                             (tern-mode t))))
@@ -1205,11 +1205,8 @@
   :ensure t
   :pin melpa
   :init
-  (use-package yaml-mode
-    :ensure t
-    :pin melpa
-    :mode
-    ((".clang-format\\'" . yaml-mode)))
+  (eval-after-load "yaml-mode.el"
+    (add-to-list 'auto-mode-alist '(".clang-format\\'" . yaml-mode)))
 
   (when (equal system-type 'darwin)
     (setq clang-format-executable "/usr/local/opt/llvm/bin/clang-format")))
@@ -1224,15 +1221,13 @@
   (use-package flycheck
     :ensure t
     :pin melpa)
+  (eval-after-load "yaml-mode.el"
+    (add-to-list 'auto-mode-alist '(".clang-tidy\\'" . yaml-mode)))
+
   (when (equal system-type 'darwin)
     (setq flycheck-c/c++-clang-tidy-executable "/usr/local/opt/llvm/bin/clang-tidy"))
   :config
   (add-hook 'flycheck-mode-hook #'flycheck-clang-tidy-setup))
-(use-package yaml-mode
-  :ensure t
-  :pin melpa
-  :mode
-  ((".clang-tidy\\'" . yaml-mode)))
 
 ;;;
 ;;; Flycheck
