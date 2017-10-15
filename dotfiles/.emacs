@@ -675,7 +675,7 @@
   :ensure t
   :pin melpa
   :init
-  (defun tbrown-web-mode-setup ()
+  (defun tee3-web-mode-setup ()
     (setq web-mode-markup-indent-offset 2)
     (setq web-mode-code-indent-offset 4)
     (setq web-mode-css-indent-offset 2)
@@ -685,7 +685,7 @@
     (setq web-mode-script-padding 1)
     (setq web-mode-block-padding 0))
 
-  (add-hook 'web-mode-hook 'tbrown-web-mode-setup))
+  (add-hook 'web-mode-hook 'tee3-web-mode-setup))
 
 ;;; TeX and LaTeX
 (use-package tex-site
