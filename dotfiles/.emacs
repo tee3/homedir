@@ -321,11 +321,6 @@
   (use-package helm-config
     :ensure helm
     :pin melpa)
-  (use-package helm-flycheck
-    :ensure t
-    :pin melpa
-    :bind
-    ("C-x c C-c ! h" . helm-flycheck))
   (use-package helm-flyspell
     :ensure t
     :pin melpa
@@ -669,16 +664,7 @@
   (setq sql-sqlite-program "sqlite3"))
 (use-package swift-mode
   :ensure t
-  :pin melpa
-  :init
-  (use-package flycheck
-    :ensure t
-    :pin melpa)
-  (use-package flycheck-swift
-    :ensure t
-    :pin melpa
-    :config
-    (flycheck-swift-setup)))
+  :pin melpa)
 (use-package tcl)
 (use-package tidy
   :ensure t
@@ -1077,16 +1063,6 @@
               ;; (setq c-tab-always-indent t)
               ;; (setq c-insert-tab-function nil)
               )))
-(use-package flycheck
-  :ensure t
-  :pin melpa
-  :init
-  (use-package flycheck-clangcheck
-    :ensure t
-    :pin melpa
-    :init
-    (when (equal system-type 'darwin)
-      (setq flycheck-c/c++-clangcheck-executable "/usr/local/opt/llvm/bin/clang-check"))))
 (use-package demangle-mode
   :ensure t
   :pin melpa)
@@ -1101,11 +1077,6 @@
   :pin melpa
   :config
   (objc-font-lock-global-mode))
-(use-package flycheck-objc-clang
-  :ensure t
-  :pin melpa
-  :config
-  (flycheck-objc-clang-setup))
 (use-package malinka
   :disabled t
   :ensure t
@@ -1127,11 +1098,6 @@
 (use-package js-comint
   :ensure t
   :pin melpa)
-(use-package flycheck
-  :ensure t
-  :pin melpa
-  :init
-  (setq flycheck-javascript-standard-executable "semistandard"))
 (use-package tern
   :ensure t
   :pin melpa
@@ -1161,13 +1127,6 @@
 (use-package py-autopep8
   :ensure t
   :pin melpa)
-(use-package flycheck
-  :ensure t
-  :pin melpa
-  :init
-  (use-package flycheck-pyflakes
-    :ensure t
-    :pin melpa))
 (use-package pip-requirements
   :ensure t
   :pin melpa)
@@ -1214,20 +1173,8 @@
 ;;;
 ;;; Clang Tidy
 ;;;
-(use-package flycheck-clang-tidy
-  :ensure t
-  :pin melpa
-  :init
-  (use-package flycheck
-    :ensure t
-    :pin melpa)
-  (eval-after-load "yaml-mode.el"
-    (add-to-list 'auto-mode-alist '(".clang-tidy\\'" . yaml-mode)))
-
-  (when (equal system-type 'darwin)
-    (setq flycheck-c/c++-clang-tidy-executable "/usr/local/opt/llvm/bin/clang-tidy"))
-  :config
-  (add-hook 'flycheck-mode-hook #'flycheck-clang-tidy-setup))
+(eval-after-load "yaml-mode.el"
+  (add-to-list 'auto-mode-alist '(".clang-tidy\\'" . yaml-mode)))
 
 ;;;
 ;;; Flycheck
@@ -1236,11 +1183,48 @@
   :ensure t
   :pin melpa
   :init
+  (use-package helm-flycheck
+    :if (require 'helm nil t)
+    :ensure t
+    :pin melpa
+    :bind
+    ("C-x c C-c ! h" . helm-flycheck))
   (use-package flycheck-package
     :ensure t
     :pin melpa
     :config
     (flycheck-package-setup))
+  (use-package flycheck-clangcheck
+    :ensure t
+    :pin melpa
+    :init
+    (when (equal system-type 'darwin)
+      (setq flycheck-c/c++-clangcheck-executable "/usr/local/opt/llvm/bin/clang-check")))
+  (use-package flycheck-clang-tidy
+    :ensure t
+    :pin melpa
+    :init
+    (when (equal system-type 'darwin)
+      (setq flycheck-c/c++-clang-tidy-executable "/usr/local/opt/llvm/bin/clang-tidy"))
+    :config
+    (add-hook 'flycheck-mode-hook #'flycheck-clang-tidy-setup))
+  (setq flycheck-javascript-standard-executable "semistandard")
+  (use-package flycheck-objc-clang
+    :ensure t
+    :pin melpa
+    :config
+    (flycheck-objc-clang-setup))
+  (use-package flycheck-pyflakes
+    :ensure t
+    :pin melpa)
+  (use-package flycheck-rtags
+    :load-path
+    "~/opt/local/src/emacs/site-lisp/rtags")
+  (use-package flycheck-swift
+    :ensure t
+    :pin melpa
+    :config
+    (flycheck-swift-setup))
   :config
   (global-flycheck-mode))
 
@@ -1251,14 +1235,6 @@
   :load-path
   "~/opt/local/share/emacs/site-lisp/rtags"
   :init
-  (use-package flycheck
-    :ensure t
-    :pin melpa
-    :init
-    (use-package flycheck-rtags
-      :load-path
-      "~/opt/local/src/emacs/site-lisp/rtags"))
-
   ;; ensure the right executables are used
   (setq rtags-path "~/opt/local/bin")
 
@@ -1287,9 +1263,6 @@
   :ensure t
   :pin melpa
   :init
-  (use-package flycheck
-    :ensure t
-    :pin melpa)
   (use-package lsp-clangd
     :load-path
     "~/opt/local/src/lsp-clangd"
