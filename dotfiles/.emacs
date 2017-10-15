@@ -562,6 +562,8 @@
   :ensure t
   :pin melpa)
 (use-package graphviz-dot-mode
+  ;; @todo fails to load with Emacs 26
+  :if (< emacs-major-version 26)
   :ensure t
   :pin melpa)
 (use-package irfc
