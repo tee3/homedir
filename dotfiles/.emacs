@@ -1,5 +1,7 @@
 ;;; .emacs --- Emacs user configuration file
 ;;;
+;;; URL: https://tee3.github.com/homedir
+;;;
 ;;; Commentary:
 ;;;
 ;;;    This file customizes Emacs for a specific user's needs.
