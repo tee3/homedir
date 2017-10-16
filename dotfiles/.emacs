@@ -1144,6 +1144,17 @@
   :hook
   (sh-mode . flymake-shellcheck-load))
 
+;;; Clang Analyzer
+(use-package flycheck-clang-analyzer
+  :ensure t
+  :pin melpa
+  :init
+  (use-package flycheck
+    :ensure t
+    :pin melpa)
+  :config
+  (flycheck-clang-analyzer-setup))
+
 ;;; Flycheck
 (use-package flycheck
   :if
