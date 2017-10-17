@@ -140,6 +140,7 @@ ${pm_install} ipv6calc
 ${pm_install} jam
 ${pm_install} jansson
 ${pm_install} jasper
+${pm_cask_install} java
 ${pm_install} jpeg
 ${pm_install} jrnl
 #${pm_install} jsl
