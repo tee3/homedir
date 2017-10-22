@@ -51,7 +51,26 @@ def install_python2_packages():
     return emulate_run([pip2, 'install', '--user', '--upgrade', '-r', 'python-packages.txt'])
 
 
+def install_python3_packages():
+    python3 = distutils.spawn.find_executable('python3')
+    if not python3:
+        python3 = distutils.spawn.find_executable('python')
+    pip3 = distutils.spawn.find_executable('pip3')
+
+    if not python3:
+        print 'error: Python 3 not installed, not installing Python 3 packages.'
+        return False
+
+    # note that pip3 comes with Python 3, so no download is required
+    if not pip3 and not os.path.exists(pip3):
+        print 'error: pip3 not installing, not installing Python 3 packages.'
+        return False
+
+    return emulate_run([pip3, 'install', '--user', '--upgrade', '-r', 'python-packages.txt'])
+
+
 if __name__ == '__main__':
     ok = install_python2_packages()
+    ok = install_python3_packages()
 
     sys.exit(1 if not ok else 0)
