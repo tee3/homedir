@@ -17,13 +17,12 @@ def emulate_run(args, env=None):
     return False
 
 
-python2 = distutils.spawn.find_executable('python2')
-if not python2:
-    python2 = distutils.spawn.find_executable('python')
-pip2 = distutils.spawn.find_executable('pip2')
-
-
 def install_python2_packages():
+    python2 = distutils.spawn.find_executable('python2')
+    if not python2:
+        python2 = distutils.spawn.find_executable('python')
+    pip2 = distutils.spawn.find_executable('pip2')
+
     if not python2:
         print 'error: Python 2 not installed, not installing Python 2 packages.'
         return False
