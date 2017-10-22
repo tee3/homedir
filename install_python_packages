@@ -16,35 +16,37 @@ def emulate_run(args, env=None):
         return True
     return False
 
-python = distutils.spawn.find_executable('python')
-pip = distutils.spawn.find_executable('pip')
+python2 = distutils.spawn.find_executable('python2')
+if not python2:
+    python2 = distutils.spawn.find_executable('python')
+pip2 = distutils.spawn.find_executable('pip2')
 
 if __name__ == '__main__':
-    if not python:
-        print 'error: Python not installed, not installing Python packages.'
+    if not python2:
+        print 'error: Python 2 not installed, not installing Python 2 packages.'
         sys.exit(1)
 
-    if not pip:
-        pippath = os.path.join(site.USER_BASE, 'bin', 'pip')
-        if not os.path.exists(pippath):
+    if not pip2:
+        pip2path = os.path.join(site.USER_BASE, 'bin', 'pip')
+        if not os.path.exists(pip2path):
             r = urllib2.urlopen('http://bootstrap.pypa.io/get-pip.py')
             with open('get-pip.py', 'w') as f:
                 f.write(r.read())
 
             if not os.path.exists('get-pip.py'):
-                print 'warning: pip failed to install, not installing Python packages.'
+                print 'warning: pip2 failed to install, not installing Python 2 packages.'
                 sys.exit(1)
 
-            emulate_run([python, 'get-pip.py', '--user'])
+            emulate_run([python2, 'get-pip.py', '--user'])
             os.remove('get-pip.py')
 
-        if os.path.exists(pippath):
-            pip = pippath
+        if os.path.exists(pip2path):
+            pip2 = pip2path
 
-    if not pip and not os.path.exists(pip):
-        print 'error: pip not installing, not installing Python packages.'
+    if not pip2 and not os.path.exists(pip2):
+        print 'error: pip2 not installing, not installing Python 2 packages.'
         sys.exit(1)
 
-    error = not emulate_run([pip, 'install', '--user', '--upgrade', '-r', 'python-packages.txt'])
+    error2 = not emulate_run([pip2, 'install', '--user', '--upgrade', '-r', 'python-packages.txt'])
 
-    sys.exit(1 if error else 0)
+    sys.exit(1 if error2 else 0)
