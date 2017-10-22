@@ -17,7 +17,7 @@ yapf
 #breathe
 docutils
 Sphinx
-html2rest
+#html2rest
 
 # Git
 #pygit2
