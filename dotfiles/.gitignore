@@ -60,3 +60,5 @@ npm-debug.log
 
 # Python Tooling
 .ropeproject/
+__pycache__/
+*.pyc
