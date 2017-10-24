@@ -315,7 +315,11 @@
 ;;; M-x
 (use-package amx
   :ensure t
-  :pin melpa)
+  :pin melpa
+  :init
+  (setq amx-history-length 1000)
+
+  (amx-mode 1))
 
 ;;; Helm
 (use-package helm
