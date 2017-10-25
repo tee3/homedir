@@ -93,3 +93,61 @@ if [ os.name ] = MACOSX
 {
   using fop ;
 }
+
+
+# Boost.Build user configuration for the Boost C++ Libraries
+
+import boost ;
+
+path-constant BOOST_ROOT_BASE : "$(HOME)/opt/local/src/boost" ;
+
+# Default to the installed version of the Boost C++ Libraries
+if [ os.name ] = LINUX
+{
+  # System Boost
+  using boost : installed  : <include>/usr/include <library>/usr/lib ;
+}
+else if [ os.name ] = MACOSX
+{
+  # Homebrew-installed Boost
+  using boost : installed  : <include>/usr/local/include <library>/usr/local/lib ;
+}
+else if [ os.name ] = WINDOWS
+{
+  # user-built Boost
+  using boost : installed : <root>$(BOOST_ROOT_BASE)/boost_installed ;
+}
+
+# Provide for building from git, requires special knowledge
+using boost : git : <root>$(BOOST_ROOT_BASE)/boost.git ;
+
+# Provide all source versions.
+using boost : 1.66.0 : <root>$(BOOST_ROOT_BASE)/boost_1_66_0 ;
+using boost : 1.65.0 : <root>$(BOOST_ROOT_BASE)/boost_1_65_0 ;
+using boost : 1.64.0 : <root>$(BOOST_ROOT_BASE)/boost_1_64_0 ;
+using boost : 1.63.0 : <root>$(BOOST_ROOT_BASE)/boost_1_63_0 ;
+using boost : 1.62.0 : <root>$(BOOST_ROOT_BASE)/boost_1_62_0 ;
+using boost : 1.61.0 : <root>$(BOOST_ROOT_BASE)/boost_1_61_0 ;
+using boost : 1.60.0 : <root>$(BOOST_ROOT_BASE)/boost_1_60_0 ;
+using boost : 1.59.0 : <root>$(BOOST_ROOT_BASE)/boost_1_59_0 ;
+using boost : 1.58.0 : <root>$(BOOST_ROOT_BASE)/boost_1_58_0 ;
+using boost : 1.57.0 : <root>$(BOOST_ROOT_BASE)/boost_1_57_0 ;
+using boost : 1.56.0 : <root>$(BOOST_ROOT_BASE)/boost_1_56_0 ;
+using boost : 1.55.0 : <root>$(BOOST_ROOT_BASE)/boost_1_55_0 ;
+using boost : 1.54.0 : <root>$(BOOST_ROOT_BASE)/boost_1_54_0 ;
+using boost : 1.53.0 : <root>$(BOOST_ROOT_BASE)/boost_1_53_0 ;
+using boost : 1.52.0 : <root>$(BOOST_ROOT_BASE)/boost_1_52_0 ;
+using boost : 1.51.0 : <root>$(BOOST_ROOT_BASE)/boost_1_51_0 ;
+using boost : 1.50.0 : <root>$(BOOST_ROOT_BASE)/boost_1_50_0 ;
+using boost : 1.49.0 : <root>$(BOOST_ROOT_BASE)/boost_1_49_0 ;
+using boost : 1.48.0 : <root>$(BOOST_ROOT_BASE)/boost_1_48_0 ;
+using boost : 1.47.0 : <root>$(BOOST_ROOT_BASE)/boost_1_47_0 ;
+using boost : 1.43.0 : <root>$(BOOST_ROOT_BASE)/boost_1_43_0 ;
+using boost : 1.42.0 : <root>$(BOOST_ROOT_BASE)/boost_1_42_0 ;
+using boost : 1.39.0 : <root>$(BOOST_ROOT_BASE)/boost_1_39_0 ;
+using boost : 1.38.0 : <root>$(BOOST_ROOT_BASE)/boost_1_38_0 ;
+using boost : 1.37.0 : <root>$(BOOST_ROOT_BASE)/boost_1_37_0 ;
+using boost : 1.36.0 : <root>$(BOOST_ROOT_BASE)/boost_1_36_0 ;
+using boost : 1.35.0 : <root>$(BOOST_ROOT_BASE)/boost_1_35_0 ;
+using boost : 1.34.0 : <root>$(BOOST_ROOT_BASE)/boost_1_34_0 ;
+using boost : 1.33.0 : <root>$(BOOST_ROOT_BASE)/boost_1_33_0 ;
