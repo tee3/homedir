@@ -182,6 +182,7 @@ ${pm_install} shellcheck
 ${pm_cask_install} slack
 ${pm_install} sloccount
 ${pm_install} socat
+${pm_cask_install} sourcetree
 ${pm_install} sqlite
 ${pm_install} srecord
 ${pm_install} ssh-copy-id
