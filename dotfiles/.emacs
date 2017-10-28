@@ -234,6 +234,7 @@
   (setq size-indication-mode t)
   (setq kill-ring-max 1000)
   (setq kill-do-not-save-duplicates t)
+  (setq save-interprogram-paste-before-kill t)
   :config
   (eval-after-load "desktop.el"
     (add-to-list 'desktop-globals-to-save 'kill-ring 1)))
