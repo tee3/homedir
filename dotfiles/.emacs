@@ -101,6 +101,9 @@
   (setq w32-pass-apps-to-system nil)
   (setq w32-apps-modifier 'hyper))
 
+(use-package newcomment
+  :init
+  (setq comment-empty-lines t))
 (use-package cus-edit
   :init
   (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
