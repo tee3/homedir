@@ -130,6 +130,9 @@
   (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
   (add-hook 'lisp-interaction-mode-hook 'eldoc-mode)
   (add-hook 'eval-expression-minibuffer-setup-hook 'eldoc-mode))
+(use-package elec-pair
+  :init
+  (electric-pair-mode))
 (use-package etags
   :init
   (setq tags-loop-revert-buffers t))
