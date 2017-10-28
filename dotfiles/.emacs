@@ -1706,7 +1706,14 @@
 ;;; Start the emacs server (emacsserver/emacsclient)
 ;;;
 (use-package server
+  :preface
+  (defun tee3-signal-restart-server ()
+    (interactive)
+    (message "Caught event %S" last-input-event)
+    (server-mode))
   :config
+  (define-key special-event-map [sigusr1] 'tee3-signal-restart-server)
+
   (unless (server-running-p)
     (server-start)))
 
