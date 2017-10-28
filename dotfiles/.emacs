@@ -668,7 +668,14 @@
   :pin melpa)
 (use-package matlab
   :ensure matlab-mode
-  :pin melpa)
+  :pin melpa
+  :config
+  (setq matlab-auto-fill nil)
+  (setq matlab-fill-code nil)
+  (setq matlab-completion-technique 'increment)
+  (setq matlab-functions-have-end t)
+  (setq matlab-indent-function-body t)
+  (setq matlab-show-mlint-warnings t))
 (use-package octave)
 (use-package php-mode
   :disabled t
