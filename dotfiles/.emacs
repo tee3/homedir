@@ -631,7 +631,7 @@
   (("\\.[sh][56][45x]\\'" . asm-mode))
   :config
   (add-hook 'asm-mode-hook (lambda ()
-                                  (setq indent-tabs-mode t))))
+                             (setq indent-tabs-mode t))))
 (use-package coffee-mode
   :ensure t
   :pin melpa)
@@ -692,8 +692,8 @@
   (setq sql-sqlite-program "sqlite3"))
 (use-package swift-mode
   :if (or (>= emacs-major-version 25)
-           (and (= emacs-major-version 24)
-                (>= emacs-minor-version 4)))
+          (and (= emacs-major-version 24)
+               (>= emacs-minor-version 4)))
   :ensure t
   :pin melpa)
 (use-package tcl)
@@ -964,7 +964,7 @@
   :config
   (add-hook 'go-mode-hook (lambda ()
                             ;; allow use of tabs as it is required by go fmt
-			    (setq indent-tabs-mode t)
+                            (setq indent-tabs-mode t)
 
                             ;; format before save
                             (add-hook 'before-save-hook 'gofmt-before-save))))
