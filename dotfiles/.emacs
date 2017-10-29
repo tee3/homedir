@@ -1034,6 +1034,30 @@
 
 ;;; C-family programming languages
 (use-package cc-mode
+  :preface
+  (defun tee3-c-mode-common-hook ()
+    ;; Add the personal styles defined above.
+    (c-add-style "tee3" tee3-c-style t)
+    (c-add-style "msvc" msvc-c-style t)
+
+    ;;
+    ;; Other customizations.
+    ;;
+    ;; TBD: Not sure if all of these will be okay or not.
+    ;;
+    (c-toggle-auto-state 1)
+    (c-toggle-hungry-state 1)
+    ;; (c-toggle-auto-hungry-state 1)
+
+    ;; (auto-fill-mode t)
+    ;; (abbrev-mode t)
+    ;; (column-number-mode t)
+
+    ;; (setq tab-width 8)
+
+    ;; (setq c-tab-always-indent t)
+    ;; (setq c-insert-tab-function nil)
+    )
   :init
   (use-package cwarn
     :diminish cwarn-mode
@@ -1075,30 +1099,7 @@
   (add-hook 'c++-mode-hook
             (lambda ()
               (c-set-style "tee3")))
-  (add-hook 'c-mode-common-hook
-            (lambda ()
-              ;; Add the personal styles defined above.
-              (c-add-style "tee3" tee3-c-style t)
-              (c-add-style "msvc" msvc-c-style t)
-
-              ;;
-              ;; Other customizations.
-              ;;
-              ;; TBD: Not sure if all of these will be okay or not.
-              ;;
-              (c-toggle-auto-state 1)
-              (c-toggle-hungry-state 1)
-              ;; (c-toggle-auto-hungry-state 1)
-
-              ;; (auto-fill-mode t)
-              ;; (abbrev-mode t)
-              ;; (column-number-mode t)
-
-              ;; (setq tab-width 8)
-
-              ;; (setq c-tab-always-indent t)
-              ;; (setq c-insert-tab-function nil)
-              )))
+  (add-hook 'c-mode-common-hook 'tee3-c-mode-common-hook))
 (use-package demangle-mode
   :ensure t
   :pin melpa)
