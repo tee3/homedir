@@ -274,16 +274,13 @@
 ;;; Text mode hooks
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'text-mode-hook 'text-mode-hook-identify)
-(add-hook 'text-mode-hook (lambda ()
-                            (setq indent-tabs-mode nil)))
+(add-hook 'text-mode-hook (lambda () (setq indent-tabs-mode nil)))
 (use-package linum
   :config
-  (add-hook 'text-mode-hook (lambda ()
-                              (linum-mode 1))))
+  (add-hook 'text-mode-hook (lambda () (linum-mode 1))))
 
 ;;; Programming mode hooks
-(add-hook 'prog-mode-hook (lambda ()
-                            (setq indent-tabs-mode nil)))
+(add-hook 'prog-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
 (use-package hideshow
   :config
@@ -291,8 +288,7 @@
 
 (use-package linum
   :config
-  (add-hook 'prog-mode-hook (lambda ()
-                              (linum-mode 1))))
+  (add-hook 'prog-mode-hook (lambda () (linum-mode 1))))
 (use-package flyspell
   :config
   (add-hook 'prog-mode-hook 'flyspell-prog-mode))
@@ -630,8 +626,7 @@
   :mode
   (("\\.[sh][56][45x]\\'" . asm-mode))
   :config
-  (add-hook 'asm-mode-hook (lambda ()
-                             (setq indent-tabs-mode t))))
+  (add-hook 'asm-mode-hook (lambda () (setq indent-tabs-mode t))))
 (use-package coffee-mode
   :ensure t
   :pin melpa)
@@ -893,8 +888,7 @@
   :mode
   (("Makefile.*\\'" . makefile-mode))
   :config
-  (add-hook 'makefile-mode-hook (lambda ()
-                                  (setq indent-tabs-mode t))))
+  (add-hook 'makefile-mode-hook (lambda () (setq indent-tabs-mode t))))
 
 ;;; Boost.Build programming language
 ;;; @todo fill in
@@ -909,12 +903,10 @@
    ("\\.jam\\'" . jam-mode))
   :init
   :config
-  (add-hook 'jam-mode-hook (lambda ()
-                             (setq indent-tabs-mode nil)))
+  (add-hook 'jam-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
   (eval-after-load "linum.el"
-    (add-hook 'jam-mode-hook (lambda ()
-                               (linum-mode 1))))
+    (add-hook 'jam-mode-hook (lambda () (linum-mode 1))))
 
   (eval-after-load "flyspell.el"
     (add-hook 'jam-mode-hook 'flyspell-prog-mode)))
@@ -963,10 +955,8 @@
     :pin melpa)
   :config
   ;; allow use of tabs as it is required by go fmt
-  (add-hook 'go-mode-hook (lambda ()
-                            (setq indent-tabs-mode t)))
-  (add-hook 'go-mode-hook (lambda ()
-                            (add-hook 'before-save-hook 'gofmt-before-save))))
+  (add-hook 'go-mode-hook (lambda () (setq indent-tabs-mode t)))
+  (add-hook 'go-mode-hook (lambda () (add-hook 'before-save-hook 'gofmt-before-save))))
 
 ;;; Ruby programming language
 (use-package ruby-mode
@@ -1093,12 +1083,8 @@
   (setq c-indent-comments-syntactically-p t)
   (setq c-strict-syntax-p t)
   :config
-  (add-hook 'c-mode-hook
-            (lambda ()
-              (c-set-style "tee3")))
-  (add-hook 'c++-mode-hook
-            (lambda ()
-              (c-set-style "tee3")))
+  (add-hook 'c-mode-hook (lambda () (c-set-style "tee3")))
+  (add-hook 'c++-mode-hook (lambda () (c-set-style "tee3")))
   (add-hook 'c-mode-common-hook 'tee3-c-mode-common-hook))
 (use-package demangle-mode
   :ensure t
@@ -1124,10 +1110,8 @@
   :ensure t
   :pin melpa
   :config
-  ;; (add-hook 'java-mode-hook (lambda ()
-  ;;                             (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
-  (add-hook 'java-mode-hook (lambda ()
-                              (meghanada-mode t))))
+  ;; (add-hook 'java-mode-hook (lambda () (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
+  (add-hook 'java-mode-hook (lambda () (meghanada-mode t))))
 
 ;;; JavaScript programming language
 (use-package js)
@@ -1141,8 +1125,7 @@
   (eval-after-load "js.el"
     (add-to-list 'auto-mode-alist '("\\.tern-project\\'" . json-mode)))
   :config
-  (add-hook 'js-mode-hook (lambda ()
-                            (tern-mode t))))
+  (add-hook 'js-mode-hook (lambda () (tern-mode t))))
 (use-package eslint-fix
   :ensure t
   :pin melpa)
