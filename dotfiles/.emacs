@@ -962,11 +962,10 @@
     :ensure t
     :pin melpa)
   :config
+  ;; allow use of tabs as it is required by go fmt
   (add-hook 'go-mode-hook (lambda ()
-                            ;; allow use of tabs as it is required by go fmt
-                            (setq indent-tabs-mode t)
-
-                            ;; format before save
+                            (setq indent-tabs-mode t)))
+  (add-hook 'go-mode-hook (lambda ()
                             (add-hook 'before-save-hook 'gofmt-before-save))))
 
 ;;; Ruby programming language
