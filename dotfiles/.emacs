@@ -396,7 +396,7 @@
     :ensure t
     :pin melpa
     :init
-    ; @todo should not have to add this explicitly
+    ;; @todo should not have to add this explicitly
     (use-package memoize
       :ensure t
       :pin melpa)
@@ -841,7 +841,7 @@
 
   (setq magit-repository-directories (quote (("~/Development" . 2))))
 
-  ; trash doesn't work properly on macOS
+  ;; trash doesn't work properly on macOS
   (when (equal system-type 'darwin)
     (setq magit-delete-by-moving-to-trash nil))
 
@@ -1291,7 +1291,7 @@
   ;; ensure the right executables are used
   (setq rtags-path "~/opt/local/bin")
 
-  ; required for auto-completion
+  ;; required for auto-completion
   (setq rtags-autostart-diagnostics t)
   (setq rtags-completions-enabled t)
 
