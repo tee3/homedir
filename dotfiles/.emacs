@@ -165,8 +165,21 @@
   :init
   (icomplete-mode))
 (use-package linum
+  :if (< emacs-major-version 26)
   :init
-  (setq linum-format "%4d "))
+  (setq linum-format "%4d ")
+  :config
+  (add-hook 'text-mode-hook (lambda () (linum-mode 1)))
+
+  (add-hook 'prog-mode-hook (lambda () (linum-mode 1))))
+(use-package display-line-numbers
+  :if (>= emacs-major-version 26)
+  :init
+  (setq display-line-numbers-grow-only t)
+  (setq display-line-numbers-width-start 3)
+  :config
+  (add-hook 'text-mode-hook (lambda () (display-line-numbers-mode t)))
+  (add-hook 'prog-mode-hook (lambda () (display-line-numbers-mode t))))
 (use-package locate
   :config
   (when (equal system-type 'darwin)
@@ -275,9 +288,6 @@
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'text-mode-hook 'text-mode-hook-identify)
 (add-hook 'text-mode-hook (lambda () (setq indent-tabs-mode nil)))
-(use-package linum
-  :config
-  (add-hook 'text-mode-hook (lambda () (linum-mode 1))))
 
 ;;; Programming mode hooks
 (add-hook 'prog-mode-hook (lambda () (setq indent-tabs-mode nil)))
@@ -286,9 +296,6 @@
   :config
   (add-hook 'prog-mode-hook 'hs-minor-mode))
 
-(use-package linum
-  :config
-  (add-hook 'prog-mode-hook (lambda () (linum-mode 1))))
 (use-package flyspell
   :config
   (add-hook 'prog-mode-hook 'flyspell-prog-mode))
@@ -905,8 +912,13 @@
   :config
   (add-hook 'jam-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
-  (eval-after-load "linum.el"
-    (add-hook 'jam-mode-hook (lambda () (linum-mode 1))))
+  (if (>= emacs-major-version 26)
+      (eval-after-load "display-line-numbers.el"
+        (add-hook 'jam-mode-hook (lambda ()
+                                  (display-line-numbers-mode t))))
+    (eval-after-load "linum.el"
+      (add-hook 'jam-mode-hook (lambda ()
+                                 (linum-mode 1)))))
 
   (eval-after-load "flyspell.el"
     (add-hook 'jam-mode-hook 'flyspell-prog-mode)))
