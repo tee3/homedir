@@ -215,6 +215,7 @@ ${pm_install} xctool
 ${pm_install} xmlformat
 ${pm_install} xmlstarlet
 ${pm_install} xmlto
+${pm_cask_install} xquartz
 
 # cleanup
 ${pm_cleanup}
