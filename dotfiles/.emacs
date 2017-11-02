@@ -1374,6 +1374,13 @@
   :pin melpa)
 
 ;;;
+;;; Structure and Interpretation of Computer Programs (SICP)
+;;;
+(use-package sicp
+  :ensure t
+  :pin melpa)
+
+;;;
 ;;; Themes
 ;;;
 (when (or (>= emacs-major-version 25)
