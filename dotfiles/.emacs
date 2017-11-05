@@ -671,7 +671,7 @@
 (use-package matlab
   :ensure matlab-mode
   :pin melpa
-  :config
+  :init
   (setq matlab-auto-fill nil)
   (setq matlab-fill-code nil)
   (setq matlab-completion-technique 'increment)
