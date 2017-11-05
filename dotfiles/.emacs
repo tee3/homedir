@@ -678,9 +678,12 @@
   :init
   (setq matlab-auto-fill nil)
   (setq matlab-fill-code nil)
+  (setq matlab-fill-strings-flag nil)
+  (setq matlab-fill-count-ellipsis-flag nil)
   (setq matlab-completion-technique 'increment)
   (setq matlab-functions-have-end t)
   (setq matlab-indent-function-body t)
+  (setq matlab-return-add-semicolon t)
   (setq matlab-show-mlint-warnings nil))
 (use-package octave)
 (use-package php-mode
