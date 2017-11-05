@@ -681,7 +681,7 @@
   (setq matlab-completion-technique 'increment)
   (setq matlab-functions-have-end t)
   (setq matlab-indent-function-body t)
-  (setq matlab-show-mlint-warnings t))
+  (setq matlab-show-mlint-warnings nil))
 (use-package octave)
 (use-package php-mode
   :disabled t
