@@ -671,6 +671,10 @@
 (use-package matlab
   :ensure matlab-mode
   :pin melpa
+  :preface
+  ;; @todo workaround for deprecated variable
+  (when (>= emacs-major-version 26)
+    (setq default-fill-column fill-column))
   :init
   (setq matlab-auto-fill nil)
   (setq matlab-fill-code nil)
