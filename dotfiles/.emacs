@@ -1014,7 +1014,20 @@
   (add-hook 'makefile-mode-hook (lambda () (setq indent-tabs-mode t))))
 
 ;;; Boost.Build programming language
-;;; @todo fill in
+(with-eval-after-load "projectile"
+  (defun tee3-projectile-boost-build-project-p ()
+    "Check if a project contains Jamroot, project-root.jam, or jamroot.jam files."
+    (or (projectile-verify-file-wildcard "project-root.jam")
+        (projectile-verify-file-wildcard "Jamroot")
+        (projectile-verify-file-wildcard "jamroot.jam")))
+
+  (projectile-register-project-type 'boost-build
+                                    #'tee3-projectile-boost-build-project-p
+                                    :compile "b2"
+                                    :test "b2"
+                                    :run "b2"
+                                    :test-prefix "test_"))
+
 
 ;;; Jam programming language
 (use-package jam-mode
