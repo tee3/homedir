@@ -383,6 +383,8 @@
   :if (eq tee3-desired-completion-system 'ido)
   :ensure t
   :pin melpa
+  :bind
+  ("C-x C-b" . ibuffer)
   :init
   (use-package ibuffer-vc
     :ensure t
