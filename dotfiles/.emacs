@@ -71,7 +71,8 @@
   "This is used to choose a completion system when it must be done at configuration.")
 
 (defcustom tee3-flycheck-override-modern-flymake t
-  "Flymake is used instead of flycheck for Emacs 26 and later unless this variable is true.")
+  "Flymake is used instead of flycheck for Emacs 26 and later unless this variable is true."
+  :type 'boolean)
 
 ;;;
 ;;; Emacs
