@@ -61,6 +61,12 @@
         (message "%s is not available." name)))))
 
 ;;;
+;;; Configuration
+;;;
+(defcustom tee3-desired-completion-system 'ido
+  "This is used to choose a completion system when it must be done at configuration.")
+
+;;;
 ;;; Emacs
 ;;;
 (setq column-number-mode t)
@@ -333,6 +339,7 @@
 
 ;;; Helm
 (use-package helm
+  :if (eq tee3-desired-completion-system 'helm)
   :ensure t
   :pin melpa
   :diminish helm-mode
@@ -382,6 +389,7 @@
 
 ;;; Ido
 (use-package ido
+  :if (eq tee3-desired-completion-system 'ido)
   :preface
   (defun tee3-ido-kill-ring ()
     (interactive)
@@ -428,7 +436,7 @@
 
 ;;; Ivy
 (use-package ivy
-  :disabled t
+  :if (eq tee3-desired-completion-system 'ivy)
   :ensure ivy
   :pin melpa
   :diminish ivy-mode
@@ -440,7 +448,7 @@
 
 ;;; Counsel
 (use-package counsel
-  :disabled t
+  :if (eq tee3-desired-completion-system 'ivy)
   :ensure t
   :pin melpa
   :diminish counsel-mode
@@ -1238,7 +1246,7 @@
   :pin melpa
   :init
   (use-package helm-flycheck
-    :if (require 'helm nil t)
+    :if (and (eq tee3-desired-completion-system 'helm) (require 'helm nil t))
     :ensure t
     :pin melpa
     :bind
