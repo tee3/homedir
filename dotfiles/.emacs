@@ -847,7 +847,7 @@
   :pin melpa
   :preface
   (defun tee3-magit-choose-completing-read-function ()
-    (if ido-everywhere (setq magit-completing-read-function 'magit-ido-completing-read)))
+    (when (eq tee3-desired-completion-system 'ido) (setq magit-completing-read-function 'magit-ido-completing-read)))
   :init
   (use-package magit-lfs
     :ensure t
