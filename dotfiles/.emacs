@@ -112,7 +112,7 @@
   (setq comment-empty-lines t))
 (use-package cus-edit
   :init
-  (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
+  (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
   (load custom-file 'noerror))
 (use-package abbrev
   :diminish abbrev-mode)
