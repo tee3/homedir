@@ -360,7 +360,7 @@
   (setq helm-quick-update t)
   (setq helm-ff-skip-boring-files t)
 
-  (helm-mode -1))
+  (helm-mode 1))
 
 ;;; Ibuffer
 (use-package ibuffer
