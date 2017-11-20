@@ -436,7 +436,7 @@
   ("C-c i C-x C-b" . ivy-switch-buffer)
   ("C-c i C-x 4 b" . ivy-switch-buffer-other-window)
   :init
-  (ivy-mode -1))
+  (ivy-mode 1))
 
 ;;; Counsel
 (use-package counsel
