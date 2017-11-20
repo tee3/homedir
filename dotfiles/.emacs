@@ -480,6 +480,10 @@
   :pin melpa
   :diminish projectile-mode
   :init
+  (cond ((eq tee3-desired-completion-system 'ido) (setq projectile-completion-system 'ido))
+        ((eq tee3-desired-completion-system 'helm) (setq projectile-completion-system 'helm))
+        (t (setq projectile-completion-system 'default)))
+
   (projectile-global-mode)
 
   (setq projectile-switch-project-action 'projectile-dired)
