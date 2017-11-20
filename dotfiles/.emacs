@@ -63,6 +63,10 @@
 ;;;
 ;;; Configuration
 ;;;
+(defgroup tee3 nil
+  "Customization variables in the .emacs file."
+  :group 'convenience)
+
 (defcustom tee3-desired-completion-system 'ido
   "This is used to choose a completion system when it must be done at configuration.")
 
