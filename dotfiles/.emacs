@@ -417,10 +417,11 @@
   :diminish helm-mode
   :bind-keymap
   ("C-c c" . helm-command-map)
+  :bind
+  (:map helm-command-map
+        ("M-x" . helm-M-x)
+        ("C-x C-f" . helm-find-files))
   :init
-  (use-package helm-config
-    :ensure helm
-    :pin melpa)
   (use-package helm-flyspell
     :ensure t
     :pin melpa
@@ -439,6 +440,8 @@
           ("C-c p s g" . helm-projectile-grep))
     :config
     (helm-projectile-toggle 1))
+  (require 'helm-config)
+
   (setq helm-candidate-number-limit nil)
   (setq helm-quick-update t)
   (setq helm-ff-skip-boring-files t)
