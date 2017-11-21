@@ -445,7 +445,7 @@
 ;;; Ivy
 (use-package ivy
   :if (eq tee3-desired-completion-system 'ivy)
-  :ensure ivy
+  :ensure t
   :pin melpa
   :diminish ivy-mode
   :bind
