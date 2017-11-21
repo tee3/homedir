@@ -438,7 +438,7 @@
           ("C-c p p" . helm-projectile-switch-project)
           ("C-c p s g" . helm-projectile-grep))
     :config
-    (helm-projectile-toggle -1))
+    (helm-projectile-toggle 1))
   (setq helm-candidate-number-limit nil)
   (setq helm-quick-update t)
   (setq helm-ff-skip-boring-files t)
