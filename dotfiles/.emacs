@@ -480,7 +480,7 @@
 
   ("C-c c C-x v L" . counsel-git-log)
   :init
-  (counsel-mode -1))
+  (counsel-mode 1))
 
 ;;; Projectile
 (use-package projectile
