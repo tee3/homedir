@@ -338,6 +338,7 @@
 
 ;;; M-x
 (use-package amx
+  :if (eq tee3-desired-completion-system 'ido)
   :ensure t
   :pin melpa
   :init
