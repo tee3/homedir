@@ -1353,7 +1353,7 @@
   (use-package lsp-java
     :ensure t
     :pin melpa)
-  (use-package lsp-javascript
+  (use-package lsp-javascript-typescript
     :ensure t
     :pin melpa)
   (use-package lsp-python
