@@ -338,7 +338,7 @@
 
 ;;; M-x
 (use-package amx
-  :if (eq tee3-desired-completion-system 'ido)
+  :if (equal tee3-desired-completion-system 'ido)
   :ensure t
   :pin melpa
   :init
@@ -348,7 +348,7 @@
 
 ;;; Helm
 (use-package helm
-  :if (eq tee3-desired-completion-system 'helm)
+  :if (equal tee3-desired-completion-system 'helm)
   :ensure t
   :pin melpa
   :diminish helm-mode
@@ -380,7 +380,7 @@
 
 ;;; Ibuffer
 (use-package ibuffer
-  :if (eq tee3-desired-completion-system 'ido)
+  :if (equal tee3-desired-completion-system 'ido)
   :ensure t
   :pin melpa
   :bind
@@ -401,7 +401,7 @@
 
 ;;; Ido
 (use-package ido
-  :if (eq tee3-desired-completion-system 'ido)
+  :if (equal tee3-desired-completion-system 'ido)
   :preface
   (defun tee3-ido-kill-ring ()
     (interactive)
@@ -448,7 +448,7 @@
 
 ;;; Ivy
 (use-package ivy
-  :if (eq tee3-desired-completion-system 'ivy)
+  :if (equal tee3-desired-completion-system 'ivy)
   :ensure t
   :pin melpa
   :diminish ivy-mode
@@ -460,7 +460,7 @@
 
 ;;; Counsel
 (use-package counsel
-  :if (eq tee3-desired-completion-system 'ivy)
+  :if (equal tee3-desired-completion-system 'ivy)
   :ensure t
   :pin melpa
   :diminish counsel-mode
@@ -492,8 +492,8 @@
   :pin melpa
   :diminish projectile-mode
   :init
-  (cond ((eq tee3-desired-completion-system 'ido) (setq projectile-completion-system 'ido))
-        ((eq tee3-desired-completion-system 'helm) (setq projectile-completion-system 'helm))
+  (cond ((equal tee3-desired-completion-system 'ido) (setq projectile-completion-system 'ido))
+        ((equal tee3-desired-completion-system 'helm) (setq projectile-completion-system 'helm))
         (t (setq projectile-completion-system 'default)))
 
   (projectile-global-mode)
@@ -863,7 +863,7 @@
   :pin melpa
   :preface
   (defun tee3-magit-choose-completing-read-function ()
-    (when (eq tee3-desired-completion-system 'ido) (setq magit-completing-read-function 'magit-ido-completing-read)))
+    (when (equal tee3-desired-completion-system 'ido) (setq magit-completing-read-function 'magit-ido-completing-read)))
   :init
   (use-package magit-lfs
     :ensure t
@@ -1259,7 +1259,7 @@
   :pin melpa
   :init
   (use-package helm-flycheck
-    :if (and (eq tee3-desired-completion-system 'helm) (require 'helm nil t))
+    :if (and (equal tee3-desired-completion-system 'helm) (require 'helm nil t))
     :ensure t
     :pin melpa
     :bind
