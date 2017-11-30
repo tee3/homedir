@@ -179,7 +179,8 @@
   :init
   (icomplete-mode))
 (use-package linum
-  :if (< emacs-major-version 26)
+  :if
+  (< emacs-major-version 26)
   :init
   (setq linum-format "%4d ")
   :config
@@ -187,7 +188,8 @@
 
   (add-hook 'prog-mode-hook (lambda () (linum-mode 1))))
 (use-package display-line-numbers
-  :if (>= emacs-major-version 26)
+  :if
+  (>= emacs-major-version 26)
   :init
   (setq display-line-numbers-grow-only t)
   (setq display-line-numbers-width-start 3)
@@ -338,7 +340,8 @@
 
 ;;; M-x
 (use-package amx
-  :if (equal tee3-desired-completion-system 'ido)
+  :if
+  (equal tee3-desired-completion-system 'ido)
   :ensure t
   :pin melpa
   :init
@@ -348,7 +351,8 @@
 
 ;;; Helm
 (use-package helm
-  :if (equal tee3-desired-completion-system 'helm)
+  :if
+  (equal tee3-desired-completion-system 'helm)
   :ensure t
   :pin melpa
   :diminish helm-mode
@@ -380,7 +384,8 @@
 
 ;;; Ibuffer
 (use-package ibuffer
-  :if (equal tee3-desired-completion-system 'ido)
+  :if
+  (equal tee3-desired-completion-system 'ido)
   :ensure t
   :pin melpa
   :bind
@@ -401,7 +406,8 @@
 
 ;;; Ido
 (use-package ido
-  :if (equal tee3-desired-completion-system 'ido)
+  :if
+  (equal tee3-desired-completion-system 'ido)
   :preface
   (defun tee3-ido-kill-ring ()
     (interactive)
@@ -415,7 +421,8 @@
   ("C-c C-y" . tee3-ido-kill-ring)
   :init
   (use-package ido-completing-read+
-    :if (>= emacs-major-version 25)
+    :if
+    (>= emacs-major-version 25)
     :ensure t
     :pin melpa
     :init
@@ -448,7 +455,8 @@
 
 ;;; Ivy
 (use-package ivy
-  :if (equal tee3-desired-completion-system 'ivy)
+  :if
+  (equal tee3-desired-completion-system 'ivy)
   :ensure t
   :pin melpa
   :diminish ivy-mode
@@ -460,7 +468,8 @@
 
 ;;; Counsel
 (use-package counsel
-  :if (equal tee3-desired-completion-system 'ivy)
+  :if
+  (equal tee3-desired-completion-system 'ivy)
   :ensure t
   :pin melpa
   :diminish counsel-mode
@@ -601,7 +610,8 @@
   :pin melpa)
 (use-package graphviz-dot-mode
   ;; @todo fails to load with Emacs 26
-  :if (< emacs-major-version 26)
+  :if
+  (< emacs-major-version 26)
   :ensure t
   :pin melpa)
 (use-package irfc
@@ -632,9 +642,9 @@
    ("known_hosts\\'" . ssh-known-hosts-mode)
    ("authorized_keys2?\\'" . ssh-authorized-keys-mode)))
 (use-package systemd
-  :if (or (> emacs-major-version 24)
-          (and (= emacs-major-version 24)
-               (>= emacs-minor-version 4)))
+  :if
+  (or (> emacs-major-version 24)
+      (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
   :ensure t
   :pin melpa)
 (use-package toml-mode
@@ -665,7 +675,8 @@
   :ensure t
   :pin melpa)
 (use-package csharp-mode
-  :if (>= emacs-major-version 25)
+  :if
+  (>= emacs-major-version 25)
   :ensure t
   :pin melpa
   :init
@@ -724,9 +735,9 @@
   :init
   (setq sql-sqlite-program "sqlite3"))
 (use-package swift-mode
-  :if (or (>= emacs-major-version 25)
-          (and (= emacs-major-version 24)
-               (>= emacs-minor-version 4)))
+  :if
+  (or (>= emacs-major-version 25)
+      (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
   :ensure t
   :pin melpa)
 (use-package tcl)
@@ -817,9 +828,9 @@
 
 ;;; Git
 (use-package diff-hl
-  :if (or (> emacs-major-version 24)
-          (and (= emacs-major-version 24)
-               (>= emacs-minor-version 4)))
+  :if
+  (or (> emacs-major-version 24)
+      (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
   :ensure t
   :pin melpa
   :config
@@ -856,9 +867,9 @@
 
 ;;; Magit
 (use-package magit
-  :if (or (> emacs-major-version 24)
-          (and (= emacs-major-version 24)
-               (>= emacs-minor-version 4)))
+  :if
+  (or (> emacs-major-version 24)
+      (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
   :ensure t
   :pin melpa
   :preface
@@ -1032,7 +1043,8 @@
 
 ;;; Objective-J programming language
 (use-package objj-mode
-  :if (>= emacs-major-version 25)
+  :if
+  (>= emacs-major-version 25)
   :load-path
   "~/opt/local/src/objj-mode")
 
@@ -1214,9 +1226,9 @@
 
 ;;; Homebrew
 (use-package homebrew-mode
-  :if (or (>= emacs-major-version 25)
-          (and (= emacs-major-version 24)
-               (>= emacs-minor-version 4)))
+  :if
+  (or (>= emacs-major-version 25)
+      (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
   :ensure t
   :pin melpa
   :init
@@ -1245,7 +1257,9 @@
 ;;; Flymake
 ;;;
 (use-package flymake
-  :if (and (>= emacs-major-version 26) (not tee3-flycheck-override-modern-flymake))
+  :if
+  (and (>= emacs-major-version 26)
+       (not tee3-flycheck-override-modern-flymake))
   :bind
   ("C-c ! l" . flymake-show-diagnostics-buffer))
 
@@ -1253,13 +1267,16 @@
 ;;; Flycheck
 ;;;
 (use-package flycheck
-  :if (or (< emacs-major-version 26)
-          tee3-flycheck-override-modern-flymake)
+  :if
+  (or (< emacs-major-version 26)
+      tee3-flycheck-override-modern-flymake)
   :ensure t
   :pin melpa
   :init
   (use-package helm-flycheck
-    :if (and (equal tee3-desired-completion-system 'helm) (require 'helm nil t))
+    :if
+    (and (equal tee3-desired-completion-system 'helm)
+         (require 'helm nil t))
     :ensure t
     :pin melpa
     :bind
@@ -1335,9 +1352,9 @@
 ;;; Language Server Protocol
 ;;;
 (use-package lsp-mode
-  :if (or (> emacs-major-version 25)
-          (and (= emacs-major-version 25)
-               (>= emacs-minor-version 1)))
+  :if
+  (or (> emacs-major-version 25)
+      (and (= emacs-major-version 25) (>= emacs-minor-version 1)))
   :ensure t
   :pin melpa
   :init
@@ -1381,15 +1398,18 @@
 ;;; Docker
 ;;;
 (use-package docker
-  :if (>= emacs-major-version 25)
+  :if
+  (>= emacs-major-version 25)
   :ensure t
   :pin melpa)
 (use-package dockerfile-mode
-  :if (>= emacs-major-version 25)
+  :if
+  (>= emacs-major-version 25)
   :ensure t
   :pin melpa)
 (use-package docker-compose-mode
-  :if (>= emacs-major-version 25)
+  :if
+  (>= emacs-major-version 25)
   :ensure t
   :pin melpa)
 
@@ -1397,7 +1417,8 @@
 ;;; Kubernetes
 ;;;
 (use-package kubernetes
-  :if (>= emacs-major-version 25)
+  :if
+  (>= emacs-major-version 25)
   :ensure t
   :pin melpa)
 
