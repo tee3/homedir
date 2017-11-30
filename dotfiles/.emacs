@@ -74,6 +74,9 @@
   "Flymake is used instead of flycheck for Emacs 26 and later unless this variable is true."
   :type 'boolean)
 
+(defcustom tee3-desired-language-server-system 'default
+  "Selects the language server system, with 'default being each language has a different one.")
+
 ;;;
 ;;; Emacs
 ;;;
@@ -997,11 +1000,15 @@
   :pin melpa
   :init
   (use-package go-eldoc
+    :if
+    (equal tee3-desired-language-server-system 'default)
     :ensure t
     :pin melpa
     :config
     (add-hook 'go-mode-hook 'go-eldoc-setup))
   (use-package go-guru
+    :if
+    (equal tee3-desired-language-server-system 'default)
     :ensure t
     :pin melpa)
   (use-package go-projectile
@@ -1024,6 +1031,8 @@
     :config
     (add-hook 'ruby-mode-hook 'ruby-electric-mode))
   (use-package robe
+    :if
+    (equal tee3-desired-language-server-system 'default)
     :ensure t
     :pin melpa
     :config
@@ -1162,6 +1171,8 @@
 
 ;;; Java programming language
 (use-package meghanada
+  :if
+  (equal tee3-desired-language-server-system 'default)
   :ensure t
   :pin melpa
   :config
@@ -1174,6 +1185,8 @@
   :ensure t
   :pin melpa)
 (use-package tern
+  :if
+  (equal tee3-desired-language-server-system 'default)
   :ensure t
   :pin melpa
   :init
@@ -1310,6 +1323,8 @@
     :ensure t
     :pin melpa)
   (use-package flycheck-rtags
+    :if
+    (equal tee3-desired-language-server-system 'default)
     :load-path
     "~/opt/local/src/emacs/site-lisp/rtags")
   (use-package flycheck-swift
@@ -1324,6 +1339,8 @@
 ;;; rtags
 ;;;
 (use-package rtags
+  :if
+  (equal tee3-desired-language-server-system 'default)
   :load-path
   "~/opt/local/share/emacs/site-lisp/rtags"
   :init
@@ -1353,8 +1370,9 @@
 ;;;
 (use-package lsp-mode
   :if
-  (or (> emacs-major-version 25)
-      (and (= emacs-major-version 25) (>= emacs-minor-version 1)))
+  (and (or (> emacs-major-version 25)
+           (and (= emacs-major-version 25) (>= emacs-minor-version 1)))
+       (equal tee3-desired-language-server-system 'lsp))
   :ensure t
   :pin melpa
   :init
