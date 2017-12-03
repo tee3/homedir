@@ -467,6 +467,12 @@
   ("C-c i C-x C-b" . ivy-switch-buffer)
   ("C-c i C-x 4 b" . ivy-switch-buffer-other-window)
   :init
+  (use-package ivy-xref
+    :ensure t
+    :pin melpa
+    :init
+    (setq xref-show-xrefs-function #'ivy-xref-show-xrefs))
+
   (ivy-mode 1))
 
 ;;; Counsel
