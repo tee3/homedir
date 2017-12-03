@@ -1335,7 +1335,7 @@
     :if
     (equal tee3-desired-language-server-system 'default)
     :load-path
-    "~/opt/local/src/emacs/site-lisp/rtags")
+    "~/opt/local/share/emacs/site-lisp/rtags")
   (use-package flycheck-swift
     :ensure t
     :pin melpa
