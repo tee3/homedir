@@ -733,7 +733,10 @@
   :pin melpa)
 (use-package processing-mode
   :ensure t
-  :pin melpa)
+  :pin melpa
+  :init
+  (when (equal system-type 'darwin)
+    (setq processing-location "/usr/local/bin/processing-java")))
 (use-package sql
   :init
   (setq sql-sqlite-program "sqlite3"))
