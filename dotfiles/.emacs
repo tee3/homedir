@@ -45,6 +45,10 @@
 ;;; Bootstrap use-package
 ;;;
 (when (require 'package nil :noerror)
+  (when (boundp 'package-pinned-packages)
+    (setq package-pinned-packages
+          '((use-package . "melpa-stable"))))
+
   (when (not (package-installed-p 'use-package))
 
     (package-refresh-contents)
