@@ -62,7 +62,7 @@ def install_python3_packages():
         return False
 
     # note that pip3 comes with Python 3, so no download is required
-    if not pip3 and not os.path.exists(pip3):
+    if not pip3 or not os.path.exists(pip3):
         print 'error: pip3 not installing, not installing Python 3 packages.'
         return False
 
