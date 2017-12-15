@@ -16,6 +16,7 @@ yapf
 # reStructuredText
 #breathe
 docutils
+restructuredtext_lint
 Sphinx
 #html2rest
 
