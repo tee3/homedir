@@ -1407,7 +1407,7 @@
   (use-package lsp-python
     :ensure t
     :pin melpa)
-  (setq lsp-print-io t))
+  (setq lsp-print-io nil))
 
 ;;;
 ;;; Rainbow modes
