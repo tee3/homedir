@@ -9,6 +9,7 @@ pep257
 pep8
 pep8-naming
 pylint
+python-language-server
 rope
 virtualenv
 yapf
