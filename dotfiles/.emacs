@@ -1394,19 +1394,34 @@
     "~/opt/local/src/lsp-clangd"
     :init
     (when (equal system-type 'darwin)
-      (setq lsp-clangd-executable "/usr/local/opt/llvm/bin/clangd")))
+      (setq lsp-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
+
+    (add-hook 'c-mode--hook #'lsp-clangd-c-enable)
+    (add-hook 'c++-mode-hook #'lsp-clangd-c++-enable)
+    (add-hook 'objc-mode-hook #'lsp-clangd-objc-enable))
   (use-package lsp-go
     :ensure t
-    :pin melpa)
+    :pin melpa
+    :init
+    (add-hook 'go-mode-hook #'lsp-go-enable))
   (use-package lsp-java
     :ensure t
-    :pin melpa)
+    :pin melpa
+    :init
+    (add-hook 'java-mode-hook #'lsp-java-enable))
   (use-package lsp-javascript-typescript
     :ensure t
-    :pin melpa)
+    :pin melpa
+    :init
+    (add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
+    (add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable)
+    (add-hook 'js3-mode-hook #'lsp-javascript-typescript-enable)
+    (add-hook 'rjsx-mode #'lsp-javascript-typescript-enable))
   (use-package lsp-python
     :ensure t
-    :pin melpa)
+    :pin melpa
+    :init
+    (add-hook 'python-mode-hook #'lsp-python-enable))
   (setq lsp-print-io nil))
 
 ;;;
