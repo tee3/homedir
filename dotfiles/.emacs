@@ -1404,6 +1404,17 @@
   :ensure t
   :pin melpa
   :init
+  (use-package lsp-ui
+    :ensure t
+    :pin melpa
+    :init
+    (setq lsp-ui-doc-enable nil)
+    (setq lsp-ui-flycheck-enable t)
+    (setq lsp-ui-imenu-enable nil)
+    (setq lsp-ui-peek-enable nil)
+    (setq lsp-ui-sideline-enable nil)
+
+    (add-hook 'lsp-mode-hook 'lsp-ui-mode))
   (use-package lsp-clangd
     :load-path
     "~/opt/local/src/lsp-clangd"
