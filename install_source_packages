@@ -95,12 +95,19 @@ def install_rtags(basedir):
     if not os.path.exists(build):
         os.makedirs(build)
 
+    libclang_llvm_config_executable_option = ''
+    if sys.platform.startswith('darwin'):
+        llvm_prefix = subprocess.check_output(['brew', '--prefix', 'llvm']).rstrip()
+        libclang_llvm_config = os.path.join(llvm_prefix, 'bin', 'llvm-config')
+        libclang_llvm_config_executable_option = '-DLIBCLANG_LLVM_CONFIG_EXECUTABLE=' + libclang_llvm_config
+
     bash_completion_option = ''
     if sys.platform.startswith('darwin'):
         bash_completion_option = '-DFORCE_BASH_COMPLETION_INSTALLATION=1'
 
     command = [
         'cmake',
+        libclang_llvm_config_executable_option,
         bash_completion_option,
         '-DCMAKE_BUILD_TYPE=Release',
         '-DCMAKE_INSTALL_PREFIX:PATH=' + basedir,
