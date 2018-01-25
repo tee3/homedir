@@ -27,10 +27,10 @@ rem @todo would be better if this used same approach as bash
 if exist "%CMDPYTHONROOT%" set PATH=%HOME%\AppData\Roaming\Python\Scripts;%PATH%
 
 rem Ruby
-set CMDRUBYROOT=C:\Ruby23
+set CMDRUBYROOT=C:\Ruby24
 if not exist "%CMDRUBYROOT%" echo Ruby is not installed at "%CMDRUBYROOT%".
 rem @todo would be better if this used same approach as bash
-if exist "%CMDRUBYROOT%" set PATH=%HOME%\.gem\ruby\2.3.0\bin;%PATH%
+if exist "%CMDRUBYROOT%" set PATH=%HOME%\.gem\ruby\2.4.0\bin;%PATH%
 
 rem Node.js
 set CMDNODEJSROOT=C:\nodejs
