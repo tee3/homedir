@@ -180,6 +180,8 @@
   :init
   (setq hs-hide-comments-when-hiding-all t))
 (use-package hide-comnt
+  ;; @todo removed from melpa
+  :disabled t
   :ensure t
   :pin melpa)
 (use-package icomplete
@@ -578,6 +580,8 @@
 
 ;;; Utilities
 (use-package ascii
+  ;; @todo removed from melpa
+  :disabled t
   :ensure t
   :pin melpa)
 (use-package list-unicode-display
@@ -628,6 +632,8 @@
   :ensure t
   :pin melpa)
 (use-package irfc
+  ;; @todo removed from melpa
+  :disabled t
   :ensure t
   :pin melpa)
 (use-package jgraph-mode
@@ -711,6 +717,8 @@
   :ensure t
   :pin melpa)
 (use-package llvm-mode
+  ;; @todo removed from melpa
+  :disabled t
   :ensure t
   :pin melpa)
 (use-package lua-mode
@@ -758,6 +766,8 @@
   :pin melpa)
 (use-package tcl)
 (use-package tidy
+  ;; @todo removed from melpa
+  :disabled t
   :ensure t
   :pin melpa)
 (use-package web-mode
@@ -924,6 +934,8 @@
 
 ;;; Microsoft Team Foundation Server
 (use-package tfs
+  ;; @todo removed from melpa
+  :disabled t
   :ensure t
   :pin melpa)
 
@@ -1170,6 +1182,8 @@
   :ensure t
   :pin melpa)
 (use-package dummy-h-mode
+  ;; @todo removed from melpa
+  :disabled t
   :ensure t
   :pin melpa)
 (use-package objc-font-lock
