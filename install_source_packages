@@ -21,7 +21,7 @@ if not b2:
 
 def emulate_backtick(args):
     try:
-        output = subprocess.check_output(args).rstrip('\n')
+        output = subprocess.check_output(args, universal_newlines=True).rstrip('\n')
     except:
         output = ''
 
