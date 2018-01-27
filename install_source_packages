@@ -19,6 +19,15 @@ if not b2:
     print 'warning: Boost.Build was not found, skipping source packages that require it.'
 
 
+def emulate_backtick(args):
+    try:
+        output = subprocess.check_output(args).rstrip('\n')
+    except:
+        output = ''
+
+    return output
+
+
 def git_clone_update_pull_ff_only(url, directory):
     """Clone, update, and pull --ff-only the given url to the given
     directory.
@@ -97,7 +106,7 @@ def install_rtags(basedir):
 
     libclang_llvm_config_executable_option = ''
     if sys.platform.startswith('darwin'):
-        llvm_prefix = subprocess.check_output(['brew', '--prefix', 'llvm']).rstrip()
+        llvm_prefix = emulate_backtick(['brew', '--prefix', 'llvm'])
         libclang_llvm_config = os.path.join(llvm_prefix, 'bin', 'llvm-config')
         libclang_llvm_config_executable_option = '-DLIBCLANG_LLVM_CONFIG_EXECUTABLE=' + libclang_llvm_config
 
@@ -155,7 +164,7 @@ def install_standardese(basedir):
     libclang_library_option = ''
     libclang_system_include_dir_option = ''
     if sys.platform.startswith('darwin'):
-        llvm_prefix = subprocess.check_output(['brew', '--prefix', 'llvm']).rstrip()
+        llvm_prefix = emulate_backtick(['brew', '--prefix', 'llvm'])
         libclang_include_dir = os.path.join(llvm_prefix, 'include')
         if libclang_include_dir:
             libclang_include_dir_option = '-DLIBCLANG_INCLUDE_DIR=' + libclang_include_dir
