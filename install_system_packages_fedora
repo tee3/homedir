@@ -20,6 +20,8 @@ elif [ "${release}" = "Fedora release 25 (Twenty Five)" ]; then
     version=25
 elif [ "${release}" = "Fedora release 26 (Twenty Six)" ]; then
     version=26
+elif [ "${release}" = "Fedora release 27 (Twenty Seven)" ]; then
+    version=27
 fi
 
 # package manager
