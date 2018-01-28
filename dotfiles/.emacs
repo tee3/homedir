@@ -1182,6 +1182,16 @@
     :pin melpa
     :config
     (flycheck-swift-setup))
+  (use-package flycheck-swiftlint
+    :ensure t
+    :pin melpa
+    :config
+    (flycheck-swiftlint-setup))
+  (use-package flycheck-xcode
+    :ensure t
+    :pin melpa
+    :config
+    (flycheck-xcode-setup))
   :config
   (global-flycheck-mode))
 
