@@ -26,7 +26,7 @@ Sphinx
 #PyGithub
 
 # Mercurial
-Mercurial
+Mercurial ; python_version < '3'
 
 # Miscellaneous
 speedtest-cli
