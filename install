@@ -173,7 +173,8 @@ if __name__ == '__main__':
                 if f == os.path.join(dotfiledirs, '.stow-local-ignore'):
                     continue
 
-                if not os.path.exists(home_f):
+                if not os.path.islink(os.path.abspath(home_f)):
+                    os.remove(home_f)
                     emulate_run(['cmd','/c','mklink', os.path.abspath(home_f), os.path.abspath(f)])
 
     # ask user for name and email address
