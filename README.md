@@ -221,6 +221,11 @@ sudo shutdown -r now
 There is very limited support for installing system packages under
 Windows and such is a manual process.
 
+Install Windows Build Tools while logged in to the graphical system as
+`administrator`.
+
+Use "Run as Administrator" when installing programs.
+
 Install the following tools using the normal Windows installation
 processes, customizing the installers as described below.
 
@@ -311,6 +316,14 @@ processes, customizing the installers as described below.
     bootstrap.bat
     b2 install
     ```
+* CMake (64-bit)
+
+  * Install for all users.
+
+  * Install to `C:\CMake`.
+
+  * Add to `PATH`.
+
 * Boost C++ Libraries 1.68.0
 
   * Install from source (this will take a very long time).
