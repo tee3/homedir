@@ -28,7 +28,9 @@ gem = distutils.spawn.find_executable('gem')
 if not gem and sys.platform.startswith('win32'):
     gem = distutils.spawn.find_executable('gem.bat')
 if not gem and sys.platform.startswith('win32'):
-    gem = 'gem.bat'
+    gem = distutils.spawn.find_executable('gem.cmd')
+if not gem and sys.platform.startswith('win32'):
+    gem = 'gem.cmd'
 
 if __name__ == '__main__':
     if not ruby:
