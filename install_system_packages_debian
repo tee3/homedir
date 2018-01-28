@@ -246,6 +246,7 @@ ${pm_install} vim
 #${pm_install} webp
 ${pm_install} wget
 #${pm_install} wireshark
+${pm_install} xauth
 #${pm_install} xctool
 #${pm_install} xmlformat
 #${pm_install} xmlstarlet
