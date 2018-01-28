@@ -44,7 +44,9 @@ else
     pm_cleanup="sudo ${pm} autoremove"
 
     sudo ${pm} install dnf-plugins-core
-    sudo ${pm} config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+    if [ "${version}" -le 26 ]; then
+        sudo ${pm} config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+    fi
 fi
 
 # check if yum is installed, if package manager is not
@@ -70,7 +72,9 @@ fi
 # additional repositories
 ${pm_install} curl
 
-curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash
+if [ "${version}" -le 26 ]; then
+    curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash
+fi
 
 # update and check packages
 ${pm_update}
