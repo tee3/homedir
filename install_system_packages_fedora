@@ -279,6 +279,7 @@ ${pm_install} wget
 #${pm_install} wireshark
 ${pm_install} xauth
 #${pm_install} xctool
+${pm_install} xdg-utils
 #${pm_install} xmlformat
 #${pm_install} xmlstarlet
 #${pm_install} xmlto
