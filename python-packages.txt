@@ -18,6 +18,7 @@ yapf
 #breathe
 docutils
 restructuredtext_lint
+restview
 Sphinx
 #html2rest
 
