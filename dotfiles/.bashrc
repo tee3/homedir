@@ -27,9 +27,9 @@ if [ -e /usr/local/bin/brew ]; then
     fi
 
     # Python 2.7 from Homebrew
-#    if [ -e "$(brew --prefix python)" ]; then
-#        export PYTHONPATH=""${brew_prefix}""/lib/python2.7/site-packages
-#    fi
+    if [ -e "$(brew --prefix python@2)" ]; then
+        export PATH="${brew_prefix}/opt/python@2/bin":$PATH
+    fi
 
     # Ruby from Homebrew
     if [ -e "$(brew --prefix ruby)" ]; then
@@ -76,7 +76,7 @@ shopt -s cmdhist
 
 # Python
 if [ ! -z "$(which python 2> /dev/null)" ]; then
-    export PATH="$(python -c 'import site ; print site.USER_BASE')/bin":${PATH}
+    export PATH="$(python -c 'import site ; print(site.USER_BASE)')/bin":${PATH}
 fi
 
 # Ruby
