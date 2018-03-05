@@ -3,3 +3,5 @@
 github.com/sourcegraph/go-langserver
 
 github.com/google/git-appraise/git-appraise
+
+github.com/github/git-sizer
