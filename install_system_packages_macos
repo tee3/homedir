@@ -155,6 +155,7 @@ ${pm_install} llvm@3.7
 ${pm_install} llvm@3.8
 ${pm_install} llvm@3.9
 ${pm_install} llvm@4
+${pm_install} llvm@5
 ${pm_install} lrzsz
 ${pm_install} markdown
 ${pm_install} maven
