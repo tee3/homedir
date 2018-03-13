@@ -54,3 +54,6 @@ npm-debug.log
 
 # Java Tooling
 .meghanada/
+
+# Python Tooling
+.ropeproject/
