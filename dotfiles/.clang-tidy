@@ -1,5 +1,5 @@
 ---
-Checks:          '*'
+Checks:          '*,-abseil-*,-android-*,-fuchsia-*,-google-*,-llvm-*'
 WarningsAsErrors: ''
 HeaderFilterRegex: ''
 AnalyzeTemporaryDtors: false
