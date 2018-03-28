@@ -70,6 +70,7 @@ ${pm_cask_install} osxfuse
 #${pm_install} gitfs
 ${pm_install} sshfs
 
+${pm_cask_install} 1password
 ${pm_install} arp-scan
 ${pm_install} arp-sk
 ${pm_install} arpoison
