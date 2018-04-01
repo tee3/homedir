@@ -127,6 +127,7 @@ ${pm_install} gnu-typist
 ${pm_install} go
 ${pm_install} gpg
 ${pm_cask_install} google-chrome
+${pm_cask_install} google-drive-file-stream
 ${pm_install} graphviz
 ${pm_install} guile
 ${pm_install} hadolint
