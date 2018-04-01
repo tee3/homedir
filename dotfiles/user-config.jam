@@ -105,17 +105,17 @@ path-constant BOOST_ROOT_BASE : "$(HOME)/opt/local/src/boost" ;
 if [ os.name ] = LINUX
 {
   # System Boost
-  using boost : installed  : <include>/usr/include <library>/usr/lib ;
+  using boost : "" : <include>/usr/include <library>/usr/lib <layout>system ;
 }
 else if [ os.name ] = MACOSX
 {
   # Homebrew-installed Boost
-  using boost : installed  : <include>/usr/local/include <library>/usr/local/lib ;
+  using boost : "" : <include>/usr/local/include <library>/usr/local/lib <layout>system ;
 }
 else if [ os.name ] = WINDOWS
 {
   # user-built Boost
-  using boost : installed : <root>$(BOOST_ROOT_BASE)/boost_installed ;
+  using boost : "" : <root>$(BOOST_ROOT_BASE)/boost_installed ;
 }
 
 # Provide for building from git, requires special knowledge
