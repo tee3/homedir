@@ -80,7 +80,7 @@ ${pm_install} arpoison
 ${pm_install} bash-completion
 ${pm_install} bear
 ${pm_install} boost
-#${pm_install} boost-bcp
+${pm_install} boost-bcp
 ${pm_install} boost-build
 ${pm_install} casperjs
 ${pm_install} cflow
