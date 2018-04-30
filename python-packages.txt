@@ -27,6 +27,7 @@ fortran-language-server
 # Miscellaneous
 azure-cli
 conan
+yamllint
 
 # Jupyter
 jupyter
