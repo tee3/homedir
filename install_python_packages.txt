@@ -33,6 +33,7 @@ fortran-language-server
 
 # Miscellaneous
 conan
+yamllint
 
 # Jupyter
 jupyter
