@@ -109,6 +109,7 @@ ${pm_install} gcc
 ${pm_install} gcc@4.9
 ${pm_install} gcc@5
 ${pm_install} gcc@6
+${pm_install} gcc@7
 ${pm_install} gdb
 ${pm_install} gem-completion
 ${pm_install} git-extras
