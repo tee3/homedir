@@ -167,6 +167,10 @@ ${pm_install} gcc-c++
 #${pm_install} gcc5-c++
 #${pm_install} gcc6
 #${pm_install} gcc6-c++
+#${pm_install} gcc7
+#${pm_install} gcc7-c++
+#${pm_install} gcc8
+#${pm_install} gcc8-c++
 ${pm_install} gdb
 #${pm_install} gem-completion
 ${pm_install} git-extras
