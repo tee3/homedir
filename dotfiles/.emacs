@@ -1217,8 +1217,9 @@
   :ensure t
   :pin melpa
   :init
-  (eval-after-load "js.el"
-    (add-to-list 'auto-mode-alist '("\\.tern-project\\'" . json-mode)))
+  ;; @todo this causes an error when run independently
+  ;; (eval-after-load "js.el"
+  ;;   (add-to-list 'auto-mode-alist '("\\.tern-project\\'" . json-mode)))
   :config
   (add-hook 'js-mode-hook (lambda () (tern-mode t))))
 (use-package eslint-fix
