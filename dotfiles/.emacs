@@ -1464,6 +1464,33 @@
     :init
     (add-hook 'python-mode-hook #'lsp-python-enable))
   (setq lsp-print-io nil))
+(use-package eglot
+  :disabled t
+  :if
+  (and (or (> emacs-major-version 26)
+           (and (= emacs-major-version 26) (>= emacs-minor-version 1)))
+       (equal tee3-desired-language-server-system 'lsp))
+  :ensure t
+  :pin gnu
+  :config
+  (add-to-list 'eglot-server-programs '(go-mode . ("go-langserver")))
+
+  (add-to-list 'eglot-server-programs '(bash-mode . ("bash-language-server")))
+
+  (add-to-list 'eglot-server-programs '(js-mode . ("javascript-typescript-langserver")))
+  (add-to-list 'eglot-server-programs '(js2-mode . ("javascript-typescript-langserver")))
+
+  (if (equal system-type 'darwin)
+      (progn
+        (add-to-list 'eglot-server-programs '(c-mode . ("/usr/local/opt/llvm/bin/clangd")))
+        (add-to-list 'eglot-server-programs '(c++-mode . ("/usr/local/opt/llvm/bin/clangd")))
+        (add-to-list 'eglot-server-programs '(objc-mode . ("/usr/local/opt/llvm/bin/clangd")))
+        (add-to-list 'eglot-server-programs '(objc++-mode . ("/usr/local/opt/llvm/bin/clangd"))))
+    (progn
+      (add-to-list 'eglot-server-programs '(c-mode . ("clangd")))
+      (add-to-list 'eglot-server-programs '(c++-mode . ("clangd")))
+      (add-to-list 'eglot-server-programs '(objc-mode . ("clangd")))
+      (add-to-list 'eglot-server-programs '(objc++-mode . ("clangd"))))))
 
 ;;;
 ;;; Rainbow modes
