@@ -81,11 +81,11 @@
   :type 'symbol
   :options '('none 'ido 'auto-complete 'company))
 
-(defcustom tee3-flycheck-override-modern-flymake t
+(defcustom tee3-flycheck-override-modern-flymake nil
   "Flymake is used instead of flycheck for Emacs 26 and later unless this variable is true."
   :type 'boolean)
 
-(defcustom tee3-desired-language-server-system 'default
+(defcustom tee3-desired-language-server-system 'eglot
   "Selects the language server system, with 'default being each language has a different one."
   :type 'symbol
   :options '('default 'lsp 'eglot))
