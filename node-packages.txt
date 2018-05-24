@@ -18,6 +18,10 @@ jsonlint
 json-diff
 
 tern
+javascript-typescript-langserver
 
 # Application development
 electron-prebuilt
+
+# Bash
+bash-language-server
