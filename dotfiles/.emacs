@@ -1225,6 +1225,15 @@
 (use-package eslint-fix
   :ensure t
   :pin melpa)
+(use-package json-navigator
+  :ensure t
+  :pin melpa)
+(use-package jsonnet-mode
+  :ensure t
+  :pin melpa)
+(use-package jq-mode
+  :ensure t
+  :pin melpa)
 
 ;;; node.js
 (use-package nodejs-repl
