@@ -853,6 +853,11 @@
   (setq vc-display-status nil))
 
 ;;; Git
+(use-package gited
+  :ensure t
+  :pin gnu
+  :config
+  (define-key dired-mode-map "\C-x\C-g" 'gited-list-branches))
 (use-package diff-hl
   :if
   (or (> emacs-major-version 24)
