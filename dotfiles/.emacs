@@ -800,6 +800,9 @@
 (use-package sql
   :init
   (setq sql-sqlite-program "sqlite3"))
+(use-package rust-mode
+  :ensure t
+  :pin melpa)
 (use-package swift-mode
   :if
   (or (>= emacs-major-version 25)
@@ -1433,6 +1436,9 @@
     (equal tee3-desired-language-server-system 'default)
     :load-path
     "~/opt/local/share/emacs/site-lisp/rtags")
+  (use-package flycheck-rust
+    :ensure t
+    :pin melpa)
   (use-package flycheck-swift
     :ensure t
     :pin melpa
