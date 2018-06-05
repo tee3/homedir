@@ -60,6 +60,8 @@ else if [ os.name ] = MACOSX
   using darwin : 6 : /usr/local/opt/gcc@6/bin/g++-6 : $(macos-options) ;
 
   #using emscripten ;
+
+  using pgi : 18.4 : /opt/pgi/osx86-64/18.4/bin/pgc++ ;
 }
 
 # MPI
