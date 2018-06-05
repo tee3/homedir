@@ -105,6 +105,8 @@ else if [ os.name ] = MACOSX
   # using gcc : 5avr : $(LOCAL_PREFIX)/opt/avr-gcc@5/bin/avr-g++ ;
 
   # using emscripten ;
+
+  using pgi : 18.4 : /opt/pgi/osx86-64/18.4/bin/pgc++ ;
 }
 
 # MPI
