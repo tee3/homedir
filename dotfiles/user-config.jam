@@ -110,6 +110,8 @@ else if [ os.name ] = MACOSX
   using-if-command-exists gcc :  9avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@9/bin/avr-g++ ;
   using-if-command-exists gcc :  8avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@8/bin/avr-g++ ;
   using-if-command-exists gcc :  5avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@5/bin/avr-g++ ;
+
+  using-if-command-exists pgi : 18.4 : /opt/pgi/osx86-64/18.4/bin/pgc++ ;
 }
 
 using emscripten ;
