@@ -926,7 +926,7 @@
   :config
   (global-magit-file-mode)
 
-  (add-hook 'magit-status-sections-hook 'magit-insert-submodules t)
+  (add-hook 'magit-status-sections-hook 'magit-insert-modules-overview t)
   (add-hook 'magit-status-sections-hook 'magit-insert-worktrees t)
 
   (add-hook 'magit-status-headers-hook 'magit-insert-remote-header t)
