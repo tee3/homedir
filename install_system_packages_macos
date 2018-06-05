@@ -170,6 +170,7 @@ ${pm_install} nmap
 ${pm_install} node
 #${pm_install} ntfs-3g
 ${pm_install} nuttcp
+${pm_cask_install} homebrew/cask-drivers/nvidia-cuda
 ${pm_install} open-completion
 ${pm_install} openocd
 #${pm_install} osxfuse

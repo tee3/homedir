@@ -109,6 +109,13 @@ if [ ! -z "$(which ${matlab_prefix}/bin/matlab 2> /dev/null)" ]; then
     export PATH="${matlab_prefix}"/bin:${PATH}
 fi
 
+# NVIDIA
+nvidia_prefix=/Developer/NVIDIA/CUDA-9.2
+if [ ! -z "$(which ${nvidia_prefix}/bin/nvcc 2> /dev/null)" ]; then
+    export PATH="${nvidia_prefix}"/bin:${PATH}
+    export MANPATH="${nvidia_prefix}"/doc/man:${MANPATH}
+fi
+
 # never use ccache, no matter what
 export CCACHE_DISABLE=""
 
