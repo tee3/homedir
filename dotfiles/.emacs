@@ -1242,6 +1242,14 @@
   :ensure t
   :pin melpa)
 
+;;; Typescript programming language
+(use-package typescript-mode
+  :ensure t
+  :pin melpa)
+(use-package ts-comint
+  :ensure t
+  :pin melpa)
+
 ;;; Generic modes
 (use-package generic-x)
 
