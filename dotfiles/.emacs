@@ -642,9 +642,6 @@
 (use-package nginx-mode
   :ensure t
   :pin melpa)
-(use-package osx-plist
-  :ensure t
-  :pin melpa)
 (use-package pov-mode
   :disabled t
   :ensure t
