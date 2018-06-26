@@ -960,7 +960,7 @@
 ;;; Subversion
 (use-package psvn
   :ensure t
-  :pin melpa)
+  :pin marmalade)
 
 ;;; Make
 (use-package make-mode
