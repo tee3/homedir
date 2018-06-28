@@ -1515,15 +1515,15 @@
 
   (if (equal system-type 'darwin)
       (progn
-        (add-to-list 'eglot-server-programs '(c-mode . ("/usr/local/opt/llvm/bin/clangd")))
-        (add-to-list 'eglot-server-programs '(c++-mode . ("/usr/local/opt/llvm/bin/clangd")))
-        (add-to-list 'eglot-server-programs '(objc-mode . ("/usr/local/opt/llvm/bin/clangd")))
-        (add-to-list 'eglot-server-programs '(objc++-mode . ("/usr/local/opt/llvm/bin/clangd"))))
+        (add-to-list 'eglot-server-programs '((c-mode
+                                               c++-mode
+                                               objc-mode
+                                               objc++-mode) . ("/usr/local/opt/llvm/bin/clangd"))))
     (progn
-      (add-to-list 'eglot-server-programs '(c-mode . ("clangd")))
-      (add-to-list 'eglot-server-programs '(c++-mode . ("clangd")))
-      (add-to-list 'eglot-server-programs '(objc-mode . ("clangd")))
-      (add-to-list 'eglot-server-programs '(objc++-mode . ("clangd"))))))
+      (add-to-list 'eglot-server-programs '((c-mode
+                                             c++-mode
+                                             objc-mode
+                                             objc++-mode) . ("clangd"))))))
 
 ;;;
 ;;; Rainbow modes
