@@ -1513,11 +1513,6 @@
 
   (add-to-list 'eglot-server-programs '(go-mode . ("go-langserver")))
 
-  (add-to-list 'eglot-server-programs '(bash-mode . ("bash-language-server")))
-
-  (add-to-list 'eglot-server-programs '(js-mode . ("javascript-typescript-langserver")))
-  (add-to-list 'eglot-server-programs '(js2-mode . ("javascript-typescript-langserver")))
-
   (if (equal system-type 'darwin)
       (progn
         (add-to-list 'eglot-server-programs '(c-mode . ("/usr/local/opt/llvm/bin/clangd")))
