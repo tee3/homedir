@@ -1509,6 +1509,8 @@
   :ensure t
   :pin gnu
   :config
+  (add-hook 'prog-mode-hook 'eglot-ensure)
+
   (add-to-list 'eglot-server-programs '(go-mode . ("go-langserver")))
 
   (add-to-list 'eglot-server-programs '(bash-mode . ("bash-language-server")))
