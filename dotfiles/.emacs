@@ -89,7 +89,7 @@
 (defcustom tee3-desired-language-server-system 'default
   "Selects the language server system, with 'default being each language has a different one."
   :type 'symbol
-  :options '('default 'lsp))
+  :options '('default 'lsp 'eglot))
 
 ;;;
 ;;; Emacs
@@ -1502,11 +1502,10 @@
     (add-hook 'python-mode-hook #'lsp-python-enable))
   (setq lsp-print-io nil))
 (use-package eglot
-  :disabled t
   :if
   (and (or (> emacs-major-version 26)
            (and (= emacs-major-version 26) (>= emacs-minor-version 1)))
-       (equal tee3-desired-language-server-system 'lsp))
+       (equal tee3-desired-language-server-system 'eglot))
   :ensure t
   :pin gnu
   :config
