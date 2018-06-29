@@ -72,7 +72,9 @@
   :group 'convenience)
 
 (defcustom tee3-desired-completion-system 'ido
-  "This is used to choose a completion system when it must be done at configuration.")
+  "This is used to choose a completion system when it must be done at configuration."
+  :type 'symbol
+  :options '('ido 'helm 'ivy))
 
 
 (defcustom tee3-desired-automatic-completion-system 'none
@@ -85,7 +87,9 @@
   :type 'boolean)
 
 (defcustom tee3-desired-language-server-system 'default
-  "Selects the language server system, with 'default being each language has a different one.")
+  "Selects the language server system, with 'default being each language has a different one."
+  :type 'symbol
+  :options '('default 'lsp))
 
 ;;;
 ;;; Emacs
