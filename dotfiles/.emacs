@@ -74,6 +74,12 @@
 (defcustom tee3-desired-completion-system 'ido
   "This is used to choose a completion system when it must be done at configuration.")
 
+
+(defcustom tee3-desired-automatic-completion-system 'none
+  "This is used to choose an auto-completion system when it must be done at configuration."
+  :type 'symbol
+  :options '('none 'auto-complete 'company))
+
 (defcustom tee3-flycheck-override-modern-flymake t
   "Flymake is used instead of flycheck for Emacs 26 and later unless this variable is true."
   :type 'boolean)
@@ -509,6 +515,28 @@
   ("C-c c C-x v L" . counsel-git-log)
   :init
   (counsel-mode 1))
+
+;;; Auto-complete
+(use-package auto-complete
+  :if
+  (equal tee3-desired-automatic-completion-system 'auto-complete)
+  :ensure t
+  :pin melpa
+  :init
+  (ac-config-default))
+
+;;; Company
+(use-package company
+  :if
+  (equal tee3-desired-automatic-completion-system 'company)
+  :ensure t
+  :pin melpa
+  :init
+  (use-package company-quickhelp
+    :ensure t
+    :pin melpa)
+
+  (global-company-mode))
 
 ;;; Projectile
 (use-package projectile
