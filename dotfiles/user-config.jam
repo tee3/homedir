@@ -53,6 +53,8 @@ else if [ os.name ] = MACOSX
   #using darwin : 4.8 : /usr/local/bin/g++-4.8 ;
   #using darwin : 4.7 : /usr/local/bin/g++-4.7 ;
   #using darwin : 4.6 : /usr/local/bin/g++-4.6 ;
+
+  using emscripten ;
 }
 
 # MPI
