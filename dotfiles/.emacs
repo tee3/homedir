@@ -76,7 +76,6 @@
   :type 'symbol
   :options '('ido 'helm 'ivy))
 
-
 (defcustom tee3-desired-automatic-completion-system 'none
   "This is used to choose an auto-completion system when it must be done at configuration."
   :type 'symbol
