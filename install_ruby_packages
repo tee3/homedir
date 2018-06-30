@@ -44,6 +44,6 @@ if __name__ == '__main__':
     # location of gems with --user-install
     gemdir = os.path.normpath(emulate_backtick([ruby, '-rubygems', '-e', 'puts Gem.user_dir']))
 
-    error = not emulate_run([gem, 'install', '--user-install', '--bindir', os.path.join(gemdir, 'bin'), '--file', 'ruby-packages.gemfile'])
+    error = not emulate_run([gem, 'install', '--user-install', '--update-sources', '--bindir', os.path.join(gemdir, 'bin'), '--file', 'ruby-packages.gemfile'])
 
     sys.exit(1 if error else 0)
