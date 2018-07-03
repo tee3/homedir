@@ -609,7 +609,8 @@
     :ensure t
     :pin melpa)
   (setq markdown-asymmetric-header t)
-  (setq markdown-command "cmark")
+  (cond ((executable-find "cmark-gfm") (setq markdown-command "cmark-gfm --extension table --extension strikethrough --extension autolink --extension tagfilter"))
+        ((executable-find "cmark") (setq markdown-command "cmark")))
   (setq markdown-nested-imenu-heading-index t))
 (use-package markup-faces
   :ensure t
