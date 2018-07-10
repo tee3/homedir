@@ -551,7 +551,7 @@
         ((equal tee3-desired-completion-system 'helm) (setq projectile-completion-system 'helm))
         (t (setq projectile-completion-system 'default)))
 
-  (projectile-global-mode)
+  (projectile-mode)
 
   (setq projectile-switch-project-action 'projectile-dired)
   (setq projectile-use-git-grep t))
