@@ -48,6 +48,9 @@ xcuserdata/
 # Clang Tooling
 compile_commands.json
 
+# cquery Tooling
+.cquery_cached_index/
+
 # Node Tooling
 npm-config.log
 npm-debug.log
