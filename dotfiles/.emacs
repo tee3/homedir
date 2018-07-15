@@ -133,7 +133,12 @@
 
 (use-package auth-sources
   :init
-  (customize-set-value 'auth-sources '("~/.authinfo.gpg")))
+  (cond
+  ((equal system-type 'darwin)
+   (customize-set-value 'auth-sources '(macos-keychain-generic "~/.authinfo.gpg")))
+   (t
+    (customize-set-value 'auth-sources '("~/.authinfo.gpg")))))
+
 (use-package epa
   :init
   (setq epa-pinentry-mode 'loopback))
