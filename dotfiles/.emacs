@@ -1480,8 +1480,8 @@
 
     (add-hook 'lsp-mode-hook 'lsp-ui-mode))
   (use-package lsp-clangd
-    :load-path
-    "~/opt/local/src/lsp-clangd"
+    :ensure t
+    :pin melpa
     :init
     (when (equal system-type 'darwin)
       (setq lsp-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
