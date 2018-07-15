@@ -131,6 +131,13 @@
   (setq w32-pass-apps-to-system nil)
   (setq w32-apps-modifier 'hyper))
 
+(use-package auth-sources
+  :init
+  (customize-set-value 'auth-sources '("~/.authinfo.gpg")))
+(use-package epa
+  :init
+  (setq epa-pinentry-mode 'loopback))
+
 (use-package newcomment
   :init
   (setq comment-empty-lines t))
