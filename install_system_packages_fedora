@@ -251,6 +251,7 @@ ${pm_install} openocd
 ${pm_install} protobuf
 ${pm_install} rsync
 #${pm_install} ruby-completion
+#{pm_install} rust
 ${pm_install} screen
 ${pm_install} ShellCheck
 ${pm_install} sloccount

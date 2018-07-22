@@ -97,6 +97,11 @@ if [ ! -z "$(which go 2> /dev/null)" ]; then
     export PATH="${HOME}"/opt/local/src/go/bin:${PATH}
 fi
 
+# Rust
+if [ ! -z "$(which cargo 2> /dev/null)" ]; then
+    export PATH="${HOME}"/.cargo/bin:${PATH}
+fi
+
 # Emacs
 if [ ! -z "$(which emacsclient 2> /dev/null)" ]; then
     export ALTERNATE_EDITOR=
