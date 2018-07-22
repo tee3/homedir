@@ -185,6 +185,7 @@ ${pm_install} pkg-config
 ${pm_install} protobuf
 #${pm_install} rsync
 ${pm_install} ruby-completion
+${pm_install} rust
 ${pm_install} shellcheck
 ${pm_cask_install} slack
 ${pm_install} sloccount
