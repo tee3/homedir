@@ -594,6 +594,8 @@
   :ensure t
   :pin melpa
   :diminish projectile-mode
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
   :init
   (cond ((equal tee3-desired-completion-system 'ido) (setq projectile-completion-system 'ido))
         ((equal tee3-desired-completion-system 'helm) (setq projectile-completion-system 'helm))
