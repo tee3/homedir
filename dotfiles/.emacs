@@ -386,6 +386,8 @@
   :ensure t
   :pin melpa
   :diminish helm-mode
+  :bind-keymap
+  ("C-c c" . helm-command-map)
   :init
   (use-package helm-config
     :ensure helm
@@ -394,16 +396,18 @@
     :ensure t
     :pin melpa
     :bind
-    ("C-x c M-$" . helm-flyspell-correct))
+    (:map helm-command-map
+          ("M-$" . helm-flyspell-correct)))
   (use-package helm-projectile
     :ensure t
     :pin melpa
     :bind
-    ("C-x c C-c p e" . helm-projectile-recentf)
-    ("C-x c C-c p f" . helm-projectile-find-file)
-    ("C-x c C-c p g" . helm-projectile-find-file-dwim)
-    ("C-x c C-c p p" . helm-projectile-switch-project)
-    ("C-x c C-c p s g" . helm-projectile-grep)
+    (:map helm-command-map
+          ("C-c p e" . helm-projectile-recentf)
+          ("C-c p f" . helm-projectile-find-file)
+          ("C-c p g" . helm-projectile-find-file-dwim)
+          ("C-c p p" . helm-projectile-switch-project)
+          ("C-c p s g" . helm-projectile-grep))
     :config
     (helm-projectile-toggle -1))
   (setq helm-candidate-number-limit nil)
@@ -448,7 +452,7 @@
             (insert the-text)
             (exchange-mark-and-point)))))
   :bind
-  ("C-c C-y" . tee3-ido-kill-ring)
+  ("C-c c C-y" . tee3-ido-kill-ring)
   :init
   (use-package ido-completing-read+
     :if
@@ -490,9 +494,12 @@
   :ensure t
   :pin melpa
   :diminish ivy-mode
+  :bind-keymap
+  ("C-c c" . ivy-mode-map)
   :bind
-  ("C-c i C-x C-b" . ivy-switch-buffer)
-  ("C-c i C-x 4 b" . ivy-switch-buffer-other-window)
+  (:map ivy-mode-map
+        ("C-x C-b" . ivy-switch-buffer)
+        ("C-x 4 b" . ivy-switch-buffer-other-window))
   :init
   (use-package ivy-xref
     :ensure t
@@ -509,25 +516,28 @@
   :ensure t
   :pin melpa
   :diminish counsel-mode
+  :bind-keymap
+  ("C-c c" . counsel-mode-map)
   :bind
-  ("C-c c M-x" . counsel-M-x)
-  ("C-c c C-x C-f" . counsel-find-file)
-  ("C-c c M-." . counsel-find-symbol)
+  (:map counsel-mode-map
+        ("M-x" . counsel-M-x)
+        ("C-x C-f" . counsel-find-file)
+        ("M-." . counsel-find-symbol)
 
-  ("C-c c M-s o" . counsel-grep)
+        ("M-s o" . counsel-grep)
 
-  ("C-c c C-x r b" . counsel-bookmark)
-  ("C-c c C-x r l" . counsel-bookmark)
+        ("C-x r b" . counsel-bookmark)
+        ("C-x r l" . counsel-bookmark)
 
-  ("C-c c C-h b" . counsel-describe-bindings)
-  ("C-c c C-h f" . counsel-describe-function)
-  ("C-c c C-h v" . counsel-describe-variable)
-  ("C-c c C-h S" . counsel-info-lookup-symbol)
+        ("C-h b" . counsel-describe-bindings)
+        ("C-h f" . counsel-describe-function)
+        ("C-h v" . counsel-describe-variable)
+        ("C-h S" . counsel-info-lookup-symbol)
 
-  ("C-c c C-c p s f" . counsel-git)
-  ("C-c c C-c p s g" . counsel-git-grep)
+        ("C-c p s f" . counsel-git)
+        ("C-c p s g" . counsel-git-grep)
 
-  ("C-c c C-x v L" . counsel-git-log)
+        ("C-x v L" . counsel-git-log))
   :init
   (counsel-mode 1))
 
@@ -855,8 +865,8 @@
 (use-package ggtags
   :ensure t
   :pin melpa
-  :init
-  (setq ggtags-mode-prefix-key (kbd "C-c g")))
+  :bind-keymap
+  ("C-c g" . ggtags-mode-prefix-map))
 
 ;;; Scheme programming language
 (use-package scheme-mode
@@ -1401,7 +1411,8 @@
     :ensure t
     :pin melpa
     :bind
-    ("C-x c C-c ! h" . helm-flycheck))
+    (:map helm-command-map
+          ("C-c ! h" . helm-flycheck)))
   (use-package flycheck-package
     :ensure t
     :pin melpa
