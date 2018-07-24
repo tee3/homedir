@@ -423,20 +423,10 @@
     :pin melpa)
   (use-package helm-flyspell
     :ensure t
-    :pin melpa
-    :bind
-    (:map helm-command-map
-          ("M-$" . helm-flyspell-correct)))
+    :pin melpa)
   (use-package helm-projectile
     :ensure t
     :pin melpa
-    :bind
-    (:map helm-command-map
-          ("C-c p e" . helm-projectile-recentf)
-          ("C-c p f" . helm-projectile-find-file)
-          ("C-c p g" . helm-projectile-find-file-dwim)
-          ("C-c p p" . helm-projectile-switch-project)
-          ("C-c p s g" . helm-projectile-grep))
     :config
     (helm-projectile-toggle -1))
   (setq helm-candidate-number-limit nil)
@@ -1463,10 +1453,7 @@
     (and (equal tee3-desired-completion-system 'helm)
          (require 'helm nil t))
     :ensure t
-    :pin melpa
-    :bind
-    (:map helm-command-map
-          ("C-c ! h" . helm-flycheck)))
+    :pin melpa)
   (use-package flycheck-package
     :ensure t
     :pin melpa
