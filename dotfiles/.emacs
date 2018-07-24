@@ -488,10 +488,6 @@
   :diminish ivy-mode
   :bind-keymap
   ("C-c c" . ivy-mode-map)
-  :bind
-  (:map ivy-mode-map
-        ("C-x C-b" . ivy-switch-buffer)
-        ("C-x 4 b" . ivy-switch-buffer-other-window))
   :init
   (use-package ivy-xref
     :ensure t
@@ -510,26 +506,6 @@
   :diminish counsel-mode
   :bind-keymap
   ("C-c c" . counsel-mode-map)
-  :bind
-  (:map counsel-mode-map
-        ("M-x" . counsel-M-x)
-        ("C-x C-f" . counsel-find-file)
-        ("M-." . counsel-find-symbol)
-
-        ("M-s o" . counsel-grep)
-
-        ("C-x r b" . counsel-bookmark)
-        ("C-x r l" . counsel-bookmark)
-
-        ("C-h b" . counsel-describe-bindings)
-        ("C-h f" . counsel-describe-function)
-        ("C-h v" . counsel-describe-variable)
-        ("C-h S" . counsel-info-lookup-symbol)
-
-        ("C-c p s f" . counsel-git)
-        ("C-c p s g" . counsel-git-grep)
-
-        ("C-x v L" . counsel-git-log))
   :init
   (counsel-mode 1))
 
