@@ -1232,6 +1232,9 @@
     ;; (setq c-tab-always-indent t)
     ;; (setq c-insert-tab-function nil)
     )
+  :mode
+  ("\\.cu\\'" . c++-mode)
+  ("\\.cuh\\'" . c++-mode)
   :init
   (use-package cwarn
     :diminish cwarn-mode
