@@ -226,6 +226,28 @@
   :config
   (add-hook 'text-mode-hook (lambda () (display-line-numbers-mode t)))
   (add-hook 'prog-mode-hook (lambda () (display-line-numbers-mode t))))
+(use-package gnus
+  :init
+  (setq gnus-init-file "~/.gnus")
+  (setq gnus-home-directory user-emacs-directory)
+
+  (when (equal tee3-desired-completion-system 'ido)
+    (setq gnus-completing-read-function 'gnus-ido-completing-read))
+  (when (equal tee3-desired-completion-system 'ivy)
+    (setq gnus-completing-read-function 'ivy-completing-read))
+
+  (setq gnus-save-newsrc-file nil)
+  (setq gnus-read-newsrc-file nil)
+
+  (setq gnus-asynchronous t)
+
+  (setq gnus-use-cache t))
+(use-package message
+  :init
+  (setq message-directory (expand-file-name "Mail" user-emacs-directory))
+
+  ;; (add-hook 'message-mode-hook '(lambda () (flyspell-mode t)))
+)
 (use-package locate
   :config
   (when (equal system-type 'darwin)
