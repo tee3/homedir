@@ -74,7 +74,7 @@
 (defcustom tee3-desired-completion-system 'ido
   "This is used to choose a completion system when it must be done at configuration."
   :type 'symbol
-  :options '('default 'ido 'helm 'ivy))
+  :options '('default 'ido 'ivy))
 
 (defcustom tee3-desired-automatic-completion-system 'none
   "This is used to choose an auto-completion system when it must be done at configuration."
@@ -408,43 +408,6 @@
 
   (amx-mode 1))
 
-;;; Helm
-(use-package helm
-  :if
-  (equal tee3-desired-completion-system 'helm)
-  :ensure t
-  :pin melpa
-  :diminish helm-mode
-  :bind-keymap
-  ("C-c c" . helm-command-map)
-  :init
-  (use-package helm-config
-    :ensure helm
-    :pin melpa)
-  (use-package helm-flyspell
-    :ensure t
-    :pin melpa
-    :bind
-    (:map helm-command-map
-          ("M-$" . helm-flyspell-correct)))
-  (use-package helm-projectile
-    :ensure t
-    :pin melpa
-    :bind
-    (:map helm-command-map
-          ("C-c p e" . helm-projectile-recentf)
-          ("C-c p f" . helm-projectile-find-file)
-          ("C-c p g" . helm-projectile-find-file-dwim)
-          ("C-c p p" . helm-projectile-switch-project)
-          ("C-c p s g" . helm-projectile-grep))
-    :config
-    (helm-projectile-toggle -1))
-  (setq helm-candidate-number-limit nil)
-  (setq helm-quick-update t)
-  (setq helm-ff-skip-boring-files t)
-
-  (helm-mode 1))
-
 ;;; Ibuffer
 (use-package ibuffer
   :if
@@ -605,7 +568,6 @@
   ("C-c p" . projectile-command-map)
   :init
   (cond ((equal tee3-desired-completion-system 'ido) (setq projectile-completion-system 'ido))
-        ((equal tee3-desired-completion-system 'helm) (setq projectile-completion-system 'helm))
         (t (setq projectile-completion-system 'default)))
 
   (projectile-mode)
@@ -1458,15 +1420,6 @@
   :ensure t
   :pin melpa
   :init
-  (use-package helm-flycheck
-    :if
-    (and (equal tee3-desired-completion-system 'helm)
-         (require 'helm nil t))
-    :ensure t
-    :pin melpa
-    :bind
-    (:map helm-command-map
-          ("C-c ! h" . helm-flycheck)))
   (use-package flycheck-package
     :ensure t
     :pin melpa
