@@ -348,7 +348,6 @@
 
 ;;; Evil (vi) emulation
 (use-package evil
-  :disabled t
   :ensure t
   :pin melpa)
 
