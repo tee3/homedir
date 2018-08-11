@@ -338,7 +338,10 @@
 (use-package undo-tree
   :disabled t
   :ensure t
-  :pin melpa)
+  :pin melpa
+  :init
+  (setq undo-tree-auto-save-history t)
+  (setq undo-tree-visualizer-diff t))
 (use-package winner
   :init
   (winner-mode))
