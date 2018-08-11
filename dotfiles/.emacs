@@ -349,7 +349,11 @@
 ;;; Evil (vi) emulation
 (use-package evil
   :ensure t
-  :pin melpa)
+  :pin melpa
+  :init
+  (setq evil-default-state 'emacs)
+  :config
+  (evil-mode 1))
 
 ;;; Text mode hooks
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
