@@ -666,7 +666,23 @@
 (use-package rst)
 (use-package sphinx-frontend
   :ensure t
-  :pin melpa)
+  :pin melpa
+  :init
+  (use-package rst)
+  :config
+  ;; @todo remove default bindings since they are non-standard
+  (define-key rst-mode-map (kbd "C-c h") nil)
+  (define-key rst-mode-map (kbd "C-c l") nil)
+  (define-key rst-mode-map (kbd "C-c p") nil)
+
+  ;; @todo define a sphinx map
+  (define-prefix-command 'sphinx-map)
+  (define-key sphinx-map (kbd "h") 'sphinx-build-html)
+  (define-key sphinx-map (kbd "l") 'sphinx-build-latex)
+  (define-key sphinx-map (kbd "p") 'sphinx-run-pdflatex)
+
+  ;; @todo add the sphinx map to the rst mode map
+  (define-key rst-mode-map (kbd "C-c C-s") 'sphinx-map))
 
 ;;; Utilities
 (use-package ascii
