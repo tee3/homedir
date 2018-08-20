@@ -1362,6 +1362,13 @@
   :ensure t
   :pin melpa)
 
+;;; Modeline
+(use-package telephone-line
+  :ensure t
+  :pin nongnu
+  :config
+  (telephone-line-mode))
+
 ;;; DevDocs
 (use-package devdocs
   :ensure t
