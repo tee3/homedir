@@ -1263,6 +1263,13 @@
   :ensure t
   :pin melpa)
 
+;;; Modeline
+(use-package powerline
+  :ensure t
+  :pin melpa
+  :config
+  (powerline-default-theme))
+
 ;;; Themes
 (when (or (>= emacs-major-version 25)
           (and (= emacs-major-version 24)
