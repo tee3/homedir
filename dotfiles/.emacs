@@ -1404,6 +1404,13 @@
   :ensure t
   :pin melpa)
 
+;;; Modeline
+(use-package telephone-line
+  :ensure t
+  :pin nongnu
+  :config
+  (telephone-line-mode))
+
 ;;; Themes
 (when (or (>= emacs-major-version 25)
           (and (= emacs-major-version 24)
