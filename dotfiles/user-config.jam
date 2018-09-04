@@ -115,7 +115,7 @@ else if [ os.name ] = MACOSX
   # Homebrew-installed Boost
   using boost : "" : <include>/usr/local/include <library>/usr/local/lib <layout>system ;
 }
-else if [ os.name ] = WINDOWS
+else if [ os.name ] = NT
 {
   # user-built Boost
   using boost : "" : <root>$(BOOST_ROOT_BASE)/boost_installed ;
