@@ -79,7 +79,7 @@
 (defcustom tee3-desired-automatic-completion-system 'none
   "This is used to choose an auto-completion system when it must be done at configuration."
   :type 'symbol
-  :options '('none 'auto-complete 'company))
+  :options '('none 'ido 'auto-complete 'company))
 
 (defcustom tee3-flycheck-override-modern-flymake t
   "Flymake is used instead of flycheck for Emacs 26 and later unless this variable is true."
@@ -467,6 +467,8 @@
     :config
     (ido-vertical-mode 1))
   (use-package ido-at-point
+    :if
+    (equal tee3-desired-automatic-completion-system 'ido)
     :ensure t
     :pin melpa
     :config
