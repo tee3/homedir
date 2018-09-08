@@ -530,9 +530,9 @@
   (use-package ac-capf
     :ensure t
     :pin melpa
-    :init
+    :config
     (ac-capf-setup))
-
+  :config
   (ac-config-default))
 
 ;;; Company
