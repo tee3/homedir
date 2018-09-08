@@ -466,6 +466,11 @@
     (setq ido-vertical-pad-list nil)
     :config
     (ido-vertical-mode 1))
+  (use-package ido-at-point
+    :ensure t
+    :pin melpa
+    :config
+    (ido-at-point-mode))
 
   (ido-mode 1)
   (ido-everywhere)
