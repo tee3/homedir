@@ -216,6 +216,7 @@ ${pm_install} v8
 ${pm_install} vault
 #${pm_install} vegeta
 #${pm_install} vim
+${pm_cask_install} visual-studio-code
 ${pm_install} webp
 ${pm_install} wget
 #${pm_install} wireshark
