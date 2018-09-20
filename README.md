@@ -541,9 +541,8 @@ how to do this yet.
 
 ## support for go packages
 
-Go packages are installed to the user's home directory under
-`~/opt/local/src/go` and a text file defines the installed Go
-packages.
+Go packages are installed to the user's home directory under `~/.go`
+and a text file defines the installed Go packages.
 
 See the [go-packages.txt](./go-packages.txt) for a list of
 installed Go packages.

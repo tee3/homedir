@@ -94,7 +94,7 @@ fi
 
 # Go
 if [ ! -z "$(which go 2> /dev/null)" ]; then
-    export PATH="${HOME}"/opt/local/src/go/bin:${PATH}
+    export PATH="${HOME}"/.go/bin:${PATH}
 fi
 
 # Rust
