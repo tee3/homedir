@@ -34,7 +34,7 @@ if __name__ == '__main__':
             line = line.rstrip('\n')
             if line != '' and line[0] != '#':
                 e = os.environ
-                e['GOPATH'] = os.path.join(HOME, 'opt', 'local', 'src', 'go')
+                e['GOPATH'] = os.path.join(HOME, '.go')
                 if not emulate_run([go, 'get', '-u', line], env=e):
                     error = True
 
