@@ -155,8 +155,6 @@ ${pm_install} kubernetes-cli
 ${pm_install} launchctl-completion
 ${pm_install} legit
 ${pm_install} llvm
-${pm_install} llvm@3.7
-#${pm_install} llvm@3.8
 ${pm_install} llvm@3.9
 ${pm_install} llvm@4
 ${pm_install} llvm@5
