@@ -136,6 +136,7 @@ ${pm_install} boost-build
 ${pm_install} boost-devel
 #${pm_install} casperjs
 ${pm_install} cflow
+#${pm_install} chefdk
 ${pm_install} clang
 ${pm_install} clang-devel
 ${pm_install} clang-libs

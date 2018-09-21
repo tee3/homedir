@@ -102,6 +102,7 @@ ${pm_install} libboost-all-dev
 ${pm_install} libboost-tools-dev
 #${pm_install} casperjs
 ${pm_install} cflow
+#${pm_install} chefdk
 ${pm_install} clang
 #${pm_install} clblas
 #${pm_install} clfft
