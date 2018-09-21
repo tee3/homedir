@@ -1609,6 +1609,13 @@
   :pin melpa)
 
 ;;;
+;;; Terraform
+;;;
+(use-package terraform-mode
+  :ensure t
+  :pin melpa)
+
+;;;
 ;;; Structure and Interpretation of Computer Programs (SICP)
 ;;;
 (use-package sicp
