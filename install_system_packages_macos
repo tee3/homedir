@@ -206,6 +206,7 @@ ${pm_install} tcptrace
 ${pm_install} tcptraceroute
 ${pm_install} tcptrack
 ${pm_install} termshare
+${pm_install} terraform
 ${pm_cask_install} thunderbird
 ${pm_cask_install} basictex
 ${pm_install} tig
