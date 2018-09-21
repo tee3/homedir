@@ -1609,6 +1609,13 @@
   :pin melpa)
 
 ;;;
+;;; Chef
+;;;
+(use-package chef-mode
+  :ensure t
+  :pin melpa)
+
+;;;
 ;;; Terraform
 ;;;
 (use-package terraform-mode
