@@ -122,6 +122,7 @@ ${pm_install} sshfs
 ${pm_install} arp-scan
 #${pm_install} arp-sk
 #${pm_install} arpoison
+${pm_install} aspell
 ${pm_install} avahi
 ${pm_install} avahi-tools
 #${pm_install} avrdude
@@ -199,7 +200,6 @@ ${pm_install} highlight
 ${pm_install} htop
 #${pm_install} httping
 #${pm_install} httpry
-${pm_install} hunspell
 ${pm_install} iperf
 ${pm_install} ipv6calc
 ${pm_install} jam
