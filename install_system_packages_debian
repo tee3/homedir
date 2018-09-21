@@ -241,6 +241,7 @@ ${pm_install} tcpreplay
 ${pm_install} tcptraceroute
 ${pm_install} tcptrack
 #${pm_install} termshare
+#${pm_install} terraform
 ${pm_install} texlive
 ${pm_install} tig
 ${pm_install} tmux
