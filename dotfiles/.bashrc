@@ -14,11 +14,6 @@ if [ -e /usr/local/bin/brew ]; then
         source "${brew_prefix}"/etc/bash_completion
     fi
 
-    # Hunspell from Homebrew
-    if [ -e "$(brew --prefix hunspell)" ]; then
-        export DICTIONARY=en_US
-    fi
-
     # Subversion from Homebrew
     if [ -e "$(brew --prefix subversion)" ] ; then
         export RUBYLIB=${brew_prefix}/lib/ruby:${RUBYLIB}
