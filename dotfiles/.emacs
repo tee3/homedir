@@ -992,7 +992,7 @@
 
   (add-hook 'magit-mode-hook 'magit-load-config-extensions)
 
-  (add-hook 'magit-mode-hook `tee3-magit-choose-completing-read-function))
+  (add-hook 'magit-mode-hook 'tee3-magit-choose-completing-read-function))
 
 ;;; Microsoft Team Foundation Server
 (use-package tfs
