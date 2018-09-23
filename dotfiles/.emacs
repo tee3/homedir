@@ -134,8 +134,8 @@
 (use-package auth-sources
   :init
   (cond
-  ((equal system-type 'darwin)
-   (customize-set-value 'auth-sources '(macos-keychain-generic "~/.authinfo.gpg")))
+   ((equal system-type 'darwin)
+    (customize-set-value 'auth-sources '(macos-keychain-generic "~/.authinfo.gpg")))
    (t
     (customize-set-value 'auth-sources '("~/.authinfo.gpg")))))
 
@@ -550,8 +550,10 @@
   :bind-keymap
   ("C-c p" . projectile-command-map)
   :init
-  (cond ((equal tee3-desired-completion-system 'ido) (setq projectile-completion-system 'ido))
-        (t (setq projectile-completion-system 'default)))
+  (cond ((equal tee3-desired-completion-system 'ido)
+         (setq projectile-completion-system 'ido))
+        (t
+         (setq projectile-completion-system 'default)))
 
   (projectile-mode)
 
@@ -599,8 +601,10 @@
     :ensure t
     :pin melpa)
   (setq markdown-asymmetric-header t)
-  (cond ((executable-find "cmark-gfm") (setq markdown-command "cmark-gfm --extension table --extension strikethrough --extension autolink --extension tagfilter"))
-        ((executable-find "cmark") (setq markdown-command "cmark")))
+  (cond ((executable-find "cmark-gfm")
+         (setq markdown-command "cmark-gfm --extension table --extension strikethrough --extension autolink --extension tagfilter"))
+        ((executable-find "cmark")
+         (setq markdown-command "cmark")))
   (setq markdown-nested-imenu-heading-index t))
 (use-package markup-faces
   :ensure t
@@ -956,7 +960,8 @@
   :pin melpa
   :preface
   (defun tee3-magit-choose-completing-read-function ()
-    (when (equal tee3-desired-completion-system 'ido) (setq magit-completing-read-function 'magit-ido-completing-read)))
+    (when (equal tee3-desired-completion-system 'ido)
+      (setq magit-completing-read-function 'magit-ido-completing-read)))
   :init
   (use-package magit-lfs
     :ensure t
