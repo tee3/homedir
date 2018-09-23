@@ -175,10 +175,10 @@
   :init
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 (use-package eldoc
-  :config
-  (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
-  (add-hook 'lisp-interaction-mode-hook 'eldoc-mode)
-  (add-hook 'eval-expression-minibuffer-setup-hook 'eldoc-mode))
+  :hook
+  (emacs-lisp-mode . eldoc-mode)
+  (lisp-interaction-mode . eldoc-mode)
+  (eval-expression-minibuffer-setup . eldoc-mode))
 (use-package elec-pair
   :init
   (electric-pair-mode))
@@ -194,9 +194,9 @@
   :disabled t
   :ensure t
   :pin melpa
-  :config
-  (add-hook 'occur-mode-hook 'fm-start)
-  (add-hook 'compilation-mode-hook 'fm-start))
+  :hook
+  (occur-mode . fm-start)
+  (compilation-mode . fm-start))
 (use-package font-core
   :config
   (global-font-lock-mode))
@@ -220,19 +220,19 @@
   (< emacs-major-version 26)
   :init
   (setq linum-format "%4d ")
-  :config
-  (add-hook 'text-mode-hook 'linum-mode)
+  :hook
+  (text-mode . linum-mode)
 
-  (add-hook 'prog-mode-hook 'linum-mode))
+  (prog-mode . linum-mode))
 (use-package display-line-numbers
   :if
   (>= emacs-major-version 26)
   :init
   (setq display-line-numbers-grow-only t)
   (setq display-line-numbers-width-start 3)
-  :config
-  (add-hook 'text-mode-hook 'display-line-numbers-mode)
-  (add-hook 'prog-mode-hook 'display-line-numbers-mode))
+  :hook
+  (text-mode . display-line-numbers-mode)
+  (prog-mode . display-line-numbers-mode))
 (use-package gnus
   :init
   (setq gnus-init-file "~/.gnus")
@@ -271,10 +271,10 @@
   (use-package paredit-everywhere
     :ensure t
     :pin melpa)
-  :config
-  (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
-  (add-hook 'lisp-mode-hook 'paredit-mode)
-  (add-hook 'scheme-mode-hook 'paredit-mode))
+  :hook
+  (emacs-lisp-mode . paredit-mode)
+  (lisp-mode . paredit-mode)
+  (scheme-mode . paredit-mode))
 (use-package paren
   :config
   (show-paren-mode))
@@ -289,8 +289,8 @@
   (use-package pcmpl-pip
     :ensure t
     :pin melpa)
-  :config
-  (add-hook 'shell-mode-hook 'pcomplete-shell-setup))
+  :hook
+  (shell-mode . pcomplete-shell-setup))
 (use-package bash-completion
   :disabled t
   :ensure t
@@ -377,8 +377,8 @@
 (add-hook 'prog-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
 (use-package hideshow
-  :config
-  (add-hook 'prog-mode-hook 'hs-minor-mode))
+  :hook
+  (prog-mode . hs-minor-mode))
 
 ;;; Flyspell
 (use-package flyspell
@@ -387,9 +387,9 @@
   (use-package flyspell-lazy
     :ensure t
     :pin melpa)
-  :config
-  (add-hook 'text-mode-hook 'flyspell-mode)
-  (add-hook 'prog-mode-hook 'flyspell-prog-mode))
+  :hook
+  (text-mode . flyspell-mode)
+  (prog-mode . flyspell-prog-mode))
 (use-package auto-correct
   :ensure t
   :pin gnu
@@ -405,8 +405,8 @@
     (setq captain-predicate (lambda () t)))
   :config
   (global-captain-mode)
-
-  (add-hook 'text-mode-hook 'tee3-captain-mode-setup))
+  :hook
+  (text-mode . tee3-captain-mode-setup))
 
 ;;; M-x
 (use-package amx
@@ -759,8 +759,8 @@
     (setq indent-tabs-mode t))
   :mode
   (("\\.[sh][56][45x]\\'" . asm-mode))
-  :config
-  (add-hook 'asm-mode-hook 'tee3-asm-mode-setup))
+  :hook
+  (asm-mode . tee3-asm-mode-setup))
 (use-package coffee-mode
   :ensure t
   :pin melpa)
@@ -860,8 +860,8 @@
     (setq web-mode-style-padding 1)
     (setq web-mode-script-padding 1)
     (setq web-mode-block-padding 0))
-  :config
-  (add-hook 'web-mode-hook 'tee3-web-mode-setup))
+  :hook
+  (web-mode . tee3-web-mode-setup))
 
 ;;; TeX and LaTeX
 (use-package tex-site
@@ -946,8 +946,8 @@
 
   (diff-hl-flydiff-mode)
   (unless (window-system) (diff-hl-margin-mode))
-
-  (add-hook 'dired-mode-hook 'diff-hl-dired-mode))
+  :hook
+  (dired-mode . diff-hl-dired-mode))
 (use-package git-timemachine
   :ensure t
   :pin melpa)
@@ -1011,9 +1011,10 @@
   (add-hook 'magit-status-headers-hook 'magit-insert-user-header t)
   (add-hook 'magit-status-headers-hook 'magit-insert-repo-header t)
 
-  (add-hook 'magit-mode-hook 'magit-load-config-extensions)
+  :hook
+  (magit-mode . magit-load-config-extensions)
 
-  (add-hook 'magit-mode-hook 'tee3-magit-choose-completing-read-function))
+  (magit-mode . tee3-magit-choose-completing-read-function))
 
 ;;; Microsoft Team Foundation Server
 (use-package tfs
@@ -1050,8 +1051,8 @@
     (setq indent-tabs-mode t))
   :mode
   (("Makefile.*\\'" . makefile-mode))
-  :config
-  (add-hook 'makefile-mode-hook 'tee3-make-mode-setup))
+  :hook
+  (makefile-mode . tee3-make-mode-setup))
 
 ;;; Boost.Build programming language
 (with-eval-after-load "projectile"
@@ -1081,9 +1082,9 @@
    ("[Jj]amfile\\'" . jam-mode)
    ("\\.jam\\'" . jam-mode))
   :init
+  :hook
+  (jam-mode . tee3-jam-mode-setup)
   :config
-  (add-hook 'jam-mode-hook 'tee3-jam-mode-setup)
-
   (if (>= emacs-major-version 26)
       (eval-after-load "display-line-numbers.el"
         (add-hook 'jam-mode-hook 'display-line-numbers-mode))
@@ -1104,8 +1105,8 @@
   (use-package cmake-project
     :ensure t
     :pin melpa)
-  :config
-  (add-hook 'cmake-mode-hook 'cmake-font-lock-activate))
+  :hook
+  (cmake-mode . cmake-font-lock-activate))
 
 ;;;
 ;;; Gnuplot
@@ -1134,8 +1135,8 @@
     (equal tee3-desired-language-server-system 'default)
     :ensure t
     :pin melpa
-    :config
-    (add-hook 'go-mode-hook 'go-eldoc-setup))
+    :hook
+    (go-mode . go-eldoc-setup))
   (use-package go-guru
     :if
     (equal tee3-desired-language-server-system 'default)
@@ -1144,8 +1145,8 @@
   (use-package go-projectile
     :ensure t
     :pin melpa)
-  :config
-  (add-hook 'go-mode-hook 'tee3-go-mode-setup))
+  :hook
+  (go-mode . tee3-go-mode-setup))
 
 ;;; Ruby programming language
 (use-package ruby-mode
@@ -1156,15 +1157,15 @@
   (use-package ruby-electric
     :ensure t
     :pin melpa
-    :config
-    (add-hook 'ruby-mode-hook 'ruby-electric-mode))
+    :hook
+    (ruby-mode . ruby-electric-mode))
   (use-package robe
     :if
     (equal tee3-desired-language-server-system 'default)
     :ensure t
     :pin melpa
-    :config
-    (add-hook 'ruby-mode-hook 'robe-mode))
+    :hook
+    (ruby-mode . robe-mode))
   (use-package inf-ruby
     :ensure t
     :pin melpa)
@@ -1266,23 +1267,23 @@
     :init
     ;; add more as desired, superset of what you'd like to use
     (setq c-eldoc-includes "-I.")
-    :config
-    (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
-    (add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode))
+    :hook
+    (c-mode . c-turn-on-eldoc-mode)
+    (c++-mode . c-turn-on-eldoc-mode))
   (use-package hideif
     :init
     (setq hide-ifdef-read-only t)
     (setq hide-ifdef-initially nil)
     (setq hide-ifdef-lines t)
-    :config
-    (add-hook 'c-mode-hook 'hide-ifdef-mode)
-    (add-hook 'c++-mode-hook 'hide-ifdef-mode))
+    :hook
+    (c-mode . hide-ifdef-mode)
+    (c++-mode . hide-ifdef-mode))
   (setq c-indent-comments-syntactically-p t)
   (setq c-strict-syntax-p t)
-  :config
-  (add-hook 'c-mode-hook 'tee3-c-set-style-tee3)
-  (add-hook 'c++-mode-hook 'tee3-c-set-style-tee3)
-  (add-hook 'c-mode-common-hook 'tee3-c-mode-common-setup))
+  :hook
+  (c-mode . tee3-c-set-style-tee3)
+  (c++-mode . tee3-c-set-style-tee3)
+  (c-mode-common . tee3-c-mode-common-setup))
 (use-package demangle-mode
   :ensure t
   :pin melpa)
@@ -1314,8 +1315,9 @@
   (defun tee3-meghanada-setup ()
     (add-hook 'before-save-hook 'meghanada-code-beautify-before-save))
   :config
-  ;; (add-hook 'java-mode-hook 'tee3-meghanada-setup)
-  (add-hook 'java-mode-hook 'meghanada-mode))
+  :hook
+  (java-mode . tee3-meghanada-setup)
+  (java-mode . meghanada-mode))
 
 ;;; JavaScript programming language
 (use-package js)
@@ -1331,8 +1333,8 @@
   ;; @todo this causes an error when run independently
   ;; (eval-after-load "js.el"
   ;;   (add-to-list 'auto-mode-alist '("\\.tern-project\\'" . json-mode)))
-  :config
-  (add-hook 'js-mode-hook 'tern-mode))
+  :hook
+  (js-mode . tern-mode))
 (use-package eslint-fix
   :ensure t
   :pin melpa)
@@ -1460,8 +1462,8 @@
     :init
     (when (equal system-type 'darwin)
       (setq flycheck-c/c++-clang-tidy-executable "/usr/local/opt/llvm/bin/clang-tidy"))
-    :config
-    (add-hook 'flycheck-mode-hook #'flycheck-clang-tidy-setup))
+    :hook
+    (flycheck-mode . flycheck-clang-tidy-setup))
   (setq flycheck-javascript-standard-executable "semistandard")
   (use-package flycheck-objc-clang
     :ensure t
@@ -1537,46 +1539,46 @@
     (setq lsp-ui-imenu-enable nil)
     (setq lsp-ui-peek-enable nil)
     (setq lsp-ui-sideline-enable nil)
-    :config
-    (add-hook 'lsp-mode-hook 'lsp-ui-mode))
+    :hook
+    (lsp-mode . lsp-ui-mode))
   (use-package lsp-clangd
     :ensure t
     :pin melpa
     :init
     (when (equal system-type 'darwin)
       (setq lsp-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
-    :config
-    (add-hook 'c-mode-hook #'lsp-clangd-c-enable)
-    (add-hook 'c++-mode-hook #'lsp-clangd-c++-enable)
-    (add-hook 'objc-mode-hook #'lsp-clangd-objc-enable))
+    :hook
+    (c-mode . lsp-clangd-c-enable)
+    (c++-mode . lsp-clangd-c++-enable)
+    (objc-mode . lsp-clangd-objc-enable))
   (use-package lsp-fortran
     :ensure t
     :pin melpa
-    :config
-    (add-hook 'fortran-mode-hook #'lsp-fortran-enable))
+    :hook
+    (fortran-mode . lsp-fortran-enable))
   (use-package lsp-go
     :ensure t
     :pin melpa
-    :config
-    (add-hook 'go-mode-hook #'lsp-go-enable))
+    :hook
+    (go-mode . lsp-go-enable))
   (use-package lsp-java
     :ensure t
     :pin melpa
-    :config
-    (add-hook 'java-mode-hook #'lsp-java-enable))
+    :hook
+    (java-mode . lsp-java-enable))
   (use-package lsp-javascript-typescript
     :ensure t
     :pin melpa
-    :config
-    (add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
-    (add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable)
-    (add-hook 'js3-mode-hook #'lsp-javascript-typescript-enable)
-    (add-hook 'rjsx-mode #'lsp-javascript-typescript-enable))
+    :hook
+    (js-mode . lsp-javascript-typescript-enable)
+    (typescript-mode . lsp-javascript-typescript-enable)
+    (js3-mode . lsp-javascript-typescript-enable)
+    (rjsx-mode . lsp-javascript-typescript-enable))
   (use-package lsp-python
     :ensure t
     :pin melpa
-    :config
-    (add-hook 'python-mode-hook #'lsp-python-enable))
+    :hook
+    (python-mode . lsp-python-enable))
   (setq lsp-print-io nil))
 (use-package eglot
   :if
@@ -1585,9 +1587,9 @@
        (equal tee3-desired-language-server-system 'eglot))
   :ensure t
   :pin melpa
+  :hook
+  (prog-mode . eglot-ensure)
   :config
-  (add-hook 'prog-mode-hook 'eglot-ensure)
-
   (add-to-list 'eglot-server-programs '(go-mode . ("go-langserver")))
 
   (if (equal system-type 'darwin)
