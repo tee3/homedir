@@ -401,7 +401,9 @@
   :pin gnu
   :diminish captain-mode
   :config
-  (global-captain-mode))
+  (global-captain-mode)
+
+  (add-hook 'text-mode-hook (lambda () (setq captain-predicate (lambda () t)))))
 
 ;;; M-x
 (use-package amx
