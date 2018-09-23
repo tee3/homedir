@@ -400,10 +400,13 @@
   :ensure t
   :pin gnu
   :diminish captain-mode
+  :preface
+  (defun tee3-captain-mode-setup ()
+    (setq captain-predicate (lambda () t)))
   :config
   (global-captain-mode)
 
-  (add-hook 'text-mode-hook (lambda () (setq captain-predicate (lambda () t)))))
+  (add-hook 'text-mode-hook 'tee3-captain-mode-setup))
 
 ;;; M-x
 (use-package amx
@@ -751,10 +754,13 @@
   :ensure t
   :pin melpa)
 (use-package asm-mode
+  :preface
+  (defun tee3-setup-asm-mode ()
+    (setq indent-tabs-mode t))
   :mode
   (("\\.[sh][56][45x]\\'" . asm-mode))
   :config
-  (add-hook 'asm-mode-hook (lambda () (setq indent-tabs-mode t))))
+  (add-hook 'asm-mode-hook 'tee3-asm-mode-setup))
 (use-package coffee-mode
   :ensure t
   :pin melpa)
@@ -1039,10 +1045,13 @@
 
 ;;; Make
 (use-package make-mode
+  :preface
+  (defun tee3-make-mode-setup ()
+    (setq indent-tabs-mode t))
   :mode
   (("Makefile.*\\'" . makefile-mode))
   :config
-  (add-hook 'makefile-mode-hook (lambda () (setq indent-tabs-mode t))))
+  (add-hook 'makefile-mode-hook 'tee3-make-mode-setup))
 
 ;;; Boost.Build programming language
 (with-eval-after-load "projectile"
@@ -1064,13 +1073,16 @@
 (use-package jam-mode
   :ensure t
   :pin marmalade
+  :preface
+  (defun tee3-jam-mode-setup ()
+    (setq indent-tabs-mode nil))
   :mode
   (("[Jj]amroot\\'" . jam-mode)
    ("[Jj]amfile\\'" . jam-mode)
    ("\\.jam\\'" . jam-mode))
   :init
   :config
-  (add-hook 'jam-mode-hook (lambda () (setq indent-tabs-mode nil)))
+  (add-hook 'jam-mode-hook 'tee3-jam-mode-setup)
 
   (if (>= emacs-major-version 26)
       (eval-after-load "display-line-numbers.el"
@@ -1111,6 +1123,11 @@
 (use-package go-mode
   :ensure t
   :pin melpa
+  :preface
+  (defun tee3-go-mode-setup ()
+    ;; allow use of tabs as it is required by go fmt
+    (setq indent-tabs-mode t)
+    (add-hook 'before-save-hook 'gofmt-before-save))
   :init
   (use-package go-eldoc
     :if
@@ -1128,9 +1145,7 @@
     :ensure t
     :pin melpa)
   :config
-  ;; allow use of tabs as it is required by go fmt
-  (add-hook 'go-mode-hook (lambda () (setq indent-tabs-mode t)))
-  (add-hook 'go-mode-hook (lambda () (add-hook 'before-save-hook 'gofmt-before-save))))
+  (add-hook 'go-mode-hook 'tee3-go-mode-setup))
 
 ;;; Ruby programming language
 (use-package ruby-mode
@@ -1225,6 +1240,8 @@
     ;; (setq c-tab-always-indent t)
     ;; (setq c-insert-tab-function nil)
     )
+  (defun tee3-c-set-style-tee3 ()
+    (c-set-style "tee3"))
   :mode
   ("\\.cu\\'" . c++-mode)
   ("\\.cuh\\'" . c++-mode)
@@ -1263,8 +1280,8 @@
   (setq c-indent-comments-syntactically-p t)
   (setq c-strict-syntax-p t)
   :config
-  (add-hook 'c-mode-hook (lambda () (c-set-style "tee3")))
-  (add-hook 'c++-mode-hook (lambda () (c-set-style "tee3")))
+  (add-hook 'c-mode-hook 'tee3-c-set-style-tee3)
+  (add-hook 'c++-mode-hook 'tee3-c-set-style-tee3)
   (add-hook 'c-mode-common-hook 'tee3-c-mode-common-setup))
 (use-package demangle-mode
   :ensure t
@@ -1293,8 +1310,11 @@
   (equal tee3-desired-language-server-system 'default)
   :ensure t
   :pin melpa
+  :preface
+  (defun tee3-meghanada-setup ()
+    (add-hook 'before-save-hook 'meghanada-code-beautify-before-save))
   :config
-  ;; (add-hook 'java-mode-hook (lambda () (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
+  ;; (add-hook 'java-mode-hook 'tee3-meghanada-setup)
   (add-hook 'java-mode-hook 'meghanada-mode))
 
 ;;; JavaScript programming language
