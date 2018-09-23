@@ -1189,7 +1189,7 @@
 ;;; C-family programming languages
 (use-package cc-mode
   :preface
-  (defun tee3-c-mode-common-hook ()
+  (defun tee3-c-mode-common-setup ()
     ;; Add the personal styles defined above.
     (c-add-style "tee3" tee3-c-style t)
     (c-add-style "msvc" msvc-c-style t)
@@ -1252,7 +1252,7 @@
   :config
   (add-hook 'c-mode-hook (lambda () (c-set-style "tee3")))
   (add-hook 'c++-mode-hook (lambda () (c-set-style "tee3")))
-  (add-hook 'c-mode-common-hook 'tee3-c-mode-common-hook))
+  (add-hook 'c-mode-common-hook 'tee3-c-mode-common-setup))
 (use-package demangle-mode
   :ensure t
   :pin melpa)
