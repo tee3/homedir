@@ -265,9 +265,9 @@
     :ensure t
     :pin melpa)
   :config
-  (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
-  (add-hook 'lisp-mode-hook 'enable-paredit-mode)
-  (add-hook 'scheme-mode-hook 'enable-paredit-mode))
+  (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
+  (add-hook 'lisp-mode-hook 'paredit-mode)
+  (add-hook 'scheme-mode-hook 'paredit-mode))
 (use-package paren
   :config
   (show-paren-mode))
@@ -357,7 +357,7 @@
   (evil-mode 1))
 
 ;;; Text mode hooks
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'text-mode-hook 'auto-fill-mode)
 (add-hook 'text-mode-hook 'text-mode-hook-identify)
 (add-hook 'text-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
@@ -376,7 +376,7 @@
     :ensure t
     :pin melpa)
   :config
-  (add-hook 'text-mode-hook 'turn-on-flyspell)
+  (add-hook 'text-mode-hook 'flyspell-mode)
   (add-hook 'prog-mode-hook 'flyspell-prog-mode))
 (use-package auto-correct
   :ensure t
