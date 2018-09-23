@@ -368,10 +368,6 @@
   :config
   (add-hook 'prog-mode-hook 'hs-minor-mode))
 
-(use-package flyspell
-  :config
-  (add-hook 'prog-mode-hook 'flyspell-prog-mode))
-
 ;;; Flyspell
 (use-package flyspell
   :diminish flyspell-mode
@@ -380,7 +376,8 @@
     :ensure t
     :pin melpa)
   :config
-  (add-hook 'text-mode-hook 'turn-on-flyspell))
+  (add-hook 'text-mode-hook 'turn-on-flyspell)
+  (add-hook 'prog-mode-hook 'flyspell-prog-mode))
 (use-package auto-correct
   :ensure t
   :pin gnu
