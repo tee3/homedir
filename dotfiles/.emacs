@@ -244,10 +244,7 @@
   (setq gnus-use-cache t))
 (use-package message
   :init
-  (setq message-directory (expand-file-name "Mail" user-emacs-directory))
-
-  ;; (add-hook 'message-mode-hook '(lambda () (flyspell-mode t)))
-)
+  (setq message-directory (expand-file-name "Mail" user-emacs-directory)))
 (use-package locate
   :config
   (when (equal system-type 'darwin)
