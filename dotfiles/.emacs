@@ -844,7 +844,7 @@
 (use-package web-mode
   :ensure t
   :pin melpa
-  :init
+  :preface
   (defun tee3-web-mode-setup ()
     (setq web-mode-markup-indent-offset 2)
     (setq web-mode-code-indent-offset 4)
