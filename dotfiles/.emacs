@@ -214,9 +214,9 @@
   :init
   (setq linum-format "%4d ")
   :config
-  (add-hook 'text-mode-hook (lambda () (linum-mode 1)))
+  (add-hook 'text-mode-hook 'linum-mode)
 
-  (add-hook 'prog-mode-hook (lambda () (linum-mode 1))))
+  (add-hook 'prog-mode-hook 'linum-mode))
 (use-package display-line-numbers
   :if
   (>= emacs-major-version 26)
@@ -224,8 +224,8 @@
   (setq display-line-numbers-grow-only t)
   (setq display-line-numbers-width-start 3)
   :config
-  (add-hook 'text-mode-hook (lambda () (display-line-numbers-mode t)))
-  (add-hook 'prog-mode-hook (lambda () (display-line-numbers-mode t))))
+  (add-hook 'text-mode-hook 'display-line-numbers-mode)
+  (add-hook 'prog-mode-hook 'display-line-numbers-mode))
 (use-package gnus
   :init
   (setq gnus-init-file "~/.gnus")
@@ -1053,11 +1053,9 @@
 
   (if (>= emacs-major-version 26)
       (eval-after-load "display-line-numbers.el"
-        (add-hook 'jam-mode-hook (lambda ()
-                                  (display-line-numbers-mode t))))
+        (add-hook 'jam-mode-hook 'display-line-numbers-mode))
     (eval-after-load "linum.el"
-      (add-hook 'jam-mode-hook (lambda ()
-                                 (linum-mode 1)))))
+      (add-hook 'jam-mode-hook 'linum-mode)))
 
   (eval-after-load "flyspell.el"
     (add-hook 'jam-mode-hook 'flyspell-prog-mode)))
@@ -1276,7 +1274,7 @@
   :pin melpa
   :config
   ;; (add-hook 'java-mode-hook (lambda () (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
-  (add-hook 'java-mode-hook (lambda () (meghanada-mode t))))
+  (add-hook 'java-mode-hook 'meghanada-mode))
 
 ;;; JavaScript programming language
 (use-package js)
@@ -1293,7 +1291,7 @@
   ;; (eval-after-load "js.el"
   ;;   (add-to-list 'auto-mode-alist '("\\.tern-project\\'" . json-mode)))
   :config
-  (add-hook 'js-mode-hook (lambda () (tern-mode t))))
+  (add-hook 'js-mode-hook 'tern-mode))
 (use-package eslint-fix
   :ensure t
   :pin melpa)
