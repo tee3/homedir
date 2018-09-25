@@ -663,7 +663,9 @@
   :pin melpa)
 (use-package csv-mode
   :ensure t
-  :pin gnu)
+  :pin gnu
+  :init
+  (setq csv-align-style 'auto))
 (use-package gitattributes-mode
   :ensure t
   :pin melpa)
