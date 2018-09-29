@@ -1522,6 +1522,11 @@
     (add-hook 'c-mode-hook #'lsp-clangd-c-enable)
     (add-hook 'c++-mode-hook #'lsp-clangd-c++-enable)
     (add-hook 'objc-mode-hook #'lsp-clangd-objc-enable))
+  (use-package lsp-fortran
+    :ensure t
+    :pin melpa
+    :config
+    (add-hook 'fortran-mode-hook #'lsp-fortran-enable))
   (use-package lsp-go
     :ensure t
     :pin melpa

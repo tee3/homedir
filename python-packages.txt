@@ -29,6 +29,9 @@ Sphinx
 # Mercurial
 Mercurial ; python_version < '3'
 
+# Fortran
+fortran-language-server
+
 # Miscellaneous
 speedtest-cli
 azure-cli
