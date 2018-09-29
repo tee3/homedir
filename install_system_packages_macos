@@ -83,7 +83,7 @@ ${pm_install} bear
 ${pm_install} boost
 ${pm_install} boost-bcp
 ${pm_install} boost-build
-${pm_install} casperjs
+#${pm_install} casperjs
 ${pm_cask_install} chef/chef/chefdk
 ${pm_install} cflow
 ${pm_install} clblas
@@ -108,8 +108,8 @@ ${pm_install} gcc
 #${pm_install} gcc@4.6
 #${pm_install} gcc@4.7
 #${pm_install} gcc@4.8
-${pm_install} gcc@4.9
-${pm_install} gcc@5
+#${pm_install} gcc@4.9
+#${pm_install} gcc@5
 ${pm_install} gcc@6
 ${pm_install} gcc@7
 ${pm_install} gdb
@@ -171,7 +171,7 @@ ${pm_install} nmap
 ${pm_install} node
 #${pm_install} ntfs-3g
 ${pm_install} nuttcp
-${pm_cask_install} homebrew/cask-drivers/nvidia-cuda
+#${pm_cask_install} homebrew/cask-drivers/nvidia-cuda
 ${pm_install} open-completion
 ${pm_install} openocd
 #${pm_install} osxfuse
@@ -205,7 +205,7 @@ ${pm_install} tcping
 ${pm_install} tcpreplay
 ${pm_install} tcptrace
 ${pm_install} tcptraceroute
-${pm_install} tcptrack
+#${pm_install} tcptrack
 ${pm_install} termshare
 ${pm_install} terraform
 ${pm_cask_install} thunderbird
@@ -220,7 +220,7 @@ ${pm_install} vault
 ${pm_install} webp
 ${pm_install} wget
 #${pm_install} wireshark
-${pm_install} xctool
+#${pm_install} xctool
 ${pm_install} xmlformat
 ${pm_install} xmlstarlet
 ${pm_install} xmlto
