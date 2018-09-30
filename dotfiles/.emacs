@@ -93,15 +93,15 @@
 ;;;
 ;;; Emacs
 ;;;
+(setq inhibit-startup-screen t)
+(setq scroll-conservatively 100)
+(setq-default truncate-lines t)
+(setq visible-bell t)
 (setq column-number-mode t)
 (display-time-mode t)
 (setq display-time-day-and-date nil)
-(setq inhibit-startup-screen t)
 (setq mouse-wheel-mode t)
-(setq scroll-conservatively 100)
 (setq split-height-threshold 0)
-(setq-default truncate-lines t)
-(setq visible-bell t)
 (setq version-control t)
 
 (prefer-coding-system 'utf-8)
