@@ -97,12 +97,19 @@
 (setq scroll-conservatively 100)
 (setq-default truncate-lines t)
 (setq visible-bell t)
-(setq column-number-mode t)
-(display-time-mode t)
-(setq display-time-day-and-date nil)
-(setq mouse-wheel-mode t)
+(column-number-mode)
+(use-package time
+  :init
+  (setq display-time-day-and-date nil)
+  :config
+  (display-time-mode))
+(use-package mwheel
+  :config
+  (mouse-wheel-mode))
 (setq split-height-threshold 0)
-(setq version-control t)
+(use-package files
+  :init
+  (setq version-control t))
 
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
