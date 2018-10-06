@@ -1575,6 +1575,10 @@
                                              objc-mode
                                              objc++-mode) . ("clangd"))))))
 
+(use-package rmsbolt
+  :ensure t
+  :pin melpa)
+
 ;;;
 ;;; Rainbow modes
 ;;;
