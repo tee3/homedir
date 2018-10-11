@@ -3,6 +3,7 @@
 golang.org/x/tools/gopls@latest
 
 github.com/google/git-appraise/git-appraise@latest
+github.com/MichaelMure/git-bug@latest
 
 #github.com/shurcool/markdownfmt@latest
 
