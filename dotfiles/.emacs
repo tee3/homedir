@@ -524,6 +524,27 @@
   :ensure t
   :pin gnu)
 
+;;; Polymode
+(use-package polymode
+  :ensure t
+  :pin melpa
+  :init
+  (use-package poly-markdown
+    :ensure t
+    :pin melpa
+    :mode
+    (("\\.md" . poly-markdown-mode)))
+  (use-package poly-org
+    :ensure t
+    :pin melpa
+    :mode
+    (("\\.org" . poly-org-mode)))
+  (use-package poly-rst
+    :ensure t
+    :pin melpa
+    :mode
+    (("\\.rst" . poly-rst-mode))))
+
 ;;; Flyspell
 (use-package flyspell
   :hook
