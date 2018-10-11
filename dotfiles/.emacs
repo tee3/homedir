@@ -349,6 +349,11 @@
 (use-package winner
   :init
   (winner-mode))
+(use-package windmove
+  :init
+  (setq windmove-wrap-around t)
+  :config
+  (windmove-default-keybindings 'shift))
 (use-package writeroom-mode
   :ensure t
   :pin melpa)
