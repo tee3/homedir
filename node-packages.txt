@@ -5,11 +5,12 @@ eslint
 standard
 semistandard
 
+javascript-typescript-langserver
+
+# JSON Development Tools
 json
 jsonlint
 json-diff
-
-javascript-typescript-langserver
 
 # Bash
 bash-language-server
