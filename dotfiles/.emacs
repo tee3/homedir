@@ -69,7 +69,7 @@
   :type 'symbol
   :options '('default 'icomplete 'fido))
 
-(defcustom tee3-desired-language-server-system 'eglot
+(defcustom tee3-desired-language-server-system 'lsp
   "Selects the language server system, with 'default being each language has a different one."
   :type 'symbol
   :options '('default 'lsp 'eglot))
