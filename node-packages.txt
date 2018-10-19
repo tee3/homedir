@@ -2,14 +2,6 @@
 jsdoc
 
 eslint
-eslint-config-canonical
-eslint-config-eslint
-eslint-config-eslint-comments
-eslint-config-es
-eslint-config-es5
-eslint-config-jsdoc
-eslint-config-json
-eslint-config-standard
 standard
 semistandard
 
@@ -17,11 +9,7 @@ json
 jsonlint
 json-diff
 
-tern
 javascript-typescript-langserver
-
-# Application development
-electron-prebuilt
 
 # Bash
 bash-language-server
