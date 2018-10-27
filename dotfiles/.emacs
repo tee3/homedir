@@ -1564,7 +1564,7 @@
            (and (= emacs-major-version 26) (>= emacs-minor-version 1)))
        (equal tee3-desired-language-server-system 'eglot))
   :ensure t
-  :pin gnu
+  :pin melpa
   :config
   (add-hook 'prog-mode-hook 'eglot-ensure)
 
