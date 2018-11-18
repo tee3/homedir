@@ -120,6 +120,7 @@ system.
 * `emacs`
 * `python`
 * `ruby`
+* `rust`
 * `node.js`
 * `go`
 
@@ -269,6 +270,14 @@ processes, customizing the installers as described below.
   * Install for all users.
 
   * Install to `C:\Ruby23`.
+
+  * Add to `PATH`.
+
+* Rust (64-bit)
+
+  * Install for all users.
+
+  * Install to `C:\Rust`.
 
   * Add to `PATH`.
 
@@ -559,6 +568,14 @@ the installed Ruby packages.
 
 See [ruby-packages.gemfile](./ruby-packages.gemfile) for a list
 of installed Ruby packages.
+
+## support for rust packages
+
+Rust programs are using installed for the local user, which is the
+default.
+
+See [rust-packages.txt](./rust-packages.txt) for a list of installed
+Rust packages.
 
 ## support for node.js packages
 
