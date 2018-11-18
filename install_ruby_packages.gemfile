@@ -10,3 +10,6 @@ gem 'mdl'
 
 # Documentation
 gem 'asciidoctor'
+
+gem 'jekyll'
+gem 'github-pages'
