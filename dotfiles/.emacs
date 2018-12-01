@@ -138,7 +138,7 @@
   (setq w32-pass-apps-to-system nil)
   (setq w32-apps-modifier 'hyper))
 
-(use-package auth-sources
+(use-package auth-source
   :init
   (cond
    ((equal system-type 'darwin)
