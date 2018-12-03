@@ -1497,64 +1497,22 @@
 ;;;
 ;;; Language Server Protocol
 ;;;
-(use-package lsp-mode
+(use-package lsp
   :if
   (and (or (> emacs-major-version 25)
            (and (= emacs-major-version 25) (>= emacs-minor-version 1)))
        (equal tee3-desired-language-server-system 'lsp))
-  :ensure t
+  :ensure lsp-mode
   :pin melpa
+  :commands
+  lsp-clients-register-clangd
   :init
-  (use-package lsp-ui
-    :ensure t
-    :pin melpa
-    :init
-    (setq lsp-ui-doc-enable nil)
-    (setq lsp-ui-flycheck-enable t)
-    (setq lsp-ui-imenu-enable nil)
-    (setq lsp-ui-peek-enable nil)
-    (setq lsp-ui-sideline-enable nil)
-    :hook
-    (lsp-mode . lsp-ui-mode))
-  (use-package lsp-clangd
-    :ensure t
-    :pin melpa
-    :init
-    (when (equal system-type 'darwin)
-      (setq lsp-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
-    :hook
-    (c-mode . lsp-clangd-c-enable)
-    (c++-mode . lsp-clangd-c++-enable)
-    (objc-mode . lsp-clangd-objc-enable))
-  (use-package lsp-fortran
-    :ensure t
-    :pin melpa
-    :hook
-    (fortran-mode . lsp-fortran-enable))
-  (use-package lsp-go
-    :ensure t
-    :pin melpa
-    :hook
-    (go-mode . lsp-go-enable))
-  (use-package lsp-java
-    :ensure t
-    :pin melpa
-    :hook
-    (java-mode . lsp-java-enable))
-  (use-package lsp-javascript-typescript
-    :ensure t
-    :pin melpa
-    :hook
-    (js-mode . lsp-javascript-typescript-enable)
-    (typescript-mode . lsp-javascript-typescript-enable)
-    (js3-mode . lsp-javascript-typescript-enable)
-    (rjsx-mode . lsp-javascript-typescript-enable))
-  (use-package lsp-python
-    :ensure t
-    :pin melpa
-    :hook
-    (python-mode . lsp-python-enable))
-  (setq lsp-print-io nil))
+  (when (equal system-type 'darwin)
+      (setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
+  :config
+  (require 'lsp-clients)
+
+  (lsp-clients-register-clangd))
 (use-package eglot
   :if
   (and (or (> emacs-major-version 26)
