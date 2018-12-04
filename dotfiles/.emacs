@@ -1483,11 +1483,6 @@
   (use-package flycheck-pyflakes
     :ensure t
     :pin melpa)
-  (use-package flycheck-rtags
-    :if
-    (equal tee3-desired-language-server-system 'default)
-    :load-path
-    "~/opt/local/share/emacs/site-lisp/rtags")
   (use-package flycheck-rust
     :ensure t
     :pin melpa)
@@ -1498,36 +1493,6 @@
     (flycheck-swift-setup))
   :config
   (global-flycheck-mode))
-
-;;;
-;;; rtags
-;;;
-(use-package rtags
-  :if
-  (equal tee3-desired-language-server-system 'default)
-  :load-path
-  "~/opt/local/share/emacs/site-lisp/rtags"
-  :init
-  ;; ensure the right executables are used
-  (setq rtags-path "~/opt/local/bin")
-
-  ;; required for auto-completion
-  (setq rtags-autostart-diagnostics t)
-  (setq rtags-completions-enabled t)
-
-  (setq rtags-close-taglist-on-selection t)
-
-  (setq rtags-display-summary-as-tooltip nil)
-  (setq rtags-display-current-error-as-tooltip nil)
-  (setq rtags-popup-results-buffer nil)
-  (setq rtags-tooltips-enabled nil)
-
-  (setq rtags-tracking t)
-  (setq rtags-tracking-timer-interval 0.1)
-  (setq rtags-track-container t)
-  (setq rtags-use-filename-completion nil)
-  :config
-  (rtags-enable-standard-keybindings))
 
 ;;;
 ;;; Language Server Protocol

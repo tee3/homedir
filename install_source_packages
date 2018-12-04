@@ -84,45 +84,6 @@ def install_git_svn_update_externals(basedir):
             shutil.copyfile(source, target)
 
 
-def install_rtags(basedir):
-    rtagsdir = os.path.join(basedir, 'src', 'rtags')
-
-    git_clone_update_pull_ff_only(
-        'https://github.com/andersbakken/rtags.git',
-        rtagsdir)
-
-    command = ['git', '-C', rtagsdir, 'clean', '-d', '-x', '-f']
-    subprocess.check_call(command)
-
-    build = os.path.join(rtagsdir, 'Release')
-    if not os.path.exists(build):
-        os.makedirs(build)
-
-    libclang_llvm_config_executable_option = ''
-    if sys.platform.startswith('darwin'):
-        llvm_prefix = emulate_backtick(['brew', '--prefix', 'llvm'])
-        libclang_llvm_config = os.path.join(llvm_prefix, 'bin', 'llvm-config')
-        libclang_llvm_config_executable_option = '-DLIBCLANG_LLVM_CONFIG_EXECUTABLE=' + libclang_llvm_config
-
-    bash_completion_option = ''
-    if sys.platform.startswith('darwin'):
-        bash_completion_option = '-DFORCE_BASH_COMPLETION_INSTALLATION=1'
-
-    command = [
-        'cmake',
-        libclang_llvm_config_executable_option,
-        bash_completion_option,
-        '-DCMAKE_BUILD_TYPE=Release',
-        '-DCMAKE_INSTALL_PREFIX:PATH=' + basedir,
-        '..'
-    ]
-    subprocess.check_call(command, cwd=build)
-    command = ['make']
-    subprocess.check_call(command, cwd=build)
-    command = ['make', 'install']
-    subprocess.check_call(command, cwd=build)
-
-
 def install_boost(basedir):
     boostdir = os.path.join(basedir, 'src', 'boost', 'boost.git')
 
@@ -218,11 +179,6 @@ if __name__ == '__main__':
     install_objj_mode(prefix)
     install_commands_to_compilation_database(prefix)
     install_git_svn_update_externals(prefix)
-    try:
-        if not sys.platform.startswith('win32'):
-            install_rtags(prefix)
-    except:
-        r = 1
     install_boost(prefix)
     install_standardese(prefix)
 
