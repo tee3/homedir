@@ -809,6 +809,14 @@
   ((c-mode . hide-ifdef-mode)
    (c++-mode . hide-ifdef-mode)))
 
+;;; Vue.js
+(use-package vue-mode
+  :ensure t
+  :pin melpa)
+(use-package vue-html-mode
+  :ensure t
+  :pin melpa)
+
 ;;; Flymake
 (use-package flymake
   :ensure t
