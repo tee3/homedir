@@ -1084,6 +1084,23 @@
   :ensure t
   :pin melpa)
 
+;;; Vue.js
+(use-package mmm-mode
+  :ensure t
+  :pin melpa)
+(use-package vue-mode
+  :ensure t
+  :pin melpa)
+(use-package vue-html-mode
+  :ensure t
+  :pin melpa)
+(use-package sass-mode
+  :ensure t
+  :pin melpa)
+(use-package less-css-mode
+  :ensure t
+  :pin melpa)
+
 ;;; Code Composer Studio and DSP/BIOS mode
 (use-package cc-mode
   :mode
