@@ -366,9 +366,9 @@
   (setq windmove-wrap-around t)
   :config
   (windmove-default-keybindings 'shift))
-(use-package writeroom-mode
+(use-package darkroom
   :ensure t
-  :pin melpa)
+  :pin gnu)
 
 ;;; Evil (vi) emulation
 (use-package evil
