@@ -1565,8 +1565,6 @@
   :hook
   (prog-mode . eglot-ensure)
   :config
-  (add-to-list 'eglot-server-programs '(go-mode . ("go-langserver")))
-
   (if (equal system-type 'darwin)
       (progn
         (add-to-list 'eglot-server-programs '((c-mode
