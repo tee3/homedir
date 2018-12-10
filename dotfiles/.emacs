@@ -1202,6 +1202,12 @@
   lsp-clients-register-clangd
   :init
   (setq lsp-clients-clangd-executable (tee3-clangd-executable))
+  (use-package lsp-ui
+    :ensure t
+    :pin melpa)
+  (use-package company-lsp
+    :ensure t
+    :pin melpa)
   :config
   (require 'lsp-clients)
 
