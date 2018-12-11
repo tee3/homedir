@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+#
+# Install Lua packages.
+
+import sys
+import os
+import subprocess
+import distutils.spawn
+
+
+def emulate_run(args, env=None):
+    p = subprocess.Popen(args, env=env)
+    if p.wait() == 0:
+        return True
+    return False
+
+# requires HOME.
+if 'HOME' not in os.environ or os.environ['HOME'] == '':
+    print('error: HOME is not set, aborting.')
+    sys.exit(1)
+HOME = os.environ['HOME']
+
+luarocks = distutils.spawn.find_executable('luarocks')
+
+if __name__ == '__main__':
+    if not luarocks:
+        print('error: luarocks not installed, not installing Lua packages.')
+        sys.exit(1)
+
+    error = False
+    with open('lua-packages.txt', 'r') as f:
+        for line in f:
+            line = line.strip()
+            line = line.rstrip('\n')
+            if line != '' and line[0] != '#':
+                if not emulate_run([luarocks, 'install', '--local', line]):
+                    error = True
+
+    sys.exit(1 if error else 0)
