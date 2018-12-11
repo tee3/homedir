@@ -501,3 +501,9 @@ if __name__ == '__main__':
     if yn == 'y':
         if not emulate_run([sys.executable, os.path.abspath('install_rust_packages')]):
             print('warning: failed to install Rust packages.')
+
+    # ask to install lua packages
+    yn = input('Install Lua packages? (y/n): ')
+    if yn == 'y':
+        if not emulate_run([sys.executable, os.path.abspath('install_lua_packages')]):
+            print('warning: failed to install Lua packages.')

@@ -97,6 +97,11 @@ if [ ! -z "$(which cargo 2> /dev/null)" ]; then
     export PATH="${HOME}"/.cargo/bin:${PATH}
 fi
 
+# Lua
+if [ ! -z "$(which luarocks 2> /dev/null)" ]; then
+    export PATH="${HOME}"/.luarocks/bin:${PATH}
+fi
+
 # Emacs
 if [ ! -z "$(which emacsclient 2> /dev/null)" ]; then
     export ALTERNATE_EDITOR=

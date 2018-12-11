@@ -160,6 +160,8 @@ ${pm_install} llvm@4
 ${pm_install} llvm@5
 ${pm_install} llvm@6
 ${pm_install} lrzsz
+${pm_install} lua
+${pm_install} luarocks
 ${pm_install} markdown
 ${pm_install} maven
 ${pm_install} maven-completion
