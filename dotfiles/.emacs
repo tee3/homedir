@@ -1526,6 +1526,13 @@
   :hook
   (prog-mode . eglot-ensure)
   :config
+  (add-to-list 'eglot-server-programs '((bibtex-mode
+                                         context-mode
+                                         doctex-mode
+                                         latex-mode
+                                         reftex-mode
+                                         tex-mode) . ("digestif")))
+
   (if (equal system-type 'darwin)
       (progn
         (add-to-list 'eglot-server-programs '((c-mode

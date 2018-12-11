@@ -1,0 +1,2 @@
+# Latex
+https://github.com/astoff/digestif/raw/master/rockspec/digestif-scm-1.rockspec
