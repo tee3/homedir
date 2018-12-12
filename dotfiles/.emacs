@@ -544,13 +544,13 @@
     :config
     (ac-capf-setup))
   (setq ac-auto-start t)
-  (setq ac-delay 0.1)
-  (setq ac-auto-show-menu 0.1)
+  (setq ac-delay 0.01)
+  (setq ac-auto-show-menu t)
   (setq ac-use-comphist t)
   (setq ac-use-fuzzy t)
   (setq ac-use-menu-map t)
   (setq ac-use-quick-help t)
-  (setq ac-quick-help-delay 0.2)
+  (setq ac-quick-help-delay 0.01)
   :config
   (ac-config-default)
   (ac-flyspell-workaround))
