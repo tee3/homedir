@@ -515,6 +515,20 @@
   ((text-mode . flyspell-mode)
    (prog-mode . flyspell-prog-mode)))
 
+;;; Company
+(use-package company
+  :if
+  (equal tee3-desired-automatic-completion-system 'company)
+  :ensure t
+  :pin gnu
+  :init
+  (setq company-auto-complete t)
+  (setq company-idle-delay 0.1)
+  (setq company-minimum-prefix-length 1)
+  (setq company-tooltip-idle-delay 0.1)
+  :config
+  (global-company-mode))
+
 ;;; Yasnippet
 (use-package yasnippet
   :ensure t
