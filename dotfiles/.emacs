@@ -422,8 +422,16 @@
   :init
   (use-package company-quickhelp
     :ensure t
-    :pin melpa)
-
+    :pin melpa
+    :init
+    (setq company-quickhelp-delay 0.1)
+    :config
+    (company-quickhelp-mode))
+  (setq company-auto-complete t)
+  (setq company-idle-delay 0.1)
+  (setq company-minimum-prefix-length 1)
+  (setq company-tooltip-idle-delay 0.1)
+  :config
   (global-company-mode))
 
 ;;; Yasnippet
