@@ -76,7 +76,7 @@
   :type 'symbol
   :options '('default 'ido 'ivy))
 
-(defcustom tee3-desired-automatic-completion-system 'none
+(defcustom tee3-desired-automatic-completion-system 'ido
   "This is used to choose an auto-completion system when it must be done at configuration."
   :type 'symbol
   :options '('none 'ido 'auto-complete 'company))
