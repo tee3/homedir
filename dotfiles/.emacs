@@ -500,11 +500,6 @@
   :pin melpa
   :diminish ivy-mode
   :init
-  (use-package ivy-xref
-    :ensure t
-    :pin melpa
-    :init
-    (setq xref-show-xrefs-function #'ivy-xref-show-xrefs))
   (setq ivy-use-virtual-buffers t)
   (setq ivy-count-format "(%d/%d) ")
   :config
