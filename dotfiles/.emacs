@@ -572,6 +572,8 @@
   :init
   (cond ((equal tee3-desired-completion-system 'ido)
          (setq projectile-completion-system 'ido))
+        ((equal tee3-desired-completion-system 'ivy)
+         (setq projectile-completion-system 'ivy))
         (t
          (setq projectile-completion-system 'default)))
 
