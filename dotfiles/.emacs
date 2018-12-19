@@ -1512,7 +1512,9 @@
   (and (>= emacs-major-version 26)
        (not tee3-flycheck-override-modern-flymake))
   :bind
-  ("C-c ! l" . flymake-show-diagnostics-buffer))
+  ("C-c ! l" . flymake-show-diagnostics-buffer)
+  :hook
+  (prog-mode . flymake-mode))
 
 ;;;
 ;;; Flycheck
