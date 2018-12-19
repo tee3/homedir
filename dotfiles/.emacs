@@ -778,6 +778,8 @@
   :pin melpa
   :init
   (use-package omnisharp
+    :if
+    (equal tee3-desired-language-server-system 'default)
     :ensure t
     :pin melpa))
 (use-package d-mode
