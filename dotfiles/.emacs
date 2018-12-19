@@ -504,6 +504,8 @@
     :pin melpa
     :init
     (setq xref-show-xrefs-function #'ivy-xref-show-xrefs))
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) ")
   :config
   (ivy-mode 1))
 
