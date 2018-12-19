@@ -498,8 +498,6 @@
   :ensure t
   :pin melpa
   :diminish ivy-mode
-  :bind-keymap
-  ("C-c c" . ivy-mode-map)
   :init
   (use-package ivy-xref
     :ensure t
