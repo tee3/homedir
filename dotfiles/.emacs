@@ -781,7 +781,9 @@
     :if
     (equal tee3-desired-language-server-system 'default)
     :ensure t
-    :pin melpa))
+    :pin melpa
+    :hook
+    (csharp-mode . omnisharp-mode)))
 (use-package d-mode
   :ensure t
   :pin melpa)
