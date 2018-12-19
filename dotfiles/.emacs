@@ -1009,6 +1009,9 @@
   (use-package magit-svn
     :ensure t
     :pin melpa)
+  (use-package forge
+    :ensure t
+    :pin melpa)
 
   (setq magit-repository-directories (quote (("~/Development" . 2))))
 
