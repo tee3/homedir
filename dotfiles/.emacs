@@ -398,15 +398,7 @@
   (auto-correct-mode 1))
 (use-package captain
   :ensure t
-  :pin gnu
-  :diminish captain-mode
-  :preface
-  (defun tee3-captain-mode-setup ()
-    (setq captain-predicate (lambda () t)))
-  :config
-  (global-captain-mode)
-  :hook
-  (text-mode . tee3-captain-mode-setup))
+  :pin gnu)
 
 ;;; M-x
 (use-package amx
