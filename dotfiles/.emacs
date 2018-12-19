@@ -506,7 +506,7 @@
     :pin melpa
     :init
     (setq xref-show-xrefs-function #'ivy-xref-show-xrefs))
-
+  :config
   (ivy-mode 1))
 
 ;;; Counsel
