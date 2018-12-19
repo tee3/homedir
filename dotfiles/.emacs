@@ -1449,6 +1449,8 @@
 ;;; Flymake
 ;;;
 (use-package flymake
+  :ensure t
+  :pin gnu
   :if
   (and (>= emacs-major-version 26)
        (not tee3-flycheck-override-modern-flymake))
