@@ -142,7 +142,8 @@
   :init
   (cond
    ((equal system-type 'darwin)
-    (customize-set-value 'auth-sources '(macos-keychain-generic "~/.authinfo.gpg")))
+    (customize-set-value 'auth-sources '(macos-keychain-generic
+                                         "~/.authinfo.gpg")))
    (t
     (customize-set-value 'auth-sources '("~/.authinfo.gpg")))))
 
