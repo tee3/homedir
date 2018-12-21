@@ -1092,7 +1092,6 @@
                                     :run "b2"
                                     :test-prefix "test_"))
 
-
 ;;; Jam programming language
 (use-package jam-mode
   :ensure t
