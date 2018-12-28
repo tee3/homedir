@@ -1619,6 +1619,13 @@
   :pin melpa)
 
 ;;;
+;;; Bitbake
+;;;
+(use-package bitbake
+  :ensure t
+  :pin melpa)
+
+;;;
 ;;; Structure and Interpretation of Computer Programs (SICP)
 ;;;
 (use-package sicp
