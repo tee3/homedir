@@ -42,7 +42,7 @@ if exist "%CMDNODEJSROOT%" set NODE_PATH=%CMDNPMPREFIX%\node_modules:%NODE_PATH%
 rem Go
 set CMDGOROOT=C:\Go
 if not exist "%CMDGOROOT%" echo Go is not installed at "%CMDGOROOT%".
-if exist "%CMDGOROOT%" set PATH=%CMDOPTLOCAL%\src\go\bin;%PATH%
+if exist "%CMDGOROOT%" set PATH=%HOME%\.go\bin;%PATH%
 
 rem Emacs
 set CMDEMACSROOT=C:\Emacs
