@@ -223,6 +223,10 @@ Windows and such is a manual process.
 Install the following tools using the normal Windows installation
 processes, customizing the installers as described below.
 
+* Emacs for Windows (64-bit, without dependencies)
+
+  * Move extracted file to `C:\Emacs`.
+
 * Git For Windows (64-bit)
 
   * Install for all users.
