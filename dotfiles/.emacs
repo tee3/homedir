@@ -1242,6 +1242,10 @@
   (>= emacs-major-version 25)
   :ensure t
   :pin melpa)
+(use-package k8s-mode
+  :ensure t
+  :pin melpa
+  :hook (k8s-mode . yas-minor-mode))
 
 ;;; Chef
 (use-package chef-mode
