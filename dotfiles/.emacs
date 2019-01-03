@@ -165,6 +165,8 @@
   :ensure t
   :pin melpa)
 (use-package desktop
+  :init
+  (setq desktop-restore-frames nil)
   :config
   (desktop-save-mode))
 (use-package diminish
