@@ -110,7 +110,7 @@ else if [ os.name ] = MACOSX
 else if [ os.name ] = NT
 {
   # user-built Boost
-  using boost : "" : <root>$(BOOST_ROOT_BASE)/boost_installed ;
+  using boost : "" : <include>C:/Boost/include/boost-1_68 <library>C:/Boost/lib <layout>versioned ;
 }
 
 # Provide for building from git, requires special knowledge
