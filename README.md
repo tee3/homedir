@@ -265,7 +265,7 @@ processes, customizing the installers as described below.
 
   * Add to `PATH`.
 
-* *Build Tools for Visual Studio 2017* (`vs_buildtools.exe`)
+* Build Tools for Visual Studio 2017 or Visual Studio 2017
 
   * Install to the default location.
 
