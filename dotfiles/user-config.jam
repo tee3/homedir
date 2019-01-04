@@ -8,19 +8,11 @@ if [ os.name ] = NT
 {
   # this is the default system compiler
   using msvc ;
-
-  # other compilers, both system and optional
-  using clang ;
-
-  #! @todo is a gcc compiler for Windows
 }
 else if [ os.name ] = CYGWIN
 {
   # this is the default system compiler
   using gcc ;
-
-  # other compilers, both system and optional
-  using clang ;
 }
 else if [ os.name ] = LINUX
 {
