@@ -301,6 +301,36 @@ processes, customizing the installers as described below.
 
   * Add to `PATH`.
 
+* Boost.Build from Boost C++ Libraries 1.68.0
+
+  * Install from source.
+
+  * Download `boost_1_68_0.zip` to `C:\Boost\src\boost_1_68_0.zip`.
+
+  * Extract to `C:\Boost\src\boost_1_68_0`.
+
+  * Install Boost.Build to `C:\boost-build`.
+
+    ```
+    cd C:\Boost\src\boost_1_68_0\tools\build
+    bootstrap.bat
+    b2 install
+    ```
+* Boost C++ Libraries 1.68.0
+
+  * Install from source (this will take a very long time).
+
+  * Download `boost_1_68_0.zip` to `C:\Boost\src\boost_1_68_0.zip`.
+
+  * Extract to `C:\Boost\src\boost_1_68_0`.
+
+  * Install versioned Boost C++ Libraries to `C:\Boost`.
+
+    ```
+    cd C:\Boost\src\boost_1_68_0
+    b2 --layout=versioned inetall
+    ```
+
 From a `cmd` window install the system packages.  At the end of this
 process, the machine will reboot, so make sure there is no one else
 logged in.
