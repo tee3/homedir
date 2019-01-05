@@ -1585,7 +1585,9 @@
   :if
   (>= emacs-major-version 25)
   :ensure t
-  :pin melpa)
+  :pin melpa
+  :bind
+  ("C-c d" . docker))
 (use-package dockerfile-mode
   :if
   (>= emacs-major-version 25)
