@@ -1006,6 +1006,10 @@
   (defun tee3-magit-choose-completing-read-function ()
     (when (equal tee3-desired-completion-system 'ido)
       (setq magit-completing-read-function 'magit-ido-completing-read)))
+  :bind
+  ("C-c v g s" . magit-status)
+  ("C-c v g c" . magit-dispatch-popup)
+  ("C-c v g f" . magit-file-popup)
   :init
   (use-package magit-lfs
     :ensure t
@@ -1051,7 +1055,9 @@
 ;;; Mercurial
 (use-package monky
   :ensure t
-  :pin melpa)
+  :pin melpa
+  :bind
+  ("C-c v m s" . monky-status))
 (use-package hgignore-mode
   :ensure t
   :pin melpa)
@@ -1067,7 +1073,9 @@
 ;;; Subversion
 (use-package psvn
   :ensure t
-  :pin marmalade)
+  :pin marmalade
+  :bind
+  ("C-c v s s" . svn-status))
 
 ;;; Make
 (use-package make-mode
