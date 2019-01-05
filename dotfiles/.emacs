@@ -297,6 +297,17 @@
     :pin melpa)
   :hook
   (shell-mode . pcomplete-shell-setup))
+(use-package project
+  :bind
+  ("C-c P d" . project-find-file)
+  ("C-c P f" . project-find-file)
+  ("C-c P g" . find-file-at-point)
+  ("C-c P l" . find-file-at-point)
+  ("C-c P s g" . project-find-regexp)
+  ("C-c P s r" . project-find-regexp)
+  ("C-c P s s" . project-find-regexp)
+  ("C-c P r" . project-find-regexp)
+  ("C-c P v g" . magit-status))
 (use-package bash-completion
   :disabled t
   :ensure t
