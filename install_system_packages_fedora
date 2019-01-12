@@ -282,6 +282,7 @@ ${pm_install} unzip
 ${pm_install} v8
 #${pm_install} vegeta
 ${pm_install} vim
+#${pm_install} visual-studio-code
 #${pm_install} webp
 ${pm_install} wget
 #${pm_install} wireshark
