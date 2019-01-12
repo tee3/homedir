@@ -62,3 +62,6 @@ npm-debug.log
 .ropeproject/
 __pycache__/
 *.pyc
+
+# Visual Studio Code
+.vscode/
