@@ -123,6 +123,7 @@ ${pm_install} arp-scan
 #${pm_install} arp-sk
 #${pm_install} arpoison
 ${pm_install} aspell
+#${pm_install} atom
 ${pm_install} avahi
 ${pm_install} avahi-tools
 #${pm_install} avrdude
