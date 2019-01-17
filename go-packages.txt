@@ -1,6 +1,6 @@
 # Development
 
-github.com/sourcegraph/go-langserver
+golang.org/x/tools/cmd/golsp
 
 github.com/google/git-appraise/git-appraise
 
