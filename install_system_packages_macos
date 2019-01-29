@@ -100,7 +100,7 @@ ${pm_install} docbook
 ${pm_install} docbook-xsl
 ${pm_cask_install} docker
 ${pm_install} doxygen
-${pm_install} emacs --with-cocoa
+${pm_cask_install} install emacs
 ${pm_install} emscripten
 ${pm_install} enscript
 #${pm_install} ext2fuse
