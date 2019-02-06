@@ -60,6 +60,11 @@ else if [ os.name ] = MACOSX
   using darwin : 6 : /usr/local/opt/gcc@6/bin/g++-6 : $(macos-options) ;
 
   #using emscripten ;
+
+  using gcc : arm : /usr/local/arm/gcc-arm-none-eabi-8-2018-q4-major/bin/arm-none-eabi-g++ ;
+
+  using gcc : 8arm : /usr/local/arm/gcc-arm-none-eabi-8-2018-q4-major/bin/arm-none-eabi-g++ ;
+  using gcc : 7arm : /usr/local/arm/gcc-arm-none-eabi-7-2018-q2-update/bin/arm-none-eabi-g++ ;
 }
 
 # MPI
