@@ -1414,6 +1414,10 @@
   :ensure t
   :pin melpa)
 
+(use-package jupyter
+  :ensure t
+  :pin melpa)
+
 ;;; Code Composer Studio and DSP/BIOS mode
 (use-package cc-mode
   :mode
