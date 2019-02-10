@@ -124,7 +124,7 @@ ${pm_install} glew
 ${pm_install} glfw3
 ${pm_install} glib
 ${pm_install} glm
-${pm_install} global --with-exuberant-ctags
+${pm_install} global
 ${pm_install} glslang
 ${pm_install} gnu-typist
 ${pm_install} gnuplot
@@ -166,7 +166,7 @@ ${pm_install} luarocks
 ${pm_install} markdown
 ${pm_install} maven
 ${pm_install} maven-completion
-#${pm_install} mscgen --without-gd
+#${pm_install} mscgen
 ${pm_install} netcat
 ${pm_install} netperf
 ${pm_install} nmap
