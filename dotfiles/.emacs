@@ -1205,6 +1205,7 @@
   (add-to-list 'eglot-server-programs '((html-mode) . ("html-languageserver" "--stdio")))
   (add-to-list 'eglot-server-programs '((vue-mode) . ("vls" "--stdio")))
   (add-to-list 'eglot-server-programs '((json-mode jsonc-mode) . ("vscode-json-languageserver" "--stdio")))
+  (add-to-list 'eglot-server-programs '((java-mode) . "localhost:8080"))
   (add-to-list 'eglot-server-programs '((c-mode
                                          c++-mode
                                          objc-mode
