@@ -951,11 +951,11 @@
 (use-package imenu
   :init
   (use-package imenu-list
-  :ensure t
-  :pin melpa
-  :init
-  (setq imenu-list-focus-after-activation t)
-  (setq imenu-list-auto-resize t)))
+    :ensure t
+    :pin melpa
+    :init
+    (setq imenu-list-focus-after-activation t)
+    (setq imenu-list-auto-resize t)))
 
 ;;; Git
 (use-package gited
