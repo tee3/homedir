@@ -20,11 +20,6 @@
        (list start end))))
 
 ;;;
-;;; Update the load path to include the user's Lisp files.
-;;;
-(add-to-list 'load-path (expand-file-name "~/opt/local/share/emacs/site-lisp") t)
-
-;;;
 ;;; Set up package
 ;;;
 (when (require 'package nil :noerror)
