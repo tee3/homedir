@@ -581,11 +581,11 @@
         (t
          (setq projectile-completion-system 'default)))
 
-  (projectile-mode)
-
   (setq projectile-switch-project-action 'projectile-dired)
   (setq projectile-find-dir-includes-top-level t)
-  (setq projectile-use-git-grep t))
+  (setq projectile-use-git-grep t)
+  :config
+  (projectile-mode))
 
 ;;; Learning Emacs
 (use-package guru-mode
