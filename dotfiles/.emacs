@@ -940,10 +940,7 @@
     :init
     (use-package vc))
 
-  (setq vc-make-backup-files t)
-
-  ;; do not show branch indicator
-  (setq vc-display-status nil))
+  (setq vc-make-backup-files t))
 
 ;;; Imenu
 (use-package imenu
