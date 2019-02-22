@@ -174,10 +174,8 @@
   :init
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 (use-package eldoc
-  :hook
-  (emacs-lisp-mode . eldoc-mode)
-  (lisp-interaction-mode . eldoc-mode)
-  (eval-expression-minibuffer-setup . eldoc-mode))
+  :config
+  (global-eldoc-mode))
 (use-package elec-pair
   :init
   (electric-pair-mode))
