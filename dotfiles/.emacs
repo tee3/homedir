@@ -1029,7 +1029,6 @@
     (setq magit-delete-by-moving-to-trash nil))
 
   (setq magit-popup-use-prefix-argument 'default)
-  (setq magit-branch-popup-show-variables nil)
   (setq magit-popup-show-common-commands nil)
   :config
   (global-magit-file-mode)
