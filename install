@@ -174,7 +174,8 @@ if __name__ == '__main__':
                     continue
 
                 if not os.path.islink(os.path.abspath(home_f)):
-                    os.remove(home_f)
+                    if os.path.exists(home_f):
+                        os.remove(home_f)
                     emulate_run(['cmd','/c','mklink', os.path.abspath(home_f), os.path.abspath(f)])
 
     # ask user for name and email address
