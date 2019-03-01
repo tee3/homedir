@@ -1557,7 +1557,7 @@
                                          latex-mode
                                          reftex-mode
                                          tex-mode) . ("digestif")))
-  (add-to-list 'eglot-server-programs '((go-mode) . ("golsp")))
+  (add-to-list 'eglot-server-programs '((go-mode) . ("gopls")))
 
   (if (equal system-type 'darwin)
       (progn
