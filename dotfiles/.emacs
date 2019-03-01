@@ -1560,12 +1560,28 @@
         (add-to-list 'eglot-server-programs '((c-mode
                                                c++-mode
                                                objc-mode
-                                               objc++-mode) . ("/usr/local/opt/llvm/bin/clangd"))))
+                                               objc++-mode) . ("/usr/local/opt/llvm/bin/clangd"
+                                                               "-all-scopes-completion"
+                                                               "-background-index"
+                                                               "-index"
+                                                               "-clang-tidy"
+                                                               "-function-arg-placeholders"
+                                                               "-header-insertion-decorators"
+                                                               "-suggest-missing-includes"
+                                                               "-j=4"))))
     (progn
       (add-to-list 'eglot-server-programs '((c-mode
                                              c++-mode
                                              objc-mode
-                                             objc++-mode) . ("clangd"))))))
+                                             objc++-mode) . ("clangd"
+                                                             "-all-scopes-completion"
+                                                             "-background-index"
+                                                             "-index"
+                                                             "-clang-tidy"
+                                                             "-function-arg-placeholders"
+                                                             "-header-insertion-decorators"
+                                                             "-suggest-missing-includes"
+                                                             "-j=4"))))))
 
 (use-package rmsbolt
   :ensure t
