@@ -1536,7 +1536,18 @@
   lsp-clients-register-clangd
   :init
   (when (equal system-type 'darwin)
-    (setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
+    (setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd")
+    (setq lsp-clients-clangd-args '("-all-scopes-completion"
+                                    "-background-index"
+                                    "-index"
+                                    "-clang-tidy"
+                                    "-function-arg-placeholders"
+                                    "-header-insertion-decorators"
+                                    "-include-ineligible-results"
+                                    "-limit-results=0"
+                                    "-suggest-missing-includes"
+                                    "-completion-style=detailed"
+                                    "-j=4")))
   :config
   (require 'lsp-clients)
 
