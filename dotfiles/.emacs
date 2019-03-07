@@ -1571,7 +1571,10 @@
                                                                "-clang-tidy"
                                                                "-function-arg-placeholders"
                                                                "-header-insertion-decorators"
+                                                               "-include-ineligible-results"
+                                                               "-limit-results=0"
                                                                "-suggest-missing-includes"
+                                                               "-completion-style=detailed"
                                                                "-j=4"))))
     (progn
       (add-to-list 'eglot-server-programs '((c-mode
@@ -1584,7 +1587,10 @@
                                                              "-clang-tidy"
                                                              "-function-arg-placeholders"
                                                              "-header-insertion-decorators"
+                                                             "-include-ineligible-results"
+                                                             "-limit-results=0"
                                                              "-suggest-missing-includes"
+                                                             "-completion-style=detailed"
                                                              "-j=4"))))))
 
 (use-package rmsbolt
