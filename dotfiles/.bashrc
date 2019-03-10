@@ -6,6 +6,8 @@ fi
 # Homebrew setup
 if [ -d /usr/local/Hombrew ]; then
     eval $(/usr/local/Homebrew/bin/brew shellenv)
+elif [ -d ~/.homebrew ]; then
+    eval $(~/.homebrew/bin/brew shellenv)
 fi
 
 if [ ! -z "$(which brew 2> /dev/null)" ]; then
