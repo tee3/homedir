@@ -4,10 +4,12 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # Homebrew setup
-if [ -e /usr/local/bin/brew ]; then
-    brew_prefix=$(/usr/local/bin/brew --prefix)
+if [ -d /usr/local/Hombrew ]; then
+    eval $(/usr/local/Homebrew/bin/brew shellenv)
+fi
 
-    export PATH=${brew_prefix}/bin:${brew_prefix}/sbin:${PATH}
+if [ ! -z "$(which brew 2> /dev/null)" ]; then
+    brew_prefix=$(brew --prefix)
 
     # Completion from Homebrew
     if [ -f "${brew_prefix}"/etc/bash_completion ]; then
