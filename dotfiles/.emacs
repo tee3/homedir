@@ -959,6 +959,7 @@
   :config
   (define-key dired-mode-map "\C-x\C-g" 'gited-list-branches))
 (use-package diff-hl
+  :disabled t
   :if
   (or (> emacs-major-version 24)
       (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
