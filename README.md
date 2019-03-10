@@ -478,15 +478,7 @@ user.
 Note that the `install` script and its supported scripts require
 Python.
 
-On POSIX systems:
-
 ``` shell
-./install
-```
-
-On Windows systems:
-
-``` batchfile
 python3 install
 ```
 
