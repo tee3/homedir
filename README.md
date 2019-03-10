@@ -400,57 +400,16 @@ limitations.
 
 # system
 
+The system packages are managed by Homebrew on all systems.  There is
+no support for installing system packages on Windows since it has no
+system package manager and no Homebrew support.
+
 Installing system packages should be done as necessary as it updates
 the system as well as installs system packages added after the initial
 bootstrap of the system.
 
-NOTE: Installing system packages should really be generalized a bit
-since packages required for work are the same regardless of which
-system you are on.  A package list with a script for each system that
-processes the list and turns it into commands to Homebrew, `apt-get`,
-`yum`, etc. would be an interesting approach.
-
-The system install scripts are written in the least-common denominator
-language for the system on which it runs.
-
-## fedora
-
-To install system packages for Fedora-based systems (via `yum`), run
-the following script as a user with `sudo` permission.
-
 ``` shell
-./install_system_packages_fedora
-```
-
-## debian
-
-To install system packages for Debian-based systems (via `apt-get`),
-run the following script as a user with `sudo` permission.
-
-``` shell
-./install_system_packages_debian
-```
-
-## macos
-
-To install system packages for macOS (via Homebrew), run the following
-script as the administrator of the system.  Note that this does not
-use `sudo` as Homebrew does not require it.
-
-``` shell
-./install_system_packages_macos
-```
-
-## windows
-
-NOTE: Windows package support is lacking as there is no useful package
-system for Windows yet.
-
-To install system packages for Windows, run the following script as
-the administrator of the system.
-
-``` batchfile
-install_system_packages_windows
+brew bundle install --file=Brewfile
 ```
 
 # user
