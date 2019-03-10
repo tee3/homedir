@@ -162,7 +162,7 @@ password: ************
 sudo yum install git
 git clone https://github.com/tee3/homedir.git ~/Development/homedir
 cd ~/Development/homedir
-./install_system_packages_fedora
+./install_bootstrap_packages_fedora
 sudo shutdown -r now
 ```
 
@@ -196,7 +196,7 @@ password: ************
 sudo apt-get install git
 git clone https://github.com/tee3/homedir.git ~/Development/homedir
 cd ~/Development/homedir
-./install_system_packages_debian
+./install_bootstrap_packages_debian
 sudo shutdown -r now
 ```
 
@@ -211,7 +211,7 @@ logged in.
 ``` shell
 git clone https://github.com/tee3/homedir.git ~/Development/homedir
 cd ~/Development/homedir
-./install_system_packages_macos
+./install_bootstrap_packages_macos
 sudo shutdown -r now
 ```
 
@@ -338,7 +338,7 @@ logged in.
 ``` batchfile
 git clone https://github.com/tee3/homedir.git C:\Users\administrator\Development\homedir
 cd C:\Users\administrator\Development\homedir
-install_system_packages_windows
+install_bootstrap_packages_windows
 shutdown /r
 ```
 
@@ -380,7 +380,7 @@ the `tee3/homedir` repository and install the system packages.
 sudo apt-get install git
 git clone https://github.com/tee3/homedir.git ~/Development/homedir
 cd ~/Development/homedir
-./install_system_packages_debian
+./install_bootstrap_packages_debian
 ```
 
 Note that Windows Subsystem for Linux is supported as it is a
