@@ -7,3 +7,14 @@
 
 set -e
 set -u
+
+# Homebrew requirements
+printf "Install Xcode from the App Store and press Enter when complete: "
+read -r
+
+if ! xcode-select -p > /dev/null ; then
+    xcode-select --install
+fi
+
+# Homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
