@@ -8,6 +8,10 @@ if [ -d /usr/local/Hombrew ]; then
     eval $(/usr/local/Homebrew/bin/brew shellenv)
 elif [ -d ~/.homebrew ]; then
     eval $(~/.homebrew/bin/brew shellenv)
+elif [ -d /home/linuxbrew/.linuxbrew ]; then
+    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+elif [ -d ~/.linuxbrew ]; then
+    eval $(~/.linuxbrew/bin/brew shellenv)
 fi
 
 if [ ! -z "$(which brew 2> /dev/null)" ]; then
