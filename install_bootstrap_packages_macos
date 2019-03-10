@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Install bootstrap packages for OS X.
+#
+# This assumes that the current user is the user used to install
+# packages and has the proper administrator privileges.
+
+set -e
+set -u
