@@ -58,11 +58,6 @@ if [ ! -z "$(which brew 2> /dev/null)" ]; then
     fi
 fi
 
-# Completion
-if [ -f /usr/share/bash-completion/bash_completion ]; then
-    source /usr/share/bash-completion/bash_completion
-fi
-
 # Add local optional to path
 if [ -d "${HOME}"/opt/local/bin ]; then
     export PATH="${HOME}"/opt/local/bin:"${PATH}"
