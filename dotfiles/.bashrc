@@ -84,7 +84,7 @@ fi
 
 # Ruby
 if [ ! -z "$(which ruby 2> /dev/null)" ] && [ ! -z "$(which gem 2> /dev/null)" ]; then
-    export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin":${PATH}
+    export PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin":${PATH}
 fi
 
 # Node.js
