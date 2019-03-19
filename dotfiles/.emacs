@@ -494,7 +494,7 @@
     :pin melpa
     :init
     (setq ido-vertical-show-count t)
-    (setq ido-vertical-disable-if-short t)
+    (setq ido-vertical-disable-if-short nil)
     (setq ido-vertical-pad-list nil)
     :config
     (ido-vertical-mode 1))
