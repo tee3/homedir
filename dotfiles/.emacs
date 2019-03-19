@@ -69,12 +69,12 @@
 (defcustom tee3-desired-completion-system 'ido
   "This is used to choose a completion system when it must be done at configuration."
   :type 'symbol
-  :options '('default 'ido 'ivy))
+  :options '('default 'ido 'icomplete 'ivy))
 
 (defcustom tee3-desired-automatic-completion-system 'ido
   "This is used to choose an auto-completion system when it must be done at configuration."
   :type 'symbol
-  :options '('none 'ido 'ivy 'auto-complete 'company))
+  :options '('none 'ido 'icomplete 'ivy 'auto-complete 'company))
 
 (defcustom tee3-flycheck-override-modern-flymake nil
   "Flymake is used instead of flycheck for Emacs 26 and later unless this variable is true."
@@ -210,6 +210,8 @@
   :ensure t
   :pin melpa)
 (use-package icomplete
+  :if
+  (equal tee3-desired-automatic-completion-system 'icomplete)
   :init
   (icomplete-mode))
 (use-package linum
