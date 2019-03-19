@@ -64,7 +64,7 @@
   "This is use to enable or disable line numbers."
   :type 'boolean)
 
-(defcustom tee3-desired-completion-system 'default
+(defcustom tee3-desired-completion-system 'icomplete
   "This is used to choose a completion system when it must be done at configuration."
   :type 'symbol
   :options '('default 'icomplete 'fido))
