@@ -11,5 +11,12 @@ set -u
 # Homebrew requirements
 sudo yum groupinstall 'Development Tools' && sudo yum install curl file git
 
+# mDNS
+sudo yum -q -y install avahi avahi-tools nss-mdns
+# NTP
+sudo yum -q -y install install ntp
+# SSH
+sudo yum -q -y install openssh openssh-server
+
 # Homebrew
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
