@@ -1539,18 +1539,7 @@
   lsp-clients-register-clangd
   :init
   (when (equal system-type 'darwin)
-    (setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd")
-    (setq lsp-clients-clangd-args '("-all-scopes-completion"
-                                    "-background-index"
-                                    "-index"
-                                    "-clang-tidy"
-                                    "-function-arg-placeholders"
-                                    "-header-insertion-decorators"
-                                    "-include-ineligible-results"
-                                    "-limit-results=0"
-                                    "-suggest-missing-includes"
-                                    "-completion-style=detailed"
-                                    "-j=4")))
+    (setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
   :config
   (require 'lsp-clients)
 
@@ -1578,34 +1567,12 @@
         (add-to-list 'eglot-server-programs '((c-mode
                                                c++-mode
                                                objc-mode
-                                               objc++-mode) . ("/usr/local/opt/llvm/bin/clangd"
-                                                               "-all-scopes-completion"
-                                                               "-background-index"
-                                                               "-index"
-                                                               "-clang-tidy"
-                                                               "-function-arg-placeholders"
-                                                               "-header-insertion-decorators"
-                                                               "-include-ineligible-results"
-                                                               "-limit-results=0"
-                                                               "-suggest-missing-includes"
-                                                               "-completion-style=detailed"
-                                                               "-j=4"))))
+                                               objc++-mode) . ("/usr/local/opt/llvm/bin/clangd"))))
     (progn
       (add-to-list 'eglot-server-programs '((c-mode
                                              c++-mode
                                              objc-mode
-                                             objc++-mode) . ("clangd"
-                                                             "-all-scopes-completion"
-                                                             "-background-index"
-                                                             "-index"
-                                                             "-clang-tidy"
-                                                             "-function-arg-placeholders"
-                                                             "-header-insertion-decorators"
-                                                             "-include-ineligible-results"
-                                                             "-limit-results=0"
-                                                             "-suggest-missing-includes"
-                                                             "-completion-style=detailed"
-                                                             "-j=4"))))))
+                                             objc++-mode) . ("clangd"))))))
 
 (use-package rmsbolt
   :ensure t
