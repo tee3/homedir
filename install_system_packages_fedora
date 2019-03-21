@@ -124,8 +124,6 @@ ${pm_install} arp-scan
 #${pm_install} arpoison
 ${pm_install} aspell
 #${pm_install} atom
-${pm_install} avahi
-${pm_install} avahi-tools
 #${pm_install} avrdude
 ${pm_install} avr-binutils
 ${pm_install} avr-gcc
@@ -235,9 +233,7 @@ ${pm_install} nodejs
 if [ "${version}" -ge 24 ]; then
     ${pm_install} npm
 fi
-${pm_install} nss-mdns
 #${pm_install} ntfs-3g
-${pm_install} ntp
 ${pm_install} nuttcp
 #${pm_install} open-completion
 ${pm_install} openocd

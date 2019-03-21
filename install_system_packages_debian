@@ -90,9 +90,6 @@ ${pm_install} arp-scan
 #${pm_install} arpoison
 ${pm_install} aspell
 #${pm_install} atom
-${pm_install} avahi-autoipd
-${pm_install} avahi-daemon
-${pm_install} avahi-utils
 #${pm_install} avrdude
 #${pm_install} avr-binutils
 #${pm_install} avr-gcc
@@ -181,7 +178,6 @@ ${pm_install} jam
 #${pm_install} launchctl-completion
 #${pm_install} legit
 ${pm_install} libclang-dev
-${pm_install} libnss-mdns
 #${pm_install} lldb
 #${pm_install} lld
 ${pm_install} llvm
@@ -204,12 +200,9 @@ ${pm_install} nodejs
 ${pm_install} nodejs-dev
 #${pm_install} npm
 #${pm_install} ntfs-3g
-${pm_install} ntp
 ${pm_install} nuttcp
 #${pm_install} open-completion
 ${pm_install} openocd
-${pm_install} openssh-client
-${pm_install} openssh-server
 #${pm_install} osxfuse
 #${pm_install} p0f
 #${pm_install} p7zip
