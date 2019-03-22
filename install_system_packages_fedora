@@ -223,6 +223,7 @@ ${pm_install} llvm
 #${pm_install} llvm4
 #${pm_install} llvm5
 #${pm_install} llvm6
+#${pm_install} llvm7
 ${pm_install} llvm-devel
 ${pm_install} lrzsz
 #${pm_install} markdown
