@@ -160,6 +160,7 @@ ${pm_install} llvm@3.9
 ${pm_install} llvm@4
 ${pm_install} llvm@5
 ${pm_install} llvm@6
+${pm_install} llvm@7
 ${pm_install} lrzsz
 ${pm_install} lua
 ${pm_install} luarocks
