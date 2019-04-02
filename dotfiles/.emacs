@@ -1695,6 +1695,7 @@
   (use-package monokai-theme :ensure t :pin melpa :defer t)
   (use-package monotropic-theme :ensure t :pin melpa :defer t)
   (use-package mustang-theme :ensure t :pin melpa :defer t)
+  (use-package nimbus-theme :ensure t :pin melpa :defer t)
   (use-package nord-theme :ensure t :pin melpa :defer t)
   (use-package nordless-theme :ensure t :pin melpa :defer t)
   (use-package paper-theme :ensure t :pin melpa :defer t)
