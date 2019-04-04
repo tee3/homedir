@@ -249,14 +249,6 @@ processes, customizing the installers as described below.
   * Enable the "Enable file system caching" option to increase
     performance.
 
-* Python 2.7 (64-bit)
-
-  * Install for all users.
-
-  * Install to `C:\Python27`.
-
-  * Add to `PATH`.
-
 * Install Python 3.6 (64-bit).
 
   * For all users.

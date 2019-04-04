@@ -29,9 +29,9 @@ if [ ! -z "$(which brew 2> /dev/null)" ]; then
         export PYTHONPATH=${brew_prefix}/lib/svn-python:${PYTHONPATH}
     fi
 
-    # Python 2.7 from Homebrew
-    if [ -e "$(brew --prefix python@2)" ]; then
-        export PATH="${brew_prefix}/opt/python@2/bin":$PATH
+    # Python from Homebrew
+    if [ -e "$(brew --prefix python)" ]; then
+        export PATH="${brew_prefix}/opt/python/bin":$PATH
     fi
 
     # Ruby from Homebrew
