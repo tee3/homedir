@@ -17,40 +17,6 @@ def emulate_run(args, env=None):
     return False
 
 
-def install_python2_packages():
-    python2 = distutils.spawn.find_executable('python2')
-    if not python2:
-        python2 = distutils.spawn.find_executable('python')
-    pip2 = distutils.spawn.find_executable('pip2')
-
-    if not python2:
-        print('error: Python 2 not installed, not installing Python 2 packages.')
-        return False
-
-    if not pip2:
-        pip2path = os.path.join(site.USER_BASE, 'bin', 'pip')
-        if not os.path.exists(pip2path):
-            r = urllib.request.urlopen('http://bootstrap.pypa.io/get-pip.py')
-            with open('get-pip.py', 'w') as f:
-                f.write(r.read())
-
-            if not os.path.exists('get-pip.py'):
-                print('warning: pip2 failed to install, not installing Python 2 packages.')
-                return False
-
-            emulate_run([python2, 'get-pip.py', '--user'])
-            os.remove('get-pip.py')
-
-        if os.path.exists(pip2path):
-            pip2 = pip2path
-
-    if not pip2 and not os.path.exists(pip2):
-        print('error: pip2 not installing, not installing Python 2 packages.')
-        return False
-
-    return emulate_run([pip2, 'install', '--user', '--upgrade', '-r', 'python-packages.txt'])
-
-
 def install_python3_packages():
     python3 = distutils.spawn.find_executable('python3')
     if not python3:
@@ -70,7 +36,6 @@ def install_python3_packages():
 
 
 if __name__ == '__main__':
-    ok = install_python2_packages()
     ok = install_python3_packages()
 
     sys.exit(1 if not ok else 0)

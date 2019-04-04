@@ -54,8 +54,6 @@ if [ "$(brew cask outdated)" != "" ]; then
 fi
 
 # install interpreters prior to other packages
-# @todo use system python
-#${pm_install} python
 ${pm_install} python3
 # @todo use system ruby
 #${pm_install} ruby
@@ -101,7 +99,7 @@ ${pm_install} docbook-xsl
 ${pm_cask_install} docker
 ${pm_install} doxygen
 ${pm_cask_install} emacs
-${pm_install} emscripten
+#${pm_install} emscripten
 ${pm_install} enscript
 #${pm_install} ext2fuse
 ${pm_install} fortune
@@ -206,7 +204,7 @@ ${pm_install} swig
 ${pm_install} tcpdump
 ${pm_install} tcpflow
 ${pm_install} tcping
-${pm_install} tcpreplay
+#${pm_install} tcpreplay
 ${pm_install} tcptrace
 ${pm_install} tcptraceroute
 #${pm_install} tcptrack

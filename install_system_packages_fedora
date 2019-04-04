@@ -96,8 +96,6 @@ ${pm_install} stow
 ${pm_install} diffutils
 
 # install interpreters prior to other packages
-${pm_install} python
-${pm_install} python-devel
 ${pm_install} python3
 ${pm_install} python3-devel
 ${pm_install} ruby
@@ -248,7 +246,7 @@ ${pm_install} openocd
 #${pm_install} pinentry
 #${pm_install} pip-completion
 #${pm_install} pkg-config
-${pm_install} protobuf
+#${pm_install} protobuf
 ${pm_install} rsync
 #${pm_install} ruby-completion
 #{pm_install} rust
@@ -267,7 +265,7 @@ ${pm_install} stow
 ${pm_install} tcpdump
 #${pm_install} tcpflow
 ${pm_install} tcping
-${pm_install} tcpreplay
+#${pm_install} tcpreplay
 #${pm_install} tcptrace
 ${pm_install} tcptraceroute
 #${pm_install} tcptrack
