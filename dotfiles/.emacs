@@ -724,6 +724,9 @@
   (use-package rust-mode
     :ensure t
     :pin nongnu))
+(use-package smalltalk-mode
+  :ensure t
+  :pin gnu)
 (when (or (>= emacs-major-version 25)
           (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
   (use-package swift-mode
