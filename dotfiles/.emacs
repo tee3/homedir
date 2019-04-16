@@ -570,6 +570,10 @@
   :hook
   (asm-mode . tee3-asm-mode-setup))
 
+(use-package smalltalk-mode
+  :ensure t
+  :pin gnu)
+
 ;;; TeX and LaTeX
 (use-package tex-site
   :ensure auctex
