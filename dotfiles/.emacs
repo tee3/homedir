@@ -616,6 +616,9 @@
 (use-package rust-mode
   :ensure t
   :pin melpa)
+(use-package smalltalk-mode
+  :ensure t
+  :pin gnu)
 (use-package swift-mode
   :if
   (or (>= emacs-major-version 25)
