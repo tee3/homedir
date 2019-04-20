@@ -63,6 +63,7 @@ def replace_systemd_template_specifiers(service, s):
 
     return s
 
+
 # requires HOME.
 if 'HOME' not in os.environ or os.environ['HOME'] == '':
     print('error: HOME is not set, aborting.')

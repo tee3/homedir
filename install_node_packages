@@ -14,6 +14,7 @@ def emulate_run(args, env=None):
         return True
     return False
 
+
 # requires HOME.
 if 'HOME' not in os.environ or os.environ['HOME'] == '':
     print('error: HOME is not set, aborting.')

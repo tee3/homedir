@@ -71,13 +71,13 @@ def install_git_svn_update_externals(basedir):
     source = os.path.join(basedir, 'src', 'git-svn-update-externals', 'git-svn-update-externals')
     target = os.path.join(basedir, 'bin', 'git-svn-update-externals')
 
-    if os.path.exists (target):
+    if os.path.exists(target):
         if not filecmp.cmp(target, source, False):
             yn = input('%s is different than %s.  Overwrite anyway? (y/n): ' % (source, target))
             if yn == 'y':
                 os.remove(target)
 
-    if not os.path.exists (target):
+    if not os.path.exists(target):
         if hasattr(os, 'symlink'):
             os.symlink(source, target)
         else:
@@ -95,9 +95,9 @@ def install_boost(basedir):
     subprocess.check_call(command)
 
     if sys.platform.startswith('win32'):
-        command = [os.path.join (boostdir, 'bootstrap.bat')]
+        command = [os.path.join(boostdir, 'bootstrap.bat')]
     else:
-        command = [os.path.join (boostdir, 'bootstrap.sh')]
+        command = [os.path.join(boostdir, 'bootstrap.sh')]
     subprocess.check_call(command, cwd=boostdir)
 
 
@@ -144,6 +144,7 @@ def install_standardese(basedir):
     command = ['cmake', '--build', '.', '--target', 'install']
     subprocess.check_call(command, cwd=build)
 
+
 def install_commands_to_compilation_database(basedir):
     if not b2:
         return
@@ -160,6 +161,7 @@ def install_commands_to_compilation_database(basedir):
         '--prefix=' + basedir
     ]
     subprocess.check_call(command, cwd=sourcedir)
+
 
 # requires HOME.
 if 'HOME' not in os.environ or os.environ['HOME'] == '':
