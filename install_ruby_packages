@@ -23,6 +23,7 @@ def emulate_backtick(args):
 
     return output
 
+
 ruby = distutils.spawn.find_executable('ruby')
 gem = distutils.spawn.find_executable('gem')
 if not gem and sys.platform.startswith('win32'):
