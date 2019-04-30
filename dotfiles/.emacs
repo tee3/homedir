@@ -1404,16 +1404,7 @@
   :init
   (setq gud-pdb-command-name "python -m pdb"))
 
-(use-package py-autopep8
-  :ensure t
-  :pin melpa)
 (use-package pip-requirements
-  :ensure t
-  :pin melpa)
-(use-package nose
-  :ensure t
-  :pin melpa)
-(use-package virtualenv
   :ensure t
   :pin melpa)
 
