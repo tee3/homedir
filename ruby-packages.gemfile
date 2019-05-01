@@ -13,6 +13,3 @@ gem 'travis'
 
 # Documentation
 gem 'asciidoctor'
-
-# Fun
-gem 'lolcat'
