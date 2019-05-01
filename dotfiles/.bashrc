@@ -42,9 +42,14 @@ HISTCONTROL="erasedups:ignoreboth"
 shopt -s histappend
 shopt -s cmdhist
 
-# Python
+# Python (default)
 if [ ! -z "$(which python 2> /dev/null)" ]; then
     export PATH="$(python -c 'import site ; print(site.USER_BASE)')/bin":${PATH}
+fi
+
+# Python 3
+if [ ! -z "$(which python3 2> /dev/null)" ]; then
+    export PATH="$(python3 -c 'import site ; print(site.USER_BASE)')/bin":${PATH}
 fi
 
 # Ruby
