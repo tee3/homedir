@@ -2,43 +2,26 @@
 autopep8
 docformatter
 flake8
-importmagic
-jedi
-nose
 pep257
 pep8
 pep8-naming
 pylint
 python-language-server[all]
 rope
-virtualenv
 yapf
 
 # reStructuredText
 #breathe
 docutils
 restructuredtext_lint
-restview
 Sphinx
-#html2rest
-
-# Git
-#pygit2
-#PyGithub
-
-# Mercurial
-Mercurial ; python_version < '3'
 
 # Fortran
 fortran-language-server
 
 # Miscellaneous
-speedtest-cli
 azure-cli
 conan
 
 # Jupyter
 jupyter
-
-# Fun
-#beets
