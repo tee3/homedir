@@ -2,12 +2,10 @@
 #
 # Install Python modules in the python-packages.txt requirements file.
 
-import site
 import sys
 import os
 import subprocess
 import distutils.spawn
-import urllib.request
 
 
 def emulate_run(args, env=None):
