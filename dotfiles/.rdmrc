@@ -1,8 +1,0 @@
---no-startup-project
-
---enable-compiler-manager
-
---Weverything
-
---max-file-map-cache-size=200
---exclude-filter=/tmp;*~
