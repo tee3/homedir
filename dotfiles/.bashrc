@@ -22,36 +22,6 @@ if [ ! -z "$(which brew 2> /dev/null)" ]; then
         source "${brew_prefix}"/etc/bash_completion
     fi
 
-    # Subversion from Homebrew
-    if [ -e "$(brew --prefix subversion)" ] ; then
-        export RUBYLIB=${brew_prefix}/lib/ruby:${RUBYLIB}
-        export PERL5LIB="$(brew --prefix subversion)"/Library/Perl/5.16:${PERL5LIB}
-        export PYTHONPATH=${brew_prefix}/lib/svn-python:${PYTHONPATH}
-    fi
-
-    # Python from Homebrew
-    if [ -e "$(brew --prefix python)" ]; then
-        export PATH="${brew_prefix}/opt/python/bin":$PATH
-    fi
-
-    # Ruby from Homebrew
-    if [ -e "$(brew --prefix ruby)" ]; then
-        export PATH=${brew_prefix}/opt/ruby/bin:${PATH}
-    fi
-
-    # Perl from Homebrew
-#    if [ -e "$(brew --prefix perl)" ]; then
-#    fi
-
-    # Node from Homebrew
-#    if [ -e "$(brew --prefix node)" ]; then
-#    fi
-
-    # Go from Homebrew
-    if [ -e "$(brew --prefix go)" ]; then
-        export PATH=${PATH}:"$(brew --prefix go)"/libexec/bin
-    fi
-
     # DocBook from Homebrew
     if [ -e "$(brew --prefix docbook)" ]; then
         export XML_CATALOG_FILES=${brew_prefix}/etc/xml/catalog
