@@ -39,6 +39,8 @@
 ;;;
 ;;; Bootstrap use-package
 ;;;
+(setq-default use-package-enable-imenu-support t)
+
 (when (require 'package nil :noerror)
   (when (boundp 'package-pinned-packages)
     (setq package-pinned-packages
