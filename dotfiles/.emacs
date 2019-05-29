@@ -431,6 +431,11 @@
   :ensure t
   :pin gnu)
 
+;;; Hyperbole
+(use-package hyperbole
+  :ensure t
+  :pin gnu)
+
 ;;; Markdown formats
 (use-package adoc-mode
   :ensure t
