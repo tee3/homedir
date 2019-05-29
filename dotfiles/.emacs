@@ -564,6 +564,11 @@
                                    (sql . t)
                                    (sqlite . t))))
 
+;;; Hyperbole
+(use-package hyperbole
+  :ensure t
+  :pin gnu)
+
 ;;; AI
 (when (>= emacs-major-version 28)
   (use-package llm
