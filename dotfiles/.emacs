@@ -960,6 +960,8 @@
 (use-package gited
   :ensure t
   :pin gnu
+  :init
+  (setq gited-verbose t)
   :config
   (define-key dired-mode-map "\C-x\C-g" 'gited-list-branches))
 (use-package diff-hl
