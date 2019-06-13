@@ -202,6 +202,7 @@
 (use-package frame
   :config
   (when (display-graphic-p)
+    (toggle-frame-fullscreen)
     (cond ((member "Source Code Pro" (font-family-list))
            (set-frame-font "Source Code Pro" t t)))))
 (use-package fringe
