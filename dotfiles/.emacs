@@ -199,6 +199,11 @@
 (use-package font-core
   :config
   (global-font-lock-mode))
+(use-package frame
+  :config
+  (when (display-graphic-p)
+    (cond ((member "Source Code Pro" (font-family-list))
+           (set-frame-font "Source Code Pro" t t)))))
 (use-package fringe
   :init
   (setq fringe-mode '(4 . nil)))
