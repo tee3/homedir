@@ -13,3 +13,5 @@ github.com/hashicorp/terraform-ls@latest
 github.com/lasorda/protobuf-language-server@latest
 
 code.gitea.io/tea@latest
+
+github.com/drone/drone-cli/drone@latest
