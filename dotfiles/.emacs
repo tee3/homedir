@@ -1541,6 +1541,8 @@
   :init
   (cond ((equal system-type 'darwin)
          (setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
+        ((equal system-type 'gnu/linux)
+         (setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
         (t
          (setq lsp-clients-clangd-executable "clangd")))
   :config
@@ -1566,6 +1568,11 @@
   (add-to-list 'eglot-server-programs '((go-mode) . ("gopls")))
 
   (cond ((equal system-type 'darwin)
+         (add-to-list 'eglot-server-programs '((c-mode
+                                                c++-mode
+                                                objc-mode
+                                                objc++-mode) . ("/usr/local/opt/llvm/bin/clangd"))))
+        ((equal system-type 'gnu/linux)
          (add-to-list 'eglot-server-programs '((c-mode
                                                 c++-mode
                                                 objc-mode
