@@ -1540,7 +1540,9 @@
   lsp-clients-register-clangd
   :init
   (cond ((equal system-type 'darwin)
-         (setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd")))
+         (setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
+        (t
+         (setq lsp-clients-clangd-executable "clangd")))
   :config
   (require 'lsp-clients)
 
