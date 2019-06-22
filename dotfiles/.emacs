@@ -1539,8 +1539,8 @@
   :commands
   lsp-clients-register-clangd
   :init
-  (when (equal system-type 'darwin)
-    (setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
+  (cond ((equal system-type 'darwin)
+         (setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd")))
   :config
   (require 'lsp-clients)
 
@@ -1563,17 +1563,16 @@
                                          tex-mode) . ("digestif")))
   (add-to-list 'eglot-server-programs '((go-mode) . ("gopls")))
 
-  (if (equal system-type 'darwin)
-      (progn
-        (add-to-list 'eglot-server-programs '((c-mode
-                                               c++-mode
-                                               objc-mode
-                                               objc++-mode) . ("/usr/local/opt/llvm/bin/clangd"))))
-    (progn
-      (add-to-list 'eglot-server-programs '((c-mode
-                                             c++-mode
-                                             objc-mode
-                                             objc++-mode) . ("clangd"))))))
+  (cond ((equal system-type 'darwin)
+         (add-to-list 'eglot-server-programs '((c-mode
+                                                c++-mode
+                                                objc-mode
+                                                objc++-mode) . ("/usr/local/opt/llvm/bin/clangd"))))
+        (t
+         (add-to-list 'eglot-server-programs '((c-mode
+                                                c++-mode
+                                                objc-mode
+                                                objc++-mode) . ("clangd")))))
 
 (use-package rmsbolt
   :ensure t
