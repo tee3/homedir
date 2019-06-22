@@ -1529,6 +1529,17 @@
 ;;;
 ;;; Language Server Protocol
 ;;;
+(defun tee3-clangd-executable ()
+  (cond ((equal system-type 'darwin)
+         (setq tee3-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
+        ((equal system-type 'gnu/linux)
+         (setq tee3-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
+        (t
+         (setq tee3-clangd-executable "clangd"))))
+
+(defun tee3-clangd-command (interactive)
+  (append (list (tee3-clangd-executable))))
+
 (use-package lsp
   :if
   (and (or (> emacs-major-version 25)
@@ -1539,12 +1550,7 @@
   :commands
   lsp-clients-register-clangd
   :init
-  (cond ((equal system-type 'darwin)
-         (setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
-        ((equal system-type 'gnu/linux)
-         (setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
-        (t
-         (setq lsp-clients-clangd-executable "clangd")))
+  (setq lsp-clients-clangd-executable (tee3-clangd-executable))
   :config
   (require 'lsp-clients)
 
@@ -1566,22 +1572,10 @@
                                          reftex-mode
                                          tex-mode) . ("digestif")))
   (add-to-list 'eglot-server-programs '((go-mode) . ("gopls")))
-
-  (cond ((equal system-type 'darwin)
-         (add-to-list 'eglot-server-programs '((c-mode
-                                                c++-mode
-                                                objc-mode
-                                                objc++-mode) . ("/usr/local/opt/llvm/bin/clangd"))))
-        ((equal system-type 'gnu/linux)
-         (add-to-list 'eglot-server-programs '((c-mode
-                                                c++-mode
-                                                objc-mode
-                                                objc++-mode) . ("/usr/local/opt/llvm/bin/clangd"))))
-        (t
-         (add-to-list 'eglot-server-programs '((c-mode
-                                                c++-mode
-                                                objc-mode
-                                                objc++-mode) . ("clangd")))))
+  (add-to-list 'eglot-server-programs '((c-mode
+                                         c++-mode
+                                         objc-mode
+                                         objc++-mode) . tee3-clangd-command)))
 
 (use-package rmsbolt
   :ensure t
