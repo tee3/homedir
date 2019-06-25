@@ -1537,8 +1537,21 @@
         (t
          (setq tee3-clangd-executable "clangd"))))
 
+(setq tee3-clangd-options '("-j=8"
+                            "--all-scopes-completion"
+                            "--background-index"
+                            "--background-index-rebuild-period=0"
+                            "--clang-tidy"
+                            "--completion-style=detailed"
+                            "--function-arg-placeholders"
+                            "--header-insertion=iwyu"
+                            "--header-insertion-decorators"
+                            "--include-ineligible-results"
+                            "--limit-results=0"
+                            "--suggest-missing-includes"))
+
 (defun tee3-clangd-command (interactive)
-  (append (list (tee3-clangd-executable))))
+  (append (list (tee3-clangd-executable)) tee3-clangd-options))
 
 (use-package lsp
   :if
