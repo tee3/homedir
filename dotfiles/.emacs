@@ -1455,6 +1455,8 @@
   (eval-after-load "yaml-mode.el"
     (add-to-list 'auto-mode-alist '(".clang-format\\'" . yaml-mode)))
 
+  (when (equal system-type 'gnu/linux)
+    (setq clang-format-executable "/home/linuxbrew/.linuxbrew/opt/llvm/bin/clang-format"))
   (when (equal system-type 'darwin)
     (setq clang-format-executable "/usr/local/opt/llvm/bin/clang-format")))
 
@@ -1496,7 +1498,9 @@
     :pin melpa
     :init
     (when (equal system-type 'darwin)
-      (setq flycheck-c/c++-clangcheck-executable "/usr/local/opt/llvm/bin/clang-check")))
+      (setq flycheck-c/c++-clangcheck-executable "/usr/local/opt/llvm/bin/clang-check"))
+    (when (equal system-type 'gnu/linux)
+      (setq flycheck-c/c++-clangcheck-executable "/home/linuxbrew/.linuxbrew/opt/llvm/bin/clang-check")))
   (use-package flycheck-clang-tidy
     :disabled t
     :ensure t
@@ -1504,6 +1508,8 @@
     :init
     (when (equal system-type 'darwin)
       (setq flycheck-c/c++-clang-tidy-executable "/usr/local/opt/llvm/bin/clang-tidy"))
+    (when (equal system-type 'gnu/linux)
+      (setq flycheck-c/c++-clang-tidy-executable "/home/linuxbrew/.linuxbrew/opt/llvm/bin/clang-tidy"))
     :hook
     (flycheck-mode . flycheck-clang-tidy-setup))
   (setq flycheck-javascript-standard-executable "semistandard")
@@ -1533,7 +1539,7 @@
   (cond ((equal system-type 'darwin)
          (setq tee3-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
         ((equal system-type 'gnu/linux)
-         (setq tee3-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
+         (setq tee3-clangd-executable "/home/linuxbrew/.linuxbrew/opt/llvm/bin/clangd"))
         (t
          (setq tee3-clangd-executable "clangd"))))
 
