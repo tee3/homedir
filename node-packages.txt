@@ -7,10 +7,15 @@ semistandard
 
 javascript-typescript-langserver
 
+vscode-css-languageserver-bin
+vscode-html-languageserver-bin
+
 # JSON Development Tools
 json
 jsonlint
 json-diff
+
+vscode-json-languageserver
 
 # Bash
 bash-language-server
