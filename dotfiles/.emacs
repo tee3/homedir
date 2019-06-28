@@ -1595,7 +1595,12 @@
                                          latex-mode
                                          reftex-mode
                                          tex-mode) . ("digestif")))
+  (add-to-list 'eglot-server-programs '((css-mode
+                                         less-css-mode
+                                         scss-mode) . ("css-languageserver" "--stdio")))
   (add-to-list 'eglot-server-programs '((go-mode) . ("gopls")))
+  (add-to-list 'eglot-server-programs '((html-mode) . ("html-languageserver" "--stdio")))
+  (add-to-list 'eglot-server-programs '((json-mode) . ("vscode-json-languageserver" "--stdio")))
   (add-to-list 'eglot-server-programs '((c-mode
                                          c++-mode
                                          objc-mode
