@@ -19,3 +19,6 @@ vscode-json-languageserver
 
 # Bash
 bash-language-server
+
+# Docker
+dockerfile-language-server-nodejs
