@@ -338,6 +338,9 @@
 (use-package tooltip
   :init
   (setq tooltip-mode nil))
+(use-package tramp
+  :ensure t
+  :pin gnu)
 (use-package winner
   :init
   (winner-mode))
