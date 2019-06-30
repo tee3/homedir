@@ -91,6 +91,7 @@ using xsltproc ;
 using boostbook : $(docbook-xsl-path) : $(docbook-dtd-path) : $(boostbook-executable) ;
 using doxygen ;
 using quickbook : $(quickbook-executable) ;
+using asciidoctor ;
 
 if [ os.name ] = MACOSX
 {
