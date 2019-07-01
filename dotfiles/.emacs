@@ -1435,6 +1435,11 @@
    ("\\.tcp\\'" . js-mode)
    ("\\.xs\\'" . js-mode)))
 
+;;; Linux Device Tree
+(use-package dts-mode
+  :ensure t
+  :pin melpa)
+
 ;;; Homebrew
 (use-package homebrew-mode
   :if
