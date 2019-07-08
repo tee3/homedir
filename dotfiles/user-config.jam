@@ -126,6 +126,7 @@ else if [ os.name ] = NT
 using boost : git : <root>$(BOOST_ROOT_BASE)/boost.git ;
 
 # Provide all source versions.
+using boost : 1.70.0 : <root>$(BOOST_ROOT_BASE)/boost_1_70_0 ;
 using boost : 1.69.0 : <root>$(BOOST_ROOT_BASE)/boost_1_69_0 ;
 using boost : 1.68.0 : <root>$(BOOST_ROOT_BASE)/boost_1_68_0 ;
 using boost : 1.67.0 : <root>$(BOOST_ROOT_BASE)/boost_1_67_0 ;
