@@ -873,6 +873,10 @@
   :disabled t
   :ensure t
   :pin melpa)
+(use-package verilog-mode
+  :ensure t
+  :pin gnu)
+(use-package vhdl)
 (use-package web-mode
   :ensure t
   :pin melpa
