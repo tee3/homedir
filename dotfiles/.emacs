@@ -221,6 +221,8 @@
   :if
   (equal tee3-desired-automatic-completion-system 'icomplete)
   :init
+  (setq icomplete-show-matches-on-no-input t)
+
   (icomplete-mode))
 (use-package linum
   :if
