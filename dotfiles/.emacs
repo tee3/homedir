@@ -878,7 +878,7 @@
 (use-package verilog-mode
   :ensure t
   :pin gnu)
-(use-package vhdl)
+(use-package vhdl-mode)
 (use-package web-mode
   :ensure t
   :pin melpa
