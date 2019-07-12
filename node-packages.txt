@@ -25,3 +25,7 @@ yaml-language-server
 
 # SQL
 sql-language-server
+
+# GraphQL
+graphql # @todo required dependency of the server
+graphql-language-service-cli
