@@ -1595,6 +1595,7 @@
   :bind
   ("C-c l a" . eglot-code-actions)
   ("C-c l b" . eglot-format-buffer)
+  ("C-c l c" . eglot-reconnect)
   ("C-c l f" . eglot-format)
   ("C-c l h" . eglot-help-at-point)
   ("C-c l q" . eglot-shutdown)
