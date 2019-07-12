@@ -1202,6 +1202,7 @@
                                          less-css-mode
                                          scss-mode) . ("css-language-server" "--stdio")))
   (add-to-list 'eglot-server-programs '((dockerfile-mode) . ("docker-langserver" "--stdio")))
+  (add-to-list 'eglot-server-programs '((graphql-mode) . ("graphql-lsp" "server")))
   (add-to-list 'eglot-server-programs '((html-mode) . ("html-languageserver" "--stdio")))
   (add-to-list 'eglot-server-programs '((vue-mode) . ("vls" "--stdio")))
   (add-to-list 'eglot-server-programs '((json-mode jsonc-mode) . ("vscode-json-languageserver" "--stdio")))
