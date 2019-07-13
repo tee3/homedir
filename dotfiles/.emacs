@@ -67,7 +67,7 @@
 (defcustom tee3-desired-completion-system 'default
   "This is used to choose a completion system when it must be done at configuration."
   :type 'symbol
-  :options '('default 'icomplete 'fido))
+  :options '('default 'ido 'icomplete 'fido 'icicles))
 
 ;;; Emacs
 (setq inhibit-startup-screen t)
@@ -407,6 +407,16 @@
   :hook
   (text-mode . flyspell-mode)
   (prog-mode . flyspell-prog-mode))
+
+;;; Icicles
+(use-package icicles
+  :if
+  (equal tee3-desired-completion-system 'icicles)
+  :load-path
+  "~/opt/local/src/icicles"
+  :diminish icicle-mode
+  :config
+  (icicle-mode 1))
 
 ;;; Yasnippet
 (use-package yasnippet
