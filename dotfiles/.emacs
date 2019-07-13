@@ -538,6 +538,11 @@
   ((text-mode . flyspell-mode)
    (prog-mode . flyspell-prog-mode)))
 
+;;; Icicles
+(use-package icicles
+  :load-path
+  "~/opt/local/src/icicles")
+
 ;;; Yasnippet
 (use-package yasnippet
   :ensure t
