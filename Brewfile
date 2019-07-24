@@ -13,7 +13,7 @@ tap "drone/drone"
 tap "riscv/riscv"
 
 # install interpreters prior to other packages
-cask "java"
+cask "adoptopenjdk"
 # @todo use system python
 #brew "python"
 brew "python3"
