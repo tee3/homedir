@@ -1554,7 +1554,7 @@
         (t
          (setq tee3-clangd-executable "clangd"))))
 
-(setq tee3-clangd-options '("-j=8"
+(setq tee3-clangd-options '("-j=2"
                             "--all-scopes-completion"
                             "--background-index"
                             "--clang-tidy"
