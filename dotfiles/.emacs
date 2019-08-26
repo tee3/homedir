@@ -1442,6 +1442,9 @@
    ("\\.xs\\'" . js-mode)))
 
 ;;; Linux
+(use-package kconfig-mode
+  :ensure t
+  :pin melpa)
 (use-package dts-mode
   :ensure t
   :pin melpa)
