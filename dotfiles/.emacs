@@ -1153,9 +1153,6 @@
   (use-package cmake-font-lock
     :ensure t
     :pin melpa)
-  (use-package cmake-project
-    :ensure t
-    :pin melpa)
   :hook
   (cmake-mode . cmake-font-lock-activate))
 
