@@ -1153,8 +1153,12 @@
   (use-package cmake-font-lock
     :ensure t
     :pin melpa)
+  (use-package eldoc-cmake
+    :ensure t
+    :pin melpa)
   :hook
-  (cmake-mode . cmake-font-lock-activate))
+  (cmake-mode . cmake-font-lock-activate)
+  (cmake-mode . eldoc-cmake-enable))
 
 ;;;
 ;;; Gnuplot
