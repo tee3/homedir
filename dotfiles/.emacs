@@ -1376,17 +1376,6 @@
 (use-package js-comint
   :ensure t
   :pin melpa)
-(use-package tern
-  :if
-  (equal tee3-desired-language-server-system 'default)
-  :ensure t
-  :pin melpa
-  :init
-  ;; @todo this causes an error when run independently
-  ;; (eval-after-load "js.el"
-  ;;   (add-to-list 'auto-mode-alist '("\\.tern-project\\'" . json-mode)))
-  :hook
-  (js-mode . tern-mode))
 (use-package eslint-fix
   :ensure t
   :pin melpa)
