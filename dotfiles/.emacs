@@ -441,6 +441,9 @@
   :init
   (eval-after-load "sb-image.el"
     (setq speedbar-use-images nil)))
+(use-package srecode
+  :config
+  (global-srecode-minor-mode))
 (use-package term
   :init
   (setq term-buffer-maximum-size 0))
