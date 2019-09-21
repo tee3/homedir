@@ -149,6 +149,9 @@
   :init
   (setq epa-pinentry-mode 'loopback))
 
+(use-package autoinsert
+  :config
+  (auto-insert-mode))
 (use-package newcomment
   :init
   (setq comment-empty-lines t))
