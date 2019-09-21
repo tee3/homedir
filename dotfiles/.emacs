@@ -1357,20 +1357,6 @@
   :ensure t
   :pin melpa)
 
-;;; Java programming language
-(use-package meghanada
-  :if
-  (equal tee3-desired-language-server-system 'default)
-  :ensure t
-  :pin melpa
-  :preface
-  (defun tee3-meghanada-setup ()
-    (add-hook 'before-save-hook 'meghanada-code-beautify-before-save))
-  :config
-  :hook
-  (java-mode . tee3-meghanada-setup)
-  (java-mode . meghanada-mode))
-
 ;;; JavaScript programming language
 (use-package js)
 (use-package js-comint
