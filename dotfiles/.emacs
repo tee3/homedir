@@ -937,6 +937,8 @@
   :ensure t
   :pin melpa
   :diminish google-this-mode
+  :bind-keymap
+  ("C-c s" . google-this-mode-submap)
   :init
   (google-this-mode))
 
