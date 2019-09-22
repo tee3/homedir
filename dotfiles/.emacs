@@ -152,6 +152,8 @@
 (use-package autoinsert
   :config
   (auto-insert-mode))
+(use-package autorevert
+  :diminish auto-revert-mode)
 (use-package newcomment
   :init
   (setq comment-empty-lines t))
@@ -179,6 +181,7 @@
   :init
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 (use-package eldoc
+  :diminish eldoc-mode
   :config
   (global-eldoc-mode))
 (use-package elec-pair
