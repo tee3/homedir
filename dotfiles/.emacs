@@ -939,6 +939,8 @@
 (use-package engine-mode
   :ensure t
   :pin melpa
+  :preface
+  (setq engine/keybinding-prefix "C-c s")
   :init
   (defengine amazon
     "https://www.amazon.com/s?k=%s"
