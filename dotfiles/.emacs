@@ -967,16 +967,6 @@
   :config
   (engine-mode))
 
-;;; Google
-(use-package google-this
-  :ensure t
-  :pin melpa
-  :diminish google-this-mode
-  :preface
-  (setq google-this-keybind (kbd "C-c s"))
-  :init
-  (google-this-mode))
-
 ;;; SSH
 (use-package ssh
   :ensure t
