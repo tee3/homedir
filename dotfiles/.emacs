@@ -1296,7 +1296,7 @@
   (use-package cloud-theme :ensure t :pin melpa :defer t)
   (use-package clues-theme :ensure t :pin melpa :defer t)
   (use-package cyberpunk-theme :ensure t :pin melpa :defer t)
-  (use-package cyberpunk-2019-theme :ensure t :pin melpa :defer t)
+  (use-package cyberpunk-2019-theme :load-path "~/Development/tee3/cyberpunk-2019" :defer t)
   (use-package dakrone-theme :ensure t :pin melpa :defer t)
   (use-package darcula-theme :ensure t :pin melpa :defer t)
   (use-package darkburn-theme :ensure t :pin melpa :defer t)
