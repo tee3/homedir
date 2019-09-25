@@ -1631,7 +1631,8 @@
   (add-to-list 'eglot-server-programs '((c-mode
                                          c++-mode
                                          objc-mode
-                                         objc++-mode) . tee3-clangd-command)))
+                                         objc++-mode) . tee3-clangd-command))
+  (add-to-list 'eglot-server-programs '((yaml-mode) . ("yaml-language-server" "--stdio"))))
 
 (use-package rmsbolt
   :ensure t
