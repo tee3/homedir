@@ -29,12 +29,12 @@ else if [ os.name ] = LINUX
   # other compilers, both system and optional
   using clang ;
 
-  using clang : 9 : /home/linuxbrew/.linuxbrew/opt/llvm/bin/clang++ ;
+  using clang : 10 : /home/linuxbrew/.linuxbrew/opt/llvm/bin/clang++ ;
+  #using clang : 9 : /home/linuxbrew/.linuxbrew/opt/llvm@9/bin/clang++ ;
   using clang : 8 : /home/linuxbrew/.linuxbrew/opt/llvm@8/bin/clang++ ;
   using clang : 7 : /home/linuxbrew/.linuxbrew/opt/llvm@7/bin/clang++ ;
   using clang : 6 : /home/linuxbrew/.linuxbrew/opt/llvm@6/bin/clang++ ;
-#  using clang : 5 : /home/linuxbrew/.linuxbrew/opt/llvm@5/bin/clang++ ;
-#  using clang : 4 : /home/linuxbrew/.linuxbrew/opt/llvm@4/bin/clang++ ;
+  using clang : 5 : /home/linuxbrew/.linuxbrew/opt/llvm@5/bin/clang++ ;
 }
 else if [ os.name ] = MACOSX
 {
@@ -42,12 +42,12 @@ else if [ os.name ] = MACOSX
   using clang ;
 
   # other compilers, both system and optional
-  using clang : 9 : /usr/local/opt/llvm/bin/clang++ ;
-  #using clang : 8 : /usr/local/opt/llvm@8/bin/clang++ ;
+  using clang : 10 : /usr/local/opt/llvm/bin/clang++ ;
+  #using clang : 9 : /usr/local/opt/llvm/bin/clang++ ;
+  using clang : 8 : /usr/local/opt/llvm@8/bin/clang++ ;
   using clang : 7 : /usr/local/opt/llvm@7/bin/clang++ ;
   using clang : 6 : /usr/local/opt/llvm@6/bin/clang++ ;
   using clang : 5 : /usr/local/opt/llvm@5/bin/clang++ ;
-  using clang : 4 : /usr/local/opt/llvm@4/bin/clang++ ;
 
   using darwin ;
 
