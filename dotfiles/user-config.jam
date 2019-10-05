@@ -19,7 +19,6 @@ else if [ os.name ] = LINUX
   # this is the default system compiler
   using gcc ;
 
-  #using gcc : 10 : /home/linuxbrew/.linuxbrew/opt/gcc/bin/g++-10 ;
   using gcc : 9 : /home/linuxbrew/.linuxbrew/opt/gcc@9/bin/g++-9 ;
   using gcc : 8 : /home/linuxbrew/.linuxbrew/opt/gcc@8/bin/g++-8 ;
   using gcc : 7 : /home/linuxbrew/.linuxbrew/opt/gcc@7/bin/g++-7 ;
@@ -52,7 +51,8 @@ else if [ os.name ] = MACOSX
   using darwin ;
 
   #using darwin : 10 : /usr/local/opt/gcc/bin/g++-9 ;
-  using darwin : 9 : /usr/local/opt/gcc@9/bin/g++-9 ;
+  using darwin : 9 : /usr/local/opt/gcc/bin/g++-9 ;
+  #using darwin : 9 : /usr/local/opt/gcc@9/bin/g++-9 ;
   using darwin : 8 : /usr/local/opt/gcc@8/bin/g++-8 ;
   using darwin : 7 : /usr/local/opt/gcc@7/bin/g++-7 ;
   using darwin : 5 : /usr/local/opt/gcc@5/bin/g++-5 ;
