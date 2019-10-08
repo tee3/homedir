@@ -23,7 +23,6 @@ else if [ os.name ] = LINUX
   using gcc : 8 : /home/linuxbrew/.linuxbrew/opt/gcc@8/bin/g++-8 ;
   using gcc : 7 : /home/linuxbrew/.linuxbrew/opt/gcc@7/bin/g++-7 ;
   using gcc : 6 : /home/linuxbrew/.linuxbrew/opt/gcc@6/bin/g++-6 ;
-  using gcc : 5 : /home/linuxbrew/.linuxbrew/opt/gcc@5/bin/g++-5 ;
 
   # other compilers, both system and optional
   using clang ;
@@ -53,7 +52,6 @@ else if [ os.name ] = MACOSX
   #using darwin : 9 : /usr/local/opt/gcc@9/bin/g++-9 ;
   using darwin : 8 : /usr/local/opt/gcc@8/bin/g++-8 ;
   using darwin : 7 : /usr/local/opt/gcc@7/bin/g++-7 ;
-  using darwin : 5 : /usr/local/opt/gcc@5/bin/g++-5 ;
   using darwin : 6 : /usr/local/opt/gcc@6/bin/g++-6 ;
 
   #using emscripten ;
