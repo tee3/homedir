@@ -15,7 +15,7 @@ tap "riscv/riscv"
 cask "adoptopenjdk"
 # @todo use system python
 #brew "python"
-brew "python3"
+#brew "python3"
 # @todo use system ruby
 #brew "ruby"
 
