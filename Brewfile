@@ -6,10 +6,9 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-drivers"
+tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
-tap "drone/drone"
-tap "riscv/riscv"
 
 # install interpreters prior to other packages
 cask "adoptopenjdk"
