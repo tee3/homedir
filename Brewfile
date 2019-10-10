@@ -19,9 +19,7 @@ cask "adoptopenjdk"
 #brew "ruby"
 
 # install version control systems
-brew "bazaar"
 brew "git"
-brew "subversion"
 
 # install fuse
 cask "osxfuse"
