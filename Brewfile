@@ -180,7 +180,6 @@ brew "xmlstarlet"
 brew "xmlto"
 brew "zsh-completion"
 
-cask "1password"
 cask "atom"
 cask "basictex"
 cask "docker"
