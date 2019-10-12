@@ -148,5 +148,4 @@ brew "zsh-completion"
 
 cask "basictex"
 cask "emacs"
-cask "visual-studio-code"
 cask "xquartz"
