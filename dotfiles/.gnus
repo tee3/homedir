@@ -8,6 +8,8 @@
 
 (require 'gnus)
 
+(setq gnus-inhibit-startup-message t)
+
 (setq gnus-select-method '(nntp "news.gmane.org"))
 
 (provide '.gnus)
