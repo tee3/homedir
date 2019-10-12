@@ -147,7 +147,6 @@ brew "xmlto"
 brew "zsh-completion"
 
 cask "basictex"
-cask "docker"
 cask "emacs"
 cask "visual-studio-code"
 cask "xquartz"
