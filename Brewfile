@@ -12,11 +12,8 @@ tap "homebrew/services"
 
 # install interpreters prior to other packages
 cask "adoptopenjdk"
-# @todo use system python
-#brew "python"
-#brew "python3"
-# @todo use system ruby
-#brew "ruby"
+brew "python"
+brew "ruby"
 
 # install version control systems
 brew "git"
