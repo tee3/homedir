@@ -382,6 +382,7 @@
   (setq windmove-wrap-around t)
   :config
   (windmove-default-keybindings 'shift))
+
 (use-package darkroom
   :ensure t
   :pin gnu)
@@ -798,7 +799,7 @@
   :pin melpa)
 (use-package asm-mode
   :preface
-  (defun tee3-setup-asm-mode ()
+  (defun tee3-asm-mode-setup ()
     (setq indent-tabs-mode t))
   :mode
   (("\\.[sh][56][45x]\\'" . asm-mode))
