@@ -38,12 +38,19 @@ else if [ os.name ] = MACOSX
   # this is the default system compiler
   using clang ;
 
+  local macos-sysroot = /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk ;
+  local macos-options =
+    <cxxflags>--sysroot=$(macos-sysroot)
+    <cxxflags>-I$(macos-sysroot)/usr/include
+    <linkflags>-L$(macos-sysroot)/usr/lib
+    ;
+
   # other compilers, both system and optional
-  using clang : 10 : /usr/local/opt/llvm/bin/clang++ ;
-  #using clang : 9 : /usr/local/opt/llvm/bin/clang++ ;
-  using clang : 8 : /usr/local/opt/llvm@8/bin/clang++ ;
-  using clang : 7 : /usr/local/opt/llvm@7/bin/clang++ ;
-  using clang : 6 : /usr/local/opt/llvm@6/bin/clang++ ;
+  using clang : 10 : /usr/local/opt/llvm/bin/clang++ : $(macos-options) ;
+  #using clang : 9 : /usr/local/opt/llvm/bin/clang++ : $(macos-options) ;
+  using clang : 8 : /usr/local/opt/llvm@8/bin/clang++ : $(macos-options) ;
+  using clang : 7 : /usr/local/opt/llvm@7/bin/clang++ : $(macos-options) ;
+  using clang : 6 : /usr/local/opt/llvm@6/bin/clang++ : $(macos-options) ;
 
   using darwin ;
 
