@@ -21,7 +21,7 @@ else if [ os.name ] = LINUX
 
   using gcc : 9 : /home/linuxbrew/.linuxbrew/opt/gcc@9/bin/g++-9 ;
   using gcc : 8 : /home/linuxbrew/.linuxbrew/opt/gcc@8/bin/g++-8 ;
-  using gcc : 7 : /home/linuxbrew/.linuxbrew/opt/gcc@7/bin/g++-7 ;
+  #using gcc : 7 : /home/linuxbrew/.linuxbrew/opt/gcc@7/bin/g++-7 ;
   using gcc : 6 : /home/linuxbrew/.linuxbrew/opt/gcc@6/bin/g++-6 ;
 
   # other compilers, both system and optional
