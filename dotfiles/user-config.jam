@@ -109,7 +109,7 @@ path-constant BOOST_ROOT_BASE : "$(HOME)/opt/local/src/boost" ;
 if [ os.name ] = LINUX
 {
   # System Boost
-  using boost : "" : <include>/usr/include <library>/usr/lib <layout>system ;
+  using boost : "" : <include>/home/linuxbrew/.linuxbrew/include <library>/home/linuxbrew/.linuxbrew/lib <layout>system ;
 }
 else if [ os.name ] = MACOSX
 {
