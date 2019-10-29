@@ -589,3 +589,10 @@ consideration.
 
 See the bottom of the [script](./install_source_packages) for an more
 up-to-date list of source packages.
+
+## support for boost versions
+
+There is a script to install any version of Boost C++ Libraries into a
+directory in the `~/opt/local/src/boost` directory.
+
+See the [script](./install_boost) for the details.
