@@ -40,8 +40,8 @@ else if [ os.name ] = MACOSX
 
   local macos-sysroot = /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk ;
   local macos-options =
-    <cxxflags>"--sysroot $(macos-sysroot)"
-    <cxxflags>"-isystem /usr/local/include"
+    <compileflags>"--sysroot $(macos-sysroot)"
+    <compileflags>"-isystem /usr/local/include"
     <linkflags>-L/usr/local/lib
     ;
 
