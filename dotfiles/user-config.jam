@@ -54,12 +54,12 @@ else if [ os.name ] = MACOSX
 
   using darwin ;
 
-  #using darwin : 10 : /usr/local/opt/gcc/bin/g++-9 ;
-  using darwin : 9 : /usr/local/opt/gcc/bin/g++-9 ;
-  #using darwin : 9 : /usr/local/opt/gcc@9/bin/g++-9 ;
-  using darwin : 8 : /usr/local/opt/gcc@8/bin/g++-8 ;
-  using darwin : 7 : /usr/local/opt/gcc@7/bin/g++-7 ;
-  using darwin : 6 : /usr/local/opt/gcc@6/bin/g++-6 ;
+  #using darwin : 10 : /usr/local/opt/gcc/bin/g++-9 : $(macos-options) ;
+  using darwin : 9 : /usr/local/opt/gcc/bin/g++-9 : $(macos-options) ;
+  #using darwin : 9 : /usr/local/opt/gcc@9/bin/g++-9 : $(macos-options) ;
+  using darwin : 8 : /usr/local/opt/gcc@8/bin/g++-8 : $(macos-options) ;
+  using darwin : 7 : /usr/local/opt/gcc@7/bin/g++-7 : $(macos-options) ;
+  using darwin : 6 : /usr/local/opt/gcc@6/bin/g++-6 : $(macos-options) ;
 
   #using emscripten ;
 }
