@@ -1152,20 +1152,22 @@
   :hook
   (makefile-mode . tee3-make-mode-setup))
 
-;;; Boost.Build programming language
+;;; Boost.Build projects
 (with-eval-after-load "projectile"
   (defun tee3-projectile-boost-build-project-p ()
     "Check if a project contains Jamroot, project-root.jam, or jamroot.jam files."
-    (or (projectile-verify-file-wildcard "project-root.jam")
-        (projectile-verify-file-wildcard "Jamroot")
-        (projectile-verify-file-wildcard "jamroot.jam")))
+    (or (projectile-verify-file "project-root.jam")
+        (projectile-verify-file "Jamroot")
+        (projectile-verify-file "jamroot.jam")))
 
   (projectile-register-project-type 'boost-build
                                     #'tee3-projectile-boost-build-project-p
                                     :compile "b2"
                                     :test "b2"
-                                    :run "b2"
-                                    :test-prefix "test_"))
+                                    :test-prefix "test_"
+                                    :src-dir "src"
+                                    :test-dir "test"
+                                    :run "b2"))
 
 ;;; Jam programming language
 (use-package jam-mode
