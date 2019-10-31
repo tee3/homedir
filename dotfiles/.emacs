@@ -1249,6 +1249,19 @@
   (cmake-mode . cmake-font-lock-activate)
   (cmake-mode . eldoc-cmake-enable))
 
+(with-eval-after-load "projectile"
+  (defun tee3-projectile-cmake-project-p ()
+    "Check if a project contains an CMakeLists.txt file."
+    (projectile-verify-file-wildcard "CMakeLists.txt"))
+
+  (projectile-register-project-type 'cmake
+                                    #'tee3-projectile-cmake-project-p
+                                    :src-dir "src"
+                                    :configure "mkdir -p build && cd build && cmake .."
+                                    :compile "cmake --build build -- -k"
+                                    :test "cmake --build build --target test -- -k"
+                                    :test-dir "test"))
+
 ;;;
 ;;; Gnuplot
 ;;;
