@@ -1193,6 +1193,47 @@
   (eval-after-load "flyspell.el"
     (add-hook 'jam-mode-hook 'flyspell-prog-mode)))
 
+;;; Xcode
+(with-eval-after-load "projectile"
+  (defun tee3-projectile-xcode-workspace-p ()
+    "Check if a project contains an .xcworkspace directory."
+    (projectile-verify-file-wildcard "*.xcworkspace"))
+  (defun tee3-projectile-xcode-workspace-compile-command ()
+    "Returns a compile command for the current workspace."
+    (string-join (append '("xcodebuild" "-workspace") (file-expand-wildcards "*.xcworkspace")) " "))
+  (defun tee3-projectile-xcode-workspace-test-command ()
+    "Returns a compile command for the current workspace."
+    (string-join (append '("xcodebuild" "-workspace") (file-expand-wildcards "*.xcworkspace")) " "))
+  (defun tee3-projectile-xcode-workspace-run-command ()
+    "Returns a compile command for the current workspace."
+    (string-join (append '("xcodebuild" "-workspace") (file-expand-wildcards "*.xcworkspace")) " "))
+
+  (projectile-register-project-type 'xcode-workspace
+                                    #'tee3-projectile-xcode-workspace-p
+                                    :compile 'tee3-projectile-xcode-workspace-compile-command
+                                    :test 'tee3-projectile-xcode-workspace-test-command
+                                    :run 'tee3-projectile-xcode-workspace-run-command))
+
+(with-eval-after-load "projectile"
+  (defun tee3-projectile-xcode-project-p ()
+    "Check if a project contains an .xcodeproj directory."
+    (projectile-verify-file-wildcard "*.xcodeproj"))
+  (defun tee3-projectile-xcode-project-compile-command ()
+    "Returns a compile command for the current project."
+    (string-join (append '("xcodebuild" "-project") (file-expand-wildcards "*.xcodeproj")) " "))
+  (defun tee3-projectile-xcode-project-test-command ()
+    "Returns a compile command for the current project."
+    (string-join (append '("xcodebuild" "-project") (file-expand-wildcards "*.xcodeproj")) " "))
+  (defun tee3-projectile-xcode-project-run-command ()
+    "Returns a compile command for the current project."
+    (string-join (append '("xcodebuild" "-project") (file-expand-wildcards "*.xcodeproj")) " "))
+
+    (projectile-register-project-type 'xcode-project
+                                    #'tee3-projectile-xcode-project-p
+                                    :compile 'tee3-projectile-xcode-project-compile-command
+                                    :test 'tee3-projectile-xcode-project-test-command
+                                    :run 'tee3-projectile-xcode-project-run-command))
+
 ;;; CMake
 (use-package cmake-mode
   :ensure t
