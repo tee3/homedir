@@ -224,9 +224,11 @@ Windows and such is a manual process.
 Install the following tools using the normal Windows installation
 processes, customizing the installers as described below.
 
-* Emacs for Windows (64-bit, without dependencies)
+* Install Emacs (64-bit).
 
-  * Move extracted file to `C:\Emacs`.
+  * Use the Emacs installer (Emacs 27 and later).
+
+  * Install to `C:\Program Files\Emacs`.
 
 * Git For Windows (64-bit)
 
