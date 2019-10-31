@@ -40,9 +40,9 @@ if not exist "%CMDGOROOT%" echo Go is not installed at "%CMDGOROOT%".
 if exist "%CMDGOROOT%" set PATH=%HOME%\.go\bin;%PATH%
 
 rem Emacs
-set CMDEMACSROOT=C:\Emacs
+set CMDEMACSROOT=C:\Program Files\Emacs
 if not exist "%CMDEMACSROOT%" echo Emacs is not installed at "%CMDEMACSROOT%".
-if exist "%CMDEMACSROOT%" set PATH=%CMDEMACSROOT%\bin;%PATH%
+if exist "%CMDEMACSROOT%" set PATH=%CMDEMACSROOT%\x86_64\bin;%PATH%
 if exist "%CMDEMACSROOT%" (
    set ALTERNATE_EDITOR=
    set EDITOR=emacsclient -a notepad.exe
