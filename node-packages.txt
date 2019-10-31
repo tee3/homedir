@@ -11,6 +11,8 @@ vscode-css-languageserver-bin
 vscode-html-languageserver-bin
 vue-language-server
 
+indium
+
 # JSON Development Tools
 json
 jsonlint
