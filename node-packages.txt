@@ -11,6 +11,8 @@ css-language-server
 vscode-html-languageserver-bin
 vls
 
+indium
+
 # JSON Development Tools
 vscode-json-languageserver
 
