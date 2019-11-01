@@ -1146,6 +1146,10 @@
   :ensure t
   :pin melpa)
 
+(use-package indium
+  :ensure t
+  :pin melpa)
+
 ;;; Typescript programming language
 (when (< emacs-major-version 30)
   (use-package typescript-mode
