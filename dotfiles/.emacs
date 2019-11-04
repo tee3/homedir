@@ -1790,6 +1790,7 @@
                (>= emacs-minor-version 5)))
   (use-package atom-dark-theme :ensure t :pin melpa :defer t)
   (use-package basic-theme :ensure t :pin melpa :defer t)
+  (use-package berrys-theme :ensure t :pin melpa :defer t)
   (use-package birds-of-paradise-plus-theme :ensure t :pin melpa :defer t)
   (use-package borland-blue-theme :ensure t :pin melpa :defer t)
   (use-package brutalist-theme :ensure t :pin melpa :defer t)
