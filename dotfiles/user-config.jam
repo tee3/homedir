@@ -115,7 +115,7 @@ path-constant BOOST_ROOT_BASE : "$(HOME)/opt/local/src/boost" ;
 # Default to the installed version of the Boost C++ Libraries
 if [ os.name ] = LINUX
 {
-  # System Boost
+  # Linuxbrew-installed Boost
   using boost : "" : <include>/home/linuxbrew/.linuxbrew/include <library>/home/linuxbrew/.linuxbrew/lib <layout>system ;
 }
 else if [ os.name ] = MACOSX
