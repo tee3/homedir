@@ -612,9 +612,6 @@
   :pin melpa
   :diminish yas-minor-mode
   :init
-  (use-package yasnippet-snippets
-    :ensure t
-    :pin melpa)
   (setq yas-alias-to-yas/prefix-p nil)
   :config
   (yas-global-mode))
