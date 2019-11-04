@@ -888,6 +888,10 @@
   :config
   (define-key dired-mode-map "\C-x\C-g" 'gited-list-branches))
 
+(use-package git-walktree
+  :ensure t
+  :pin melpa)
+
 ;;; Gitolite
 (use-package gl-conf-mode
   :ensure t
