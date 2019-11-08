@@ -369,6 +369,7 @@
 (use-package tramp
   :ensure t
   :pin gnu)
+(setq window-sides-slots '(1 1 1 1))
 (use-package winner
   :demand t
   :init
