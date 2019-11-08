@@ -473,40 +473,21 @@ to set up these files to properly set the system's name and the user's
 name and email address since these are often detected incorrectly by
 Emacs.
 
-The following is a very simple `.emacs` file using only standard Emacs
-packages.  This can be installed to `~/.emacs` manually on systems
-that do not require a full homedir installation.
+There is a also a very minimal Emacs configuration file named
+[~/.emacs.minimal.el](dotfiles/.emacs.minimal.el).  This can be
+installed to `~/.emacs` manually on systems that do not require a full
+homedir installation.
 
-```elisp
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(column-number-mode t)
- '(custom-enabled-themes (quote (manoj-dark)))
- '(desktop-save-mode t)
- '(global-display-line-numbers-mode t)
- '(ido-everywhere t)
- '(ido-mode (quote both) nil (ido))
- '(ido-show-dot-for-dired t)
- '(ido-use-filename-at-point (quote guess))
- '(ido-use-url-at-point t)
- '(menu-bar-mode nil)
- '(save-place t)
- '(scroll-bar-mode nil)
- '(show-paren-mode t)
- '(size-indication-mode t)
- '(tool-bar-mode nil)
- '(tooltip-mode nil)
- '(version-control t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+It can also be used to experiment with a minimally-configured Emacs.
+Run the following command to use Emacs with the minimal Emacs
+configuration.
+
+```shell
+emacs -nw -q -l ~/.emacs.minimal.el
 ```
+
+This is not exactly the same as running Emacs with `~/.emacs`, but it
+is close enough for experimentation.
 
 ## support for git
 
