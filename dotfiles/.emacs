@@ -370,6 +370,14 @@
   :ensure t
   :pin gnu)
 (setq window-sides-slots '(1 1 1 1))
+;; ;;; Special buffer handling
+;; (add-to-list 'display-buffer-alist
+;;              `(,(rx bos "*Flycheck errors*" eos)
+;;                (display-buffer-reuse-window
+;;                 display-buffer-below-selected)
+;;                (reusable-frames . visible)
+;;                (side            . bottom)
+;;                (window-height   . 0.4)))
 (use-package winner
   :demand t
   :init
