@@ -1159,10 +1159,11 @@
 
   (projectile-register-project-type 'boost-build
                                     #'tee3-projectile-boost-build-project-p
-                                    :compile "b2"
-                                    :run "b2"
+                                    :compile "b2 -j 8"
+                                    :configure "b2 --reconfigure -j 8"
+                                    :run "b2 -j 8"
                                     :src-dir "src"
-                                    :test "b2"
+                                    :test "b2 --verbose-test -j 8"
                                     :test-dir "test"
                                     :test-prefix "test_"))
 
