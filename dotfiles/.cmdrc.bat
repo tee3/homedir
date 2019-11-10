@@ -39,6 +39,12 @@ set CMDGOROOT=C:\Go
 if not exist "%CMDGOROOT%" echo Go is not installed at "%CMDGOROOT%".
 if exist "%CMDGOROOT%" set PATH=%HOME%\.go\bin;%PATH%
 
+rem @todo this needs to be set up
+rem Rust
+
+rem @todo this needs to be set up
+rem Lua
+
 rem Emacs
 set CMDEMACSROOT=C:\Program Files\Emacs
 if not exist "%CMDEMACSROOT%" echo Emacs is not installed at "%CMDEMACSROOT%".
