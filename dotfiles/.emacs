@@ -1249,7 +1249,8 @@
 (with-eval-after-load "projectile"
   (defun tee3-projectile-cmake-project-p ()
     "Check if a project contains an CMakeLists.txt file."
-    (projectile-verify-file-wildcard "CMakeLists.txt"))
+    (and (projectile-verify-file-wildcard "CMakeLists.txt")
+         (not (tee3-projectile-boost-build-project-p))))
 
   (projectile-register-project-type 'cmake
                                     #'tee3-projectile-cmake-project-p
