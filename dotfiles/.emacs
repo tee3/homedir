@@ -1226,10 +1226,10 @@
     (string-join (append '("xcodebuild" "-project") (file-expand-wildcards "*.xcodeproj")) " "))
 
     (projectile-register-project-type 'xcode-project
-                                    #'tee3-projectile-xcode-project-p
-                                    :compile 'tee3-projectile-xcode-project-compile-command
-                                    :run 'tee3-projectile-xcode-project-run-command
-                                    :test 'tee3-projectile-xcode-project-test-command))
+                                      #'tee3-projectile-xcode-project-p
+                                      :compile 'tee3-projectile-xcode-project-compile-command
+                                      :run 'tee3-projectile-xcode-project-run-command
+                                      :test 'tee3-projectile-xcode-project-test-command))
 
 ;;; CMake
 (use-package cmake-mode
