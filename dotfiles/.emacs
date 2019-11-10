@@ -1160,11 +1160,11 @@
   (projectile-register-project-type 'boost-build
                                     #'tee3-projectile-boost-build-project-p
                                     :compile "b2"
-                                    :test "b2"
-                                    :test-prefix "test_"
+                                    :run "b2"
                                     :src-dir "src"
+                                    :test "b2"
                                     :test-dir "test"
-                                    :run "b2"))
+                                    :test-prefix "test_"))
 
 ;;; Jam programming language
 (use-package jam-mode
@@ -1208,8 +1208,8 @@
   (projectile-register-project-type 'xcode-workspace
                                     #'tee3-projectile-xcode-workspace-p
                                     :compile 'tee3-projectile-xcode-workspace-compile-command
-                                    :test 'tee3-projectile-xcode-workspace-test-command
-                                    :run 'tee3-projectile-xcode-workspace-run-command))
+                                    :run 'tee3-projectile-xcode-workspace-run-command
+                                    :test 'tee3-projectile-xcode-workspace-test-command))
 
 (with-eval-after-load "projectile"
   (defun tee3-projectile-xcode-project-p ()
@@ -1228,8 +1228,8 @@
     (projectile-register-project-type 'xcode-project
                                     #'tee3-projectile-xcode-project-p
                                     :compile 'tee3-projectile-xcode-project-compile-command
-                                    :test 'tee3-projectile-xcode-project-test-command
-                                    :run 'tee3-projectile-xcode-project-run-command))
+                                    :run 'tee3-projectile-xcode-project-run-command
+                                    :test 'tee3-projectile-xcode-project-test-command))
 
 ;;; CMake
 (use-package cmake-mode
@@ -1254,9 +1254,9 @@
 
   (projectile-register-project-type 'cmake
                                     #'tee3-projectile-cmake-project-p
-                                    :src-dir "src"
-                                    :configure "mkdir -p build && cd build && cmake .."
                                     :compile "cmake --build build -- -k"
+                                    :configure "mkdir -p build && cd build && cmake .."
+                                    :src-dir "src"
                                     :test "cmake --build build --target test -- -k"
                                     :test-dir "test"))
 
