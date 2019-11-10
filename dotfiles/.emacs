@@ -1255,11 +1255,13 @@
 
   (projectile-register-project-type 'cmake
                                     #'tee3-projectile-cmake-project-p
-                                    :compile "cmake --build build -- -k"
+                                    :compile "cmake --build build -- -k -j 8"
                                     :configure "mkdir -p build && cd build && cmake .."
+                                    :run "cmake --build build -- -k -j 8"
                                     :src-dir "src"
-                                    :test "cmake --build build --target test -- -k"
-                                    :test-dir "test"))
+                                    :test "cmake --build build --target test -- -k -j 8"
+                                    :test-dir "test"
+                                    :test-prefix "test_"))
 
 ;;;
 ;;; Gnuplot
