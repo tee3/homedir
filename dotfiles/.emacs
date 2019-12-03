@@ -1133,7 +1133,9 @@
 ;;; Perforce
 (use-package p4
   :ensure t
-  :pin melpa)
+  :pin melpa
+  :init
+  (setq p4-global-key-prefix (kbd "C-c v p")))
 
 ;;; Subversion
 (use-package psvn
