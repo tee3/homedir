@@ -665,6 +665,12 @@
   :pin melpa
   :bind-keymap
   ("C-c g" . ggtags-mode-prefix-map))
+(use-package global-tags
+  :ensure t
+  :pin melpa
+  :init
+  (add-to-list 'xref-backend-functions 'global-tags-xref-backend)
+  (add-to-list 'project-find-functions 'global-tags-try-project-root))
 
 ;;; Scheme programming language
 (use-package scheme
