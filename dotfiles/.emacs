@@ -167,10 +167,17 @@
   :ensure t
   :pin melpa)
 (use-package desktop
+  :preface
+  (defun tee3-disable-themes ()
+    (mapc 'disable-theme custom-enabled-themes))
   :init
-  (setq desktop-restore-frames nil)
+  (setq desktop-restore-in-current-display nil)
+  (setq desktop-restore-forces-onscreen nil)
+  (setq desktop-restore-reuses-frames nil)
   :config
-  (desktop-save-mode))
+  (desktop-save-mode)
+
+  (add-hook 'kill-emacs-hook 'tee3-disable-themes))
 (use-package diminish
   :ensure t
   :pin melpa)
