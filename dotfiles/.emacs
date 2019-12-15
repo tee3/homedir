@@ -351,6 +351,8 @@
   (setq kill-ring-max 1000)
   (setq kill-do-not-save-duplicates t)
   (setq save-interprogram-paste-before-kill t)
+  :hook
+  (text-mode . auto-fill-mode)
   :config
   (eval-after-load "desktop.el"
     (add-to-list 'desktop-globals-to-save 'kill-ring 1)))
@@ -401,8 +403,6 @@
   (evil-mode 1))
 
 ;;; Text mode hooks
-(add-hook 'text-mode-hook 'auto-fill-mode)
-(add-hook 'text-mode-hook 'text-mode-hook-identify)
 (add-hook 'text-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
 ;;; Programming mode hooks
