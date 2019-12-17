@@ -214,10 +214,10 @@
   (global-font-lock-mode))
 (use-package frame
   :config
-  (when (display-graphic-p)
-    (toggle-frame-fullscreen)
-    (cond ((member "Source Code Pro" (font-family-list))
-           (set-frame-font "Source Code Pro" t t)))))
+  (add-to-list 'initial-frame-alist '(width . 160))
+  (add-to-list 'initial-frame-alist '(height . 48))
+  (if (member "Source Code Pro" (font-family-list))
+      (add-to-list 'initial-frame-alist '(font . "Source Code Pro"))))
 (use-package fringe
   :init
   (setq fringe-mode '(4 . nil)))
