@@ -1171,11 +1171,11 @@
 
   (projectile-register-project-type 'boost-build
                                     #'tee3-projectile-boost-build-project-p
-                                    :compile "b2"
-                                    :configure "b2 --reconfigure"
-                                    :run "b2"
+                                    :compile "b2 variant=debug,release"
+                                    :configure "b2 --reconfigure variant=debug,release"
+                                    :run "b2 variant=debug,release"
                                     :src-dir "src"
-                                    :test "b2 --verbose-test"
+                                    :test "b2 --verbose-test variant=debug,release"
                                     :test-dir "test"
                                     :test-prefix "test_"))
 
