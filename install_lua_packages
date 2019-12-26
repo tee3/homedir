@@ -34,7 +34,7 @@ if __name__ == '__main__':
             line = line.strip()
             line = line.rstrip('\n')
             if line != '' and line[0] != '#':
-                if not emulate_run([luarocks, 'install', '--local', line]):
+                if not emulate_run([luarocks, '--local', 'install', line]):
                     error = True
 
     sys.exit(1 if error else 0)
