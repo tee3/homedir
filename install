@@ -195,7 +195,7 @@ if __name__ == '__main__':
     # set up machine-specific ~/.bashrc
     bashrc_local = os.path.join(HOME, '.bashrc.local')
     if not os.path.exists(bashrc_local):
-        print('Note that ~/.bashrc.local is used for machine-specific bash settings.')
+        print('Note that ~/.bashrc.local is used for machine-specific Bourne-again Shell (bash) settings.')
         open(bashrc_local, 'a').close()
 
     # create a link to run cmd with inputs
