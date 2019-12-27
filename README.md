@@ -115,6 +115,7 @@ To configure some useful programs, those programs must exist on the
 system.
 
 * `bash`
+* `zsh`
 * `git`
 * `mercurial`
 * `emacs`
@@ -448,6 +449,14 @@ This contains support for the Bourne Again Shell (Bash) by including
 `~/.bashrc.local` files.
 
 The configuration system generates a `~/.bashrc.local` file for local
+configuration.  It is initially empty.
+
+## support for `zsh`
+
+This contains support for the Z Shell (bash) by including
+`~/.zprofile` and `~/.zshrc` files.
+
+The configuration system generates a `~/.zshrc.local` file for local
 configuration.  It is initially empty.
 
 ## support for `cmd`
