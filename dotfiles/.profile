@@ -7,3 +7,8 @@ fi
 if [ -d "${HOME}/.local/bin" ] ; then
     PATH="${HOME}/.local/bin:${PATH}"
 fi
+
+# local profile
+if [ -e "${HOME}"/.profile.local ]; then
+    . "${HOME}"/.profile.local
+fi
