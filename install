@@ -204,6 +204,12 @@ if __name__ == '__main__':
         print('Note that ~/.bashrc.local is used for machine-specific Bourne-again Shell (bash) settings.')
         open(bashrc_local, 'a').close()
 
+    # set up machine-specific ~/.zshrc
+    zshrc_local = os.path.join(HOME, '.zshrc.local')
+    if not os.path.exists(zshrc_local):
+        print('Note that ~/.zshrc.local is used for machine-specific Z shell (zsh) settings.')
+        open(zshrc_local, 'a').close()
+
     # create a link to run cmd with inputs
     cmd = distutils.spawn.find_executable('cmd.exe')
     if cmd:
