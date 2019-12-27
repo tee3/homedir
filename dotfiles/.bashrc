@@ -6,12 +6,12 @@ fi
 # Homebrew setup
 if [ -d /usr/local/Hombrew ]; then
     eval $(/usr/local/Homebrew/bin/brew shellenv)
-elif [ -d ~/.homebrew ]; then
-    eval $(~/.homebrew/bin/brew shellenv)
+elif [ -d "${HOME}"/.homebrew ]; then
+    eval $("${HOME}"/.homebrew/bin/brew shellenv)
 elif [ -d /home/linuxbrew/.linuxbrew ]; then
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-elif [ -d ~/.linuxbrew ]; then
-    eval $(~/.linuxbrew/bin/brew shellenv)
+elif [ -d "${HOME}"/.linuxbrew ]; then
+    eval $("${HOME}"/.linuxbrew/bin/brew shellenv)
 fi
 
 if [ -n "$(command -v brew 2> /dev/null)" ]; then
