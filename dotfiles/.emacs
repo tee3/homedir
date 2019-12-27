@@ -1701,12 +1701,6 @@
   :hook
   (prog-mode . eglot-ensure)
   :config
-  (add-to-list 'eglot-server-programs '((bibtex-mode
-                                         context-mode
-                                         doctex-mode
-                                         latex-mode
-                                         reftex-mode
-                                         tex-mode) . ("digestif")))
   (add-to-list 'eglot-server-programs '((css-mode
                                          less-css-mode
                                          scss-mode) . ("css-languageserver" "--stdio")))
