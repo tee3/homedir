@@ -257,11 +257,11 @@ processes, customizing the installers as described below.
   * Enable the "Enable file system caching" option to increase
     performance.
 
-* Install Python 3.6 (64-bit).
+* Install Python 3.8 (64-bit).
 
   * For all users.
 
-  * Install to `C:\Python36`.
+  * Install to `C:\Python38`.
 
   * Add to `PATH`.
 
