@@ -40,11 +40,6 @@ if [ -n "$(command -v python 2> /dev/null)" ]; then
     export PATH="$(python -c 'import site ; print(site.USER_BASE)')/bin":${PATH}
 fi
 
-# Python 3
-if [ -n "$(command -v python3 2> /dev/null)" ]; then
-    export PATH="$(python3 -c 'import site ; print(site.USER_BASE)')/bin":${PATH}
-fi
-
 # Ruby
 if [ -n "$(command -v ruby 2> /dev/null)" ] && [ -n "$(command -v gem 2> /dev/null)" ]; then
     export PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin":${PATH}
