@@ -15,7 +15,7 @@ rem SSH
 call start-ssh-agent
 
 rem Python
-set CMDPYTHONROOT=C:\Python27
+set CMDPYTHONROOT=C:\Python38
 if not exist "%CMDPYTHONROOT%" echo Python is not installed at "%CMDPYTHONROOT%".
 if exist "%CMDPYTHONROOT%" set PATH=%CMDPYTHONROOT%;%CMDPYTHONROOT%\Scripts;%PATH%
 rem @todo would be better if this used same approach as bash
