@@ -1,6 +1,6 @@
 # Development
 
-golang.org/x/tools/cmd/gopls
+golang.org/x/tools/gopls
 
 github.com/google/git-appraise/git-appraise
 
