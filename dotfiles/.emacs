@@ -176,8 +176,8 @@
   (setq desktop-restore-reuses-frames nil)
   :config
   (desktop-save-mode)
-
-  (add-hook 'kill-emacs-hook 'tee3-disable-themes))
+  :hook
+  (kill-emacs . tee3-disable-themes))
 (use-package diminish
   :ensure t
   :pin melpa)
