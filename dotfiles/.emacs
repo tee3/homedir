@@ -147,6 +147,9 @@
   :init
   (setq comint-prompt-read-only t)
   (setq comint-input-ignoredups t))
+(use-package copyright
+  :hook
+  (before-save-hook . copyright-update))
 (use-package cus-edit
   :init
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
