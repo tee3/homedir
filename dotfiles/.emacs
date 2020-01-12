@@ -140,6 +140,9 @@
   (setq browse-url-browser-function 'eww-browse-url)
   :bind
   ("C-c b b b" . browse-url))
+(use-package copyright
+  :hook
+  (before-save-hook . copyright-update))
 (use-package cus-edit
   :init
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
