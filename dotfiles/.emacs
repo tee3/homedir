@@ -175,6 +175,7 @@
   (setq desktop-restore-forces-onscreen nil)
   (setq desktop-restore-reuses-frames nil)
   :config
+  (add-to-list 'desktop-globals-to-save 'kill-ring 1)
   (desktop-save-mode)
   :hook
   (kill-emacs . tee3-disable-themes))
@@ -359,10 +360,7 @@
   (setq kill-do-not-save-duplicates t)
   (setq save-interprogram-paste-before-kill t)
   :hook
-  (text-mode . auto-fill-mode)
-  :config
-  (eval-after-load "desktop.el"
-    (add-to-list 'desktop-globals-to-save 'kill-ring 1)))
+  (text-mode . auto-fill-mode))
 (use-package smooth-scroll
   :ensure t
   :pin melpa)
