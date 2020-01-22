@@ -1826,6 +1826,7 @@
   (use-package greymatters-theme :ensure t :pin melpa :defer t)
   (use-package gruber-darker-theme :ensure t :pin melpa :defer t)
   (use-package hemera-theme :ensure t :pin melpa :defer t)
+  (use-package humanoid-themes :ensure t :pin melpa :defer t)
   (use-package iodine-theme :ensure t :pin melpa :defer t)
   (use-package lavender-theme :ensure t :pin melpa :defer t)
   (use-package leuven-theme :ensure t :pin melpa :defer t)
