@@ -532,6 +532,13 @@
 (use-package org
   :ensure t
   :pin gnu)
+(use-package verb
+  :ensure t
+  :pin melpa
+  :after org
+  :init
+  (setq verb-advice-url nil)
+  (setq verb-auto-show-headers-buffer 2))
 
 ;;; AI
 (when (>= emacs-major-version 28)
