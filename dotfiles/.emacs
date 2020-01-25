@@ -1217,6 +1217,10 @@
   :ensure t
   :pin melpa)
 
+(use-package verb
+  :ensure t
+  :pin melpa)
+
 ;;; Docker
 (use-package docker
   :if
