@@ -535,6 +535,9 @@
 (use-package org
   :ensure t
   :pin gnu)
+(use-package ob-graphql
+  :ensure t
+  :pin melpa)
 
 (use-package posix-manual
   :ensure t
