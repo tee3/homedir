@@ -571,6 +571,9 @@
                                    (shell . t)
                                    (sql . t)
                                    (sqlite . t))))
+(use-package ob-graphql
+  :ensure t
+  :pin melpa)
 
 ;;; AI
 (when (>= emacs-major-version 28)
