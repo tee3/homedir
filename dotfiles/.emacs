@@ -540,6 +540,9 @@
 (use-package graphql-mode
   :ensure t
   :pin melpa)
+(use-package ob-graphql
+  :ensure t
+  :pin melpa)
 
 ;;; Programming languages
 (use-package ada-mode
