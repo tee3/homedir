@@ -1506,8 +1506,12 @@
 
 ;;; Python programming language
 (use-package python
-  :init
-  (setq gud-pdb-command-name "python -m pdb"))
+  :config
+  (if (= (call-process (executable-find python-shell-interpreter) nil nil nil "-c" "import sys; sys.exit(0 if sys.version_info.major >= 3 else 1") 1)
+      (when (executable-find "python3")
+        (setq python-shell-interpreter "python3")))
+
+  (setq gud-pdb-command-name (format "%s -m pdb" python-shell-interpreter)))
 
 (use-package pip-requirements
   :ensure t
