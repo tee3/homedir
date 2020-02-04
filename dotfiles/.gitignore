@@ -61,12 +61,11 @@ npm-debug.log
 
 # Python Tooling
 venv/
-.ropeproject/
 __pycache__/
 *.pyc
 
 # Jupyter Tooling
-.ipynb_checkpoints
+.ipynb_checkpoints/
 
 # Visual Studio Code
 .vscode/
