@@ -1266,7 +1266,7 @@
   (projectile-register-project-type 'cmake
                                     #'tee3-projectile-cmake-project-p
                                     :compile "cmake --build build -- -k -j 8"
-                                    :configure "mkdir -p build && cd build && cmake .."
+                                    :configure "mkdir -p build && cd build && cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .."
                                     :run "cmake --build build -- -k -j 8"
                                     :src-dir "src"
                                     :test "cmake --build build --target test -- -k -j 8"
