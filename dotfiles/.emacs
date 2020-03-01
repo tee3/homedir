@@ -1810,6 +1810,7 @@
   (use-package busybee-theme :ensure t :pin melpa :defer t)
   (use-package chocolate-theme :ensure t :pin melpa :defer t)
   (use-package chyla-theme :ensure t :pin melpa :defer t)
+  (use-package cloud-theme :ensure t :pin melpa :defer t)
   (use-package cyberpunk-theme :ensure t :pin melpa :defer t)
   (use-package cyberpunk-2019-theme :ensure t :pin melpa :defer t)
   (use-package distinguished-theme :ensure t :pin melpa :defer t)
