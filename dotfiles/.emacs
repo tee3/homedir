@@ -1837,6 +1837,7 @@
   (use-package leuven-theme :ensure t :pin melpa :defer t)
   (use-package lush-theme :ensure t :pin melpa :defer t)
   (use-package material-theme :ensure t :pin melpa :defer t)
+  (use-package mellow-theme :ensure t :pin melpa :defer t)
   (use-package minimal-theme :ensure t :pin melpa :defer t)
   (use-package moe-theme :ensure t :pin melpa :defer t)
   (use-package molokai-theme :ensure t :pin melpa :defer t)
