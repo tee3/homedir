@@ -257,7 +257,7 @@ processes, customizing the installers as described below.
   * Enable the "Enable file system caching" option to increase
     performance.
 
-* Install Python 3.8 (64-bit).
+* Python 3 (64-bit) from the Microsoft Store.
 
   * For all users.
 
