@@ -10,11 +10,7 @@ rem SSH
 call start-ssh-agent
 
 rem Python
-set CMDPYTHONROOT=C:\Python38
-if not exist "%CMDPYTHONROOT%" echo Python is not installed at "%CMDPYTHONROOT%".
-if exist "%CMDPYTHONROOT%" set PATH=%CMDPYTHONROOT%;%CMDPYTHONROOT%\Scripts;%PATH%
-rem @todo would be better if this used same approach as bash
-if exist "%CMDPYTHONROOT%" set PATH=%HOME%\AppData\Roaming\Python\Scripts;%PATH%
+FOR /f "delims=" %%A IN ('python3 -c "import site; print(site.USER_BASE)"') DO set "PATH=%PATH%;%%A\Python38\Scripts"
 
 rem Ruby
 set CMDRUBYROOT=C:\Ruby24
