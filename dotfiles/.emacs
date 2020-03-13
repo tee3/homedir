@@ -203,13 +203,6 @@
   :pin melpa
   :bind
   ("C-c =" . er/expand-region))
-(use-package fm
-  :disabled t
-  :ensure t
-  :pin melpa
-  :hook
-  (occur-mode . fm-start)
-  (compilation-mode . fm-start))
 (use-package font-core
   :config
   (global-font-lock-mode))
@@ -226,11 +219,6 @@
   :diminish hs-minor-mode
   :init
   (setq hs-hide-comments-when-hiding-all t))
-(use-package hide-comnt
-  ;; @todo removed from melpa
-  :disabled t
-  :ensure t
-  :pin melpa)
 (use-package icomplete
   :if
   (or
@@ -336,12 +324,6 @@
   ("C-c P s s" . project-find-regexp)
   ("C-c P r" . project-find-regexp)
   ("C-c P v g" . magit-status))
-(use-package bash-completion
-  :disabled t
-  :ensure t
-  :pin melpa
-  :config
-  (bash-completion-setup))
 (use-package recentf
   :init
   (recentf-mode 1))
@@ -383,13 +365,6 @@
 (use-package tooltip
   :init
   (setq tooltip-mode nil))
-(use-package undo-tree
-  :disabled t
-  :ensure t
-  :pin melpa
-  :init
-  (setq undo-tree-auto-save-history t)
-  (setq undo-tree-visualizer-diff t))
 (use-package winner
   :init
   (winner-mode))
@@ -402,16 +377,6 @@
 (use-package darkroom
   :ensure t
   :pin gnu)
-
-;;; Evil (vi) emulation
-(use-package evil
-  :disabled t
-  :ensure t
-  :pin melpa
-  :init
-  (setq evil-default-state 'emacs)
-  :config
-  (evil-mode 1))
 
 ;;; Text mode hooks
 (add-hook 'text-mode-hook (lambda () (setq indent-tabs-mode nil)))
@@ -703,11 +668,6 @@
   (define-key rst-mode-map (kbd "C-c C-s") 'sphinx-map))
 
 ;;; Utilities
-(use-package ascii
-  ;; @todo removed from melpa
-  :disabled t
-  :ensure t
-  :pin melpa)
 (use-package list-unicode-display
   :ensure t
   :pin melpa)
@@ -757,21 +717,12 @@
   (< emacs-major-version 26)
   :ensure t
   :pin melpa)
-(use-package irfc
-  ;; @todo removed from melpa
-  :disabled t
-  :ensure t
-  :pin melpa)
 (use-package jgraph-mode
   :ensure t
   :pin gnu)
 (use-package nginx-mode
   :ensure t
   :pin melpa)
-(use-package pov-mode
-  :disabled t
-  :ensure t
-  :pin marmalade)
 (use-package protobuf-mode
   :ensure t
   :pin melpa)
@@ -849,11 +800,6 @@
 (use-package haskell-mode
   :ensure t
   :pin melpa)
-(use-package llvm-mode
-  ;; @todo removed from melpa
-  :disabled t
-  :ensure t
-  :pin melpa)
 (use-package lua-mode
   :ensure t
   :pin melpa)
@@ -875,10 +821,6 @@
   (setq matlab-return-add-semicolon t)
   (setq matlab-show-mlint-warnings nil))
 (use-package octave)
-(use-package php-mode
-  :disabled t
-  :ensure t
-  :pin melpa)
 (use-package powershell
   :ensure t
   :pin melpa)
@@ -901,11 +843,6 @@
   :ensure t
   :pin melpa)
 (use-package tcl)
-(use-package tidy
-  ;; @todo removed from melpa
-  :disabled t
-  :ensure t
-  :pin melpa)
 (use-package verilog-mode
   :ensure t
   :pin gnu)
@@ -938,10 +875,6 @@
   :mode (("\\.cl\\'" . opencl-mode)))
 
 ;;; OpenGL
-(use-package cuda-mode
-  :disabled t
-  :ensure t
-  :pin melpa)
 (use-package glsl-mode
   :ensure t
   :pin melpa)
@@ -1033,20 +966,6 @@
   (setq gited-verbose t)
   :config
   (define-key dired-mode-map "\C-x\C-g" 'gited-list-branches))
-(use-package diff-hl
-  :disabled t
-  :if
-  (or (> emacs-major-version 24)
-      (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
-  :ensure t
-  :pin melpa
-  :config
-  (global-diff-hl-mode)
-
-  (diff-hl-flydiff-mode)
-  (unless (window-system) (diff-hl-margin-mode))
-  :hook
-  (dired-mode . diff-hl-dired-mode))
 (use-package git-timemachine
   :ensure t
   :pin melpa)
@@ -1120,13 +1039,6 @@
   (magit-mode . magit-load-config-extensions)
 
   (magit-mode . tee3-magit-choose-completing-read-function))
-
-;;; Microsoft Team Foundation Server
-(use-package tfs
-  ;; @todo removed from melpa
-  :disabled t
-  :ensure t
-  :pin melpa)
 
 ;;; Mercurial
 (use-package monky
@@ -1431,16 +1343,6 @@
   (use-package google-c-style
     :ensure t
     :pin melpa)
-  (use-package c-eldoc
-    :disabled t
-    :ensure t
-    :pin melpa
-    :init
-    ;; add more as desired, superset of what you'd like to use
-    (setq c-eldoc-includes "-I.")
-    :hook
-    (c-mode . c-turn-on-eldoc-mode)
-    (c++-mode . c-turn-on-eldoc-mode))
   (use-package hideif
     :init
     (setq hide-ifdef-read-only t)
@@ -1461,20 +1363,11 @@
 (use-package disaster
   :ensure t
   :pin melpa)
-(use-package dummy-h-mode
-  ;; @todo removed from melpa
-  :disabled t
-  :ensure t
-  :pin melpa)
 (use-package objc-font-lock
   :ensure t
   :pin melpa
   :config
   (objc-font-lock-global-mode))
-(use-package malinka
-  :disabled t
-  :ensure t
-  :pin melpa)
 
 ;;; JavaScript programming language
 (use-package js)
@@ -1616,17 +1509,6 @@
       (setq flycheck-c/c++-clangcheck-executable "/usr/local/opt/llvm/bin/clang-check"))
     (when (equal system-type 'gnu/linux)
       (setq flycheck-c/c++-clangcheck-executable "/home/linuxbrew/.linuxbrew/opt/llvm/bin/clang-check")))
-  (use-package flycheck-clang-tidy
-    :disabled t
-    :ensure t
-    :pin melpa
-    :init
-    (when (equal system-type 'darwin)
-      (setq flycheck-c/c++-clang-tidy-executable "/usr/local/opt/llvm/bin/clang-tidy"))
-    (when (equal system-type 'gnu/linux)
-      (setq flycheck-c/c++-clang-tidy-executable "/home/linuxbrew/.linuxbrew/opt/llvm/bin/clang-tidy"))
-    :hook
-    (flycheck-mode . flycheck-clang-tidy-setup))
   (setq flycheck-javascript-standard-executable "semistandard")
   (use-package flycheck-objc-clang
     :ensure t
@@ -1725,22 +1607,6 @@
 (use-package rmsbolt
   :ensure t
   :pin melpa)
-
-;;;
-;;; Rainbow modes
-;;;
-(use-package rainbow-delimiters
-  :disabled t
-  :ensure t
-  :pin melpa
-  :init
-  (global-rainbow-delimiters-mode))
-(use-package rainbow-identifiers
-  :disabled t
-  :ensure t
-  :pin melpa
-  :init
-  (rainbow-identifiers-mode))
 
 ;;;
 ;;; Docker
