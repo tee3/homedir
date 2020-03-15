@@ -1388,11 +1388,6 @@
   :ensure t
   :pin melpa)
 
-;;; node.js
-(use-package nodejs-repl
-  :ensure t
-  :pin melpa)
-
 ;;; Typescript programming language
 (use-package typescript-mode
   :ensure t
