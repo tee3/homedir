@@ -149,8 +149,7 @@
 (use-package autoinsert
   :config
   (auto-insert-mode))
-(use-package autorevert
-  :diminish auto-revert-mode)
+(use-package autorevert)
 (use-package newcomment
   :init
   (setq comment-empty-lines t))
@@ -158,8 +157,7 @@
   :init
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
   (load custom-file 'noerror))
-(use-package abbrev
-  :diminish abbrev-mode)
+(use-package abbrev)
 (use-package dedicated
   :ensure t
   :pin melpa)
@@ -182,9 +180,6 @@
   (setq diff-font-lock-prettify t)
   (setq diff-font-lock-syntax nil)
   (setq diff-refine nil))
-(use-package diminish
-  :ensure t
-  :pin melpa)
 (use-package dired
   :init
   (setq dired-kept-versions 6))
@@ -192,7 +187,6 @@
   :init
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 (use-package eldoc
-  :diminish eldoc-mode
   :config
   (global-eldoc-mode))
 (use-package elec-pair
@@ -219,7 +213,6 @@
   :init
   (setq fringe-mode '(4 . nil)))
 (use-package hideshow
-  :diminish hs-minor-mode
   :init
   (setq hs-hide-comments-when-hiding-all t))
 (use-package icomplete
@@ -280,7 +273,6 @@
 (use-package paredit
   :ensure t
   :pin melpa
-  :diminish paredit-mode
   :init
   (use-package paredit-everywhere
     :ensure t
@@ -391,7 +383,6 @@
 
 ;;; Flyspell
 (use-package flyspell
-  :diminish flyspell-mode
   :init
   (use-package flyspell-lazy
     :ensure t
@@ -402,7 +393,6 @@
 (use-package auto-correct
   :ensure t
   :pin gnu
-  :diminish auto-correct-mode
   :config
   (auto-correct-mode 1))
 (use-package captain
@@ -415,7 +405,6 @@
   (equal tee3-desired-completion-system 'ivy)
   :ensure t
   :pin melpa
-  :diminish ivy-mode
   :init
   (setq ivy-use-virtual-buffers t)
   (setq ivy-count-format "(%d/%d) ")
@@ -428,7 +417,6 @@
   (equal tee3-desired-completion-system 'ivy)
   :ensure t
   :pin melpa
-  :diminish counsel-mode
   :bind-keymap
   ("C-c c" . counsel-mode-map)
   :init
@@ -479,7 +467,6 @@
 (use-package projectile
   :ensure t
   :pin melpa
-  :diminish projectile-mode
   :bind-keymap
   ("C-c P" . projectile-command-map)
   :init
@@ -498,7 +485,6 @@
 (use-package yasnippet
   :ensure t
   :pin melpa
-  :diminish yas-minor-mode
   :init
   (setq yas-alias-to-yas/prefix-p nil)
   :config
@@ -1196,7 +1182,6 @@
   ("\\.cuh\\'" . c++-mode)
   :init
   (use-package cwarn
-    :diminish cwarn-mode
     :init
     (global-cwarn-mode t))
   (use-package tee3-c-style
