@@ -12,10 +12,6 @@ vscode-html-languageserver-bin
 vue-language-server
 
 # JSON Development Tools
-json
-jsonlint
-json-diff
-
 vscode-json-languageserver
 
 # Bash
