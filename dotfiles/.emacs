@@ -100,9 +100,6 @@
   (setq display-time-day-and-date nil)
   :config
   (display-time-mode))
-(use-package mwheel
-  :config
-  (mouse-wheel-mode))
 (setq split-height-threshold 0)
 (use-package files
   :init
