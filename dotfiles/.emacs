@@ -179,6 +179,12 @@
   (desktop-save-mode)
   :hook
   (kill-emacs . tee3-disable-themes))
+(use-package diff-mode
+  :init
+  (setq diff-default-read-only t)
+  (setq diff-font-lock-prettify t)
+  (setq diff-font-lock-syntax nil)
+  (setq diff-refine nil))
 (use-package diminish
   :ensure t
   :pin melpa)
