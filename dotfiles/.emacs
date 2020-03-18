@@ -231,11 +231,6 @@
    (equal tee3-desired-automatic-completion-system 'icomplete)
    (equal tee3-desired-automatic-completion-system 'fido))
   :init
-  (setq icomplete-hide-common-prefix nil)
-  (setq icomplete-show-matches-on-no-input t)
-  (setq icomplete-prospects-height 10)
-  (setq icomplete-separator "\n ")
-
   (cond
    ((equal tee3-desired-automatic-completion-system 'icomplete)
     (icomplete-mode))
