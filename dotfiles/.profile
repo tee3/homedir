@@ -35,9 +35,9 @@ if [ -d "${HOME}"/opt/local/bin ]; then
     export DYLD_LIBRARY_PATH="${HOME}"/opt/local/lib
 fi
 
-# Python (default)
-if [ -n "$(command -v python 2> /dev/null)" ]; then
-    export PATH="$(python -c 'import site ; print(site.USER_BASE)')/bin":${PATH}
+# Python 3
+if [ -n "$(command -v python3 2> /dev/null)" ]; then
+    export PATH="$(python3 -c 'import site ; print(site.USER_BASE)')/bin":${PATH}
 fi
 
 # Ruby
