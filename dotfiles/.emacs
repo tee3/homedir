@@ -1218,13 +1218,13 @@
 ;;;
 ;;; Clang Format
 ;;;
+(eval-after-load "yaml-mode.el"
+  (add-to-list 'auto-mode-alist '(".clang-format\\'" . yaml-mode)))
+
 (use-package clang-format
   :ensure t
   :pin melpa
   :init
-  (eval-after-load "yaml-mode.el"
-    (add-to-list 'auto-mode-alist '(".clang-format\\'" . yaml-mode)))
-
   (when (equal system-type 'gnu/linux)
     (setq clang-format-executable "/home/linuxbrew/.linuxbrew/opt/llvm/bin/clang-format"))
   (when (equal system-type 'darwin)
