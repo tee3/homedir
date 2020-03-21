@@ -400,26 +400,6 @@
   :ensure t
   :pin gnu)
 
-;;; Ibuffer
-(use-package ibuffer
-  :ensure t
-  :pin melpa
-  :bind
-  ("C-x C-b" . ibuffer)
-  :init
-  (use-package ibuffer-vc
-    :ensure t
-    :pin melpa)
-  (use-package ibuffer-tramp
-    :ensure t
-    :pin melpa)
-  (use-package ibuffer-git
-    :ensure t
-    :pin melpa)
-  (use-package ibuffer-projectile
-    :ensure t
-    :pin melpa))
-
 ;;; Ivy
 (use-package ivy
   :if
