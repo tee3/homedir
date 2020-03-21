@@ -71,12 +71,12 @@
 (defcustom tee3-desired-completion-system 'default
   "This is used to choose a completion system when it must be done at configuration."
   :type 'symbol
-  :options '('default 'ido 'icomplete 'fido 'ivy))
+  :options '('default 'icomplete 'fido 'ivy))
 
 (defcustom tee3-desired-automatic-completion-system 'default
   "This is used to choose an auto-completion system when it must be done at configuration."
   :type 'symbol
-  :options '('default 'ido 'auto-complete 'company))
+  :options '('default 'auto-complete 'company))
 
 (defcustom tee3-flycheck-override-modern-flymake nil
   "Flymake is used instead of flycheck for Emacs 26 and later unless this variable is true."
@@ -252,8 +252,6 @@
   (setq gnus-init-file "~/.gnus")
   (setq gnus-home-directory user-emacs-directory)
 
-  (when (equal tee3-desired-completion-system 'ido)
-    (setq gnus-completing-read-function 'gnus-ido-completing-read))
   (when (equal tee3-desired-completion-system 'ivy)
     (setq gnus-completing-read-function 'ivy-completing-read))
 
@@ -402,21 +400,8 @@
   :ensure t
   :pin gnu)
 
-;;; M-x
-(use-package amx
-  :if
-  (equal tee3-desired-completion-system 'ido)
-  :ensure t
-  :pin melpa
-  :init
-  (setq amx-history-length 1000)
-
-  (amx-mode 1))
-
 ;;; Ibuffer
 (use-package ibuffer
-  :if
-  (equal tee3-desired-completion-system 'ido)
   :ensure t
   :pin melpa
   :bind
@@ -434,62 +419,6 @@
   (use-package ibuffer-projectile
     :ensure t
     :pin melpa))
-
-;;; Ido
-(use-package ido
-  :if
-  (equal tee3-desired-completion-system 'ido)
-  :preface
-  (defun tee3-ido-kill-ring ()
-    (interactive)
-    (let ((the-text (ido-completing-read "Yank text: " kill-ring)))
-      (if (not (equal the-text ""))
-          (progn
-            (push-mark)
-            (insert the-text)
-            (exchange-mark-and-point)))))
-  :bind
-  ("C-c c C-y" . tee3-ido-kill-ring)
-  :init
-  (use-package ido-completing-read+
-    :if
-    (>= emacs-major-version 25)
-    :ensure t
-    :pin melpa
-    :init
-    ;; @todo should not have to add this explicitly
-    (use-package memoize
-      :ensure t
-      :pin melpa)
-    (ido-ubiquitous-mode t))
-  (use-package ido-vertical-mode
-    :ensure t
-    :pin melpa
-    :init
-    (setq ido-vertical-show-count t)
-    (setq ido-vertical-disable-if-short nil)
-    (setq ido-vertical-pad-list nil)
-    :config
-    (ido-vertical-mode 1))
-  (use-package ido-at-point
-    :if
-    (equal tee3-desired-automatic-completion-system 'ido)
-    :ensure t
-    :pin melpa
-    :config
-    (ido-at-point-mode))
-
-  (ido-mode 1)
-  (ido-everywhere)
-
-  (setq ido-ignore-directories '())
-  (setq ido-ignore-files '())
-
-  (setq ido-enable-flex-matching t)
-
-  (setq ido-use-filename-at-point 'guess)
-  (setq ido-use-url-at-point t)
-  (setq ido-confirm-unique-completion t))
 
 ;;; Ivy
 (use-package ivy
@@ -565,9 +494,7 @@
   :bind-keymap
   ("C-c p" . projectile-command-map)
   :init
-  (cond ((equal tee3-desired-completion-system 'ido)
-         (setq projectile-completion-system 'ido))
-        ((equal tee3-desired-completion-system 'ivy)
+  (cond ((equal tee3-desired-completion-system 'ivy)
          (setq projectile-completion-system 'ivy))
         (t
          (setq projectile-completion-system 'default)))
@@ -972,10 +899,6 @@
       (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
   :ensure t
   :pin melpa
-  :preface
-  (defun tee3-magit-choose-completing-read-function ()
-    (when (equal tee3-desired-completion-system 'ido)
-      (setq magit-completing-read-function 'magit-ido-completing-read)))
   :bind
   ("C-c v g s" . magit-status)
   ("C-c v g c" . magit-dispatch-popup)
@@ -1010,9 +933,7 @@
   (add-hook 'magit-status-headers-hook 'magit-insert-repo-header t)
 
   :hook
-  (magit-mode . magit-load-config-extensions)
-
-  (magit-mode . tee3-magit-choose-completing-read-function))
+  (magit-mode . magit-load-config-extensions))
 
 ;;; Mercurial
 (use-package monky
