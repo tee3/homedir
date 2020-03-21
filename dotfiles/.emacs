@@ -158,9 +158,6 @@
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
   (load custom-file 'noerror))
 (use-package abbrev)
-(use-package dedicated
-  :ensure t
-  :pin melpa)
 (use-package desktop
   :preface
   (defun tee3-disable-themes ()
@@ -195,11 +192,6 @@
 (use-package etags
   :init
   (setq tags-loop-revert-buffers t))
-(use-package expand-region
-  :ensure t
-  :pin melpa
-  :bind
-  ("C-c =" . er/expand-region))
 (use-package font-core
   :config
   (global-font-lock-mode))
@@ -342,9 +334,6 @@
   (setq save-interprogram-paste-before-kill t)
   :hook
   (text-mode . auto-fill-mode))
-(use-package smooth-scroll
-  :ensure t
-  :pin melpa)
 (use-package speedbar
   :init
   (eval-after-load "sb-image.el"
@@ -383,10 +372,6 @@
 
 ;;; Flyspell
 (use-package flyspell
-  :init
-  (use-package flyspell-lazy
-    :ensure t
-    :pin melpa)
   :hook
   (text-mode . flyspell-mode)
   (prog-mode . flyspell-prog-mode))
