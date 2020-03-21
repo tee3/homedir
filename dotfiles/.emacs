@@ -223,15 +223,11 @@
   :init
   (setq hs-hide-comments-when-hiding-all t))
 (use-package icomplete
-  :if
-  (or
-   (equal tee3-desired-automatic-completion-system 'icomplete)
-   (equal tee3-desired-automatic-completion-system 'fido))
   :init
   (cond
-   ((equal tee3-desired-automatic-completion-system 'icomplete)
+   ((equal tee3-desired-completion-system 'icomplete)
     (icomplete-mode))
-   ((equal tee3-desired-automatic-completion-system 'fido)
+   ((equal tee3-desired-completion-system 'fido)
     (fido-mode))))
 (use-package linum
   :if
