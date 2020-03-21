@@ -76,7 +76,7 @@
 (defcustom tee3-desired-automatic-completion-system 'ido
   "This is used to choose an auto-completion system when it must be done at configuration."
   :type 'symbol
-  :options '('none 'ido 'icomplete 'fido 'ivy 'auto-complete 'company))
+  :options '('default 'ido 'icomplete 'fido 'ivy 'auto-complete 'company))
 
 (defcustom tee3-flycheck-override-modern-flymake nil
   "Flymake is used instead of flycheck for Emacs 26 and later unless this variable is true."
