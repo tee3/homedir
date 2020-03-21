@@ -403,22 +403,6 @@
   (text-mode . flyspell-mode)
   (prog-mode . flyspell-prog-mode))
 
-;;; Projectile
-(use-package projectile
-  :if
-  (< emacs-major-version 28)
-  :ensure t
-  :pin melpa
-  :bind-keymap
-  ("C-c p" . projectile-command-map)
-  :init
-  (setq projectile-completion-system 'default)
-  (setq projectile-switch-project-action 'projectile-dired)
-  (setq projectile-find-dir-includes-top-level t)
-  (setq projectile-use-git-grep t)
-  :config
-  (projectile-mode))
-
 ;;; Yasnippet
 (use-package yasnippet
   :ensure t
@@ -840,6 +824,7 @@
   (makefile-mode . tee3-make-mode-setup))
 
 ;;; Boost.Build projects
+;;; @todo convert to ede or something
 (with-eval-after-load "projectile"
   (defun tee3-projectile-boost-build-project-p ()
     "Check if a project contains Jamroot, project-root.jam, or jamroot.jam files."
@@ -884,6 +869,7 @@
     (add-hook 'jam-mode-hook 'flyspell-prog-mode)))
 
 ;;; Xcode
+;;; @todo convert to ede or something
 (with-eval-after-load "projectile"
   (defun tee3-projectile-xcode-workspace-p ()
     "Check if a project contains an .xcworkspace directory."
@@ -904,6 +890,7 @@
                                     :run 'tee3-projectile-xcode-workspace-run-command
                                     :test 'tee3-projectile-xcode-workspace-test-command))
 
+;;; @todo convert to ede or something
 (with-eval-after-load "projectile"
   (defun tee3-projectile-xcode-project-p ()
     "Check if a project contains an .xcodeproj directory."
@@ -929,6 +916,7 @@
   :ensure t
   :pin melpa)
 
+;;; @todo convert to ede or something
 (with-eval-after-load "projectile"
   (defun tee3-projectile-cmake-project-p ()
     "Check if a project contains an CMakeLists.txt file."
