@@ -307,15 +307,24 @@
   (shell-mode . pcomplete-shell-setup))
 (use-package project
   :bind
+  ("C-c p D" . project-find-file)
+  ("C-c p F" . project-or-external-find-file)
+  ("C-c p I" . list-buffers)
+  ("C-c p S" . save-some-buffers)
+  ("C-c p a" . project-find-file)
+  ("C-c p b" . switch-to-buffer)
   ("C-c p d" . project-find-file)
+  ("C-c p e" . project-find-file)
   ("C-c p f" . project-find-file)
   ("C-c p g" . find-file-at-point)
+  ("C-c p k" . kill-some-buffers)
   ("C-c p l" . find-file-at-point)
+  ("C-c p o" . project-find-regexp)
+  ("C-c p p" . bookmark-jump)
+  ("C-c p q" . bookmark-jump)
+  ("C-c p r" . project-query-replace-regexp)
   ("C-c p s g" . project-find-regexp)
-  ("C-c p s r" . project-find-regexp)
-  ("C-c p s s" . project-find-regexp)
-  ("C-c p r" . project-find-regexp)
-  ("C-c p v g" . magit-status))
+  ("C-c p v" . magit-status))
 (use-package recentf
   :init
   (recentf-mode 1))
