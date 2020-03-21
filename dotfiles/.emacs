@@ -747,11 +747,6 @@
   :config
   (engine-mode))
 
-;;; SSH
-(use-package ssh
-  :ensure t
-  :pin melpa)
-
 ;;;
 ;;; Version Control Systems
 ;;;
