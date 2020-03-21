@@ -85,7 +85,7 @@
 (defcustom tee3-desired-language-server-system 'eglot
   "Selects the language server system, with 'default being each language has a different one."
   :type 'symbol
-  :options '('default 'lsp 'eglot))
+  :options '('default 'eglot))
 
 ;;;
 ;;; Emacs
@@ -1382,21 +1382,6 @@
 (defun tee3-clangd-command (interactive)
   (append (list (tee3-clangd-executable)) tee3-clangd-options))
 
-(use-package lsp
-  :if
-  (and (or (> emacs-major-version 25)
-           (and (= emacs-major-version 25) (>= emacs-minor-version 1)))
-       (equal tee3-desired-language-server-system 'lsp))
-  :ensure lsp-mode
-  :pin melpa
-  :commands
-  lsp-clients-register-clangd
-  :init
-  (setq lsp-clients-clangd-executable (tee3-clangd-executable))
-  :config
-  (require 'lsp-clients)
-
-  (lsp-clients-register-clangd))
 (use-package eglot
   :if
   (and (or (> emacs-major-version 26)
