@@ -778,15 +778,7 @@
   :if
   (>= emacs-major-version 25)
   :ensure t
-  :pin melpa
-  :init
-  (use-package omnisharp
-    :if
-    (equal tee3-desired-language-server-system 'default)
-    :ensure t
-    :pin melpa
-    :hook
-    (csharp-mode . omnisharp-mode)))
+  :pin melpa)
 (use-package d-mode
   :ensure t
   :pin melpa)
