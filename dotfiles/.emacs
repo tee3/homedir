@@ -1173,9 +1173,6 @@
 ;;;
 ;;; Gnuplot
 ;;;
-(use-package gnuplot
-  :ensure t
-  :pin melpa)
 (use-package gnuplot-mode
   :ensure t
   :pin melpa
