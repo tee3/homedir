@@ -964,12 +964,6 @@
   :pin melpa)
 
 ;;; Gitolite
-(use-package gitolite-clone
-  :ensure t
-  :pin melpa
-  :init
-  (setq gitolite-clone-username "git")
-  (setq gitolite-clone-host "localhost"))
 (use-package gl-conf-mode
   :ensure t
   :pin melpa
