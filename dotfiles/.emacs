@@ -307,15 +307,15 @@
   (shell-mode . pcomplete-shell-setup))
 (use-package project
   :bind
-  ("C-c P d" . project-find-file)
-  ("C-c P f" . project-find-file)
-  ("C-c P g" . find-file-at-point)
-  ("C-c P l" . find-file-at-point)
-  ("C-c P s g" . project-find-regexp)
-  ("C-c P s r" . project-find-regexp)
-  ("C-c P s s" . project-find-regexp)
-  ("C-c P r" . project-find-regexp)
-  ("C-c P v g" . magit-status))
+  ("C-c p d" . project-find-file)
+  ("C-c p f" . project-find-file)
+  ("C-c p g" . find-file-at-point)
+  ("C-c p l" . find-file-at-point)
+  ("C-c p s g" . project-find-regexp)
+  ("C-c p s r" . project-find-regexp)
+  ("C-c p s s" . project-find-regexp)
+  ("C-c p r" . project-find-regexp)
+  ("C-c p v g" . magit-status))
 (use-package recentf
   :init
   (recentf-mode 1))
@@ -472,7 +472,7 @@
   :pin melpa
   :diminish projectile-mode
   :bind-keymap
-  ("C-c p" . projectile-command-map)
+  ("C-c P" . projectile-command-map)
   :init
   (cond ((equal tee3-desired-completion-system 'ivy)
          (setq projectile-completion-system 'ivy))
