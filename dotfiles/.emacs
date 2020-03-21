@@ -68,12 +68,12 @@
   "Customization variables in the .emacs file."
   :group 'convenience)
 
-(defcustom tee3-desired-completion-system 'ido
+(defcustom tee3-desired-completion-system 'default
   "This is used to choose a completion system when it must be done at configuration."
   :type 'symbol
   :options '('default 'ido 'icomplete 'fido 'ivy))
 
-(defcustom tee3-desired-automatic-completion-system 'ido
+(defcustom tee3-desired-automatic-completion-system 'default
   "This is used to choose an auto-completion system when it must be done at configuration."
   :type 'symbol
   :options '('default 'ido 'auto-complete 'company))
