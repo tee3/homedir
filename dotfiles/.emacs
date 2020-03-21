@@ -976,14 +976,6 @@
   :mode
   (("gitolite\\.conf\\'" . gl-conf-mode)))
 
-;;; GitHub
-(use-package gist
-  :ensure t
-  :pin melpa)
-(use-package github-issues
-  :ensure t
-  :pin melpa)
-
 ;;; Magit
 (use-package magit
   :if
