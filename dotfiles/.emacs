@@ -1188,22 +1188,6 @@
     ;; allow use of tabs as it is required by go fmt
     (setq indent-tabs-mode t)
     (add-hook 'before-save-hook 'gofmt-before-save))
-  :init
-  (use-package go-eldoc
-    :if
-    (equal tee3-desired-language-server-system 'default)
-    :ensure t
-    :pin melpa
-    :hook
-    (go-mode . go-eldoc-setup))
-  (use-package go-guru
-    :if
-    (equal tee3-desired-language-server-system 'default)
-    :ensure t
-    :pin melpa)
-  (use-package go-projectile
-    :ensure t
-    :pin melpa)
   :hook
   (go-mode . tee3-go-mode-setup))
 
