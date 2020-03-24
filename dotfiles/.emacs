@@ -366,14 +366,6 @@
   :hook
   (text-mode . flyspell-mode)
   (prog-mode . flyspell-prog-mode))
-(use-package auto-correct
-  :ensure t
-  :pin gnu
-  :config
-  (auto-correct-mode 1))
-(use-package captain
-  :ensure t
-  :pin gnu)
 
 ;;; Ivy
 (use-package ivy
