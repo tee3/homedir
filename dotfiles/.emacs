@@ -530,6 +530,28 @@
   ((text-mode . flyspell-mode)
    (prog-mode . flyspell-prog-mode)))
 
+;;; Auto-complete
+(use-package auto-complete
+  :ensure t
+  :pin melpa
+  :init
+  (use-package ac-capf
+    :ensure t
+    :pin melpa
+    :config
+    (ac-capf-setup))
+  (setq ac-auto-start t)
+  (setq ac-delay 0.01)
+  (setq ac-auto-show-menu t)
+  (setq ac-use-comphist t)
+  (setq ac-use-fuzzy t)
+  (setq ac-use-menu-map t)
+  (setq ac-use-quick-help t)
+  (setq ac-quick-help-delay 0.01)
+  :config
+  (ac-config-default)
+  (ac-flyspell-workaround))
+
 ;;; Yasnippet
 (use-package yasnippet
   :ensure t
