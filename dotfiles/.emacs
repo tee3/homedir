@@ -473,9 +473,6 @@
 (use-package markup-faces
   :ensure t
   :pin melpa)
-(use-package pandoc-mode
-  :ensure t
-  :pin melpa)
 (use-package rst)
 (use-package sphinx-frontend
   :ensure t
