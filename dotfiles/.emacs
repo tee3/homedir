@@ -71,6 +71,11 @@
   :type 'symbol
   :options '('default 'icomplete 'fido))
 
+(defcustom tee3-desired-language-server-system 'eglot
+  "Selects the language server system, with 'default being each language has a different one."
+  :type 'symbol
+  :options '('default 'lsp 'eglot))
+
 ;;; Emacs
 (setq inhibit-startup-screen t)
 (setq scroll-conservatively 100)
@@ -1186,7 +1191,27 @@
 (defun tee3-sourcekit-lsp-command (interactive)
   (append (list (tee3-sourcekit-lsp-executable)) tee3-sourcekit-lsp-options))
 
+(use-package lsp
+  :if
+  (and (or (> emacs-major-version 25)
+           (and (= emacs-major-version 25) (>= emacs-minor-version 1)))
+       (equal tee3-desired-language-server-system 'lsp))
+  :ensure lsp-mode
+  :pin melpa
+  :commands
+  lsp-clients-register-clangd
+  :init
+  (setq lsp-clients-clangd-executable (tee3-clangd-executable))
+  :config
+  (require 'lsp-clients)
+
+  (lsp-clients-register-clangd))
+
 (use-package eglot
+  :if
+  (and (or (> emacs-major-version 26)
+           (and (= emacs-major-version 26) (>= emacs-minor-version 1)))
+       (equal tee3-desired-language-server-system 'eglot))
   :ensure t
   :pin melpa
   :bind
