@@ -69,6 +69,11 @@
   :type 'symbol
   :options '('default 'icomplete 'fido))
 
+(defcustom tee3-desired-automatic-completion-system 'default
+  "This is used to choose an auto-completion system when it must be done at configuration."
+  :type 'symbol
+  :options '('default 'auto-complete))
+
 ;;; Emacs
 (setq inhibit-startup-screen t)
 (setq scroll-conservatively 100)
@@ -407,6 +412,30 @@
   :hook
   (text-mode . flyspell-mode)
   (prog-mode . flyspell-prog-mode))
+
+;;; Auto-complete
+(use-package auto-complete
+  :if
+  (equal tee3-desired-automatic-completion-system 'auto-complete)
+  :ensure t
+  :pin melpa
+  :init
+  (use-package ac-capf
+    :ensure t
+    :pin melpa
+    :config
+    (ac-capf-setup))
+  (setq ac-auto-start t)
+  (setq ac-delay 0.01)
+  (setq ac-auto-show-menu t)
+  (setq ac-use-comphist t)
+  (setq ac-use-fuzzy t)
+  (setq ac-use-menu-map t)
+  (setq ac-use-quick-help t)
+  (setq ac-quick-help-delay 0.01)
+  :config
+  (ac-config-default)
+  (ac-flyspell-workaround))
 
 ;;; Yasnippet
 (use-package yasnippet
