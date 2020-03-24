@@ -69,6 +69,10 @@
   :type 'symbol
   :options '('default 'icomplete 'fido))
 
+(defcustom tee3-flycheck-override-modern-flymake nil
+  "Flymake is used instead of flycheck for Emacs 26 and later unless this variable is true."
+  :type 'boolean)
+
 ;;; Emacs
 (setq inhibit-startup-screen t)
 (setq scroll-conservatively 100)
@@ -1125,6 +1129,9 @@
 (use-package flymake
   :ensure t
   :pin gnu
+  :if
+  (and (>= emacs-major-version 26)
+       (not tee3-flycheck-override-modern-flymake))
   :bind
   ("C-c ! l" . flymake-show-diagnostics-buffer)
   :hook
@@ -1136,6 +1143,47 @@
   :commands flymake-shellcheck-load
   :hook
   (sh-mode . flymake-shellcheck-load))
+
+;;; Flycheck
+(use-package flycheck
+  :if
+  (or (< emacs-major-version 26)
+      tee3-flycheck-override-modern-flymake)
+  :ensure t
+  :pin melpa
+  :init
+  (use-package flycheck-package
+    :ensure t
+    :pin melpa
+    :config
+    (flycheck-package-setup))
+  (use-package flycheck-clangcheck
+    :ensure t
+    :pin melpa
+    :init
+    (when (equal system-type 'darwin)
+      (setq flycheck-c/c++-clangcheck-executable "/usr/local/opt/llvm/bin/clang-check"))
+    (when (equal system-type 'gnu/linux)
+      (setq flycheck-c/c++-clangcheck-executable "/home/linuxbrew/.linuxbrew/opt/llvm/bin/clang-check")))
+  (setq flycheck-javascript-standard-executable "semistandard")
+  (use-package flycheck-objc-clang
+    :ensure t
+    :pin melpa
+    :config
+    (flycheck-objc-clang-setup))
+  (use-package flycheck-pyflakes
+    :ensure t
+    :pin melpa)
+  (use-package flycheck-rust
+    :ensure t
+    :pin melpa)
+  (use-package flycheck-swift
+    :ensure t
+    :pin melpa
+    :config
+    (flycheck-swift-setup))
+  :config
+  (global-flycheck-mode))
 
 ;;; Language Server Protocol
 (defun tee3-clangd-executable ()
