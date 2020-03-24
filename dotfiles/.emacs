@@ -403,10 +403,6 @@
   :init
   (counsel-mode 1))
 
-(use-package swiper
-  :ensure t
-  :pin melpa)
-
 ;;; Auto-complete
 (use-package auto-complete
   :if
