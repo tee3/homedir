@@ -73,11 +73,6 @@
   :type 'symbol
   :options '('default 'icomplete 'fido 'ivy))
 
-(defcustom tee3-desired-automatic-completion-system 'default
-  "This is used to choose an auto-completion system when it must be done at configuration."
-  :type 'symbol
-  :options '('default 'auto-complete))
-
 (defcustom tee3-desired-language-server-system 'eglot
   "Selects the language server system, with 'default being each language has a different one."
   :type 'symbol
@@ -402,30 +397,6 @@
   ("C-c c" . counsel-mode-map)
   :init
   (counsel-mode 1))
-
-;;; Auto-complete
-(use-package auto-complete
-  :if
-  (equal tee3-desired-automatic-completion-system 'auto-complete)
-  :ensure t
-  :pin melpa
-  :init
-  (use-package ac-capf
-    :ensure t
-    :pin melpa
-    :config
-    (ac-capf-setup))
-  (setq ac-auto-start t)
-  (setq ac-delay 0.01)
-  (setq ac-auto-show-menu t)
-  (setq ac-use-comphist t)
-  (setq ac-use-fuzzy t)
-  (setq ac-use-menu-map t)
-  (setq ac-use-quick-help t)
-  (setq ac-quick-help-delay 0.01)
-  :config
-  (ac-config-default)
-  (ac-flyspell-workaround))
 
 ;;; Projectile
 (use-package projectile
