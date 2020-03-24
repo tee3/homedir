@@ -69,6 +69,11 @@
   :type 'symbol
   :options '('default 'icomplete 'fido))
 
+(defcustom tee3-desired-automatic-completion-system 'default
+  "This is used to choose an auto-completion system when it must be done at configuration."
+  :type 'symbol
+  :options '('default 'company))
+
 ;;; Emacs
 (setq inhibit-startup-screen t)
 (setq scroll-conservatively 100)
@@ -407,6 +412,19 @@
   :hook
   (text-mode . flyspell-mode)
   (prog-mode . flyspell-prog-mode))
+
+;;; Company
+(use-package company
+  :if
+  (equal tee3-desired-automatic-completion-system 'company)
+  :ensure t
+  :pin melpa
+  :init
+  (use-package company-quickhelp
+    :ensure t
+    :pin melpa)
+
+  (global-company-mode))
 
 ;;; Yasnippet
 (use-package yasnippet
