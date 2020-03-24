@@ -76,7 +76,7 @@
 (defcustom tee3-desired-automatic-completion-system 'default
   "This is used to choose an auto-completion system when it must be done at configuration."
   :type 'symbol
-  :options '('default 'auto-complete 'company))
+  :options '('default 'auto-complete))
 
 (defcustom tee3-desired-language-server-system 'eglot
   "Selects the language server system, with 'default being each language has a different one."
@@ -430,19 +430,6 @@
   :config
   (ac-config-default)
   (ac-flyspell-workaround))
-
-;;; Company
-(use-package company
-  :if
-  (equal tee3-desired-automatic-completion-system 'company)
-  :ensure t
-  :pin melpa
-  :init
-  (use-package company-quickhelp
-    :ensure t
-    :pin melpa)
-
-  (global-company-mode))
 
 ;;; Projectile
 (use-package projectile
