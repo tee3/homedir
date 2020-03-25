@@ -149,6 +149,10 @@
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
   (load custom-file 'noerror))
 (use-package abbrev)
+(use-package compilation
+  :bind
+  ("C-c c c" . compile)
+  ("C-c c r" . recompile))
 (use-package desktop
   :preface
   (defun tee3-disable-themes ()
