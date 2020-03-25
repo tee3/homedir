@@ -41,7 +41,7 @@ def git_clone_update_pull_ff_only(url, directory):
     subprocess.check_call(command)
     command = ['git', '-C', directory, 'submodule', 'init']
     subprocess.check_call(command)
-    command = ['git', '-C', directory, 'submodule', 'update']
+    command = ['git', '-C', directory, 'submodule', 'update', '--init']
     subprocess.check_call(command)
 
 
