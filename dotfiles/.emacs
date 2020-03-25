@@ -256,10 +256,6 @@
 (use-package paredit
   :ensure t
   :pin melpa
-  :init
-  (use-package paredit-everywhere
-    :ensure t
-    :pin melpa)
   :hook
   (emacs-lisp-mode . paredit-mode)
   (lisp-mode . paredit-mode)
@@ -456,43 +452,15 @@
   :mode
   (("README\.md\\'" . gfm-mode))
   :init
-  (use-package markdown-mode+
-    :ensure t
-    :pin melpa)
   (setq markdown-asymmetric-header t)
   (cond ((executable-find "cmark-gfm")
          (setq markdown-command "cmark-gfm --extension table --extension strikethrough --extension autolink --extension tagfilter"))
         ((executable-find "cmark")
          (setq markdown-command "cmark")))
   (setq markdown-nested-imenu-heading-index t))
-(use-package markup-faces
-  :ensure t
-  :pin melpa)
 (use-package rst)
-(use-package sphinx-frontend
-  :ensure t
-  :pin melpa
-  :init
-  (use-package rst)
-  :config
-  ;; @todo remove default bindings since they are non-standard
-  (define-key rst-mode-map (kbd "C-c h") nil)
-  (define-key rst-mode-map (kbd "C-c l") nil)
-  (define-key rst-mode-map (kbd "C-c p") nil)
-
-  ;; @todo define a sphinx map
-  (define-prefix-command 'sphinx-map)
-  (define-key sphinx-map (kbd "h") 'sphinx-build-html)
-  (define-key sphinx-map (kbd "l") 'sphinx-build-latex)
-  (define-key sphinx-map (kbd "p") 'sphinx-run-pdflatex)
-
-  ;; @todo add the sphinx map to the rst mode map
-  (define-key rst-mode-map (kbd "C-c C-s") 'sphinx-map))
 
 ;;; Utilities
-(use-package list-unicode-display
-  :ensure t
-  :pin melpa)
 (use-package ietf-docs
   :ensure t
   :pin melpa
@@ -955,17 +923,7 @@
 ;;; CMake
 (use-package cmake-mode
   :ensure t
-  :pin melpa
-  :init
-  (use-package cmake-font-lock
-    :ensure t
-    :pin melpa)
-  (use-package eldoc-cmake
-    :ensure t
-    :pin melpa)
-  :hook
-  (cmake-mode . cmake-font-lock-activate)
-  (cmake-mode . eldoc-cmake-enable))
+  :pin melpa)
 
 (with-eval-after-load "projectile"
   (defun tee3-projectile-cmake-project-p ()
@@ -1135,11 +1093,6 @@
 (use-package disaster
   :ensure t
   :pin melpa)
-(use-package objc-font-lock
-  :ensure t
-  :pin melpa
-  :config
-  (objc-font-lock-global-mode))
 
 ;;; JavaScript programming language
 (use-package js)
@@ -1216,23 +1169,10 @@
   (global-homebrew-mode))
 
 ;;;
-;;; Clang Format
+;;; Clang Tools
 ;;;
 (eval-after-load "yaml-mode.el"
   (add-to-list 'auto-mode-alist '(".clang-format\\'" . yaml-mode)))
-
-(use-package clang-format
-  :ensure t
-  :pin melpa
-  :init
-  (when (equal system-type 'gnu/linux)
-    (setq clang-format-executable "/home/linuxbrew/.linuxbrew/opt/llvm/bin/clang-format"))
-  (when (equal system-type 'darwin)
-    (setq clang-format-executable "/usr/local/opt/llvm/bin/clang-format")))
-
-;;;
-;;; Clang Tidy
-;;;
 (eval-after-load "yaml-mode.el"
   (add-to-list 'auto-mode-alist '(".clang-tidy\\'" . yaml-mode)))
 
