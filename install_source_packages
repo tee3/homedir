@@ -131,6 +131,9 @@ def install_standardese(basedir):
     subprocess.check_call(command, cwd=build)
     command = ['cmake', '--build', '.', '--target', 'install']
     subprocess.check_call(command, cwd=build)
+    # @todo workaround for missing install target in standardese CMake
+    command = ['cp', 'tool/standardese', os.path.join(basedir, 'bin')]
+    subprocess.check_call(command, cwd=build)
 
 
 def install_commands_to_compilation_database(basedir):
