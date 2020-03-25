@@ -105,39 +105,27 @@ def install_standardese(basedir):
     standardesedir = os.path.join(basedir, 'src', 'standardese')
 
     git_clone_update_pull_ff_only(
-        'https://github.com/foonathan/standardese.git',
+        'https://github.com/standardese/standardese.git',
         standardesedir)
 
     command = ['git', '-C', standardesedir, 'clean', '-d', '-x', '-f']
     subprocess.check_call(command)
 
-    build = os.path.join(standardesedir, 'Debug')
+    build = os.path.join(standardesedir, 'build')
     if not os.path.exists(build):
         os.makedirs(build)
 
-    libclang_include_dir_option = ''
-    libclang_library_option = ''
-    libclang_system_include_dir_option = ''
+    llvm_config_option = ''
     if sys.platform.startswith('darwin'):
         llvm_prefix = emulate_backtick(['brew', '--prefix', 'llvm'])
-        libclang_include_dir = os.path.join(llvm_prefix, 'include')
-        if libclang_include_dir:
-            libclang_include_dir_option = '-DLIBCLANG_INCLUDE_DIR=' + libclang_include_dir
-        libclang_library = os.path.join(llvm_prefix, 'lib', 'libclang.dylib')
-        if libclang_library:
-            libclang_library_option = '-DLIBCLANG_LIBRARY=' + libclang_library
-        libclang_system_include_dir = os.path.join(llvm_prefix, 'include', 'clang')
-        if libclang_system_include_dir:
-            libclang_system_include_dir_option = '-DLIBCLANG_SYSTEM_INCLUDE_DIR=' + libclang_system_include_dir
+        llvm_config = os.path.join(llvm_prefix, 'bin', 'llvm-config')
+        llvm_config_option = '-DLLVM_CONFIG_BINARY=%s' % (llvm_config)
 
     command = [
         'cmake',
-        libclang_include_dir_option,
-        libclang_library_option,
-        libclang_system_include_dir_option,
-        '-DCMAKE_BUILD_TYPE=Debug',
+        llvm_config_option,
+        '-DCMAKE_BUILD_TYPE=Release',
         '-DCMAKE_INSTALL_PREFIX:PATH=' + basedir,
-        '-DSTANDARDESE_BUILD_TEST=OFF',
         '..'
     ]
     subprocess.check_call(command, cwd=build)
