@@ -71,7 +71,7 @@
 (defcustom tee3-desired-completion-system 'default
   "This is used to choose a completion system when it must be done at configuration."
   :type 'symbol
-  :options '('default 'icomplete 'fido 'ivy))
+  :options '('default 'icomplete 'fido))
 
 ;;;
 ;;; Emacs
@@ -227,9 +227,6 @@
   (setq gnus-init-file "~/.gnus")
   (setq gnus-home-directory user-emacs-directory)
 
-  (when (equal tee3-desired-completion-system 'ivy)
-    (setq gnus-completing-read-function 'ivy-completing-read))
-
   (setq gnus-save-newsrc-file nil)
   (setq gnus-read-newsrc-file nil)
 
@@ -365,29 +362,6 @@
   (text-mode . flyspell-mode)
   (prog-mode . flyspell-prog-mode))
 
-;;; Ivy
-(use-package ivy
-  :if
-  (equal tee3-desired-completion-system 'ivy)
-  :ensure t
-  :pin melpa
-  :init
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-count-format "(%d/%d) ")
-  :config
-  (ivy-mode 1))
-
-;;; Counsel
-(use-package counsel
-  :if
-  (equal tee3-desired-completion-system 'ivy)
-  :ensure t
-  :pin melpa
-  :bind-keymap
-  ("C-c c" . counsel-mode-map)
-  :init
-  (counsel-mode 1))
-
 ;;; Projectile
 (use-package projectile
   :ensure t
@@ -395,11 +369,6 @@
   :bind-keymap
   ("C-c P" . projectile-command-map)
   :init
-  (cond ((equal tee3-desired-completion-system 'ivy)
-         (setq projectile-completion-system 'ivy))
-        (t
-         (setq projectile-completion-system 'default)))
-
   (setq projectile-switch-project-action 'projectile-dired)
   (setq projectile-find-dir-includes-top-level t)
   (setq projectile-use-git-grep t)
