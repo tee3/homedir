@@ -1327,6 +1327,7 @@
   (use-package tao-theme :ensure t :pin melpa :defer t)
   (use-package termbright-theme :ensure t :pin melpa :defer t)
   (use-package ubuntu-theme :ensure t :pin melpa :defer t)
+  (add-to-list 'custom-theme-load-path "~/opt/local/src/unobtrusive-magit-theme")
   (use-package warm-night-theme :ensure t :pin melpa :defer t)
   (use-package zen-and-art-theme :ensure t :pin melpa :defer t)
   (use-package zenburn-theme :ensure t :pin melpa :defer t)
