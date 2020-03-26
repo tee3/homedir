@@ -1379,7 +1379,7 @@
   (use-package ubuntu-theme :ensure t :pin melpa :defer t)
   (use-package ujelly-theme :ensure t :pin melpa :defer t)
   (use-package underwater-theme :ensure t :pin melpa :defer t)
-  (use-package unobtrusive-magit-theme :ensure t :pin melpa :defer t)
+  (add-to-list 'custom-theme-load-path "~/Development/tee3/unobtrusive-magit-theme")
   (use-package waher-theme :ensure t :pin melpa :defer t)
   (use-package warm-night-theme :ensure t :pin melpa :defer t)
   (use-package white-sand-theme :ensure t :pin melpa :defer t)
