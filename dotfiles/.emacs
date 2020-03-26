@@ -967,35 +967,7 @@
   (go-mode . tee3-go-mode-setup))
 
 ;;; Ruby programming language
-(use-package ruby-mode
-  :init
-  (use-package ruby-compilation
-    :ensure t
-    :pin melpa)
-  (use-package ruby-electric
-    :ensure t
-    :pin melpa
-    :hook
-    (ruby-mode . ruby-electric-mode))
-  (use-package robe
-    :if
-    (equal tee3-desired-language-server-system 'default)
-    :ensure t
-    :pin melpa
-    :hook
-    (ruby-mode . robe-mode))
-  (use-package inf-ruby
-    :ensure t
-    :pin melpa)
-  (use-package rspec-mode
-    :ensure t
-    :pin melpa)
-  (use-package rbenv
-    :ensure t
-    :pin melpa)
-  (use-package bundler
-    :ensure t
-    :pin melpa))
+(use-package ruby-mode)
 
 ;;; Objective-J programming language
 (use-package objj-mode
