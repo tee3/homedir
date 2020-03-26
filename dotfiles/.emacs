@@ -900,7 +900,8 @@
   (use-package standard-themes :ensure t :pin gnu :defer t)
   (use-package subatomic-theme :ensure t :pin nongnu :defer t)
   (use-package tramp-theme :ensure t :pin gnu :defer t)
-  (use-package unobtrusive-magit-theme :ensure t :pin melpa :defer t)
+  ;; (use-package unobtrusive-magit-theme :ensure t :pin melpa :defer t)
+  (add-to-list 'custom-theme-load-path "~/Development/tee3/unobtrusive-magit-theme")
 
   (cond (t nil) ;; do not choose any themes by default
         ((display-graphic-p)
