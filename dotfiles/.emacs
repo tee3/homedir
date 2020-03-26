@@ -73,11 +73,6 @@
   :type 'symbol
   :options '('default 'icomplete 'fido 'ivy))
 
-(defcustom tee3-desired-language-server-system 'eglot
-  "Selects the language server system, with 'default being each language has a different one."
-  :type 'symbol
-  :options '('default 'eglot))
-
 ;;;
 ;;; Emacs
 ;;;
@@ -1190,10 +1185,6 @@
   (append (list (tee3-clangd-executable)) tee3-clangd-options))
 
 (use-package eglot
-  :if
-  (and (or (> emacs-major-version 26)
-           (and (= emacs-major-version 26) (>= emacs-minor-version 1)))
-       (equal tee3-desired-language-server-system 'eglot))
   :ensure t
   :pin melpa
   :bind
