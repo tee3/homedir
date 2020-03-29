@@ -304,7 +304,6 @@
 (use-package savehist
   :init
   (setq history-length t)
-  (setq history-delete-duplicates t)
   :config
   (add-to-list 'savehist-additional-variables 'kill-ring)
   (add-to-list 'savehist-additional-variables 'kill-ring-yank-point)
