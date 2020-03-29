@@ -303,6 +303,15 @@
   (setq history-length t)
   (setq history-delete-duplicates t)
   :config
+  (add-to-list 'savehist-additional-variables 'kill-ring)
+  (add-to-list 'savehist-additional-variables 'kill-ring-yank-point)
+  (add-to-list 'savehist-additional-variables 'regexp-search-ring)
+  (add-to-list 'savehist-additional-variables 'regexp-search-ring-yank-pointer)
+  (add-to-list 'savehist-additional-variables 'search-ring)
+  (add-to-list 'savehist-additional-variables 'search-ring-yank-pointer)
+  (add-to-list 'savehist-additional-variables 'register-alist)
+  (add-to-list 'savehist-additional-variables 'file-name-history)
+
   (savehist-mode))
 (use-package saveplace
   :config
