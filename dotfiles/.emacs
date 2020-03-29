@@ -206,6 +206,8 @@
   (setq hs-hide-comments-when-hiding-all t))
 (use-package icomplete
   :init
+  (setq icomplete-show-matches-on-no-input t)
+
   (cond
    ((equal tee3-desired-completion-system 'icomplete)
     (icomplete-mode))
