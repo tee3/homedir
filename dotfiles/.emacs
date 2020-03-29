@@ -292,9 +292,6 @@
   ("C-c p r" . project-query-replace-regexp)
   ("C-c p s g" . project-find-regexp)
   ("C-c p v" . magit-status))
-(use-package recentf
-  :init
-  (recentf-mode 1))
 (use-package savehist
   :init
   (setq history-length t)
