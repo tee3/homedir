@@ -139,6 +139,9 @@
 (use-package newcomment
   :init
   (setq comment-empty-lines t))
+(use-package browse-url
+  :bind
+  ("C-c b b b" . browse-url))
 (use-package cus-edit
   :init
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -182,6 +185,9 @@
 (use-package etags
   :init
   (setq tags-loop-revert-buffers t))
+(use-package eww
+  :bind
+  ("C-c b e b" . eww))
 (use-package font-core
   :config
   (global-font-lock-mode))
