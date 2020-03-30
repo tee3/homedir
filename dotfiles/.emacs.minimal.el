@@ -5,11 +5,11 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(custom-enabled-themes (quote (manoj-dark)))
- '(desktop-save-mode t)
  '(global-display-line-numbers-mode t)
  '(icomplete-mode t)
  '(menu-bar-mode nil)
  '(save-place t)
+ '(savehist-mode t)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(size-indication-mode t)
