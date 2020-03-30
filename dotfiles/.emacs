@@ -1168,6 +1168,21 @@
 (defun tee3-clangd-command (interactive)
   (append (list (tee3-clangd-executable)) tee3-clangd-options))
 
+(defun tee3-sourcekit-lsp-executable ()
+  (setq tee3-sourcekit-lsp-executable
+        (cond ((executable-find "sourcekit-lsp"))
+              ((equal system-type 'darwin)
+               (cond ((executable-find "/usr/local/bin/sourcekit-lsp"))))
+              ((equal system-type 'gnu/linux)
+               (cond ((executable-find "/home/linuxbrew/.linuxbrew/bin/sourcekit-lsp"))))
+              (t
+               ("sourcekit-lsp")))))
+
+(setq tee3-sourcekit-lsp-options '())
+
+(defun tee3-sourcekit-lsp-command (interactive)
+  (append (list (tee3-sourcekit-lsp-executable)) tee3-sourcekit-lsp-options))
+
 (use-package eglot
   :ensure t
   :pin melpa
@@ -1196,6 +1211,7 @@
                                          c++-mode
                                          objc-mode
                                          objc++-mode) . tee3-clangd-command))
+  (add-to-list 'eglot-server-programs '((swift-mode) . tee3-sourcekit-lsp-command))
   (add-to-list 'eglot-server-programs '((yaml-mode) . ("yaml-language-server" "--stdio"))))
 
 (use-package rmsbolt
