@@ -1157,7 +1157,6 @@
 
 (setq tee3-clangd-options '("-j=2"
                             "--all-scopes-completion"
-                            "--background-index"
                             "--clang-tidy"
                             "--completion-style=detailed"
                             "--function-arg-placeholders"
