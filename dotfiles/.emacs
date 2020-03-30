@@ -1146,12 +1146,14 @@
 ;;; Language Server Protocol
 ;;;
 (defun tee3-clangd-executable ()
-  (cond ((equal system-type 'darwin)
-         (setq tee3-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
-        ((equal system-type 'gnu/linux)
-         (setq tee3-clangd-executable "/home/linuxbrew/.linuxbrew/opt/llvm/bin/clangd"))
-        (t
-         (setq tee3-clangd-executable "clangd"))))
+  (setq tee3-clangd-executable
+        (cond ((executable-find "clangd"))
+              ((equal system-type 'darwin)
+               (cond ((executable-find "/usr/local/opt/llvm/bin/clangd"))))
+              ((equal system-type 'gnu/linux)
+               (cond ((executable-find "/home/linuxbrew/.linuxbrew/opt/llvm/bin/clangd"))))
+              (t
+               ("clangd")))))
 
 (setq tee3-clangd-options '("-j=2"
                             "--all-scopes-completion"
