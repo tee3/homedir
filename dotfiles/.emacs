@@ -1192,7 +1192,8 @@
   (setq tee3-clangd-executable
         (cond ((executable-find "clangd"))
               ((equal system-type 'darwin)
-               (cond ((executable-find "/usr/local/opt/llvm/bin/clangd"))))
+               (cond ((executable-find "/usr/local/opt/llvm/bin/clangd"))
+                     ((executable-find "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clangd"))))
               ((equal system-type 'gnu/linux)
                (cond ((executable-find "/home/linuxbrew/.linuxbrew/opt/llvm/bin/clangd"))))
               (t
@@ -1215,7 +1216,8 @@
   (setq tee3-sourcekit-lsp-executable
         (cond ((executable-find "sourcekit-lsp"))
               ((equal system-type 'darwin)
-               (cond ((executable-find "/usr/local/bin/sourcekit-lsp"))))
+               (cond ((executable-find "/usr/local/bin/sourcekit-lsp"))
+                     ((executable-find "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp"))))
               ((equal system-type 'gnu/linux)
                (cond ((executable-find "/home/linuxbrew/.linuxbrew/bin/sourcekit-lsp"))))
               (t
