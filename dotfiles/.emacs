@@ -1162,7 +1162,6 @@
                             "--completion-style=detailed"
                             "--function-arg-placeholders"
                             "--header-insertion=iwyu"
-                            "--header-insertion-decorators"
                             "--include-ineligible-results"
                             "--limit-results=0"
                             "--suggest-missing-includes"))
