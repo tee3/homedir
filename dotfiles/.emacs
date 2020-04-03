@@ -1054,9 +1054,6 @@
 (use-package js-comint
   :ensure t
   :pin melpa)
-(use-package json-navigator
-  :ensure t
-  :pin melpa)
 (use-package jsonnet-mode
   :ensure t
   :pin melpa)
