@@ -714,7 +714,9 @@
     :init
     (use-package vc))
 
-  (setq vc-make-backup-files t))
+  (setq vc-make-backup-files t)
+
+  (setq vc-git-print-log-follow t))
 
 ;;; Imenu
 (use-package imenu
