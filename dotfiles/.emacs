@@ -371,6 +371,11 @@
   :hook
   (prog-mode . hs-minor-mode))
 
+;;; Debbugs
+(use-package debbugs
+  :ensure t
+  :pin gnu)
+
 ;;; Flyspell
 (use-package flyspell
   :hook
