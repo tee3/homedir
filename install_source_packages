@@ -63,12 +63,6 @@ def install_objj_mode(basedir):
         os.path.join(basedir, 'src', 'objj-mode'))
 
 
-def install_unobtrusive_magit_theme(basedir):
-    git_clone_update_pull_ff_only(
-        'https://github.com/tee3/unobtrusive-magit-theme.git',
-        os.path.join(basedir, 'src', 'unobtrusive-magit-theme'))
-
-
 def install_git_svn_update_externals(basedir):
     git_clone_update_pull_ff_only(
         'https://github.com/tee3/git-svn-update-externals.git',
@@ -176,7 +170,6 @@ if __name__ == '__main__':
     install_tee3_c_style(prefix)
     install_msvc_c_style(prefix)
     install_objj_mode(prefix)
-    install_unobtrusive_magit_theme(prefix)
     install_commands_to_compilation_database(prefix)
     install_git_svn_update_externals(prefix)
     install_boost(prefix)
