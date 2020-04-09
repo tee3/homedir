@@ -389,6 +389,7 @@
   :bind-keymap
   ("C-c P" . projectile-command-map)
   :init
+  (setq projectile-completion-system 'default)
   (setq projectile-switch-project-action 'projectile-dired)
   (setq projectile-find-dir-includes-top-level t)
   (setq projectile-use-git-grep t)
