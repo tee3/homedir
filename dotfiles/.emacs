@@ -213,6 +213,13 @@
     (icomplete-mode))
    ((equal tee3-desired-completion-system 'fido)
     (fido-mode))))
+(use-package icomplete-vertical
+  :ensure t
+  :pin melpa
+  :after icomplete
+  :init
+  (when (equal tee3-desired-completion-system 'icomplete)
+    (icomplete-vertical-mode)))
 (use-package linum
   :if
   (< emacs-major-version 26)
