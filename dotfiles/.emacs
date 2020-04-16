@@ -1152,6 +1152,13 @@
   ("C-c ! l" . flymake-show-diagnostics-buffer)
   :hook
   (prog-mode . flymake-mode))
+(use-package flymake-shellcheck
+  :ensure t
+  :pin melpa
+  :after flymake
+  :commands flymake-shellcheck-load
+  :hook
+  (sh-mode . flymake-shellcheck-load))
 
 ;;;
 ;;; Language Server Protocol
