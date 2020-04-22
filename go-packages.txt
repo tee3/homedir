@@ -5,3 +5,5 @@ golang.org/x/tools/gopls
 github.com/google/git-appraise/git-appraise
 
 github.com/shurcool/markdownfmt
+
+github.com/cesanta/validate-json
