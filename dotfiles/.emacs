@@ -1382,6 +1382,7 @@
   (use-package nord-theme :ensure t :pin melpa :defer t)
   (use-package nordless-theme :ensure t :pin melpa :defer t)
   (use-package paper-theme :ensure t :pin melpa :defer t)
+  (use-package plan9-theme :ensure t :pin melpa :defer t)
   (use-package poet-theme :ensure t :pin melpa :defer t)
   (use-package professional-theme :ensure t :pin melpa :defer t)
   (use-package rebecca-theme :ensure t :pin melpa :defer t)
