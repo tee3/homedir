@@ -68,6 +68,10 @@
   "Customization variables in the .emacs file."
   :group 'convenience)
 
+(defcustom tee3-display-line-numbers t
+  "This is use to enable or disable line numbers."
+  :type 'boolean)
+
 (defcustom tee3-desired-completion-system 'default
   "This is used to choose a completion system when it must be done at configuration."
   :type 'symbol
@@ -222,7 +226,8 @@
     (icomplete-vertical-mode)))
 (use-package linum
   :if
-  (< emacs-major-version 26)
+  (and tee3-display-line-numbers
+       (< emacs-major-version 26))
   :init
   (setq linum-format "%4d ")
   :hook
@@ -231,7 +236,8 @@
   (prog-mode . linum-mode))
 (use-package display-line-numbers
   :if
-  (>= emacs-major-version 26)
+  (and tee3-display-line-numbers
+       (>= emacs-major-version 26))
   :init
   (setq display-line-numbers-grow-only t)
   (setq display-line-numbers-width-start 3)
@@ -867,11 +873,12 @@
   :hook
   (jam-mode . tee3-jam-mode-setup)
   :config
-  (if (>= emacs-major-version 26)
-      (eval-after-load "display-line-numbers.el"
-        (add-hook 'jam-mode-hook 'display-line-numbers-mode))
-    (eval-after-load "linum.el"
-      (add-hook 'jam-mode-hook 'linum-mode)))
+  (when tee3-display-line-numbers
+    (if (>= emacs-major-version 26)
+        (eval-after-load "display-line-numbers.el"
+          (add-hook 'jam-mode-hook 'display-line-numbers-mode))
+      (eval-after-load "linum.el"
+        (add-hook 'jam-mode-hook 'linum-mode))))
 
   (eval-after-load "flyspell.el"
     (add-hook 'jam-mode-hook 'flyspell-prog-mode)))
