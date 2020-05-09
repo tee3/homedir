@@ -1198,13 +1198,35 @@
   :hook
   (prog-mode . eglot-ensure)
   :config
+  ;;; vscode-json-languageserver-specific
+  ;;;
+  (defclass tee3-vscode-json-languageserver (eglot-lsp-server) ()
+    :documentation "VSCode JSON Language Server.")
+
+  (cl-defmethod eglot-initialization-options ((server tee3-vscode-json-languageserver))
+    "Passes through required \"tee3-vscode-json-languageserver\" SERVER initialization options."
+    `(:provideFormatter t))
+
+  (defun tee3--vscode-json-languageserver-contact (interactive)
+    "Return a contact for connecting to vscode-json-languageserver.
+  If INTERACTIVE, prompt user for details if not found."
+    (cl-labels ()
+      (let* ((s0 (executable-find "vscode-json-languageserver"))
+             (s1 (if s0
+                     s0
+                   (and interactive
+                        (read-shell-command
+                         "Enter program to execute for: "
+                         "vscode-json-languageserver")))))
+        (cons 'tee3-vscode-json-languageserver (list s1 "--stdio")))))
+
   (add-to-list 'eglot-server-programs '((css-mode
                                          less-css-mode
                                          scss-mode) . ("css-language-server" "--stdio")))
   (add-to-list 'eglot-server-programs '((dockerfile-mode) . ("docker-langserver" "--stdio")))
   (add-to-list 'eglot-server-programs '((html-mode) . ("html-languageserver" "--stdio")))
   (add-to-list 'eglot-server-programs '((vue-mode) . ("vls" "--stdio")))
-  (add-to-list 'eglot-server-programs '((json-mode jsonc-mode) . ("vscode-json-languageserver" "--stdio")))
+  (add-to-list 'eglot-server-programs '((json-mode jsonc-mode) . tee3--vscode-json-languageserver-contact))
   (add-to-list 'eglot-server-programs '((c-mode
                                          c++-mode
                                          objc-mode
