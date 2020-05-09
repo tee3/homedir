@@ -458,6 +458,10 @@
   (setq markdown-nested-imenu-heading-index t))
 (use-package rst)
 
+(use-package posix-manual
+  :ensure t
+  :pin melpa)
+
 ;;; Android development
 (use-package android-mode
   :ensure t
