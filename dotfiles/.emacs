@@ -1227,7 +1227,7 @@
   :config
   (add-to-list 'eglot-server-programs '((css-mode
                                          less-css-mode
-                                         scss-mode) . ("css-languageserver" "--stdio")))
+                                         scss-mode) . ("css-language-server" "--stdio")))
   (add-to-list 'eglot-server-programs '((dockerfile-mode) . ("docker-langserver" "--stdio")))
   (add-to-list 'eglot-server-programs '((html-mode) . ("html-languageserver" "--stdio")))
   (add-to-list 'eglot-server-programs '((vue-mode) . ("vls" "--stdio")))

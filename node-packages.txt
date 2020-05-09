@@ -7,7 +7,7 @@ semistandard
 
 javascript-typescript-langserver
 
-vscode-css-languageserver-bin
+css-language-server
 vscode-html-languageserver-bin
 vue-language-server
 
