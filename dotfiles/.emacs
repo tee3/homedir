@@ -1180,8 +1180,7 @@
   (append (list (tee3-sourcekit-lsp-executable)) tee3-sourcekit-lsp-options))
 
 (use-package eglot
-  :ensure t
-  :pin melpa
+  :load-path "~/Development/tee3/eglot"
   :bind
   ("C-c l ." . eglot-find-implementation)
   ("C-c l a" . eglot-code-actions)
@@ -1202,7 +1201,7 @@
                                          less-css-mode
                                          scss-mode) . ("css-language-server" "--stdio")))
   (add-to-list 'eglot-server-programs '((dockerfile-mode) . ("docker-langserver" "--stdio")))
-  (add-to-list 'eglot-server-programs '((html-mode) . ("html-languageserver" "--stdio")))
+  ; (add-to-list 'eglot-server-programs '((html-mode) . ("html-languageserver" "--stdio")))
   (add-to-list 'eglot-server-programs '((vue-mode) . ("vls" "--stdio")))
   (add-to-list 'eglot-server-programs '((json-mode jsonc-mode) . ("vscode-json-languageserver" "--stdio")))
   (add-to-list 'eglot-server-programs '((c-mode
