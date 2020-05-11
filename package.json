@@ -1,0 +1,41 @@
+{
+  "name": "homedir",
+  "version": "0.0.1",
+  "description": "Node packages for homedir.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tee3/homedir.git"
+  },
+  "author": "Thomas Brown <tabsoftwareconsulting@gmail.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/tee3/homedir/issues"
+  },
+  "homepage": "https://github.com/tee3/homedir#readme",
+  "dependencies": {
+    "jsdoc": "latest",
+
+    "eslint": "latest",
+    "standard": "latest",
+    "semistandard": "latest",
+
+    "typescript": "latest",
+    "typescript-language-server": "latest",
+
+    "css-language-server": "latest",
+    "vscode-html-languageserver-bin": "latest",
+    "vls": "latest",
+
+    "vscode-json-languageserver": "latest",
+
+    "bash-language-server": "latest",
+
+    "dockerfile-language-server-nodejs": "latest",
+
+    "yaml-language-server": "latest",
+
+    "sql-language-server": "latest",
+
+    "graphql-language-service-cli": "latest"
+  }
+}
