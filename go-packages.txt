@@ -6,4 +6,5 @@ github.com/google/git-appraise/git-appraise
 
 github.com/shurcool/markdownfmt
 
-github.com/cesanta/validate-json
+github.com/santhosh-tekuri/jsonschema
+github.com/santhosh-tekuri/jsonschema/cmd/jv
