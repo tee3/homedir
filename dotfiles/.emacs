@@ -68,7 +68,7 @@
   "Customization variables in the .emacs file."
   :group 'convenience)
 
-(defcustom tee3-display-line-numbers t
+(defcustom tee3-display-line-numbers nil
   "This is use to enable or disable line numbers."
   :type 'boolean)
 
