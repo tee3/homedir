@@ -180,6 +180,8 @@
   :init
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 (use-package eldoc
+  :ensure t
+  :pin gnu
   :config
   (global-eldoc-mode))
 (use-package elec-pair
@@ -293,6 +295,8 @@
   :hook
   (shell-mode . pcomplete-shell-setup))
 (use-package project
+  :ensure t
+  :pin gnu
   :bind
   ("C-c p D" . project-find-file)
   ("C-c p F" . project-or-external-find-file)
@@ -366,6 +370,9 @@
   (setq windmove-wrap-around t)
   :config
   (windmove-default-keybindings 'shift))
+(use-package xref
+  :ensure t
+  :pin gnu)
 
 (use-package darkroom
   :ensure t
