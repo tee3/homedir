@@ -196,6 +196,8 @@
   :init
   (setq tags-loop-revert-buffers t))
 (use-package eww
+  :init
+  (setq eww-restore-desktop t)
   :bind
   ("C-c b e b" . eww))
 (use-package font-core
