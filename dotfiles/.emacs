@@ -151,7 +151,7 @@
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
   (load custom-file 'noerror))
 (use-package abbrev)
-(use-package compilation
+(use-package compile
   :bind
   ("C-c c c" . compile)
   ("C-c c r" . recompile))
@@ -681,7 +681,7 @@
   ("C-c g" . ggtags-mode-prefix-map))
 
 ;;; Scheme programming language
-(use-package scheme-mode
+(use-package scheme
   :mode
   (("\\.guile\\'" . scheme-mode)))
 (use-package geiser
@@ -993,7 +993,7 @@
    ("\\.jake\\'" . js-mode)))
 
 ;;; XML
-(use-package nxml
+(use-package nxml-mode
   :mode
   (("\\.xml\\'" . nxml-mode)
    ("\\.xsl\\'" . nxml-mode)
@@ -1002,7 +1002,7 @@
    ("\\.xhtml\\'" . nxml-mode)))
 
 ;;; DITA
-(use-package nxml
+(use-package nxml-mode
   :mode
   (("\\.dita\\'" . nxml-mode)
    ("\\.ditamap\\'" . nxml-mode)))
@@ -1011,7 +1011,7 @@
 (use-package docbook
   :ensure t
   :pin gnu)
-(use-package nxml
+(use-package nxml-mode
   :mode
   (("\\.docbook\\'" . nxml-mode)))
 
