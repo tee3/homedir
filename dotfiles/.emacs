@@ -39,6 +39,8 @@
 ;;;
 (setq-default use-package-enable-imenu-support t)
 
+(setq-default use-package-compute-statistics nil)
+
 (when (require 'package nil :noerror)
   (when (boundp 'package-pinned-packages)
     (setq package-pinned-packages
