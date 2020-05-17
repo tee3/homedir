@@ -27,8 +27,6 @@
   ;; add packages libraries
   (when (< emacs-major-version 24)
     (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t))
-  (when (>= emacs-major-version 24)
-    (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t))
   (when (>= emacs-major-version 23)
     (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t))
   (when (>= emacs-major-version 23)
@@ -825,6 +823,7 @@
 
 ;;; Subversion
 (use-package psvn
+  :disabled ; @todo find an alternative package
   :ensure t
   :pin marmalade
   :bind
@@ -860,6 +859,7 @@
 
 ;;; Jam programming language
 (use-package jam-mode
+  :disabled ; @todo find an alternative package
   :ensure t
   :pin marmalade
   :preface
