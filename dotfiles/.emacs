@@ -28,8 +28,6 @@
   (when (< emacs-major-version 24)
     (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t))
   (when (>= emacs-major-version 23)
-    (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t))
-  (when (>= emacs-major-version 23)
     (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t))
 
   (package-initialize))
