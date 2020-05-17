@@ -435,7 +435,7 @@
 ;;;
 (use-package org
   :ensure t
-  :pin melpa)
+  :pin gnu)
 
 ;;;
 ;;; Markdown formats
