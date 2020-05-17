@@ -161,6 +161,8 @@
   (defun tee3-disable-themes ()
     (mapc 'disable-theme custom-enabled-themes))
   :init
+  ;; @todo do not restore frames for now
+  (setq desktop-restore-frames nil)
   (setq desktop-restore-in-current-display nil)
   (setq desktop-restore-forces-onscreen nil)
   (setq desktop-restore-reuses-frames nil)
