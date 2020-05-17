@@ -549,6 +549,7 @@
   :ensure ada-mode
   :pin gnu)
 (use-package applescript-mode
+  :disabled t
   :ensure t
   :pin melpa)
 (use-package asm-mode
