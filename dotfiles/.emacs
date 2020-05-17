@@ -161,12 +161,12 @@
   (defun tee3-disable-themes ()
     (mapc 'disable-theme custom-enabled-themes))
   :init
-  (setq desktop-globals-to-clear nil)
-  (setq desktop-globals-to-save nil)
   (setq desktop-restore-in-current-display nil)
   (setq desktop-restore-forces-onscreen nil)
   (setq desktop-restore-reuses-frames nil)
   :config
+  (add-to-list 'desktop-globals-to-save 'kill-ring)
+
   (desktop-save-mode)
   :hook
   (kill-emacs . tee3-disable-themes))
@@ -325,15 +325,6 @@
   :init
   (setq history-length t)
   :config
-  (add-to-list 'savehist-additional-variables 'kill-ring)
-  (add-to-list 'savehist-additional-variables 'kill-ring-yank-point)
-  (add-to-list 'savehist-additional-variables 'regexp-search-ring)
-  (add-to-list 'savehist-additional-variables 'regexp-search-ring-yank-pointer)
-  (add-to-list 'savehist-additional-variables 'search-ring)
-  (add-to-list 'savehist-additional-variables 'search-ring-yank-pointer)
-  (add-to-list 'savehist-additional-variables 'register-alist)
-  (add-to-list 'savehist-additional-variables 'file-name-history)
-
   (savehist-mode))
 (use-package saveplace
   :demand t
