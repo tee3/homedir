@@ -35,6 +35,8 @@
 ;;;
 ;;; Bootstrap use-package
 ;;;
+(setq-default use-package-always-defer t)
+
 (setq-default use-package-enable-imenu-support t)
 
 (setq-default use-package-compute-statistics nil)
@@ -154,6 +156,7 @@
   ("C-c c c" . compile)
   ("C-c c r" . recompile))
 (use-package desktop
+  :demand t
   :preface
   (defun tee3-disable-themes ()
     (mapc 'disable-theme custom-enabled-themes))
@@ -197,6 +200,7 @@
   :config
   (global-font-lock-mode))
 (use-package frame
+  :demand t
   :config
   (add-to-list 'initial-frame-alist '(width . 160))
   (add-to-list 'initial-frame-alist '(height . 48))
@@ -317,6 +321,7 @@
   ("C-c p s g" . project-find-regexp)
   ("C-c p v" . magit-status))
 (use-package savehist
+  :demand t
   :init
   (setq history-length t)
   :config
@@ -331,6 +336,7 @@
 
   (savehist-mode))
 (use-package saveplace
+  :demand t
   :config
   (if (>= emacs-major-version 25)
       (save-place-mode)
