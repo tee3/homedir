@@ -8,8 +8,5 @@ gem 'solargraph'
 # Development - JavaScript
 gem 'mdl'
 
-# Continuous Integration
-gem 'travis'
-
 # Documentation
 gem 'asciidoctor'
