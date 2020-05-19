@@ -293,18 +293,20 @@
   :config
   (show-paren-mode))
 (use-package pcomplete
-  :init
-  (use-package pcmpl-git
-    :ensure t
-    :pin melpa)
-  (use-package pcmpl-homebrew
-    :ensure t
-    :pin melpa)
-  (use-package pcmpl-pip
-    :ensure t
-    :pin melpa)
   :hook
   (shell-mode . pcomplete-shell-setup))
+(use-package pcmpl-git
+  :ensure t
+  :pin melpa
+  :after pcomplete)
+(use-package pcmpl-homebrew
+  :ensure t
+  :pin melpa
+  :after pcomplete)
+(use-package pcmpl-pip
+  :ensure t
+  :pin melpa
+  :after pcomplete)
 (use-package project
   :ensure t
   :pin gnu
@@ -731,25 +733,23 @@
 ;;;
 (use-package vc
   :init
-  (use-package vc-fossil
-    :ensure t
-    :pin melpa
-    :init
-    (use-package vc))
-
   (setq vc-make-backup-files t)
 
   (setq vc-git-print-log-follow t))
+(use-package vc-fossil
+  :ensure t
+  :pin melpa
+  :after vc)
 
 ;;; Imenu
-(use-package imenu
+(use-package imenu)
+(use-package imenu-list
+  :ensure t
+  :pin melpa
+  :after imenu
   :init
-  (use-package imenu-list
-    :ensure t
-    :pin melpa
-    :init
-    (setq imenu-list-focus-after-activation t)
-    (setq imenu-list-auto-resize t)))
+  (setq imenu-list-focus-after-activation t)
+  (setq imenu-list-auto-resize t))
 
 ;;; Git
 (use-package gited
@@ -782,16 +782,6 @@
   ("C-c v g c" . magit-dispatch-popup)
   ("C-c v g f" . magit-file-popup)
   :init
-  (use-package magit-lfs
-    :ensure t
-    :pin melpa)
-  (use-package magit-svn
-    :ensure t
-    :pin melpa)
-  (use-package forge
-    :ensure t
-    :pin melpa)
-
   (setq magit-repository-directories (quote (("~/Development" . 2))))
 
   ;; trash doesn't work properly on macOS
@@ -812,6 +802,18 @@
 
   :hook
   (magit-mode . magit-load-config-extensions))
+(use-package magit-lfs
+  :ensure t
+  :pin melpa
+  :after magit)
+(use-package magit-svn
+  :ensure t
+  :pin melpa
+  :after magit)
+(use-package forge
+  :ensure t
+  :pin melpa
+  :after magit)
 
 ;;; Mercurial
 (use-package monky
@@ -1049,32 +1051,34 @@
   ("\\.cu\\'" . c++-mode)
   ("\\.cuh\\'" . c++-mode)
   :init
-  (use-package cwarn
-    :init
-    (global-cwarn-mode t))
-  (use-package tee3-c-style
-    :load-path
-    "~/opt/local/src/tee3-c-style")
-  (use-package msvc-c-style
-    :load-path
-    "~/opt/local/src/msvc-c-style")
-  (use-package google-c-style
-    :ensure t
-    :pin melpa)
-  (use-package hideif
-    :init
-    (setq hide-ifdef-read-only t)
-    (setq hide-ifdef-initially nil)
-    (setq hide-ifdef-lines t)
-    :hook
-    (c-mode . hide-ifdef-mode)
-    (c++-mode . hide-ifdef-mode))
   (setq c-indent-comments-syntactically-p t)
   (setq c-strict-syntax-p t)
   :hook
   (c-mode . tee3-c-set-style-tee3)
   (c++-mode . tee3-c-set-style-tee3)
   (c-mode-common . tee3-c-mode-common-setup))
+(use-package tee3-c-style
+  :demand t ; @todo for now, this package needs work
+  :load-path
+  "~/opt/local/src/tee3-c-style")
+(use-package msvc-c-style
+  :demand t ; @todo for now, this package needs work
+  :load-path
+  "~/opt/local/src/msvc-c-style")
+(use-package google-c-style
+  :ensure t
+  :pin melpa)
+(use-package cwarn
+  :init
+  (global-cwarn-mode t))
+(use-package hideif
+  :init
+  (setq hide-ifdef-read-only t)
+  (setq hide-ifdef-initially nil)
+  (setq hide-ifdef-lines t)
+  :hook
+  (c-mode . hide-ifdef-mode)
+  (c++-mode . hide-ifdef-mode))
 (use-package demangle-mode
   :ensure t
   :pin melpa)
