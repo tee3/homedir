@@ -833,6 +833,16 @@
                                     :test-dir "test"
                                     :test-prefix "test_"))
 
+;;; b2 (Boost.Build)
+(use-package b2-mode
+  :demand t ; @todo for now, this package needs work
+  :load-path
+  "~/Development/tee3/b2-mode")
+;;; Boost.Jam
+(use-package bjam-mode
+  :demand t ; @todo for now, this package needs work
+  :load-path
+  "~/Development/tee3/bjam-mode")
 ;;; Jam programming language
 (use-package jam-mode
   :disabled ; @todo find an alternative package
