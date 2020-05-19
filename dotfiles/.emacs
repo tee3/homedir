@@ -845,6 +845,12 @@
                                     :test-dir "test"
                                     :test-prefix "test_"))
 
+;;; b2 (Boost.Build)
+(use-package b2-mode
+  :demand t ; @todo for now, this package needs work
+  :load-path
+  "~/opt/local/src/b2-mode")
+
 ;;; Xcode
 ;;; @todo convert to ede or something
 (with-eval-after-load "projectile"
