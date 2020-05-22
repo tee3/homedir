@@ -21,14 +21,14 @@ else if [ os.name ] = LINUX
 
   using gcc : 9 : /home/linuxbrew/.linuxbrew/opt/gcc@9/bin/g++-9 ;
   using gcc : 8 : /home/linuxbrew/.linuxbrew/opt/gcc@8/bin/g++-8 ;
-  #using gcc : 7 : /home/linuxbrew/.linuxbrew/opt/gcc@7/bin/g++-7 ;
+  using gcc : 7 : /home/linuxbrew/.linuxbrew/opt/gcc@7/bin/g++-7 ;
   using gcc : 6 : /home/linuxbrew/.linuxbrew/opt/gcc@6/bin/g++-6 ;
 
   # other compilers, both system and optional
   using clang ;
 
-  using clang : 10 : /home/linuxbrew/.linuxbrew/opt/llvm/bin/clang++ ;
-  #using clang : 9 : /home/linuxbrew/.linuxbrew/opt/llvm@9/bin/clang++ ;
+  using clang : 10 : /home/linuxbrew/.linuxbrew/opt/llvm@10/bin/clang++ ;
+  using clang : 9 : /home/linuxbrew/.linuxbrew/opt/llvm@9/bin/clang++ ;
   using clang : 8 : /home/linuxbrew/.linuxbrew/opt/llvm@8/bin/clang++ ;
   using clang : 7 : /home/linuxbrew/.linuxbrew/opt/llvm@7/bin/clang++ ;
   using clang : 6 : /home/linuxbrew/.linuxbrew/opt/llvm@6/bin/clang++ ;
@@ -47,16 +47,14 @@ else if [ os.name ] = MACOSX
 
   # other compilers, both system and optional
   using clang : 10 : /usr/local/opt/llvm/bin/clang++ : $(macos-options) ;
-  #using clang : 9 : /usr/local/opt/llvm/bin/clang++ : $(macos-options) ;
+  using clang : 9 : /usr/local/opt/llvm@9/bin/clang++ : $(macos-options) ;
   using clang : 8 : /usr/local/opt/llvm@8/bin/clang++ : $(macos-options) ;
   using clang : 7 : /usr/local/opt/llvm@7/bin/clang++ : $(macos-options) ;
   using clang : 6 : /usr/local/opt/llvm@6/bin/clang++ : $(macos-options) ;
 
   using darwin ;
 
-  #using darwin : 10 : /usr/local/opt/gcc/bin/g++-9 : $(macos-options) ;
   using darwin : 9 : /usr/local/opt/gcc/bin/g++-9 : $(macos-options) ;
-  #using darwin : 9 : /usr/local/opt/gcc@9/bin/g++-9 : $(macos-options) ;
   using darwin : 8 : /usr/local/opt/gcc@8/bin/g++-8 : $(macos-options) ;
   using darwin : 7 : /usr/local/opt/gcc@7/bin/g++-7 : $(macos-options) ;
   using darwin : 6 : /usr/local/opt/gcc@6/bin/g++-6 : $(macos-options) ;
