@@ -353,6 +353,9 @@
   (setq kill-ring-max 1000)
   (setq kill-do-not-save-duplicates t)
   (setq save-interprogram-paste-before-kill t)
+  (setq global-mark-ring-max 10000)
+  (setq mark-ring-max 10000)
+  (setq set-mark-command-repeat-pop t)
   :hook
   (text-mode . auto-fill-mode))
 (use-package speedbar
