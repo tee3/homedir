@@ -12,6 +12,9 @@ python-language-server[all]
 rope
 yapf
 
+# Git
+git-filter-repo
+
 # reStructuredText
 #breathe
 docutils
