@@ -404,6 +404,8 @@
 
 ;;; Projectile
 (use-package projectile
+  :if
+  (< emacs-major-version 28)
   :ensure t
   :pin melpa
   :bind-keymap
