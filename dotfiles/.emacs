@@ -1380,6 +1380,7 @@
   (use-package ujelly-theme :ensure t :pin melpa :defer t)
   (use-package underwater-theme :ensure t :pin melpa :defer t)
   (use-package unobtrusive-magit-theme :ensure t :pin melpa :defer t)
+  (use-package vscode-dark-plus-theme :ensure t :pin melpa :defer t)
   (use-package waher-theme :ensure t :pin melpa :defer t)
   (use-package warm-night-theme :ensure t :pin melpa :defer t)
   (use-package white-sand-theme :ensure t :pin melpa :defer t)
