@@ -1309,6 +1309,7 @@
   (use-package eink-theme :ensure t :pin melpa :defer t)
   (use-package espresso-theme :ensure t :pin melpa :defer t)
   (use-package faff-theme :ensure t :pin melpa :defer t)
+  (use-package fantom-theme :ensure t :pin melpa :defer t)
   (use-package farmhouse-theme :ensure t :pin melpa :defer t)
   (use-package flatland-theme :ensure t :pin melpa :defer t)
   (use-package flatui-theme :ensure t :pin melpa :defer t)
