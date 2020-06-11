@@ -1177,6 +1177,9 @@
 (defun tee3-sourcekit-lsp-command (interactive)
   (append (list (tee3-sourcekit-lsp-executable)) tee3-sourcekit-lsp-options))
 
+(defun tee3-groovy-language-server-command (interactive)
+  (list "java" "-jar" (expand-file-name "~/opt/local/src/groovy-language-server/build/libs/groovy-language-server-all.jar")))
+
 (use-package eglot
   :ensure t
   :pin melpa
@@ -1199,6 +1202,7 @@
                                          less-css-mode
                                          scss-mode) . ("css-language-server" "--stdio")))
   (add-to-list 'eglot-server-programs '((dockerfile-mode) . ("docker-langserver" "--stdio")))
+  (add-to-list 'eglot-server-programs '((groovy-mode) . tee3-groovy-language-server-command))
   (add-to-list 'eglot-server-programs '((html-mode) . ("html-languageserver" "--stdio")))
   (add-to-list 'eglot-server-programs '((vue-mode) . ("vls" "--stdio")))
   (add-to-list 'eglot-server-programs '((json-mode jsonc-mode) . ("vscode-json-languageserver" "--stdio")))
