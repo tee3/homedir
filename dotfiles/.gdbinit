@@ -12,3 +12,6 @@ set print demangle on
 set demangle-style gnu-v3
 
 catch throw
+
+# @todo get from the environment if necessary
+#add-auto-load-safe-path /home/linuxbrew/.linuxbrew/Cellar/gcc@9/9.2.0_1/lib/gcc/9/libstdc++.so.6.0.27-gdb.py
