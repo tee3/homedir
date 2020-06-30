@@ -1202,7 +1202,6 @@
                             "--completion-style=detailed"
                             "--function-arg-placeholders"
                             "--header-insertion=iwyu"
-                            "--include-ineligible-results"
                             "--limit-results=0"
                             "--suggest-missing-includes"))
 
