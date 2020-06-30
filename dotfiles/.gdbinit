@@ -12,3 +12,6 @@ set print demangle on
 set demangle-style gnu-v3
 
 catch throw
+
+# @todo macOS?
+set startup-with-shell off
