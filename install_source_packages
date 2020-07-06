@@ -101,41 +101,6 @@ def install_boost(basedir):
     subprocess.check_call(command, cwd=boostdir)
 
 
-def install_standardese(basedir):
-    standardesedir = os.path.join(basedir, 'src', 'standardese')
-
-    git_clone_update_pull_ff_only(
-        'https://github.com/standardese/standardese.git',
-        standardesedir)
-
-    command = ['git', '-C', standardesedir, 'clean', '-d', '-x', '-f']
-    subprocess.check_call(command)
-
-    build = os.path.join(standardesedir, 'build')
-    if not os.path.exists(build):
-        os.makedirs(build)
-
-    llvm_config_option = ''
-    if sys.platform.startswith('darwin'):
-        llvm_prefix = emulate_backtick(['brew', '--prefix', 'llvm'])
-        llvm_config = os.path.join(llvm_prefix, 'bin', 'llvm-config')
-        llvm_config_option = '-DLLVM_CONFIG_BINARY=%s' % (llvm_config)
-
-    command = [
-        'cmake',
-        llvm_config_option,
-        '-DCMAKE_BUILD_TYPE=Release',
-        '-DCMAKE_INSTALL_PREFIX:PATH=' + basedir,
-        '..'
-    ]
-    subprocess.check_call(command, cwd=build)
-    command = ['cmake', '--build', '.', '--target', 'install']
-    subprocess.check_call(command, cwd=build)
-    # @todo workaround for missing install target in standardese CMake
-    command = ['cp', 'tool/standardese', os.path.join(basedir, 'bin')]
-    subprocess.check_call(command, cwd=build)
-
-
 def install_commands_to_compilation_database(basedir):
     if not b2:
         return
@@ -173,6 +138,5 @@ if __name__ == '__main__':
     install_commands_to_compilation_database(prefix)
     install_git_svn_update_externals(prefix)
     install_boost(prefix)
-    install_standardese(prefix)
 
     sys.exit(r)
