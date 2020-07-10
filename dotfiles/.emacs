@@ -521,6 +521,13 @@
 (use-package jgraph-mode
   :ensure t
   :pin gnu)
+(use-package newsticker
+  :init
+  (setq newsticker-frontend 'newsticker-plainview)
+  (setq newsticker-show-descriptions-of-new-items nil)
+  (setq newsticker-hide-old-items-in-newsticker-buffer t)
+  :config
+  (newsticker-start))
 (use-package nginx-mode
   :ensure t
   :pin melpa)
