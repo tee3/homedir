@@ -246,7 +246,9 @@
   (setq eww-history-limit t)
   :bind
   ("C-c b e b" . eww))
-(use-package ffap)
+(use-package ffap
+  :init
+  (setq ffap-rfc-directories (expand-file-name "~/Documents/Research/Engineering/RFC")))
 (use-package font-core
   :demand t
   :config
