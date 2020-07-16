@@ -472,15 +472,6 @@
   (setq markdown-nested-imenu-heading-index t))
 (use-package rst)
 
-;;; Utilities
-(use-package ietf-docs
-  :ensure t
-  :pin melpa
-  :bind
-  ("C-c f i" . ietf-docs-open-at-point)
-  :init
-  (setq ietf-docs-cache-directory (expand-file-name "~/Documents/Research/Engineering/RFC")))
-
 ;;; Android development
 (use-package android-mode
   :ensure t
