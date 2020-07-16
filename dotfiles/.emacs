@@ -200,6 +200,7 @@
   (setq eww-restore-desktop t)
   :bind
   ("C-c b e b" . eww))
+(use-package ffap)
 (use-package font-core
   :config
   (global-font-lock-mode))
