@@ -196,7 +196,9 @@
   (setq eww-restore-desktop t)
   :bind
   ("C-c b e b" . eww))
-(use-package ffap)
+(use-package ffap
+  :init
+  (ffap-bindings))
 (use-package font-core
   :demand t
   :config
