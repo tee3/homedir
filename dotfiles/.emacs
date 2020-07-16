@@ -1249,6 +1249,8 @@
   ("C-c l q" . eglot-shutdown)
   ("C-c l r" . eglot-rename)
   ("C-c l s" . eglot)
+  :init
+  (setq eglot-autoshutdown t)
   :hook
   (prog-mode . eglot-ensure)
   :config
