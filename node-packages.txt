@@ -9,7 +9,7 @@ javascript-typescript-langserver
 
 css-language-server
 vscode-html-languageserver-bin
-vue-language-server
+vls
 
 # JSON Development Tools
 vscode-json-languageserver
