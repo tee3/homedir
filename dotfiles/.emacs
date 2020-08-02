@@ -593,11 +593,9 @@
 (use-package fish-mode
   :ensure t
   :pin melpa)
-(use-package groovy-mode
+(use-package jenkinsfile-mode
   :ensure t
-  :pin melpa
-  :mode
-  (("Jenkinsfile\\'" . groovy-mode)))
+  :pin melpa)
 (use-package haskell-mode
   :ensure t
   :pin melpa)
