@@ -30,3 +30,6 @@ conan
 
 # Jupyter
 jupyter
+
+# DVC
+dvc[all]
