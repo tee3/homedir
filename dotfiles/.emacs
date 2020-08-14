@@ -225,7 +225,7 @@
 (use-package icomplete
   :init
   (setq icomplete-show-matches-on-no-input t)
-
+  :config
   (cond
    ((equal tee3-desired-completion-system 'icomplete)
     (icomplete-mode))
