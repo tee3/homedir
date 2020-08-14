@@ -220,6 +220,9 @@
   :init
   (setq hs-hide-comments-when-hiding-all t))
 (use-package icomplete
+  :preface
+  (defun tee3-icomplete-setup ()
+    (setq-local completion-styles '(initials flex)))
   :init
   (setq icomplete-show-matches-on-no-input t)
   :config
@@ -227,7 +230,9 @@
    ((equal tee3-desired-completion-system 'icomplete)
     (icomplete-mode))
    ((equal tee3-desired-completion-system 'fido)
-    (fido-mode))))
+    (fido-mode)))
+  :hook
+  (icomplete-minibuffer-setup . tee3-icomplete-setup))
 (use-package linum
   :if
   (and tee3-display-line-numbers
