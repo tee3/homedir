@@ -144,6 +144,10 @@
   :init
   (setq comment-empty-lines t))
 (use-package browse-url
+  :init
+  (if (and (display-graphic-p) (featurep 'xwidget-internal))
+      (setq browse-url-browser-function 'xwidget-webkit-browse-url)
+    (setq browse-url-browser-function 'eww-browse-url))
   :bind
   ("C-c b b b" . browse-url))
 (use-package cus-edit
