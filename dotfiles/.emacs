@@ -269,6 +269,11 @@
   (setq gnus-asynchronous t)
 
   (setq gnus-use-cache t))
+(use-package mb-depth
+  :init
+  (setq enable-recursive-minibuffers t)
+  :config
+  (minibuffer-depth-indicate-mode))
 (use-package message
   :init
   (setq message-directory (expand-file-name "Mail" user-emacs-directory)))
