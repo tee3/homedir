@@ -358,13 +358,6 @@
   :config
   (when (not (display-graphic-p))
     (menu-bar-mode -1)))
-(use-package paredit
-  :ensure t
-  :pin nongnu
-  :hook
-  ((emacs-lisp-mode . paredit-mode)
-   (lisp-mode . paredit-mode)
-   (scheme-mode . paredit-mode)))
 (use-package paren
   :demand t
   :init
