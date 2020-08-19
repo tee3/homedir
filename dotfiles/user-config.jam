@@ -27,7 +27,7 @@ else if [ os.name ] = LINUX
   # other compilers, both system and optional
   using clang ;
 
-  using clang : 10 : /home/linuxbrew/.linuxbrew/opt/llvm@10/bin/clang++ ;
+  using clang : 10 : /home/linuxbrew/.linuxbrew/opt/llvm/bin/clang++ ;
   using clang : 9 : /home/linuxbrew/.linuxbrew/opt/llvm@9/bin/clang++ ;
   using clang : 8 : /home/linuxbrew/.linuxbrew/opt/llvm@8/bin/clang++ ;
   using clang : 7 : /home/linuxbrew/.linuxbrew/opt/llvm@7/bin/clang++ ;
