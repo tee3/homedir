@@ -19,6 +19,7 @@ else if [ os.name ] = LINUX
   # this is the default system compiler
   using gcc ;
 
+  using gcc : 10 : /home/linuxbrew/.linuxbrew/opt/gcc@10/bin/g++-10 ;
   using gcc : 9 : /home/linuxbrew/.linuxbrew/opt/gcc@9/bin/g++-9 ;
   using gcc : 8 : /home/linuxbrew/.linuxbrew/opt/gcc@8/bin/g++-8 ;
   using gcc : 7 : /home/linuxbrew/.linuxbrew/opt/gcc@7/bin/g++-7 ;
