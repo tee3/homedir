@@ -514,6 +514,9 @@
 (use-package protobuf-mode
   :ensure t
   :pin melpa)
+(use-package flatbuffers-mode
+  :ensure t
+  :pin melpa)
 (use-package ssh-config-mode
   :ensure t
   :pin melpa
