@@ -649,7 +649,9 @@
   (add-to-list 'newsticker-url-list '("isocpp.org - Recent Highlights" "https://isocpp.org/blog/rss/category/news"))
   (add-to-list 'newsticker-url-list '("isocpp.org - C++ Standardization" "https://isocpp.org/blog/rss/category/standardization"))
   (add-to-list 'newsticker-url-list '("isocpp.org - C++ FAQ" "https://isocpp.org/themes/wiki_themes/isocpp/rss/faq-revisions-rss.php"))
-  (add-to-list 'newsticker-url-list '("RFC" "https://www.rfc-editor.org/rfcrss.xml")))
+  (add-to-list 'newsticker-url-list '("RFC" "https://www.rfc-editor.org/rfcrss.xml"))
+
+  (newsticker-start))
 (use-package nginx-mode
   :ensure t
   :pin nongnu)
