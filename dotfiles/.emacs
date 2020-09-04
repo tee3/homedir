@@ -530,6 +530,15 @@
   ((text-mode . flyspell-mode)
    (prog-mode . flyspell-prog-mode)))
 
+;;; LanguageTool
+(use-package languagetool
+  :ensure t
+  :pin melpa
+  :init
+  ; @todo ask brew where it is on macos
+  (setq languagetool-language-tool-jar "/usr/local/Cellar/languagetool/5.0/libexec/languagetool-commandline.jar")
+  (setq languagetool-java-arguments '("-Dfile.encoding=UTF-8")))
+
 ;;; Yasnippet
 (use-package yasnippet
   :ensure t
