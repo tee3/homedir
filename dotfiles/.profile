@@ -70,6 +70,12 @@ if [ -n "$(command -v luarocks 2> /dev/null)" ]; then
     export PATH="${HOME}"/.luarocks/bin:${PATH}
 fi
 
+# TeX
+tex_prefix=/usr/local/texlive/2020
+if [ -d "${tex_prefix}" ]; then
+    INFOPATH="${tex_prefix}"/texmf-dist/doc/info:${INFOPATH}; export INFOPATH
+fi
+
 # MATLAB
 matlab_prefix=/Applications/MATLAB_R2017b.app
 if [ -n "$(command -v ${matlab_prefix}/bin/matlab 2> /dev/null)" ]; then
