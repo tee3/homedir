@@ -1233,14 +1233,16 @@
   :ensure t
   :pin melpa
   :bind
+  ("C-c l ." . eglot-find-implementation)
   ("C-c l a" . eglot-code-actions)
   ("C-c l b" . eglot-format-buffer)
   ("C-c l c" . eglot-reconnect)
+  ("C-c l d" . eglot-find-declaration)
   ("C-c l f" . eglot-format)
-  ("C-c l h" . eglot-help-at-point)
   ("C-c l q" . eglot-shutdown)
   ("C-c l r" . eglot-rename)
   ("C-c l s" . eglot)
+  ("C-c l t" . eglot-find-typeDefinition)
   :init
   (setq eglot-autoshutdown t)
   :hook
