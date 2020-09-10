@@ -540,6 +540,13 @@
   :config
   (yas-global-mode))
 
+;;; Shell completion using Bash completion
+(use-package bash-completion
+  :ensure t
+  :pin nongnu
+  :config
+  (bash-completion-setup))
+
 ;;; Org
 (use-package org
   :ensure t
