@@ -18,12 +18,17 @@
 [log]
 	follow = true
 [merge]
+	ff = false
+	renames = copies
 #	renormalize = true
+[pull]
+	ff = only
 [push]
 	recurseSubmodules = check
 [rebase]
 	stat = true
 [status]
+	renames = copies
 	submoduleSummary = true
 [stash]
 	showPatch = true
