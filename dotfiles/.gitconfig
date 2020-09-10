@@ -1,8 +1,3 @@
-[color]
-	ui = auto
-[apply]
-	ignoreWhitespace = false
-	whitespace = warn
 [core]
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
@@ -10,6 +5,11 @@
 #	autocrlf = true
 	safecrlf = true
 	whitespace = blank-at-eol,space-before-tab,tab-in-indent,blank-at-eof
+[apply]
+	ignoreWhitespace = false
+	whitespace = warn
+[color]
+	ui = auto
 [diff]
 	renames	= copies
 [instaweb]
@@ -27,11 +27,13 @@
 	recurseSubmodules = check
 [rebase]
 	stat = true
+[stash]
+	showPatch = true
 [status]
 	renames = copies
 	submoduleSummary = true
-[stash]
-	showPatch = true
+[submodule]
+	recurse = true
 [svn]
 	findcopiesharder = true
 	pushmergeinfo = true
@@ -45,5 +47,3 @@
 [include]
 	path = ~/.gitconfig.machine
 	path = ~/.gitconfig.user
-[submodule]
-	recurse = true
