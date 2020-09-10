@@ -298,18 +298,6 @@
 (use-package pcomplete
   :hook
   (shell-mode . pcomplete-shell-setup))
-(use-package pcmpl-git
-  :ensure t
-  :pin melpa
-  :after pcomplete)
-(use-package pcmpl-homebrew
-  :ensure t
-  :pin melpa
-  :after pcomplete)
-(use-package pcmpl-pip
-  :ensure t
-  :pin melpa
-  :after pcomplete)
 (use-package project
   :if
   (< emacs-major-version 28)
