@@ -426,6 +426,14 @@
   :ensure t
   :pin melpa)
 
+;;; Native shell completion (NEEDS WORK)
+(use-package native-complete
+  :ensure t
+  :pin melpa
+  :after shell
+  :config
+  (native-complete-setup-bash))
+
 ;;; Org
 (use-package org
   :ensure t
