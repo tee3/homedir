@@ -426,6 +426,12 @@
   :ensure t
   :pin melpa)
 
+;;; Shell completion using Bash completion
+(use-package bash-completion
+  :ensure t
+  :config
+  (bash-completion-setup))
+
 ;;; Org
 (use-package org
   :ensure t
