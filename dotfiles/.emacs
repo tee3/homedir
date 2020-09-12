@@ -319,6 +319,9 @@
   ("C-x p r" . project-query-replace-regexp)
   ("C-x p s" . project-shell)
   ("C-x p v" . project-vc-dir))
+(use-package rmail
+  :init
+  (setq rmail-preserve-inbox t))
 (use-package savehist
   :demand t
   :init
