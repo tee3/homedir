@@ -10,7 +10,7 @@
 
 (setq gnus-inhibit-startup-message t)
 
-(setq gnus-select-method '(nntp "news.gmane.org"))
+(setq gnus-select-method '(nntp "news.gmane.io"))
 
 (provide '.gnus)
 ;;; .gnus ends here
