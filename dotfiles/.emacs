@@ -383,6 +383,9 @@
     :demand t
     :config
     (repeat-mode)))
+(use-package rmail
+  :init
+  (setq rmail-preserve-inbox t))
 (use-package savehist
   :demand t
   :init
