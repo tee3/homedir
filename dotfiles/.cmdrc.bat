@@ -13,10 +13,7 @@ rem Python
 FOR /f "delims=" %%A IN ('python3 -c "import site; print(site.USER_BASE)"') DO set "PATH=%PATH%;%%A\Python38\Scripts"
 
 rem Ruby
-set CMDRUBYROOT=C:\Ruby24
-if not exist "%CMDRUBYROOT%" echo Ruby is not installed at "%CMDRUBYROOT%".
-rem @todo would be better if this used same approach as bash
-if exist "%CMDRUBYROOT%" set PATH=%HOME%\.gem\ruby\2.4.0\bin;%PATH%
+FOR /f "delims=" %%A IN ('ruby -r rubygems -e "puts Gem.user_dir"') DO set "PATH=%PATH%;%%A\bin"
 
 rem Node.js
 set CMDNODEJSROOT=C:\nodejs
