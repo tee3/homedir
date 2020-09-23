@@ -222,6 +222,11 @@
 (use-package icomplete
   :init
   (setq icomplete-show-matches-on-no-input t)
+  ;; @todo working icomplete-vertical!
+  (when (>= emacs-major-version 28)
+    (setq icomplete-separator "\n")
+    (setq icomplete-hide-common-prefix nil)
+    (setq icomplete-prospects-height 10))
   :config
   (cond
    ((equal tee3-desired-completion-system 'icomplete)
