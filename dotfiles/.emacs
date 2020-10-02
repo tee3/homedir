@@ -85,6 +85,7 @@
 (use-package files
   :init
   (setq version-control t))
+(setq resize-mini-windows t)
 
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
@@ -282,10 +283,20 @@
   (when (>= emacs-major-version 28)
     (setq completions-format 'one-column)
     (setq completions-detailed t)))
+
+  (setq completion-category-overrides
+        '((buffer
+           (styles . (partial-completion substring)))
+          (file
+           (styles . (partial-completion substring)))
+          (bookmark
+           (styles . (partial-completion substring)))
+          (project-file
+           (styles . (partial-completion substring))))))
 (use-package minibuf-eldef
   :demand t
   :init
-  (setq minibuffer-eldef-shorten-default t)
+  (setq minibuffer-eldef-shorten-default nil)
   :config
   (minibuffer-electric-default-mode))
 (use-package menu-bar
