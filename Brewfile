@@ -79,7 +79,7 @@ brew "llvm", args: ["HEAD"]
 brew "llvm@7"
 brew "llvm@8"
 brew "llvm@9"
-#brew "llvm@10"
+brew "llvm@10"
 brew "lua"
 brew "luarocks"
 brew "maven"
