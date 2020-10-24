@@ -80,7 +80,6 @@ brew "kubernetes-cli"
 brew "launchctl-completion"
 #brew "legit"
 brew "llvm", args: ["HEAD"]
-brew "llvm@6"
 brew "llvm@7"
 brew "llvm@8"
 brew "llvm@9"
