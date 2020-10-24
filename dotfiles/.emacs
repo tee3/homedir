@@ -86,6 +86,7 @@
 (setq visible-bell t)
 (column-number-mode)
 (use-package time
+  :demand t
   :init
   (setq display-time-day-and-date nil)
   :config
@@ -137,6 +138,7 @@
   (setq epa-pinentry-mode 'loopback))
 
 (use-package autoinsert
+  :demand t
   :config
   (auto-insert-mode))
 (use-package autorevert)
@@ -189,9 +191,11 @@
 (use-package eldoc
   :ensure t
   :pin gnu
+  :demand t
   :config
   (global-eldoc-mode))
 (use-package elec-pair
+  :demand t
   :init
   (electric-pair-mode))
 (use-package etags
@@ -204,6 +208,7 @@
   ("C-c b e b" . eww))
 (use-package ffap)
 (use-package font-core
+  :demand t
   :config
   (global-font-lock-mode))
 (use-package frame
@@ -265,6 +270,7 @@
 
   (setq gnus-use-cache t))
 (use-package mb-depth
+  :demand t
   :init
   (setq enable-recursive-minibuffers t)
   :config
@@ -277,6 +283,7 @@
   (when (equal system-type 'darwin)
     (setq locate-command "mdfind")))
 (use-package minibuf-eldef
+  :demand t
   :init
   (setq minibuffer-eldef-shorten-default t)
   :config
@@ -293,6 +300,7 @@
   (lisp-mode . paredit-mode)
   (scheme-mode . paredit-mode))
 (use-package paren
+  :demand t
   :config
   (show-paren-mode))
 (use-package pcomplete
@@ -358,6 +366,7 @@
   :ensure t
   :pin gnu)
 (use-package winner
+  :demand t
   :init
   (winner-mode))
 (use-package windmove
@@ -414,6 +423,7 @@
 (use-package yasnippet
   :ensure t
   :pin melpa
+  :demand t
   :init
   (setq yas-alias-to-yas/prefix-p nil)
   :config
@@ -688,6 +698,7 @@
 (use-package engine-mode
   :ensure t
   :pin melpa
+  :demand t
   :preface
   (setq engine/keybinding-prefix "C-c s")
   :init
@@ -1059,8 +1070,9 @@
   :ensure t
   :pin melpa)
 (use-package cwarn
+  :demand t
   :init
-  (global-cwarn-mode t))
+  (global-cwarn-mode))
 (use-package hideif
   :init
   (setq hide-ifdef-read-only t)
@@ -1451,6 +1463,7 @@
 ;;; Start the emacs server (emacsserver/emacsclient)
 ;;;
 (use-package server
+  :demand t
   :preface
   (defun tee3-signal-restart-server ()
     (interactive)
