@@ -1069,10 +1069,6 @@
 (use-package google-c-style
   :ensure t
   :pin melpa)
-(use-package cwarn
-  :demand t
-  :init
-  (global-cwarn-mode))
 (use-package hideif
   :init
   (setq hide-ifdef-read-only t)
