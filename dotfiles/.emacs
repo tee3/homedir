@@ -1080,9 +1080,6 @@
 (use-package demangle-mode
   :ensure t
   :pin melpa)
-(use-package disaster
-  :ensure t
-  :pin melpa)
 
 ;;; JavaScript programming language
 (use-package js)
