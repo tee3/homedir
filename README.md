@@ -72,7 +72,6 @@ of the `tee3/homedir` directory.
 
 ### macos
 
-* Homebrew
 * administrator privileges (but not `sudo`)
 
 ### windows
@@ -81,6 +80,7 @@ of the `tee3/homedir` directory.
 
 ## system
 
+* Nix
 * `administrator` user
 
 ### linux
@@ -90,7 +90,6 @@ of the `tee3/homedir` directory.
 
 ### macos
 
-* Homebrew
 * administrator privileges (but not `sudo`)
 
 ### windows
@@ -132,6 +131,9 @@ that may or may not yet have `sudo` privileges.
 
 This is especially useful with a "minimal installation" Linux machine
 since many packages are not installed by default.
+
+Install the Nix package manager on platforms suported by Nix (Linux
+and macOS).
 
 ## fedora
 
@@ -203,11 +205,10 @@ sudo shutdown -r now
 
 ## macos
 
-Install Xcode and the Xcode Command-Line Tools, as well as Homebrew,
-while logged in to the graphical system as `administrator`.  From a
-Terminal.app window install the system packages.  At the end of this
-process, the machine will reboot, so make sure there is no one else
-logged in.
+Install Xcode and the Xcode Command-Line Tools while logged in to the
+graphical system as `administrator`.  From a Terminal.app window
+install the system packages.  At the end of this process, the machine
+will reboot, so make sure there is no one else logged in.
 
 ``` shell
 git clone https://github.com/tee3/homedir.git ~/Development/homedir
@@ -416,16 +417,19 @@ limitations.
 
 # system
 
-The system packages are managed by Homebrew on all systems.  There is
+The system packages are managed by Nix on all systems.  There is
 no support for installing system packages on Windows since it has no
-system package manager and no Homebrew support.
+system package manager and no Nix support.
 
 Installing system packages should be done as necessary as it updates
 the system as well as installs system packages added after the initial
 bootstrap of the system.
 
 ``` shell
-brew bundle install --file=Brewfile
+sh <(curl -L https://nixos.org/nix/install) --no-daemon
+
+nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+nix-channel --update
 ```
 
 # user

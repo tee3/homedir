@@ -8,24 +8,8 @@ if [ -d "${HOME}/.local/bin" ] ; then
     PATH="${HOME}/.local/bin:${PATH}"
 fi
 
-# Homebrew setup
-if [ -d /usr/local/Hombrew ]; then
-    eval $(/usr/local/Homebrew/bin/brew shellenv)
-elif [ -d "${HOME}"/.homebrew ]; then
-    eval $("${HOME}"/.homebrew/bin/brew shellenv)
-elif [ -d /home/linuxbrew/.linuxbrew ]; then
-    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-elif [ -d "${HOME}"/.linuxbrew ]; then
-    eval $("${HOME}"/.linuxbrew/bin/brew shellenv)
-fi
-
-if [ -n "$(command -v brew 2> /dev/null)" ]; then
-    brew_prefix=$(brew --prefix)
-
-    # DocBook from Homebrew
-    if [ -e "$(brew ls --versions docbook > /dev/null)" ]; then
-        export XML_CATALOG_FILES=${brew_prefix}/etc/xml/catalog
-    fi
+if [ -e "/Users/tom/.nix-profile/etc/profile.d/nix.sh" ]; then
+    . ~/.nix-profile/etc/profile.d/nix.sh
 fi
 
 # Add local optional to path
