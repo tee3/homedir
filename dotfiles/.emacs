@@ -787,22 +787,7 @@
 
   ;; trash doesn't work properly on macOS
   (when (equal system-type 'darwin)
-    (setq magit-delete-by-moving-to-trash nil))
-
-  (setq magit-popup-use-prefix-argument 'default)
-  (setq magit-popup-show-common-commands nil)
-  :config
-  (global-magit-file-mode)
-
-  (add-hook 'magit-status-sections-hook 'magit-insert-modules-overview t)
-  (add-hook 'magit-status-sections-hook 'magit-insert-worktrees t)
-
-  (add-hook 'magit-status-headers-hook 'magit-insert-remote-header t)
-  (add-hook 'magit-status-headers-hook 'magit-insert-user-header t)
-  (add-hook 'magit-status-headers-hook 'magit-insert-repo-header t)
-
-  :hook
-  (magit-mode . magit-load-config-extensions))
+    (setq magit-delete-by-moving-to-trash nil)))
 (use-package magit-lfs
   :ensure t
   :pin melpa
