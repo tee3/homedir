@@ -13,31 +13,8 @@ if [ -d "${HOME}/.local/bin" ] ; then
     export INFOPATH="${HOME}"/.local/share/info:"${INFOPATH:-}"
 fi
 
-# Homebrew setup
-if [ -d /usr/local/Homebrew ]; then
-    eval "$(/usr/local/Homebrew/bin/brew shellenv)"
-elif [ -d "${HOME}"/.homebrew ]; then
-    eval "$("${HOME}"/.homebrew/bin/brew shellenv)"
-elif [ -d /home/linuxbrew/.linuxbrew ]; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-elif [ -d "${HOME}"/.linuxbrew ]; then
-    eval "$("${HOME}"/.linuxbrew/bin/brew shellenv)"
-elif [ -d /opt/homebrew ]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
-
-if [ -n "$(command -v brew 2> /dev/null)" ]; then
-    brew_prefix="$(brew --prefix)"
-
-    # @todo missing from `brew shellenv`
-    export LD_LIBRARY_PATH="${brew_prefix}"/lib"${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
-    export DYLD_LIBRARY_PATH="${brew_prefix}"/lib"${DYLD_LIBRARY_PATH:+:${DYLD_LIBRARY_PATH}}"
-    export PKG_CONFIG_PATH="${brew_prefix}"/lib/pkgconfig"${PKG_CONFIG_PATH:+:${PKG_CONFIG_PATH}}"
-
-    # DocBook from Homebrew
-    if [ -e "$(brew ls --versions docbook > /dev/null)" ]; then
-        export XML_CATALOG_FILES="${brew_prefix}"/etc/xml/catalog
-    fi
+if [ -e "${HOME}"/.nix-profile/etc/profile.d/nix.sh ]; then
+    . "${HOME}"/.nix-profile/etc/profile.d/nix.sh
 fi
 
 # Add local optional to path

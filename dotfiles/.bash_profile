@@ -7,3 +7,4 @@ if [ -f "${HOME}"/.bashrc ]; then
 fi
 
 # User specific environment and startup programs
+if [ -e /Users/tom/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/tom/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

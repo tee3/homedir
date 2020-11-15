@@ -72,7 +72,6 @@ of the `tee3/homedir` directory.
 
 ### macos
 
-* Homebrew
 * administrator privileges (but not `sudo`)
 
 ### windows
@@ -82,6 +81,7 @@ of the `tee3/homedir` directory.
 
 ## system
 
+* Nix
 * `administrator` user
 
 ### linux
@@ -91,7 +91,6 @@ of the `tee3/homedir` directory.
 
 ### macos
 
-* Homebrew
 * administrator privileges (but not `sudo`)
 
 ### windows
@@ -130,6 +129,9 @@ that may or may not yet have `sudo` privileges.
 
 This is especially useful with a "minimal installation" Linux machine
 since many packages are not installed by default.
+
+Install the Nix package manager on platforms suported by Nix (Linux
+and macOS).
 
 ## fedora
 
@@ -201,11 +203,10 @@ sudo shutdown -r now
 
 ## macos
 
-Install Xcode and the Xcode Command-Line Tools, as well as Homebrew,
-while logged in to the graphical system as `administrator`.  From a
-Terminal.app window install the system packages.  At the end of this
-process, the machine will reboot, so make sure there is no one else
-logged in.
+Install Xcode and the Xcode Command-Line Tools while logged in to the
+graphical system as `administrator`.  From a Terminal.app window
+install the system packages.  At the end of this process, the machine
+will reboot, so make sure there is no one else logged in.
 
 ```sh
 git clone https://github.com/tee3/homedir.git ~/Development/homedir
@@ -331,6 +332,10 @@ limitations.
 
 # system
 
+The system packages are managed by Nix on all systems.  There is
+no support for installing system packages on Windows since it has no
+system package manager and no Nix support.
+
 Installing system packages should be done as necessary as it updates
 the system as well as installs system packages added after the initial
 bootstrap of the system.
@@ -350,35 +355,10 @@ To install system packages for Fedora-based systems (via `yum`), run
 the following script as a user with `sudo` permission.
 
 ```sh
-./install_system_packages_fedora
-```
+sh <(curl -L https://nixos.org/nix/install) --no-daemon
 
-## debian
-
-To install system packages for Debian-based systems (via `apt-get`),
-run the following script as a user with `sudo` permission.
-
-```sh
-./install_system_packages_debian
-```
-
-## macos
-
-To install system packages for macOS (via Homebrew), run the following
-script as the administrator of the system.  Note that this does not
-use `sudo` as Homebrew does not require it.
-
-```sh
-./install_system_packages_macos
-```
-
-## windows
-
-To install system packages for Windows, run the following script as
-the administrator of the system.
-
-```bat
-install_system_packages_windows
+nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+nix-channel --update
 ```
 
 # user
