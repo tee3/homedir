@@ -10,9 +10,6 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 
-# install fuse
-cask "osxfuse"
-
 #brew "arp-scan"
 #brew "arp-sk"
 #brew "arpoison"
@@ -116,7 +113,6 @@ brew "socat"
 brew "sqlite"
 #brew "srecord"
 brew "ssh-copy-id"
-brew "sshfs"
 brew "standardese"
 brew "stdman"
 brew "stow"
