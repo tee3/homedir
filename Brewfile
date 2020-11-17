@@ -73,7 +73,6 @@ brew "iperf"
 brew "jam"
 brew "java"
 brew "jq"
-brew "kubernetes-cli"
 brew "launchctl-completion"
 #brew "legit"
 brew "llvm", args: ["HEAD"]
