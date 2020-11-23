@@ -36,7 +36,7 @@ brew "docker-compose-completion"
 brew "docker-machine-completion"
 brew "dos2unix"
 brew "doxygen"
-brew "emacs"
+brew "emacs", args: ["HEAD"]
 #brew "emscripten"
 brew "enscript"
 brew "gcc"
