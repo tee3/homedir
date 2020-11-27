@@ -22,3 +22,6 @@ dockerfile-language-server-nodejs
 
 # YAML
 yaml-language-server
+
+# SQL
+sql-language-server
