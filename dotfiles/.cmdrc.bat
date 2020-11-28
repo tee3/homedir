@@ -6,11 +6,6 @@ rem Add local optional to path
 set CMDOPTLOCAL=%HOME%\opt\local
 if exist "%CMDOPTLOCAL%" set PATH=%CMDOPTLOCAL%\bin;%PATH%
 
-rem Git
-set CMDGITROOT=C:\Git
-if not exist "%CMDGITROOT%" echo Git is not installed at "%CMDGITROOT%".
-if exist "%CMDGITROOT%" set PATH=%CMDGITROOT%\usr\bin;%PATH%
-
 rem SSH
 call start-ssh-agent
 
