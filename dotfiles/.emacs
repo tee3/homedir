@@ -1,4 +1,4 @@
-;;; .emacs --- Emacs user configuration file
+;;; .emacs --- Emacs user configuration file  -*- lexical-binding: t; -*-
 ;;;
 ;;; URL: https://tee3.github.com/homedir
 ;;;

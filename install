@@ -334,7 +334,7 @@ if __name__ == '__main__':
         if not os.path.exists(emacs_machine):
             print('Note that ~/.emacs.machine.el is used for machine-specific settings to .emacs.')
             with open(emacs_machine, 'a') as f:
-                print(";;; package --- Machine-specific Emacs initialization.", file=f)
+                print(";;; package --- Machine-specific Emacs initialization.  -*- lexical-binding: t; -*-", file=f)
                 print("", file=f)
                 print(";;; Commentary:", file=f)
                 print("", file=f)
@@ -393,7 +393,7 @@ if __name__ == '__main__':
         if not os.path.exists(emacs_user):
             print('Note that ~/.emacs.user.el is used for user-specific settings to .emacs.')
             with open(emacs_user, 'a') as f:
-                print(";;; package --- User-specific Emacs initialization.", file=f)
+                print(";;; package --- User-specific Emacs initialization.  -*- lexical-binding: t; -*-", file=f)
                 print("", file=f)
                 print(";;; Commentary:", file=f)
                 print("", file=f)
