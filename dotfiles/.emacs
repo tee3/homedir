@@ -1386,6 +1386,7 @@
   (use-package rebecca-theme :ensure t :pin melpa :defer t)
   (use-package rimero-theme :ensure t :pin melpa :defer t)
   (use-package solarized-theme :ensure t :pin melpa :defer t)
+  (use-package solo-jazz-theme :ensure t :pin melpa :defer t)
   (use-package soothe-theme :ensure t :pin melpa :defer t)
   (use-package spacegray-theme :ensure t :pin melpa :defer t)
   (use-package spacemacs-theme :ensure t :pin melpa :defer t)
