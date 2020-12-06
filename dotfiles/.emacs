@@ -9,19 +9,15 @@
 ;;; Code:
 
 
-;;;
 ;;; Disable support for decoding 'x-display' in Enriched Text mode
 ;;; prior to Emacs 25.3 since this is a security hole.
-;;;
 (when (or (< emacs-major-version 25)
           (and (= emacs-major-version 25) (< emacs-minor-version 3)))
   (eval-after-load "enriched"
     '(defun enriched-decode-display-prop (start end &optional param)
        (list start end))))
 
-;;;
 ;;; Set up package
-;;;
 (when (require 'package nil :noerror)
 
   ;; add packages libraries
@@ -32,9 +28,7 @@
 
   (package-initialize))
 
-;;;
 ;;; Bootstrap use-package
-;;;
 (setq-default use-package-always-defer t)
 
 (setq-default use-package-enable-imenu-support t)
@@ -61,9 +55,7 @@
           (message "%s required but not configured" name)
         (message "%s is not available." name)))))
 
-;;;
 ;;; Configuration
-;;;
 (defgroup tee3 nil
   "Customization variables in the .emacs file."
   :group 'convenience)
@@ -77,9 +69,7 @@
   :type 'symbol
   :options '('default 'icomplete 'fido))
 
-;;;
 ;;; Emacs
-;;;
 (setq inhibit-startup-screen t)
 (setq scroll-conservatively 100)
 (setq-default truncate-lines t)
@@ -421,16 +411,12 @@
   :ensure t
   :pin melpa)
 
-;;;
 ;;; Org
-;;;
 (use-package org
   :ensure t
   :pin gnu)
 
-;;;
 ;;; Markdown formats
-;;;
 (use-package adoc-mode
   :ensure t
   :pin melpa
@@ -462,9 +448,7 @@
   :ensure t
   :pin melpa)
 
-;;;
 ;;; Configuration files
-;;;
 (use-package apache-mode
   :ensure t
   :pin melpa)
@@ -541,9 +525,7 @@
   :ensure t
   :pin melpa)
 
-;;;
 ;;; Programming languages
-;;;
 (use-package ada-mode
   :ensure ada-mode
   :pin gnu)
@@ -713,9 +695,7 @@
   :config
   (engine-mode))
 
-;;;
 ;;; Version Control Systems
-;;;
 (use-package vc
   :init
   (setq vc-make-backup-files t)
@@ -933,9 +913,7 @@
                                     :test-dir "test"
                                     :test-prefix "test_"))
 
-;;;
 ;;; Gnuplot
-;;;
 (use-package gnuplot-mode
   :ensure t
   :pin melpa
@@ -1125,17 +1103,13 @@
   :init
   (global-homebrew-mode))
 
-;;;
 ;;; Clang Tools
-;;;
 (eval-after-load "yaml-mode.el"
   (add-to-list 'auto-mode-alist '(".clang-format\\'" . yaml-mode)))
 (eval-after-load "yaml-mode.el"
   (add-to-list 'auto-mode-alist '(".clang-tidy\\'" . yaml-mode)))
 
-;;;
 ;;; Flymake
-;;;
 (use-package flymake
   :ensure t
   :pin gnu
@@ -1151,9 +1125,7 @@
   :hook
   (sh-mode . flymake-shellcheck-load))
 
-;;;
 ;;; Language Server Protocol
-;;;
 (defun tee3-clangd-executable ()
   (setq tee3-clangd-executable
         (cond ((executable-find "clangd"))
@@ -1233,9 +1205,7 @@
   :ensure t
   :pin melpa)
 
-;;;
 ;;; Docker
-;;;
 (use-package docker
   :if
   (>= emacs-major-version 25)
@@ -1254,46 +1224,34 @@
   :ensure t
   :pin melpa)
 
-;;;
 ;;; Kubernetes
-;;;
 (use-package kubernetes
   :if
   (>= emacs-major-version 25)
   :ensure t
   :pin melpa)
 
-;;;
 ;;; Chef
-;;;
 (use-package chef-mode
   :ensure t
   :pin melpa)
 
-;;;
 ;;; Terraform
-;;;
 (use-package terraform-mode
   :ensure t
   :pin melpa)
 
-;;;
 ;;; Bitbake
-;;;
 (use-package bitbake
   :ensure t
   :pin melpa)
 
-;;;
 ;;; Structure and Interpretation of Computer Programs (SICP)
-;;;
 (use-package sicp
   :ensure t
   :pin melpa)
 
-;;;
 ;;; Themes
-;;;
 (when (or (>= emacs-major-version 25)
           (and (= emacs-major-version 24)
                (>= emacs-minor-version 5)))
@@ -1426,9 +1384,7 @@
 
            (enable-theme 'cyberpunk)))))
 
-;;;
 ;;; Start the emacs server (emacsserver/emacsclient)
-;;;
 (use-package server
   :demand t
   :preface
@@ -1442,9 +1398,7 @@
   (unless (server-running-p)
     (server-start)))
 
-;;;
 ;;; Load user- and machine-specific settings
-;;;
 (if (file-exists-p (expand-file-name "~/.emacs.machine.el"))
     (load-file (expand-file-name "~/.emacs.machine.el")))
 (if (file-exists-p (expand-file-name "~/.emacs.user.el"))
