@@ -1,0 +1,189 @@
+#!/bin/sh
+#
+# Install interesting packages for Debian.
+#
+# This assumes that the current user is the user used to install
+# packages and has the proper administrator privileges.
+
+set -e
+set -u
+
+# package manager
+pm=
+pm_check=
+pm_update=
+pm_upgrade=
+pm_install=
+pm_cleanup=
+
+# check if apt is installed
+if [ -z "$(which apt 2> /dev/null)" ]; then
+    echo "warning: apt not found"
+else
+    pm="apt"
+    pm_check="true"
+    pm_update="sudo ${pm} update"
+    pm_upgrade="sudo ${pm} upgrade"
+    pm_install="sudo apt install"
+    pm_cleanup="sudo ${pm} clean"
+fi
+
+# check if package manager is installed
+if [ -z "${pm}" ]; then
+    echo "error: Package manager not found."
+    exit 1
+fi
+
+# update and check packages
+${pm_update}
+if ! ${pm_check} ; then
+    echo "warning: Package manager check failed, continue anyway (y/n)?: \c"
+    read -r yn
+    if [ "${yn}" != "y" ]; then
+	exit 1
+    fi
+fi
+${pm_update}
+
+# upgrade existing packages
+${pm_upgrade}
+
+packages=
+#packages="${packages} arp-scan"
+#packages="${packages} arp-sk"
+#packages="${packages} arpoison"
+packages="${packages} aspell"
+#packages="${packages} avrdude"
+#packages="${packages} avr-binutils"
+#packages="${packages} avr-gcc"
+packages="${packages} bash-completion"
+packages="${packages} bear"
+packages="${packages} libboost-all-dev"
+packages="${packages} libboost-tools-dev"
+#packages="${packages} boost-bcp"
+packages="${packages} cflow"
+packages="${packages} cmake"
+packages="${packages} cmark-gfm"
+packages="${packages} cppcheck"
+packages="${packages} curl"
+#packages="${packages} dfu-util"
+packages="${packages} dita-ot"
+packages="${packages} docbook"
+packages="${packages} docbook-xsl"
+#packages="${packages} docker-completion"
+#packages="${packages} docker-compose-completion"
+#packages="${packages} docker-machine-completion"
+packages="${packages} dos2unix"
+packages="${packages} doxygen"
+packages="${packages} emacs"
+#packages="${packages} emscripten"
+packages="${packages} enscript"
+packages="${packages} g++"
+#packages="${packages} g++-6"
+packages="${packages} g++-7"
+packages="${packages} g++-8"
+packages="${packages} g++-9"
+packages="${packages} g++-10"
+packages="${packages} gdb"
+#packages="${packages} gem-completion"
+packages="${packages} git"
+packages="${packages} git-lfs"
+#packages="${packages} git-test"
+#packages="${packages} gitfs"
+packages="${packages} libglew-dev"
+packages="${packages} libglfw3-dev"
+packages="${packages} libglm-dev"
+packages="${packages} global"
+packages="${packages} glslang-dev"
+#packages="${packages} gnu-typist"
+packages="${packages} gnuplot"
+packages="${packages} golang"
+packages="${packages} gpg"
+packages="${packages} graphviz"
+packages="${packages} guile-3.0"
+#packages="${packages} hadolint"
+packages="${packages} highlight"
+packages="${packages} htop"
+#packages="${packages} httping"
+#packages="${packages} httpry"
+packages="${packages} hub"
+packages="${packages} iperf"
+#packages="${packages} ipv6calc"
+packages="${packages} jam"
+packages="${packages} default-jre"
+packages="${packages} jq"
+#packages="${packages} launchctl-completion"
+#packages="${packages} legit"
+packages="${packages} clang"
+packages="${packages} clang-7"
+packages="${packages} clang-8"
+packages="${packages} clang-9"
+#packages="${packages} clang-10"
+packages="${packages} clangd"
+packages="${packages} liblua5.3-dev"
+packages="${packages} lua5.3"
+packages="${packages} luarocks"
+packages="${packages} maven"
+#packages="${packages} maven-completion"
+#packages="${packages} mscgen"
+packages="${packages} netcat"
+packages="${packages} netperf"
+packages="${packages} nmap"
+packages="${packages} nodejs"
+packages="${packages} npm"
+packages="${packages} nuttcp"
+#packages="${packages} open-completion"
+packages="${packages} default-jdk"
+packages="${packages} openssh-server"
+packages="${packages} p0f"
+packages="${packages} p7zip"
+packages="${packages} pandoc"
+#packages="${packages} parallel"
+packages="${packages} pinentry-tty"
+#packages="${packages} pip-completion"
+packages="${packages} pkg-config"
+packages="${packages} python3"
+packages="${packages} python3-venv"
+packages="${packages} qemu"
+#packages="${packages} rsync"
+packages="${packages} ruby-full"
+#packages="${packages} ruby-completion"
+packages="${packages} rustc"
+#packages="${packages} rustc-completion"
+packages="${packages} shellcheck"
+packages="${packages} socat"
+packages="${packages} sqlite"
+#packages="${packages} srecord"
+#packages="${packages} ssh-copy-id"
+#packages="${packages} standardese"
+#packages="${packages} stdman"
+packages="${packages} stow"
+packages="${packages} swig"
+packages="${packages} tcpdump"
+#packages="${packages} tcpflow"
+#packages="${packages} tcping"
+#packages="${packages} tcpreplay"
+#packages="${packages} tcptrace"
+#packages="${packages} tcptraceroute"
+#packages="${packages} tcptrack"
+#packages="${packages} terraform"
+packages="${packages} tig"
+packages="${packages} tmux"
+packages="${packages} libv8-dev"
+#packages="${packages} vault"
+#packages="${packages} vagrant-completion"
+#packages="${packages} vegeta"
+#packages="${packages} vim"
+packages="${packages} wget"
+#packages="${packages} xctool"
+#packages="${packages} xmlformat"
+packages="${packages} xmlstarlet"
+packages="${packages} xmlto"
+#packages="${packages} xquartz"
+#packages="${packages} zsh-completions"
+
+${pm_install} ${packages}
+
+# cleanup
+sudo apt-get -q -y autoremove
+${pm_cleanup}

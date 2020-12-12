@@ -1,0 +1,55 @@
+#!/bin/sh
+#
+# Install interesting packages for OS X.
+#
+# This assumes that the current user is the user used to install
+# packages and has the proper administrator privileges.
+
+set -e
+set -u
+
+# package manager
+pm=
+pm_check=
+pm_update=
+pm_upgrade=
+pm_install=
+pm_cleanup=
+
+# check if Homebrew is installed
+if [ -z "$(which brew 2> /dev/null)" ]; then
+    echo "warning: Homewbrew (brew) not found."
+else
+    pm="brew"
+    pm_check="${pm} doctor"
+    pm_update="${pm} update"
+    pm_upgrade="${pm} upgrade"
+    pm_install="${pm} bundle"
+    pm_cleanup="${pm} cleanup -s"
+fi
+
+# check if package manager is installed
+if [ -z "${pm}" ]; then
+    echo "error: Package manager not found."
+    exit 1
+fi
+
+# update and check packages
+${pm_update}
+if ! ${pm_check} ; then
+    echo "warning: Package manager check failed, continue anyway (y/n)?: \c"
+    read -r yn
+    if [ "${yn}" != "y" ]; then
+	exit 1
+    fi
+fi
+${pm_update}
+
+# upgrade existing packages
+${pm_upgrade}
+
+# install packages
+${pm} bundle
+
+# cleanup
+${pm_cleanup}
