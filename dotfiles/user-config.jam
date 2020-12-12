@@ -19,19 +19,18 @@ else if [ os.name ] = LINUX
   # this is the default system compiler
   using gcc ;
 
-  using gcc : 10 : /home/linuxbrew/.linuxbrew/opt/gcc@10/bin/g++-10 ;
-  using gcc : 9 : /home/linuxbrew/.linuxbrew/opt/gcc@9/bin/g++-9 ;
-  using gcc : 8 : /home/linuxbrew/.linuxbrew/opt/gcc@8/bin/g++-8 ;
-  using gcc : 7 : /home/linuxbrew/.linuxbrew/opt/gcc@7/bin/g++-7 ;
-  using gcc : 6 : /home/linuxbrew/.linuxbrew/opt/gcc@6/bin/g++-6 ;
+  using gcc : 10 : /usr/bin/g++-10 ;
+#  using gcc : 9 : /usr/bin/g++-9 ;
+  using gcc : 8 : /usr/bin/g++-8 ;
+  using gcc : 7 : /usr/bin/g++-7 ;
 
   # other compilers, both system and optional
   using clang ;
 
-  using clang : 10 : /home/linuxbrew/.linuxbrew/opt/llvm/bin/clang++ ;
-  using clang : 9 : /home/linuxbrew/.linuxbrew/opt/llvm@9/bin/clang++ ;
-  using clang : 8 : /home/linuxbrew/.linuxbrew/opt/llvm@8/bin/clang++ ;
-  using clang : 7 : /home/linuxbrew/.linuxbrew/opt/llvm@7/bin/clang++ ;
+#  using clang : 10 : /usr/bin/clang++-10 ;
+  using clang : 9 : /usr/bin/clang++-9 ;
+  using clang : 8 : /usr/bin/clang++-8 ;
+  using clang : 7 : /usr/bin/clang++-7 ;
 }
 else if [ os.name ] = MACOSX
 {
@@ -113,8 +112,8 @@ path-constant BOOST_ROOT_BASE : "$(HOME)/opt/local/src/boost" ;
 # Default to the installed version of the Boost C++ Libraries
 if [ os.name ] = LINUX
 {
-  # Linuxbrew-installed Boost
-  using boost : "" : <include>/home/linuxbrew/.linuxbrew/include <library>/home/linuxbrew/.linuxbrew/lib <layout>system ;
+  # system boost
+  using boost : "" : <include>/usr/include <library>/usr/lib <layout>system ;
 }
 else if [ os.name ] = MACOSX
 {
