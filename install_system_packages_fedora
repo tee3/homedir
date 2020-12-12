@@ -1,0 +1,218 @@
+#!/bin/sh
+#
+# Install interesting packages for Fedora.
+#
+# This assumes that the current user is the user used to install
+# packages and has the proper administrator privileges.
+
+set -e
+set -u
+
+release=$(cat /etc/fedora-release)
+version=0
+if [ "${release}" = "Fedora release 22 (Twenty Two)" ]; then
+    version=22
+elif [ "${release}" = "Fedora release 23 (Twenty Three)" ]; then
+    version=23
+elif [ "${release}" = "Fedora release 24 (Twenty Four)" ]; then
+    version=24
+elif [ "${release}" = "Fedora release 25 (Twenty Five)" ]; then
+    version=25
+elif [ "${release}" = "Fedora release 26 (Twenty Six)" ]; then
+    version=26
+elif [ "${release}" = "Fedora release 27 (Twenty Seven)" ]; then
+    version=27
+fi
+
+# package manager
+pm=
+pm_check=
+pm_update=
+pm_upgrade=
+pm_install=
+pm_cleanup=
+
+# check if dnf is installed
+if [ -z "$(which dnf 2> /dev/null)" ]; then
+    echo "warning: dnf not found."
+else
+    pm="dnf"
+    pm_check="true"
+    pm_update="sudo ${pm} update"
+    pm_upgrade="true"
+    pm_install="sudo ${pm} -q -y install"
+    pm_cleanup="sudo ${pm} autoremove"
+
+    sudo ${pm} install dnf-plugins-core
+    if [ "${version}" -le 26 ]; then
+        sudo ${pm} config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+    fi
+fi
+
+# check if yum is installed, if package manager is not
+if [ -z "${pm}" ]; then
+    if [ -z "$(which yum 2> /dev/null)" ]; then
+        echo "warning: yum not found."
+    else
+        pm="yum"
+        pm_check="true"
+        pm_update="sudo ${pm} update"
+        pm_upgrade="true"
+        pm_install="sudo ${pm} -q -y install"
+        pm_cleanup="sudo ${pm} autoremove && ${pm} clean all"
+    fi
+fi
+
+# check if package manager is installed
+if [ -z "${pm}" ]; then
+    echo "error: Package manager not found."
+    exit 1
+fi
+
+# update and check packages
+${pm_update}
+if ! ${pm_check} ; then
+    echo "warning: Package manager check failed, continue anyway (y/n)?: \c"
+    read -r yn
+    if [ "${yn}" != "y" ]; then
+	exit 1
+    fi
+fi
+${pm_update}
+
+# upgrade existing packages
+${pm_upgrade}
+
+#packages="${packages} arp-scan"
+#packages="${packages} arp-sk"
+#packages="${packages} arpoison"
+packages="${packages} aspell"
+#packages="${packages} avrdude"
+#packages="${packages} avr-binutils"
+#packages="${packages} avr-gcc"
+packages="${packages} bash-completion"
+packages="${packages} bear"
+packages="${packages} boost"
+packages="${packages} boost-bcp"
+packages="${packages} boost-build"
+packages="${packages} cflow"
+packages="${packages} cmake"
+packages="${packages} cmark-gfm"
+packages="${packages} cppcheck"
+packages="${packages} curl"
+#packages="${packages} dfu-util"
+packages="${packages} dita-ot"
+packages="${packages} docbook"
+packages="${packages} docbook-xsl"
+packages="${packages} docker-completion"
+packages="${packages} docker-compose-completion"
+packages="${packages} docker-machine-completion"
+packages="${packages} dos2unix"
+packages="${packages} doxygen"
+packages="${packages} emacs"
+#packages="${packages} emscripten"
+packages="${packages} enscript"
+packages="${packages} gcc"
+packages="${packages} gcc@6"
+packages="${packages} gcc@7"
+packages="${packages} gcc@8"
+packages="${packages} gcc@9"
+packages="${packages} gcc@10"
+packages="${packages} gdb"
+packages="${packages} gem-completion"
+packages="${packages} git"
+packages="${packages} git-lfs"
+packages="${packages} git-test"
+#packages="${packages} gitfs"
+packages="${packages} glew"
+packages="${packages} glfw3"
+packages="${packages} glm"
+packages="${packages} global"
+packages="${packages} glslang"
+packages="${packages} gnu-typist"
+packages="${packages} gnuplot"
+packages="${packages} go"
+packages="${packages} gpg"
+packages="${packages} graphviz"
+packages="${packages} guile"
+packages="${packages} hadolint"
+packages="${packages} highlight"
+packages="${packages} htop-osx"
+#packages="${packages} httping"
+#packages="${packages} httpry"
+packages="${packages} hub"
+packages="${packages} iperf"
+#packages="${packages} ipv6calc"
+packages="${packages} jam"
+packages="${packages} java"
+packages="${packages} jq"
+packages="${packages} launchctl-completion"
+#packages="${packages} legit"
+packages="${packages} llvm"
+packages="${packages} llvm@7"
+packages="${packages} llvm@8"
+packages="${packages} llvm@9"
+#packages="${packages} llvm@10"
+packages="${packages} lua"
+packages="${packages} luarocks"
+packages="${packages} maven"
+packages="${packages} maven-completion"
+#packages="${packages} mscgen"
+packages="${packages} netcat"
+packages="${packages} netperf"
+packages="${packages} nmap"
+packages="${packages} node"
+packages="${packages} nuttcp"
+packages="${packages} open-completion"
+packages="${packages} openjdk"
+packages="${packages} openssh"
+packages="${packages} p0f"
+packages="${packages} p7zip"
+packages="${packages} pandoc"
+#packages="${packages} parallel"
+packages="${packages} pinentry"
+packages="${packages} pip-completion"
+packages="${packages} pkg-config"
+packages="${packages} python3"
+packages="${packages} qemu"
+#packages="${packages} rsync"
+packages="${packages} ruby"
+packages="${packages} ruby-completion"
+packages="${packages} rust"
+packages="${packages} rustc-completion"
+packages="${packages} shellcheck"
+packages="${packages} socat"
+packages="${packages} sqlite"
+#packages="${packages} srecord"
+packages="${packages} ssh-copy-id"
+packages="${packages} standardese"
+packages="${packages} stdman"
+packages="${packages} stow"
+packages="${packages} swig"
+packages="${packages} tcpdump"
+#packages="${packages} tcpflow"
+#packages="${packages} tcping"
+#packages="${packages} tcpreplay"
+#packages="${packages} tcptrace"
+#packages="${packages} tcptraceroute"
+#packages="${packages} tcptrack"
+packages="${packages} terraform"
+packages="${packages} tig"
+packages="${packages} tmux"
+packages="${packages} v8"
+packages="${packages} vault"
+packages="${packages} vagrant-completion"
+#packages="${packages} vegeta"
+#packages="${packages} vim"
+packages="${packages} wget"
+#packages="${packages} xctool"
+packages="${packages} xmlformat"
+packages="${packages} xmlstarlet"
+packages="${packages} xmlto"
+packages="${packages} xquartz"
+packages="${packages} zsh-completions"
+
+${pm_install} ${packages}
+
+# cleanup
+${pm_cleanup}
