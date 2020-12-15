@@ -39,6 +39,8 @@
 	pushmergeinfo = true
 	edit = false
 	followparent = true
+[transfer]
+	fsckObjects = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
