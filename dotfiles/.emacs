@@ -1318,6 +1318,8 @@
   (use-package iodine-theme :ensure t :pin melpa :defer t)
   (use-package ir-black-theme :ensure t :pin melpa :defer t)
   (use-package jazz-theme :ensure t :pin melpa :defer t)
+  (use-package kaolin-themes :ensure t :pin melpa :defer t)
+  (use-package lab-themes :ensure t :pin melpa :defer t)
   (use-package lavender-theme :ensure t :pin melpa :defer t)
   (use-package leuven-theme :ensure t :pin melpa :defer t)
   (use-package light-soap-theme :ensure t :pin melpa :defer t)
