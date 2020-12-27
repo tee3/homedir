@@ -1358,6 +1358,7 @@
   (use-package termbright-theme :ensure t :pin melpa :defer t)
   (use-package tommyh-theme :ensure t :pin melpa :defer t)
   (use-package toxi-theme :ensure t :pin melpa :defer t)
+  (use-package tramp-theme :ensure t :pin gnu :defer t)
   (use-package twilight-anti-bright-theme :ensure t :pin melpa :defer t)
   (use-package twilight-bright-theme :ensure t :pin melpa :defer t)
   (use-package twilight-theme :ensure t :pin melpa :defer t)
