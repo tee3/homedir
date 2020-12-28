@@ -339,6 +339,9 @@
   (setq set-mark-command-repeat-pop t)
   :hook
   (text-mode . auto-fill-mode))
+(use-package so-long
+  :config
+  (global-so-long-mode))
 (use-package speedbar
   :init
   (eval-after-load "sb-image.el"
