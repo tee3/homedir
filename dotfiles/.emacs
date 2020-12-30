@@ -272,6 +272,11 @@
   :config
   (when (equal system-type 'darwin)
     (setq locate-command "mdfind")))
+(use-package minibuffer
+  :init
+  (when (>= emacs-major-version 28)
+    (setq completions-format 'one-column)
+    (setq completions-detailed t)))
 (use-package minibuf-eldef
   :demand t
   :init
