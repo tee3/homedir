@@ -381,7 +381,9 @@
   (windmove-default-keybindings 'shift))
 (use-package xref
   :ensure t
-  :pin gnu)
+  :pin gnu
+  :init
+  (setq xref-show-definitions-function 'xref-show-definitions-completing-read))
 
 (use-package darkroom
   :ensure t
