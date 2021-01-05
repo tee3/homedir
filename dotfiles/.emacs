@@ -340,6 +340,8 @@
   :hook
   (text-mode . auto-fill-mode))
 (use-package so-long
+  :ensure t
+  :pin gnu
   :config
   (global-so-long-mode))
 (use-package speedbar
