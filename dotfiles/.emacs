@@ -749,8 +749,6 @@
   :pin melpa
   :bind
   ("C-c v g s" . magit-status)
-  ("C-c v g c" . magit-dispatch-popup)
-  ("C-c v g f" . magit-file-popup)
   :init
   (setq magit-repository-directories (quote (("~/Development" . 2))))
 
