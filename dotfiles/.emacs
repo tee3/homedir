@@ -269,7 +269,7 @@
   :init
   (setq message-directory (expand-file-name "Mail" user-emacs-directory)))
 (use-package locate
-  :config
+  :init
   (when (equal system-type 'darwin)
     (setq locate-command "mdfind")))
 (use-package minibuffer
