@@ -347,6 +347,7 @@
 (use-package so-long
   :ensure t
   :pin gnu
+  :demand t
   :config
   (global-so-long-mode))
 (use-package speedbar
