@@ -284,6 +284,7 @@
   :config
   (minibuffer-electric-default-mode))
 (use-package menu-bar
+  :demand t
   :config
   (when (not (display-graphic-p))
     (menu-bar-mode -1)))
@@ -331,6 +332,7 @@
       (save-place-mode)
     (setq-default save-place t)))
 (use-package scroll-bar
+  :demand t
   :config
   (scroll-bar-mode -1))
 (use-package simple
@@ -358,6 +360,7 @@
   :init
   (setq term-buffer-maximum-size 0))
 (use-package tool-bar
+  :demand t
   :config
   (tool-bar-mode -1))
 (use-package tooltip
@@ -371,6 +374,7 @@
   :init
   (winner-mode))
 (use-package windmove
+  :demand t
   :init
   (setq windmove-wrap-around t)
   :config
@@ -494,6 +498,7 @@
   :ensure t
   :pin gnu)
 (use-package newsticker
+  :demand t
   :init
   (setq newsticker-frontend 'newsticker-plainview)
   (setq newsticker-show-descriptions-of-new-items nil)
@@ -731,6 +736,7 @@
 (use-package gited
   :ensure t
   :pin gnu
+  :demand t
   :init
   (setq gited-verbose t)
   :config
@@ -832,6 +838,7 @@
   :disabled ; @todo find an alternative package
   :ensure t
   :pin marmalade
+  :demand t
   :preface
   (defun tee3-jam-mode-setup ()
     (setq indent-tabs-mode nil))
