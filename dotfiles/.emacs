@@ -1305,6 +1305,9 @@
 (use-package rmsbolt
   :ensure t
   :pin melpa)
+(use-package compiler-explorer
+  :ensure t
+  :pin melpa)
 
 ;;; Jenkins
 (use-package jenkinsfile-mode
