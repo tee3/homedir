@@ -4,9 +4,6 @@
 # packages and has the proper administrator privileges.
 
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-drivers"
-tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 
@@ -136,5 +133,4 @@ brew "wget"
 brew "xmlformat"
 brew "xmlstarlet"
 brew "xmlto"
-cask "xquartz"
 brew "zsh-completions"
