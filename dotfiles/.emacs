@@ -1351,6 +1351,7 @@
   (use-package nimbus-theme :ensure t :pin melpa :defer t)
   (use-package nord-theme :ensure t :pin melpa :defer t)
   (use-package nordless-theme :ensure t :pin melpa :defer t)
+  (use-package organic-green-theme :ensure t :pin melpa :defer t)
   (use-package paper-theme :ensure t :pin melpa :defer t)
   (use-package plan9-theme :ensure t :pin melpa :defer t)
   (use-package poet-theme :ensure t :pin melpa :defer t)
