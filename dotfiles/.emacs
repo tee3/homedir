@@ -1280,7 +1280,6 @@
   (use-package autumn-light-theme :ensure t :pin melpa :defer t)
   (use-package badger-theme :ensure t :pin melpa :defer t)
   (use-package badwolf-theme :ensure t :pin melpa :defer t)
-  (use-package base16-theme :ensure t :pin melpa :defer t)
   (use-package basic-theme :ensure t :pin melpa :defer t)
   (use-package berrys-theme :ensure t :pin melpa :defer t)
   (use-package birds-of-paradise-plus-theme :ensure t :pin melpa :defer t)
