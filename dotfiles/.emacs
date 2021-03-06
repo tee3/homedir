@@ -1341,7 +1341,7 @@
   (use-package mbo70s-theme :ensure t :pin melpa :defer t)
   (use-package mellow-theme :ensure t :pin melpa :defer t)
   (use-package minimal-theme :ensure t :pin melpa :defer t)
-  (use-package modus-themes :ensure t :pin gnu :defer t)
+  (use-package modus-themes :ensure t :pin gnu :defer t :init (setq modus-themes-diffs 'fg-only))
   (use-package moe-theme :ensure t :pin melpa :defer t)
   (use-package molokai-theme :ensure t :pin melpa :defer t)
   (use-package monochrome-theme :ensure t :pin melpa :defer t)
