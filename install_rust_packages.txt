@@ -6,3 +6,6 @@ rls
 tree-sitter-cli
 
 xsv
+
+# WebAssembly
+wasm-lsp-server
