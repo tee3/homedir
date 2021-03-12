@@ -4,7 +4,7 @@ golang.org/x/tools/gopls
 
 github.com/google/git-appraise/git-appraise
 
-github.com/shurcool/markdownfmt
+#github.com/shurcool/markdownfmt
 
 github.com/santhosh-tekuri/jsonschema
 github.com/santhosh-tekuri/jsonschema/cmd/jv
