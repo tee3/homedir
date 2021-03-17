@@ -1193,6 +1193,7 @@
   ("C-c l d" . eglot-find-declaration)
   ("C-c l f" . eglot-format)
   ("C-c l q" . eglot-shutdown)
+  ("C-c l Q" . eglot-shutdown-all)
   ("C-c l r" . eglot-rename)
   ("C-c l s" . eglot)
   ("C-c l t" . eglot-find-typeDefinition)
