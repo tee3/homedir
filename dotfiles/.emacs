@@ -678,6 +678,14 @@
   :pin melpa
   :init
   (setq geiser-mode-start-repl-p t))
+(use-package geiser-guile
+  :ensure t
+  :pin melpa
+  :after geiser)
+(use-package geiser-mit
+  :ensure t
+  :pin melpa
+  :after geiser)
 
 ;;; Search engines
 (use-package engine-mode
