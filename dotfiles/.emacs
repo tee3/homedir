@@ -304,7 +304,9 @@
   (shell-mode . pcomplete-shell-setup))
 (use-package project
   :ensure t
-  :pin gnu)
+  :pin gnu
+  :init
+  (setq project-compilation-buffer-name-function 'project-prefixed-buffer-name))
 (use-package savehist
   :demand t
   :init
