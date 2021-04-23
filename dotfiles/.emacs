@@ -303,22 +303,8 @@
   :hook
   (shell-mode . pcomplete-shell-setup))
 (use-package project
-  :if
-  (< emacs-major-version 28)
   :ensure t
-  :pin gnu
-  :bind
-  ("C-x p b" . project-switch-to-buffer)
-  ("C-x p c" . project-compile)
-  ("C-x p d" . project-dired)
-  ("C-x p e" . project-eshell)
-  ("C-x p f" . project-find-file)
-  ("C-x p g" . project-find-regexp)
-  ("C-x p k" . project-kill-buffers)
-  ("C-x p p" . project-switch-project)
-  ("C-x p r" . project-query-replace-regexp)
-  ("C-x p s" . project-shell)
-  ("C-x p v" . project-vc-dir))
+  :pin gnu)
 (use-package savehist
   :demand t
   :init
