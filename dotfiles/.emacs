@@ -26,6 +26,8 @@
   (when (>= emacs-major-version 23)
     (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t))
 
+  (setq package-native-compile t)
+
   (package-initialize))
 
 ;;; Bootstrap use-package
