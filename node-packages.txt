@@ -5,7 +5,8 @@ eslint
 standard
 semistandard
 
-javascript-typescript-langserver
+typescript
+typescript-language-server
 
 css-language-server
 vscode-html-languageserver-bin
