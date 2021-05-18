@@ -6,7 +6,7 @@ set -u
 rootdir="${HOME}"/opt/local/src/emacs
 
 if [ ! -e "${rootdir}" ]; then
-    print "error: %s does not exist.\n" "${rootdir}" 1>&2
+    printf "error: %s does not exist.\n" "${rootdir}" 1>&2
     exit 1
 fi
 
@@ -18,7 +18,7 @@ packages="${packages} libgccjit"
 
 for package in ${packages} ; do
     if ! (brew list --formula | grep "${package}" > /dev/null) ; then
-        print "error: %s is not installed" "${package}" 1>&2
+        printf "error: %s is not installed.\n" "${package}" 1>&2
         exit 1
     fi
 done
