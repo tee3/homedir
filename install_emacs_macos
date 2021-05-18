@@ -1,0 +1,44 @@
+#!/bin/sh
+
+set -e
+set -u
+
+rootdir="${HOME}"/opt/local/src/emacs
+
+if [ ! -e "${rootdir}" ]; then
+    print "error: %s does not exist.\n" "${rootdir}" 1>&2
+    exit 1
+fi
+
+packages=""
+packages="${packages} jansson"
+packages="${packages} librsvg"
+packages="${packages} gnutls"
+packages="${packages} libgccjit"
+
+for package in ${packages} ; do
+    if ! (brew list --formula | grep "${package}" > /dev/null) ; then
+        print "error: %s is not installed" "${package}" 1>&2
+        exit 1
+    fi
+done
+
+export CPPFLAGS="-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libxml2"
+
+# @todo actually do the clean
+git -C "${rootdir}" clean -q -d -x -f
+git -C "${rootdir}" pull --ff-only origin master
+
+options=""
+options="${options} --with-gnutls"
+options="${options} --with-json"
+options="${options} --with-xml2"
+options="${options} --with-rsvg"
+options="${options} --with-native-compilation"
+
+(cd "${rootdir}" && ./autogen.sh)
+(cd "${rootdir}" && ./configure ${options})
+(cd "${rootdir}" && make)
+(cd "${rootdir}" && make install)
+
+# @todo install to ~/Applications
