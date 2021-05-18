@@ -1,0 +1,41 @@
+#!/bin/sh
+
+set -e
+set -u
+
+rootdir="${HOME}"/opt/local/src/emacs
+
+if [ ! -e "${rootdir}" ]; then
+    print "error: %s does not exist.\n" "${rootdir}" 1>&2
+    exit 1
+fi
+
+packages=""
+packages="${packages} libjansson-dev"
+packages="${packages} librsvg2"
+packages="${packages} libgnutls30"
+packages="${packages} libgccjit-9-dev"
+
+for package in ${packages} ; do
+    if ! (apt list --installed | grep ${package} > /dev/null) ; then
+        print "error: %s is not installed" "${package}" 1>&2
+        exit 1
+    fi
+done
+
+# @todo actually do the clean
+git -C "${rootdir}" clean -q -d -x -f
+git -C "${rootdir}" pull --ff-only origin master
+
+options=""
+options="${options} --without-x"
+options="${options} --with-gnutls"
+options="${options} --with-json"
+options="${options} --with-xml2"
+options="${options} --with-rsvg"
+options="${options} --with-native-compilation"
+
+(cd "${rootdir}" && ./autogen.sh)
+(cd "${rootdir}" && ./configure --prefix="${HOME}"/opt/local ${options})
+(cd "${rootdir}" && make)
+(cd "${rootdir}" && make install)
