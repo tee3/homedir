@@ -418,6 +418,17 @@
   :init
   (setq shell-get-old-input-include-continuation-lines t))
 (use-package simple
+  :preface
+  (require 'cl-lib)
+
+  (defun tee3-kill-ring-element-too-big (s)
+    "Return t if the length of the string S is larger than 1MB."
+    (> (length s) 1e6))
+
+  (defun tee3-kill-ring-clean ()
+    (interactive)
+    "Remove \"kill-ring\" elements larger than 1MB."
+    (setq kill-ring (cl-remove-if #'tee3-kill-ring-element-too-big kill-ring)))
   :init
   (setq size-indication-mode t)
   (setq kill-ring-max 1000)
