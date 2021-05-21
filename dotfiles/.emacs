@@ -1357,7 +1357,31 @@
   (use-package modus-themes
     :ensure t
     :pin gnu
-    :defer t)
+    :defer t
+    :init
+    (setq modus-themes-disable-other-themes nil)
+    (setq modus-themes-italic-constructs t)
+    (setq modus-themes-bold-constructs t)
+    (setq modus-themes-common-palette-overrides
+          '((bg-added           unspecified)
+            (bg-added-faint     unspecified)
+            (bg-added-refine    bg-inactive)
+            (fg-added           green)
+            (fg-added-intense   green-intense)
+
+            (bg-changed         unspecified)
+            (bg-changed-faint   unspecified)
+            (bg-changed-refine  bg-inactive)
+            (fg-changed         yellow)
+            (fg-changed-intense yellow-intense)
+
+            (bg-removed         unspecified)
+            (bg-removed-faint   unspecified)
+            (bg-removed-refine  bg-inactive)
+            (fg-removed         red)
+            (fg-removed-intense red-intense)
+
+            (bg-diff-context    unspecified))))
   (use-package monokai-theme :ensure t :pin nongnu :defer t)
   (use-package monotropic-theme :ensure t :pin melpa :defer t)
   (use-package mustang-theme :ensure t :pin melpa :defer t)
