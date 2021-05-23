@@ -18,6 +18,7 @@
 [merge]
 	ff = false
 	renames = copies
+	directoryRenames = true
 #	renormalize = true
 [pull]
 	ff = only
