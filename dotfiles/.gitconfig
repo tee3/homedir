@@ -8,8 +8,6 @@
 [apply]
 	ignoreWhitespace = false
 	whitespace = warn
-[color]
-	ui = auto
 [diff]
 	renames	= copies
 [instaweb]
