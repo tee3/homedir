@@ -10,14 +10,19 @@
 [apply]
 	ignoreWhitespace = false
 	whitespace = warn
+[branch]
+	autoSetupRebase = always
 [diff]
 	algorithm = minimal
 	colorMoved = true
 	renames	= copies
+[fetch]
+	prune = true
 [instaweb]
 	local = true
 	httpd = webrick
 [log]
+	decorate = full
 	follow = true
 [merge]
 	ff = false
@@ -34,6 +39,8 @@
 [status]
 	renames = copies
 	submoduleSummary = true
+[submodules]
+	recurse = true
 [svn]
 	findcopiesharder = true
 	pushmergeinfo = true
