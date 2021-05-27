@@ -322,6 +322,7 @@
   :demand t
   :init
   (setq history-length t)
+  (setq history-delete-duplicates t)
   :config
   (savehist-mode))
 (use-package saveplace
