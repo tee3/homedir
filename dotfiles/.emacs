@@ -250,6 +250,9 @@
   :hook
   (text-mode . display-line-numbers-mode)
   (prog-mode . display-line-numbers-mode))
+(use-package gdb
+  :init
+  (setq gdb-restore-window-configuration-after-quit t))
 (use-package gnus
   :init
   (setq gnus-init-file "~/.gnus")
@@ -261,6 +264,9 @@
   (setq gnus-asynchronous t)
 
   (setq gnus-use-cache t))
+(use-package gud
+  :init
+  (setq gud-chdir-before-run nil))
 (use-package mb-depth
   :demand t
   :init
