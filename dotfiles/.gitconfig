@@ -25,6 +25,7 @@
 	ff = false
 	renames = copies
 	directoryRenames = true
+	conflictstyle = diff3
 [pull]
 	ff = only
 [push]
