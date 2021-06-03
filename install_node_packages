@@ -15,10 +15,7 @@ def emulate_run(args, env=None):
 
 
 node = shutil.which('node')
-if sys.platform.startswith('win32'):
-    npm = 'npm.cmd'
-else:
-    npm = shutil.which('npm')
+npm = shutil.which('npm')
 
 if __name__ == '__main__':
     if not node:
