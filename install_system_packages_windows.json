@@ -1,0 +1,71 @@
+{
+  "$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
+  "CreationDate" : "2021-06-03T07:32:01.992-00:00",
+  "Sources" :
+  [
+    {
+      "Packages" :
+      [
+	{
+	  "PackageIdentifier" : "Microsoft.VisualStudio.2019.Community"
+	},
+	{
+	  "PackageIdentifier" : "DimitriVanHeesch.Doxygen"
+	},
+	{
+	  "PackageIdentifier" : "Docker.DockerDesktop"
+	},
+	{
+	  "PackageIdentifier" : "GitHub.GitHubDesktop"
+	},
+	{
+	  "PackageIdentifier" : "GitHub.cli"
+	},
+	{
+	  "PackageIdentifier" : "Git.Git"
+	},
+	{
+	  "PackageIdentifier" : "GNU.Emacs"
+	},
+	{
+	  "PackageIdentifier" : "GnuPG.GnuPG"
+	},
+	{
+	  "PackageIdentifier" : "Kitware.CMake"
+	},
+	{
+	  "PackageIdentifier" : "Microsoft.Edge"
+	},
+	{
+	  "PackageIdentifier" : "Microsoft.WindowsTerminal"
+	},
+	{
+	  "PackageIdentifier" : "Microsoft.OneDrive"
+	},
+	{
+	  "PackageIdentifier" : "Python.Python.3"
+	},
+	{
+	  "PackageIdentifier" : "RubyInstallerTeam.Ruby"
+	},
+	{
+	  "PackageIdentifier" : "OpenJS.NodeJS"
+	},
+	{
+	  "PackageIdentifier" : "Rustlang.rust-msvc"
+	},
+	{
+	  "PackageIdentifier" : "TUG.TexLive"
+	}
+      ],
+      "SourceDetails" :
+      {
+	"Argument" : "https://winget.azureedge.net/cache",
+	"Identifier" : "Microsoft.Winget.Source_8wekyb3d8bbwe",
+	"Name" : "winget",
+	"Type" : "Microsoft.PreIndexed.Package"
+      }
+    }
+  ],
+  "WinGetVersion" : "1.0.11451"
+}

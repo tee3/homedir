@@ -216,88 +216,10 @@ sudo shutdown -r now
 
 ## windows
 
-There is very limited support for installing system packages under
-Windows and such is a manual process.
-
-Install Windows Build Tools while logged in to the graphical system as
-`administrator`.
-
-Use "Run as Administrator" when installing programs.
-
-Install the following tools using the normal Windows installation
-processes, customizing the installers as described below.
-
-* Install Emacs (64-bit).
-
-  * Use the Emacs installer (Emacs 27 and later).
-
-  * Install to `C:\Program Files\Emacs`.
-
-* Git For Windows (64-bit)
-
-  * Install for all users.
-
-  * Install to `C:\Git`.
-
-  * Add to `PATH`.
-
-  * Enable the "Use Git from the Windows Command Prompt" option to
-    use Git directly in `cmd` without using Bash.  Note that this
-    still allows the use of Git Bash, but defaults to using Windows
-    `cmd`.
-
-  * Enable the "Checkout Windows-style, commit Unix-style line
-    endings" so Windows tools are comfortable and Git repositories
-    are in the canonical form.
-
-  * Enable the "Use Windows' default console window" option.
-
-  * Enable the "Enable file system caching" option to increase
-    performance.
-
-* Python 3 (64-bit) from the Microsoft Store.
-
-  * For all users.
-
-  * Install to `C:\Python38`.
-
-  * Add to `PATH`.
-
-* Build Tools for Visual Studio 2017 or Visual Studio 2017
-
-  * Install to the default location.
-
-* Ruby 2.3 (64-bit)
-
-  * Install for all users.
-
-  * Install to `C:\Ruby23`.
-
-  * Add to `PATH`.
-
-* Rust (64-bit)
-
-  * Install for all users.
-
-  * Install to `C:\Rust`.
-
-  * Add to `PATH`.
-
-* Go 1.8 (64-bit)
-
-  * Install for all users.
-
-  * Install to `C:\Go`.
-
-  * Add to `PATH`.
-
-* Node.JS (64-bit)
-
-  * Install for all users.
-
-  * Install to `C:\nodejs`.
-
-  * Add to `PATH`.
+Go to Settings->Update & Security->For developers->Developer Mode and
+enable it.  Install "App Installer" from the Microsoft Store, and the
+Windows Package Manager CLI (`winget-cli`) from
+https://github.com/microsoft/winget-cli.
 
 * Boost.Build from Boost C++ Libraries 1.68.0
 
@@ -314,14 +236,6 @@ processes, customizing the installers as described below.
     bootstrap.bat
     b2 install
     ```
-* CMake (64-bit)
-
-  * Install for all users.
-
-  * Install to `C:\CMake`.
-
-  * Add to `PATH`.
-
 * Boost C++ Libraries 1.68.0
 
   * Install from source (this will take a very long time).
@@ -342,6 +256,7 @@ process, the machine will reboot, so make sure there is no one else
 logged in.
 
 ``` batchfile
+winget install --exact --id Git.Git
 git clone https://github.com/tee3/homedir.git C:\Users\administrator\Development\homedir
 cd C:\Users\administrator\Development\homedir
 install_bootstrap_packages_windows
@@ -456,9 +371,6 @@ use `sudo` as Homebrew does not require it.
 ```
 
 ## windows
-
-NOTE: Windows package support is lacking as there is no useful package
-system for Windows yet.
 
 To install system packages for Windows, run the following script as
 the administrator of the system.
