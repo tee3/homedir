@@ -155,7 +155,7 @@ if __name__ == '__main__':
                         output = emulate_backtick(['fc', f, home_f])
                         lines = output.splitlines()
 
-                        if lines[1] != 'FC: no differences encountered':
+                        if len(lines) > 0 and lines[1] != 'FC: no differences encountered':
                             yn = input('%s is different than %s.  Overwrite anyway? (y/n): ' % (f, home_f))
                             if yn == 'y':
                                 os.remove(home_f)
