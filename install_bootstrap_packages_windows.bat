@@ -4,3 +4,6 @@ rem Install bootstrap packages for Windows.
 rem
 rem This assumes that the current user is the user used to install
 rem packages and has the proper administrator privileges.
+
+echo "Go to Settings->Update & Security->For developers->Developer Mode, enable it."
+set /p id="Press Enter when complete ..."

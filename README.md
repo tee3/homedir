@@ -78,6 +78,7 @@ of the `tee3/homedir` directory.
 ### windows
 
 * administrator privileges
+* Developer mode enabled
 
 ## system
 
@@ -96,6 +97,7 @@ of the `tee3/homedir` directory.
 ### windows
 
 * Administrator privileges
+* Developer mode enabled
 
 ## user
 
