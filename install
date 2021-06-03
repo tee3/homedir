@@ -64,11 +64,12 @@ if rootdir != os.getcwd():
     print('error: must be run from the root of the dotfiles directory.')
     sys.exit(1)
 
-# requires HOME.
+# requires HOME (set it temporarily if not set)
 if 'HOME' in os.environ:
     HOME = os.environ['HOME']
 elif 'USERPROFILE' in os.environ:
     HOME = os.environ['USERPROFILE']
+    os.environ['HOME'] = os.environ['USERPROFILE']
 else:
     print('error: HOME is not set, aborting.')
     sys.exit(1)
