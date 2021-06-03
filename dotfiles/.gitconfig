@@ -30,8 +30,6 @@
 [status]
 	renames = copies
 	submoduleSummary = true
-[submodule]
-	recurse = true
 [svn]
 	findcopiesharder = true
 	pushmergeinfo = true
