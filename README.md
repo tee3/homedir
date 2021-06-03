@@ -99,10 +99,6 @@ of the `tee3/homedir` directory.
 
 ## user
 
-The `HOME` environment variable must be set properly.  Note that this
-is almost always true in Unix environments, but may not be correct for
-some Unix emulation layers such as MSYS or Cygwin.
-
 * `python`
 * `stow` (except on Windows)
 

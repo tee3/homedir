@@ -3,7 +3,7 @@ rem
 rem A tool to customize a cmd.exe shell
 
 rem Set HOME if it is not set.
-if "%HOME%" == "" set HOME=C:\Users\%USERNAME%
+if "%HOME%" == "" set HOME=%USERPROFILE%
 if not exist "%HOME%" echo error: HOME, "%HOME%", does not exist && exit /b 1
 
 cd "%HOME%"
