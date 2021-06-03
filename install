@@ -65,10 +65,11 @@ if rootdir != os.getcwd():
     sys.exit(1)
 
 # requires HOME.
-if 'HOME' not in os.environ or os.environ['HOME'] == '':
+if 'HOME' in os.environ:
+    HOME = os.environ['HOME']
+else:
     print('error: HOME is not set, aborting.')
     sys.exit(1)
-HOME = os.environ['HOME']
 
 # default the prefix to ~/opt/local
 prefix = os.path.join(HOME, 'opt', 'local')
