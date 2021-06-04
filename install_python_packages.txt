@@ -1,15 +1,4 @@
 # Python Development
-autopep8
-docformatter
-flake8
-pep257
-pep8
-pep8-naming
-pycodestyle
-pydocstyle
-pylint
-python-lsp-server[all]
-pylsp-mypy
 rope
 yapf
 
@@ -30,12 +19,6 @@ cmake-language-server
 
 # Fortran
 fortran-language-server
-
-# Miscellaneous
-conan
-
-# Jupyter
-jupyter
 
 # DVC
 dvc[all]
