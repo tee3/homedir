@@ -10,6 +10,9 @@
 	  "PackageIdentifier" : "Microsoft.VisualStudio.2019.Community"
 	},
 	{
+	  "PackageIdentifier" : "Debian.Debian"
+	},
+	{
 	  "PackageIdentifier" : "DimitriVanHeesch.Doxygen"
 	},
 	{
