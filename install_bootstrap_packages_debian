@@ -14,3 +14,5 @@ sudo apt-get -q -y install avahi-autoipd avahi-daemon avahi-utils libnss-mdns
 sudo apt-get -q -y install ntp
 # SSH
 sudo apt-get -q -y install openssh-client openssh-server
+# Git
+sudo apt-get -q -y install git
