@@ -66,11 +66,6 @@
   "This is use to enable or disable line numbers."
   :type 'boolean)
 
-(defcustom tee3-desired-completion-system 'default
-  "This is used to choose a completion system when it must be done at configuration."
-  :type 'symbol
-  :options '('default 'icomplete 'fido))
-
 ;;; Emacs
 (setq inhibit-startup-screen t)
 (setq scroll-conservatively 100)
@@ -223,13 +218,7 @@
   (setq hs-hide-comments-when-hiding-all t))
 (use-package icomplete
   :init
-  (setq icomplete-show-matches-on-no-input t)
-  :config
-  (cond
-   ((equal tee3-desired-completion-system 'icomplete)
-    (icomplete-mode))
-   ((equal tee3-desired-completion-system 'fido)
-    (fido-mode))))
+  (setq icomplete-show-matches-on-no-input t))
 (use-package linum
   :if
   (and tee3-display-line-numbers
