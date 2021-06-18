@@ -54,6 +54,7 @@ compile_commands.json
 .cquery_cached_index/
 
 # Node Tooling
+node_modules/
 npm-config.log
 npm-debug.log
 
