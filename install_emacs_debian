@@ -37,5 +37,5 @@ options="${options} --with-native-compilation"
 
 (cd "${rootdir}" && ./autogen.sh)
 (cd "${rootdir}" && ./configure --prefix="${HOME}"/opt/local ${options})
-(cd "${rootdir}" && make)
+(cd "${rootdir}" && make -j 8)
 (cd "${rootdir}" && make install)

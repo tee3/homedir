@@ -38,7 +38,7 @@ options="${options} --with-native-compilation"
 
 (cd "${rootdir}" && ./autogen.sh)
 (cd "${rootdir}" && ./configure ${options})
-(cd "${rootdir}" && make)
+(cd "${rootdir}" && make -j 8)
 (cd "${rootdir}" && make install)
 
 # @todo install to ~/Applications
