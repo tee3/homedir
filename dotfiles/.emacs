@@ -572,9 +572,6 @@
 (use-package groovy-mode
   :ensure t
   :pin melpa)
-(use-package jenkinsfile-mode
-  :ensure t
-  :pin melpa)
 (use-package haskell-mode
   :ensure t
   :pin melpa)
@@ -1205,6 +1202,11 @@
   (add-to-list 'eglot-server-programs '((swift-mode) . tee3-sourcekit-lsp-command)))
 
 (use-package rmsbolt
+  :ensure t
+  :pin melpa)
+
+;;; Jenkins
+(use-package jenkinsfile-mode
   :ensure t
   :pin melpa)
 
