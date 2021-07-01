@@ -1384,6 +1384,11 @@
   :pin melpa
   :mode
   ("Jenkinsfile.*\\'" . jenkinsfile-mode))
+(use-package jenkins
+  :ensure t
+  :pin melpa
+  ; configure private information in ~/.emacs.user.el
+  )
 
 ;;; Docker
 (when (>= emacs-major-version 25)
