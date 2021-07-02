@@ -8,7 +8,7 @@ pep8-naming
 pycodestyle
 pydocstyle
 pylint
-python-language-server[all]
+python-lsp-server[all]
 rope
 yapf
 
