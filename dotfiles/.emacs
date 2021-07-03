@@ -422,6 +422,7 @@
   (setq size-indication-mode t)
   (setq kill-ring-max 1000)
   (setq kill-do-not-save-duplicates t)
+  (setq kill-transform-function (lambda (string) (and (< (length string) 1e6) string)))
   (setq save-interprogram-paste-before-kill t)
   (setq global-mark-ring-max 10000)
   (setq mark-ring-max 10000)
