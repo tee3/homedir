@@ -38,9 +38,7 @@ else if [ os.name ] = MACOSX
   # this is the default system compiler
   using clang ;
 
-  local macos-sysroot = /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk ;
   local macos-options =
-    <compileflags>"--sysroot $(macos-sysroot)"
     <compileflags>"-isystem /usr/local/include"
     <linkflags>-L/usr/local/lib
     ;
