@@ -161,6 +161,15 @@
   (desktop-save-mode)
   :hook
   (kill-emacs . tee3-disable-themes))
+(use-package diff-hl
+  :ensure t
+  :pin gnu
+  :config
+  (global-diff-hl-mode)
+  (diff-hl-flydiff-mode)
+  (unless (window-system) (diff-hl-margin-mode))
+  :hook
+  (dired-mode . diff-hl-dired-mode-unless-remote))
 (use-package diff-mode
   :init
   (setq diff-default-read-only t)
