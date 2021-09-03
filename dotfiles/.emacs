@@ -124,6 +124,10 @@
   :config
   (auto-insert-mode))
 (use-package autorevert)
+(use-package bug-reference
+  :hook
+  (text-mode . bug-reference-mode)
+  (prog-mode . bug-reference-prog-mode))
 (use-package newcomment
   :init
   (setq comment-empty-lines t))
