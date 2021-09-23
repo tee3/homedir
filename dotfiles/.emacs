@@ -1207,6 +1207,7 @@
   :hook
   (prog-mode . eglot-ensure)
   :config
+  (add-to-list 'eglot-server-programs '((cmake-mode) . ("cmake-language-server")))
   (add-to-list 'eglot-server-programs '((css-mode
                                          less-css-mode
                                          scss-mode) . ("css-language-server" "--stdio")))
