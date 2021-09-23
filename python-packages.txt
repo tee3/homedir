@@ -21,6 +21,9 @@ docutils
 restructuredtext_lint
 Sphinx
 
+# CMake
+cmake-language-server
+
 # Fortran
 fortran-language-server
 
