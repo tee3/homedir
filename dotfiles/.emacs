@@ -1134,6 +1134,7 @@
   :pin gnu
   :bind
   ("C-c ! l" . flymake-show-buffer-diagnostics)
+  ("C-c ! p" . flymake-show-project-diagnostics)
   :hook
   (prog-mode . flymake-mode))
 (use-package flymake-shellcheck
