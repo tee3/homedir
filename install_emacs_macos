@@ -3,6 +3,12 @@
 set -e
 set -u
 
+if [ "$#" -gt 1 ]; then
+    printf "usage: $0 [branch]" 1>&2
+    exit 1
+fi
+
+branch="${1:-master}"
 rootdir="${HOME}"/opt/local/src/emacs
 
 if [ ! -e "${rootdir}" ]; then
@@ -26,8 +32,10 @@ done
 export CPPFLAGS="-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libxml2"
 
 git -C "${rootdir}" clean -q -d -x -f
+git -C "${rootdir}" checkout "${branch}"
+git -C "${rootdir}" clean -q -d -x -f
 git -C "${rootdir}" reset --hard HEAD
-git -C "${rootdir}" pull --ff-only origin master
+git -C "${rootdir}" pull --ff-only origin "${branch}"
 
 options=""
 options="${options} --with-gnutls"
