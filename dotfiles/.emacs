@@ -1206,6 +1206,13 @@
   ("C-c l t" . eglot-find-typeDefinition)
   :hook
   (prog-mode . eglot-ensure)
+  :init
+  (setq-default eglot-workspace-configuration
+                '((pylsp
+                   (plugins
+                    (flake8 (enabled . t))
+                    (pydocstyle (enabled . t))
+                    (pylint (enabled . t))))))
   :config
   (add-to-list 'eglot-server-programs '((cmake-mode) . ("cmake-language-server")))
   (add-to-list 'eglot-server-programs '((css-mode
