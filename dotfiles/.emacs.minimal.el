@@ -13,7 +13,7 @@
  '(column-number-mode t)
  '(custom-enabled-themes '(manoj-dark))
  '(custom-safe-themes
-   '("d6da24347c813d1635a217d396cf1e3be26484fd4d05be153f3bd2b293d2a0b5" "0568a5426239e65aab5e7c48fa1abde81130a87ddf7f942613bf5e13bf79686b" default))
+   '("a44bca3ed952cb0fd2d73ff3684bda48304565d3eb9e8b789c6cca5c1d9254d1" "aba75724c5d4d0ec0de949694bce5ce6416c132bb031d4e7ac1c4f2dbdd3d580" "2f93ebb862a9d50fee9c1b3302d858e2d2c0bba9d4e1be9bb3b08b7373f1710c" "e1ad4299390cb3fc0cbf5a705442eaf08510aa947c90c8bc83b1d7308befb475" "d6da24347c813d1635a217d396cf1e3be26484fd4d05be153f3bd2b293d2a0b5" "0568a5426239e65aab5e7c48fa1abde81130a87ddf7f942613bf5e13bf79686b" default))
  '(desktop-save-mode t)
  '(display-time-mode t)
  '(dynamic-completion-mode t)
