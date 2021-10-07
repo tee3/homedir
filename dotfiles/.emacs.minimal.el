@@ -14,6 +14,7 @@
  '(custom-enabled-themes '(manoj-dark))
  '(custom-safe-themes
    '("d6da24347c813d1635a217d396cf1e3be26484fd4d05be153f3bd2b293d2a0b5" "0568a5426239e65aab5e7c48fa1abde81130a87ddf7f942613bf5e13bf79686b" default))
+ '(desktop-save-mode t)
  '(display-time-mode t)
  '(dynamic-completion-mode t)
  '(electric-pair-mode t)
