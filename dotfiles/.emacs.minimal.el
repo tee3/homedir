@@ -19,7 +19,6 @@
  '(electric-pair-mode t)
  '(icomplete-mode t)
  '(indent-tabs-mode nil)
- '(menu-bar-mode nil)
  '(minibuffer-eldef-shorten-default t)
  '(minibuffer-electric-default-mode t)
  '(minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt))
