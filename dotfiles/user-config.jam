@@ -31,7 +31,6 @@ else if [ os.name ] = LINUX
 #  using clang : 10 : /usr/bin/clang++-10 ;
   using clang : 9 : /usr/bin/clang++-9 ;
   using clang : 8 : /usr/bin/clang++-8 ;
-  using clang : 7 : /usr/bin/clang++-7 ;
 }
 else if [ os.name ] = MACOSX
 {
@@ -49,7 +48,6 @@ else if [ os.name ] = MACOSX
 #  using clang : 10 : /usr/local/opt/llvm@10/bin/clang++ : $(macos-options) ;
   using clang : 9 : /usr/local/opt/llvm@9/bin/clang++ : $(macos-options) ;
   using clang : 8 : /usr/local/opt/llvm@8/bin/clang++ : $(macos-options) ;
-  using clang : 7 : /usr/local/opt/llvm@7/bin/clang++ : $(macos-options) ;
 
   using darwin ;
 
