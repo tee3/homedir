@@ -468,12 +468,9 @@
   :pin gnu
   :init
   (setq csv-align-style 'auto))
-(use-package gitattributes-mode
+(use-package git-modes
   :ensure t
-  :pin melpa)
-(use-package gitconfig-mode
-  :ensure t
-  :pin melpa
+  :pin nongnu
   :mode
   (("\\.gitconfig.*\\'" . gitconfig-mode)
 
@@ -481,9 +478,6 @@
    ("\\.gitsvnextmodules\\'" . gitconfig-mode)
    ;; migration-generated Git submodules files
    ("\\.gitsvnexternals\\'" . gitconfig-mode)))
-(use-package gitignore-mode
-  :ensure t
-  :pin melpa)
 (use-package graphviz-dot-mode
   ;; @todo fails to load with Emacs 26
   :if
