@@ -440,7 +440,7 @@
 ;;; Yasnippet
 (use-package yasnippet
   :ensure t
-  :pin melpa
+  :pin gnu
   :demand t
   :init
   (setq yas-alias-to-yas/prefix-p nil)
