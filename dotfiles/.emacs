@@ -439,7 +439,7 @@
   :pin melpa)
 (use-package markdown-mode
   :ensure t
-  :pin melpa
+  :pin nongnu
   :mode
   (("README\.md\\'" . gfm-mode))
   :init
@@ -501,7 +501,7 @@
   (add-to-list 'newsticker-url-list '("RFC" "https://www.rfc-editor.org/rfcrss.xml")))
 (use-package nginx-mode
   :ensure t
-  :pin melpa)
+  :pin nongnu)
 (use-package protobuf-mode
   :ensure t
   :pin melpa)
@@ -521,7 +521,7 @@
   (or (> emacs-major-version 24)
       (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
   :ensure t
-  :pin melpa)
+  :pin nongnu)
 (use-package toml-mode
   :ensure t
   :pin melpa)
@@ -530,7 +530,7 @@
   :pin melpa)
 (use-package yaml-mode
   :ensure t
-  :pin melpa)
+  :pin nongnu)
 (use-package graphql-mode
   :ensure t
   :pin melpa)
@@ -609,13 +609,13 @@
   (setq sql-sqlite-program "sqlite3"))
 (use-package rust-mode
   :ensure t
-  :pin melpa)
+  :pin nongnu)
 (use-package swift-mode
   :if
   (or (>= emacs-major-version 25)
       (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
   :ensure t
-  :pin melpa)
+  :pin nongnu)
 (use-package tcl)
 (use-package verilog-mode
   :ensure t
@@ -666,16 +666,16 @@
   (("\\.guile\\'" . scheme-mode)))
 (use-package geiser
   :ensure t
-  :pin melpa
+  :pin nongnu
   :init
   (setq geiser-mode-start-repl-p t))
 (use-package geiser-guile
   :ensure t
-  :pin melpa
+  :pin nongnu
   :after geiser)
 (use-package geiser-mit
   :ensure t
-  :pin melpa
+  :pin nongnu
   :after geiser)
 
 ;;; Search engines
@@ -721,7 +721,7 @@
   (setq vc-git-print-log-follow t))
 (use-package vc-fossil
   :ensure t
-  :pin melpa
+  :pin nongnu
   :after vc)
 
 ;;; Imenu
@@ -760,7 +760,7 @@
   (or (> emacs-major-version 24)
       (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
   :ensure t
-  :pin melpa
+  :pin nongnu
   :bind
   ("C-c v g s" . magit-status)
   :init
@@ -937,7 +937,7 @@
 ;;; Go programming language
 (use-package go-mode
   :ensure t
-  :pin melpa
+  :pin nongnu
   :preface
   (defun tee3-go-mode-setup ()
     ;; allow use of tabs as it is required by go fmt
