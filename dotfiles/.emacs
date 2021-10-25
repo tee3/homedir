@@ -23,6 +23,8 @@
   ;; add packages libraries
   (when (< emacs-major-version 24)
     (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t))
+  (when (< emacs-major-version 28)
+    (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") t))
   (when (>= emacs-major-version 23)
     (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t))
 
