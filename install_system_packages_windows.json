@@ -54,9 +54,6 @@
 	{
 	  "PackageIdentifier" : "Rustlang.rust-msvc"
 	},
-	{
-	  "PackageIdentifier" : "TUG.TexLive"
-	}
       ],
       "SourceDetails" :
       {
