@@ -31,6 +31,9 @@
 	  "PackageIdentifier" : "GnuPG.GnuPG"
 	},
 	{
+	  "PackageIdentifier" : "Golang.Go"
+	},
+	{
 	  "PackageIdentifier" : "Kitware.CMake"
 	},
 	{
