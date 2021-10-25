@@ -52,7 +52,7 @@
 	  "PackageIdentifier" : "OpenJS.NodeJS"
 	},
 	{
-	  "PackageIdentifier" : "Rustlang.rust-msvc"
+	  "PackageIdentifier" : "Rustlang.Rust.MSVC"
 	},
       ],
       "SourceDetails" :
