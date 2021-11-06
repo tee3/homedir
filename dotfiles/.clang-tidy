@@ -1,5 +1,5 @@
 ---
-Checks:          'clang-diagnostic-*,clang-analyzer-*,-*,modernize*,cppcoreguidelines*,misc*,readability*,bugprone*,performance*,clang-diagnostic*,-modernize-use-bool-literals,-modernize-use-trailing-return-type,-misc-unused-parameters,-cppcoreguidelines-avoid-magic-numbers,-readability-magic-numbers,-readability-redundant-member-init,-readability-implicit-bool-conversion,-bugprone-branch-clone,-readability-uppercase-literal-suffix'
+Checks:          'clang-diagnostic-*,clang-analyzer-*,-*,modernize*,cppcoreguidelines*,misc*,readability*,bugprone*,performance*,clang-diagnostic*,-modernize-use-bool-literals,-modernize-use-trailing-return-type,-misc-unused-parameters,-cppcoreguidelines-avoid-magic-numbers,-readability-magic-numbers,-readability-redundant-member-init,-readability-implicit-bool-conversion,-bugprone-branch-clone,-readability-uppercase-literal-suffix,-cppcoreguidelines-pro-bounds-array-to-pointer-decay,-cppcoreguidelines-pro-bounds-constant-array-index,-cppcoreguidelines-pro-type-vararg'
 WarningsAsErrors: ''
 HeaderFilterRegex: ''
 AnalyzeTemporaryDtors: false
