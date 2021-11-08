@@ -1057,6 +1057,9 @@
   :pin melpa)
 
 ;;; JSON
+(use-package json-mode
+  :ensure t
+  :pin melpa)
 (use-package jsonnet-mode
   :ensure t
   :pin melpa)
