@@ -1059,6 +1059,11 @@
 ;;; JSON
 (use-package json-mode
   :ensure t
+  :pin melpa
+  :hook
+  (json-mode . json-par-mode))
+(use-package json-par
+  :ensure t
   :pin melpa)
 (use-package jsonnet-mode
   :ensure t
