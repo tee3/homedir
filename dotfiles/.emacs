@@ -1052,10 +1052,12 @@
 (use-package js-comint
   :ensure t
   :pin melpa)
-(use-package jsonnet-mode
+(use-package jq-mode
   :ensure t
   :pin melpa)
-(use-package jq-mode
+
+;;; JSON
+(use-package jsonnet-mode
   :ensure t
   :pin melpa)
 
