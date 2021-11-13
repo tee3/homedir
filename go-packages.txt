@@ -8,3 +8,5 @@ github.com/google/git-appraise/git-appraise
 
 github.com/santhosh-tekuri/jsonschema
 github.com/santhosh-tekuri/jsonschema/cmd/jv
+
+github.com/hashicorp/terraform-ls
