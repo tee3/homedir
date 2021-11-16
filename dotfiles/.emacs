@@ -515,6 +515,14 @@
   ((text-mode . flyspell-mode)
    (prog-mode . flyspell-prog-mode)))
 
+;;; Corfu
+(use-package corfu
+  :ensure t
+  :pin gnu
+  :init
+  (setq corfu-auto t)
+  (setq corfu-echo-documentation nil))
+
 ;;; Yasnippet
 (use-package yasnippet
   :ensure t
