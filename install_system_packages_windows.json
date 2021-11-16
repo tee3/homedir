@@ -59,7 +59,7 @@
 	},
 	{
 	  "PackageIdentifier" : "Rustlang.Rust.MSVC"
-	},
+	}
       ],
       "SourceDetails" :
       {
