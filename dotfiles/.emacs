@@ -832,6 +832,18 @@
   :ensure t
   :pin gnu)
 
+;;; Completion
+(use-package mct
+  :ensure t
+  :pin gnu
+  :after icomplete
+  :init
+  (setq mct-remove-shadowed-file-names t)
+  (setq mct-minimum-input 0)
+  (setq mct-live-update-delay 0)
+  (setq mct-hide-completion-mode-line t)
+  (setq mct-show-completion-line-numbers t))
+
 ;;; Version Control Systems
 (use-package vc
   :init
