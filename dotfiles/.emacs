@@ -1211,8 +1211,6 @@
   ("C-c l r" . eglot-rename)
   ("C-c l s" . eglot)
   ("C-c l t" . eglot-find-typeDefinition)
-  :init
-  (setq eglot-autoshutdown t)
   :hook
   (prog-mode . eglot-ensure)
   :init
