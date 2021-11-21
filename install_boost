@@ -33,10 +33,7 @@ if [ -e "${root}/${filename}" ]; then
     exit 1
 fi
 
-url=https://dl.bintray.com/boostorg/release/${version}/source/${filename}
-if [ "${minor}" -lt 63 ]; then
-    url=https://sourceforge.net/projects/boost/files/boost/${version}/${filename}/download
-fi
+url=https://boostorg.jfrog.io/artifactory/main/release/${version}/source/${filename}
 
 wget --no-clobber --output-document "${root}/${filename}" "${url}"
 
