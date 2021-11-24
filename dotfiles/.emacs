@@ -838,6 +838,18 @@
   :ensure t
   :pin gnu)
 
+;;; Completion
+(use-package cape
+  :ensure t
+  :pin gnu
+  :init
+  (add-to-list 'completion-at-point-functions #'cape-file-capf)
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev-capf)
+  (add-to-list 'completion-at-point-functions #'cape-keyword-capf)
+  (add-to-list 'completion-at-point-functions #'cape-abbrev-capf)
+  (add-to-list 'completion-at-point-functions #'cape-ispell-capf)
+  (add-to-list 'completion-at-point-functions #'cape-dict-capf))
+
 ;;; Version Control Systems
 (use-package vc
   :init
