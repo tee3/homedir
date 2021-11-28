@@ -25,7 +25,6 @@ done
 
 export CPPFLAGS="-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libxml2"
 
-# @todo actually do the clean
 git -C "${rootdir}" clean -q -d -x -f
 git -C "${rootdir}" pull --ff-only origin master
 
