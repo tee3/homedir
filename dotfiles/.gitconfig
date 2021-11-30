@@ -5,6 +5,8 @@
 #	autocrlf = true
 	safecrlf = true
 	whitespace = blank-at-eol,space-before-tab,tab-in-indent,blank-at-eof
+[init]
+	defaultBranch = master
 [apply]
 	ignoreWhitespace = false
 	whitespace = warn
