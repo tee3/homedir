@@ -4,7 +4,7 @@ set -e
 set -u
 
 if [ "$#" -gt 1 ]; then
-    printf "usage: $0 [branch]" 1>&2
+    printf "usage: %s [branch]" "$0" 1>&2
     exit 1
 fi
 
@@ -23,7 +23,7 @@ packages="${packages} libgnutls30"
 packages="${packages} libgccjit-9-dev"
 
 for package in ${packages} ; do
-    if ! (apt list --installed | grep ${package} > /dev/null) ; then
+    if ! (apt list --installed | grep "${package}" > /dev/null) ; then
         printf "error: %s is not installed.\n" "${package}" 1>&2
         exit 1
     fi
