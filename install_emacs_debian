@@ -3,6 +3,12 @@
 set -e
 set -u
 
+if [ "$#" -gt 1 ]; then
+    printf "usage: $0 [branch]" 1>&2
+    exit 1
+fi
+
+branch="${1:-master}"
 rootdir="${HOME}"/opt/local/src/emacs
 
 if [ ! -e "${rootdir}" ]; then
@@ -23,9 +29,11 @@ for package in ${packages} ; do
     fi
 done
 
-# @todo actually do the clean
 git -C "${rootdir}" clean -q -d -x -f
-git -C "${rootdir}" pull --ff-only origin master
+git -C "${rootdir}" checkout "${branch}"
+git -C "${rootdir}" clean -q -d -x -f
+git -C "${rootdir}" reset --hard HEAD
+git -C "${rootdir}" pull --ff-only origin "${branch}"
 
 options=""
 options="${options} --without-x"
