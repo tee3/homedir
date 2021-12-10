@@ -929,11 +929,11 @@
                                     :test-prefix "test_"))
 
 ;;; Gnuplot
-(use-package gnuplot-mode
+(use-package gnuplot
   :ensure t
-  :pin melpa
+  :pin nongnu
   :mode
-  (("\\.gp\\'" . gnuplot-mode)))
+  (("\\.gp\\'" . gnuplot)))
 
 ;;; Go programming language
 (use-package go-mode
