@@ -43,7 +43,7 @@ options="${options} --with-xml2"
 options="${options} --with-rsvg"
 options="${options} --with-native-compilation"
 
-options="${options} --prefix="${HOME}"/opt/local"
+options="${options} --prefix=${HOME}/opt/local"
 
 (cd "${rootdir}" && ./autogen.sh)
 (cd "${rootdir}" && ./configure ${options})
