@@ -312,7 +312,8 @@
   :ensure t
   :pin gnu
   :init
-  (setq project-compilation-buffer-name-function 'project-prefixed-buffer-name))
+  (setq project-compilation-buffer-name-function 'project-prefixed-buffer-name)
+  (setq project-kill-buffers-display-buffer-list t))
 (use-package savehist
   :demand t
   :init
