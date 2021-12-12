@@ -1098,6 +1098,11 @@
   :ensure t
   :pin melpa)
 
+;;; Julia
+(use-package julia-mode
+  :ensure t
+  :pin nongnu)
+
 ;;; Code Composer Studio and DSP/BIOS mode
 (use-package cc-mode
   :mode
