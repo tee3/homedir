@@ -1344,12 +1344,7 @@
   (use-package majapahit-theme :ensure t :pin melpa :defer t)
   (use-package material-theme :ensure t :pin melpa :defer t)
   (use-package minimal-theme :ensure t :pin melpa :defer t)
-  (use-package modus-themes
-    :ensure t
-    :pin gnu
-    :defer t
-    :init
-    (setq modus-themes-diffs 'fg-only))
+  (use-package modus-themes :ensure t :pin gnu :defer t)
   (use-package moe-theme :ensure t :pin melpa :defer t)
   (use-package monochrome-theme :ensure t :pin melpa :defer t)
   (use-package monokai-theme :ensure t :pin melpa :defer t)
