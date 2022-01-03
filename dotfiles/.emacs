@@ -1363,6 +1363,7 @@
   (use-package subatomic-theme :ensure t :pin melpa :defer t)
   (use-package subatomic256-theme :ensure t :pin melpa :defer t)
   (use-package tao-theme :ensure t :pin melpa :defer t)
+  (use-package the-matrix-theme :ensure t :pin melpa :defer t)
   (use-package tramp-theme :ensure t :pin gnu :defer t)
   (use-package underwater-theme :ensure t :pin melpa :defer t)
   (use-package unobtrusive-magit-theme :ensure t :pin melpa :defer t)
