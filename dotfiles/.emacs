@@ -1194,23 +1194,15 @@
                     (pydocstyle (enabled . t))
                     (pylint (enabled . t))))))
   :config
-  (add-to-list 'eglot-server-programs '((cmake-mode) . ("cmake-language-server")))
-  (add-to-list 'eglot-server-programs '((css-mode
-                                         less-css-mode
-                                         scss-mode) . ("css-language-server" "--stdio")))
-  (add-to-list 'eglot-server-programs '((dockerfile-mode) . ("docker-langserver" "--stdio")))
   (add-to-list 'eglot-server-programs '((groovy-mode) . tee3-groovy-language-server-command))
   (add-to-list 'eglot-server-programs '((hcl-mode terraform-mode) . ("terraform-ls" "serve")))
-  (add-to-list 'eglot-server-programs '((html-mode) . ("html-languageserver" "--stdio")))
   (add-to-list 'eglot-server-programs '((vue-mode) . ("vls" "--stdio")))
-  (add-to-list 'eglot-server-programs '((json-mode jsonc-mode) . ("vscode-json-languageserver" "--stdio")))
   (add-to-list 'eglot-server-programs '((c-mode
                                          c++-mode
                                          objc-mode
                                          objc++-mode) . tee3-clangd-command))
   (add-to-list 'eglot-server-programs '((sql-mode) . ("sql-language-server" "up" "--method" "stdio")))
-  (add-to-list 'eglot-server-programs '((swift-mode) . tee3-sourcekit-lsp-command))
-  (add-to-list 'eglot-server-programs '((yaml-mode) . ("yaml-language-server" "--stdio"))))
+  (add-to-list 'eglot-server-programs '((swift-mode) . tee3-sourcekit-lsp-command)))
 
 (use-package rmsbolt
   :ensure t
