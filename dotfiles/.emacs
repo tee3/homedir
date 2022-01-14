@@ -1143,8 +1143,15 @@
   :ensure t
   :pin gnu
   :bind
-  ("C-c ! l" . flymake-show-buffer-diagnostics)
-  ("C-c ! p" . flymake-show-project-diagnostics)
+  ("C-c ! !" . flymake-show-diagnostic)
+  ("C-c ! ? b" . flymake-running-backends)
+  ("C-c ! ? d" . flymake-disabled-backends)
+  ("C-c ! ? r" . flymake-reporting-backends)
+  ("C-c ! s" . flymake-switch-to-log-buffer)
+  ("C-c ! l l" . flymake-show-buffer-diagnostics)
+  ("C-c ! l p" . flymake-show-project-diagnostics)
+  ("C-c ! n" . flymake-goto-next-error)
+  ("C-c ! p" . flymake-goto-prev-error)
   :hook
   (prog-mode . flymake-mode))
 (use-package flymake-shellcheck
