@@ -755,6 +755,10 @@
   :pin nongnu
   :after geiser)
 
+(use-package crdt
+  :ensure t
+  :pin gnu)
+
 ;;; Version Control Systems
 (use-package vc
   :init
