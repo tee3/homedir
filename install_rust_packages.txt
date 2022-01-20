@@ -6,3 +6,6 @@ rls
 tree-sitter-cli
 
 xsv
+
+# LaTeX
+--git https://github.com/latex-lsp/texlab.git
