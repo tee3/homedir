@@ -34,8 +34,9 @@ if __name__ == '__main__':
             line = line.strip()
             line = line.rstrip('\n')
             if line != '' and line[0] != '#':
+                line = line.split()
                 e = os.environ
-                if not emulate_run([cargo, 'install', '-v', line], env=e):
+                if not emulate_run([cargo, 'install', '-v'] + line, env=e):
                     error = True
 
     sys.exit(1 if error else 0)
