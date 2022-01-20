@@ -1322,6 +1322,7 @@
                                          c++-mode
                                          objc-mode
                                          objc++-mode) . tee3-clangd-command))
+  (add-to-list 'eglot-server-programs '((latex-mode) . ("texlab")))
   (add-to-list 'eglot-server-programs '((sql-mode) . ("sql-language-server" "up" "--method" "stdio")))
   (add-to-list 'eglot-server-programs '((swift-mode) . tee3-sourcekit-lsp-command)))
 
