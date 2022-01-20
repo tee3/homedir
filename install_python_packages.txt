@@ -21,6 +21,7 @@ git-filter-repo
 docutils
 restructuredtext_lint
 Sphinx
+rst-language-server
 
 # JSON
 check-jsonschema
