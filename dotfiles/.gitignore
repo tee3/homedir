@@ -62,9 +62,12 @@ npm-debug.log
 .meghanada/
 
 # Python Tooling
-venv/
-__pycache__/
 *.pyc
+__pycache__/
+dist/
+*.egg-info/
+venv/
+TEST-*
 
 # Jupyter Tooling
 .ipynb_checkpoints/
