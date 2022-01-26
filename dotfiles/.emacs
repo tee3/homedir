@@ -680,41 +680,6 @@
   :pin nongnu
   :after geiser)
 
-;;; Search engines
-(use-package engine-mode
-  :ensure t
-  :pin melpa
-  :demand t
-  :preface
-  (setq engine/keybinding-prefix "C-c s")
-  :init
-  (defengine amazon
-    "https://www.amazon.com/s?k=%s"
-    :keybinding "a")
-  (defengine cppreference
-    "https://google.com/search?gfns&q=%s+site:cppreference.com"
-    :keybinding "c")
-  (defengine duckduckgo
-    "https://duckduckgo.com/?q=%s"
-    :keybinding "d")
-  (defengine github
-    "https://github.com/search?ref=simplesearch&q=%s"
-    :keybinding "h")
-  (defengine google
-    "https://google.com/search?q=%s"
-    :keybinding "g")
-  (defengine maps
-    "https://google.com/maps?q=%s"
-    :keybinding "m")
-  (defengine wikipedia
-    "https://google.com/search?q=%s+site:wikipedia.org"
-    :keybinding "w")
-  (defengine stack-overflow
-    "https://stackoverflow.com/search?q=%s"
-    :keybinding "s")
-  :config
-  (engine-mode))
-
 ;;; Version Control Systems
 (use-package vc
   :init
