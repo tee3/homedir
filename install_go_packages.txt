@@ -1,12 +1,11 @@
 # Development
 
-golang.org/x/tools/gopls
+golang.org/x/tools/gopls@latest
 
-github.com/google/git-appraise/git-appraise
+github.com/google/git-appraise/git-appraise@latest
 
-#github.com/shurcool/markdownfmt
+#github.com/shurcool/markdownfmt@latest
 
-github.com/santhosh-tekuri/jsonschema
-github.com/santhosh-tekuri/jsonschema/cmd/jv
+github.com/santhosh-tekuri/jsonschema/cmd/jv@latest
 
-github.com/hashicorp/terraform-ls
+github.com/hashicorp/terraform-ls@latest
