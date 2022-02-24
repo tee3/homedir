@@ -28,6 +28,7 @@ else if [ os.name ] = LINUX
   # other compilers, both system and optional
   using clang ;
 
+#  using clang : 12 : /usr/bin/clang++-12 ;
 #  using clang : 11 : /usr/bin/clang++-11 ;
 #  using clang : 10 : /usr/bin/clang++-10 ;
   using clang : 9 : /usr/bin/clang++-9 ;
