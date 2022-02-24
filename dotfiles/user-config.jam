@@ -19,6 +19,7 @@ else if [ os.name ] = LINUX
   # this is the default system compiler
   using gcc ;
 
+  using gcc : 11 : /usr/bin/g++-11 ;
   using gcc : 10 : /usr/bin/g++-10 ;
 #  using gcc : 9 : /usr/bin/g++-9 ;
   using gcc : 8 : /usr/bin/g++-8 ;
@@ -51,6 +52,7 @@ else if [ os.name ] = MACOSX
 
   using darwin ;
 
+  using darwin : 11 : /usr/local/opt/gcc@11/bin/g++-11 : $(macos-options) ;
   using darwin : 10 : /usr/local/opt/gcc@10/bin/g++-10 : $(macos-options) ;
   using darwin : 9 : /usr/local/opt/gcc@9/bin/g++-9 : $(macos-options) ;
   using darwin : 8 : /usr/local/opt/gcc@8/bin/g++-8 : $(macos-options) ;
