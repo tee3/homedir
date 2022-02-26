@@ -212,7 +212,7 @@
 (use-package frame
   :demand t
   :config
-  (add-to-list 'initial-frame-alist '(qqwidth . 160))
+  (add-to-list 'initial-frame-alist '(width . 160))
   (add-to-list 'initial-frame-alist '(height . 48))
   (if (member "Source Code Pro" (font-family-list))
       (add-to-list 'initial-frame-alist '(font . "Source Code Pro")))
