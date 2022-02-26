@@ -214,11 +214,15 @@
   :config
   (add-to-list 'initial-frame-alist '(width . 160))
   (add-to-list 'initial-frame-alist '(height . 48))
+  (if (member "Cascadia Code" (font-family-list))
+      (add-to-list 'initial-frame-alist '(font . "Cascadia Code")))
   (if (member "Source Code Pro" (font-family-list))
       (add-to-list 'initial-frame-alist '(font . "Source Code Pro")))
 
   (add-to-list 'default-frame-alist '(width . 160))
   (add-to-list 'default-frame-alist '(height . 48))
+  (if (member "Cascadia Code" (font-family-list))
+      (add-to-list 'default-frame-alist '(font . "Cascadia Code")))
   (if (member "Source Code Pro" (font-family-list))
       (add-to-list 'default-frame-alist '(font . "Source Code Pro"))))
 (use-package fringe
