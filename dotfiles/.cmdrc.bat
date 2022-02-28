@@ -16,15 +16,11 @@ rem Ruby
 FOR /f "delims=" %%A IN ('ruby -r rubygems -e "puts Gem.user_dir"') DO set "PATH=%PATH%;%%A\bin"
 
 rem Node.js
-set CMDNODEJSROOT=C:\nodejs
-if not exist "%CMDNODEJSROOT%" echo NodeJS is not installed at "%CMDNODEJSROOT%".
 set CMDNPMPREFIX=%HOME%\.node_modules
 if exist "%CMDNODEJSROOT%" set PATH=%CMDNPMPREFIX%;%PATH%
 if exist "%CMDNODEJSROOT%" set NODE_PATH=%CMDNPMPREFIX%\node_modules:%NODE_PATH%
 
 rem Go
-set CMDGOROOT=C:\Go
-if not exist "%CMDGOROOT%" echo Go is not installed at "%CMDGOROOT%".
 if exist "%CMDGOROOT%" set PATH=%HOME%\.go\bin;%PATH%
 
 rem @todo this needs to be set up
