@@ -7,7 +7,7 @@ set CMDOPTLOCAL=%HOME%\opt\local
 if exist "%CMDOPTLOCAL%" set PATH=%CMDOPTLOCAL%\bin;%PATH%
 
 rem SSH
-call start-ssh-agent
+ssh-agent
 
 rem Python
 FOR /f "delims=" %%A IN ('python3 -c "import site; print(site.USER_BASE)"') DO set "PATH=%PATH%;%%A\Python38\Scripts"
