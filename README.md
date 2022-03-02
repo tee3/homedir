@@ -221,34 +221,34 @@ enable it.  Install "App Installer" from the Microsoft Store, and the
 Windows Package Manager CLI (`winget-cli`) from
 https://github.com/microsoft/winget-cli.
 
-* Boost.Build from Boost C++ Libraries 1.68.0
+* Boost.Build from Boost C++ Libraries 1.78.0
 
   * Install from source.
 
-  * Download `boost_1_68_0.zip` to `C:\Boost\src\boost_1_68_0.zip`.
+  * Download `boost_1_78_0.zip` to `C:\Boost\src\boost_1_78_0.zip`.
 
-  * Extract to `C:\Boost\src\boost_1_68_0`.
+  * Extract to `C:\Boost\src\boost_1_78_0`.
 
   * Install Boost.Build to `C:\boost-build`.
 
     ```
-    cd C:\Boost\src\boost_1_68_0\tools\build
+    cd C:\Boost\src\boost_1_78_0\tools\build
     bootstrap.bat
     b2 install
     ```
 
-* Boost C++ Libraries 1.68.0
+* Boost C++ Libraries 1.78.0
 
   * Install from source (this will take a very long time).
 
-  * Download `boost_1_68_0.zip` to `C:\Boost\src\boost_1_68_0.zip`.
+  * Download `boost_1_78_0.zip` to `C:\Boost\src\boost_1_78_0.zip`.
 
-  * Extract to `C:\Boost\src\boost_1_68_0`.
+  * Extract to `C:\Boost\src\boost_1_78_0`.
 
   * Install versioned Boost C++ Libraries to `C:\Boost`.
 
     ```
-    cd C:\Boost\src\boost_1_68_0
+    cd C:\Boost\src\boost_1_78_0
     b2 --layout=versioned install
     ```
 
