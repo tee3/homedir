@@ -249,7 +249,7 @@ https://github.com/microsoft/winget-cli.
 
     ```
     cd C:\Boost\src\boost_1_68_0
-    b2 --layout=versioned inetall
+    b2 --layout=versioned install
     ```
 
 From a `cmd` window install the system packages.  At the end of this
