@@ -1161,6 +1161,9 @@
 (use-package jq-mode
   :ensure t
   :pin melpa)
+(use-package skerrick
+  :ensure t
+  :pin melpa)
 
 ;;; JSON
 (when (< emacs-major-version 29)
