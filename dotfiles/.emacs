@@ -809,6 +809,10 @@
   ((c-mode . hide-ifdef-mode)
    (c++-mode . hide-ifdef-mode)))
 
+(use-package skerrick
+  :ensure t
+  :pin melpa)
+
 ;;; Flymake
 (use-package flymake
   :ensure t
