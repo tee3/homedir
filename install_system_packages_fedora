@@ -8,7 +8,7 @@
 set -e
 set -u
 
-release=$(cat /etc/fedora-release)
+release="$(cat /etc/fedora-release)"
 version=0
 if [ "${release}" = "Fedora release 22 (Twenty Two)" ]; then
     version=22
