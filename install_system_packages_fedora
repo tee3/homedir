@@ -34,7 +34,7 @@ pm_cleanup=
 
 # check if dnf is installed
 if [ -z "$(which dnf 2> /dev/null)" ]; then
-    echo "warning: dnf not found."
+    printf "warning: dnf not found.\n"
 else
     pm="dnf"
     pm_check="true"
@@ -52,7 +52,7 @@ fi
 # check if yum is installed, if package manager is not
 if [ -z "${pm}" ]; then
     if [ -z "$(which yum 2> /dev/null)" ]; then
-        echo "warning: yum not found."
+        printf "warning: yum not found.\n"
     else
         pm="yum"
         pm_check="true"
@@ -65,14 +65,14 @@ fi
 
 # check if package manager is installed
 if [ -z "${pm}" ]; then
-    echo "error: Package manager not found."
+    printf "error: Package manager not found.\n"
     exit 1
 fi
 
 # update and check packages
 ${pm_update}
 if ! ${pm_check} ; then
-    echo "warning: Package manager check failed, continue anyway (y/n)?: \c"
+    printf "warning: Package manager check failed, continue anyway (y/n)?: "
     read -r yn
     if [ "${yn}" != "y" ]; then
 	exit 1

@@ -18,7 +18,7 @@ pm_cleanup=
 
 # check if apt is installed
 if [ -z "$(which apt 2> /dev/null)" ]; then
-    echo "warning: apt not found"
+    printf "warning: apt not found\n"
 else
     pm="apt"
     pm_check="true"
@@ -30,14 +30,14 @@ fi
 
 # check if package manager is installed
 if [ -z "${pm}" ]; then
-    echo "error: Package manager not found."
+    printf "error: Package manager not found.\n"
     exit 1
 fi
 
 # update and check packages
 ${pm_update}
 if ! ${pm_check} ; then
-    echo "warning: Package manager check failed, continue anyway (y/n)?: \c"
+    printf "warning: Package manager check failed, continue anyway (y/n)?: "
     read -r yn
     if [ "${yn}" != "y" ]; then
 	exit 1
