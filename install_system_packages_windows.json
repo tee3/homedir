@@ -40,6 +40,9 @@
 	  "PackageIdentifier" : "Kitware.CMake"
 	},
 	{
+	  "PackageIdentifier" : "Julialang.Julia"
+	},
+	{
 	  "PackageIdentifier" : "Microsoft.Edge"
 	},
 	{
