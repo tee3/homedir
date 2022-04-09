@@ -14,8 +14,8 @@ fi
 version=$1
 version_name=$(echo "${version}" | sed 's/\./_/g')
 root="${HOME}"/opt/local/src/boost
-directory=boost_${version_name}
-filename=${directory}.tar.gz
+directory=boost_"${version_name}"
+filename="${directory}".tar.gz
 minor=$(echo "${version}" | sed 's/^[0-9]\.\([0-9][0-9]\)\.[0-9]/\1/')
 
 if [ ! -d "${root}" ]; then
@@ -23,44 +23,45 @@ if [ ! -d "${root}" ]; then
     exit 1
 fi
 
-if [ -d "${root}/${directory}" ]; then
+if [ -d "${root}"/"${directory}" ]; then
     echo "error: ${root}/${directory} already exists."
     exit 1
 fi
 
-if [ -e "${root}/${filename}" ]; then
+if [ -e "${root}"/"${filename}" ]; then
     echo "error: ${root}/${filename} already exists."
     exit 1
 fi
 
-url=https://boostorg.jfrog.io/artifactory/main/release/${version}/source/${filename}
+url=https://boostorg.jfrog.io/artifactory/main/release/"${version}"/source/"${filename}"
 
-wget --no-clobber --output-document "${root}/${filename}" "${url}"
+wget --no-clobber --output-document "${root}"/"${filename}" "${url}"
 
-if [ ! -e "${root}/${filename}" ]; then
+if [ ! -e "${root}"/"${filename}" ]; then
     echo "error: ${root}/${filename} does not exist."
     exit 1
 fi
 
-tar xfz "${root}/${filename}" -C "${root}"
+tar xfz "${root}"/"${filename}" -C "${root}"
 
-if [ ! -d "${root}/${directory}" ]; then
+if [ ! -d "${root}"/"${directory}" ]; then
     echo "error: ${root}/${directory} does not exist."
     exit 1
 fi
 
 cwd=$(pwd)
-cd "${root}/${directory}"
+cd "${root}"/"${directory}"
+
 ./bootstrap.sh
 cd "${cwd}"
 
-cat > "${root}/b2_${version_name}.sh" <<-EOF
+cat > "${root}"/b2_"${version_name}".sh <<-EOF
 	#!/bin/sh
 	if [ -n "\${BOOST_BUILD_PATH}" ]; then
-	    export BOOST_BUILD_PATH=\${BOOST_BUILD_PATH}:${root}/${directory}/tools/build
+	    export BOOST_BUILD_PATH="\${BOOST_BUILD_PATH}":"${root}"/"${directory}"/tools/build
 	else
-	    export BOOST_BUILD_PATH=${root}/${directory}/tools/build
+	    export BOOST_BUILD_PATH="${root}"/"${directory}"/tools/build
 	fi
-	${root}/${directory}/b2 "\$@"
+	"${root}"/"${directory}"/b2 "\$@"
 EOF
-chmod a+x "${root}/b2_${version_name}.sh"
+chmod a+x "${root}"/b2_"${version_name}".sh
