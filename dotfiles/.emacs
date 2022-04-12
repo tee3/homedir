@@ -1364,6 +1364,11 @@
   :ensure t
   :pin melpa)
 
+;;; DevDocs
+(use-package devdocs
+  :ensure t
+  :pin gnu)
+
 ;;; Themes
 (when (or (>= emacs-major-version 25)
           (and (= emacs-major-version 24)
