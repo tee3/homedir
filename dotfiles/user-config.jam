@@ -36,6 +36,8 @@ else if [ os.name ] = LINUX
   using clang : 8 : /usr/bin/clang++-8 ;
 
   using gcc : 9arm : /usr/bin/arm-none-eabi-g++ ;
+
+  using gcc : 5avr : /usr/bin/avr-g++ ;
 }
 else if [ os.name ] = MACOSX
 {
@@ -67,6 +69,12 @@ else if [ os.name ] = MACOSX
   using gcc : 8arm : /usr/local/opt/arm-gcc-bin@8/bin/arm-none-eabi-g++ ;
   using gcc : 9arm : /usr/local/opt/arm-gcc-bin@9/bin/arm-none-eabi-g++ ;
   using gcc : 10arm : /usr/local/opt/arm-gcc-bin@10/bin/arm-none-eabi-g++ ;
+
+  using gcc : 5avr : /usr/local/opt/avr-gcc@5/bin/avr-g++ ;
+  using gcc : 8avr : /usr/local/opt/avr-gcc@8/bin/avr-g++ ;
+  using gcc : 9avr : /usr/local/opt/avr-gcc@9/bin/avr-g++ ;
+  using gcc : 10avr : /usr/local/opt/avr-gcc@10/bin/avr-g++ ;
+  using gcc : 11avr : /usr/local/opt/avr-gcc@11/bin/avr-g++ ;
 
   #using emscripten ;
 }
