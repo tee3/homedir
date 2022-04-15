@@ -563,11 +563,6 @@
 (use-package cperl-mode
   :ensure t
   :pin melpa)
-(use-package csharp-mode
-  :if
-  (>= emacs-major-version 25)
-  :ensure t
-  :pin melpa)
 (use-package d-mode
   :ensure t
   :pin melpa)
@@ -1344,7 +1339,6 @@
   (use-package solo-jazz-theme :ensure t :pin melpa :defer t)
   (use-package subatomic-theme :ensure t :pin nongnu :defer t)
   (use-package subatomic256-theme :ensure t :pin melpa :defer t)
-  (use-package tao-theme :ensure t :pin melpa :defer t)
   (use-package the-matrix-theme :ensure t :pin melpa :defer t)
   (use-package tramp-theme :ensure t :pin gnu :defer t)
   (use-package underwater-theme :ensure t :pin melpa :defer t)
