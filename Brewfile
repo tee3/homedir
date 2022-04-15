@@ -134,3 +134,7 @@ brew "xmlformat"
 brew "xmlstarlet"
 brew "xmlto"
 brew "zsh-completions"
+
+brew "osx-cross/arm/arm-gcc-bin@8"
+brew "osx-cross/arm/arm-gcc-bin@9"
+brew "osx-cross/arm/arm-gcc-bin@10"
