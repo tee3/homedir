@@ -87,7 +87,7 @@ ${pm_upgrade}
 #packages="${packages} arp-sk"
 #packages="${packages} arpoison"
 packages="${packages} aspell"
-#packages="${packages} avrdude"
+packages="${packages} avrdude"
 packages="${packages} bash-completion"
 packages="${packages} bear"
 packages="${packages} boost"
