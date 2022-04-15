@@ -34,6 +34,8 @@ else if [ os.name ] = LINUX
 #  using clang : 10 : /usr/bin/clang++-10 ;
   using clang : 9 : /usr/bin/clang++-9 ;
   using clang : 8 : /usr/bin/clang++-8 ;
+
+  using gcc : 9arm : /usr/bin/arm-none-eabi-g++ ;
 }
 else if [ os.name ] = MACOSX
 {
@@ -61,6 +63,10 @@ else if [ os.name ] = MACOSX
   using darwin : 8 : /usr/local/opt/gcc@8/bin/g++-8 : $(macos-options) ;
   using darwin : 7 : /usr/local/opt/gcc@7/bin/g++-7 : $(macos-options) ;
   using darwin : 6 : /usr/local/opt/gcc@6/bin/g++-6 : $(macos-options) ;
+
+  using gcc : 8arm : /usr/local/opt/arm-gcc-bin@8/bin/arm-none-eabi-g++ ;
+  using gcc : 9arm : /usr/local/opt/arm-gcc-bin@9/bin/arm-none-eabi-g++ ;
+  using gcc : 10arm : /usr/local/opt/arm-gcc-bin@10/bin/arm-none-eabi-g++ ;
 
   #using emscripten ;
 }
