@@ -54,6 +54,7 @@ packages=
 #packages="${packages} arpoison"
 packages="${packages} aspell"
 packages="${packages} avrdude"
+packages="${packages} azure-cli"
 packages="${packages} bash-completion"
 packages="${packages} bear"
 packages="${packages} libboost-all-dev"

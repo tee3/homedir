@@ -28,7 +28,6 @@ cmake-language-server
 fortran-language-server
 
 # Miscellaneous
-azure-cli
 conan
 
 # Jupyter
