@@ -55,13 +55,13 @@ cd "${root}"/"${directory}"
 ./bootstrap.sh
 cd "${cwd}"
 
-cat > "${root}"/b2_"${version_name}".sh <<-EOF
-	#!/bin/sh
-	if [ -n "\${BOOST_BUILD_PATH}" ]; then
-	    export BOOST_BUILD_PATH="\${BOOST_BUILD_PATH}":"${root}"/"${directory}"/tools/build
-	else
-	    export BOOST_BUILD_PATH="${root}"/"${directory}"/tools/build
-	fi
-	"${root}"/"${directory}"/b2 "\$@"
+cat > "${root}"/b2_"${version_name}".sh <<EOF
+#!/bin/sh
+if [ -n "\${BOOST_BUILD_PATH}" ]; then
+    export BOOST_BUILD_PATH="\${BOOST_BUILD_PATH}":"${root}"/"${directory}"/tools/build
+else
+    export BOOST_BUILD_PATH="${root}"/"${directory}"/tools/build
+fi
+"${root}"/"${directory}"/b2 "\$@"
 EOF
 chmod a+x "${root}"/b2_"${version_name}".sh
