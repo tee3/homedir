@@ -30,7 +30,7 @@ fi
 
 # Add local optional to path
 if [ -d "${HOME}"/opt/local/bin ]; then
-    export PATH="${HOME}"/opt/local/bin:"${PATH}"
+    export PATH="${HOME}"/opt/local/bin:${PATH}
     export LD_LIBRARY_PATH="${HOME}"/opt/local/lib
     export DYLD_LIBRARY_PATH="${HOME}"/opt/local/lib
 fi
