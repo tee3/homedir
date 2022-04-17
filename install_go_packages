@@ -29,7 +29,7 @@ if __name__ == '__main__':
         sys.exit(1)
 
     error = False
-    with open('go-packages.txt', 'r') as f:
+    with open('install_go_packages.txt', 'r') as f:
         for line in f:
             line = line.strip()
             line = line.rstrip('\n')

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Install Node packages in the node-packages.txt package list.
+# Install Node packages in the install_node_packages.txt package list.
 
 import sys
 import os
@@ -39,7 +39,7 @@ if __name__ == '__main__':
         sys.exit(1)
 
     error = False
-    with open('node-packages.txt', 'r') as f:
+    with open('install_node_packages.txt', 'r') as f:
         for line in f:
             line = line.strip()
             line = line.rstrip('\n')

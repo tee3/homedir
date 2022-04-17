@@ -42,6 +42,6 @@ if __name__ == '__main__':
         print('error: gem is not available, skipping Ruby module installation')
         sys.exit(1)
 
-    error = not emulate_run([gem, 'install', '--user-install', '--update-sources', '--file', 'ruby-packages.gemfile'])
+    error = not emulate_run([gem, 'install', '--user-install', '--update-sources', '--file', 'install_ruby_packages.gemfile'])
 
     sys.exit(1 if error else 0)
