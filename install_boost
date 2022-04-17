@@ -11,7 +11,7 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
-version=$1
+version="$1"
 version_name="$(printf "%s" "${version}" | sed 's/\./_/g')"
 root="${HOME}"/opt/local/src/boost
 directory=boost_"${version_name}"
@@ -49,7 +49,7 @@ if [ ! -d "${root}"/"${directory}" ]; then
     exit 1
 fi
 
-cwd=$(pwd)
+cwd="$(pwd)"
 cd "${root}"/"${directory}"
 
 ./bootstrap.sh
