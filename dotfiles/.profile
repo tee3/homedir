@@ -20,7 +20,7 @@ elif [ -d "${HOME}"/.linuxbrew ]; then
 fi
 
 if [ -n "$(command -v brew 2> /dev/null)" ]; then
-    brew_prefix=$(brew --prefix)
+    brew_prefix="$(brew --prefix)"
 
     # DocBook from Homebrew
     if [ -e "$(brew ls --versions docbook > /dev/null)" ]; then
@@ -43,7 +43,7 @@ fi
 
 # Ruby
 if [ -n "$(command -v ruby 2> /dev/null)" ] && [ -n "$(command -v gem 2> /dev/null)" ]; then
-    ruby_prefix=$(ruby -r rubygems -e 'puts Gem.user_dir')
+    ruby_prefix="$(ruby -r rubygems -e 'puts Gem.user_dir')"
     export PATH="${ruby_prefix}/bin":${PATH}
 fi
 
