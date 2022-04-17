@@ -24,7 +24,7 @@ if [ -n "$(command -v brew 2> /dev/null)" ]; then
 
     # DocBook from Homebrew
     if [ -e "$(brew ls --versions docbook > /dev/null)" ]; then
-        export XML_CATALOG_FILES=${brew_prefix}/etc/xml/catalog
+        export XML_CATALOG_FILES="${brew_prefix}"/etc/xml/catalog
     fi
 fi
 
