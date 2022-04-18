@@ -569,6 +569,9 @@
 (use-package fish-mode
   :ensure t
   :pin melpa)
+(use-package groovy-mode
+  :ensure t
+  :pin melpa)
 (use-package jenkinsfile-mode
   :ensure t
   :pin melpa)
