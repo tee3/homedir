@@ -657,13 +657,6 @@
   :ensure t
   :pin melpa)
 
-;;; GNU Global
-(use-package ggtags
-  :ensure t
-  :pin melpa
-  :bind-keymap
-  ("C-c g" . ggtags-mode-prefix-map))
-
 ;;; Scheme programming language
 (use-package scheme
   :mode
