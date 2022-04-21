@@ -372,6 +372,24 @@
 (use-package project
   :ensure t
   :pin gnu
+  :preface
+  (defun project-display-hierarchy (project)
+    "Display the hierarchy of the project PROJECT."
+    (setq project-hierarchy (hierarchy-new))
+
+    (setq root-directory (project-root project))
+
+    (hierarchy-add-trees project-hierarchy (project-files (project-current t)) nil)
+
+    (setq buffer (generate-new-buffer "*project-hierarchy*"))
+
+    (add-to-list 'display-buffer-alist '("^\\*project-hierarchy.*"
+                                         display-buffer-in-side-window
+                                         (side . left)))
+
+    (hierarchy-tabulated-display project-hierarchy (lambda (item _indent) (insert item)) buffer)
+
+    (pop-to-buffer buffer))
   :init
   (setq project-mode-line t)
   (setq project-switch-use-entire-map t)
