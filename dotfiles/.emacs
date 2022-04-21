@@ -686,13 +686,6 @@
 
 ;;; Imenu
 (use-package imenu)
-(use-package imenu-list
-  :ensure t
-  :pin melpa
-  :after imenu
-  :init
-  (setq imenu-list-focus-after-activation t)
-  (setq imenu-list-auto-resize t))
 
 ;;; Git
 (use-package gited
