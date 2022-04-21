@@ -837,6 +837,27 @@
 
 ;;; Imenu
 (use-package imenu
+  :preface
+  (defun imenu-display-hierarchy ()
+    "Display the hierarchy of the imenu IMENU."
+    (setq imenu-hierarchy (hierarchy-new))
+
+    (setq imenu-stuff (imenu--make-index-alist))
+
+    ;; iterate through imenu-stuff with car the label of the hierarchy and each element of cdr is an element at that level
+    ;; need to be enable some functions in the resulting tabulated-list-mode to jump
+
+    (hierarchy-add-trees imenu-hierarchy (imenu-stuff (imenu-current t)) nil)
+
+    (setq buffer (generate-new-buffer "*Imenu-hierarchy*"))
+
+    (add-to-list 'display-buffer-alist '("^\\*Imenu-hierarchy.*"
+                                         display-buffer-in-side-window
+                                         (side . left)))
+
+    (hierarchy-tabulated-display imenu-hierarchy (lambda (item _indent) (insert item)) buffer)
+
+    (pop-to-buffer buffer))
   :init
   (setq imenu-flatten 'annotation))
 
