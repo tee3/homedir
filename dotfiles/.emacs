@@ -493,6 +493,70 @@
 ;;; Programming mode hooks
 (add-hook 'prog-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
+;;; IDE
+(when (>= emacs-major-version 29)
+  (add-to-list 'display-buffer-alist '((major-mode . help-mode)
+                                       display-buffer-in-side-window
+                                       (side . right)
+                                       (slot . -1)))
+  (add-to-list 'display-buffer-alist '((major-mode . dired-mode)
+                                       display-buffer-in-side-window
+                                       (slot . -1)
+                                       (side . left)))
+  (add-to-list 'display-buffer-alist '((major-mode . vc-dir-mode)
+                                       display-buffer-in-side-window
+                                       (slot . -1)
+                                       (side . left)))
+  (add-to-list 'display-buffer-alist '((major-mode . magit-mode)
+                                       display-buffer-in-side-window
+                                       (slot . -1)
+                                       (side . left)))
+  (add-to-list 'display-buffer-alist '((major-mode . xref--xref-buffer-mode)
+                                       display-buffer-in-side-window
+                                       (side . bottom)
+                                       (slot . -1)
+                                       (window-height . 10)))
+  (add-to-list 'display-buffer-alist '((major-mode . occur-mode)
+                                       display-buffer-in-side-window
+                                       (side . bottom)
+                                       (slot . -1)
+                                       (window-height . 10)))
+  (add-to-list 'display-buffer-alist '((major-mode . flymake-project-diagnostics-mode)
+                                       display-buffer-in-side-window
+                                       (side . bottom)
+                                       (slot . -1)
+                                       (window-height . 10)))
+  (add-to-list 'display-buffer-alist '((major-mode . flymake-diagnostics-buffer-mode)
+                                       display-buffer-in-side-window
+                                       (side . bottom)
+                                       (slot . -1)
+                                       (window-height . 10)))
+  (add-to-list 'display-buffer-alist '((major-mode . compilation-mode)
+                                       display-buffer-in-side-window
+                                       (side . bottom)
+                                       (slot . -1)
+                                       (window-height . 10)))
+  (add-to-list 'display-buffer-alist '((major-mode . comint-mode)
+                                       display-buffer-in-side-window
+                                       (side . bottom)
+                                       (slot . 1)
+                                       (window-height . 10)))
+  (add-to-list 'display-buffer-alist '((major-mode . eshell-mode)
+                                       display-buffer-in-side-window
+                                       (side . bottom)
+                                       (slot . 1)
+                                       (window-height . 10)))
+  (add-to-list 'display-buffer-alist '("^\\*eldoc"
+                                       display-buffer-in-side-window
+                                       (side . bottom)
+                                       (slot . 1)
+                                       (window-height . 10)))
+  (add-to-list 'display-buffer-alist '("^\\*Warnings"
+                                       display-buffer-in-side-window
+                                       (side . bottom)
+                                       (slot . 1)
+                                       (window-height . 10))))
+
 (use-package hideshow
   :hook
   (prog-mode . hs-minor-mode))
