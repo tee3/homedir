@@ -61,6 +61,29 @@ if [ -n "$(command -v emacsclient 2> /dev/null)" ]; then
     export VISUAL="emacsclient -a vi"
 fi
 
+# Info
+if [ -n "${brew_prefix}" ]; then
+    # GCC ARM
+    export MANPATH="${MANPATH+${MANPATH}:}${brew_prefix}/opt/arm-gcc-bin@8/share/doc/gcc-arm-none-eabi/man"
+    export INFOPATH="${INFOPATH+${INFOPATH}:}${brew_prefix}/opt/arm-gcc-bin@8/share/doc/gcc-arm-none-eabi/info"
+    export MANPATH="${MANPATH+${MANPATH}:}${brew_prefix}/opt/arm-gcc-bin@9/share/doc/gcc-arm-none-eabi/man"
+    export INFOPATH="${INFOPATH+${INFOPATH}:}${brew_prefix}/opt/arm-gcc-bin@9/share/doc/gcc-arm-none-eabi/info"
+    export MANPATH="${MANPATH+${MANPATH}:}${brew_prefix}/opt/arm-gcc-bin@10/share/doc/gcc-arm-none-eabi/man"
+    export INFOPATH="${INFOPATH+${INFOPATH}:}${brew_prefix}/opt/arm-gcc-bin@10/share/doc/gcc-arm-none-eabi/info"
+
+    # GCC AVR
+    export MANPATH="${MANPATH+${MANPATH}:}${brew_prefix}/opt/avr-gcc@5/share/doc/gcc-arm-none-eabi/man"
+    export INFOPATH="${INFOPATH+${INFOPATH}:}${brew_prefix}/opt/avr-gcc@5/share/doc/gcc-arm-none-eabi/info"
+    export MANPATH="${MANPATH+${MANPATH}:}${brew_prefix}/opt/avr-gcc@8/share/doc/gcc-arm-none-eabi/man"
+    export INFOPATH="${INFOPATH+${INFOPATH}:}${brew_prefix}/opt/avr-gcc@8/share/doc/gcc-arm-none-eabi/info"
+    export MANPATH="${MANPATH+${MANPATH}:}${brew_prefix}/opt/avr-gcc@9/share/doc/gcc-arm-none-eabi/man"
+    export INFOPATH="${INFOPATH+${INFOPATH}:}${brew_prefix}/opt/avr-gcc@9/share/doc/gcc-arm-none-eabi/info"
+    export MANPATH="${MANPATH+${MANPATH}:}${brew_prefix}/opt/avr-gcc@10/share/doc/gcc-arm-none-eabi/man"
+    export INFOPATH="${INFOPATH+${INFOPATH}:}${brew_prefix}/opt/avr-gcc@10/share/doc/gcc-arm-none-eabi/info"
+    export MANPATH="${MANPATH+${MANPATH}:}${brew_prefix}/opt/avr-gcc@11/share/doc/gcc-arm-none-eabi/man"
+    export INFOPATH="${INFOPATH+${INFOPATH}:}${brew_prefix}/opt/avr-gcc@11/share/doc/gcc-arm-none-eabi/info"
+fi
+
 # Python 3
 if [ -n "$(command -v python3 2> /dev/null)" ]; then
     python_prefix="$(python3 -c 'import site ; print(site.USER_BASE)')"
