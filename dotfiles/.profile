@@ -71,7 +71,7 @@ if [ -n "$(command -v luarocks 2> /dev/null)" ]; then
 fi
 
 # TeX
-tex_prefix=/usr/local/texlive/2020
+tex_prefix=/usr/local/texlive/2022
 if [ -d "${tex_prefix}" ]; then
     INFOPATH="${tex_prefix}"/texmf-dist/doc/info:${INFOPATH}; export INFOPATH
 fi
