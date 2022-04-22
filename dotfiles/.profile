@@ -44,6 +44,12 @@ if [ -d "${HOME}"/opt/local/bin ]; then
     export INFOPATH="${HOME}/opt/local/share/info:${INFOPATH:-}"
 fi
 
+# Emacs
+if [ -n "$(command -v emacsclient 2> /dev/null)" ]; then
+    export ALTERNATE_EDITOR=
+    export EDITOR="emacsclient -a vi"
+fi
+
 # Python 3
 if [ -n "$(command -v python3 2> /dev/null)" ]; then
     python_prefix="$(python3 -c 'import site ; print(site.USER_BASE)')"
