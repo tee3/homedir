@@ -44,6 +44,13 @@ if [ -d "${HOME}"/opt/local/bin ]; then
     export INFOPATH="${HOME}/opt/local/share/info:${INFOPATH:-}"
 fi
 
+# Emacs for macOS
+if [ -d "${HOME}"/Applications/Emacs.app ]; then
+    alias emacs="${HOME}"/Applications/Emacs.app/Contents/MacOS/Emacs
+    alias emacsclient="${HOME}"/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+    alias etags="${HOME}"/Applications/Emacs.app/Contents/MacOS/bin/etags
+fi
+
 # Editor
 if [ -n "$(command -v emacsclient 2> /dev/null)" ]; then
     export VISUAL="emacsclient -a vi"
