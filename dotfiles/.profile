@@ -10,13 +10,13 @@ fi
 
 # Homebrew setup
 if [ -d /usr/local/Homebrew ]; then
-    eval $(/usr/local/Homebrew/bin/brew shellenv)
+    eval "$(/usr/local/Homebrew/bin/brew shellenv)"
 elif [ -d "${HOME}"/.homebrew ]; then
-    eval $("${HOME}"/.homebrew/bin/brew shellenv)
+    eval "$("${HOME}"/.homebrew/bin/brew shellenv)"
 elif [ -d /home/linuxbrew/.linuxbrew ]; then
-    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 elif [ -d "${HOME}"/.linuxbrew ]; then
-    eval $("${HOME}"/.linuxbrew/bin/brew shellenv)
+    eval "$("${HOME}"/.linuxbrew/bin/brew shellenv)"
 fi
 
 if [ -n "$(command -v brew 2> /dev/null)" ]; then
@@ -37,7 +37,7 @@ fi
 
 # Python 3
 if [ -n "$(command -v python3 2> /dev/null)" ]; then
-    python_prefix=$(python3 -c 'import site ; print(site.USER_BASE)')
+    python_prefix="$(python3 -c 'import site ; print(site.USER_BASE)')"
     export PATH="${python_prefix}/bin:${PATH}"
 fi
 
@@ -49,7 +49,7 @@ fi
 
 # Node.js
 if [ -n "$(command -v node 2> /dev/null)" ]; then
-    npm_prefix=$(npm prefix -g)
+    npm_prefix="$(npm prefix -g)"
     export PATH="${npm_prefix}/bin:${PATH}"
     export MANPATH="${npm_prefix}/share/man:${MANPATH}"
     export NODE_PATH="${npm_prefix}/lib/node_modules:${NODE_PATH}"
