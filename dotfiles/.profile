@@ -9,7 +9,7 @@ if [ -d "${HOME}/.local/bin" ] ; then
 fi
 
 # Homebrew setup
-if [ -d /usr/local/Hombrew ]; then
+if [ -d /usr/local/Homebrew ]; then
     eval $(/usr/local/Homebrew/bin/brew shellenv)
 elif [ -d "${HOME}"/.homebrew ]; then
     eval $("${HOME}"/.homebrew/bin/brew shellenv)
