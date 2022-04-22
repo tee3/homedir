@@ -1,11 +1,11 @@
 # set PATH so it includes user's private bin if it exists
 if [ -d "${HOME}/bin" ] ; then
-    PATH="${HOME}/bin:${PATH}"
+    export PATH="${HOME}/bin:${PATH}"
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "${HOME}/.local/bin" ] ; then
-    PATH="${HOME}/.local/bin:${PATH}"
+    export PATH="${HOME}/.local/bin:${PATH}"
 fi
 
 # Homebrew setup
@@ -73,7 +73,7 @@ fi
 # TeX
 tex_prefix=/usr/local/texlive/2022
 if [ -d "${tex_prefix}" ]; then
-    INFOPATH="${tex_prefix}/texmf-dist/doc/info:${INFOPATH}"; export INFOPATH
+    export INFOPATH="${tex_prefix}/texmf-dist/doc/info:${INFOPATH}"
 fi
 
 # MATLAB
