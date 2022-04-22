@@ -4,6 +4,7 @@
 
 import sys
 import os
+import pathlib
 import subprocess
 import distutils.spawn
 import filecmp
@@ -128,7 +129,7 @@ if __name__ == '__main__':
             for root, directories, files in os.walk(dotfiledirs):
                 for n in files:
                     f = os.path.join(root, n)
-                    home_f = os.path.join(HOME, n)
+                    home_f = os.path.join(HOME, pathlib.PurePath(f).relative_to(dotfiledirs))
                     if os.path.exists(home_f):
                         if f != home_f:
                             if filecmp.cmp(f, home_f, False):
@@ -148,7 +149,7 @@ if __name__ == '__main__':
         for root, directories, files in os.walk(dotfiledirs):
             for n in files:
                 f = os.path.join(root, n)
-                home_f = os.path.join(HOME, n)
+                home_f = os.path.join(HOME, pathlib.PurePath(f).relative_to(dotfiledirs))
 
                 if f == os.path.join(dotfiledirs, '.stow-local-ignore'):
                     continue
@@ -172,7 +173,7 @@ if __name__ == '__main__':
         for root, directories, files in os.walk(dotfiledirs):
             for n in files:
                 f = os.path.join(root, n)
-                home_f = os.path.join(HOME, n)
+                home_f = os.path.join(HOME, pathlib.PurePath(f).relative_to(dotfiledirs))
 
                 if f == os.path.join(dotfiledirs, '.stow-local-ignore'):
                     continue
