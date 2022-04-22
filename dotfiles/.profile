@@ -2,12 +2,14 @@
 if [ -d "${HOME}/bin" ] ; then
     export PATH="${HOME}/bin${PATH:+:${PATH}}"
     export MANPATH="${HOME}/share/man${MANPATH:+:${MANPATH}}"
+    export INFOPATH="${HOME}/share/info:${INFOPATH:-}"
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "${HOME}/.local/bin" ] ; then
     export PATH="${HOME}/.local/bin${PATH:+:${PATH}}"
     export MANPATH="${HOME}/.local/share/man${MANPATH:+:${MANPATH}}"
+    export INFOPATH="${HOME}/.local/share/info:${INFOPATH:-}"
 fi
 
 # Homebrew setup
@@ -36,6 +38,7 @@ if [ -d "${HOME}"/opt/local/bin ]; then
     export LD_LIBRARY_PATH="${HOME}/opt/local/lib${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
     export DYLD_LIBRARY_PATH="${HOME}/opt/local/lib${DYLD_LIBRARY_PATH:+:${DYLD_LIBRARY_PATH}}"
     export MANPATH="${HOME}/opt/local/share/man${MANPATH:+:${MANPATH}}"
+    export INFOPATH="${HOME}/opt/local/share/info:${INFOPATH:-}"
 fi
 
 # Python 3
