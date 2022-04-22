@@ -14,7 +14,6 @@ if [ -n "$(command -v brew 2> /dev/null)" ]; then
 fi
 
 # History
-export HISTSIZE=20000
 export HISTCONTROL="erasedups:ignoreboth"
 
 shopt -s histappend
