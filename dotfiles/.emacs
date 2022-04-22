@@ -1356,7 +1356,8 @@
   :config
   (define-key special-event-map [sigusr1] 'tee3-signal-restart-server)
 
-  (unless (server-running-p)
+  (unless (or (server-running-p)
+              (daemonp))
     (server-start)))
 
 ;;; Load user- and machine-specific settings
