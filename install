@@ -102,6 +102,9 @@ hg = distutils.spawn.find_executable('hg')
 emacs = distutils.spawn.find_executable('emacs')
 
 if __name__ == '__main__':
+    # create ~/.ssh/config.d
+    os.makedirs(os.path.join(HOME, '.ssh', 'config.d'), exist_ok=True)
+
     # create ~/opt/local if desired
     if not os.path.isdir(prefix):
         yn = input('Create %s? (y/n): ' % prefix)
