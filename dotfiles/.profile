@@ -44,7 +44,7 @@ if [ -d "${HOME}"/opt/local/bin ]; then
     export INFOPATH="${HOME}/opt/local/share/info:${INFOPATH:-}"
 fi
 
-# Emacs
+# Editor
 if [ -n "$(command -v emacsclient 2> /dev/null)" ]; then
     export ALTERNATE_EDITOR=
     export EDITOR="emacsclient -a vi"
