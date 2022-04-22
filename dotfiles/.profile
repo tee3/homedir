@@ -46,8 +46,7 @@ fi
 
 # Editor
 if [ -n "$(command -v emacsclient 2> /dev/null)" ]; then
-    export ALTERNATE_EDITOR=
-    export EDITOR="emacsclient -a vi"
+    export VISUAL="emacsclient -a vi"
 fi
 
 # Python 3
