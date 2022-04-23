@@ -465,6 +465,21 @@ emacs -nw -q -l ~/.emacs.minimal.el
 This is not exactly the same as running Emacs with `~/.emacs`, but it
 is close enough for experimentation.
 
+## support for ssh
+
+This includes `~/.ssh/config` file to configure SSH.  This is intended
+to be portable across all systems including Windows.
+
+The `~/.ssh/config` file includes all files in the directory
+`~/.ssh/config.d`.  This is intended for configuration parameters that
+are sensitive and should not be shared on a public server.
+
+The user is required to move the current contents of `~/.ssh/config`
+before migrating to this approach since it is a fairly complicated
+process.  One approach is to move the existing `~/.ssh/config` file to
+a file in `~/.ssh/config.d`.  This will override all settings in the
+shared `~/.ssh/config` file.
+
 ## support for git
 
 This includes `~/.gitconfig`, `~/.gitignore`, and `~/.gitattributes`
