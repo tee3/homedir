@@ -518,6 +518,9 @@
 (use-package flatbuffers-mode
   :ensure t
   :pin melpa)
+(use-package ssh-agency
+  :ensure t
+  :pin melpa)
 (use-package ssh-config-mode
   :ensure t
   :pin melpa
