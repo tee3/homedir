@@ -149,6 +149,10 @@
 (use-package desktop
   :demand t
   :preface
+  (defun tee3-deferred-desktop-save-mode ()
+    (when (not desktop-save-mode)
+      (desktop-save-mode)
+      (desktop-read)))
   (defun tee3-disable-themes ()
     (mapc 'disable-theme custom-enabled-themes))
   :init
@@ -161,8 +165,10 @@
   :config
   (add-to-list 'desktop-globals-to-save 'kill-ring)
 
-  (desktop-save-mode)
+  (if (not (daemonp))
+      (desktop-save-mode))
   :hook
+  (server-after-make-frame . tee3-deferred-desktop-save-mode)
   (kill-emacs . tee3-disable-themes))
 (use-package diff-hl
   :ensure t
