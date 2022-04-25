@@ -157,6 +157,7 @@
   (setq desktop-restore-in-current-display nil)
   (setq desktop-restore-forces-onscreen nil)
   (setq desktop-restore-reuses-frames nil)
+  (setq desktop-load-locked-desktop 'check-pid)
   :config
   (add-to-list 'desktop-globals-to-save 'kill-ring)
 
