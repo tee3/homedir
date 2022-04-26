@@ -596,6 +596,9 @@
    ("\\.gitsvnextmodules\\'" . gitconfig-mode)
    ;; migration-generated Git submodules files
    ("\\.gitsvnexternals\\'" . gitconfig-mode)))
+(use-package git-assembler-mode
+  :ensure t
+  :pin melpa)
 (use-package graphviz-dot-mode
   :ensure t
   :pin melpa)
