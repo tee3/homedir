@@ -7,9 +7,6 @@
       "Packages" :
       [
 	{
-	  "PackageIdentifier" : "Microsoft.VisualStudio.2019.Community"
-	},
-	{
 	  "PackageIdentifier" : "Debian.Debian"
 	},
 	{
@@ -43,13 +40,22 @@
 	  "PackageIdentifier" : "Julialang.Julia"
 	},
 	{
+	  "PackageIdentifier" : "Micrsoft.AzureCLI"
+	},
+	{
 	  "PackageIdentifier" : "Microsoft.Edge"
+	},
+	{
+	  "PackageIdentifier" : "Microsoft.OneDrive"
+	},
+	{
+	  "PackageIdentifier" : "Microsoft.VisualStudio.2019.Community"
 	},
 	{
 	  "PackageIdentifier" : "Microsoft.WindowsTerminal"
 	},
 	{
-	  "PackageIdentifier" : "Microsoft.OneDrive"
+	  "PackageIdentifier" : "OpenJS.NodeJS"
 	},
 	{
 	  "PackageIdentifier" : "Python.Python.3"
@@ -58,14 +64,8 @@
 	  "PackageIdentifier" : "RubyInstallerTeam.Ruby"
 	},
 	{
-	  "PackageIdentifier" : "OpenJS.NodeJS"
-	},
-	{
 	  "PackageIdentifier" : "Rustlang.Rust.MSVC"
 	},
-	{
-	  "PackageIdentifier" : "Micrsoft.AzureCLI"
-	}
       ],
       "SourceDetails" :
       {
