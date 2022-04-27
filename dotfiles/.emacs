@@ -81,7 +81,9 @@
 (setq split-height-threshold 0)
 (use-package files
   :init
-  (setq version-control t))
+  (setq version-control t)
+  :bind
+  ("C-c x" . save-buffers-kill-emacs))
 
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
