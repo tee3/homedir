@@ -14,6 +14,7 @@ pm_check=
 pm_update=
 pm_upgrade=
 pm_install=
+pm_autoremove=
 pm_cleanup=
 
 # check if apt is installed
@@ -25,6 +26,7 @@ else
     pm_update="sudo ${pm} update"
     pm_upgrade="sudo ${pm} upgrade"
     pm_install="sudo apt install"
+    pm_autoremove="sudo ${pm} autoremove"
     pm_cleanup="sudo ${pm} clean"
 fi
 
@@ -189,5 +191,5 @@ packages="${packages} xmlto"
 ${pm_install} ${packages}
 
 # cleanup
-sudo apt-get -q -y autoremove
+${pm_autoremove}
 ${pm_cleanup}

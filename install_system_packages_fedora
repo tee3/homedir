@@ -30,6 +30,7 @@ pm_check=
 pm_update=
 pm_upgrade=
 pm_install=
+pm_autoremove=
 pm_cleanup=
 
 # check if dnf is installed
@@ -41,7 +42,8 @@ else
     pm_update="sudo ${pm} update"
     pm_upgrade="true"
     pm_install="sudo ${pm} -q -y install"
-    pm_cleanup="sudo ${pm} autoremove"
+    pm_autoremove="sudo ${pm} -q -y autoremove"
+    pm_cleanup="sudo ${pm} -q -y clean all"
 
     sudo ${pm} install dnf-plugins-core
     if [ "${version}" -le 26 ]; then
@@ -59,7 +61,8 @@ if [ -z "${pm}" ]; then
         pm_update="sudo ${pm} update"
         pm_upgrade="true"
         pm_install="sudo ${pm} -q -y install"
-        pm_cleanup="sudo ${pm} autoremove && ${pm} clean all"
+        pm_autoremove="sudo ${pm} -q -y autoremove"
+        pm_cleanup="sudo ${pm} -q -y clean all"
     fi
 fi
 
@@ -219,4 +222,5 @@ packages="${packages} zsh-completions"
 ${pm_install} ${packages}
 
 # cleanup
+${pm_autoremove}
 ${pm_cleanup}

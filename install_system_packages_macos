@@ -15,6 +15,7 @@ pm_update=
 pm_upgrade=
 pm_install=
 pm_cleanup=
+pm_autoremove=
 
 # check if Homebrew is installed
 if [ -z "$(which brew 2> /dev/null)" ]; then
@@ -25,6 +26,7 @@ else
     pm_update="${pm} update"
     pm_upgrade="${pm} upgrade"
     pm_install="${pm} bundle"
+    pm_autoremove="${pm} autoremove"
     pm_cleanup="${pm} cleanup -s"
 fi
 
@@ -52,4 +54,5 @@ ${pm_upgrade}
 ${pm} bundle
 
 # cleanup
+${pm_autoremove}
 ${pm_cleanup}
