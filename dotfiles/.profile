@@ -4,14 +4,12 @@ export HISTSIZE=20000
 # set PATH so it includes user's private bin if it exists
 if [ -d "${HOME}/bin" ] ; then
     export PATH="${HOME}/bin${PATH:+:${PATH}}"
-    export MANPATH="${HOME}/share/man${MANPATH:+:${MANPATH}}"
     export INFOPATH="${HOME}/share/info:${INFOPATH:-}"
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "${HOME}/.local/bin" ] ; then
     export PATH="${HOME}/.local/bin${PATH:+:${PATH}}"
-    export MANPATH="${HOME}/.local/share/man${MANPATH:+:${MANPATH}}"
     export INFOPATH="${HOME}/.local/share/info:${INFOPATH:-}"
 fi
 
@@ -40,7 +38,6 @@ if [ -d "${HOME}"/opt/local/bin ]; then
     export PATH="${HOME}/opt/local/bin${PATH:+:${PATH}}"
     export LD_LIBRARY_PATH="${HOME}/opt/local/lib${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
     export DYLD_LIBRARY_PATH="${HOME}/opt/local/lib${DYLD_LIBRARY_PATH:+:${DYLD_LIBRARY_PATH}}"
-    export MANPATH="${HOME}/opt/local/share/man${MANPATH:+:${MANPATH}}"
     export INFOPATH="${HOME}/opt/local/share/info:${INFOPATH:-}"
 fi
 
@@ -72,7 +69,6 @@ fi
 if [ -n "$(command -v node 2> /dev/null)" ]; then
     npm_prefix="$(npm prefix -g)"
     export PATH="${npm_prefix}/bin${PATH:+:${PATH}}"
-    export MANPATH="${npm_prefix}/share/man${MANPATH:+:${MANPATH}}"
     export NODE_PATH="${npm_prefix}/lib/node_modules${NODE_PATH:+:${NODE_PATH}}"
 fi
 
@@ -94,7 +90,6 @@ fi
 # TeX
 tex_prefix=/usr/local/texlive/2022
 if [ -d "${tex_prefix}" ]; then
-    export MANPATH="${tex_prefix}/texmf-dist/doc/man${MANPATH:+:${MANPATH}}"
     export INFOPATH="${tex_prefix}/texmf-dist/doc/info:${INFOPATH:-}"
 fi
 
@@ -108,7 +103,6 @@ fi
 nvidia_prefix=/Developer/NVIDIA/CUDA-9.2
 if [ -n "$(command -v ${nvidia_prefix}/bin/nvcc 2> /dev/null)" ]; then
     export PATH="${nvidia_prefix}/bin${PATH:+:${PATH}}"
-    export MANPATH="${nvidia_prefix}/doc/man${MANPATH:+:${MANPATH}}"
 fi
 
 # never use ccache, no matter what
