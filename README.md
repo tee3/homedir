@@ -507,24 +507,24 @@ This is populated with source packages described below.
 Python packages are installed using the user protocol and a
 requirements file defines the installed Python packages.
 
-See [python-packages.txt](./python-packages.txt) for a list
-of installed Python packages.
+See [install_python_packages.txt](./install_python_packages.txt) for a
+list of installed Python packages.
 
 ## support for ruby packages
 
 Ruby gems are installed using the user protocol and a Gemfile defines
 the installed Ruby packages.
 
-See [ruby-packages.gemfile](./ruby-packages.gemfile) for a list
-of installed Ruby packages.
+See [install_ruby_packages.gemfile](./install_ruby_packages.gemfile)
+for a list of installed Ruby packages.
 
 ## support for rust packages
 
 Rust programs are using installed for the local user, which is the
 default.
 
-See [rust-packages.txt](./rust-packages.txt) for a list of installed
-Rust packages.
+See [install_rust_packages.txt](./install_rust_packages.txt) for a
+list of installed Rust packages.
 
 ## support for node.js packages
 
@@ -532,8 +532,8 @@ Node.js modules are installed to the user's home directory under
 `~/.node_modules` and a text file defines the installed Node.js
 modules.
 
-See the [node-packages.txt](./node-packages.txt) for a list of
-installed Node.js packages.
+See the [install_node_packages.txt](./install_node_packages.txt) for a
+list of installed Node.js packages.
 
 Note that this might be done more cleanly by using a `package.json`
 file and the `npm` install machinery for it directly instead of a text
@@ -545,8 +545,8 @@ how to do this yet.
 Go packages are installed to the user's home directory under `~/.go`
 and a text file defines the installed Go packages.
 
-See the [go-packages.txt](./go-packages.txt) for a list of
-installed Go packages.
+See the [install_go_packages.txt](./install_go_packages.txt) for a
+list of installed Go packages.
 
 ## support for source packages
 

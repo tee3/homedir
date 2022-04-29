@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Install Ruby modules in the ruby-packages.gemfile Gemfile.
+# Install Ruby modules in the install_ruby_packages.gemfile Gemfile.
 
 import sys
 import os
