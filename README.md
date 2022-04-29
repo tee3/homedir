@@ -409,11 +409,19 @@ not appropriate to put on a public server.  This includes things like
 names, email addresses, keys, certificates, and other sensitive
 information.
 
+## support for `sh`
+
+This contains support for the Bourne Shell (sh) via the `~/.profile`
+file.
+
+The configuration system generates a `~/.profile.local` file for local
+configuration.  It is initially empty.
+
 ## support for `bash`
 
 This contains support for the Bourne Again Shell (Bash) by including
 `~/.bash_profile`, `~/.bashrc`, `~/.bash_logout`, and
-`~/.bashrc.local` files.
+`~/.bashrc.local` files.  This builds off the Bourne Shell support.
 
 The configuration system generates a `~/.bashrc.local` file for local
 configuration.  It is initially empty.
@@ -421,7 +429,8 @@ configuration.  It is initially empty.
 ## support for `zsh`
 
 This contains support for the Z Shell (bash) by including
-`~/.zprofile` and `~/.zshrc` files.
+`~/.zprofile` and `~/.zshrc` files.  This builds off the Bourne Shell
+support.
 
 The configuration system generates a `~/.zshrc.local` file for local
 configuration.  It is initially empty.
