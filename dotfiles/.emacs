@@ -1191,8 +1191,6 @@
   ("C-c l r" . eglot-rename)
   ("C-c l s" . eglot)
   ("C-c l t" . eglot-find-typeDefinition)
-  :hook
-  (prog-mode . eglot-ensure)
   :init
   (setq-default eglot-workspace-configuration
                 '((pylsp
