@@ -671,6 +671,11 @@
   :ensure t
   :pin melpa)
 
+;;; GNU Global
+(use-package gtags-mode
+  :ensure t
+  :pin gnu)
+
 ;;; Scheme programming language
 (use-package scheme
   :mode
