@@ -357,6 +357,7 @@
   (setq global-mark-ring-max 10000)
   (setq mark-ring-max 10000)
   (setq set-mark-command-repeat-pop t)
+  (setq next-error-message-highlight 'keep)
   :hook
   (text-mode . auto-fill-mode))
 (use-package so-long
