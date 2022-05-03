@@ -73,6 +73,7 @@
 (setq visible-bell t)
 (column-number-mode)
 (setq use-short-answers t)
+(setq read-minibuffer-restore-windows nil)
 (use-package time
   :demand t
   :init
