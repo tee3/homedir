@@ -398,7 +398,9 @@
   :init
   (setq windmove-wrap-around t)
   :config
-  (windmove-default-keybindings))
+  (windmove-default-keybindings)
+  (windmove-display-default-keybindings)
+  (windmove-delete-default-keybindings))
 (use-package xref
   :ensure t
   :pin gnu)
