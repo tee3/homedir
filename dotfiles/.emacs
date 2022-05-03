@@ -72,6 +72,7 @@
 (setq-default truncate-lines t)
 (setq visible-bell t)
 (column-number-mode)
+(setq use-short-answers t)
 (use-package time
   :demand t
   :init
