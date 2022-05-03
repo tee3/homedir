@@ -147,6 +147,9 @@
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
   (load custom-file 'noerror))
 (use-package abbrev)
+(use-package calc
+  :init
+  (setq calc-make-windows-dedicated t))
 (use-package compile
   :bind
   ("C-c c c" . compile)
