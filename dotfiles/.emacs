@@ -74,6 +74,7 @@
 (column-number-mode)
 (setq use-short-answers t)
 (setq read-minibuffer-restore-windows nil)
+(setq mode-line-compact 'long)
 (use-package time
   :demand t
   :init
