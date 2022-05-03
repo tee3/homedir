@@ -243,6 +243,9 @@
 (use-package fringe
   :init
   (setq fringe-mode '(4 . nil)))
+(use-package help
+  :config
+  (temp-buffer-resize-mode))
 (use-package hideshow
   :init
   (setq hs-hide-comments-when-hiding-all t))
