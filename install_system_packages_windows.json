@@ -49,7 +49,7 @@
 	  "PackageIdentifier" : "Microsoft.OneDrive"
 	},
 	{
-	  "PackageIdentifier" : "Microsoft.VisualStudio.2019.Community"
+	  "PackageIdentifier" : "Microsoft.VisualStudio.2022.Community"
 	},
 	{
 	  "PackageIdentifier" : "Microsoft.WindowsTerminal"
