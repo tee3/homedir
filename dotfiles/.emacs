@@ -398,7 +398,7 @@
   :init
   (setq windmove-wrap-around t)
   :config
-  (windmove-default-keybindings 'shift))
+  (windmove-default-keybindings))
 (use-package xref
   :ensure t
   :pin gnu)
