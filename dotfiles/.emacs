@@ -553,18 +553,20 @@
      (lilypond . t)
      (makefile . t)
      (matlab . t)
+     (mscgen . t)
      (octave . t)
      (perl . t)
      (plantuml . t)
      (processing . t)
      (python . t)
      (ruby . t)
+     (saas . t)
      (scheme . t)
-     (sed . t)
      (sed . t)
      (shell . t)
      (sql . t)
-     (sqlite . t))))
+     (sqlite . t)
+     (tcl . t))))
 
 (use-package posix-manual
   :ensure t
