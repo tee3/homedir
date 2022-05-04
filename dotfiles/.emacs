@@ -454,7 +454,27 @@
 ;;; Org
 (use-package org
   :ensure t
-  :pin gnu)
+  :pin gnu
+  :init
+  (setq org-babel-load-languages '((C .t)
+                                   (awk .t)
+                                   (calc . t)
+                                   (comint . t)
+                                   (cpp . t)
+                                   (css . t)
+                                   (emacs-lisp . t)
+                                   (eshell . t)
+                                   (gnuplot .t)
+                                   (js . t)
+                                   (latex . t)
+                                   (lisp . t)
+                                   (makefile . t)
+                                   (python . t)
+                                   (scheme . t)
+                                   (sed . t)
+                                   (shell . t)
+                                   (sql . t)
+                                   (sqlite . t))))
 
 ;;; Markdown formats
 (use-package adoc-mode
