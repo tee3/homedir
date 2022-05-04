@@ -74,9 +74,9 @@ if [ -n "$(command -v ruby 2> /dev/null)" ] && [ -n "$(command -v gem 2> /dev/nu
 fi
 
 # Node.js
-if [ -n "$(command -v node 2> /dev/null)" ]; then
+if [ -n "$(command -v npm 2> /dev/null)" ]; then
     npm_prefix="$(npm prefix -g)"
-    export PATH="${npm_prefix}"/bin"${PATH:+:${PATH}}"
+    export PATH="$(npm bin -g)${PATH:+:${PATH}}"
     export NODE_PATH="${npm_prefix}"/lib/node_modules"${NODE_PATH:+:${NODE_PATH}}"
 fi
 
