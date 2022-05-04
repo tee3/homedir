@@ -1309,14 +1309,6 @@
   :init
   (setq-default eglot-ignored-server-capabilities
                 '(:documentOnTypeFormattingProvider))
-  (setq-default eglot-workspace-configuration
-                '((:pylsp .
-                   (:plugins
-                    (:flake8 (:enabled t :extendIgnore ["E501"])
-                     :mypy (:enabled t :strict t :report_progress t)
-                     :pycodestyle (:enabled t :ignore ["E501"])
-                     :pydocstyle (:enabled t)
-                     :pylint (:enabled t))))))
   :config
   (add-to-list 'eglot-server-programs '((graphql-mode) . ("graphql-lsp" "server" "--method" "stream")))
   (add-to-list 'eglot-server-programs '((groovy-mode) . tee3-groovy-language-server-command))
