@@ -142,6 +142,10 @@
   (setq browse-url-browser-function 'eww-browse-url)
   :bind
   ("C-c b b b" . browse-url))
+(use-package comint
+  :init
+  (setq comint-prompt-read-only t)
+  (setq comint-input-ignoredups t))
 (use-package cus-edit
   :init
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
