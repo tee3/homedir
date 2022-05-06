@@ -29,9 +29,14 @@ for package in ${packages} ; do
     fi
 done
 
-git -C "${rootdir}" clean -q -d -x -f
+git_clean_excludes=""
+git_clean_excludes="${git_clean_excludes} -e GPATH"
+git_clean_excludes="${git_clean_excludes} -e GRTAGS"
+git_clean_excludes="${git_clean_excludes} -e GTAGS"
+
+git -C "${rootdir}" clean -q -d -x ${git_clean_excludes} -f
 git -C "${rootdir}" checkout "${branch}"
-git -C "${rootdir}" clean -q -d -x -f
+git -C "${rootdir}" clean -q -d -x ${git_clean_excludes} -f
 git -C "${rootdir}" reset --hard HEAD
 git -C "${rootdir}" pull --ff-only origin "${branch}"
 
