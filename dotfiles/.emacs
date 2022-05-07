@@ -1316,6 +1316,7 @@
 (when (or (>= emacs-major-version 25)
           (and (= emacs-major-version 24)
                (>= emacs-minor-version 5)))
+  (use-package acme-theme :ensure t :pin melpa :defer t)
   (use-package atom-dark-theme :ensure t :pin melpa :defer t)
   (use-package badwolf-theme :ensure t :pin melpa :defer t)
   (use-package berrys-theme :ensure t :pin melpa :defer t)
