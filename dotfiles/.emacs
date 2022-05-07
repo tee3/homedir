@@ -1347,6 +1347,7 @@
   (use-package hemera-theme :ensure t :pin melpa :defer t)
   (use-package humanoid-themes :ensure t :pin melpa :defer t)
   (use-package inkpot-theme :ensure t :pin melpa :defer t)
+  (use-package kaolin-themes :ensure t :pin melpa :defer t)
   (use-package lab-themes :ensure t :pin melpa :defer t)
   (use-package light-soap-theme :ensure t :pin melpa :defer t)
   (use-package majapahit-theme :ensure t :pin melpa :defer t)
