@@ -944,6 +944,10 @@
   :demand t ; @todo for now, this package needs work
   :vc
   (:url "https://github.com/tee3/b2-mode.git"))
+;;; Boost.Jam
+(use-package bjam-mode
+  :demand t ; @todo for now, this package needs work
+  (:url "https://github.com/tee3/bjam-mode.git"))
 
 ;;; Xcode
 ;;; @todo convert to ede or something
