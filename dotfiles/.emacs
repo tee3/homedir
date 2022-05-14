@@ -950,6 +950,11 @@
   :demand t ; @todo for now, this package needs work
   :load-path
   "~/opt/local/src/b2-mode")
+;;; Boost.Jam
+(use-package bjam-mode
+  :demand t ; @todo for now, this package needs work
+  :load-path
+  "~/Development/tee3/bjam-mode")
 
 ;;; Xcode
 ;;; @todo convert to ede or something
