@@ -57,6 +57,12 @@ def install_msvc_c_style(basedir):
         os.path.join(basedir, 'src', 'msvc-c-style'))
 
 
+def install_b2_mode(basedir):
+    git_clone_update_pull_ff_only(
+        'https://github.com/tee3/b2-mode.git',
+        os.path.join(basedir, 'src', 'b2-mode'))
+
+
 def install_objj_mode(basedir):
     git_clone_update_pull_ff_only(
         'https://github.com/tee3/objj-mode.git',
@@ -134,6 +140,7 @@ if __name__ == '__main__':
     # install desired source packages
     install_tee3_c_style(prefix)
     install_msvc_c_style(prefix)
+    install_b2_mode(prefix)
     install_objj_mode(prefix)
     install_commands_to_compilation_database(prefix)
     install_git_svn_update_externals(prefix)
