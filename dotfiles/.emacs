@@ -845,33 +845,6 @@
                                     :test-dir "test"
                                     :test-prefix "test_"))
 
-;;; Jam programming language
-(use-package jam-mode
-  :disabled ; @todo find an alternative package
-  :ensure t
-  :pin marmalade
-  :demand t
-  :preface
-  (defun tee3-jam-mode-setup ()
-    (setq indent-tabs-mode nil))
-  :mode
-  (("[Jj]amroot\\'" . jam-mode)
-   ("[Jj]amfile\\'" . jam-mode)
-   ("\\.jam\\'" . jam-mode))
-  :init
-  :hook
-  (jam-mode . tee3-jam-mode-setup)
-  :config
-  (when tee3-display-line-numbers
-    (if (>= emacs-major-version 26)
-        (eval-after-load "display-line-numbers.el"
-          (add-hook 'jam-mode-hook 'display-line-numbers-mode))
-      (eval-after-load "linum.el"
-        (add-hook 'jam-mode-hook 'linum-mode))))
-
-  (eval-after-load "flyspell.el"
-    (add-hook 'jam-mode-hook 'flyspell-prog-mode)))
-
 ;;; Xcode
 ;;; @todo convert to ede or something
 (with-eval-after-load "projectile"
