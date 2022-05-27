@@ -22,6 +22,8 @@ elif [ -d /home/linuxbrew/.linuxbrew ]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 elif [ -d "${HOME}"/.linuxbrew ]; then
     eval "$("${HOME}"/.linuxbrew/bin/brew shellenv)"
+elif [ -d /opt/homebrew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 if [ -n "$(command -v brew 2> /dev/null)" ]; then
