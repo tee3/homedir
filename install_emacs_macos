@@ -29,7 +29,10 @@ for package in ${packages} ; do
     fi
 done
 
-export CPPFLAGS="-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libxml2"
+CPPFLAGS=""
+CPPFLAGS="${CPPFLAGS} -isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libxml2"
+
+export CPPFLAGS
 
 git_clean_excludes=""
 git_clean_excludes="${git_clean_excludes} -e GPATH"
