@@ -29,10 +29,17 @@ for package in ${packages} ; do
     fi
 done
 
+homebrew_prefix=$(brew --prefix)
+
 CPPFLAGS=""
 CPPFLAGS="${CPPFLAGS} -isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libxml2"
+CPPFLAGS="${CPPFLAGS} -I${homebrew_prefix}/include"
+
+LDFLAGS=""
+LDFLAGS="${CPPFLAGS} -L${homebrew_prefix}/lib"
 
 export CPPFLAGS
+export LDFLAGS
 
 git_clean_excludes=""
 git_clean_excludes="${git_clean_excludes} -e GPATH"
