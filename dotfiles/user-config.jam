@@ -1,6 +1,7 @@
 import os ;
 
 constant HOME : [ os.environ HOME ] ;
+constant HOMEBREW_PREFIX : [ SHELL "brew --prefix" : strip-eol ] ;
 
 # Host Compilers
 
@@ -45,36 +46,36 @@ else if [ os.name ] = MACOSX
   using clang ;
 
   local macos-options =
-    <compileflags>"-isystem /usr/local/include"
-    <linkflags>-L/usr/local/lib
+    <compileflags>"-isystem $(HOMEBREW_PREFIX)/include"
+    <linkflags>-L$(HOMEBREW_PREFIX)/lib
     ;
 
   # other compilers, both system and optional
-#  using clang : 13 : /usr/local/opt/llvm@13/bin/clang++ : $(macos-options) ;
-  using clang : 12 : /usr/local/opt/llvm@12/bin/clang++ : $(macos-options) ;
-  using clang : 11 : /usr/local/opt/llvm@11/bin/clang++ : $(macos-options) ;
-#  using clang : 10 : /usr/local/opt/llvm@10/bin/clang++ : $(macos-options) ;
-  using clang : 9 : /usr/local/opt/llvm@9/bin/clang++ : $(macos-options) ;
-  using clang : 8 : /usr/local/opt/llvm@8/bin/clang++ : $(macos-options) ;
+#  using clang : 13 : $(HOMEBREW_PREFIX)/opt/llvm@13/bin/clang++ : $(macos-options) ;
+  using clang : 12 : $(HOMEBREW_PREFIX)/opt/llvm@12/bin/clang++ : $(macos-options) ;
+  using clang : 11 : $(HOMEBREW_PREFIX)/opt/llvm@11/bin/clang++ : $(macos-options) ;
+#  using clang : 10 : $(HOMEBREW_PREFIX)/opt/llvm@10/bin/clang++ : $(macos-options) ;
+  using clang : 9 : $(HOMEBREW_PREFIX)/opt/llvm@9/bin/clang++ : $(macos-options) ;
+  using clang : 8 : $(HOMEBREW_PREFIX)/opt/llvm@8/bin/clang++ : $(macos-options) ;
 
   using darwin ;
 
-  using darwin : 11 : /usr/local/opt/gcc@11/bin/g++-11 : $(macos-options) ;
-  using darwin : 10 : /usr/local/opt/gcc@10/bin/g++-10 : $(macos-options) ;
-  using darwin : 9 : /usr/local/opt/gcc@9/bin/g++-9 : $(macos-options) ;
-  using darwin : 8 : /usr/local/opt/gcc@8/bin/g++-8 : $(macos-options) ;
-  using darwin : 7 : /usr/local/opt/gcc@7/bin/g++-7 : $(macos-options) ;
-  using darwin : 6 : /usr/local/opt/gcc@6/bin/g++-6 : $(macos-options) ;
+  using darwin : 11 : $(HOMEBREW_PREFIX)/opt/gcc@11/bin/g++-11 : $(macos-options) ;
+  using darwin : 10 : $(HOMEBREW_PREFIX)/opt/gcc@10/bin/g++-10 : $(macos-options) ;
+  using darwin : 9 : $(HOMEBREW_PREFIX)/opt/gcc@9/bin/g++-9 : $(macos-options) ;
+  using darwin : 8 : $(HOMEBREW_PREFIX)/opt/gcc@8/bin/g++-8 : $(macos-options) ;
+  using darwin : 7 : $(HOMEBREW_PREFIX)/opt/gcc@7/bin/g++-7 : $(macos-options) ;
+  using darwin : 6 : $(HOMEBREW_PREFIX)/opt/gcc@6/bin/g++-6 : $(macos-options) ;
 
-  using gcc : 8arm : /usr/local/opt/arm-gcc-bin@8/bin/arm-none-eabi-g++ ;
-  using gcc : 9arm : /usr/local/opt/arm-gcc-bin@9/bin/arm-none-eabi-g++ ;
-  using gcc : 10arm : /usr/local/opt/arm-gcc-bin@10/bin/arm-none-eabi-g++ ;
+  using gcc : 8arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@8/bin/arm-none-eabi-g++ ;
+  using gcc : 9arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@9/bin/arm-none-eabi-g++ ;
+  using gcc : 10arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@10/bin/arm-none-eabi-g++ ;
 
-  using gcc : 5avr : /usr/local/opt/avr-gcc@5/bin/avr-g++ ;
-  using gcc : 8avr : /usr/local/opt/avr-gcc@8/bin/avr-g++ ;
-  using gcc : 9avr : /usr/local/opt/avr-gcc@9/bin/avr-g++ ;
-  using gcc : 10avr : /usr/local/opt/avr-gcc@10/bin/avr-g++ ;
-  using gcc : 11avr : /usr/local/opt/avr-gcc@11/bin/avr-g++ ;
+  using gcc : 5avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@5/bin/avr-g++ ;
+  using gcc : 8avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@8/bin/avr-g++ ;
+  using gcc : 9avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@9/bin/avr-g++ ;
+  using gcc : 10avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@10/bin/avr-g++ ;
+  using gcc : 11avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@11/bin/avr-g++ ;
 
   #using emscripten ;
 }
@@ -91,12 +92,12 @@ if [ os.name ] = MAXOSX
 local docbook-xsl-path = ;
 if [ os.name ] = MACOSX
 {
-  docbook-xsl-path = /usr/local/opt/docbook-xsl/docbook-xsl ;
+  docbook-xsl-path = $(HOMEBREW_PREFIX)/opt/docbook-xsl/docbook-xsl ;
 }
 local docbook-dtd-path = ;
 if [ os.name ] = MACOSX
 {
-  docbook-dtd-path = /usr/local/opt/docbook/docbook/xml/4.2 ;
+  docbook-dtd-path = $(HOMEBREW_PREFIX)/opt/docbook/docbook/xml/4.2 ;
 }
 local boostbook-executable = ;
 if [ os.name ] = MACOSX
@@ -136,7 +137,7 @@ if [ os.name ] = LINUX
 else if [ os.name ] = MACOSX
 {
   # Homebrew-installed Boost
-  using boost : "" : <include>/usr/local/include <library>/usr/local/lib <layout>system ;
+  using boost : "" : <include>$(HOMEBREW_PREFIX)/include <library>$(HOMEBREW_PREFIX)/lib <layout>system ;
 }
 else if [ os.name ] = NT
 {
