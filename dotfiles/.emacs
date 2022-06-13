@@ -96,18 +96,7 @@
 (when (equal system-type 'darwin)
   (setq ns-pop-up-frames nil)
 
-  (set-keyboard-coding-system nil)
-
-  (when (not (display-graphic-p))
-    (setq ns-command-modifier 'none)
-    (setq ns-function-modifier 'hyper)
-    (setq ns-control-modifier 'control)
-    (setq ns-option-modifier 'super))
-
-  (setq ns-right-alternate-modifier 'none)
-  (setq ns-right-command-modifier 'none)
-  (setq ns-right-control-modifier 'none)
-  (setq ns-right-option-modifier 'none))
+  (set-keyboard-coding-system nil))
 
 (when (equal system-type 'windows-nt)
   (setq w32-pass-lwindow-to-system nil)
