@@ -1323,7 +1323,8 @@
   (use-package lab-themes :ensure t :pin melpa :defer t)
   (use-package light-soap-theme :ensure t :pin melpa :defer t)
   (use-package majapahit-theme :ensure t :pin melpa :defer t)
-  (use-package material-theme :ensure t :pin nongnu :defer t)
+  ;; (use-package material-theme :ensure t :pin nongnu :defer t)
+  (use-package material-theme :ensure t :pin melpa :defer t)
   (use-package minimal-theme :ensure t :pin melpa :defer t)
   (use-package modus-themes
     :ensure t
