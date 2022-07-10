@@ -2,3 +2,5 @@
 
 rustfmt
 rls
+
+xsv
