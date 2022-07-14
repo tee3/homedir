@@ -760,7 +760,7 @@
   (or (> emacs-major-version 24)
       (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
   :ensure t
-  :pin nongnu
+  :pin melpa
   :bind
   ("C-c v g s" . magit-status)
   :init
