@@ -324,6 +324,9 @@
 (use-package pcomplete
   :hook
   (shell-mode . pcomplete-shell-setup))
+(use-package proced
+  :init
+  (setq proced-show-remote-processes t))
 (use-package project
   :ensure t
   :pin gnu
