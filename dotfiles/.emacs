@@ -188,7 +188,8 @@
   (setq diff-refine nil))
 (use-package dired
   :init
-  (setq dired-kept-versions 6))
+  (setq dired-kept-versions 6)
+  (setq dired-clean-up-buffers-too t))
 (use-package ediff
   :init
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
