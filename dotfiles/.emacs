@@ -320,6 +320,8 @@
   (scheme-mode . paredit-mode))
 (use-package paren
   :demand t
+  :init
+  (setq show-paren-context-when-offscreen t)
   :config
   (show-paren-mode))
 (use-package pcomplete
