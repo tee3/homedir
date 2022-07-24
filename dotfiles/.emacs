@@ -338,6 +338,7 @@
   (setq project-compilation-buffer-name-function 'project-prefixed-buffer-name)
   (setq project-kill-buffers-display-buffer-list t))
 (use-package repeat
+  :demand t
   :config
   (repeat-mode))
 (use-package savehist
