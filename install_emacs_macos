@@ -29,7 +29,7 @@ for package in ${packages} ; do
     fi
 done
 
-homebrew_prefix=$(brew --prefix)
+homebrew_prefix="$(brew --prefix)"
 
 CPPFLAGS=""
 CPPFLAGS="${CPPFLAGS} -isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libxml2"
