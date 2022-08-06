@@ -36,7 +36,7 @@ CPPFLAGS="${CPPFLAGS} -isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.s
 CPPFLAGS="${CPPFLAGS} -I${homebrew_prefix}/include"
 
 LDFLAGS=""
-LDFLAGS="${CPPFLAGS} -L${homebrew_prefix}/lib"
+LDFLAGS="${LDFLAGS} -L${homebrew_prefix}/lib"
 
 export CPPFLAGS
 export LDFLAGS
