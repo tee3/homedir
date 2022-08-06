@@ -17,11 +17,6 @@ if [ os.name ] = NT
   # this is the default system compiler
   using msvc ;
 }
-else if [ os.name ] = CYGWIN
-{
-  # this is the default system compiler
-  using gcc ;
-}
 else if [ os.name ] = LINUX
 {
   # this is the default system compiler
