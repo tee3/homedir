@@ -24,7 +24,7 @@ else if [ os.name ] = LINUX
 
 #  using gcc : 11 : /usr/bin/g++-11 ;
   using gcc : 10 : /usr/bin/g++-10 ;
-#  using gcc : 9 : /usr/bin/g++-9 ;
+  using gcc : 9 : /usr/bin/g++-9 ;
   using gcc : 8 : /usr/bin/g++-8 ;
   using gcc : 7 : /usr/bin/g++-7 ;
 
@@ -32,11 +32,12 @@ else if [ os.name ] = LINUX
   using clang ;
 
 #  using clang : 13 : /usr/bin/clang++-13 ;
-#  using clang : 12 : /usr/bin/clang++-12 ;
-#  using clang : 11 : /usr/bin/clang++-11 ;
-#  using clang : 10 : /usr/bin/clang++-10 ;
+  using clang : 12 : /usr/bin/clang++-12 ;
+  using clang : 11 : /usr/bin/clang++-11 ;
+  using clang : 10 : /usr/bin/clang++-10 ;
   using clang : 9 : /usr/bin/clang++-9 ;
   using clang : 8 : /usr/bin/clang++-8 ;
+  using clang : 7 : /usr/bin/clang++-7 ;
 
   using gcc : 9arm : /usr/bin/arm-none-eabi-g++ ;
 
