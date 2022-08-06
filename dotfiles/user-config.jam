@@ -49,13 +49,13 @@ else if [ os.name ] = LINUX
 }
 else if [ os.name ] = MACOSX
 {
-  # this is the default system compiler
-  using clang ;
-
   local macos-options =
     <compileflags>"-isystem $(LOCAL_PREFIX)/include"
     <linkflags>-L$(LOCAL_PREFIX)/lib
     ;
+
+  # this is the default system compiler
+  using clang : : : $(macos-options) ;
 
   # other compilers, both system and optional
   using clang : 14 : $(LOCAL_PREFIX)/opt/llvm@14/bin/clang++ : $(macos-options) ;
