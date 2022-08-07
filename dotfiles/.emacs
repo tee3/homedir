@@ -986,7 +986,6 @@
     ;;
     ;; TBD: Not sure if all of these will be okay or not.
     ;;
-    (c-toggle-auto-state 1)
     (c-toggle-hungry-state 1)
     ;; (c-toggle-auto-hungry-state 1)
 
