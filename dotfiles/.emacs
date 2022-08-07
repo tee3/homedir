@@ -211,7 +211,6 @@
   (setq eww-restore-desktop t)
   (setq eww-auto-rename-buffer 'title)
   (setq eww-history-limit 1000)
-  (setq eww-auto-rename-buffer t)
   :bind
   ("C-c b e b" . eww))
 (use-package ffap)
