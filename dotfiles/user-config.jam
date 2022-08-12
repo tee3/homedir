@@ -24,7 +24,7 @@ else if [ os.name ] = LINUX
 
 #  using gcc : 11 : /usr/bin/g++-11 ;
   using gcc : 10 : /usr/bin/g++-10 ;
-  using gcc : 9 : /usr/bin/g++-9 ;
+#  using gcc : 9 : /usr/bin/g++-9 ;
   using gcc : 8 : /usr/bin/g++-8 ;
   using gcc : 7 : /usr/bin/g++-7 ;
 
