@@ -394,6 +394,10 @@
 (use-package tramp
   :ensure t
   :pin gnu)
+(use-package which-func
+  :demand t
+  :init
+  (which-function-mode))
 (use-package winner
   :demand t
   :init
