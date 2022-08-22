@@ -466,7 +466,6 @@
                                    (awk .t)
                                    (calc . t)
                                    (comint . t)
-                                   (cpp . t)
                                    (css . t)
                                    (emacs-lisp . t)
                                    (eshell . t)
