@@ -1309,6 +1309,7 @@
   (use-package darktooth-theme :ensure t :pin melpa :defer t)
   (use-package dracula-theme :ensure t :pin melpa :defer t)
   (use-package eclipse-theme :ensure t :pin melpa :defer t)
+  (use-package ef-themes :ensure t :pin gnu :defer t)
   (use-package eink-theme :ensure t :pin melpa :defer t)
   (use-package espresso-theme :ensure t :pin melpa :defer t)
   (use-package farmhouse-theme :ensure t :pin melpa :defer t)
