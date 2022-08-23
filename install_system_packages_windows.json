@@ -28,7 +28,7 @@
 					"PackageIdentifier" : "GnuPG.GnuPG"
 				},
 				{
-					"PackageIdentifier" : "Golang.Go"
+					"PackageIdentifier" : "GoLang.Go.1.19"
 				},
 				{
 					"PackageIdentifier" : "Julialang.Julia"
@@ -55,7 +55,7 @@
 					"PackageIdentifier" : "OpenJS.NodeJS"
 				},
 				{
-					"PackageIdentifier" : "RubyInstallerTeam.Ruby"
+					"PackageIdentifier" : "RubyInstallerTeam.Ruby.3.1"
 				},
 				{
 					"PackageIdentifier" : "Rustlang.Rust.MSVC"
