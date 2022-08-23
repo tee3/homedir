@@ -22,9 +22,6 @@
 	  "PackageIdentifier" : "GitHub.cli"
 	},
 	{
-	  "PackageIdentifier" : "Git.Git"
-	},
-	{
 	  "PackageIdentifier" : "GNU.Emacs"
 	},
 	{
@@ -56,9 +53,6 @@
 	},
 	{
 	  "PackageIdentifier" : "OpenJS.NodeJS"
-	},
-	{
-	  "PackageIdentifier" : "Python.Python.3"
 	},
 	{
 	  "PackageIdentifier" : "RubyInstallerTeam.Ruby"
