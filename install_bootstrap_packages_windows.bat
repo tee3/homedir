@@ -22,5 +22,10 @@ set /p id="Press Enter when complete ..."
 
 winget install --silent --exact --id Python.Python.3.8 --accept-package-agreements --accept-source-agreements
 if %ERRORLEVEL% NEQ 0 echo "error: failed to install Python.Python."
+
+PowerShell.exe -Command "Add-WindowsCapability -Online -Name OpenSSH.Client"
+PowerShell.exe -Command "Get-Service ssh-agent | Set-Service -StartupType Automatic"
+PowerShell.exe -Command "Start-Service ssh-agent"
+
 winget install --silent --exact --id Git.Git --accept-package-agreements --accept-source-agreements
 if %ERRORLEVEL% NEQ 0 echo "error: failed to install Git.Git."
