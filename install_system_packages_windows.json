@@ -16,10 +16,10 @@
 					"PackageIdentifier" : "Docker.DockerDesktop"
 				},
 				{
-					"PackageIdentifier" : "GitHub.GitHubDesktop"
+					"PackageIdentifier" : "GitHub.cli"
 				},
 				{
-					"PackageIdentifier" : "GitHub.cli"
+					"PackageIdentifier" : "GitHub.GitHubDesktop"
 				},
 				{
 					"PackageIdentifier" : "GNU.Emacs"
@@ -31,10 +31,10 @@
 					"PackageIdentifier" : "Golang.Go"
 				},
 				{
-					"PackageIdentifier" : "Kitware.CMake"
+					"PackageIdentifier" : "Julialang.Julia"
 				},
 				{
-					"PackageIdentifier" : "Julialang.Julia"
+					"PackageIdentifier" : "Kitware.CMake"
 				},
 				{
 					"PackageIdentifier" : "Micrsoft.AzureCLI"
