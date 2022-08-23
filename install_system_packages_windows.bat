@@ -6,4 +6,4 @@ rem This assumes that the current user is the user used to install
 rem packages and has the proper administrator privileges.
 
 winget import install_system_packages_windows.json --accept-package-agreements --accept-source-agreements
-winget upgrade --all --accept-package-agreements --accept-source-agreements
+winget upgrade --all
