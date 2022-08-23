@@ -20,7 +20,7 @@ if %ERRORLEVEL% NEQ 0 echo "error: failed to install Microsoft.VisualStudio.2022
 echo "Run Visual Studio Installer and configure Microsoft Visual Studio Build Tools for C++ Desktop Development."
 set /p id="Press Enter when complete ..."
 
-winget install --silent --exact --id Python.Python.3 --accept-package-agreements --accept-source-agreements
+winget install --silent --exact --id Python.Python.3.8 --accept-package-agreements --accept-source-agreements
 if %ERRORLEVEL% NEQ 0 echo "error: failed to install Python.Python."
 winget install --silent --exact --id Git.Git --accept-package-agreements --accept-source-agreements
 if %ERRORLEVEL% NEQ 0 echo "error: failed to install Git.Git."
