@@ -15,8 +15,8 @@ echo "Install the Windows Package Manager CLI (`winget`) from https://github.com
 set /p id="Press Enter when complete ..."
 
 winget install --silent --exact --id Microsoft.VisualStudio.2019.Community
-if %ERRORLEVEL% NE 0 echo "error: failed to install Microsoft.VisualStudio.2019.Community."
+if %ERRORLEVEL% NEQ 0 echo "error: failed to install Microsoft.VisualStudio.2019.Community."
 winget install --silent --exact --id Python.Python.3
-if %ERRORLEVEL% NE 0 echo "error: failed to install Python.Python."
+if %ERRORLEVEL% NEQ 0 echo "error: failed to install Python.Python."
 winget install --silent --exact --id Git.Git
-if %ERRORLEVEL% NE 0 echo "error: failed to install Git.Git."
+if %ERRORLEVEL% NEQ 0 echo "error: failed to install Git.Git."
