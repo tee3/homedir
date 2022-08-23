@@ -22,6 +22,9 @@
 					"PackageIdentifier" : "GitHub.GitHubDesktop"
 				},
 				{
+					"PackageIdentifier" : "GitHub.GitLFS"
+				},
+				{
 					"PackageIdentifier" : "GNU.Emacs"
 				},
 				{
