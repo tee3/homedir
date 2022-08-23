@@ -1,74 +1,74 @@
 {
-  "$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-  "CreationDate" : "2021-06-03T07:32:01.992-00:00",
-  "Sources" :
-  [
-    {
-      "Packages" :
-      [
-	{
-	  "PackageIdentifier" : "Debian.Debian"
-	},
-	{
-	  "PackageIdentifier" : "DimitriVanHeesch.Doxygen"
-	},
-	{
-	  "PackageIdentifier" : "Docker.DockerDesktop"
-	},
-	{
-	  "PackageIdentifier" : "GitHub.GitHubDesktop"
-	},
-	{
-	  "PackageIdentifier" : "GitHub.cli"
-	},
-	{
-	  "PackageIdentifier" : "GNU.Emacs"
-	},
-	{
-	  "PackageIdentifier" : "GnuPG.GnuPG"
-	},
-	{
-	  "PackageIdentifier" : "Golang.Go"
-	},
-	{
-	  "PackageIdentifier" : "Kitware.CMake"
-	},
-	{
-	  "PackageIdentifier" : "Julialang.Julia"
-	},
-	{
-	  "PackageIdentifier" : "Micrsoft.AzureCLI"
-	},
-	{
-	  "PackageIdentifier" : "Microsoft.Edge"
-	},
-	{
-	  "PackageIdentifier" : "Microsoft.OneDrive"
-	},
-	{
-	  "PackageIdentifier" : "Microsoft.VisualStudio.2022.Community"
-	},
-	{
-	  "PackageIdentifier" : "Microsoft.WindowsTerminal"
-	},
-	{
-	  "PackageIdentifier" : "OpenJS.NodeJS"
-	},
-	{
-	  "PackageIdentifier" : "RubyInstallerTeam.Ruby"
-	},
-	{
-	  "PackageIdentifier" : "Rustlang.Rust.MSVC"
-	}
-      ],
-      "SourceDetails" :
-      {
-	"Argument" : "https://winget.azureedge.net/cache",
-	"Identifier" : "Microsoft.Winget.Source_8wekyb3d8bbwe",
-	"Name" : "winget",
-	"Type" : "Microsoft.PreIndexed.Package"
-      }
-    }
-  ],
-  "WinGetVersion" : "1.0.11451"
+	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
+	"CreationDate" : "2021-06-03T07:32:01.992-00:00",
+	"Sources" : 
+	[
+		{
+			"Packages" : 
+			[
+				{
+					"PackageIdentifier" : "Debian.Debian"
+				},
+				{
+					"PackageIdentifier" : "DimitriVanHeesch.Doxygen"
+				},
+				{
+					"PackageIdentifier" : "Docker.DockerDesktop"
+				},
+				{
+					"PackageIdentifier" : "GitHub.GitHubDesktop"
+				},
+				{
+					"PackageIdentifier" : "GitHub.cli"
+				},
+				{
+					"PackageIdentifier" : "GNU.Emacs"
+				},
+				{
+					"PackageIdentifier" : "GnuPG.GnuPG"
+				},
+				{
+					"PackageIdentifier" : "Golang.Go"
+				},
+				{
+					"PackageIdentifier" : "Kitware.CMake"
+				},
+				{
+					"PackageIdentifier" : "Julialang.Julia"
+				},
+				{
+					"PackageIdentifier" : "Micrsoft.AzureCLI"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.Edge"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.OneDrive"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VisualStudio.2022.Community"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.WindowsTerminal"
+				},
+				{
+					"PackageIdentifier" : "OpenJS.NodeJS"
+				},
+				{
+					"PackageIdentifier" : "RubyInstallerTeam.Ruby"
+				},
+				{
+					"PackageIdentifier" : "Rustlang.Rust.MSVC"
+				}
+			],
+			"SourceDetails" : 
+			{
+				"Argument" : "https://winget.azureedge.net/cache",
+				"Identifier" : "Microsoft.Winget.Source_8wekyb3d8bbwe",
+				"Name" : "winget",
+				"Type" : "Microsoft.PreIndexed.Package"
+			}
+		}
+	],
+	"WinGetVersion" : "1.0.11451"
 }
