@@ -602,6 +602,9 @@
 (use-package jgraph-mode
   :ensure t
   :pin gnu)
+(use-package launchctl
+  :ensure t
+  :pin melpa)
 (use-package newsticker
   :demand t
   :init
