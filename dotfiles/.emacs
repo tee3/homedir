@@ -708,7 +708,9 @@
 ;;; GNU Global
 (use-package gtags-mode
   :ensure t
-  :pin gnu)
+  :pin gnu
+  :config
+  (gtags-mode))
 
 ;;; Scheme programming language
 (use-package scheme
