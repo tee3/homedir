@@ -656,6 +656,9 @@
   :init
   (when (equal system-type 'darwin)
     (setq processing-location "/usr/local/bin/processing-java")))
+(use-package sed-mode
+  :ensure t
+  :pin gnu)
 (use-package sql
   :init
   (setq sql-sqlite-program "sqlite3"))
