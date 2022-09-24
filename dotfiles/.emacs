@@ -1142,13 +1142,14 @@
   ("C-c e s r" . flymake-reporting-backends)
   :hook
   (prog-mode . flymake-mode))
-(use-package flymake-shellcheck
-  :ensure t
-  :pin melpa
-  :after flymake
-  :commands flymake-shellcheck-load
-  :hook
-  (sh-mode . flymake-shellcheck-load))
+(when (< emacs-major-version 29)
+  (use-package flymake-shellcheck
+    :ensure t
+    :pin melpa
+    :after flymake
+    :commands flymake-shellcheck-load
+    :hook
+    (sh-mode . flymake-shellcheck-load)))
 
 ;;; Language Server Protocol
 (defun tee3-clangd-executable ()
