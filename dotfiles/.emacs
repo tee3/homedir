@@ -1045,14 +1045,15 @@
   :pin melpa)
 
 ;;; JSON
-(use-package json-mode
-  :ensure t
-  :pin melpa
-  :hook
-  (json-mode . json-par-mode))
-(use-package json-par
-  :ensure t
-  :pin melpa)
+(when (< emacs-major-version 29)
+  (use-package json-mode
+    :ensure t
+    :pin melpa
+    :hook
+    (json-mode . json-par-mode))
+  (use-package json-par
+    :ensure t
+    :pin melpa))
 (use-package jsonnet-mode
   :ensure t
   :pin melpa)
