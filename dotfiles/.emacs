@@ -538,12 +538,11 @@
    ("\\.gitsvnextmodules\\'" . gitconfig-mode)
    ;; migration-generated Git submodules files
    ("\\.gitsvnexternals\\'" . gitconfig-mode)))
-(use-package graphviz-dot-mode
-  ;; @todo fails to load with Emacs 26
-  :if
-  (< emacs-major-version 26)
-  :ensure t
-  :pin melpa)
+;; @todo fails to load with Emacs 26
+(when (< emacs-major-version 26)
+  (use-package graphviz-dot-mode
+    :ensure t
+    :pin melpa))
 (use-package jgraph-mode
   :ensure t
   :pin gnu)
@@ -578,12 +577,11 @@
    ("sshd?_config\\'" . ssh-config-mode)
    ("known_hosts\\'" . ssh-known-hosts-mode)
    ("authorized_keys2?\\'" . ssh-authorized-keys-mode)))
-(use-package systemd
-  :if
-  (or (> emacs-major-version 24)
-      (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
-  :ensure t
-  :pin nongnu)
+(when (or (> emacs-major-version 24)
+          (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
+  (use-package systemd
+    :ensure t
+    :pin nongnu))
 (use-package toml-mode
   :ensure t
   :pin melpa)
@@ -667,12 +665,11 @@
 (use-package rust-mode
   :ensure t
   :pin nongnu)
-(use-package swift-mode
-  :if
-  (or (>= emacs-major-version 25)
-      (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
-  :ensure t
-  :pin nongnu)
+(when (or (>= emacs-major-version 25)
+          (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
+  (use-package swift-mode
+    :ensure t
+    :pin nongnu))
 (use-package tcl)
 (use-package verilog-mode
   :ensure t
@@ -770,28 +767,27 @@
   (("gitolite\\.conf\\'" . gl-conf-mode)))
 
 ;;; Magit
-(use-package magit
-  :if
-  (or (> emacs-major-version 24)
-      (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
-  :ensure t
-  :pin melpa
-  :bind
-  ("C-c v g s" . magit-status)
-  :init
-  (setq magit-repository-directories (quote (("~/Development" . 2)))))
-(use-package magit-lfs
-  :ensure t
-  :pin melpa
-  :after magit)
-(use-package magit-svn
-  :ensure t
-  :pin melpa
-  :after magit)
-(use-package forge
-  :ensure t
-  :pin melpa
-  :after magit)
+(when (or (> emacs-major-version 24)
+          (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
+  (use-package magit
+    :ensure t
+    :pin melpa
+    :bind
+    ("C-c v g s" . magit-status)
+    :init
+    (setq magit-repository-directories (quote (("~/Development" . 2)))))
+  (use-package magit-lfs
+    :ensure t
+    :pin melpa
+    :after magit)
+  (use-package magit-svn
+    :ensure t
+    :pin melpa
+    :after magit)
+  (use-package forge
+    :ensure t
+    :pin melpa
+    :after magit))
 
 ;;; Mercurial
 (use-package monky
@@ -1116,14 +1112,13 @@
   :pin melpa)
 
 ;;; Homebrew
-(use-package homebrew-mode
-  :if
-  (or (>= emacs-major-version 25)
-      (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
-  :ensure t
-  :pin melpa
-  :init
-  (global-homebrew-mode))
+(when (or (>= emacs-major-version 25)
+          (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
+  (use-package homebrew-mode
+    :ensure t
+    :pin melpa
+    :init
+    (global-homebrew-mode)))
 
 ;;; Clang Tools
 (eval-after-load "yaml-mode.el"
@@ -1245,30 +1240,26 @@
   :pin melpa)
 
 ;;; Docker
-(use-package docker
-  :if
-  (>= emacs-major-version 25)
-  :ensure t
-  :pin melpa
-  :bind
-  ("C-c d" . docker))
-(use-package dockerfile-mode
-  :if
-  (>= emacs-major-version 25)
-  :ensure t
-  :pin melpa)
-(use-package docker-compose-mode
-  :if
-  (>= emacs-major-version 25)
-  :ensure t
-  :pin melpa)
+(when (>= emacs-major-version 25)
+  (use-package docker
+    :ensure t
+    :pin melpa
+    :bind
+    ("C-c d" . docker)))
+(when (>= emacs-major-version 25)
+  (use-package dockerfile-mode
+    :ensure t
+    :pin melpa))
+(when (>= emacs-major-version 25)
+  (use-package docker-compose-mode
+    :ensure t
+    :pin melpa))
 
 ;;; Kubernetes
-(use-package kubernetes
-  :if
-  (>= emacs-major-version 25)
-  :ensure t
-  :pin melpa)
+(when (>= emacs-major-version 25)
+  (use-package kubernetes
+    :ensure t
+    :pin melpa))
 (use-package kubedoc
   :ensure t
   :pin melpa)
