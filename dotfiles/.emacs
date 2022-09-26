@@ -766,8 +766,7 @@
   (("gitolite\\.conf\\'" . gl-conf-mode)))
 
 ;;; Magit
-(when (or (> emacs-major-version 24)
-          (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
+(when (> emacs-major-version 24)
   (use-package magit
     :ensure t
     :pin melpa
