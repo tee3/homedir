@@ -252,7 +252,6 @@
   (setq linum-format "%4d ")
   :hook
   (text-mode . linum-mode)
-
   (prog-mode . linum-mode))
 (use-package display-line-numbers
   :if
