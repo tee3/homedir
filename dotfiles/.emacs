@@ -748,6 +748,7 @@
 ;;; Git
 (use-package git-commit
   :ensure t
+  ; :pin nongnu
   :pin melpa)
 (use-package gited
   :ensure t
@@ -772,6 +773,7 @@
 (when (> emacs-major-version 24)
   (use-package magit
     :ensure t
+    ; :pin nongnu
     :pin melpa
     :bind
     ("C-c v g s" . magit-status)
@@ -779,6 +781,7 @@
     (setq magit-repository-directories (quote (("~/Development" . 2)))))
   (use-package forge
     :ensure t
+    ; :pin nongnu
     :pin melpa
     :after magit))
 
