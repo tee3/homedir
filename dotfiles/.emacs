@@ -746,6 +746,9 @@
 (use-package imenu)
 
 ;;; Git
+(use-package git-commit
+  :ensure t
+  :pin melpa)
 (use-package gited
   :ensure t
   :pin gnu
