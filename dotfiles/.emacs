@@ -778,12 +778,13 @@
     :bind
     ("C-c v g s" . magit-status)
     :init
-    (setq magit-repository-directories (quote (("~/Development" . 2)))))
+    (setq magit-repository-directories (quote (("~/Development" . 2))))))
+;;; Forge
+(when (> emacs-major-version 24)
   (use-package forge
     :ensure t
     ; :pin nongnu
-    :pin melpa
-    :after magit))
+    :pin melpa))
 
 ;;; Mercurial
 (use-package monky
