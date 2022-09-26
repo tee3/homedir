@@ -777,14 +777,6 @@
     ("C-c v g s" . magit-status)
     :init
     (setq magit-repository-directories (quote (("~/Development" . 2)))))
-  (use-package magit-lfs
-    :ensure t
-    :pin melpa
-    :after magit)
-  (use-package magit-svn
-    :ensure t
-    :pin melpa
-    :after magit)
   (use-package forge
     :ensure t
     :pin melpa
