@@ -758,9 +758,6 @@
   (setq gited-verbose t)
   :config
   (define-key dired-mode-map "\C-x\C-g" 'gited-list-branches))
-(use-package git-timemachine
-  :ensure t
-  :pin melpa)
 
 ;;; Gitolite
 (use-package gl-conf-mode
