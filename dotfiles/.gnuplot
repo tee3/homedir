@@ -1,3 +1,2 @@
 set grid
-set terminal dumb
-set data style linespoints
+# set terminal dumb
