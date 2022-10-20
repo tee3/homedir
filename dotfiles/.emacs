@@ -1195,7 +1195,7 @@
 
 (use-package eglot
   :ensure t
-  :pin melpa
+  :pin gnu
   :bind
   ("C-c l ." . eglot-find-implementation)
   ("C-c l a" . eglot-code-actions)
