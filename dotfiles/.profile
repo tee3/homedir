@@ -64,7 +64,7 @@ fi
 # Ruby
 if [ -n "$(command -v ruby 2> /dev/null)" ] && [ -n "$(command -v gem 2> /dev/null)" ]; then
     ruby_prefix="$(ruby -r rubygems -e 'puts Gem.user_dir')"
-    export PATH="${ruby_prefix}"/bin$"{PATH:+:${PATH}}"
+    export PATH="${ruby_prefix}"/bin"${PATH:+:${PATH}}"
 fi
 
 # Node.js
