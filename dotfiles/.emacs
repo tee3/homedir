@@ -1295,7 +1295,7 @@
   (use-package cyberpunk-2019-theme :ensure t :pin melpa :defer t)
   (use-package eclipse-theme :ensure t :pin melpa :defer t)
   (use-package ef-themes :ensure t :pin gnu :defer t)
-  (use-package farmhouse-theme :ensure t :pin melpa :defer t)
+  (use-package farmhouse-themes :ensure t :pin melpa :defer t)
   (use-package flatui-theme :ensure t :pin melpa :defer t)
   (use-package gandalf-theme :ensure t :pin melpa :defer t)
   (use-package github-modern-theme :ensure t :pin melpa :defer t)
