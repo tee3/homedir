@@ -40,7 +40,7 @@
 (when (require 'package nil :noerror)
   (when (boundp 'package-pinned-packages)
     (setq package-pinned-packages
-          '((use-package . "melpa"))))
+          '((use-package . "gnu"))))
 
   (when (not (package-installed-p 'use-package))
 
