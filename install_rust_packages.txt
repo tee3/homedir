@@ -3,4 +3,6 @@
 rustfmt
 rls
 
+tree-sitter-cli
+
 xsv
