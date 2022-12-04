@@ -327,7 +327,8 @@
   (shell-mode . pcomplete-shell-setup))
 (use-package proced
   :init
-  (setq proced-show-remote-processes t))
+  (setq proced-show-remote-processes t)
+  (setq proced-enable-color-flag t))
 (use-package project
   :ensure t
   :pin gnu
