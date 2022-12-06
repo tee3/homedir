@@ -1317,6 +1317,7 @@
   ; (use-package solarized-theme :ensure t :pin nongnu :defer t)
   (use-package solarized-theme :ensure t :pin melpa :defer t)
   (use-package solo-jazz-theme :ensure t :pin melpa :defer t)
+  (use-package standard-themes :ensure t :pin gnu :defer t)
   (use-package subatomic-theme :ensure t :pin nongnu :defer t)
   (use-package subatomic256-theme :ensure t :pin melpa :defer t)
   (use-package the-matrix-theme :ensure t :pin melpa :defer t)
