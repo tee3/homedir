@@ -948,8 +948,8 @@
 ;;; b2 (Boost.Build)
 (use-package b2-mode
   :demand t ; @todo for now, this package needs work
-  :load-path
-  "~/opt/local/src/b2-mode")
+  :vc
+  (:url "https://github.com/tee3/b2-mode.git"))
 
 ;;; Xcode
 ;;; @todo convert to ede or something
@@ -1044,8 +1044,8 @@
 (use-package objj-mode
   :if
   (>= emacs-major-version 25)
-  :load-path
-  "~/opt/local/src/objj-mode")
+  :vc
+  (:url "https://github.com/tee3/objj-mode.git"))
 
 ;;; Jake
 (use-package js
@@ -1115,12 +1115,12 @@
    (c-mode-common . tee3-c-mode-common-setup)))
 (use-package tee3-c-style
   :demand t ; @todo for now, this package needs work
-  :load-path
-  "~/opt/local/src/tee3-c-style")
+  :vc
+  (:url "https://github.com/tee3/tee3-c-style.git"))
 (use-package msvc-c-style
   :demand t ; @todo for now, this package needs work
-  :load-path
-  "~/opt/local/src/msvc-c-style")
+  :vc
+  (:url "https://github.com/tee3/msvc-c-style.git"))
 (use-package google-c-style
   :ensure t
   :pin melpa)
