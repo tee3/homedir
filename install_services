@@ -37,26 +37,26 @@ def replace_systemd_template_specifiers(service, s):
         sys.exit(1)
     SHELL = os.environ['SHELL']
     # requires UID.
-    #UID = str(pwd.getpwnam(USER).pw_uid)
+    # UID = str(pwd.getpwnam(USER).pw_uid)
     # requires HOSTNAME.
-    #HOSTNAME = os.uname()[1]
+    # HOSTNAME = os.uname()[1]
 
     s = s.replace('%n', service)
-    #s = s.replace('%N', XXX)
-    #s = s.replace('%p', XXX)
-    #s = s.replace('%P', XXX)
-    #s = s.replace('%i', XXX)
-    #s = s.replace('%I', XXX)
-    #s = s.replace('%f', XXX)
-    #s = s.replace('%t', XXX)
+    # s = s.replace('%N', XXX)
+    # s = s.replace('%p', XXX)
+    # s = s.replace('%P', XXX)
+    # s = s.replace('%i', XXX)
+    # s = s.replace('%I', XXX)
+    # s = s.replace('%f', XXX)
+    # s = s.replace('%t', XXX)
     s = s.replace('%u', USER)
-    #s = s.replace('%U', UID)
+    # s = s.replace('%U', UID)
     s = s.replace('%h', HOME)
     s = s.replace('%s', SHELL)
-    #s = s.replace('%m', XXX)
-    #s = s.replace('%b', XXX)
-    #s = s.replace('%H', HOSTNAME)
-    #s = s.replace('%v', XXX)
+    # s = s.replace('%m', XXX)
+    # s = s.replace('%b', XXX)
+    # s = s.replace('%H', HOSTNAME)
+    # s = s.replace('%v', XXX)
 
     # must be last
     s = s.replace('%%', '%')
