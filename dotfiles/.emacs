@@ -37,16 +37,17 @@
 
 (setq-default use-package-compute-statistics nil)
 
-(when (require 'package nil :noerror)
-  (when (boundp 'package-pinned-packages)
-    (setq package-pinned-packages
-          '((use-package . "gnu"))))
+(when (< emacs-major-version 29)
+  (when (require 'package nil :noerror)
+    (when (boundp 'package-pinned-packages)
+      (setq package-pinned-packages
+            '((use-package . "gnu"))))
 
-  (when (not (package-installed-p 'use-package))
+    (when (not (package-installed-p 'use-package))
 
-    (package-refresh-contents)
+      (package-refresh-contents)
 
-    (package-install 'use-package)))
+      (package-install 'use-package))))
 
 (unless (require 'use-package nil :noerror)
   (defmacro use-package (name &rest args)
