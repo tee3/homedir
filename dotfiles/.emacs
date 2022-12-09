@@ -170,8 +170,8 @@
   (if (not (daemonp))
       (desktop-save-mode))
   :hook
-  (server-after-make-frame . tee3-deferred-desktop-save-mode)
-  (kill-emacs . tee3-disable-themes))
+  ((server-after-make-frame . tee3-deferred-desktop-save-mode)
+   (kill-emacs . tee3-disable-themes)))
 (use-package diff-hl
   :ensure t
   :pin gnu
@@ -253,8 +253,8 @@
   :init
   (setq linum-format "%4d ")
   :hook
-  (text-mode . linum-mode)
-  (prog-mode . linum-mode))
+  ((text-mode . linum-mode)
+   (prog-mode . linum-mode)))
 (use-package display-line-numbers
   :if
   (and tee3-display-line-numbers
@@ -263,8 +263,8 @@
   (setq display-line-numbers-grow-only t)
   (setq display-line-numbers-width-start 3)
   :hook
-  (text-mode . display-line-numbers-mode)
-  (prog-mode . display-line-numbers-mode))
+  ((text-mode . display-line-numbers-mode)
+   (prog-mode . display-line-numbers-mode)))
 (use-package gdb
   :init
   (setq gdb-restore-window-configuration-after-quit t))
@@ -315,9 +315,9 @@
   :ensure t
   :pin nongnu
   :hook
-  (emacs-lisp-mode . paredit-mode)
-  (lisp-mode . paredit-mode)
-  (scheme-mode . paredit-mode))
+  ((emacs-lisp-mode . paredit-mode)
+   (lisp-mode . paredit-mode)
+   (scheme-mode . paredit-mode)))
 (use-package paren
   :demand t
   :init
@@ -469,8 +469,8 @@
 ;;; Flyspell
 (use-package flyspell
   :hook
-  (text-mode . flyspell-mode)
-  (prog-mode . flyspell-prog-mode))
+  ((text-mode . flyspell-mode)
+   (prog-mode . flyspell-prog-mode)))
 
 ;;; Yasnippet
 (use-package yasnippet
@@ -1018,9 +1018,9 @@
   (setq c-indent-comments-syntactically-p t)
   (setq c-strict-syntax-p t)
   :hook
-  (c-mode . tee3-c-set-style-tee3)
-  (c++-mode . tee3-c-set-style-tee3)
-  (c-mode-common . tee3-c-mode-common-setup))
+  ((c-mode . tee3-c-set-style-tee3)
+   (c++-mode . tee3-c-set-style-tee3)
+   (c-mode-common . tee3-c-mode-common-setup)))
 (use-package tee3-c-style
   :demand t ; @todo for now, this package needs work
   :load-path
@@ -1038,8 +1038,8 @@
   (setq hide-ifdef-initially nil)
   (setq hide-ifdef-lines t)
   :hook
-  (c-mode . hide-ifdef-mode)
-  (c++-mode . hide-ifdef-mode))
+  ((c-mode . hide-ifdef-mode)
+   (c++-mode . hide-ifdef-mode)))
 (use-package demangle-mode
   :ensure t
   :pin melpa)
