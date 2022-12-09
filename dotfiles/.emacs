@@ -146,8 +146,8 @@
   (setq calc-make-windows-dedicated t))
 (use-package compile
   :bind
-  ("C-c c c" . compile)
-  ("C-c c r" . recompile))
+  (("C-c c c" . compile)
+   ("C-c c r" . recompile)))
 (use-package desktop
   :demand t
   :preface
@@ -1136,15 +1136,15 @@
   :ensure t
   :pin gnu
   :bind
-  ("C-c e b" . flymake-switch-to-log-buffer)
-  ("C-c e l l" . flymake-show-diagnostic)
-  ("C-c e l b" . flymake-show-buffer-diagnostics)
-  ("C-c e l p" . flymake-show-project-diagnostics)
-  ("C-c e n" . flymake-goto-next-error)
-  ("C-c e p" . flymake-goto-prev-error)
-  ("C-c e s b" . flymake-running-backends)
-  ("C-c e s d" . flymake-disabled-backends)
-  ("C-c e s r" . flymake-reporting-backends)
+  (("C-c e b" . flymake-switch-to-log-buffer)
+   ("C-c e l l" . flymake-show-diagnostic)
+   ("C-c e l b" . flymake-show-buffer-diagnostics)
+   ("C-c e l p" . flymake-show-project-diagnostics)
+   ("C-c e n" . flymake-goto-next-error)
+   ("C-c e p" . flymake-goto-prev-error)
+   ("C-c e s b" . flymake-running-backends)
+   ("C-c e s d" . flymake-disabled-backends)
+   ("C-c e s r" . flymake-reporting-backends))
   :hook
   (prog-mode . flymake-mode))
 (when (< emacs-major-version 29)
@@ -1207,17 +1207,17 @@
   :ensure t
   :pin gnu
   :bind
-  ("C-c l ." . eglot-find-implementation)
-  ("C-c l a" . eglot-code-actions)
-  ("C-c l b" . eglot-format-buffer)
-  ("C-c l c" . eglot-reconnect)
-  ("C-c l d" . eglot-find-declaration)
-  ("C-c l f" . eglot-format)
-  ("C-c l q" . eglot-shutdown)
-  ("C-c l Q" . eglot-shutdown-all)
-  ("C-c l r" . eglot-rename)
-  ("C-c l s" . eglot)
-  ("C-c l t" . eglot-find-typeDefinition)
+  (("C-c l ." . eglot-find-implementation)
+   ("C-c l a" . eglot-code-actions)
+   ("C-c l b" . eglot-format-buffer)
+   ("C-c l c" . eglot-reconnect)
+   ("C-c l d" . eglot-find-declaration)
+   ("C-c l f" . eglot-format)
+   ("C-c l q" . eglot-shutdown)
+   ("C-c l Q" . eglot-shutdown-all)
+   ("C-c l r" . eglot-rename)
+   ("C-c l s" . eglot)
+   ("C-c l t" . eglot-find-typeDefinition))
   :init
   (setq-default eglot-workspace-configuration
                 '((pylsp
