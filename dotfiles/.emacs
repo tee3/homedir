@@ -612,7 +612,7 @@
 
 ;;; Programming languages
 (use-package applescript-mode
-  :disabled t
+  :disabled
   :ensure t
   :pin melpa)
 (use-package asm-mode
