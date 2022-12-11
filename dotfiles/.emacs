@@ -457,7 +457,25 @@
     :preface
     (defun tee3-treesit-install-all-language-grammars ()
       (interactive)
-      (mapc #'treesit-install-language-grammar (mapcar #'car treesit-language-source-alist)))))
+      (mapc #'treesit-install-language-grammar (mapcar #'car treesit-language-source-alist)))
+    :config
+    (add-to-list 'major-mode-remap-alist '(c++-mode . c++-ts-mode) t)
+    (add-to-list 'major-mode-remap-alist '(c-mode . c-ts-mode) t)
+    (add-to-list 'major-mode-remap-alist '(cmake-mode . cmake-ts-mode) t)
+    (add-to-list 'major-mode-remap-alist '(csharp-mode . csharp-ts-mode) t)
+    (add-to-list 'major-mode-remap-alist '(css-mode . css-ts-mode) t)
+    (add-to-list 'major-mode-remap-alist '(dockerfile-mode . dockerfile-ts-mode) t)
+    (add-to-list 'major-mode-remap-alist '(go-mod-mode . go-mod-ts-mode) t)
+    (add-to-list 'major-mode-remap-alist '(go-mode . go-ts-mode) t)
+    (add-to-list 'major-mode-remap-alist '(java-mode . java-ts-mode) t)
+    (add-to-list 'major-mode-remap-alist '(js-json-mode . json-ts-mode) t)
+    (add-to-list 'major-mode-remap-alist '(js-mode . js-ts-mode) t)
+    (add-to-list 'major-mode-remap-alist '(json-mode . json-ts-mode) t)
+    (add-to-list 'major-mode-remap-alist '(python-mode . python-ts-mode) t)
+    (add-to-list 'major-mode-remap-alist '(sh-mode . bash-ts-mode) t)
+    (add-to-list 'major-mode-remap-alist '(tsx-mode . tsx-ts-mode) t)
+    (add-to-list 'major-mode-remap-alist '(typescript-mode . typescript-ts-mode) t)
+    (add-to-list 'major-mode-remap-alist '(yaml-mode . yaml-ts-mode) t)))
 
 (when (>= emacs-major-version 30)
   (use-package visual-wrap
