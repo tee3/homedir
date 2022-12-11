@@ -625,15 +625,17 @@
   (use-package systemd
     :ensure t
     :pin nongnu))
-(use-package toml-mode
-  :ensure t
-  :pin melpa)
+(when (and (>= emacs-major-version 25) (< emacs-major-version 30))
+  (use-package toml-mode
+    :ensure t
+    :pin melpa))
 (use-package vimrc-mode
   :ensure t
   :pin melpa)
-(use-package yaml-mode
-  :ensure t
-  :pin nongnu)
+(when (< emacs-major-version 30)
+  (use-package yaml-mode
+    :ensure t
+    :pin nongnu))
 (use-package graphql-mode
   :ensure t
   :pin nongnu)
@@ -705,9 +707,10 @@
 (use-package sql
   :init
   (setq sql-sqlite-program "sqlite3"))
-(use-package rust-mode
-  :ensure t
-  :pin nongnu)
+(when (< emacs-major-version 30)
+  (use-package rust-mode
+    :ensure t
+    :pin nongnu))
 (when (or (>= emacs-major-version 25)
           (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
   (use-package swift-mode
@@ -946,9 +949,10 @@
                                       :test 'tee3-projectile-xcode-project-test-command))
 
 ;;; CMake
-(use-package cmake-mode
-  :ensure t
-  :pin melpa)
+(when (< emacs-major-version 30)
+  (use-package cmake-mode
+    :ensure t
+    :pin melpa))
 
 ;;; @todo convert to ede or something
 (with-eval-after-load "projectile"
@@ -975,16 +979,17 @@
   (("\\.gp\\'" . gnuplot)))
 
 ;;; Go programming language
-(use-package go-mode
-  :ensure t
-  :pin nongnu
-  :preface
-  (defun tee3-go-mode-setup ()
-    ;; allow use of tabs as it is required by go fmt
-    (setq indent-tabs-mode t)
-    (add-hook 'before-save-hook 'gofmt-before-save))
-  :hook
-  (go-mode . tee3-go-mode-setup))
+(when (< emacs-major-version 30)
+  (use-package go-mode
+    :ensure t
+    :pin nongnu
+    :preface
+    (defun tee3-go-mode-setup ()
+      ;; allow use of tabs as it is required by go fmt
+      (setq indent-tabs-mode t)
+      (add-hook 'before-save-hook 'gofmt-before-save))
+    :hook
+    (go-mode . tee3-go-mode-setup)))
 
 ;;; Ruby programming language
 (use-package ruby-mode)
@@ -1104,12 +1109,13 @@
   :pin melpa)
 
 ;;; Typescript programming language
-(use-package typescript-mode
-  :ensure t
-  :pin nongnu)
-(use-package ts-comint
-  :ensure t
-  :pin melpa)
+(when (< emacs-major-version 30)
+  (use-package typescript-mode
+    :ensure t
+    :pin nongnu)
+  (use-package ts-comint
+    :ensure t
+    :pin melpa))
 
 ;;; Generic modes
 (use-package generic-x)
@@ -1304,7 +1310,7 @@
     :pin melpa
     :bind
     ("C-c d" . docker)))
-(when (>= emacs-major-version 25)
+(when (and (>= emacs-major-version 25) (< emacs-major-version 30))
   (use-package dockerfile-mode
     :ensure t
     :pin nongnu))
