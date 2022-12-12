@@ -46,6 +46,7 @@ if [ -d "${HOME}"/opt/local ]; then
     export LD_LIBRARY_PATH="${HOME}"/opt/local/lib"${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
     export DYLD_LIBRARY_PATH="${HOME}"/opt/local/lib"${DYLD_LIBRARY_PATH:+:${DYLD_LIBRARY_PATH}}"
     export INFOPATH="${HOME}"/opt/local/share/info:"${INFOPATH:-}"
+    export PKG_CONFIG_PATH="${HOME}"/opt/local/lib/pkgconfig"${PKG_CONFIG_PATH:+:${PKG_CONFIG_PATH}}"
 fi
 
 # Emacs for macOS
