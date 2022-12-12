@@ -66,7 +66,7 @@ else if [ os.name ] = MACOSX
   using darwin ;
 
   using darwin : 12 : $(LOCAL_PREFIX)/opt/gcc@12/bin/g++-12 : $(macos-options) ;
-  using darwin : 11 : $(LOCAL_PREFIX)/opt/gcc@11/bin/g++-11 : $(macos-options) ;
+#  using darwin : 11 : $(LOCAL_PREFIX)/opt/gcc@11/bin/g++-11 : $(macos-options) ;
 #  using darwin : 10 : $(LOCAL_PREFIX)/opt/gcc@10/bin/g++-10 : $(macos-options) ;
 #  using darwin : 9 : $(LOCAL_PREFIX)/opt/gcc@9/bin/g++-9 : $(macos-options) ;
 #  using darwin : 8 : $(LOCAL_PREFIX)/opt/gcc@8/bin/g++-8 : $(macos-options) ;
@@ -76,7 +76,7 @@ else if [ os.name ] = MACOSX
   using gcc ;
 
   using gcc : 12 : $(LOCAL_PREFIX)/opt/gcc@12/bin/g++-12 : $(macos-options) ;
-  using gcc : 11 : $(LOCAL_PREFIX)/opt/gcc@11/bin/g++-11 : $(macos-options) ;
+#  using gcc : 11 : $(LOCAL_PREFIX)/opt/gcc@11/bin/g++-11 : $(macos-options) ;
 #  using gcc : 10 : $(LOCAL_PREFIX)/opt/gcc@11/bin/g++-10 : $(macos-options) ;
 #  using gcc : 9 : $(LOCAL_PREFIX)/opt/gcc@9/bin/g++-9 : $(macos-options) ;
 #  using gcc : 8 : $(LOCAL_PREFIX)/opt/gcc@8/bin/g++-8 : $(macos-options) ;
@@ -91,7 +91,7 @@ else if [ os.name ] = MACOSX
   using gcc : 8avr : $(LOCAL_PREFIX)/opt/avr-gcc@8/bin/avr-g++ ;
   using gcc : 9avr : $(LOCAL_PREFIX)/opt/avr-gcc@9/bin/avr-g++ ;
   using gcc : 10avr : $(LOCAL_PREFIX)/opt/avr-gcc@10/bin/avr-g++ ;
-  using gcc : 11avr : $(LOCAL_PREFIX)/opt/avr-gcc@11/bin/avr-g++ ;
+#  using gcc : 11avr : $(LOCAL_PREFIX)/opt/avr-gcc@11/bin/avr-g++ ;
 
   #using emscripten ;
 }
