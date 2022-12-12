@@ -125,6 +125,46 @@ def install_commands_to_compilation_database(basedir):
     subprocess.check_call(command, cwd=sourcedir)
 
 
+def install_tree_sitter(basedir):
+    sourcedir = os.path.join(basedir, 'src', 'tree-sitter')
+
+    major = 0
+    minor = 20
+    patch = 7
+
+    version = f'{major}.{minor}.{patch}'
+
+    if os.path.exists(sourcedir):
+        command = [
+            'git',
+            'checkout',
+            'master',
+        ]
+        subprocess.check_call(command, cwd=sourcedir)
+
+    git_clone_update_pull_ff_only(
+        'https://github.com/tree-sitter/tree-sitter.git',
+        sourcedir)
+
+    command = [
+        'git',
+        'checkout',
+        f'v{version}',
+    ]
+    subprocess.check_call(command, cwd=sourcedir)
+
+    command = [
+        'make',
+        f'VERSION={version}'
+        f'SONAME_MAJOR={major}',
+        f'SONAME_MINOR={minor}',
+        'install',
+    ]
+    env = os.environ
+    env['PREFIX'] = basedir
+    subprocess.check_call(command, cwd=sourcedir, env=env)
+
+
 # requires HOME.
 if 'HOME' not in os.environ or os.environ['HOME'] == '':
     print('error: HOME is not set, aborting.')
@@ -145,5 +185,6 @@ if __name__ == '__main__':
     install_commands_to_compilation_database(prefix)
     install_git_svn_update_externals(prefix)
     install_boost(prefix)
+    install_tree_sitter(prefix)
 
     sys.exit(r)
