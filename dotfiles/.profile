@@ -41,7 +41,7 @@ if [ -n "$(command -v brew 2> /dev/null)" ]; then
 fi
 
 # Add local optional to path
-if [ -d "${HOME}"/opt/local/bin ]; then
+if [ -d "${HOME}"/opt/local ]; then
     export PATH="${HOME}"/opt/local/bin"${PATH:+:${PATH}}"
     export LD_LIBRARY_PATH="${HOME}"/opt/local/lib"${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
     export DYLD_LIBRARY_PATH="${HOME}"/opt/local/lib"${DYLD_LIBRARY_PATH:+:${DYLD_LIBRARY_PATH}}"
