@@ -29,6 +29,11 @@ fi
 if [ -n "$(command -v brew 2> /dev/null)" ]; then
     brew_prefix="$(brew --prefix)"
 
+    # @todo missing from `brew shellenv`
+    export LD_LIBRARY_PATH="${brew_prefix}"/lib"${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
+    export DYLD_LIBRARY_PATH="${brew_prefix}"/lib"${DYLD_LIBRARY_PATH:+:${DYLD_LIBRARY_PATH}}"
+    export PKG_CONFIG_PATH="${brew_prefix}"/lib/pkgconfig"${PKG_CONFIG_PATH:+:${PKG_CONFIG_PATH}}"
+
     # DocBook from Homebrew
     if [ -e "$(brew ls --versions docbook > /dev/null)" ]; then
         export XML_CATALOG_FILES="${brew_prefix}"/etc/xml/catalog
