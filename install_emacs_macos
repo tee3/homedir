@@ -34,9 +34,11 @@ homebrew_prefix="$(brew --prefix)"
 CPPFLAGS=""
 CPPFLAGS="${CPPFLAGS} -isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libxml2"
 CPPFLAGS="${CPPFLAGS} -I${homebrew_prefix}/include"
+CPPFLAGS="${CPPFLAGS} -I${HOME}/opt/local/include"
 
 LDFLAGS=""
 LDFLAGS="${LDFLAGS} -L${homebrew_prefix}/lib"
+LDFLAGS="${LDFLAGS} -L${HOME}/opt/local/lib"
 
 export CPPFLAGS
 export LDFLAGS

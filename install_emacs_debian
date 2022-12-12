@@ -29,6 +29,15 @@ for package in ${packages} ; do
     fi
 done
 
+CPPFLAGS=""
+CPPFLAGS="${CPPFLAGS} -I${HOME}/opt/local/include"
+
+LDFLAGS=""
+LDFLAGS="${LDFLAGS} -L${HOME}/opt/local/lib"
+
+export CPPFLAGS
+export LDFLAGS
+
 git_clean_excludes=""
 git_clean_excludes="${git_clean_excludes} -e GPATH"
 git_clean_excludes="${git_clean_excludes} -e GRTAGS"
