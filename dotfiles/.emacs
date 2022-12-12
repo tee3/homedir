@@ -220,6 +220,7 @@
   :config
   (global-font-lock-mode))
 (use-package frame
+  :disabled
   :demand t
   :config
   (add-to-list 'initial-frame-alist '(width . 160))
