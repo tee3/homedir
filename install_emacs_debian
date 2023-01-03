@@ -63,6 +63,3 @@ options="${options} --prefix=${HOME}/opt/local"
 (cd "${rootdir}" && ./configure ${options})
 (cd "${rootdir}" && make -j 8)
 (cd "${rootdir}" && make install)
-
-# build tree-sitter languages
-(cd "${rootdir}"/admin/notes/tree-sitter/build-module && ./batch.sh)
