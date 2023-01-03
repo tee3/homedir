@@ -399,7 +399,33 @@
 (use-package treesit
   :demand t
   :init
-  (setq treesit-extra-load-path (list (expand-file-name "~/opt/local/src/emacs/admin/notes/tree-sitter/build-module/dist"))))
+  (setq treesit-extra-load-path (list (expand-file-name "~/opt/local/src/emacs/admin/notes/tree-sitter/build-module/dist")))
+  (setq treesit-language-source-alist
+        '((bash . ("https://github.com/tree-sitter/tree-sitter-bash"))
+          (c . ("https://github.com/tree-sitter/tree-sitter-c"))
+          (c-sharp . ("https://github.com/tree-sitter/tree-sitter-c-sharp"))
+          (cmake . ("https://github.com/uyha/tree-sitter-cmake"))
+          (cpp . ("https://github.com/tree-sitter/tree-sitter-cpp"))
+          (css . ("https://github.com/tree-sitter/tree-sitter-css"))
+          (dockerfile . ("https://github.com/camdencheek/tree-sitter-dockerfile"))
+          (go . ("https://github.com/tree-sitter/tree-sitter-go"))
+          (go-mode . ("https://github.com/camdencheek/tree-sitter-gomod"))
+          (html . ("https://github.com/tree-sitter/tree-sitter-html"))
+          (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript"))
+          (json . ("https://github.com/tree-sitter/tree-sitter-json"))
+          (lua . ("https://github.com/Azganoth/tree-sitter-lua"))
+          (make . ("https://github.com/alemuller/tree-sitter-make"))
+          (ocaml . ("https://github.com/tree-sitter/tree-sitter-ocaml" "ocaml/src" "ocaml"))
+          (php . ("https://github.com/tree-sitter/tree-sitter-php"))
+          (python . ("https://github.com/tree-sitter/tree-sitter-python"))
+          (ruby . ("https://github.com/tree-sitter/tree-sitter-ruby"))
+          (rust . ("https://github.com/tree-sitter/tree-sitter-rust"))
+          (sql . ("https://github.com/m-novikov/tree-sitter-sql"))
+          (toml . ("https://github.com/tree-sitter/tree-sitter-toml"))
+          (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "tsx/src" "tsx"))
+          (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" "typescript/src" "typescript"))
+          (yaml . ("https://github.com/ikatyang/tree-sitter-yaml"))
+          (zig . ("https://github.com/GrayJack/tree-sitter-zig")))))
 (use-package which-func
   :demand t
   :init
