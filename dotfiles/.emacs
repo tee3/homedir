@@ -396,6 +396,10 @@
 (use-package tramp
   :ensure t
   :pin gnu)
+(use-package treesit
+  :demand t
+  :init
+  (setq treesit-extra-load-path (list (expand-file-name "~/opt/local/src/emacs/admin/notes/tree-sitter/build-module/dist"))))
 (use-package which-func
   :demand t
   :init
