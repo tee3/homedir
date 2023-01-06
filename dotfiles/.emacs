@@ -482,14 +482,6 @@
   :config
   (yas-global-mode))
 
-;;; Learning Emacs
-(use-package guru-mode
-  :ensure t
-  :pin melpa)
-(use-package howdoi
-  :ensure t
-  :pin melpa)
-
 ;;; Org
 (use-package org
   :ensure t
@@ -521,9 +513,6 @@
   :mode
   ((".asciidoc\\'" . adoc-mode)
    (".adoc\\'" . adoc-mode)))
-(use-package creole-mode
-  :ensure t
-  :pin melpa)
 (use-package jade-mode
   :ensure t
   :pin melpa)
@@ -542,11 +531,6 @@
 (use-package rst)
 
 (use-package posix-manual
-  :ensure t
-  :pin melpa)
-
-;;; Android development
-(use-package android-mode
   :ensure t
   :pin melpa)
 
@@ -1073,11 +1057,6 @@
 ;;; JSON
 (when (< emacs-major-version 29)
   (use-package json-mode
-    :ensure t
-    :pin melpa
-    :hook
-    (json-mode . json-par-mode))
-  (use-package json-par
     :ensure t
     :pin melpa))
 (use-package jsonnet-mode
