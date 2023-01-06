@@ -313,7 +313,7 @@
     (menu-bar-mode -1)))
 (use-package paredit
   :ensure t
-  :pin melpa
+  :pin nongnu
   :hook
   (emacs-lisp-mode . paredit-mode)
   (lisp-mode . paredit-mode)
@@ -515,7 +515,7 @@
    (".adoc\\'" . adoc-mode)))
 (use-package jade-mode
   :ensure t
-  :pin melpa)
+  :pin nongnu)
 (use-package markdown-mode
   :ensure t
   :pin nongnu
@@ -537,7 +537,7 @@
 ;;; Configuration files
 (use-package apache-mode
   :ensure t
-  :pin melpa)
+  :pin nongnu)
 (use-package csv-mode
   :ensure t
   :pin gnu
@@ -608,7 +608,7 @@
   :pin nongnu)
 (use-package graphql-mode
   :ensure t
-  :pin melpa)
+  :pin nongnu)
 
 ;;; Programming languages
 (use-package applescript-mode
@@ -625,13 +625,13 @@
   (asm-mode . tee3-asm-mode-setup))
 (use-package coffee-mode
   :ensure t
-  :pin melpa)
+  :pin nongnu)
 (use-package cperl-mode
   :ensure t
   :pin melpa)
 (use-package d-mode
   :ensure t
-  :pin melpa)
+  :pin nongnu)
 (use-package fish-mode
   :ensure t
   :pin melpa)
@@ -640,10 +640,10 @@
   :pin melpa)
 (use-package haskell-mode
   :ensure t
-  :pin melpa)
+  :pin nongnu)
 (use-package lua-mode
   :ensure t
-  :pin melpa)
+  :pin nongnu)
 (use-package matlab
   :ensure matlab-mode
   :pin melpa
@@ -692,7 +692,7 @@
 (use-package vhdl-mode)
 (use-package web-mode
   :ensure t
-  :pin melpa
+  :pin nongnu
   :preface
   (defun tee3-web-mode-setup ()
     (setq web-mode-markup-indent-offset 2)
@@ -709,7 +709,7 @@
 ;;; TeX and LaTeX
 (use-package tex-site
   :ensure auctex
-  :pin melpa)
+  :pin gnu)
 
 ;;; OpenCL
 (use-package opencl-mode
@@ -764,8 +764,7 @@
 ;;; Git
 (use-package git-commit
   :ensure t
-  ; :pin nongnu
-  :pin melpa)
+  :pin nongnu)
 (use-package gited
   :ensure t
   :pin gnu
@@ -786,8 +785,7 @@
 (when (> emacs-major-version 24)
   (use-package magit
     :ensure t
-    ; :pin nongnu
-    :pin melpa
+    :pin nongnu
     :bind
     ("C-c v g s" . magit-status)
     :init
@@ -795,9 +793,10 @@
 ;;; Forge
 (when (> emacs-major-version 24)
   (use-package forge
+    ;; @todo disabled until part of NonGNU ELPA
+    :disabled
     :ensure t
-    ; :pin nongnu
-    :pin melpa))
+    :pin nongnu))
 
 ;;; Mercurial
 (use-package monky
@@ -1058,7 +1057,7 @@
 (when (< emacs-major-version 29)
   (use-package json-mode
     :ensure t
-    :pin melpa))
+    :pin gnu))
 (use-package jsonnet-mode
   :ensure t
   :pin melpa)
@@ -1066,7 +1065,7 @@
 ;;; Typescript programming language
 (use-package typescript-mode
   :ensure t
-  :pin melpa)
+  :pin nongnu)
 (use-package ts-comint
   :ensure t
   :pin melpa)
@@ -1115,7 +1114,7 @@
   :pin melpa)
 (use-package dts-mode
   :ensure t
-  :pin melpa)
+  :pin gnu)
 
 ;;; Homebrew
 (when (or (>= emacs-major-version 25)
@@ -1256,7 +1255,7 @@
 (when (>= emacs-major-version 25)
   (use-package dockerfile-mode
     :ensure t
-    :pin melpa))
+    :pin nongnu))
 (when (>= emacs-major-version 25)
   (use-package docker-compose-mode
     :ensure t
