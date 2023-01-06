@@ -116,9 +116,11 @@
     (customize-set-value 'auth-sources '("~/.authinfo.gpg")))))
 
 (use-package epa
+  :if (< emacs-major-version 27)
   :init
   (setq epa-pinentry-mode 'loopback))
 (use-package epg
+  :if (>= emacs-major-version 27)
   :init
   (setq epg-pinentry-mode 'loopback))
 
