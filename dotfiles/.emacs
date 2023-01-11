@@ -1243,7 +1243,9 @@
 ;;; Jenkins
 (use-package jenkinsfile-mode
   :ensure t
-  :pin melpa)
+  :pin melpa
+  :mode
+  ("Jenkinsfile.*\\'" . jenkinsfile-mode))
 
 ;;; Docker
 (when (>= emacs-major-version 25)
