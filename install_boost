@@ -34,7 +34,7 @@ fi
 
 url=https://boostorg.jfrog.io/artifactory/main/release/"${version}"/source/"${filename}"
 
-wget --no-clobber --output-document "${root}"/"${filename}" "${url}"
+curl --no-clobber --location --remote-name --output-dir "${root}" "${url}"
 
 if [ ! -e "${root}"/"${filename}" ]; then
     printf "error: %s does not exist.\n" "${root}"/"${filename}" 1>&2
