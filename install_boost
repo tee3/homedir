@@ -16,7 +16,6 @@ version_name="$(printf "%s" "${version}" | sed 's/\./_/g')"
 root="${HOME}"/opt/local/src/boost
 directory=boost_"${version_name}"
 filename="${directory}".tar.gz
-minor="$(printf "%s" "${version}" | sed 's/^[0-9]\.\([0-9][0-9]\)\.[0-9]/\1/')"
 
 if [ ! -d "${root}" ]; then
     printf "error: %s does not exist.\n" "${root}" 1>&2
