@@ -38,11 +38,10 @@ if exist "%CMDEMACSROOT%" (
    set EDITOR=emacsclient -a notepad.exe
 )
 
-rem Boost.Build
-set BOOSTBUILDPREFIX=C:\boost-build
-if not exist "%BOOSTBUILDPREFIX%" echo Boost.Build is not installed at "%BOOSTBUILDPREFIX%"
-if exist "%BOOSTBUILDPREFIX%" set PATH=%BOOSTBUILDPREFIX%\bin;%PATH%
-if exist "%BOOSTBUILDPREFIX%" set BOOST_BUILD_PATH=%BOOSTBUILDPREFIX%
+rem B2
+set B2PREFIX=C:\b2
+if not exist "%B2PREFIX%" echo b2 is not installed at "%B2PREFIX%"
+if exist "%B2PREFIX%" set PATH=%B2PREFIX%;%PATH%
 
 rem Boost
 set BOOSTPREFIX=C:\Boost
