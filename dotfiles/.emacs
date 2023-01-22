@@ -1399,6 +1399,8 @@
     :defer t
     :init
     (setq ef-themes-disable-other-themes nil)
+    (setq ef-themes-headings '((t bold)))
+    (setq ef-themes-region '(no-extend intense))
     (setq ef-themes-common-palette-overrides
           '((bg-added           unspecified)
             (bg-added-faint     unspecified)
