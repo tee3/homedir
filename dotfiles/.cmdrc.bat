@@ -10,10 +10,10 @@ rem SSH
 ssh-agent
 
 rem Python
-FOR /f "delims=" %%A IN ('python3 -c "import site; print(site.USER_BASE)"') DO set "PATH=%PATH%;%%A\Python38\Scripts"
+for /f "delims=" %%A in ('python3 -c "import site; print(site.USER_BASE)"') do set "PATH=%PATH%;%%A\Python38\Scripts"
 
 rem Ruby
-FOR /f "delims=" %%A IN ('ruby -r rubygems -e "puts Gem.user_dir"') DO set "PATH=%PATH%;%%A\bin"
+for /f "delims=" %%A in ('ruby -r rubygems -e "puts Gem.user_dir"') do set "PATH=%PATH%;%%A\bin"
 
 rem Node.js
 set CMDNPMPREFIX=%HOME%\.node_modules
