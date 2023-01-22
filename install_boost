@@ -41,7 +41,7 @@ if [ ! -e "${root}"/"${filename}" ]; then
     exit 1
 fi
 
-tar xfz "${root}"/"${filename}" -C "${root}"
+tar -x -z -f "${root}"/"${filename}" -C "${root}"
 
 if [ ! -d "${root}"/"${directory}" ]; then
     printf "error: %s does not exist.\n" "${root}"/"${directory} " 1>&2
