@@ -1467,6 +1467,12 @@
     (setq standard-themes-disable-other-themes nil)
     (setq standard-themes-italic-constructs t)
     (setq standard-themes-bold-constructs t)
+    (setq standard-themes-fringes 'intense)
+    (setq standard-themes-links '(neutral-underline faint))
+    (setq standard-themes-headings '((t bold)))
+    (setq standard-themes-mode-line-accented t)
+    (setq standard-themes-prompts '(bold))
+    (setq standard-themes-region '(no-extend intense))
     (setq standard-themes-common-palette-overrides
           '((bg-added           unspecified)
             (bg-added-faint     unspecified)
