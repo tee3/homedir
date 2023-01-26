@@ -732,6 +732,10 @@
   :pin gnu
   :config
   (gtags-mode))
+;;; GNU Poke
+(use-package poke-mode
+  :ensure t
+  :pin gnu)
 
 ;;; Scheme programming language
 (use-package scheme
