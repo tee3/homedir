@@ -4,7 +4,6 @@
 # packages and has the proper administrator privileges.
 
 tap "homebrew/bundle"
-tap "homebrew/core"
 tap "homebrew/services"
 
 #brew "arp-scan"
