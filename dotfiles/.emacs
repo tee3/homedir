@@ -1221,6 +1221,7 @@
    ("C-c l c" . eglot-reconnect)
    ("C-c l d" . eglot-find-declaration)
    ("C-c l f" . eglot-format)
+   ("C-c l i" . eglot-inlay-hints-mode)
    ("C-c l q" . eglot-shutdown)
    ("C-c l Q" . eglot-shutdown-all)
    ("C-c l r" . eglot-rename)
