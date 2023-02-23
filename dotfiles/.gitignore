@@ -47,7 +47,6 @@ xcuserdata/
 
 # Clang Tooling
 compile_commands.json
-.clangd
 .cache/clangd
 
 # cquery Tooling
