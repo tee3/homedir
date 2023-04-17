@@ -182,7 +182,6 @@
   :config
   (global-diff-hl-mode)
   (diff-hl-flydiff-mode)
-  (unless (window-system) (diff-hl-margin-mode))
   :hook
   (dired-mode . diff-hl-dired-mode-unless-remote))
 (use-package diff-mode
