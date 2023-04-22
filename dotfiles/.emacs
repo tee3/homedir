@@ -210,6 +210,9 @@
 (use-package eshell)
 (use-package em-term
   :config
+  (add-to-list 'eshell-visual-commands "ssh" t)
+  (add-to-list 'eshell-visual-commands "tig" t)
+  (add-to-list 'eshell-visual-commands "watch" t)
   (add-to-list 'eshell-visual-subcommands '("git" "log" "diff" "show") t)
   (add-to-list 'eshell-visual-options '("git" "--help" "--paginate") t))
 (use-package etags
