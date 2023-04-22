@@ -207,12 +207,11 @@
   :demand t
   :init
   (electric-pair-mode))
-(use-package eshell
-  :init
-  (setq eshell-visual-subcommands
-        '(("git" "log" "diff" "show")))
-  (setq eshell-visual-options
-        '(("git" "--help" "--paginate"))))
+(use-package eshell)
+(use-package em-term
+  :config
+  (add-to-list 'eshell-visual-subcommands '("git" "log" "diff" "show") t)
+  (add-to-list 'eshell-visual-options '("git" "--help" "--paginate") t))
 (use-package etags
   :init
   (setq tags-loop-revert-buffers t))
