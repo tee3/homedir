@@ -20,7 +20,7 @@ def emulate_run(args, env=None):
 def emulate_backtick(args):
     try:
         output = subprocess.check_output(args, universal_newlines=True).rstrip('\n')
-    except:
+    except Exception:
         output = ''
 
     return output
