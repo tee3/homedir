@@ -3,7 +3,6 @@
 # Install Python modules in the install_python_packages.txt requirements file.
 
 import sys
-import os
 import subprocess
 import distutils.spawn
 

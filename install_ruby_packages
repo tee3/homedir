@@ -3,7 +3,6 @@
 # Install Ruby modules in the install_ruby_packages.gemfile Gemfile.
 
 import sys
-import os
 import subprocess
 import distutils.spawn
 

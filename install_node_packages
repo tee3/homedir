@@ -3,7 +3,6 @@
 # Install Node packages in the install_node_packages.txt package list.
 
 import sys
-import os
 import subprocess
 import distutils.spawn
 
