@@ -568,11 +568,9 @@
    ("\\.gitsvnextmodules\\'" . gitconfig-mode)
    ;; migration-generated Git submodules files
    ("\\.gitsvnexternals\\'" . gitconfig-mode)))
-;; @todo fails to load with Emacs 26
-(when (< emacs-major-version 26)
-  (use-package graphviz-dot-mode
-    :ensure t
-    :pin melpa))
+(use-package graphviz-dot-mode
+  :ensure t
+  :pin melpa)
 (use-package jgraph-mode
   :ensure t
   :pin gnu)
