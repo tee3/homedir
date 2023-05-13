@@ -554,6 +554,11 @@
   (use-package llm
     :ensure t
     :pin gnu))
+(when (>= emacs-major-version 28)
+  (use-package ai-mode
+    :ensure t
+    ;; :pin melpa
+    :vc (:url "https://github.com/ai-mode/ai-mode.git" :rev :newest)))
 
 ;;; Markdown formats
 (use-package adoc-mode
