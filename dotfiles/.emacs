@@ -541,6 +541,11 @@
     :demand t
     :init
     (setopt ellama-keymap-prefix "C-c a")))
+(when (>= emacs-major-version 28)
+  (use-package ai-mode
+    :ensure t
+    ;; :pin melpa
+    :vc (:url "https://github.com/ai-mode/ai-mode.git" :rev :newest)))
 
 ;;; Markdown formats
 (use-package adoc-mode
