@@ -1263,6 +1263,31 @@
   (add-to-list 'eglot-server-programs '((sql-mode) . ("sql-language-server" "up" "--method" "stdio")))
   (add-to-list 'eglot-server-programs '((swift-mode) . tee3-sourcekit-lsp-command)))
 
+;; (use-package breadcrumb
+;;   :ensure t
+;;   :pin gnu
+;;   :commands
+;;   breadcrumb-mode
+;;   breadcrumb-jump
+;;   :bind
+;;   (("C-c l j" . breadcrumb-jump))
+;;   :config
+;;   (breadcrumb-mode))
+(when (fboundp 'package-vc-install)
+  (unless (file-directory-p (expand-file-name (file-name-concat "elpa" "breadcrumb") user-emacs-directory))
+    (package-vc-install "https://github.com/joaotavora/breadcrumb.git"))
+
+  (use-package breadcrumb
+    :load-path
+    (lambda () (expand-file-name (file-name-concat "elpa" "breadcrumb") user-emacs-directory))
+    :commands
+    breadcrumb-mode
+    breadcrumb-jump
+    :bind
+    (("C-c l j" . breadcrumb-jump))
+    :config
+    (breadcrumb-mode)))
+
 (use-package rmsbolt
   :ensure t
   :pin melpa)
