@@ -533,6 +533,13 @@
   :ensure t
   :pin gnu)
 
+;;; AI
+(when (>= emacs-major-version 28)
+  (use-package ai-mode
+    :ensure t
+    ;; :pin melpa
+    :vc (:url "https://github.com/ai-mode/ai-mode.git" :rev :newest)))
+
 (use-package posix-manual
   :ensure t
   :pin melpa)
