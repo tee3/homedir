@@ -546,6 +546,11 @@
     :ensure t
     ;; :pin melpa
     :vc (:url "https://github.com/ai-mode/ai-mode.git" :rev :newest)))
+(when (>= emacs-major-version 28)
+  (use-package ob-ai
+    :ensure t
+    ;; :pin melpa
+    :vc (:url "https://github.com/ai-mode/ob-ai.git" :rev :newest)))
 
 ;;; Markdown formats
 (use-package adoc-mode
