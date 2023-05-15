@@ -533,6 +533,13 @@
   :ensure t
   :pin gnu)
 
+;;; AI
+(when (>= emacs-major-version 28)
+  (use-package ob-ai
+    :ensure t
+    ;; :pin melpa
+    :vc (:url "https://github.com/ai-mode/ob-ai.git" :rev :newest)))
+
 (use-package posix-manual
   :ensure t
   :pin melpa)
