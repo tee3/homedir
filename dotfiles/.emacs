@@ -337,9 +337,7 @@
   (setq show-paren-context-when-offscreen t)
   :config
   (show-paren-mode))
-(use-package pcomplete
-  :hook
-  (shell-mode . pcomplete-shell-setup))
+(use-package pcomplete)
 (use-package proced
   :init
   (setq proced-show-remote-processes t)
