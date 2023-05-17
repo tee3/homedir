@@ -584,6 +584,13 @@
     :demand t
     :init
     (setopt ellama-keymap-prefix "C-c a")))
+(when (>= emacs-major-version 28)
+  (use-package copilot
+    :ensure t
+    ;; :pin melpa
+    :vc (:url "https://github.com/zerolfx/copilot.el.git" :rev :newest)
+    :config
+    (global-copilot-mode)))
 
 ;;; Markdown formats
 (use-package adoc-mode
