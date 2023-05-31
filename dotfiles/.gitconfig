@@ -11,6 +11,8 @@
 	ignoreWhitespace = false
 	whitespace = warn
 [diff]
+	algorithm = minimal
+	colorMoved = true
 	renames	= copies
 [instaweb]
 	local = true
