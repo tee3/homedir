@@ -1339,6 +1339,20 @@
     :config
     (breadcrumb-mode)))
 
+(use-package combobulate
+  :ensure t
+  ;; :pin gnu
+  :vc (:url "https://github.com/mickeynp/combobulate.git" :rev :newest)
+  :init
+  (setq combobulate-key-prefix "C-c o")
+  :hook
+  ((python-ts-mode . combobulate-mode)
+   (js-ts-mode . combobulate-mode)
+   (css-ts-mode . combobulate-mode)
+   (yaml-ts-mode . combobulate-mode)
+   (typescript-ts-mode . combobulate-mode)
+   (tsx-ts-mode . combobulate-mode)))
+
 (use-package rmsbolt
   :ensure t
   :pin melpa)
