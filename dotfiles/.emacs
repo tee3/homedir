@@ -781,6 +781,8 @@
   :init
   (setq vc-make-backup-files t)
 
+(use-package vc-git
+  :init
   (setq vc-git-print-log-follow t))
 (use-package vc-fossil
   :ensure t
