@@ -781,6 +781,9 @@
   :init
   (setq vc-make-backup-files t)
 
+  (setq vc-command-messages t)
+
+  (setq vc-diff-added-files t))
 (use-package vc-git
   :init
   (setq vc-git-print-log-follow t))
