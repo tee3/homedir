@@ -1348,6 +1348,9 @@
     :pin gnu
     :defer t
     :init
+    (setq ef-themes-disable-other-themes nil)
+    (setq ef-themes-italic-constructs t)
+    (setq ef-themes-bold-constructs t)
     (setq ef-themes-common-palette-overrides
           '((bg-added           unspecified)
             (bg-added-faint     unspecified)
