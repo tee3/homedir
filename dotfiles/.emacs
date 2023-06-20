@@ -1433,6 +1433,10 @@
     (setq modus-themes-disable-other-themes nil)
     (setq modus-themes-italic-constructs t)
     (setq modus-themes-bold-constructs t)
+    (setq modus-themes-headings '((t bold)))
+    (setq modus-themes-prompts '(bold))
+    (setq modus-themes-completions '((matches . (semibold italic))
+                                     (selection . (bold))))
     (setq modus-themes-common-palette-overrides
           '((bg-added           unspecified)
             (bg-added-faint     unspecified)
