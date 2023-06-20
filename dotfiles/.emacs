@@ -1424,6 +1424,9 @@
     :pin gnu
     :defer t
     :init
+    (setq standard-themes-disable-other-themes nil)
+    (setq standard-themes-italic-constructs t)
+    (setq standard-themes-bold-constructs t)
     (setq standard-themes-common-palette-overrides
           '((bg-added           unspecified)
             (bg-added-faint     unspecified)
