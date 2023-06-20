@@ -1343,7 +1343,31 @@
   (use-package cyberpunk-theme :ensure t :pin nongnu :defer t)
   (use-package cyberpunk-2019-theme :ensure t :pin melpa :defer t)
   (use-package eclipse-theme :ensure t :pin melpa :defer t)
-  (use-package ef-themes :ensure t :pin gnu :defer t)
+  (use-package ef-themes
+    :ensure t
+    :pin gnu
+    :defer t
+    :init
+    (setq ef-themes-common-palette-overrides
+          '((bg-added           unspecified)
+            (bg-added-faint     unspecified)
+            (bg-added-refine    bg-inactive)
+            (fg-added           green)
+            (fg-added-intense   green-intense)
+
+            (bg-changed         unspecified)
+            (bg-changed-faint   unspecified)
+            (bg-changed-refine  bg-inactive)
+            (fg-changed         yellow)
+            (fg-changed-intense yellow-intense)
+
+            (bg-removed         unspecified)
+            (bg-removed-faint   unspecified)
+            (bg-removed-refine  bg-inactive)
+            (fg-removed         red)
+            (fg-removed-intense red-intense)
+
+            (bg-diff-context    unspecified))))
   (use-package farmhouse-themes :ensure t :pin melpa :defer t)
   (use-package flatui-theme :ensure t :pin melpa :defer t)
   (use-package gandalf-theme :ensure t :pin melpa :defer t)
