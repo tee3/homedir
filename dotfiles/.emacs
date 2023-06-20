@@ -1262,7 +1262,7 @@
   (add-to-list 'eglot-server-programs '((swift-mode) . tee3-sourcekit-lsp-command)))
 
 (use-package breadcrumb
-  ;; :ensure t
+  :ensure t
   ;; :pin gnu
   :vc (:url "https://github.com/joaotavora/breadcrumb.git")
   :commands
