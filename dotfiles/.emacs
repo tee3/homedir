@@ -541,6 +541,10 @@
     :demand t
     :init
     (setopt ellama-keymap-prefix "C-c a")))
+(when (>= emacs-major-version 28)
+  (use-package gptel
+    :ensure t
+    :pin nongnu))
 
 ;;; Markdown formats
 (use-package adoc-mode
