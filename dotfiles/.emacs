@@ -577,6 +577,10 @@
   (use-package llm
     :ensure t
     :pin gnu))
+(when (>= emacs-major-version 28)
+  (use-package gptel
+    :ensure t
+    :pin melpa))
 
 ;;; Markdown formats
 (use-package adoc-mode
