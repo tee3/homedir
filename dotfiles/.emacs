@@ -533,6 +533,12 @@
   :ensure t
   :pin gnu)
 
+;;; AI
+(when (>= emacs-major-version 28)
+  (use-package gptel
+    :ensure t
+    :pin nongnu))
+
 (use-package posix-manual
   :ensure t
   :pin melpa)
