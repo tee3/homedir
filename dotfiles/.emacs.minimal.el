@@ -24,7 +24,7 @@
  '(minibuffer-eldef-shorten-default t)
  '(minibuffer-electric-default-mode t)
  '(minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt))
- '(package-selected-packages '(eldoc eglot flymake modus-themes project xref))
+ '(package-selected-packages '(eldoc eglot ef-themes flymake modus-themes project standard-themes xref))
  '(prog-mode-hook '(flyspell-prog-mode flymake-mode))
  '(save-place-mode t)
  '(savehist-mode t)
