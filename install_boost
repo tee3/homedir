@@ -23,12 +23,12 @@ if [ ! -d "${root}" ]; then
 fi
 
 if [ -d "${root}"/"${directory}" ]; then
-    printf "error: %s already exists.\n" "${root}"/"${directory}" 1>&2
+    printf "error: %s already exists.\n" "${root}/${directory}" 1>&2
     exit 1
 fi
 
 if [ -e "${root}"/"${filename}" ]; then
-    printf "error: %s already exists.\n" "${root}"/"${filename} " 1>&2
+    printf "error: %s already exists.\n" "${root}/${filename} " 1>&2
     exit 1
 fi
 
@@ -37,14 +37,14 @@ url=https://boostorg.jfrog.io/artifactory/main/release/"${version}"/source/"${fi
 curl --no-clobber --location --remote-name --output-dir "${root}" "${url}"
 
 if [ ! -e "${root}"/"${filename}" ]; then
-    printf "error: %s does not exist.\n" "${root}"/"${filename}" 1>&2
+    printf "error: %s does not exist.\n" "${root}/${filename}" 1>&2
     exit 1
 fi
 
 tar -x -z -f "${root}"/"${filename}" -C "${root}"
 
 if [ ! -d "${root}"/"${directory}" ]; then
-    printf "error: %s does not exist.\n" "${root}"/"${directory} " 1>&2
+    printf "error: %s does not exist.\n" "${root}/${directory} " 1>&2
     exit 1
 fi
 
