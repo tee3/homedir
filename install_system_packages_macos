@@ -18,7 +18,7 @@ pm_cleanup=
 pm_autoremove=
 
 # check if Homebrew is installed
-if [ -z "$(which brew 2> /dev/null)" ]; then
+if [ -z "$(command -v brew 2> /dev/null)" ]; then
     printf "warning: Homewbrew (brew) not found.\n" 1>&2
 else
     pm="brew"

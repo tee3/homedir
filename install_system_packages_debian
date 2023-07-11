@@ -18,7 +18,7 @@ pm_autoremove=
 pm_cleanup=
 
 # check if apt is installed
-if [ -z "$(which apt 2> /dev/null)" ]; then
+if [ -z "$(command -v apt 2> /dev/null)" ]; then
     printf "warning: apt not found\n" 1>&2
 else
     pm="apt"

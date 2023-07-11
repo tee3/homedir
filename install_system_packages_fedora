@@ -34,7 +34,7 @@ pm_autoremove=
 pm_cleanup=
 
 # check if dnf is installed
-if [ -z "$(which dnf 2> /dev/null)" ]; then
+if [ -z "$(command -v dnf 2> /dev/null)" ]; then
     printf "warning: dnf not found.\n" 1>&2
 else
     pm="dnf"
@@ -53,7 +53,7 @@ fi
 
 # check if yum is installed, if package manager is not
 if [ -z "${pm}" ]; then
-    if [ -z "$(which yum 2> /dev/null)" ]; then
+    if [ -z "$(command -v yum 2> /dev/null)" ]; then
         printf "warning: yum not found.\n" 1>&2
     else
         pm="yum"
