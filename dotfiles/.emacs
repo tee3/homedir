@@ -1430,6 +1430,8 @@
   (use-package the-matrix-theme :ensure t :pin melpa :defer t)
   (use-package tramp-theme :ensure t :pin gnu :defer t)
   (use-package unobtrusive-magit-theme :ensure t :pin melpa :defer t)
+  (use-package wildcharm-theme :ensure t :pin melpa :defer t)
+  (use-package wildcharm-light-theme :ensure t :pin melpa :defer t)
 
   (cond (t nil) ;; do not choose any themes by default
         ((display-graphic-p)
