@@ -1209,12 +1209,20 @@
     :pin gnu))
 
 ;;; Clang Tools
-(eval-after-load "yaml-mode.el"
-  (add-to-list 'auto-mode-alist '(".clang-format\\'" . yaml-mode)))
-(eval-after-load "yaml-mode.el"
-  (add-to-list 'auto-mode-alist '(".clang-tidy\\'" . yaml-mode)))
-(eval-after-load "yaml-mode.el"
-  (add-to-list 'auto-mode-alist '(".clang\\'" . yaml-mode)))
+(if (< emacs-major-version 29)
+    (progn
+      (eval-after-load "yaml-mode.el"
+        (add-to-list 'auto-mode-alist '(".clang-format\\'" . yaml-mode)))
+      (eval-after-load "yaml-mode.el"
+        (add-to-list 'auto-mode-alist '(".clang-tidy\\'" . yaml-mode)))
+      (eval-after-load "yaml-mode.el"
+        (add-to-list 'auto-mode-alist '(".clang\\'" . yaml-mode))))
+  (eval-after-load "yaml-ts-mode.el"
+    (add-to-list 'auto-mode-alist '(".clang-format\\'" . yaml-ts-mode)))
+  (eval-after-load "yaml-ts-mode.el"
+    (add-to-list 'auto-mode-alist '(".clang-tidy\\'" . yaml-ts-mode)))
+  (eval-after-load "yaml-ts-mode.el"
+    (add-to-list 'auto-mode-alist '(".clang\\'" . yaml-ts-mode))))
 
 ;;; Flymake
 (use-package flymake
