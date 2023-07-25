@@ -10,3 +10,5 @@ set print vtbl on
 set print asm-demangle on
 set print demangle on
 set demangle-style gnu-v3
+
+catch throw
