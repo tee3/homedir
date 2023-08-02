@@ -1342,7 +1342,6 @@
   (use-package chyla-theme :ensure t :pin melpa :defer t)
   (use-package cyberpunk-theme :ensure t :pin nongnu :defer t)
   (use-package cyberpunk-2019-theme :ensure t :pin melpa :defer t)
-  (use-package eclipse-theme :ensure t :pin melpa :defer t)
   (use-package ef-themes
     :ensure t
     :pin gnu
@@ -1369,16 +1368,12 @@
             (fg-removed-intense red-intense)
 
             (bg-diff-context    unspecified))))
-  (use-package farmhouse-themes :ensure t :pin melpa :defer t)
-  (use-package flatui-theme :ensure t :pin melpa :defer t)
   (use-package gandalf-theme :ensure t :pin melpa :defer t)
   (use-package github-modern-theme :ensure t :pin melpa :defer t)
   (use-package grandshell-theme :ensure t :pin melpa :defer t)
-  (use-package hemisu-theme :ensure t :pin melpa :defer t)
   (use-package hemera-theme :ensure t :pin melpa :defer t)
   ;; (use-package material-theme :ensure t :pin nongnu :defer t)
   (use-package material-theme :ensure t :pin melpa :defer t)
-  (use-package minimal-theme :ensure t :pin melpa :defer t)
   (use-package modus-themes
     :ensure t
     :pin gnu
@@ -1407,10 +1402,7 @@
             (fg-removed-intense red-intense)
 
             (bg-diff-context    unspecified))))
-  (use-package monokai-theme :ensure t :pin nongnu :defer t)
   (use-package monotropic-theme :ensure t :pin melpa :defer t)
-  (use-package mustang-theme :ensure t :pin melpa :defer t)
-  (use-package nano-theme :ensure t :pin gnu :defer t)
   (use-package plan9-theme :ensure t :pin melpa :defer t)
   (use-package professional-theme :ensure t :pin melpa :defer t)
   (use-package rebecca-theme :ensure t :pin melpa :defer t)
@@ -1450,7 +1442,6 @@
   (use-package the-matrix-theme :ensure t :pin melpa :defer t)
   (use-package tramp-theme :ensure t :pin gnu :defer t)
   (use-package unobtrusive-magit-theme :ensure t :pin melpa :defer t)
-  (use-package zenburn-theme :ensure t :pin nongnu :defer t)
 
   (cond (t nil) ;; do not choose any themes by default
         ((display-graphic-p)
