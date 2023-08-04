@@ -410,6 +410,10 @@
 (when (>= emacs-major-version 29)
   (use-package treesit
     :demand t
+    :preface
+    (defun tee3-treesit-install-all-language-grammars ()
+      (interactive)
+      (mapc #'treesit-install-language-grammar (mapcar #'car treesit-language-source-alist)))
     :init
     (setq treesit-language-source-alist
           '((bash . ("https://github.com/tree-sitter/tree-sitter-bash"))
