@@ -88,7 +88,7 @@ else if [ os.name ] = MACOSX
 
   using gcc : 12arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@12/bin/arm-none-eabi-g++ ;
   using gcc : 11arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@11/bin/arm-none-eabi-g++ ;
-  using gcc : 10arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@10/bin/arm-none-eabi-g++ ;
+#  using gcc : 10arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@10/bin/arm-none-eabi-g++ ;
   using gcc : 9arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@9/bin/arm-none-eabi-g++ ;
   using gcc : 8arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@8/bin/arm-none-eabi-g++ ;
 

@@ -141,7 +141,7 @@ brew "zsh-completions"
 
 brew "osx-cross/arm/arm-gcc-bin@8"
 brew "osx-cross/arm/arm-gcc-bin@9"
-brew "osx-cross/arm/arm-gcc-bin@10"
+#brew "osx-cross/arm/arm-gcc-bin@10"
 brew "osx-cross/arm/arm-gcc-bin@11"
 brew "osx-cross/arm/arm-gcc-bin@12"
 brew "osx-cross/avr/avr-gcc@5"
