@@ -22,16 +22,16 @@ else if [ os.name ] = LINUX
   # this is the default system compiler
   using gcc ;
 
-#  using gcc : 11 : /usr/bin/g++-11 ;
+  # using gcc : 11 : /usr/bin/g++-11 ;
   using gcc : 10 : /usr/bin/g++-10 ;
-#  using gcc : 9 : /usr/bin/g++-9 ;
+  # using gcc : 9 : /usr/bin/g++-9 ;
   using gcc : 8 : /usr/bin/g++-8 ;
   using gcc : 7 : /usr/bin/g++-7 ;
 
   # other compilers, both system and optional
   using clang ;
 
-#  using clang : 13 : /usr/bin/clang++-13 ;
+  # using clang : 13 : /usr/bin/clang++-13 ;
   using clang : 12 : /usr/bin/clang++-12 ;
   using clang : 11 : /usr/bin/clang++-11 ;
   using clang : 10 : /usr/bin/clang++-10 ;
@@ -56,40 +56,40 @@ else if [ os.name ] = MACOSX
   # other compilers, both system and optional
   using clang : 16 : $(LOCAL_PREFIX)/opt/llvm/bin/clang++ : $(macos-options) ;
   using clang : 15 : $(LOCAL_PREFIX)/opt/llvm@15/bin/clang++ : $(macos-options) ;
-#  using clang : 14 : $(LOCAL_PREFIX)/opt/llvm@14/bin/clang++ : $(macos-options) ;
+  # using clang : 14 : $(LOCAL_PREFIX)/opt/llvm@14/bin/clang++ : $(macos-options) ;
   using clang : 13 : $(LOCAL_PREFIX)/opt/llvm@13/bin/clang++ : $(macos-options) ;
   using clang : 12 : $(LOCAL_PREFIX)/opt/llvm@12/bin/clang++ : $(macos-options) ;
-#   using clang : 11 : $(LOCAL_PREFIX)/opt/llvm@11/bin/clang++ : $(macos-options) ;
-#  using clang : 10 : $(LOCAL_PREFIX)/opt/llvm@10/bin/clang++ : $(macos-options) ;
-#  using clang : 9 : $(LOCAL_PREFIX)/opt/llvm@9/bin/clang++ : $(macos-options) ;
-#  using clang : 8 : $(LOCAL_PREFIX)/opt/llvm@8/bin/clang++ : $(macos-options) ;
+  # using clang : 11 : $(LOCAL_PREFIX)/opt/llvm@11/bin/clang++ : $(macos-options) ;
+  # using clang : 10 : $(LOCAL_PREFIX)/opt/llvm@10/bin/clang++ : $(macos-options) ;
+  # using clang : 9 : $(LOCAL_PREFIX)/opt/llvm@9/bin/clang++ : $(macos-options) ;
+  # using clang : 8 : $(LOCAL_PREFIX)/opt/llvm@8/bin/clang++ : $(macos-options) ;
 
   using darwin ;
 
   using darwin : 13 : $(LOCAL_PREFIX)/opt/gcc@13/bin/g++-13 : $(macos-options) ;
   using darwin : 12 : $(LOCAL_PREFIX)/opt/gcc@12/bin/g++-12 : $(macos-options) ;
-#  using darwin : 11 : $(LOCAL_PREFIX)/opt/gcc@11/bin/g++-11 : $(macos-options) ;
-#  using darwin : 10 : $(LOCAL_PREFIX)/opt/gcc@10/bin/g++-10 : $(macos-options) ;
-#  using darwin : 9 : $(LOCAL_PREFIX)/opt/gcc@9/bin/g++-9 : $(macos-options) ;
-#  using darwin : 8 : $(LOCAL_PREFIX)/opt/gcc@8/bin/g++-8 : $(macos-options) ;
-#  using darwin : 7 : $(LOCAL_PREFIX)/opt/gcc@7/bin/g++-7 : $(macos-options) ;
-#  using darwin : 6 : $(LOCAL_PREFIX)/opt/gcc@6/bin/g++-6 : $(macos-options) ;
+  # using darwin : 11 : $(LOCAL_PREFIX)/opt/gcc@11/bin/g++-11 : $(macos-options) ;
+  # using darwin : 10 : $(LOCAL_PREFIX)/opt/gcc@10/bin/g++-10 : $(macos-options) ;
+  # using darwin : 9 : $(LOCAL_PREFIX)/opt/gcc@9/bin/g++-9 : $(macos-options) ;
+  # using darwin : 8 : $(LOCAL_PREFIX)/opt/gcc@8/bin/g++-8 : $(macos-options) ;
+  # using darwin : 7 : $(LOCAL_PREFIX)/opt/gcc@7/bin/g++-7 : $(macos-options) ;
+  # using darwin : 6 : $(LOCAL_PREFIX)/opt/gcc@6/bin/g++-6 : $(macos-options) ;
 
   using gcc ;
 
   using gcc : 13 : $(LOCAL_PREFIX)/opt/gcc@13/bin/g++-13 : $(macos-options) ;
   using gcc : 12 : $(LOCAL_PREFIX)/opt/gcc@12/bin/g++-12 : $(macos-options) ;
-#  using gcc : 11 : $(LOCAL_PREFIX)/opt/gcc@11/bin/g++-11 : $(macos-options) ;
-#  using gcc : 10 : $(LOCAL_PREFIX)/opt/gcc@11/bin/g++-10 : $(macos-options) ;
-#  using gcc : 9 : $(LOCAL_PREFIX)/opt/gcc@9/bin/g++-9 : $(macos-options) ;
-#  using gcc : 8 : $(LOCAL_PREFIX)/opt/gcc@8/bin/g++-8 : $(macos-options) ;
-#  using gcc : 7 : $(LOCAL_PREFIX)/opt/gcc@7/bin/g++-7 : $(macos-options) ;
-#  using gcc : 6 : $(LOCAL_PREFIX)/opt/gcc@6/bin/g++-6 : $(macos-options) ;
+  # using gcc : 11 : $(LOCAL_PREFIX)/opt/gcc@11/bin/g++-11 : $(macos-options) ;
+  # using gcc : 10 : $(LOCAL_PREFIX)/opt/gcc@11/bin/g++-10 : $(macos-options) ;
+  # using gcc : 9 : $(LOCAL_PREFIX)/opt/gcc@9/bin/g++-9 : $(macos-options) ;
+  # using gcc : 8 : $(LOCAL_PREFIX)/opt/gcc@8/bin/g++-8 : $(macos-options) ;
+  # using gcc : 7 : $(LOCAL_PREFIX)/opt/gcc@7/bin/g++-7 : $(macos-options) ;
+  # using gcc : 6 : $(LOCAL_PREFIX)/opt/gcc@6/bin/g++-6 : $(macos-options) ;
 
   using gcc : 13arm : $(LOCAL_PREFIX)/opt/arm-none-eabi-gcc/bin/arm-none-eabi-g++ ;
   using gcc : 12arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@12/bin/arm-none-eabi-g++ ;
   using gcc : 11arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@11/bin/arm-none-eabi-g++ ;
-#  using gcc : 10arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@10/bin/arm-none-eabi-g++ ;
+  # using gcc : 10arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@10/bin/arm-none-eabi-g++ ;
   using gcc : 9arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@9/bin/arm-none-eabi-g++ ;
   using gcc : 8arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@8/bin/arm-none-eabi-g++ ;
 
@@ -100,7 +100,7 @@ else if [ os.name ] = MACOSX
   using gcc : 8avr : $(LOCAL_PREFIX)/opt/avr-gcc@8/bin/avr-g++ ;
   using gcc : 5avr : $(LOCAL_PREFIX)/opt/avr-gcc@5/bin/avr-g++ ;
 
-  #using emscripten ;
+  # using emscripten ;
 }
 
 # MPI
