@@ -6,6 +6,9 @@
 tap "homebrew/bundle"
 tap "homebrew/services"
 
+brew "arm-none-eabi-binutils"
+brew "arm-none-eabi-gcc"
+brew "arm-none-eabi-gdb"
 #brew "arp-scan"
 #brew "arp-sk"
 #brew "arpoison"
