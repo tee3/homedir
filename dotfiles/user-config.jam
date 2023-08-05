@@ -84,15 +84,15 @@ else if [ os.name ] = MACOSX
 #  using gcc : 7 : $(LOCAL_PREFIX)/opt/gcc@7/bin/g++-7 : $(macos-options) ;
 #  using gcc : 6 : $(LOCAL_PREFIX)/opt/gcc@6/bin/g++-6 : $(macos-options) ;
 
-  using gcc : 8arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@8/bin/arm-none-eabi-g++ ;
-  using gcc : 9arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@9/bin/arm-none-eabi-g++ ;
   using gcc : 10arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@10/bin/arm-none-eabi-g++ ;
+  using gcc : 9arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@9/bin/arm-none-eabi-g++ ;
+  using gcc : 8arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@8/bin/arm-none-eabi-g++ ;
 
-  using gcc : 5avr : $(LOCAL_PREFIX)/opt/avr-gcc@5/bin/avr-g++ ;
-  using gcc : 8avr : $(LOCAL_PREFIX)/opt/avr-gcc@8/bin/avr-g++ ;
-  using gcc : 9avr : $(LOCAL_PREFIX)/opt/avr-gcc@9/bin/avr-g++ ;
-  using gcc : 10avr : $(LOCAL_PREFIX)/opt/avr-gcc@10/bin/avr-g++ ;
 #  using gcc : 11avr : $(LOCAL_PREFIX)/opt/avr-gcc@11/bin/avr-g++ ;
+  using gcc : 10avr : $(LOCAL_PREFIX)/opt/avr-gcc@10/bin/avr-g++ ;
+  using gcc : 9avr : $(LOCAL_PREFIX)/opt/avr-gcc@9/bin/avr-g++ ;
+  using gcc : 8avr : $(LOCAL_PREFIX)/opt/avr-gcc@8/bin/avr-g++ ;
+  using gcc : 5avr : $(LOCAL_PREFIX)/opt/avr-gcc@5/bin/avr-g++ ;
 
   #using emscripten ;
 }
