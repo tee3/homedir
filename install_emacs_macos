@@ -59,7 +59,6 @@ options="${options} --with-gnutls"
 options="${options} --with-json"
 options="${options} --with-xml2"
 options="${options} --with-rsvg"
-options="${options} --with-native-compilation"
 
 (cd "${rootdir}" && ./autogen.sh)
 (cd "${rootdir}" && ./configure ${options})
