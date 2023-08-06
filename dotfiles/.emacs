@@ -1139,15 +1139,6 @@
   :ensure t
   :pin gnu)
 
-;;; Homebrew
-(when (or (>= emacs-major-version 25)
-          (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
-  (use-package homebrew-mode
-    :ensure t
-    :pin melpa
-    :init
-    (global-homebrew-mode)))
-
 ;;; Clang Tools
 (eval-after-load "yaml-mode.el"
   (add-to-list 'auto-mode-alist '(".clang-format\\'" . yaml-mode)))
