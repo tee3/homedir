@@ -1129,18 +1129,18 @@
 (use-package js-comint
   :ensure t
   :pin melpa)
-(use-package jq-mode
-  :ensure t
-  :pin melpa)
+;; (use-package jq-mode
+;;   :ensure t
+;;   :pin melpa)
 
 ;;; JSON
 (when (< emacs-major-version 29)
   (use-package json-mode
     :ensure t
     :pin gnu))
-(use-package jsonnet-mode
-  :ensure t
-  :pin melpa)
+;; (use-package jsonnet-mode
+;;   :ensure t
+;;   :pin melpa)
 
 ;;; Typescript programming language
 (when (< emacs-major-version 30)
