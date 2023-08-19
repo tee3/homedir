@@ -1401,8 +1401,7 @@
   (use-package plan9-theme :ensure t :pin melpa :defer t)
   (use-package professional-theme :ensure t :pin melpa :defer t)
   (use-package rebecca-theme :ensure t :pin melpa :defer t)
-  ;; (use-package solarized-theme :ensure t :pin nongnu :defer t)
-  (use-package solarized-theme :ensure t :pin melpa :defer t)
+  (use-package solarized-theme :ensure t :pin nongnu :defer t)
   (use-package solo-jazz-theme :ensure t :pin melpa :defer t)
   (use-package standard-themes
     :ensure t
