@@ -32,7 +32,7 @@ rem Lua
 rem Emacs
 set CMDEMACSROOT=C:\Program Files\Emacs
 if not exist "%CMDEMACSROOT%" echo Emacs is not installed at "%CMDEMACSROOT%".
-if exist "%CMDEMACSROOT%" set PATH=%CMDEMACSROOT%\emacs-28.2\bin;%PATH%
+if exist "%CMDEMACSROOT%" set PATH=%CMDEMACSROOT%\emacs-29.1\bin;%PATH%
 if exist "%CMDEMACSROOT%" (
    set ALTERNATE_EDITOR=
    set EDITOR=emacsclient -a notepad.exe
