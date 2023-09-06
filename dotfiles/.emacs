@@ -1258,8 +1258,7 @@
 
 (use-package breadcrumb
   :ensure t
-  ;; :pin gnu
-  :vc (:url "https://github.com/joaotavora/breadcrumb.git" :rev :newest)
+  :pin gnu
   :commands
   breadcrumb-mode
   breadcrumb-jump
