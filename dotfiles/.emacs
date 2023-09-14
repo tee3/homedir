@@ -658,6 +658,9 @@
 (use-package graphql-mode
   :ensure t
   :pin nongnu)
+(use-package graphql-ts-mode
+  :ensure t
+  :pin melpa)
 
 ;;; Programming languages
 (use-package applescript-mode
