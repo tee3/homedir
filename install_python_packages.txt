@@ -21,6 +21,9 @@ docutils
 restructuredtext_lint
 Sphinx
 
+# JSON
+check-jsonschema
+
 # CMake
 cmake-language-server
 
