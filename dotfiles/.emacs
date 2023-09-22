@@ -523,6 +523,11 @@
                                    (sql . t)
                                    (sqlite . t))))
 
+;;; AI
+(use-package llm
+  :ensure t
+  :pin gnu)
+
 ;;; Markdown formats
 (use-package adoc-mode
   :ensure t
