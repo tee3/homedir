@@ -55,8 +55,8 @@ else if [ os.name ] = MACOSX
 
   # other compilers, both system and optional
   using clang : 16 : $(LOCAL_PREFIX)/opt/llvm/bin/clang++ : $(macos-options) ;
-  using clang : 15 : $(LOCAL_PREFIX)/opt/llvm@15/bin/clang++ : $(macos-options) ;
-  # using clang : 14 : $(LOCAL_PREFIX)/opt/llvm@14/bin/clang++ : $(macos-options) ;
+  # using clang : 15 : $(LOCAL_PREFIX)/opt/llvm@15/bin/clang++ : $(macos-options) ;
+  using clang : 14 : $(LOCAL_PREFIX)/opt/llvm@14/bin/clang++ : $(macos-options) ;
   using clang : 13 : $(LOCAL_PREFIX)/opt/llvm@13/bin/clang++ : $(macos-options) ;
   using clang : 12 : $(LOCAL_PREFIX)/opt/llvm@12/bin/clang++ : $(macos-options) ;
   # using clang : 11 : $(LOCAL_PREFIX)/opt/llvm@11/bin/clang++ : $(macos-options) ;
