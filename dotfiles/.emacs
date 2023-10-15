@@ -533,6 +533,10 @@
   :ensure t
   :pin gnu)
 
+(use-package universal-sidecar
+  :ensure t
+  :pin melpa)
+
 (use-package posix-manual
   :ensure t
   :pin melpa)
