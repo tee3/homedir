@@ -549,6 +549,10 @@
                                    (sql . t)
                                    (sqlite . t))))
 
+(use-package universal-sidecar
+  :ensure t
+  :pin melpa)
+
 ;;; AI
 (when (>= emacs-major-version 28)
   (use-package llm
