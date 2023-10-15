@@ -346,6 +346,7 @@
   :ensure t
   :pin gnu
   :init
+  (setq project-mode-line t)
   (setq project-switch-use-entire-map t)
   (setq project-compilation-buffer-name-function 'project-prefixed-buffer-name)
   (setq project-kill-buffers-display-buffer-list t))
