@@ -1338,7 +1338,6 @@
           (and (= emacs-major-version 24)
                (>= emacs-minor-version 5)))
   (use-package acme-theme :ensure t :pin melpa :defer t)
-  (use-package ahungry-theme :ensure t :pin gnu :defer t)
   (use-package aircon-theme :ensure t :pin gnu :defer t)
   (use-package chocolate-theme :ensure t :pin melpa :defer t)
   (use-package chyla-theme :ensure t :pin melpa :defer t)
