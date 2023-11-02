@@ -1247,11 +1247,11 @@
    ("C-c l w" . eglot-show-workspace-configuration))
   :init
   (setq-default eglot-workspace-configuration
-                '((:pylsp
+                '((:pylsp .
                    (:plugins
-                    :flake8 (:enabled t)
-                    :pydocstyle (:enabled t)
-                    :pylint (:enabled t)))))
+                    (:flake8 (:enabled t)
+                     :pydocstyle (:enabled t)
+                     :pylint (:enabled t))))))
   :config
   (add-to-list 'eglot-server-programs '((graphql-mode) . ("graphql-lsp" "server" "--method" "stream")))
   (add-to-list 'eglot-server-programs '((groovy-mode) . tee3-groovy-language-server-command))
