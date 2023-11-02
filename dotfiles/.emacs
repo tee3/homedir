@@ -1250,6 +1250,7 @@
                 '((:pylsp .
                    (:plugins
                     (:flake8 (:enabled t)
+                     :pycodestyle (:enabled t)
                      :pydocstyle (:enabled t)
                      :pylint (:enabled t))))))
   :config
