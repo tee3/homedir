@@ -1,5 +1,14 @@
+Style:
+  FullyQualifiedNamespaces: Yes
 InlayHints:
+  BlockEnd: Yes
   Designators: Yes
   Enabled: Yes
   ParameterNames: Yes
   DeducedTypes: Yes
+Diagnostics:
+  UnusedIncludes: Yes
+Completion:
+  AllScopes: Yes
+Hover:
+  ShowAKA: Yes
