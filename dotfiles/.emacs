@@ -293,6 +293,9 @@
 (use-package gud
   :init
   (setq gud-chdir-before-run nil))
+(use-package man
+  :init
+  (setq Man-support-remote-systems t))
 (use-package mb-depth
   :demand t
   :init
