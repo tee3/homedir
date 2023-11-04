@@ -118,6 +118,9 @@
 (use-package epa
   :init
   (setq epa-pinentry-mode 'loopback))
+(use-package epg
+  :init
+  (setq epg-pinentry-mode 'loopback))
 
 (use-package autoinsert
   :demand t
