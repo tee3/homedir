@@ -354,6 +354,7 @@
   :init
   (setq project-mode-line t)
   (setq project-switch-use-entire-map t)
+  (setq project-switch-commands #'project-prefix-or-any-command)
   (setq project-compilation-buffer-name-function 'project-prefixed-buffer-name)
   (setq project-kill-buffers-display-buffer-list t))
 (use-package repeat
