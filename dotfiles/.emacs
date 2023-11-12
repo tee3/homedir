@@ -1074,15 +1074,9 @@
 (use-package cc-mode
   :preface
   (defun tee3-c-mode-common-setup ()
-    ;; Add the personal styles defined above.
     (c-add-style "tee3" tee3-c-style t)
     (c-add-style "msvc" msvc-c-style t)
 
-    ;;
-    ;; Other customizations.
-    ;;
-    ;; TBD: Not sure if all of these will be okay or not.
-    ;;
     (c-toggle-hungry-state 1)
     ;; (c-toggle-auto-hungry-state 1)
 
