@@ -1101,6 +1101,20 @@
   ((c-mode . tee3-c-set-style-tee3)
    (c++-mode . tee3-c-set-style-tee3)
    (c-mode-common . tee3-c-mode-common-setup)))
+(use-package c-ts-mode
+  :preface
+  (defun tee3-c-ts-mode-common-setup ()
+    (c-ts-mode-add-style "tee3" tee3-c-ts-style t)
+    (c-ts-mode-add-style "msvc" msvc-c-ts-style t))
+  (defun tee3-c-set-style-tee3 ()
+    (c-ts-mode-set-global-style "tee3"))
+  :init
+  (setq c-ts-mode-indent-offset 3)
+  (setq c-ts-mode-indent-style 3)
+  :hook
+  ((c-mode . tee3-c-set-style-tee3)
+   (c++-mode . tee3-c-set-style-tee3)
+   (c-mode-common . tee3-c-mode-common-setup))))
 (use-package tee3-c-style
   :demand t ; @todo for now, this package needs work
   :vc
