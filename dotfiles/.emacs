@@ -295,7 +295,9 @@
   (setq gnus-use-cache t))
 (use-package gud
   :init
-  (setq gud-chdir-before-run nil))
+  (setq gud-chdir-before-run nil)
+  ;; lldb
+  (setq gud-lldb-max-completions 10000))
 (use-package man
   :init
   (setq Man-support-remote-systems t))
