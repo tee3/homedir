@@ -378,6 +378,14 @@
   :demand t
   :config
   (scroll-bar-mode -1))
+(when (>= emacs-major-version 30)
+  (use-package completion-preview
+    :init
+    (setq completion-preview-exact-match-only t)
+    (setq completion-preview-minimum-symbol-length 2)
+    :hook
+    (text-mode . completion-preview-mode)
+    (prog-mode . completion-preview-mode)))
 (use-package simple
   :init
   (setq size-indication-mode t)
