@@ -1,0 +1,7 @@
+# General
+settings set symbols.load-on-demand true
+
+# C++
+settings set import-std-module true
+
+breakpoint set -E c++
