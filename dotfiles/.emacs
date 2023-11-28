@@ -253,6 +253,9 @@
 (use-package fringe
   :init
   (setq fringe-mode '(4 . nil)))
+(use-package grep
+  :init
+  (setq grep-use-headings t))
 (use-package help
   :config
   (temp-buffer-resize-mode))
