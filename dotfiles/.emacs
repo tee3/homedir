@@ -299,6 +299,7 @@
 (use-package gud
   :init
   (setq gud-chdir-before-run nil)
+  (setq gud-highlight-current-line t)
   ;; lldb
   (setq gud-lldb-max-completions 10000))
 (use-package man
