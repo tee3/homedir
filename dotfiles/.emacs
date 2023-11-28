@@ -396,6 +396,9 @@
     :hook
     (text-mode . completion-preview-mode)
     (prog-mode . completion-preview-mode)))
+(use-package shell
+  :init
+  (setq shell-get-old-input-include-continuation-lines t))
 (use-package simple
   :init
   (setq size-indication-mode t)
