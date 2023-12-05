@@ -1278,6 +1278,11 @@
   (add-to-list 'eglot-server-programs '((vue-mode) . ("vue-language-server" "--stdio")))
   (add-to-list 'eglot-server-programs '((swift-mode) . ("sourcekit-lsp"))))
 
+;;; Debug Adapter Protocol
+(use-package dape
+  :ensure t
+  :pin gnu)
+
 (when (>= emacs-major-version 28)
   (use-package breadcrumb
     :ensure t
