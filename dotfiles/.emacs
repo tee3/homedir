@@ -1324,6 +1324,11 @@
   (add-to-list 'eglot-server-programs '((sql-mode) . ("sql-language-server" "up" "--method" "stdio")))
   (add-to-list 'eglot-server-programs '((swift-mode) . tee3-sourcekit-lsp-command)))
 
+;;; Debug Adapter Protocol
+(use-package dape
+  :ensure t
+  :pin gnu)
+
 (when (>= emacs-major-version 28)
   (use-package breadcrumb
     :ensure t
