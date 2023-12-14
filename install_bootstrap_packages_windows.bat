@@ -20,7 +20,7 @@ if %ERRORLEVEL% neq 0 echo "error: failed to install Microsoft.VisualStudio.2022
 echo "Run Visual Studio Installer and configure Microsoft Visual Studio Build Tools for C++ Desktop Development."
 set /p id="Press Enter when complete ..."
 
-winget install --silent --exact --id Python.Python.3.8 --accept-package-agreements --accept-source-agreements
+winget install --silent --exact --id Python.Python.3.12 --accept-package-agreements --accept-source-agreements
 if %ERRORLEVEL% neq 0 echo "error: failed to install Python.Python."
 
 PowerShell.exe -Command "Add-WindowsCapability -Online -Name OpenSSH.Client"
