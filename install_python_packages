@@ -4,7 +4,7 @@
 
 import sys
 import subprocess
-import distutils.spawn
+import shutil
 
 
 def emulate_run(args, env=None):
@@ -15,9 +15,9 @@ def emulate_run(args, env=None):
 
 
 def install_python_packages():
-    python = distutils.spawn.find_executable('python3')
+    python = shutil.which('python3')
     if not python:
-        python = distutils.spawn.find_executable('python')
+        python = shutil.which('python')
 
     if not python:
         print('error: Python 3 not installed, not installing Python 3 packages.')

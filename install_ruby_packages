@@ -4,7 +4,7 @@
 
 import sys
 import subprocess
-import distutils.spawn
+import shutil
 
 
 def emulate_run(args, env=None):
@@ -23,12 +23,12 @@ def emulate_backtick(args):
     return output
 
 
-ruby = distutils.spawn.find_executable('ruby')
-gem = distutils.spawn.find_executable('gem')
+ruby = shutil.which('ruby')
+gem = shutil.which('gem')
 if not gem and sys.platform.startswith('win32'):
-    gem = distutils.spawn.find_executable('gem.bat')
+    gem = shutil.which('gem.bat')
 if not gem and sys.platform.startswith('win32'):
-    gem = distutils.spawn.find_executable('gem.cmd')
+    gem = shutil.which('gem.cmd')
 if not gem and sys.platform.startswith('win32'):
     gem = 'gem.cmd'
 

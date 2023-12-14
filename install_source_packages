@@ -10,11 +10,10 @@ import os
 import subprocess
 import filecmp
 import shutil
-import distutils.spawn
 
-b2 = distutils.spawn.find_executable('b2')
+b2 = shutil.which('b2')
 if not b2:
-    b2 = distutils.spawn.find_executable('bjam')
+    b2 = shutil.which('bjam')
 if not b2:
     print('warning: Boost.Build was not found, skipping source packages that require it.')
 

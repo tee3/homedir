@@ -6,7 +6,7 @@ import sys
 import os
 import pathlib
 import subprocess
-import distutils.spawn
+import shutil
 import filecmp
 
 
@@ -96,10 +96,10 @@ else:
     sys.exit(1)
 
 # find executables
-stow = distutils.spawn.find_executable('stow')
-git = distutils.spawn.find_executable('git')
-hg = distutils.spawn.find_executable('hg')
-emacs = distutils.spawn.find_executable('emacs')
+stow = shutil.which('stow')
+git = shutil.which('git')
+hg = shutil.which('hg')
+emacs = shutil.which('emacs')
 
 if __name__ == '__main__':
     # create ~/.ssh/config.d
@@ -219,7 +219,7 @@ if __name__ == '__main__':
         open(zshrc_local, 'a').close()
 
     # create a link to run cmd with inputs
-    cmd = distutils.spawn.find_executable('cmd.exe')
+    cmd = shutil.which('cmd.exe')
     if cmd:
         cmd_shortcut = os.path.join(HOME, 'Desktop', 'homedir cmd.lnk')
 

@@ -5,7 +5,7 @@
 import sys
 import os
 import subprocess
-import distutils.spawn
+import shutil
 
 
 def emulate_run(args, env=None):
@@ -15,7 +15,7 @@ def emulate_run(args, env=None):
     return False
 
 
-cargo = distutils.spawn.find_executable('cargo')
+cargo = shutil.which('cargo')
 
 if __name__ == '__main__':
     if not cargo:

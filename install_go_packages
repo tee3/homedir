@@ -5,7 +5,7 @@
 import sys
 import os
 import subprocess
-import distutils.spawn
+import shutil
 
 
 def emulate_run(args, env=None):
@@ -21,7 +21,7 @@ if 'HOME' not in os.environ or os.environ['HOME'] == '':
     sys.exit(1)
 HOME = os.environ['HOME']
 
-go = distutils.spawn.find_executable('go')
+go = shutil.which('go')
 
 if __name__ == '__main__':
     if not go:

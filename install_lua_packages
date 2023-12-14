@@ -4,7 +4,7 @@
 
 import sys
 import subprocess
-import distutils.spawn
+import shutil
 
 
 def emulate_run(args, env=None):
@@ -14,7 +14,7 @@ def emulate_run(args, env=None):
     return False
 
 
-luarocks = distutils.spawn.find_executable('luarocks')
+luarocks = shutil.which('luarocks')
 
 if __name__ == '__main__':
     if not luarocks:

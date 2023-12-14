@@ -4,7 +4,7 @@
 
 import sys
 import subprocess
-import distutils.spawn
+import shutil
 
 
 def emulate_run(args, env=None):
@@ -14,15 +14,15 @@ def emulate_run(args, env=None):
     return False
 
 
-node = distutils.spawn.find_executable('node')
+node = shutil.which('node')
 if sys.platform.startswith('win32'):
     npm = 'npm.cmd'
 else:
-    npm = distutils.spawn.find_executable('npm')
+    npm = shutil.which('npm')
 
 if __name__ == '__main__':
     if not node:
-        node = distutils.spawn.find_executable('nodejs')
+        node = shutil.which('nodejs')
         if not node:
             print('error: node is not installed, skipping node module installation')
             sys.exit(1)
