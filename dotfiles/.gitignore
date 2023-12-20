@@ -64,6 +64,7 @@ npm-debug.log
 *.pyc
 __pycache__/
 dist/
+.eggs/
 *.egg-info/
 venv/
 
