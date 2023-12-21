@@ -363,10 +363,11 @@
   (setq project-switch-commands #'project-prefix-or-any-command)
   (setq project-compilation-buffer-name-function 'project-prefixed-buffer-name)
   (setq project-kill-buffers-display-buffer-list t))
-(use-package repeat
-  :demand t
-  :config
-  (repeat-mode))
+(when (>= emacs-major-version 28)
+  (use-package repeat
+    :demand t
+    :config
+    (repeat-mode)))
 (use-package savehist
   :demand t
   :init
@@ -546,9 +547,10 @@
                                    (sqlite . t))))
 
 ;;; AI
-(use-package llm
-  :ensure t
-  :pin gnu)
+(when (>= emacs-major-version 28)
+  (use-package llm
+    :ensure t
+    :pin gnu))
 
 ;;; Markdown formats
 (use-package adoc-mode
@@ -768,11 +770,13 @@
   :pin melpa)
 
 ;;; GNU Global
-(use-package gtags-mode
-  :ensure t
-  :pin gnu
-  :config
-  (gtags-mode))
+(when (>= emacs-major-version 28)
+  (use-package gtags-mode
+    :ensure t
+    :pin gnu
+    :config
+    (gtags-mode)))
+
 ;;; GNU Poke
 (use-package poke-mode
   :ensure t
@@ -1295,16 +1299,17 @@
   (add-to-list 'eglot-server-programs '((sql-mode) . ("sql-language-server" "up" "--method" "stdio")))
   (add-to-list 'eglot-server-programs '((swift-mode) . tee3-sourcekit-lsp-command)))
 
-(use-package breadcrumb
-  :ensure t
-  :pin gnu
-  :commands
-  breadcrumb-mode
-  breadcrumb-jump
-  :bind
-  (("C-c l j" . breadcrumb-jump))
-  :config
-  (breadcrumb-mode))
+(when (>= emacs-major-version 28)
+  (use-package breadcrumb
+    :ensure t
+    :pin gnu
+    :commands
+    breadcrumb-mode
+    breadcrumb-jump
+    :bind
+    (("C-c l j" . breadcrumb-jump))
+    :config
+    (breadcrumb-mode)))
 
 (use-package rmsbolt
   :ensure t
