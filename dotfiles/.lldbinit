@@ -5,3 +5,8 @@ settings set symbols.load-on-demand true
 settings set import-std-module true
 
 breakpoint set -E c++
+
+# Emacs
+
+settings set stop-line-count-before 0
+settings set stop-line-count-after 0
