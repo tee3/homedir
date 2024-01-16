@@ -1177,9 +1177,14 @@
 (use-package kconfig-mode
   :ensure t
   :pin melpa)
-(use-package dts-mode
-  :ensure t
-  :pin gnu)
+(when (< emacs-major-version 29)
+  (use-package dts-mode
+    :ensure t
+    :pin gnu))
+(when (>= emacs-major-version 29)
+  (use-package devicetree-ts-mode
+    :ensure t
+    :pin gnu))
 
 ;;; Clang Tools
 (eval-after-load "yaml-mode.el"
