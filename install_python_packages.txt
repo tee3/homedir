@@ -9,6 +9,7 @@ pycodestyle
 pydocstyle
 pylint
 python-lsp-server[all]
+pylsp-mypy
 rope
 yapf
 
