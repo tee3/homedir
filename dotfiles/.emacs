@@ -1292,6 +1292,7 @@
                 '((:pylsp .
                    (:plugins
                     (:flake8 (:enabled t)
+                     :mypy (:enabled t :strict t :report_progress t)
                      :pycodestyle (:enabled t)
                      :pydocstyle (:enabled t)
                      :pylint (:enabled t))))))
