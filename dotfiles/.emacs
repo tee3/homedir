@@ -1377,6 +1377,11 @@
   :ensure t
   :pin melpa)
 
+(use-package beardbolt
+  :ensure t
+  ;; :pin gnu
+  :vc (:url "https://github.com/joaotavora/beardbolt.git" :rev :newest))
+
 ;;; Jenkins
 (use-package jenkinsfile-mode
   :ensure t
