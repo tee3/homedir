@@ -1294,6 +1294,10 @@
   :ensure t
   :pin melpa)
 
+(use-package beardbolt
+  :ensure t
+  :vc (:url "https://github.com/joaotavora/beardbolt.git"))
+
 ;;; Jenkins
 (use-package jenkinsfile-mode
   :ensure t
