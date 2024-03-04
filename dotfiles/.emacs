@@ -884,6 +884,10 @@
     :config
     (breadcrumb-mode)))
 
+(use-package beardbolt
+  :ensure t
+  :vc (:url "https://github.com/joaotavora/beardbolt.git"))
+
 ;;; DevDocs
 (use-package devdocs
   :ensure t
