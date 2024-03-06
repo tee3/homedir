@@ -1288,6 +1288,8 @@
    ("C-c l t" . eglot-find-typeDefinition)
    ("C-c l w" . eglot-show-workspace-configuration))
   :init
+  (setq-default eglot-ignored-server-capabilities
+                '(:documentOnTypeFormattingProvider))
   (setq-default eglot-workspace-configuration
                 '((:pylsp .
                    (:plugins
