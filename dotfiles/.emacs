@@ -534,6 +534,17 @@
   :pin gnu)
 
 ;;; AI
+(when (>= emacs-major-version 29)
+  (use-package elisa
+    :ensure t
+    :pin melpa
+    :requires llm-ollama
+    :init
+    (setq elisa-limit 5)
+    (setq elisa-embeddings-provider (make-llm-ollama :embedding-model "nomic-embed-text"))
+    (setq elisa-chat-provider (make-llm-ollama
+			       :chat-model "sskostyaev/openchat:8k-rag"
+			       :embedding-model "nomic-embed-text"))))
 (when (>= emacs-major-version 28)
   (use-package ellama
     :ensure t
