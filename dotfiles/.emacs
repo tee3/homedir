@@ -155,6 +155,10 @@
 (use-package calc
   :init
   (setq calc-make-windows-dedicated t))
+(use-package casual
+  :after calc
+  :ensure t
+  :pin melpa)
 (use-package compile
   :bind
   (("C-c c c" . compile)
