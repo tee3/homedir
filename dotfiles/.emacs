@@ -577,6 +577,13 @@
   (use-package llm
     :ensure t
     :pin gnu))
+(when (>= emacs-major-version 28)
+  (use-package ellama
+    :ensure t
+    :pin gnu
+    :demand t
+    :init
+    (setopt ellama-keymap-prefix "C-c a")))
 
 ;;; Markdown formats
 (use-package adoc-mode
