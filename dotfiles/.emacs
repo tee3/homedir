@@ -888,6 +888,30 @@
   :bind
   (("C-c a g m" . copilot-menu)))
 
+;;; Ellama
+(use-package ellama
+  :ensure t
+  :pin gnu
+  :bind
+  ("C-c a e" . ellama)
+  :hook
+  (org-ctrl-c-ctrl-c-hook . ellama-chat-send-last-message)
+  :init
+  (require 'llm-ollama)
+
+  ;; (setopt ellama-keymap-prefix "C-c a e")
+
+  (setopt ellama-provider (make-llm-ollama :chat-model "qwen3.6:35b" :embedding-model "nomic-embed-text"))
+
+  (setopt ellama-auto-scroll t)
+  (setopt ellama-naming-scheme 'ellama-generate-name-by-llm)
+  (setopt ellama-chat-display-action-function #'display-buffer-full-frame)
+  (setopt ellama-instant-display-action-function #'display-buffer-at-bottom)
+  :config
+  (ellama-setup-agentic-coding)
+  (ellama-context-header-line-global-mode)
+  (ellama-session-header-line-global-mode))
+
 (when (>= emacs-major-version 28)
   (use-package breadcrumb
     :ensure t
