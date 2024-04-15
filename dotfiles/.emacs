@@ -481,6 +481,7 @@
             (python . ("https://github.com/tree-sitter/tree-sitter-python"))
             (ruby . ("https://github.com/tree-sitter/tree-sitter-ruby"))
             (rust . ("https://github.com/tree-sitter/tree-sitter-rust"))
+            (swift . ("https://github.com/alex-pinkus/tree-sitter-swift"))
             (sql . ("https://github.com/m-novikov/tree-sitter-sql"))
             (toml . ("https://github.com/tree-sitter/tree-sitter-toml"))
             (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" nil "tsx/src"))
@@ -755,11 +756,17 @@
   (use-package rust-mode
     :ensure t
     :pin nongnu))
-(when (or (>= emacs-major-version 25)
-          (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
+(cond
+ ((>= emacs-major-version 29)
+  (use-package swift-ts-mode
+    :ensure t
+    :pin melpa))
+ ((or (>= emacs-major-version 25)
+      (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
   (use-package swift-mode
     :ensure t
-    :pin nongnu))
+    :pin nongnu)))
+
 (use-package tcl)
 (use-package verilog-mode
   :ensure t
