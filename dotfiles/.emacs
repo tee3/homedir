@@ -457,7 +457,10 @@
     :preface
     (defun tee3-treesit-install-all-language-grammars ()
       (interactive)
-      (mapc #'treesit-install-language-grammar (mapcar #'car treesit-language-source-alist)))))
+      (mapc #'treesit-install-language-grammar (mapcar #'car treesit-language-source-alist)))
+    :init
+    (setq treesit-language-source-alist
+          '((swift . ("https://github.com/alex-pinkus/tree-sitter-swift"))))))
 
 (when (>= emacs-major-version 30)
   (use-package visual-wrap
@@ -730,11 +733,17 @@
   (use-package rust-mode
     :ensure t
     :pin nongnu))
-(when (or (>= emacs-major-version 25)
-          (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
+(cond
+ ((>= emacs-major-version 29)
+  (use-package swift-ts-mode
+    :ensure t
+    :pin melpa))
+ ((or (>= emacs-major-version 25)
+      (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
   (use-package swift-mode
     :ensure t
-    :pin nongnu))
+    :pin nongnu)))
+
 (use-package tcl)
 (use-package verilog-mode
   :ensure t
