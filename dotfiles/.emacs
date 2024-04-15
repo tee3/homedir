@@ -573,6 +573,11 @@
   :hook
   (asm-mode . tee3-asm-mode-setup))
 
+(when (>= emacs-major-version 29)
+  (use-package swift-ts-mode
+    :ensure t
+    :pin melpa))
+
 ;;; TeX and LaTeX
 (use-package tex-site
   :ensure auctex
