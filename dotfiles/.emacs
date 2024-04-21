@@ -455,8 +455,6 @@
             (json . ("https://github.com/tree-sitter/tree-sitter-json"))
             (lua . ("https://github.com/Azganoth/tree-sitter-lua"))
             (make . ("https://github.com/alemuller/tree-sitter-make"))
-            (ocaml . ("https://github.com/tree-sitter/tree-sitter-ocaml" nil "grammars/ocaml/src"))
-            (php . ("https://github.com/tree-sitter/tree-sitter-php"))
             (python . ("https://github.com/tree-sitter/tree-sitter-python"))
             (ruby . ("https://github.com/tree-sitter/tree-sitter-ruby"))
             (rust . ("https://github.com/tree-sitter/tree-sitter-rust"))
@@ -464,8 +462,7 @@
             (toml . ("https://github.com/tree-sitter/tree-sitter-toml"))
             (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" nil "tsx/src"))
             (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" nil "typescript/src"))
-            (yaml . ("https://github.com/ikatyang/tree-sitter-yaml"))
-            (zig . ("https://github.com/GrayJack/tree-sitter-zig"))))))
+            (yaml . ("https://github.com/ikatyang/tree-sitter-yaml"))))))
 
 (use-package which-func
   :demand t
