@@ -1278,7 +1278,11 @@
                      :mypy (:enabled t :strict t :report_progress t)
                      :pycodestyle (:enabled t :ignore ["E501"])
                      :pydocstyle (:enabled t)
-                     :pylint (:enabled t))))))
+                     :pylint (:enabled t))))
+                  (:vscode-json-languageserver .
+                   (:json
+                    (:format
+                     (:enable t))))))
   :config
   (add-to-list 'eglot-server-programs '((dockerfile-ts-mode dockerfile-mode) . ("docker-langserver" "--stdio")))
   (add-to-list 'eglot-server-programs '((docker-compose-mode) . ("docker-compose-langserver" "--stdio")))
