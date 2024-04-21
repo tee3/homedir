@@ -1347,7 +1347,11 @@
                      :mypy (:enabled t :strict t :report_progress t)
                      :pycodestyle (:enabled t :ignore ["E501"])
                      :pydocstyle (:enabled t)
-                     :pylint (:enabled t))))))
+                     :pylint (:enabled t))))
+                  (:vscode-json-languageserver .
+                   (:json
+                    (:format
+                     (:enable t))))))
   (setq-default eglot-confirm-server-edits '((t . 'diff)))
   :config
   (add-to-list 'eglot-server-programs '((graphql-mode) . ("graphql-lsp" "server" "--method" "stream")))
