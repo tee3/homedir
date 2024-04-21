@@ -1314,7 +1314,11 @@
                      :mypy (:enabled t :strict t :report_progress t)
                      :pycodestyle (:enabled t)
                      :pydocstyle (:enabled t)
-                     :pylint (:enabled t))))))
+                     :pylint (:enabled t))))
+                  (:vscode-json-languageserver .
+                   (:json
+                    (:format
+                     (:enable t))))))
   :config
   (add-to-list 'eglot-server-programs '((graphql-mode) . ("graphql-lsp" "server" "--method" "stream")))
   (add-to-list 'eglot-server-programs '((groovy-mode) . tee3-groovy-language-server-command))
