@@ -455,7 +455,7 @@
             (json . ("https://github.com/tree-sitter/tree-sitter-json"))
             (lua . ("https://github.com/Azganoth/tree-sitter-lua"))
             (make . ("https://github.com/alemuller/tree-sitter-make"))
-            (ocaml . ("https://github.com/tree-sitter/tree-sitter-ocaml" nil "ocaml/src"))
+            (ocaml . ("https://github.com/tree-sitter/tree-sitter-ocaml" nil "grammars/ocaml/src"))
             (php . ("https://github.com/tree-sitter/tree-sitter-php"))
             (python . ("https://github.com/tree-sitter/tree-sitter-python"))
             (ruby . ("https://github.com/tree-sitter/tree-sitter-ruby"))
