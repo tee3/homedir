@@ -17,7 +17,6 @@ if [ ! -e "${rootdir}" ]; then
 fi
 
 packages=""
-packages="${packages} libjansson-dev"
 packages="${packages} librsvg2"
 packages="${packages} libgnutls30"
 packages="${packages} libgccjit-9-dev"
@@ -52,7 +51,6 @@ git -C "${rootdir}" pull --ff-only origin "${branch}"
 options=""
 options="${options} --without-x"
 options="${options} --with-gnutls"
-options="${options} --with-json"
 options="${options} --with-xml2"
 options="${options} --with-rsvg"
 options="${options} --with-native-compilation"
