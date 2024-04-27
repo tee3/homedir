@@ -265,7 +265,9 @@
 (use-package hideshow
   :init
   (setq hs-hide-comments-when-hiding-all t))
-(use-package icomplete)
+(use-package icomplete
+  :init
+  (setq icomplete-in-buffer t))
 (use-package linum
   :if
   (and tee3-display-line-numbers
