@@ -325,6 +325,7 @@
   :init
   (setq completions-format 'one-column)
   (setq completions-detailed t)
+  (setq completions-sort 'historical)
   (setq minibuffer-visible-completions t)
   (setq completion-category-overrides'((project-file
                                         (styles basic emacs22 partial-completion substring)))))
