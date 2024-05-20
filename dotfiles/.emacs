@@ -1392,100 +1392,21 @@
   (use-package cyberpunk-theme :ensure t :pin nongnu :defer t)
   (use-package cyberpunk-2019-theme :ensure t :pin melpa :defer t)
   (use-package dracula-theme :ensure t :pin nongnu :defer t)
-  (use-package ef-themes
-    :ensure t
-    :pin gnu
-    :defer t
-    :init
-    (setq ef-themes-disable-other-themes nil)
-    (setq ef-themes-common-palette-overrides
-          '((bg-added           unspecified)
-            (bg-added-faint     unspecified)
-            (bg-added-refine    bg-inactive)
-            (fg-added           green)
-            (fg-added-intense   green-intense)
-
-            (bg-changed         unspecified)
-            (bg-changed-faint   unspecified)
-            (bg-changed-refine  bg-inactive)
-            (fg-changed         yellow)
-            (fg-changed-intense yellow-intense)
-
-            (bg-removed         unspecified)
-            (bg-removed-faint   unspecified)
-            (bg-removed-refine  bg-inactive)
-            (fg-removed         red)
-            (fg-removed-intense red-intense)
-
-            (bg-diff-context    unspecified))))
+  (use-package ef-themes :ensure t :pin gnu :defer t)
   (use-package gandalf-theme :ensure t :pin melpa :defer t)
   (use-package github-modern-theme :ensure t :pin melpa :defer t)
   (use-package grandshell-theme :ensure t :pin melpa :defer t)
   (use-package hemera-theme :ensure t :pin melpa :defer t)
   ;; (use-package material-theme :ensure t :pin nongnu :defer t)
   (use-package material-theme :ensure t :pin melpa :defer t)
-  (use-package modus-themes
-    :ensure t
-    :pin gnu
-    :defer t
-    :init
-    (setq modus-themes-disable-other-themes nil)
-    (setq modus-themes-italic-constructs t)
-    (setq modus-themes-bold-constructs t)
-    (setq modus-themes-common-palette-overrides
-          '((bg-added           unspecified)
-            (bg-added-faint     unspecified)
-            (bg-added-refine    bg-inactive)
-            (fg-added           green)
-            (fg-added-intense   green-intense)
-
-            (bg-changed         unspecified)
-            (bg-changed-faint   unspecified)
-            (bg-changed-refine  bg-inactive)
-            (fg-changed         yellow)
-            (fg-changed-intense yellow-intense)
-
-            (bg-removed         unspecified)
-            (bg-removed-faint   unspecified)
-            (bg-removed-refine  bg-inactive)
-            (fg-removed         red)
-            (fg-removed-intense red-intense)
-
-            (bg-diff-context    unspecified))))
+  (use-package modus-themes :ensure t :pin melpa :defer t)
   (use-package monotropic-theme :ensure t :pin melpa :defer t)
   (use-package plan9-theme :ensure t :pin melpa :defer t)
   (use-package professional-theme :ensure t :pin melpa :defer t)
   (use-package rebecca-theme :ensure t :pin melpa :defer t)
   (use-package solarized-theme :ensure t :pin melpa :defer t)
   (use-package solo-jazz-theme :ensure t :pin melpa :defer t)
-  (use-package standard-themes
-    :ensure t
-    :pin gnu
-    :defer t
-    :init
-    (setq standard-themes-disable-other-themes nil)
-    (setq standard-themes-italic-constructs t)
-    (setq standard-themes-bold-constructs t)
-    (setq standard-themes-common-palette-overrides
-          '((bg-added           unspecified)
-            (bg-added-faint     unspecified)
-            (bg-added-refine    bg-inactive)
-            (fg-added           green)
-            (fg-added-intense   green-intense)
-
-            (bg-changed         unspecified)
-            (bg-changed-faint   unspecified)
-            (bg-changed-refine  bg-inactive)
-            (fg-changed         yellow)
-            (fg-changed-intense yellow-intense)
-
-            (bg-removed         unspecified)
-            (bg-removed-faint   unspecified)
-            (bg-removed-refine  bg-inactive)
-            (fg-removed         red)
-            (fg-removed-intense red-intense)
-
-            (bg-diff-context    unspecified))))
+  (use-package standard-themes :ensure t :pin gnu :defer t)
   (use-package subatomic-theme :ensure t :pin nongnu :defer t)
   (use-package subatomic256-theme :ensure t :pin melpa :defer t)
   (use-package the-matrix-theme :ensure t :pin melpa :defer t)
