@@ -215,6 +215,8 @@
   (electric-pair-mode))
 (use-package eshell)
 (use-package em-term
+  :init
+  (setq eshell-destroy-buffer-when-process-dies t)
   :config
   (add-to-list 'eshell-visual-commands "ssh" t)
   (add-to-list 'eshell-visual-commands "tig" t)
