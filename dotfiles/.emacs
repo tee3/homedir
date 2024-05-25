@@ -560,6 +560,11 @@
    ;; migration-generated Git submodules files
    ("\\.gitsvnexternals\\'" . gitconfig-mode)))
 
+(when (>= emacs-major-version 30)
+  (use-package protobuf-ts-mode
+    :ensure t
+    :pin melpa))
+
 ;;; Programming languages
 (use-package asm-mode
   :preface
