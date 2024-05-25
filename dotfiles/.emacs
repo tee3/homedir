@@ -616,9 +616,13 @@
 (use-package nginx-mode
   :ensure t
   :pin nongnu)
-(use-package protobuf-mode
-  :ensure t
-  :pin melpa)
+(if (< emacs-major-version 30)
+    (use-package protobuf-mode
+      :ensure t
+      :pin melpa)
+  (use-package protobuf-ts-mode
+    :ensure t
+    :pin melpa))
 (use-package flatbuffers-mode
   :ensure t
   :pin melpa)
