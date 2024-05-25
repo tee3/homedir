@@ -478,6 +478,7 @@
             (make . ("https://github.com/alemuller/tree-sitter-make"))
             (markdown . ("https://github.com/tree-sitter-grammars/tree-sitter-markdown" "split_parser" "tree-sitter-markdown/src"))
             (markdown-inline . ("https://github.com/tree-sitter-grammars/tree-sitter-markdown" "split_parser" "tree-sitter-markdown-inline/src"))
+            (proto . ("https://github.com/mitchellh/tree-sitter-proto"))
             (python . ("https://github.com/tree-sitter/tree-sitter-python"))
             (ruby . ("https://github.com/tree-sitter/tree-sitter-ruby"))
             (rust . ("https://github.com/tree-sitter/tree-sitter-rust"))
@@ -653,9 +654,13 @@
 (use-package nginx-mode
   :ensure t
   :pin nongnu)
-(use-package protobuf-mode
-  :ensure t
-  :pin melpa)
+(if (< emacs-major-version 30)
+    (use-package protobuf-mode
+      :ensure t
+      :pin melpa)
+  (use-package protobuf-ts-mode
+    :ensure t
+    :pin melpa))
 (use-package flatbuffers-mode
   :ensure t
   :pin melpa)
