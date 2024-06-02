@@ -825,7 +825,9 @@
   :after vc)
 
 ;;; Imenu
-(use-package imenu)
+(use-package imenu
+  :init
+  (setq imenu-flatten 'annotation))
 
 ;;; Git
 (use-package git-commit
