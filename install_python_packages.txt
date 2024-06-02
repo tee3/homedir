@@ -39,3 +39,6 @@ jupyter
 
 # DVC
 dvc[all]
+
+# Bitbake
+bitbake-language-server
