@@ -1330,7 +1330,8 @@
                                          objc-mode
                                          objc++-mode) . tee3-clangd-command))
   (add-to-list 'eglot-server-programs '((sql-mode) . ("sql-language-server" "up" "--method" "stdio")))
-  (add-to-list 'eglot-server-programs '((swift-mode) . tee3-sourcekit-lsp-command)))
+  (add-to-list 'eglot-server-programs '((swift-mode) . tee3-sourcekit-lsp-command))
+  (add-to-list 'eglot-server-programs '((bitbake-mode) . ("bitbake-language-server"))))
 
 (when (>= emacs-major-version 28)
   (use-package breadcrumb
