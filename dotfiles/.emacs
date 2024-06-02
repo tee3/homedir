@@ -471,7 +471,7 @@
 
 (use-package which-func
   :demand t
-  :init
+  :config
   (which-function-mode))
 (use-package winner
   :demand t
