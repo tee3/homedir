@@ -493,6 +493,8 @@
     (global-visual-wrap-prefix-mode)))
 (use-package which-func
   :demand t
+  :init
+  (setq which-func-display 'header)
   :config
   (which-function-mode))
 (use-package winner
