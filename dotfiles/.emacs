@@ -847,6 +847,9 @@
 (use-package git-commit
   :ensure t
   :pin nongnu)
+(use-package git-commit-ts-mode
+  :ensure t
+  :pin melpa)
 (use-package gited
   :ensure t
   :pin gnu
