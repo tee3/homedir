@@ -469,6 +469,10 @@
             (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" nil "typescript/src"))
             (yaml . ("https://github.com/ikatyang/tree-sitter-yaml"))))))
 
+(when (>= emacs-major-version 30)
+  (use-package visual-wrap
+    :config
+    (global-visual-wrap-prefix-mode)))
 (use-package which-func
   :demand t
   :config
