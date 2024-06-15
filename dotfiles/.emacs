@@ -841,6 +841,9 @@
   (setq imenu-flatten 'annotation))
 
 ;;; Git
+(use-package git-commit-ts-mode
+  :ensure t
+  :pin melpa)
 (use-package gited
   :ensure t
   :pin gnu
