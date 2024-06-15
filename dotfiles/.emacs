@@ -129,7 +129,7 @@
 (use-package autorevert)
 (use-package buff-menu
   :init
-  (setq  Buffer-menu-group-by 'Buffer-menu-group-by-root))
+  (setq Buffer-menu-group-by '(Buffer-menu-group-by-root)))
 (use-package bug-reference
   :hook
   (text-mode . bug-reference-mode)
