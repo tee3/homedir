@@ -400,6 +400,9 @@
     (setq completion-preview-minimum-symbol-length 2)
     :config
     (global-completion-preview-mode)))
+(use-package shell
+  :init
+  (setq shell-get-old-input-include-continuation-lines t))
 (use-package simple
   :init
   (setq size-indication-mode t)
