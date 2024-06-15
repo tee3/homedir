@@ -641,6 +641,11 @@
   :init
   (setq imenu-flatten 'annotation))
 
+;;; Git
+(use-package git-commit-ts-mode
+  :ensure t
+  :pin melpa)
+
 ;;; Magit
 (when (> emacs-major-version 24)
   (use-package magit
