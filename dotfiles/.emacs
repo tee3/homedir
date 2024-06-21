@@ -203,6 +203,10 @@
 (use-package ediff
   :init
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
+(unless (< emacs-major-version 30)
+  (use-package editorconfig
+    :config
+    (editorconfig-mode)))
 (use-package eldoc
   :ensure t
   :pin gnu
