@@ -470,6 +470,8 @@
             (json . ("https://github.com/tree-sitter/tree-sitter-json"))
             (lua . ("https://github.com/Azganoth/tree-sitter-lua"))
             (make . ("https://github.com/alemuller/tree-sitter-make"))
+            (markdown . ("https://github.com/tree-sitter-grammars/tree-sitter-markdown" "split_parser" "tree-sitter-markdown/src"))
+            (markdown-inline . ("https://github.com/tree-sitter-grammars/tree-sitter-markdown" "split_parser" "tree-sitter-markdown-inline/src"))
             (python . ("https://github.com/tree-sitter/tree-sitter-python"))
             (ruby . ("https://github.com/tree-sitter/tree-sitter-ruby"))
             (rust . ("https://github.com/tree-sitter/tree-sitter-rust"))
@@ -580,18 +582,9 @@
 (use-package jade-mode
   :ensure t
   :pin nongnu)
-(use-package markdown-mode
+(use-package markdown-ts-mode
   :ensure t
-  :pin nongnu
-  :mode
-  (("README\.md\\'" . gfm-mode))
-  :init
-  (setq markdown-asymmetric-header t)
-  (cond ((executable-find "cmark-gfm")
-         (setq markdown-command "cmark-gfm --extension table --extension strikethrough --extension autolink --extension tagfilter"))
-        ((executable-find "cmark")
-         (setq markdown-command "cmark")))
-  (setq markdown-nested-imenu-heading-index t))
+  :pin melpa)
 (use-package rst)
 
 (use-package posix-manual
