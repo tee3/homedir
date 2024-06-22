@@ -750,6 +750,11 @@
   :hook
   (web-mode . tee3-web-mode-setup))
 
+;;; System Packages
+(use-package system-packages
+  :ensure t
+  :pin gnu)
+
 ;;; TeX and LaTeX
 (use-package tex-site
   :ensure auctex
