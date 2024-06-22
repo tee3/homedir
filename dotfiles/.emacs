@@ -787,6 +787,17 @@
   :hook
   (web-mode . tee3-web-mode-setup))
 
+;;; Workroom
+(use-package workroom
+  :ensure t
+  :pin gnu
+  :init
+  (setq workroom-command-map "C-c w")
+  :config
+  (workroom-mode)
+  (workroom-desktop-save-mode)
+  (workroom-auto-project-workroom-mode))
+
 ;;; TeX and LaTeX
 (use-package tex-site
   :ensure auctex
