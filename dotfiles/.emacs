@@ -1414,7 +1414,7 @@
   (use-package hemera-theme :ensure t :pin melpa :defer t)
   ;; (use-package material-theme :ensure t :pin nongnu :defer t)
   (use-package material-theme :ensure t :pin melpa :defer t)
-  (use-package modus-themes :ensure t :pin melpa :defer t)
+  (use-package modus-themes :ensure t :pin gnu :defer t)
   (use-package monotropic-theme :ensure t :pin melpa :defer t)
   (use-package plan9-theme :ensure t :pin melpa :defer t)
   (use-package professional-theme :ensure t :pin melpa :defer t)
