@@ -221,6 +221,9 @@
 (use-package em-term
   :init
   (setq eshell-destroy-buffer-when-process-dies t)
+  :bind
+  (("C-c s e s" . eshell)
+   ("C-c s e c" . eshell-command))
   :config
   (add-to-list 'eshell-visual-commands "ssh" t)
   (add-to-list 'eshell-visual-commands "tig" t)
