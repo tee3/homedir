@@ -777,10 +777,10 @@
   :pin gnu)
 
 ;;; OpenCL
-(use-package opencl-mode
+(use-package opencl-c-mode
   :ensure t
   :pin melpa
-  :mode (("\\.cl\\'" . opencl-mode)))
+  :mode (("\\.cl\\'" . opencl-c-mode)))
 
 ;;; OpenGL
 (use-package glsl-mode
