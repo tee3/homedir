@@ -450,7 +450,9 @@
   (tool-bar-mode -1))
 (use-package tramp
   :ensure t
-  :pin gnu)
+  :pin gnu
+  :init
+  (setq tramp-completion-use-auth-sources nil))
 (when (>= emacs-major-version 29)
   (use-package treesit
     :demand t
