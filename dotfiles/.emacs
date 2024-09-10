@@ -844,9 +844,6 @@
   (setq imenu-flatten 'annotation))
 
 ;;; Git
-(use-package git-commit
-  :ensure t
-  :pin nongnu)
 (use-package gited
   :ensure t
   :pin gnu
