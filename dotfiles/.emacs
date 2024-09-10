@@ -1409,7 +1409,6 @@
   (use-package dracula-theme :ensure t :pin nongnu :defer t)
   (use-package ef-themes :ensure t :pin gnu :defer t)
   (use-package gandalf-theme :ensure t :pin melpa :defer t)
-  (use-package github-modern-theme :ensure t :pin melpa :defer t)
   (use-package grandshell-theme :ensure t :pin melpa :defer t)
   (use-package hemera-theme :ensure t :pin melpa :defer t)
   ;; (use-package material-theme :ensure t :pin nongnu :defer t)
