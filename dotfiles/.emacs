@@ -463,6 +463,7 @@
     :init
     (setq treesit-language-source-alist
           '((bash . ("https://github.com/tree-sitter/tree-sitter-bash"))
+            (bitbake . ("https://github.com/tree-sitter-grammars/tree-sitter-bitbake"))
             (c . ("https://github.com/tree-sitter/tree-sitter-c"))
             (c-sharp . ("https://github.com/tree-sitter/tree-sitter-c-sharp"))
             (cmake . ("https://github.com/uyha/tree-sitter-cmake"))
@@ -1426,6 +1427,9 @@
 
 ;;; Bitbake
 (use-package bitbake
+  :ensure t
+  :pin melpa)
+(use-package bitbake-ts-mode
   :ensure t
   :pin melpa)
 
