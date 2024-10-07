@@ -457,7 +457,10 @@
     :preface
     (defun tee3-treesit-install-all-language-grammars ()
       (interactive)
-      (mapc #'treesit-install-language-grammar (mapcar #'car treesit-language-source-alist)))))
+      (mapc #'treesit-install-language-grammar (mapcar #'car treesit-language-source-alist)))
+    :init
+    (setq treesit-language-source-alist
+          '((bitbake . ("https://github.com/tree-sitter-grammars/tree-sitter-bitbake"))))))
 
 (when (>= emacs-major-version 30)
   (use-package visual-wrap
@@ -1394,6 +1397,9 @@
 
 ;;; Bitbake
 (use-package bitbake
+  :ensure t
+  :pin melpa)
+(use-package bitbake-ts-mode
   :ensure t
   :pin melpa)
 
