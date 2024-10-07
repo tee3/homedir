@@ -881,6 +881,11 @@
     :config
     (breadcrumb-mode)))
 
+;;; Bitbake
+(use-package bitbake
+  :ensure t
+  :pin melpa)
+
 ;;; DevDocs
 (use-package devdocs
   :ensure t
