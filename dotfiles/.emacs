@@ -1316,6 +1316,7 @@
   (add-to-list 'eglot-server-programs '((graphql-mode) . ("graphql-lsp" "server" "--method" "stream")))
   (add-to-list 'eglot-server-programs '((groovy-mode) . tee3-groovy-language-server-command))
   (add-to-list 'eglot-server-programs '((hcl-mode terraform-mode) . ("terraform-ls" "serve")))
+  (add-to-list 'eglot-server-programs '((protobuf-mode) . ("protobuf-language-server")))
   (add-to-list 'eglot-server-programs '((vue-mode) . ("vls" "--stdio")))
   (add-to-list 'eglot-server-programs '((c-mode
                                          c++-mode
