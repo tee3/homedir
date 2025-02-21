@@ -470,6 +470,8 @@
             (json . ("https://github.com/tree-sitter/tree-sitter-json"))
             (lua . ("https://github.com/Azganoth/tree-sitter-lua"))
             (make . ("https://github.com/alemuller/tree-sitter-make"))
+            (markdown . ("https://github.com/tree-sitter-grammars/tree-sitter-markdown" "split_parser" "tree-sitter-markdown/src"))
+            (markdown-inline . ("https://github.com/tree-sitter-grammars/tree-sitter-markdown" "split_parser" "tree-sitter-markdown-inline/src"))
             (python . ("https://github.com/tree-sitter/tree-sitter-python"))
             (ruby . ("https://github.com/tree-sitter/tree-sitter-ruby"))
             (rust . ("https://github.com/tree-sitter/tree-sitter-rust"))
