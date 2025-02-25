@@ -11,9 +11,11 @@
 	ignoreWhitespace = false
 	whitespace = warn
 [diff]
-	algorithm = minimal
+	algorithm = histogram
 	colorMoved = true
 	renames	= copies
+	findcopiesharder = true
+	statWidth = 1024
 [instaweb]
 	local = true
 	httpd = webrick
