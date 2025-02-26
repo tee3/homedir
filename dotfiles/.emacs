@@ -182,6 +182,9 @@
   :hook
   ((server-after-make-frame . tee3-deferred-desktop-save-mode)
    (kill-emacs . tee3-disable-themes)))
+(use-package dictionary
+  :init
+  (setq dictionary-search-interface 'help))
 (use-package diff-hl
   :ensure t
   :pin gnu
