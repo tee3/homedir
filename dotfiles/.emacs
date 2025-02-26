@@ -835,7 +835,16 @@
   (setq vc-command-messages t)
 
   (setq vc-display-status 'no-backend)
-  (setq vc-diff-added-files t))
+  (setq vc-diff-added-files t)
+  :bind
+  ("C-c v v c" . vc-clone)
+  ("C-c v v d" . vc-dir)
+  ("C-c v v e" . vc-ediff)
+  ("C-c v v s" . vc-git-stash)
+  ("C-c v v w" . vc-prepare-patch)
+  ("C-c v v v e" . vc-version-ediff)
+  ("C-c v v v =" . vc-version-diff)
+  ("C-c v v l s" . vc-log-search))
 (use-package vc-git
   :init
   (if (< emacs-major-version 30)
