@@ -582,18 +582,20 @@
 (use-package jade-mode
   :ensure t
   :pin nongnu)
-(use-package markdown-mode
-  :ensure t
-  :pin nongnu
-  :mode
-  (("README\.md\\'" . gfm-mode))
-  :init
-  (setq markdown-asymmetric-header t)
-  (cond ((executable-find "cmark-gfm")
-         (setq markdown-command "cmark-gfm --extension table --extension strikethrough --extension autolink --extension tagfilter"))
-        ((executable-find "cmark")
-         (setq markdown-command "cmark")))
-  (setq markdown-nested-imenu-heading-index t))
+(when (< emacs-major-version 31)
+  (use-package markdown-mode
+    :ensure t
+    :pin nongnu
+    :mode
+    (("README\.md\\'" . gfm-mode))
+    :init
+    (setq markdown-asymmetric-header t)
+    (cond ((executable-find "cmark-gfm")
+           (setq markdown-command "cmark-gfm --extension table --extension strikethrough --extension autolink --extension tagfilter"))
+          ((executable-find "cmark")
+           (setq markdown-command "cmark")))
+    (setq markdown-nested-imenu-heading-index t)))
+
 (use-package rst)
 
 (use-package posix-manual
