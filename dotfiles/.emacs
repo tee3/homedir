@@ -1241,6 +1241,8 @@
 (use-package flymake
   :ensure t
   :pin gnu
+  :init
+  (setq flymake-show-diagnostics-at-end-of-line t)
   :bind
   (("C-c e b" . flymake-switch-to-log-buffer)
    ("C-c e l l" . flymake-show-diagnostic)
