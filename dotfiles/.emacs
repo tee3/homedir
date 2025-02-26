@@ -836,9 +836,14 @@
   (setq vc-diff-added-files t))
 (use-package vc-git
   :init
-  (setq vc-git-diff-switches '("--stat" "--stat-width=1024" "-M" "-C" "--find-copies-harder" "--minimal"))
-  (setq vc-git-print-log-follow t)
-  (setq vc-git-log-switches '("--decorate" "--stat" "--stat-width=1024" "-M" "-C" "--find-copies-harder" "--minimal")))
+  (if (< emacs-major-version 30)
+      ((setq vc-git-diff-switches '("--stat" "--stat-width=1024" "-M" "-C" "--find-copies-harder" "--minimal"))
+       (setq vc-git-print-log-follow t)
+       (setq vc-git-log-switches '("--decorate" "--stat" "--stat-width=1024" "-M" "-C" "--find-copies-harder" "--minimal")))
+    (progn
+      (setq vc-git-diff-switches '("--stat" "--stat-width=1024" "--minimal"))
+      (setq vc-git-log-switches '("--decorate" "--stat" "--stat-width=1024" "--minimal"))))
+  (setq vc-git-annotate-switches '("--ignore-all-space")))
 (use-package vc-fossil
   :ensure t
   :pin nongnu
