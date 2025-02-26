@@ -201,7 +201,9 @@
 (use-package dired
   :init
   (setq dired-kept-versions 6)
-  (setq dired-clean-up-buffers-too t))
+  (setq dired-clean-up-buffers-too t)
+  (setq dired-movement-style 'bounded)
+  (setq dired-filename-display-length 'window))
 (use-package dired-x
   :after dired)
 (use-package ediff
