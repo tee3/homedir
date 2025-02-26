@@ -829,10 +829,12 @@
 ;;; Version Control Systems
 (use-package vc
   :init
+  (setq vc-allow-rewriting-published-history 'ask)
   (setq vc-make-backup-files t)
 
   (setq vc-command-messages t)
 
+  (setq vc-display-status 'no-backend)
   (setq vc-diff-added-files t))
 (use-package vc-git
   :init
