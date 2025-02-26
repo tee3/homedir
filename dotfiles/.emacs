@@ -117,7 +117,8 @@
 
 (use-package epa
   :init
-  (setq epa-pinentry-mode 'loopback))
+  (setq epa-pinentry-mode 'loopback)
+  (setq epa-keys-select-method 'minibuffer))
 (use-package epg
   :init
   (setq epg-pinentry-mode 'loopback))
