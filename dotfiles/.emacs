@@ -1337,9 +1337,9 @@
   (setq-default eglot-workspace-configuration
                 '((:pylsp .
                    (:plugins
-                    (:flake8 (:enabled t :ignore ("E501"))
+                    (:flake8 (:enabled t :extendIgnore ["E501"])
                      :mypy (:enabled t :strict t :report_progress t)
-                     :pycodestyle (:enabled t)
+                     :pycodestyle (:enabled t :ignore ["E501"])
                      :pydocstyle (:enabled t)
                      :pylint (:enabled t))))))
   :config
