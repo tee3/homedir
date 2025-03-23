@@ -1,13 +1,18 @@
 Style:
   FullyQualifiedNamespaces: Yes
 InlayHints:
+  Enabled: Yes
   BlockEnd: Yes
   Designators: Yes
-  Enabled: Yes
   ParameterNames: Yes
   DeducedTypes: Yes
+  DefaultArguments: Yes
+  TypeNameLimit: 0
 Diagnostics:
   UnusedIncludes: Yes
+  MissingIncludes: Yes
+  Includes:
+    AnalyzeAngledIncludes: Yes
 Completion:
   AllScopes: Yes
 Hover:
