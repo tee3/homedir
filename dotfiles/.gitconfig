@@ -11,20 +11,20 @@
 	ignoreWhitespace = false
 	whitespace = warn
 [diff]
-	algorithm = histogram
+	# algorithm = histogram
 	colorMoved = true
-	renames	= copies
-	findcopiesharder = true
-	statWidth = 1024
+	# renames = copies
+	# findcopiesharder = true
+	# statWidth = 1024
 [instaweb]
 	local = true
 	httpd = webrick
-[log]
-	follow = true
+# [log]
+# 	follow = true
 [merge]
 	ff = false
-	renames = copies
-	directoryRenames = true
+	# renames = copies
+	# directoryRenames = true
 [pull]
 	ff = only
 [push]
@@ -34,8 +34,8 @@
 [stash]
 	showPatch = true
 [status]
-	renames = copies
-	submoduleSummary = true
+	# renames = copies
+	# submoduleSummary = true
 [svn]
 	findcopiesharder = true
 	pushmergeinfo = true
