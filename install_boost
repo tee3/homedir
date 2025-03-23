@@ -32,7 +32,7 @@ if [ -e "${root}"/"${filename}" ]; then
     exit 1
 fi
 
-url=https://boostorg.jfrog.io/artifactory/main/release/"${version}"/source/"${filename}"
+url=https://archives.boost.io/release/"${version}"/source/"${filename}"
 
 curl --no-clobber --location --remote-name --output-dir "${root}" "${url}"
 

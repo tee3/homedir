@@ -18,7 +18,7 @@ if not exist "%root%" echo error: %root% does not exist && exit /b 1
 if exist "%root%"\"%directory%" echo error: "%root%"\"%directory%" already exists && exit /b 1
 if exist "%root%"\"%filename%" echo error: "%root%"\"%filename%" already exists && exit /b 1
 
-set url=https://boostorg.jfrog.io/artifactory/main/release/"%version%"/source/"%filename%"
+set url=https://archives.boost.io/release/"%version%"/source/"%filename%"
 
 curl --no-clobber --location --remote-name --output-dir "%root%" "%url%"
 
