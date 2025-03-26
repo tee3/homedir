@@ -1279,6 +1279,7 @@
                      :pycodestyle (:enabled t :ignore ["E501"])
                      :pydocstyle (:enabled t)
                      :pylint (:enabled t))))))
+  (setq-default eglot-confirm-server-edits 'diff)
   :config
   (add-to-list 'eglot-server-programs '((graphql-mode) . ("npx" "graphql-language-service-cli" "server" "--method" "stream")))
   (add-to-list 'eglot-server-programs '((groovy-mode) . ("java" "-jar" (expand-file-name "~/opt/local/src/groovy-language-server/build/libs/groovy-language-server-all.jar"))))
