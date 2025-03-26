@@ -533,6 +533,7 @@
 
 ;;; Org
 (use-package org
+  :disabled
   :ensure t
   :pin gnu)
 
