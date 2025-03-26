@@ -1267,6 +1267,7 @@
                      :pycodestyle (:enabled t :ignore ["E501"])
                      :pydocstyle (:enabled t)
                      :pylint (:enabled t))))))
+  (setq-default eglot-confirm-server-edits 'diff)
   :config
   (add-to-list 'eglot-server-programs '((dockerfile-ts-mode dockerfile-mode) . ("docker-langserver" "--stdio")))
   (add-to-list 'eglot-server-programs '((docker-compose-mode) . ("docker-compose-langserver" "--stdio")))
