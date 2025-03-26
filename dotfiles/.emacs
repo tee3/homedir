@@ -1319,6 +1319,7 @@
                      :pycodestyle (:enabled t :ignore ["E501"])
                      :pydocstyle (:enabled t)
                      :pylint (:enabled t))))))
+  (setq-default eglot-confirm-server-edits 'diff)
   :config
   (add-to-list 'eglot-server-programs '((graphql-mode) . ("graphql-lsp" "server" "--method" "stream")))
   (add-to-list 'eglot-server-programs '((groovy-mode) . tee3-groovy-language-server-command))
