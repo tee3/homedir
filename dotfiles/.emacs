@@ -117,7 +117,8 @@
 
 (use-package epa
   :init
-  (setq epa-pinentry-mode 'loopback)
+  (when (< emacs-major-version 28)
+    (setq epa-pinentry-mode 'loopback))
   (setq epa-keys-select-method 'minibuffer))
 (use-package epg
   :init
@@ -238,7 +239,8 @@
   (add-to-list 'eshell-visual-options '("git" "--help" "--paginate") t))
 (use-package etags
   :init
-  (setq tags-loop-revert-buffers t))
+  (when (< emacs-major-version 28)
+    (setq tags-loop-revert-buffers t)))
 (use-package eww
   :init
   (setq eww-restore-desktop t)
@@ -284,15 +286,6 @@
   :init
   (setq icomplete-in-buffer t)
   (setq icomplete-vertical-render-prefix-indicator t))
-(use-package linum
-  :if
-  (and tee3-display-line-numbers
-       (< emacs-major-version 26))
-  :init
-  (setq linum-format "%4d ")
-  :hook
-  ((text-mode . linum-mode)
-   (prog-mode . linum-mode)))
 (use-package display-line-numbers
   :if
   (and tee3-display-line-numbers
@@ -303,10 +296,11 @@
   :hook
   ((text-mode . display-line-numbers-mode)
    (prog-mode . display-line-numbers-mode)))
-(use-package gdb
+(use-package gdb-mi
   :init
   (setq gdb-restore-window-configuration-after-quit t))
 (use-package gnus
+  :requires gnus-start
   :init
   (setq gnus-init-file "~/.gnus")
   (setq gnus-home-directory user-emacs-directory)
@@ -350,7 +344,9 @@
 (use-package minibuf-eldef
   :demand t
   :init
-  (setq minibuffer-eldef-shorten-default t)
+  (if (< emacs-major-version 29)
+      (setq minibuffer-eldef-shorten-default t)
+    (setq minibuffer-default-prompt-format "[%s]"))
   :config
   (minibuffer-electric-default-mode))
 (use-package menu-bar
@@ -738,6 +734,7 @@
   :ensure t
   :pin nongnu
   :preface
+
   (defun tee3-web-mode-setup ()
     (setq web-mode-markup-indent-offset 2)
     (setq web-mode-code-indent-offset 4)
@@ -1072,6 +1069,7 @@
 
 ;;; C-family programming languages
 (use-package cc-mode
+  :requires (tee3-c-style msvc-c-style cc-cmds)
   :preface
   (defun tee3-c-mode-common-setup ()
     (c-add-style "tee3" tee3-c-style t)
