@@ -860,9 +860,10 @@
 (use-package vc-git
   :init
   (if (< emacs-major-version 30)
-      ((setq vc-git-diff-switches '("--stat" "--stat-width=1024" "-M" "-C" "--find-copies-harder" "--minimal"))
-       (setq vc-git-print-log-follow t)
-       (setq vc-git-log-switches '("--decorate" "--stat" "--stat-width=1024" "-M" "-C" "--find-copies-harder" "--minimal")))
+      (progn
+        (setq vc-git-diff-switches '("--stat" "--stat-width=1024" "-M" "-C" "--find-copies-harder" "--minimal"))
+        (setq vc-git-print-log-follow t)
+        (setq vc-git-log-switches '("--decorate" "--stat" "--stat-width=1024" "-M" "-C" "--find-copies-harder" "--minimal")))
     (progn
       (setq vc-git-diff-switches '("--stat" "--stat-width=1024" "--minimal"))
       (setq vc-git-log-switches '("--decorate" "--stat" "--stat-width=1024" "--minimal"))))
@@ -1284,7 +1285,7 @@
               ((equal system-type 'gnu/linux)
                (cond ((executable-find "/home/linuxbrew/.linuxbrew/opt/llvm/bin/clangd"))))
               (t
-               ("clangd")))))
+               "clangd"))))
 
 (setq tee3-clangd-options '("-j=2"
                             "--all-scopes-completion"
@@ -1309,7 +1310,7 @@
               ((equal system-type 'gnu/linux)
                (cond ((executable-find "/home/linuxbrew/.linuxbrew/bin/sourcekit-lsp"))))
               (t
-               ("sourcekit-lsp")))))
+               "sourcekit-lsp"))))
 
 (setq tee3-sourcekit-lsp-options '())
 
