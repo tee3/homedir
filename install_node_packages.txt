@@ -29,3 +29,6 @@ sql-language-server
 
 # GraphQL
 graphql-language-service-cli
+
+# AI
+@github/copilot-language-server
