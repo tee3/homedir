@@ -10,9 +10,6 @@
 					"PackageIdentifier" : "Debian.Debian"
 				},
 				{
-					"PackageIdentifier" : "DimitriVanHeesch.Doxygen"
-				},
-				{
 					"PackageIdentifier" : "Docker.DockerDesktop"
 				},
 				{
@@ -40,9 +37,6 @@
 					"PackageIdentifier" : "Kitware.CMake"
 				},
 				{
-					"PackageIdentifier" : "Micrsoft.AzureCLI"
-				},
-				{
 					"PackageIdentifier" : "Microsoft.Edge"
 				},
 				{
@@ -56,9 +50,6 @@
 				},
 				{
 					"PackageIdentifier" : "OpenJS.NodeJS"
-				},
-				{
-					"PackageIdentifier" : "RubyInstallerTeam.Ruby.3.1"
 				},
 				{
 					"PackageIdentifier" : "Rustlang.Rust.MSVC"
