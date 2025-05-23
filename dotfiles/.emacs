@@ -815,6 +815,7 @@
   (setq vc-diff-added-files t)
   :bind
   ("C-c v v c" . vc-clone)
+  ("C-c v v r" . vc-create-repo)
   ("C-c v v d" . vc-dir)
   ("C-c v v e" . vc-ediff)
   ("C-c v v s" . vc-git-stash)
