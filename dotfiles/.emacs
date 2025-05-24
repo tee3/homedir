@@ -507,6 +507,11 @@
   :ensure t
   :pin gnu)
 
+;;; VTerm
+(use-package vterm
+  :ensure t
+  :pin melpa)
+
 ;;; Debbugs
 (use-package debbugs
   :ensure t
