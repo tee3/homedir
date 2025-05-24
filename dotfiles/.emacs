@@ -881,6 +881,13 @@
     :config
     (breadcrumb-mode)))
 
+;;; Kubernetes
+(when (>= emacs-major-version 29)
+  (use-package kubed
+    :ensure t
+    :pin gnu
+    :bind-keymap ("C-c k" . kubed-prefix-map)))
+
 ;;; DevDocs
 (use-package devdocs
   :ensure t
