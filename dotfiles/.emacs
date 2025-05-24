@@ -375,7 +375,9 @@
 (use-package proced
   :init
   (setq proced-show-remote-processes t)
-  (setq proced-enable-color-flag t))
+  (setq proced-enable-color-flag t)
+  :bind
+  ("C-c t t" . proced))
 (use-package project
   :ensure t
   :pin gnu
