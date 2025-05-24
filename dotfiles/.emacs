@@ -282,7 +282,8 @@
   (setq hs-hide-comments-when-hiding-all t))
 (use-package icomplete
   :init
-  (setq icomplete-in-buffer t))
+  (setq icomplete-in-buffer t)
+  (setq icomplete-vertical-render-prefix-indicator t))
 (use-package linum
   :if
   (and tee3-display-line-numbers
