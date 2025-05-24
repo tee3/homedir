@@ -1318,17 +1318,11 @@
     :pin melpa))
 
 ;;; Kubernetes
-(when (>= emacs-major-version 25)
-  (use-package kubernetes
+(when (>= emacs-major-version 29)
+  (use-package kubed
     :ensure t
-    :pin melpa))
-(use-package kubedoc
-  :ensure t
-  :pin melpa)
-(use-package k8s-mode
-  :ensure t
-  :pin melpa
-  :hook (k8s-mode . yas-minor-mode))
+    :pin gnu
+    :bind-keymap ("C-c k" . kubed-prefix-map)))
 
 ;;; Chef
 (use-package chef-mode
