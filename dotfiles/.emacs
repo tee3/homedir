@@ -622,9 +622,14 @@
 (use-package nginx-mode
   :ensure t
   :pin nongnu)
-(use-package protobuf-mode
-  :ensure t
-  :pin melpa)
+(when (< emacs-major-version 29)
+  (use-package protobuf-mode
+    :ensure t
+    :pin melpa))
+(when (>= emacs-major-version 29)
+  (use-package protobuf-ts-mode
+    :ensure t
+    :pin melpa))
 (use-package flatbuffers-mode
   :ensure t
   :pin melpa)
@@ -655,9 +660,14 @@
   (use-package yaml-mode
     :ensure t
     :pin nongnu))
-(use-package graphql-mode
-  :ensure t
-  :pin nongnu)
+(when (< emacs-major-version 29)
+  (use-package graphql-mode
+    :ensure t
+    :pin nongnu))
+(when (>= emacs-major-version 29)
+  (use-package graphql-ts-mode
+    :ensure t
+    :pin melpa))
 
 ;;; Programming languages
 (use-package applescript-mode
@@ -1141,9 +1151,14 @@
 (use-package js-comint
   :ensure t
   :pin melpa)
-(use-package jq-mode
-  :ensure t
-  :pin melpa)
+(when (< emacs-major-version 29)
+  (use-package jq-mode
+    :ensure t
+    :pin melpa))
+(when (>= emacs-major-version 29)
+    (use-package jq-ts-mode
+      :ensure t
+      :pin melpa))
 
 ;;; JSON
 (when (< emacs-major-version 29)
@@ -1184,9 +1199,14 @@
   :pin melpa)
 
 ;;; Julia
-(use-package julia-mode
-  :ensure t
-  :pin nongnu)
+(when (< emacs-major-version 29)
+    (use-package julia-mode
+      :ensure t
+      :pin nongnu))
+(when (>= emacs-major-version 29)
+  (use-package julia-ts-mode
+    :ensure t
+    :pin melpa))
 
 ;;; Code Composer Studio and DSP/BIOS mode
 (use-package cc-mode
