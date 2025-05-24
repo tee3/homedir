@@ -280,6 +280,8 @@
 (use-package hideshow
   :init
   (setq hs-hide-comments-when-hiding-all t))
+(use-package hippie-exp
+  :bind ("M-/" . hippie-expand))
 (use-package icomplete
   :init
   (setq icomplete-in-buffer t)
