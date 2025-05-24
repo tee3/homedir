@@ -448,9 +448,6 @@
   :demand t
   :config
   (tool-bar-mode -1))
-(use-package tooltip
-  :init
-  (setq tooltip-mode nil))
 (use-package tramp
   :ensure t
   :pin gnu)
