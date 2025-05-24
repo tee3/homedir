@@ -861,7 +861,7 @@
 (when (> emacs-major-version 24)
   (use-package magit
     :ensure t
-    :pin nongnu
+    ;; :pin nongnu
     :bind
     ("C-c v g s" . magit-status)
     :init
