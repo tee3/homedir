@@ -185,6 +185,8 @@
    (kill-emacs . tee3-disable-themes)))
 (use-package dictionary
   :init
+  (setq dictionary-use-single-buffer t)
+  (setq dictionary-create-buttons nil)
   (setq dictionary-search-interface 'help))
 (use-package diff-hl
   :ensure t
