@@ -557,26 +557,7 @@
 ;;; Org
 (use-package org
   :ensure t
-  :pin gnu
-  :init
-  (setq org-babel-load-languages '((C .t)
-                                   (awk .t)
-                                   (calc . t)
-                                   (comint . t)
-                                   (css . t)
-                                   (emacs-lisp . t)
-                                   (eshell . t)
-                                   (gnuplot .t)
-                                   (js . t)
-                                   (latex . t)
-                                   (lisp . t)
-                                   (makefile . t)
-                                   (python . t)
-                                   (scheme . t)
-                                   (sed . t)
-                                   (shell . t)
-                                   (sql . t)
-                                   (sqlite . t))))
+  :pin gnu)
 
 ;;; AI
 (when (>= emacs-major-version 28)
