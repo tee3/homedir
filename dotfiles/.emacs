@@ -527,6 +527,11 @@
   :hook
   (prog-mode . hs-minor-mode))
 
+;;; GNU ELPA suggestions
+(use-package gnu-elpa
+  :ensure t
+  :pin gnu)
+
 ;;; Debbugs
 (use-package debbugs
   :ensure t
