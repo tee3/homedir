@@ -1413,6 +1413,7 @@
   (use-package chyla-theme :ensure t :pin melpa :defer t)
   (use-package cyberpunk-theme :ensure t :pin nongnu :defer t)
   (use-package cyberpunk-2019-theme :ensure t :pin melpa :defer t)
+  (use-package doric-themes :ensure t :pin gnu :defer t)
   (use-package dracula-theme :ensure t :pin nongnu :defer t)
   (use-package ef-themes :ensure t :pin gnu :defer t)
   (use-package gandalf-theme :ensure t :pin melpa :defer t)
