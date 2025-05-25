@@ -898,6 +898,14 @@
   :bind
   ("C-c v s s" . svn-status))
 
+(use-package why-this
+  :ensure t
+  :pin nongnu
+  :init
+  (setq why-this-annotate-enable-heat-map nil)
+  :config
+  (global-why-this-mode))
+
 ;;; Make
 (use-package make-mode
   :preface
