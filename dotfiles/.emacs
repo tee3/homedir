@@ -787,7 +787,9 @@
   :ensure t
   :pin nongnu
   :init
-  (setq geiser-mode-start-repl-p t))
+  (setq geiser-mode-start-repl-p t)
+
+  (setq geiser-repl-per-project-p t))
 (use-package geiser-guile
   :ensure t
   :pin nongnu
