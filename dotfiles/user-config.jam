@@ -105,6 +105,8 @@ else if [ os.name ] = MACOSX
   using gcc : 9arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@9/bin/arm-none-eabi-g++ ;
   using gcc : 8arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@8/bin/arm-none-eabi-g++ ;
 
+  using gcc : 14avr : $(LOCAL_PREFIX)/opt/avr-gcc@14/bin/avr-g++ ;
+  using gcc : 13avr : $(LOCAL_PREFIX)/opt/avr-gcc@13/bin/avr-g++ ;
   using gcc : 12avr : $(LOCAL_PREFIX)/opt/avr-gcc@12/bin/avr-g++ ;
   using gcc : 11avr : $(LOCAL_PREFIX)/opt/avr-gcc@11/bin/avr-g++ ;
   using gcc : 10avr : $(LOCAL_PREFIX)/opt/avr-gcc@10/bin/avr-g++ ;
