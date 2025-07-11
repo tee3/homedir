@@ -813,6 +813,8 @@
 
   (setq vc-display-status 'no-backend)
   (setq vc-diff-added-files t)
+
+  (setq vc-use-incoming-outgoing-prefixes t)
   :bind
   ("C-c v v c" . vc-clone)
   ("C-c v v d" . vc-dir)
