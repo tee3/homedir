@@ -812,6 +812,9 @@
 ;;; Version Control Systems
 (use-package vc
   :init
+  (when (equal system-type 'darwin)
+    (setq vc-git-program (executable-find "git")))
+
   (setq vc-allow-rewriting-published-history 'ask)
   (setq vc-make-backup-files t)
 
@@ -871,6 +874,8 @@
     :bind
     ("C-c v g s" . magit-status)
     :init
+    (when (equal system-type 'darwin)
+      (setq magit-git-executable (executable-find "git")))
     (setq magit-repository-directories (quote (("~/Development" . 2))))))
 ;;; Forge
 (when (> emacs-major-version 24)
