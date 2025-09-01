@@ -345,6 +345,8 @@
   (setq completions-detailed t)
   (setq completions-sort 'historical)
   (setq minibuffer-visible-completions t)
+  (setq completion-eager-display t)
+  (setq completion-eager-update t)
   (setq completion-category-overrides'((project-file
                                         (styles basic emacs22 partial-completion substring)))))
 (use-package minibuf-eldef
