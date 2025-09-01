@@ -70,7 +70,7 @@ else if [ os.name ] = MACOSX
 
   using darwin ;
 
-  # using darwin : 15 : $(LOCAL_PREFIX)/opt/gcc@15/bin/g++-15 : $(macos-options) ;
+  using darwin : 15 : $(LOCAL_PREFIX)/opt/gcc@15/bin/g++-15 : $(macos-options) ;
   using darwin : 14 : $(LOCAL_PREFIX)/opt/gcc@14/bin/g++-14 : $(macos-options) ;
   using darwin : 13 : $(LOCAL_PREFIX)/opt/gcc@13/bin/g++-13 : $(macos-options) ;
   using darwin : 12 : $(LOCAL_PREFIX)/opt/gcc@12/bin/g++-12 : $(macos-options) ;
@@ -83,7 +83,7 @@ else if [ os.name ] = MACOSX
 
   using gcc ;
 
-  # using gcc : 15 : $(LOCAL_PREFIX)/opt/gcc@15/bin/g++-15 : $(macos-options) ;
+  using gcc : 15 : $(LOCAL_PREFIX)/opt/gcc@15/bin/g++-15 : $(macos-options) ;
   using gcc : 14 : $(LOCAL_PREFIX)/opt/gcc@14/bin/g++-14 : $(macos-options) ;
   using gcc : 13 : $(LOCAL_PREFIX)/opt/gcc@13/bin/g++-13 : $(macos-options) ;
   using gcc : 12 : $(LOCAL_PREFIX)/opt/gcc@12/bin/g++-12 : $(macos-options) ;
