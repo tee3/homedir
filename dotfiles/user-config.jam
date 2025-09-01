@@ -31,6 +31,14 @@ else if [ os.name ] = LINUX
   # other compilers, both system and optional
   using clang ;
 
+  # using clang : 21 : /usr/bin/clang++-21 ;
+  # using clang : 20 : /usr/bin/clang++-20 ;
+  # using clang : 19 : /usr/bin/clang++-19 ;
+  # using clang : 18 : /usr/bin/clang++-18 ;
+  # using clang : 17 : /usr/bin/clang++-17 ;
+  # using clang : 16 : /usr/bin/clang++-16 ;
+  # using clang : 15 : /usr/bin/clang++-15 ;
+  # using clang : 14 : /usr/bin/clang++-14 ;
   # using clang : 13 : /usr/bin/clang++-13 ;
   using clang : 12 : /usr/bin/clang++-12 ;
   using clang : 11 : /usr/bin/clang++-11 ;
@@ -54,7 +62,8 @@ else if [ os.name ] = MACOSX
   using clang : : : $(macos-options) ;
 
   # other compilers, both system and optional
-  # using clang : 20 : $(LOCAL_PREFIX)/opt/llvm@20/bin/clang++ : $(macos-options) ;
+  using clang : 21 : $(LOCAL_PREFIX)/opt/llvm@21/bin/clang++ : $(macos-options) ;
+  using clang : 20 : $(LOCAL_PREFIX)/opt/llvm@20/bin/clang++ : $(macos-options) ;
   using clang : 19 : $(LOCAL_PREFIX)/opt/llvm@19/bin/clang++ : $(macos-options) ;
   using clang : 18 : $(LOCAL_PREFIX)/opt/llvm@18/bin/clang++ : $(macos-options) ;
   # using clang : 17 : $(LOCAL_PREFIX)/opt/llvm@17/bin/clang++ : $(macos-options) ;
