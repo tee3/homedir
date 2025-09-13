@@ -244,19 +244,6 @@ if __name__ == '__main__':
             print('Note that ~/.gitconfig.machine is used for machine-specific settings to .gitconfig.')
             open(gitconfig_machine, 'a').close()
 
-        # set up a credential helper
-        if machine == 'linux':
-            emulate_run([git, 'config', '-f', gitconfig_machine, 'credential.helper', 'cache --timeout 3600'])
-        elif machine == 'macos':
-            emulate_run([git, 'config', '-f', gitconfig_machine, 'credential.helper', 'osxkeychain'])
-        elif machine == 'cygwin':
-            emulate_run([git, 'config', '-f', gitconfig_machine, 'credential.helper', 'cache --timeout 3600'])
-        elif machine == 'windows':
-            emulate_run([git, 'config', '-f', gitconfig_machine, 'credential.helper', 'wincred'])
-        else:
-            print('error: unknown machine "%s".' % (machine))
-            sys.exit(1)
-
         # set up user-specific ~/.gitconfig
         gitconfig_user = os.path.join(HOME, '.gitconfig.user')
         if not os.path.exists(gitconfig_user):
