@@ -13,11 +13,14 @@ Checks:
   - readability-*
   - -cppcoreguidelines-avoid-magic-numbers
   - -hicpp-uppercase-literal-suffix
+  - -modernize-use-bool-literals
   - -modernize-use-trailing-return-type
   - -readability-avoid-unconditional-preprocessor-if
   - -readability-identifier-length
+  - -readability-implicit-bool-conversion
   - -readability-magic-numbers
   - -readability-qualified-auto
   - -readability-redundant-access-specifiers
+  - -readability-redundant-member-init
   - -readability-redundant-preprocessor
   - -readability-uppercase-literal-suffix
