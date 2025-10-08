@@ -13,7 +13,5 @@ Diagnostics:
   MissingIncludes: true
   Includes:
     AnalyzeAngledIncludes: true
-Completion:
-  AllScopes: true
 Hover:
   ShowAKA: true
