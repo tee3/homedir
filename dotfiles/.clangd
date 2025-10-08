@@ -1,19 +1,19 @@
 Style:
-  FullyQualifiedNamespaces: Yes
+  FullyQualifiedNamespaces: true
 InlayHints:
-  Enabled: Yes
-  BlockEnd: Yes
-  Designators: Yes
-  ParameterNames: Yes
-  DeducedTypes: Yes
-  DefaultArguments: Yes
+  Enabled: true
+  BlockEnd: true
+  Designators: true
+  ParameterNames: true
+  DeducedTypes: true
+  DefaultArguments: true
   TypeNameLimit: 0
 Diagnostics:
-  UnusedIncludes: Yes
-  MissingIncludes: Yes
+  UnusedIncludes: true
+  MissingIncludes: true
   Includes:
-    AnalyzeAngledIncludes: Yes
+    AnalyzeAngledIncludes: true
 Completion:
-  AllScopes: Yes
+  AllScopes: true
 Hover:
-  ShowAKA: Yes
+  ShowAKA: true
