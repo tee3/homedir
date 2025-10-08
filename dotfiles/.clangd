@@ -15,3 +15,5 @@ Diagnostics:
     AnalyzeAngledIncludes: true
 Hover:
   ShowAKA: true
+Documentation:
+  CommentFormat: Doxygen
