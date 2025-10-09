@@ -1244,51 +1244,8 @@
     (sh-mode . flymake-shellcheck-load)))
 
 ;;; Language Server Protocol
-(defun tee3-clangd-executable ()
-  (setq tee3-clangd-executable
-        (cond ((executable-find "clangd"))
-              ((equal system-type 'darwin)
-               (cond ((executable-find "/usr/local/opt/llvm/bin/clangd"))
-                     ((executable-find "/opt/homebrew/opt/llvm/bin/clangd"))
-                     ((executable-find "/Library/Developer/CommandLineTools/usr/bin/clangd"))
-                     ((executable-find "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clangd"))))
-              ((equal system-type 'gnu/linux)
-               (cond ((executable-find "/home/linuxbrew/.linuxbrew/opt/llvm/bin/clangd"))))
-              (t
-               "clangd"))))
-
-(setq tee3-clangd-options '("-j=2"
-                            "--all-scopes-completion"
-                            "--clang-tidy"
-                            "--completion-style=detailed"
-                            "--function-arg-placeholders"
-                            "--header-insertion=iwyu"
-                            "--limit-results=0"
-                            "--suggest-missing-includes"))
-
-(defun tee3-clangd-command (interactive)
-  (append (list (tee3-clangd-executable)) tee3-clangd-options))
-
-(defun tee3-sourcekit-lsp-executable ()
-  (setq tee3-sourcekit-lsp-executable
-        (cond ((executable-find "sourcekit-lsp"))
-              ((equal system-type 'darwin)
-               (cond ((executable-find "/usr/local/bin/sourcekit-lsp"))
-                     ((executable-find "/opt/homebrew/bin/sourcekit-lsp"))
-                     ((executable-find "/Library/Developer/CommandLineTools/usr/bin/sourcekit-lsp"))
-                     ((executable-find "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp"))))
-              ((equal system-type 'gnu/linux)
-               (cond ((executable-find "/home/linuxbrew/.linuxbrew/bin/sourcekit-lsp"))))
-              (t
-               "sourcekit-lsp"))))
-
-(setq tee3-sourcekit-lsp-options '())
-
-(defun tee3-sourcekit-lsp-command (interactive)
-  (append (list (tee3-sourcekit-lsp-executable)) tee3-sourcekit-lsp-options))
-
 (defun tee3-groovy-language-server-command (interactive)
-  (list "java" "-jar" (expand-file-name "~/opt/local/src/groovy-language-server/build/libs/groovy-language-server-all.jar")))
+  )
 
 (use-package eglot
   :ensure t
@@ -1321,16 +1278,11 @@
                      :pylint (:enabled t))))))
   :config
   (add-to-list 'eglot-server-programs '((graphql-mode) . ("graphql-lsp" "server" "--method" "stream")))
-  (add-to-list 'eglot-server-programs '((groovy-mode) . tee3-groovy-language-server-command))
-  (add-to-list 'eglot-server-programs '((hcl-mode terraform-mode) . ("terraform-ls" "serve")))
+  (add-to-list 'eglot-server-programs '((groovy-mode) . ("java" "-jar" (expand-file-name "~/opt/local/src/groovy-language-server/build/libs/groovy-language-server-all.jar"))))
+  (add-to-list 'eglot-server-programs '((hcl-mode terraform-mode) . ("terraform-lsp")))
   (add-to-list 'eglot-server-programs '((protobuf-mode) . ("protobuf-language-server")))
-  (add-to-list 'eglot-server-programs '((vue-mode) . ("vls" "--stdio")))
-  (add-to-list 'eglot-server-programs '((c-mode
-                                         c++-mode
-                                         objc-mode
-                                         objc++-mode) . tee3-clangd-command))
-  (add-to-list 'eglot-server-programs '((sql-mode) . ("sql-language-server" "up" "--method" "stdio")))
-  (add-to-list 'eglot-server-programs '((swift-mode) . tee3-sourcekit-lsp-command)))
+  (add-to-list 'eglot-server-programs '((vue-mode) . ("vue-language-server" "--stdio")))
+  (add-to-list 'eglot-server-programs '((swift-mode) . ("sourcekit-lsp"))))
 
 (when (>= emacs-major-version 28)
   (use-package breadcrumb
