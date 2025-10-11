@@ -82,7 +82,7 @@ fi
 
 # Go
 if [ -n "$(command -v go 2> /dev/null)" ]; then
-    export PATH="${HOME}"/.go/bin"${PATH:+:${PATH}}"
+    export PATH="${HOME}"/go/bin"${PATH:+:${PATH}}"
 fi
 
 # Rust

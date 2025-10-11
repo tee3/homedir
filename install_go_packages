@@ -34,9 +34,7 @@ if __name__ == '__main__':
             line = line.strip()
             line = line.rstrip('\n')
             if line != '' and line[0] != '#':
-                e = os.environ
-                e['GOPATH'] = os.path.join(HOME, '.go')
-                if not emulate_run([go, 'install', line], env=e):
+                if not emulate_run([go, 'install', line]):
                     error = True
 
     sys.exit(1 if error else 0)
