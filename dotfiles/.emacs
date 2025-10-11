@@ -1274,7 +1274,7 @@
   (add-to-list 'eglot-server-programs '((groovy-mode) . ("java" "-jar" (expand-file-name "~/opt/local/src/groovy-language-server/build/libs/groovy-language-server-all.jar"))))
   (add-to-list 'eglot-server-programs '((hcl-mode terraform-mode) . ("terraform-ls")))
   (add-to-list 'eglot-server-programs '((jq-ts-mode jq-mode) . ("jq-lsp")))
-  (add-to-list 'eglot-server-programs '((protobuf-mode) . ("go" "run" "github.com/lasorda/protobuf-language-server@master")))
+  (add-to-list 'eglot-server-programs '((protobuf-mode) . ("go" "run" "github.com/kralicky/protols/cmd/protols@latest" "serve")))
   (add-to-list 'eglot-server-programs '((vue-mode) . ("vue-language-server" "--stdio")))
   (add-to-list 'eglot-server-programs '((swift-mode) . ("sourcekit-lsp"))))
 
