@@ -2,11 +2,3 @@ source 'https://rubygems.org'
 
 # Development
 gem 'bundler'
-
-gem 'solargraph'
-
-# Development - JavaScript
-gem 'mdl'
-
-# Documentation
-gem 'asciidoctor'
