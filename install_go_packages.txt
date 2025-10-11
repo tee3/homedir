@@ -1,13 +1,5 @@
 # Development
 
-golang.org/x/tools/gopls@latest
-
-github.com/google/git-appraise/git-appraise@latest
-
-#github.com/shurcool/markdownfmt@latest
-
 github.com/santhosh-tekuri/jsonschema/cmd/jv@latest
-
-github.com/hashicorp/terraform-ls@latest
 
 github.com/lasorda/protobuf-language-server@latest
