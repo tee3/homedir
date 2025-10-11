@@ -1279,7 +1279,7 @@
   :config
   (add-to-list 'eglot-server-programs '((graphql-mode) . ("graphql-lsp" "server" "--method" "stream")))
   (add-to-list 'eglot-server-programs '((groovy-mode) . ("java" "-jar" (expand-file-name "~/opt/local/src/groovy-language-server/build/libs/groovy-language-server-all.jar"))))
-  (add-to-list 'eglot-server-programs '((hcl-mode terraform-mode) . ("terraform-lsp")))
+  (add-to-list 'eglot-server-programs '((hcl-mode terraform-mode) . ("terraform-ls")))
   (add-to-list 'eglot-server-programs '((protobuf-mode) . ("protobuf-language-server")))
   (add-to-list 'eglot-server-programs '((vue-mode) . ("vue-language-server" "--stdio")))
   (add-to-list 'eglot-server-programs '((swift-mode) . ("sourcekit-lsp"))))
