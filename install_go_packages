@@ -15,12 +15,6 @@ def emulate_run(args, env=None):
     return False
 
 
-# requires HOME.
-if 'HOME' not in os.environ or os.environ['HOME'] == '':
-    print('error: HOME is not set, aborting.')
-    sys.exit(1)
-HOME = os.environ['HOME']
-
 go = shutil.which('go')
 
 if __name__ == '__main__':
