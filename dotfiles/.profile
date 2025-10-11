@@ -92,7 +92,7 @@ fi
 
 # Lua
 if [ -n "$(command -v luarocks 2> /dev/null)" ]; then
-    export PATH="${HOME}"/.luarocks/bin"${PATH:+:${PATH}}"
+    eval "$(luarocks path --bin)"
 fi
 
 # TeX
