@@ -577,6 +577,12 @@
   :ensure t
   :pin melpa)
 
+(use-package vdiff
+  :ensure t
+  :pin gnu
+  :init
+  (setq vdiff-auto-refine t))
+
 ;;; Configuration files
 (use-package apache-mode
   :ensure t
