@@ -1250,9 +1250,6 @@
     (sh-mode . flymake-shellcheck-load)))
 
 ;;; Language Server Protocol
-(defun tee3-groovy-language-server-command (interactive)
-  )
-
 (use-package eglot
   :ensure t
   :pin gnu
