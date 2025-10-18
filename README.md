@@ -564,8 +564,6 @@ There is a script to support installing packages that are not
 supported by a standard package manager or require special
 consideration.
 
-* `tee3-c-style`
-* `msvc-c-style`
 * `git-svn-update-externals`
 * `boost`
 
