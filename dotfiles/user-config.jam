@@ -1,4 +1,5 @@
 import os ;
+import path ;
 
 constant HOME : [ os.environ HOME ] ;
 if [ os.name ] = MACOSX
@@ -7,6 +8,17 @@ if [ os.name ] = MACOSX
 }
 
 # Host Compilers
+
+# Use the toolset if command exists.
+rule using-if-command-exists ( toolset : version : command : options * )
+{
+  if ! [ path.exists $(command) ]
+  {
+    return ;
+  }
+
+  using $(toolset) : $(version) : $(command) : $(options) ;
+}
 
 if [ os.name ] = NT
 {
@@ -17,31 +29,31 @@ else if [ os.name ] = LINUX
   using gcc ;
   using clang ;
 
-  # using gcc : 11 : /usr/bin/g++-11 ;
-  using gcc : 10 : /usr/bin/g++-10 ;
-  # using gcc : 9 : /usr/bin/g++-9 ;
-  using gcc : 8 : /usr/bin/g++-8 ;
-  using gcc : 7 : /usr/bin/g++-7 ;
+  using-if-command-exists gcc : 11 : /usr/bin/g++-11 ;
+  using-if-command-exists gcc : 10 : /usr/bin/g++-10 ;
+  using-if-command-exists gcc :  9 : /usr/bin/g++-9 ;
+  using-if-command-exists gcc :  8 : /usr/bin/g++-8 ;
+  using-if-command-exists gcc :  7 : /usr/bin/g++-7 ;
 
-  # using clang : 21 : /usr/bin/clang++-21 ;
-  # using clang : 20 : /usr/bin/clang++-20 ;
-  # using clang : 19 : /usr/bin/clang++-19 ;
-  # using clang : 18 : /usr/bin/clang++-18 ;
-  # using clang : 17 : /usr/bin/clang++-17 ;
-  # using clang : 16 : /usr/bin/clang++-16 ;
-  # using clang : 15 : /usr/bin/clang++-15 ;
-  # using clang : 14 : /usr/bin/clang++-14 ;
-  # using clang : 13 : /usr/bin/clang++-13 ;
-  using clang : 12 : /usr/bin/clang++-12 ;
-  using clang : 11 : /usr/bin/clang++-11 ;
-  using clang : 10 : /usr/bin/clang++-10 ;
-  using clang : 9 : /usr/bin/clang++-9 ;
-  using clang : 8 : /usr/bin/clang++-8 ;
-  using clang : 7 : /usr/bin/clang++-7 ;
+  using-if-command-exists clang : 21 : /usr/bin/clang++-21 ;
+  using-if-command-exists clang : 20 : /usr/bin/clang++-20 ;
+  using-if-command-exists clang : 19 : /usr/bin/clang++-19 ;
+  using-if-command-exists clang : 18 : /usr/bin/clang++-18 ;
+  using-if-command-exists clang : 17 : /usr/bin/clang++-17 ;
+  using-if-command-exists clang : 16 : /usr/bin/clang++-16 ;
+  using-if-command-exists clang : 15 : /usr/bin/clang++-15 ;
+  using-if-command-exists clang : 14 : /usr/bin/clang++-14 ;
+  using-if-command-exists clang : 13 : /usr/bin/clang++-13 ;
+  using-if-command-exists clang : 12 : /usr/bin/clang++-12 ;
+  using-if-command-exists clang : 11 : /usr/bin/clang++-11 ;
+  using-if-command-exists clang : 10 : /usr/bin/clang++-10 ;
+  using-if-command-exists clang :  9 : /usr/bin/clang++-9 ;
+  using-if-command-exists clang :  8 : /usr/bin/clang++-8 ;
+  using-if-command-exists clang :  7 : /usr/bin/clang++-7 ;
 
-  using gcc : 9arm : /usr/bin/arm-none-eabi-g++ ;
+  using-if-command-exists gcc : 9arm : /usr/bin/arm-none-eabi-g++ ;
 
-  using gcc : 5avr : /usr/bin/avr-g++ ;
+  using-if-command-exists gcc : 5avr : /usr/bin/avr-g++ ;
 }
 else if [ os.name ] = MACOSX
 {
@@ -53,51 +65,51 @@ else if [ os.name ] = MACOSX
   using clang : : : $(macos-options) ;
   using gcc ;
 
-  using clang : 21 : $(HOMEBREW_PREFIX)/opt/llvm@21/bin/clang++ : $(macos-options) ;
-  using clang : 20 : $(HOMEBREW_PREFIX)/opt/llvm@20/bin/clang++ : $(macos-options) ;
-  using clang : 19 : $(HOMEBREW_PREFIX)/opt/llvm@19/bin/clang++ : $(macos-options) ;
-  using clang : 18 : $(HOMEBREW_PREFIX)/opt/llvm@18/bin/clang++ : $(macos-options) ;
-  # using clang : 17 : $(HOMEBREW_PREFIX)/opt/llvm@17/bin/clang++ : $(macos-options) ;
-  using clang : 16 : $(HOMEBREW_PREFIX)/opt/llvm@16/bin/clang++ : $(macos-options) ;
-  using clang : 15 : $(HOMEBREW_PREFIX)/opt/llvm@15/bin/clang++ : $(macos-options) ;
-  using clang : 14 : $(HOMEBREW_PREFIX)/opt/llvm@14/bin/clang++ : $(macos-options) ;
-  # using clang : 13 : $(HOMEBREW_PREFIX)/opt/llvm@13/bin/clang++ : $(macos-options) ;
-  # using clang : 12 : $(HOMEBREW_PREFIX)/opt/llvm@12/bin/clang++ : $(macos-options) ;
-  # using clang : 11 : $(HOMEBREW_PREFIX)/opt/llvm@11/bin/clang++ : $(macos-options) ;
-  # using clang : 10 : $(HOMEBREW_PREFIX)/opt/llvm@10/bin/clang++ : $(macos-options) ;
-  # using clang : 9 : $(HOMEBREW_PREFIX)/opt/llvm@9/bin/clang++ : $(macos-options) ;
-  # using clang : 8 : $(HOMEBREW_PREFIX)/opt/llvm@8/bin/clang++ : $(macos-options) ;
+  using-if-command-exists clang : 21 : $(HOMEBREW_PREFIX)/opt/llvm@21/bin/clang++ : $(macos-options) ;
+  using-if-command-exists clang : 20 : $(HOMEBREW_PREFIX)/opt/llvm@20/bin/clang++ : $(macos-options) ;
+  using-if-command-exists clang : 19 : $(HOMEBREW_PREFIX)/opt/llvm@19/bin/clang++ : $(macos-options) ;
+  using-if-command-exists clang : 18 : $(HOMEBREW_PREFIX)/opt/llvm@18/bin/clang++ : $(macos-options) ;
+  # using-if-command-exists clang : 17 : $(HOMEBREW_PREFIX)/opt/llvm@17/bin/clang++ : $(macos-options) ;
+  using-if-command-exists clang : 16 : $(HOMEBREW_PREFIX)/opt/llvm@16/bin/clang++ : $(macos-options) ;
+  using-if-command-exists clang : 15 : $(HOMEBREW_PREFIX)/opt/llvm@15/bin/clang++ : $(macos-options) ;
+  using-if-command-exists clang : 14 : $(HOMEBREW_PREFIX)/opt/llvm@14/bin/clang++ : $(macos-options) ;
+  using-if-command-exists clang : 13 : $(HOMEBREW_PREFIX)/opt/llvm@13/bin/clang++ : $(macos-options) ;
+  using-if-command-exists clang : 12 : $(HOMEBREW_PREFIX)/opt/llvm@12/bin/clang++ : $(macos-options) ;
+  using-if-command-exists clang : 11 : $(HOMEBREW_PREFIX)/opt/llvm@11/bin/clang++ : $(macos-options) ;
+  using-if-command-exists clang : 10 : $(HOMEBREW_PREFIX)/opt/llvm@10/bin/clang++ : $(macos-options) ;
+  using-if-command-exists clang :  9 : $(HOMEBREW_PREFIX)/opt/llvm@9/bin/clang++  : $(macos-options) ;
+  using-if-command-exists clang :  8 : $(HOMEBREW_PREFIX)/opt/llvm@8/bin/clang++  : $(macos-options) ;
 
-  using gcc : 15 : $(HOMEBREW_PREFIX)/opt/gcc@15/bin/g++-15 : $(macos-options) ;
-  using gcc : 14 : $(HOMEBREW_PREFIX)/opt/gcc@14/bin/g++-14 : $(macos-options) ;
-  using gcc : 13 : $(HOMEBREW_PREFIX)/opt/gcc@13/bin/g++-13 : $(macos-options) ;
-  using gcc : 12 : $(HOMEBREW_PREFIX)/opt/gcc@12/bin/g++-12 : $(macos-options) ;
-  using gcc : 11 : $(HOMEBREW_PREFIX)/opt/gcc@11/bin/g++-11 : $(macos-options) ;
-  # using gcc : 10 : $(HOMEBREW_PREFIX)/opt/gcc@11/bin/g++-10 : $(macos-options) ;
-  # using gcc : 9 : $(HOMEBREW_PREFIX)/opt/gcc@9/bin/g++-9 : $(macos-options) ;
-  # using gcc : 8 : $(HOMEBREW_PREFIX)/opt/gcc@8/bin/g++-8 : $(macos-options) ;
-  # using gcc : 7 : $(HOMEBREW_PREFIX)/opt/gcc@7/bin/g++-7 : $(macos-options) ;
-  # using gcc : 6 : $(HOMEBREW_PREFIX)/opt/gcc@6/bin/g++-6 : $(macos-options) ;
+  using-if-command-exists gcc : 15 : $(HOMEBREW_PREFIX)/opt/gcc@15/bin/g++-15 : $(macos-options) ;
+  using-if-command-exists gcc : 14 : $(HOMEBREW_PREFIX)/opt/gcc@14/bin/g++-14 : $(macos-options) ;
+  using-if-command-exists gcc : 13 : $(HOMEBREW_PREFIX)/opt/gcc@13/bin/g++-13 : $(macos-options) ;
+  using-if-command-exists gcc : 12 : $(HOMEBREW_PREFIX)/opt/gcc@12/bin/g++-12 : $(macos-options) ;
+  using-if-command-exists gcc : 11 : $(HOMEBREW_PREFIX)/opt/gcc@11/bin/g++-11 : $(macos-options) ;
+  using-if-command-exists gcc : 10 : $(HOMEBREW_PREFIX)/opt/gcc@11/bin/g++-10 : $(macos-options) ;
+  using-if-command-exists gcc :  9 : $(HOMEBREW_PREFIX)/opt/gcc@9/bin/g++-9   : $(macos-options) ;
+  using-if-command-exists gcc :  8 : $(HOMEBREW_PREFIX)/opt/gcc@8/bin/g++-8   : $(macos-options) ;
+  using-if-command-exists gcc :  7 : $(HOMEBREW_PREFIX)/opt/gcc@7/bin/g++-7   : $(macos-options) ;
+  using-if-command-exists gcc :  6 : $(HOMEBREW_PREFIX)/opt/gcc@6/bin/g++-6   : $(macos-options) ;
 
-  using gcc : 15arm : arm-none-eabi-g++ ;
+  using-if-command-exists gcc : 15arm : arm-none-eabi-g++ ;
 
-  # using gcc : 15arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@15/bin/arm-none-eabi-g++ ;
-  using gcc : 14arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@14/bin/arm-none-eabi-g++ ;
-  using gcc : 13arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@13/bin/arm-none-eabi-g++ ;
-  using gcc : 12arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@12/bin/arm-none-eabi-g++ ;
-  using gcc : 11arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@11/bin/arm-none-eabi-g++ ;
-  # using gcc : 10arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@10/bin/arm-none-eabi-g++ ;
-  using gcc : 9arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@9/bin/arm-none-eabi-g++ ;
-  using gcc : 8arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@8/bin/arm-none-eabi-g++ ;
+  using-if-command-exists gcc : 15arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@15/bin/arm-none-eabi-g++ ;
+  using-if-command-exists gcc : 14arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@14/bin/arm-none-eabi-g++ ;
+  using-if-command-exists gcc : 13arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@13/bin/arm-none-eabi-g++ ;
+  using-if-command-exists gcc : 12arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@12/bin/arm-none-eabi-g++ ;
+  using-if-command-exists gcc : 11arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@11/bin/arm-none-eabi-g++ ;
+  using-if-command-exists gcc : 10arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@10/bin/arm-none-eabi-g++ ;
+  using-if-command-exists gcc :  9arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@9/bin/arm-none-eabi-g++ ;
+  using-if-command-exists gcc :  8arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@8/bin/arm-none-eabi-g++ ;
 
-  using gcc : 14avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@14/bin/avr-g++ ;
-  using gcc : 13avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@13/bin/avr-g++ ;
-  using gcc : 12avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@12/bin/avr-g++ ;
-  using gcc : 11avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@11/bin/avr-g++ ;
-  using gcc : 10avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@10/bin/avr-g++ ;
-  using gcc : 9avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@9/bin/avr-g++ ;
-  using gcc : 8avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@8/bin/avr-g++ ;
-  # using gcc : 5avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@5/bin/avr-g++ ;
+  using-if-command-exists gcc : 14avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@14/bin/avr-g++ ;
+  using-if-command-exists gcc : 13avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@13/bin/avr-g++ ;
+  using-if-command-exists gcc : 12avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@12/bin/avr-g++ ;
+  using-if-command-exists gcc : 11avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@11/bin/avr-g++ ;
+  using-if-command-exists gcc : 10avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@10/bin/avr-g++ ;
+  using-if-command-exists gcc :  9avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@9/bin/avr-g++ ;
+  using-if-command-exists gcc :  8avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@8/bin/avr-g++ ;
+  using-if-command-exists gcc :  5avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@5/bin/avr-g++ ;
 }
 
 using emscripten ;
