@@ -3,11 +3,7 @@ import os ;
 constant HOME : [ os.environ HOME ] ;
 if [ os.name ] = MACOSX
 {
-  constant LOCAL_PREFIX : [ SHELL "brew --prefix" : strip-eol ] ;
-}
-else
-{
-  constant LOCAL_PREFIX : /usr/local ;
+  constant HOMEBREW_PREFIX : [ SHELL "brew --prefix" : strip-eol ] ;
 }
 
 # Host Compilers
@@ -50,58 +46,58 @@ else if [ os.name ] = LINUX
 else if [ os.name ] = MACOSX
 {
   local macos-options =
-    <compileflags>"-isystem $(LOCAL_PREFIX)/include"
-    <linkflags>-L$(LOCAL_PREFIX)/lib
+    <compileflags>"-isystem $(HOMEBREW_PREFIX)/include"
+    <linkflags>-L$(HOMEBREW_PREFIX)/lib
     ;
 
   using clang : : : $(macos-options) ;
   using gcc ;
 
-  using clang : 21 : $(LOCAL_PREFIX)/opt/llvm@21/bin/clang++ : $(macos-options) ;
-  using clang : 20 : $(LOCAL_PREFIX)/opt/llvm@20/bin/clang++ : $(macos-options) ;
-  using clang : 19 : $(LOCAL_PREFIX)/opt/llvm@19/bin/clang++ : $(macos-options) ;
-  using clang : 18 : $(LOCAL_PREFIX)/opt/llvm@18/bin/clang++ : $(macos-options) ;
-  # using clang : 17 : $(LOCAL_PREFIX)/opt/llvm@17/bin/clang++ : $(macos-options) ;
-  using clang : 16 : $(LOCAL_PREFIX)/opt/llvm@16/bin/clang++ : $(macos-options) ;
-  using clang : 15 : $(LOCAL_PREFIX)/opt/llvm@15/bin/clang++ : $(macos-options) ;
-  using clang : 14 : $(LOCAL_PREFIX)/opt/llvm@14/bin/clang++ : $(macos-options) ;
-  # using clang : 13 : $(LOCAL_PREFIX)/opt/llvm@13/bin/clang++ : $(macos-options) ;
-  # using clang : 12 : $(LOCAL_PREFIX)/opt/llvm@12/bin/clang++ : $(macos-options) ;
-  # using clang : 11 : $(LOCAL_PREFIX)/opt/llvm@11/bin/clang++ : $(macos-options) ;
-  # using clang : 10 : $(LOCAL_PREFIX)/opt/llvm@10/bin/clang++ : $(macos-options) ;
-  # using clang : 9 : $(LOCAL_PREFIX)/opt/llvm@9/bin/clang++ : $(macos-options) ;
-  # using clang : 8 : $(LOCAL_PREFIX)/opt/llvm@8/bin/clang++ : $(macos-options) ;
+  using clang : 21 : $(HOMEBREW_PREFIX)/opt/llvm@21/bin/clang++ : $(macos-options) ;
+  using clang : 20 : $(HOMEBREW_PREFIX)/opt/llvm@20/bin/clang++ : $(macos-options) ;
+  using clang : 19 : $(HOMEBREW_PREFIX)/opt/llvm@19/bin/clang++ : $(macos-options) ;
+  using clang : 18 : $(HOMEBREW_PREFIX)/opt/llvm@18/bin/clang++ : $(macos-options) ;
+  # using clang : 17 : $(HOMEBREW_PREFIX)/opt/llvm@17/bin/clang++ : $(macos-options) ;
+  using clang : 16 : $(HOMEBREW_PREFIX)/opt/llvm@16/bin/clang++ : $(macos-options) ;
+  using clang : 15 : $(HOMEBREW_PREFIX)/opt/llvm@15/bin/clang++ : $(macos-options) ;
+  using clang : 14 : $(HOMEBREW_PREFIX)/opt/llvm@14/bin/clang++ : $(macos-options) ;
+  # using clang : 13 : $(HOMEBREW_PREFIX)/opt/llvm@13/bin/clang++ : $(macos-options) ;
+  # using clang : 12 : $(HOMEBREW_PREFIX)/opt/llvm@12/bin/clang++ : $(macos-options) ;
+  # using clang : 11 : $(HOMEBREW_PREFIX)/opt/llvm@11/bin/clang++ : $(macos-options) ;
+  # using clang : 10 : $(HOMEBREW_PREFIX)/opt/llvm@10/bin/clang++ : $(macos-options) ;
+  # using clang : 9 : $(HOMEBREW_PREFIX)/opt/llvm@9/bin/clang++ : $(macos-options) ;
+  # using clang : 8 : $(HOMEBREW_PREFIX)/opt/llvm@8/bin/clang++ : $(macos-options) ;
 
-  using gcc : 15 : $(LOCAL_PREFIX)/opt/gcc@15/bin/g++-15 : $(macos-options) ;
-  using gcc : 14 : $(LOCAL_PREFIX)/opt/gcc@14/bin/g++-14 : $(macos-options) ;
-  using gcc : 13 : $(LOCAL_PREFIX)/opt/gcc@13/bin/g++-13 : $(macos-options) ;
-  using gcc : 12 : $(LOCAL_PREFIX)/opt/gcc@12/bin/g++-12 : $(macos-options) ;
-  using gcc : 11 : $(LOCAL_PREFIX)/opt/gcc@11/bin/g++-11 : $(macos-options) ;
-  # using gcc : 10 : $(LOCAL_PREFIX)/opt/gcc@11/bin/g++-10 : $(macos-options) ;
-  # using gcc : 9 : $(LOCAL_PREFIX)/opt/gcc@9/bin/g++-9 : $(macos-options) ;
-  # using gcc : 8 : $(LOCAL_PREFIX)/opt/gcc@8/bin/g++-8 : $(macos-options) ;
-  # using gcc : 7 : $(LOCAL_PREFIX)/opt/gcc@7/bin/g++-7 : $(macos-options) ;
-  # using gcc : 6 : $(LOCAL_PREFIX)/opt/gcc@6/bin/g++-6 : $(macos-options) ;
+  using gcc : 15 : $(HOMEBREW_PREFIX)/opt/gcc@15/bin/g++-15 : $(macos-options) ;
+  using gcc : 14 : $(HOMEBREW_PREFIX)/opt/gcc@14/bin/g++-14 : $(macos-options) ;
+  using gcc : 13 : $(HOMEBREW_PREFIX)/opt/gcc@13/bin/g++-13 : $(macos-options) ;
+  using gcc : 12 : $(HOMEBREW_PREFIX)/opt/gcc@12/bin/g++-12 : $(macos-options) ;
+  using gcc : 11 : $(HOMEBREW_PREFIX)/opt/gcc@11/bin/g++-11 : $(macos-options) ;
+  # using gcc : 10 : $(HOMEBREW_PREFIX)/opt/gcc@11/bin/g++-10 : $(macos-options) ;
+  # using gcc : 9 : $(HOMEBREW_PREFIX)/opt/gcc@9/bin/g++-9 : $(macos-options) ;
+  # using gcc : 8 : $(HOMEBREW_PREFIX)/opt/gcc@8/bin/g++-8 : $(macos-options) ;
+  # using gcc : 7 : $(HOMEBREW_PREFIX)/opt/gcc@7/bin/g++-7 : $(macos-options) ;
+  # using gcc : 6 : $(HOMEBREW_PREFIX)/opt/gcc@6/bin/g++-6 : $(macos-options) ;
 
   using gcc : 15arm : arm-none-eabi-g++ ;
 
-  # using gcc : 15arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@15/bin/arm-none-eabi-g++ ;
-  using gcc : 14arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@14/bin/arm-none-eabi-g++ ;
-  using gcc : 13arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@13/bin/arm-none-eabi-g++ ;
-  using gcc : 12arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@12/bin/arm-none-eabi-g++ ;
-  using gcc : 11arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@11/bin/arm-none-eabi-g++ ;
-  # using gcc : 10arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@10/bin/arm-none-eabi-g++ ;
-  using gcc : 9arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@9/bin/arm-none-eabi-g++ ;
-  using gcc : 8arm : $(LOCAL_PREFIX)/opt/arm-gcc-bin@8/bin/arm-none-eabi-g++ ;
+  # using gcc : 15arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@15/bin/arm-none-eabi-g++ ;
+  using gcc : 14arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@14/bin/arm-none-eabi-g++ ;
+  using gcc : 13arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@13/bin/arm-none-eabi-g++ ;
+  using gcc : 12arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@12/bin/arm-none-eabi-g++ ;
+  using gcc : 11arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@11/bin/arm-none-eabi-g++ ;
+  # using gcc : 10arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@10/bin/arm-none-eabi-g++ ;
+  using gcc : 9arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@9/bin/arm-none-eabi-g++ ;
+  using gcc : 8arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@8/bin/arm-none-eabi-g++ ;
 
-  using gcc : 14avr : $(LOCAL_PREFIX)/opt/avr-gcc@14/bin/avr-g++ ;
-  using gcc : 13avr : $(LOCAL_PREFIX)/opt/avr-gcc@13/bin/avr-g++ ;
-  using gcc : 12avr : $(LOCAL_PREFIX)/opt/avr-gcc@12/bin/avr-g++ ;
-  using gcc : 11avr : $(LOCAL_PREFIX)/opt/avr-gcc@11/bin/avr-g++ ;
-  using gcc : 10avr : $(LOCAL_PREFIX)/opt/avr-gcc@10/bin/avr-g++ ;
-  using gcc : 9avr : $(LOCAL_PREFIX)/opt/avr-gcc@9/bin/avr-g++ ;
-  using gcc : 8avr : $(LOCAL_PREFIX)/opt/avr-gcc@8/bin/avr-g++ ;
-  # using gcc : 5avr : $(LOCAL_PREFIX)/opt/avr-gcc@5/bin/avr-g++ ;
+  using gcc : 14avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@14/bin/avr-g++ ;
+  using gcc : 13avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@13/bin/avr-g++ ;
+  using gcc : 12avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@12/bin/avr-g++ ;
+  using gcc : 11avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@11/bin/avr-g++ ;
+  using gcc : 10avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@10/bin/avr-g++ ;
+  using gcc : 9avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@9/bin/avr-g++ ;
+  using gcc : 8avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@8/bin/avr-g++ ;
+  # using gcc : 5avr : $(HOMEBREW_PREFIX)/opt/avr-gcc@5/bin/avr-g++ ;
 }
 
 using emscripten ;
@@ -112,12 +108,12 @@ using mpi ;
 local docbook-xsl-path = ;
 if [ os.name ] = MACOSX
 {
-  docbook-xsl-path = $(LOCAL_PREFIX)/opt/docbook-xsl/docbook-xsl ;
+  docbook-xsl-path = $(HOMEBREW_PREFIX)/opt/docbook-xsl/docbook-xsl ;
 }
 local docbook-dtd-path = ;
 if [ os.name ] = MACOSX
 {
-  docbook-dtd-path = $(LOCAL_PREFIX)/opt/docbook/docbook/xml/4.2 ;
+  docbook-dtd-path = $(HOMEBREW_PREFIX)/opt/docbook/docbook/xml/4.2 ;
 }
 local boostbook-executable = ;
 if [ os.name ] = MACOSX
@@ -156,7 +152,7 @@ if [ os.name ] = LINUX
 else if [ os.name ] = MACOSX
 {
   # Homebrew-installed Boost
-  using boost : "" : <include>$(LOCAL_PREFIX)/include <library>$(LOCAL_PREFIX)/lib <layout>system ;
+  using boost : "" : <include>$(HOMEBREW_PREFIX)/include <library>$(HOMEBREW_PREFIX)/lib <layout>system ;
 }
 else if [ os.name ] = NT
 {
