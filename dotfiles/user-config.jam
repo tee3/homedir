@@ -167,7 +167,6 @@ if [ os.name ] = MACOSX
   using fop ;
 }
 
-
 # Boost.Build user configuration for the Boost C++ Libraries
 
 import boost ;
