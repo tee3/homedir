@@ -104,9 +104,9 @@ else if [ os.name ] = MACOSX
   using gcc : 9avr : $(LOCAL_PREFIX)/opt/avr-gcc@9/bin/avr-g++ ;
   using gcc : 8avr : $(LOCAL_PREFIX)/opt/avr-gcc@8/bin/avr-g++ ;
   # using gcc : 5avr : $(LOCAL_PREFIX)/opt/avr-gcc@5/bin/avr-g++ ;
-
-  # using emscripten ;
 }
+
+using emscripten ;
 
 # MPI
 
