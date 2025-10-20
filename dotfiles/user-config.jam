@@ -14,12 +14,10 @@ else
 
 if [ os.name ] = NT
 {
-  # this is the default system compiler
   using msvc ;
 }
 else if [ os.name ] = LINUX
 {
-  # this is the default system compiler
   using gcc ;
 
   # using gcc : 11 : /usr/bin/g++-11 ;
@@ -28,7 +26,6 @@ else if [ os.name ] = LINUX
   using gcc : 8 : /usr/bin/g++-8 ;
   using gcc : 7 : /usr/bin/g++-7 ;
 
-  # other compilers, both system and optional
   using clang ;
 
   # using clang : 21 : /usr/bin/clang++-21 ;
@@ -58,10 +55,8 @@ else if [ os.name ] = MACOSX
     <linkflags>-L$(LOCAL_PREFIX)/lib
     ;
 
-  # this is the default system compiler
   using clang : : : $(macos-options) ;
 
-  # other compilers, both system and optional
   using clang : 21 : $(LOCAL_PREFIX)/opt/llvm@21/bin/clang++ : $(macos-options) ;
   using clang : 20 : $(LOCAL_PREFIX)/opt/llvm@20/bin/clang++ : $(macos-options) ;
   using clang : 19 : $(LOCAL_PREFIX)/opt/llvm@19/bin/clang++ : $(macos-options) ;
