@@ -107,13 +107,7 @@ else if [ os.name ] = MACOSX
 }
 
 using emscripten ;
-
-# MPI
-
-if [ os.name ] = MAXOSX
-{
-  using mpi ;
-}
+using mpi ;
 
 # Documentation
 
