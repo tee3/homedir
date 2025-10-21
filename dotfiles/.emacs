@@ -1286,6 +1286,8 @@
                      :pydocstyle (:enabled t)
                      :pylint (:enabled t))))))
   :config
+  (add-to-list 'eglot-server-programs '((dockerfile-ts-mode dockerfile-mode) . ("docker-langserver" "--stdio")))
+  (add-to-list 'eglot-server-programs '((docker-compose-mode) . ("docker-compose-langserver" "--stdio")))
   (add-to-list 'eglot-server-programs '((graphql-mode) . ("npx" "graphql-language-service-cli" "server" "--method" "stream")))
   (add-to-list 'eglot-server-programs '((groovy-mode) . ("java" "-jar" (expand-file-name "~/opt/local/src/groovy-language-server/build/libs/groovy-language-server-all.jar"))))
   (add-to-list 'eglot-server-programs '((hcl-mode terraform-mode) . ("terraform-ls")))
