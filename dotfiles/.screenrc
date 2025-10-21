@@ -1,8 +1,0 @@
-# make scrollback big
-defscrollback 1000000
-
-hardstatus on
-hardstatus alwayslastline
-hardstatus string "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
-
-termcapinfo xterm* ti@:te@
