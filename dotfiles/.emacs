@@ -928,7 +928,7 @@
 
 ;;; Boost.Build projects
 ;;; @todo convert to ede or something
-(with-eval-after-load "projectile"
+(with-eval-after-load 'projectile
   (defun tee3-projectile-boost-build-project-p ()
     "Check if a project contains Jamroot, project-root.jam, or jamroot.jam files."
     (or (projectile-verify-file "project-root.jam")
@@ -953,7 +953,7 @@
 
 ;;; Xcode
 ;;; @todo convert to ede or something
-(with-eval-after-load "projectile"
+(with-eval-after-load 'projectile
   (defun tee3-projectile-xcode-workspace-p ()
     "Check if a project contains an .xcworkspace directory."
     (projectile-verify-file-wildcard "*.xcworkspace"))
@@ -974,7 +974,7 @@
                                     :test 'tee3-projectile-xcode-workspace-test-command))
 
 ;;; @todo convert to ede or something
-(with-eval-after-load "projectile"
+(with-eval-after-load 'projectile
   (defun tee3-projectile-xcode-project-p ()
     "Check if a project contains an .xcodeproj directory."
     (projectile-verify-file-wildcard "*.xcodeproj"))
@@ -1001,7 +1001,7 @@
     :pin melpa))
 
 ;;; @todo convert to ede or something
-(with-eval-after-load "projectile"
+(with-eval-after-load 'projectile
   (defun tee3-projectile-cmake-project-p ()
     "Check if a project contains an CMakeLists.txt file."
     (and (projectile-verify-file-wildcard "CMakeLists.txt")
@@ -1215,11 +1215,11 @@
     :pin gnu))
 
 ;;; Clang Tools
-(eval-after-load "yaml-mode.el"
+(eval-after-load 'yaml-mode
   '(add-to-list 'auto-mode-alist '(".clang-format\\'" . yaml-mode)))
-(eval-after-load "yaml-mode.el"
+(eval-after-load 'yaml-mode
   '(add-to-list 'auto-mode-alist '(".clang-tidy\\'" . yaml-mode)))
-(eval-after-load "yaml-mode.el"
+(eval-after-load 'yaml-mode
   '(add-to-list 'auto-mode-alist '(".clangd\\'" . yaml-mode)))
 
 ;;; Flymake
