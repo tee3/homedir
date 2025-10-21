@@ -1216,11 +1216,11 @@
 
 ;;; Clang Tools
 (eval-after-load "yaml-mode.el"
-  (add-to-list 'auto-mode-alist '(".clang-format\\'" . yaml-mode)))
+  '(add-to-list 'auto-mode-alist '(".clang-format\\'" . yaml-mode)))
 (eval-after-load "yaml-mode.el"
-  (add-to-list 'auto-mode-alist '(".clang-tidy\\'" . yaml-mode)))
+  '(add-to-list 'auto-mode-alist '(".clang-tidy\\'" . yaml-mode)))
 (eval-after-load "yaml-mode.el"
-  (add-to-list 'auto-mode-alist '(".clangd\\'" . yaml-mode)))
+  '(add-to-list 'auto-mode-alist '(".clangd\\'" . yaml-mode)))
 
 ;;; Flymake
 (use-package flymake
