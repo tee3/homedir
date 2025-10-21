@@ -537,10 +537,6 @@
 
 ;;; AI
 (when (>= emacs-major-version 28)
-  (use-package llm
-    :ensure t
-    :pin gnu))
-(when (>= emacs-major-version 28)
   (use-package ellama
     :ensure t
     :pin gnu
