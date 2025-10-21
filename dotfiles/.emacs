@@ -454,10 +454,8 @@
 (when (>= emacs-major-version 29)
   (use-package treesit
     :demand t
-    :preface
-    (defun tee3-treesit-install-all-language-grammars ()
-      (interactive)
-      (mapc #'treesit-install-language-grammar (mapcar #'car treesit-language-source-alist)))))
+    :custom
+    (treesit-enabled-modes t)))
 
 (when (>= emacs-major-version 30)
   (use-package visual-wrap
