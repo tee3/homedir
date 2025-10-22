@@ -231,7 +231,7 @@ https://github.com/microsoft/winget-cli.
 
   * Install Boost.Build to `C:\boost-build`.
 
-    ```
+    ```bat
     cd C:\Boost\src\boost_1_81_0\tools\build
     bootstrap.bat
     .\b2 install
@@ -247,7 +247,7 @@ https://github.com/microsoft/winget-cli.
 
   * Install versioned Boost C++ Libraries to `C:\Boost`.
 
-    ```
+    ```bat
     cd C:\Boost\src\boost_1_81_0
     bootstrap.bat
     .\b2 --layout=system variant=release address-model=64 install
