@@ -11,11 +11,11 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
-version="$1"
-version_name="$(printf "%s" "${version}" | sed 's/\./_/g')"
-root="${HOME}"/opt/local/src/boost
-directory=boost_"${version_name}"
-filename="${directory}".tar.gz
+readonly version="$1"
+readonly version_name="$(printf "%s" "${version}" | sed 's/\./_/g')"
+readonly root="${HOME}"/opt/local/src/boost
+readonly directory=boost_"${version_name}"
+readonly filename="${directory}".tar.gz
 
 if [ ! -d "${root}" ]; then
     printf "error: %s does not exist.\n" "${root}" 1>&2
@@ -32,7 +32,7 @@ if [ -e "${root}"/"${filename}" ]; then
     exit 1
 fi
 
-url=https://archives.boost.io/release/"${version}"/source/"${filename}"
+readonly url=https://archives.boost.io/release/"${version}"/source/"${filename}"
 
 curl --no-clobber --location --remote-name --output-dir "${root}" "${url}"
 
@@ -49,6 +49,7 @@ if [ ! -d "${root}"/"${directory}" ]; then
 fi
 
 cwd="$(pwd)"
+readonly cwd
 cd "${root}"/"${directory}"
 
 ./bootstrap.sh

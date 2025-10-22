@@ -8,8 +8,8 @@ if [ "$#" -gt 1 ]; then
     exit 1
 fi
 
-branch="${1:-master}"
-rootdir="${HOME}"/opt/local/src/emacs
+readonly branch="${1:-master}"
+readonly rootdir="${HOME}"/opt/local/src/emacs
 
 if [ ! -e "${rootdir}" ]; then
     printf "error: %s does not exist.\n" "${rootdir}" 1>&2
@@ -20,6 +20,7 @@ packages=""
 packages="${packages} librsvg2"
 packages="${packages} libgnutls30"
 packages="${packages} libgccjit-9-dev"
+readonly packages
 
 for package in ${packages} ; do
     if ! (apt list --installed | grep "${package}" > /dev/null) ; then
@@ -30,17 +31,19 @@ done
 
 CPPFLAGS=""
 CPPFLAGS="${CPPFLAGS} -I${HOME}/opt/local/include"
+readonly CPPFLAGS
+export CPPFLAGS
 
 LDFLAGS=""
 LDFLAGS="${LDFLAGS} -L${HOME}/opt/local/lib"
-
-export CPPFLAGS
+readonly LDFLAGS
 export LDFLAGS
 
 git_clean_excludes=""
 git_clean_excludes="${git_clean_excludes} -e GPATH"
 git_clean_excludes="${git_clean_excludes} -e GRTAGS"
 git_clean_excludes="${git_clean_excludes} -e GTAGS"
+readonly git_clean_excludes
 
 git -C "${rootdir}" clean -q -d -x ${git_clean_excludes} -f
 git -C "${rootdir}" checkout "${branch}"
@@ -56,6 +59,8 @@ options="${options} --with-rsvg"
 options="${options} --with-native-compilation"
 
 options="${options} --prefix=${HOME}/opt/local"
+
+readonly options
 
 (cd "${rootdir}" && ./autogen.sh)
 (cd "${rootdir}" && ./configure ${options})
