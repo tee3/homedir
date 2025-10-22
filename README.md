@@ -136,12 +136,12 @@ since many packages are not installed by default.
 From the login terminal of the system, log in as `root` and then
 install `sudo` and give `administrator` `sudo` privileges.
 
-``` shell
+```shell
 login: root
 password: ************
 ```
 
-``` shell
+```shell
 yum install sudo
 usermod administrator -a -G wheel
 exit
@@ -152,12 +152,12 @@ then install `git`, clone the `tee3/homedir` repository and install
 the system packages.  At the end of this process, the machine will
 reboot, so make sure there is no one else logged in.
 
-``` shell
+```shell
 login: administrator
 password: ************
 ```
 
-``` shell
+```shell
 sudo yum install git
 git clone https://github.com/tee3/homedir.git ~/Development/homedir
 cd ~/Development/homedir
@@ -170,12 +170,12 @@ sudo shutdown -r now
 From the login terminal of the system, log in as `root` and then
 install `sudo` and give `administrator` `sudo` privileges.
 
-``` shell
+```shell
 login: root
 password: ************
 ```
 
-``` shell
+```shell
 apt-get install sudo
 adduser administrator sudo
 exit
@@ -186,12 +186,12 @@ then install `git`, clone the `tee3/homedir` repository and install
 the system packages.  At the end of this process, the machine will
 reboot, so make sure there is no one else logged in.
 
-``` shell
+```shell
 login: administrator
 password: ************
 ```
 
-``` shell
+```shell
 sudo apt-get install git
 git clone https://github.com/tee3/homedir.git ~/Development/homedir
 cd ~/Development/homedir
@@ -207,7 +207,7 @@ Terminal.app window install the system packages.  At the end of this
 process, the machine will reboot, so make sure there is no one else
 logged in.
 
-``` shell
+```shell
 git clone https://github.com/tee3/homedir.git ~/Development/homedir
 cd ~/Development/homedir
 ./install_bootstrap_packages_macos
@@ -257,7 +257,7 @@ From a `cmd` window install the system packages.  At the end of this
 process, the machine will reboot, so make sure there is no one else
 logged in.
 
-``` batchfile
+```batchfile
 winget install --exact --id Git.Git
 git clone https://github.com/tee3/homedir.git C:\Users\administrator\Development\homedir
 cd C:\Users\administrator\Development\homedir
@@ -289,7 +289,7 @@ system above.
 
 7. Add a user `USER` by running the following command.
 
-   ``` shell
+   ```shell
    sudo /usr/sbin/adduser USER
    ```
 
@@ -299,7 +299,7 @@ From the login terminal of the system, log in as `administrator` by
 running **Bash on Ubuntu for Windows** and then install `git`, clone
 the `tee3/homedir` repository and install the system packages.
 
-``` shell
+```shell
 sudo apt-get install git
 git clone https://github.com/tee3/homedir.git ~/Development/homedir
 cd ~/Development/homedir
@@ -318,14 +318,14 @@ limitations.
 1. To switch to the `administrator` user, run the `lxrun` command as
    shown below.
 
-   ``` batchfile
+   ```batchfile
    lxrun /setdefaultuser administrator
    ```
 
 2. To update the package databases, run the `lxrun` command as shown
    below.
 
-   ``` batchfile
+   ```batchfile
    lxrun /update
    ```
 
@@ -349,7 +349,7 @@ language for the system on which it runs.
 To install system packages for Fedora-based systems (via `yum`), run
 the following script as a user with `sudo` permission.
 
-``` shell
+```shell
 ./install_system_packages_fedora
 ```
 
@@ -358,7 +358,7 @@ the following script as a user with `sudo` permission.
 To install system packages for Debian-based systems (via `apt-get`),
 run the following script as a user with `sudo` permission.
 
-``` shell
+```shell
 ./install_system_packages_debian
 ```
 
@@ -368,7 +368,7 @@ To install system packages for macOS (via Homebrew), run the following
 script as the administrator of the system.  Note that this does not
 use `sudo` as Homebrew does not require it.
 
-``` shell
+```shell
 ./install_system_packages_macos
 ```
 
@@ -377,7 +377,7 @@ use `sudo` as Homebrew does not require it.
 To install system packages for Windows, run the following script as
 the administrator of the system.
 
-``` batchfile
+```batchfile
 install_system_packages_windows
 ```
 
@@ -398,7 +398,7 @@ user.
 Note that the `install` script and its supported scripts require
 Python.
 
-``` shell
+```shell
 python3 install
 ```
 
