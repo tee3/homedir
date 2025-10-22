@@ -136,7 +136,7 @@ since many packages are not installed by default.
 From the login terminal of the system, log in as `root` and then
 install `sudo` and give `administrator` `sudo` privileges.
 
-```shell
+```console
 login: root
 password: ************
 ```
@@ -152,7 +152,7 @@ then install `git`, clone the `tee3/homedir` repository and install
 the system packages.  At the end of this process, the machine will
 reboot, so make sure there is no one else logged in.
 
-```shell
+```console
 login: administrator
 password: ************
 ```
@@ -170,7 +170,7 @@ sudo shutdown -r now
 From the login terminal of the system, log in as `root` and then
 install `sudo` and give `administrator` `sudo` privileges.
 
-```shell
+```console
 login: root
 password: ************
 ```
@@ -186,7 +186,7 @@ then install `git`, clone the `tee3/homedir` repository and install
 the system packages.  At the end of this process, the machine will
 reboot, so make sure there is no one else logged in.
 
-```shell
+```console
 login: administrator
 password: ************
 ```
