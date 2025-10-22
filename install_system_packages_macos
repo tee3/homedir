@@ -36,6 +36,8 @@ if [ -z "${pm}" ]; then
     exit 1
 fi
 
+${pm_install}
+
 # update and check packages
 ${pm_update}
 if ! ${pm_check} ; then
