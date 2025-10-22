@@ -141,7 +141,7 @@ login: root
 password: ************
 ```
 
-```shell
+```sh
 yum install sudo
 usermod administrator -a -G wheel
 exit
@@ -157,7 +157,7 @@ login: administrator
 password: ************
 ```
 
-```shell
+```sh
 sudo yum install git
 git clone https://github.com/tee3/homedir.git ~/Development/homedir
 cd ~/Development/homedir
@@ -175,7 +175,7 @@ login: root
 password: ************
 ```
 
-```shell
+```sh
 apt-get install sudo
 adduser administrator sudo
 exit
@@ -191,7 +191,7 @@ login: administrator
 password: ************
 ```
 
-```shell
+```sh
 sudo apt-get install git
 git clone https://github.com/tee3/homedir.git ~/Development/homedir
 cd ~/Development/homedir
@@ -207,7 +207,7 @@ Terminal.app window install the system packages.  At the end of this
 process, the machine will reboot, so make sure there is no one else
 logged in.
 
-```shell
+```sh
 git clone https://github.com/tee3/homedir.git ~/Development/homedir
 cd ~/Development/homedir
 ./install_bootstrap_packages_macos
@@ -257,7 +257,7 @@ From a `cmd` window install the system packages.  At the end of this
 process, the machine will reboot, so make sure there is no one else
 logged in.
 
-```batchfile
+```bat
 winget install --exact --id Git.Git
 git clone https://github.com/tee3/homedir.git C:\Users\administrator\Development\homedir
 cd C:\Users\administrator\Development\homedir
@@ -289,7 +289,7 @@ system above.
 
 7. Add a user `USER` by running the following command.
 
-   ```shell
+   ```sh
    sudo /usr/sbin/adduser USER
    ```
 
@@ -299,7 +299,7 @@ From the login terminal of the system, log in as `administrator` by
 running **Bash on Ubuntu for Windows** and then install `git`, clone
 the `tee3/homedir` repository and install the system packages.
 
-```shell
+```sh
 sudo apt-get install git
 git clone https://github.com/tee3/homedir.git ~/Development/homedir
 cd ~/Development/homedir
@@ -318,14 +318,14 @@ limitations.
 1. To switch to the `administrator` user, run the `lxrun` command as
    shown below.
 
-   ```batchfile
+   ```bat
    lxrun /setdefaultuser administrator
    ```
 
 2. To update the package databases, run the `lxrun` command as shown
    below.
 
-   ```batchfile
+   ```bat
    lxrun /update
    ```
 
@@ -349,7 +349,7 @@ language for the system on which it runs.
 To install system packages for Fedora-based systems (via `yum`), run
 the following script as a user with `sudo` permission.
 
-```shell
+```sh
 ./install_system_packages_fedora
 ```
 
@@ -358,7 +358,7 @@ the following script as a user with `sudo` permission.
 To install system packages for Debian-based systems (via `apt-get`),
 run the following script as a user with `sudo` permission.
 
-```shell
+```sh
 ./install_system_packages_debian
 ```
 
@@ -368,7 +368,7 @@ To install system packages for macOS (via Homebrew), run the following
 script as the administrator of the system.  Note that this does not
 use `sudo` as Homebrew does not require it.
 
-```shell
+```sh
 ./install_system_packages_macos
 ```
 
@@ -377,7 +377,7 @@ use `sudo` as Homebrew does not require it.
 To install system packages for Windows, run the following script as
 the administrator of the system.
 
-```batchfile
+```bat
 install_system_packages_windows
 ```
 
@@ -398,7 +398,7 @@ user.
 Note that the `install` script and its supported scripts require
 Python.
 
-```shell
+```sh
 python3 install
 ```
 
@@ -468,7 +468,7 @@ It can also be used to experiment with a minimally-configured Emacs.
 Run the following command to use Emacs with the minimal Emacs
 configuration.
 
-```shell
+```sh
 emacs -nw -q -l ~/.emacs.minimal.el
 ```
 
