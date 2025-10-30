@@ -393,7 +393,7 @@
 (use-package savehist
   :demand t
   :init
-  (setq history-length 1000)
+  (setq history-length t)
   (setq history-delete-duplicates t)
   :config
   (savehist-mode))
