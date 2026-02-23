@@ -534,12 +534,18 @@
   :pin gnu)
 
 ;;; Markdown formats
-(use-package adoc-mode
-  :ensure t
-  :pin melpa
-  :mode
-  ((".asciidoc\\'" . adoc-mode)
-   (".adoc\\'" . adoc-mode)))
+(when (< emacs-major-version 29)
+  (use-package adoc-mode
+    :ensure t
+    :pin melpa
+    :mode
+    ((".asciidoc\\'" . adoc-mode)
+     (".adoc\\'" . adoc-mode))))
+(when (>= emacs-major-version 29)
+  (use-package asciidoc-mode
+    :ensure t
+    :pin melpa))
+
 (use-package jade-mode
   :ensure t
   :pin nongnu)
