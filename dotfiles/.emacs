@@ -533,6 +533,11 @@
   :ensure t
   :pin gnu)
 
+(when (>= emacs-major-version 30)
+  (use-package asciidoc-mode
+    :ensure t
+    :pin melpa))
+
 (use-package posix-manual
   :ensure t
   :pin melpa)
