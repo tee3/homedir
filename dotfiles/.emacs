@@ -541,6 +541,10 @@
     :demand t
     :init
     (setopt ellama-keymap-prefix "C-c a")))
+(when (>= emacs-major-version 30)
+  (use-package agent-shell
+    :ensure t
+    :pin melpa))
 
 ;;; Markdown formats
 (use-package adoc-mode
