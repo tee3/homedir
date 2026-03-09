@@ -533,15 +533,6 @@
   :ensure t
   :pin gnu)
 
-;;; AI
-(when (>= emacs-major-version 28)
-  (use-package ellama
-    :ensure t
-    :pin gnu
-    :demand t
-    :init
-    (setopt ellama-keymap-prefix "C-c a")))
-
 ;;; Markdown formats
 (use-package adoc-mode
   :ensure t
