@@ -809,6 +809,12 @@
   ((c-mode . hide-ifdef-mode)
    (c++-mode . hide-ifdef-mode)))
 
+;;; Julia
+(when (>= emacs-major-version 29)
+  (use-package julia-ts-mode
+    :ensure t
+    :pin melpa))
+
 ;;; Flymake
 (use-package flymake
   :ensure t
