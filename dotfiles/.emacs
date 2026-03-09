@@ -889,6 +889,12 @@
   :ensure t
   :pin gnu)
 
+;;; AI
+(when (>= emacs-major-version 30)
+  (use-package agent-shell
+    :ensure t
+    :pin melpa))
+
 ;;; Themes
 (when (or (>= emacs-major-version 25)
           (and (= emacs-major-version 24)
