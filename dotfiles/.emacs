@@ -533,6 +533,12 @@
   :ensure t
   :pin gnu)
 
+;;; AI
+(when (>= emacs-major-version 30)
+  (use-package agent-shell
+    :ensure t
+    :pin melpa))
+
 (use-package posix-manual
   :ensure t
   :pin melpa)
