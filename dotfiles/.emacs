@@ -809,6 +809,11 @@
   ((c-mode . hide-ifdef-mode)
    (c++-mode . hide-ifdef-mode)))
 
+(when (>= emacs-major-version 30)
+  (use-package jq-ts-mode
+    :ensure t
+    :pin melpa))
+
 ;;; Flymake
 (use-package flymake
   :ensure t
