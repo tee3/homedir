@@ -76,3 +76,6 @@ venv/
 
 # Emacs agent-shell
 .agent-shell/
+
+# Claude Code
+.claude/
