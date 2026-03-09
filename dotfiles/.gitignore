@@ -73,3 +73,6 @@ venv/
 
 # Visual Studio Code
 .vscode/
+
+# Emacs agent-shell
+.agent-shell/
