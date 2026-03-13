@@ -79,3 +79,6 @@ venv/
 
 # Claude Code
 .claude/
+
+# Copilot
+.copilot/
