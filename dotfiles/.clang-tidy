@@ -1,3 +1,4 @@
+---
 Checks: >-
   -*,
   bugprone-*,
@@ -24,3 +25,4 @@ Checks: >-
   -readability-redundant-member-init,
   -readability-redundant-preprocessor,
   -readability-uppercase-literal-suffix
+...
