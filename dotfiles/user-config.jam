@@ -91,8 +91,6 @@ else if [ os.name ] = MACOSX
   using-if-command-exists gcc :  7 : $(HOMEBREW_PREFIX)/opt/gcc@7/bin/g++-7   : $(macos-options) ;
   using-if-command-exists gcc :  6 : $(HOMEBREW_PREFIX)/opt/gcc@6/bin/g++-6   : $(macos-options) ;
 
-  using-if-command-exists gcc : 15arm : arm-none-eabi-g++ ;
-
   using-if-command-exists gcc : 15arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@15/bin/arm-none-eabi-g++ ;
   using-if-command-exists gcc : 14arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@14/bin/arm-none-eabi-g++ ;
   using-if-command-exists gcc : 13arm : $(HOMEBREW_PREFIX)/opt/arm-gcc-bin@13/bin/arm-none-eabi-g++ ;
