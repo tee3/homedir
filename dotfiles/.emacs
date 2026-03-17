@@ -533,31 +533,6 @@
   :ensure t
   :pin gnu)
 
-;;; Markdown formats
-(use-package adoc-mode
-  :ensure t
-  :pin melpa
-  :mode
-  ((".asciidoc\\'" . adoc-mode)
-   (".adoc\\'" . adoc-mode)))
-(use-package jade-mode
-  :ensure t
-  :pin nongnu)
-(use-package markdown-mode
-  :ensure t
-  :pin nongnu
-  :mode
-  (("README\.md\\'" . gfm-mode))
-  :init
-  (setq markdown-asymmetric-header t)
-  (cond ((executable-find "cmark-gfm")
-         (setq markdown-command "cmark-gfm --extension table --extension strikethrough --extension autolink --extension tagfilter"))
-        ((executable-find "cmark")
-         (setq markdown-command "cmark")))
-  (setq markdown-nested-imenu-heading-index t))
-
-(use-package rst)
-
 (use-package posix-manual
   :ensure t
   :pin melpa)
@@ -569,9 +544,6 @@
   (setq vdiff-auto-refine t))
 
 ;;; Configuration files
-(use-package apache-mode
-  :ensure t
-  :pin nongnu)
 (use-package csv-mode
   :ensure t
   :pin gnu
@@ -587,68 +559,8 @@
    ("\\.gitsvnextmodules\\'" . gitconfig-mode)
    ;; migration-generated Git submodules files
    ("\\.gitsvnexternals\\'" . gitconfig-mode)))
-(use-package graphviz-dot-mode
-  :ensure t
-  :pin melpa)
-(use-package jgraph-mode
-  :ensure t
-  :pin gnu)
-(use-package newsticker
-  :demand t
-  :init
-  (setq newsticker-frontend 'newsticker-plainview)
-  (setq newsticker-show-descriptions-of-new-items nil)
-  (setq newsticker-hide-old-items-in-newsticker-buffer t)
-  :config
-  (add-to-list 'newsticker-url-list '("isocpp.org - Recent Highlights" "https://isocpp.org/blog/rss/category/news"))
-  (add-to-list 'newsticker-url-list '("isocpp.org - C++ Standardization" "https://isocpp.org/blog/rss/category/standardization"))
-  (add-to-list 'newsticker-url-list '("isocpp.org - C++ FAQ" "https://isocpp.org/themes/wiki_themes/isocpp/rss/faq-revisions-rss.php"))
-  (add-to-list 'newsticker-url-list '("RFC" "https://www.rfc-editor.org/rfcrss.xml")))
-(use-package nginx-mode
-  :ensure t
-  :pin nongnu)
-(use-package protobuf-mode
-  :ensure t
-  :pin melpa)
-(use-package flatbuffers-mode
-  :ensure t
-  :pin melpa)
-(use-package ssh-agency
-  :ensure t
-  :pin melpa)
-(use-package ssh-config-mode
-  :ensure t
-  :pin melpa
-  :mode
-  ((".ssh/config\\'" . ssh-config-mode)
-   ("sshd?_config\\'" . ssh-config-mode)
-   ("known_hosts\\'" . ssh-known-hosts-mode)
-   ("authorized_keys2?\\'" . ssh-authorized-keys-mode)))
-(when (or (> emacs-major-version 24)
-          (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
-  (use-package systemd
-    :ensure t
-    :pin nongnu))
-(when (and (>= emacs-major-version 25) (< emacs-major-version 30))
-  (use-package toml-mode
-    :ensure t
-    :pin melpa))
-(use-package vimrc-mode
-  :ensure t
-  :pin melpa)
-(when (< emacs-major-version 30)
-  (use-package yaml-mode
-    :ensure t
-    :pin nongnu))
-(use-package graphql-mode
-  :ensure t
-  :pin nongnu)
 
 ;;; Programming languages
-(use-package applescript-mode
-  :disabled
-  :ensure t
-  :pin melpa)
 (use-package asm-mode
   :preface
   (defun tee3-asm-mode-setup ()
@@ -657,105 +569,11 @@
   (("\\.[sh][56][45x]\\'" . asm-mode))
   :hook
   (asm-mode . tee3-asm-mode-setup))
-(use-package coffee-mode
-  :ensure t
-  :pin nongnu)
-(use-package cperl-mode
-  :ensure t
-  :pin melpa)
-(use-package d-mode
-  :ensure t
-  :pin nongnu)
-(use-package fish-mode
-  :ensure t
-  :pin melpa)
-(use-package groovy-mode
-  :ensure t
-  :pin melpa)
-(use-package haskell-mode
-  :ensure t
-  :pin nongnu)
-(use-package lua-mode
-  :ensure t
-  :pin nongnu)
-(use-package matlab
-  :ensure matlab-mode
-  :pin melpa
-  :preface
-  ;; @todo workaround for deprecated variable
-  (when (>= emacs-major-version 26)
-    (setq default-fill-column fill-column))
-  :init
-  (setq matlab-auto-fill nil)
-  (setq matlab-fill-code nil)
-  (setq matlab-fill-strings-flag nil)
-  (setq matlab-fill-count-ellipsis-flag nil)
-  (setq matlab-completion-technique 'increment)
-  (setq matlab-functions-have-end t)
-  (setq matlab-indent-function-body t)
-  (setq matlab-return-add-semicolon t)
-  (setq matlab-show-mlint-warnings nil))
-(use-package octave)
-(use-package powershell
-  :ensure t
-  :pin melpa)
-(use-package processing-mode
-  :ensure t
-  :pin melpa
-  :init
-  (when (equal system-type 'darwin)
-    (setq processing-location "/usr/local/bin/processing-java")))
-(use-package sed-mode
-  :ensure t
-  :pin gnu)
-(use-package sql
-  :init
-  (setq sql-sqlite-program "sqlite3"))
-(when (< emacs-major-version 30)
-  (use-package rust-mode
-    :ensure t
-    :pin nongnu))
-(when (or (>= emacs-major-version 25)
-          (and (= emacs-major-version 24) (>= emacs-minor-version 4)))
-  (use-package swift-mode
-    :ensure t
-    :pin nongnu))
-(use-package tcl)
-(use-package verilog-mode
-  :ensure t
-  :pin gnu)
-(use-package vhdl-mode)
-(use-package web-mode
-  :ensure t
-  :pin nongnu
-  :preface
-  (defun tee3-web-mode-setup ()
-    (setq web-mode-markup-indent-offset 2)
-    (setq web-mode-code-indent-offset 4)
-    (setq web-mode-css-indent-offset 2)
-    (setq web-mode-indent-style 2)
-
-    (setq web-mode-style-padding 1)
-    (setq web-mode-script-padding 1)
-    (setq web-mode-block-padding 0))
-  :hook
-  (web-mode . tee3-web-mode-setup))
 
 ;;; TeX and LaTeX
 (use-package tex-site
   :ensure auctex
   :pin gnu)
-
-;;; OpenCL
-(use-package opencl-c-mode
-  :ensure t
-  :pin melpa
-  :mode (("\\.cl\\'" . opencl-c-mode)))
-
-;;; OpenGL
-(use-package glsl-mode
-  :ensure t
-  :pin melpa)
 
 ;;; GNU Global
 (when (>= emacs-major-version 28)
@@ -765,15 +583,7 @@
     :config
     (gtags-mode)))
 
-;;; GNU Poke
-(use-package poke-mode
-  :ensure t
-  :pin gnu)
-
 ;;; Scheme programming language
-(use-package scheme
-  :mode
-  (("\\.guile\\'" . scheme-mode)))
 (use-package geiser
   :ensure t
   :pin nongnu
@@ -831,23 +641,6 @@
   :init
   (setq imenu-flatten 'annotation))
 
-;;; Git
-(use-package gited
-  :ensure t
-  :pin gnu
-  :demand t
-  :init
-  (setq gited-verbose t)
-  :config
-  (define-key dired-mode-map "\C-x\C-g" 'gited-list-branches))
-
-;;; Gitolite
-(use-package gl-conf-mode
-  :ensure t
-  :pin melpa
-  :mode
-  (("gitolite\\.conf\\'" . gl-conf-mode)))
-
 ;;; Magit
 (when (> emacs-major-version 24)
   (use-package magit
@@ -864,34 +657,6 @@
     :disabled
     :ensure t
     :pin nongnu))
-
-;;; Mercurial
-(use-package monky
-  :ensure t
-  :pin melpa
-  :bind
-  ("C-c v m s" . monky-status))
-(use-package hgignore-mode
-  :ensure t
-  :pin melpa)
-(use-package conf-mode
-  :mode
-  ((".hgrc.*\\'" . conf-mode)))
-
-;;; Perforce
-(use-package p4
-  :ensure t
-  :pin melpa
-  :init
-  (setq p4-global-key-prefix (kbd "C-c v p")))
-
-;;; Subversion
-(use-package psvn
-  :disabled ; @todo find an alternative package
-  :ensure t
-  :pin marmalade
-  :bind
-  ("C-c v s s" . svn-status))
 
 (use-package why-this
   :ensure t
@@ -979,12 +744,6 @@
                                       :run 'tee3-projectile-xcode-project-run-command
                                       :test 'tee3-projectile-xcode-project-test-command))
 
-;;; CMake
-(when (< emacs-major-version 30)
-  (use-package cmake-mode
-    :ensure t
-    :pin melpa))
-
 ;;; @todo convert to ede or something
 (with-eval-after-load 'projectile
   (defun tee3-projectile-cmake-project-p ()
@@ -1001,65 +760,6 @@
                                     :test "cmake --build build --target test -- -k -j 8"
                                     :test-dir "test"
                                     :test-prefix "test_"))
-
-;;; Gnuplot
-(use-package gnuplot
-  :ensure t
-  :pin nongnu
-  :mode
-  (("\\.gp\\'" . gnuplot)))
-
-;;; Go programming language
-(when (< emacs-major-version 30)
-  (use-package go-mode
-    :ensure t
-    :pin nongnu
-    :preface
-    (defun tee3-go-mode-setup ()
-      ;; allow use of tabs as it is required by go fmt
-      (setq indent-tabs-mode t)
-      (add-hook 'before-save-hook 'gofmt-before-save))
-    :hook
-    (go-mode . tee3-go-mode-setup)))
-
-;;; Ruby programming language
-(use-package ruby-mode)
-
-;;; Objective-J programming language
-(use-package objj-mode
-  :if
-  (>= emacs-major-version 25)
-  :vc
-  (:url "https://github.com/tee3/objj-mode.git"))
-
-;;; Jake
-(use-package js
-  :mode
-  (("[Jj]akefile.*\\'" . js-mode)
-   ("\\.jake\\'" . js-mode)))
-
-;;; XML
-(use-package nxml-mode
-  :mode
-  (("\\.xml\\'" . nxml-mode)
-   ("\\.xsl\\'" . nxml-mode)
-   ("\\.xsd\\'" . nxml-mode)
-   ("\\.rng\\'" . nxml-mode)
-   ("\\.xhtml\\'" . nxml-mode)))
-
-;;; DITA
-(use-package nxml-mode
-  :mode
-  (("\\.dita\\'" . nxml-mode)
-   ("\\.ditamap\\'" . nxml-mode)))
-
-;;; DocBook
-(use-package docbook
-  :ensure t
-  :pin gnu)
-(use-package nxml-mode
-  :mode
-  (("\\.docbook\\'" . nxml-mode)))
 
 ;;; C-family programming languages
 (use-package cc-mode
@@ -1100,9 +800,6 @@
   :demand t ; @todo for now, this package needs work
   :vc
   (:url "https://github.com/tee3/msvc-c-style.git"))
-(use-package google-c-style
-  :ensure t
-  :pin melpa)
 (use-package hideif
   :init
   (setq hide-ifdef-read-only t)
@@ -1111,95 +808,6 @@
   :hook
   ((c-mode . hide-ifdef-mode)
    (c++-mode . hide-ifdef-mode)))
-(use-package demangle-mode
-  :ensure t
-  :pin melpa)
-
-;;; JavaScript programming language
-(use-package js)
-(use-package js-comint
-  :ensure t
-  :pin melpa)
-(use-package jq-mode
-  :ensure t
-  :pin melpa)
-
-;;; JSON
-(when (< emacs-major-version 29)
-  (use-package json-mode
-    :ensure t
-    :pin gnu))
-(use-package jsonnet-mode
-  :ensure t
-  :pin melpa)
-
-;;; Typescript programming language
-(when (< emacs-major-version 30)
-  (use-package typescript-mode
-    :ensure t
-    :pin nongnu)
-  (use-package ts-comint
-    :ensure t
-    :pin melpa))
-
-;;; Generic modes
-(use-package generic-x)
-
-;;; Python programming language
-(use-package python
-  :config
-  (if (= (call-process (executable-find python-shell-interpreter) nil nil nil "-c" "import sys; sys.exit(0 if sys.version_info.major >= 3 else 1") 1)
-      (when (executable-find "python3")
-        (setq python-shell-interpreter "python3")))
-
-  (setq gud-pdb-command-name (format "%s -m pdb" python-shell-interpreter)))
-
-(use-package pip-requirements
-  :ensure t
-  :pin melpa)
-
-(use-package jupyter
-  :ensure t
-  :pin melpa)
-
-;;; Julia
-(use-package julia-mode
-  :ensure t
-  :pin nongnu)
-
-;;; Code Composer Studio and DSP/BIOS mode
-(use-package cc-mode
-  :mode
-  (("\\.h[cd]f\\'" . c-mode)
-   ("\\.l[cd]f\\'" . c-mode)))
-(use-package js
-  :mode
-  (("\\.gel\\'" . js-mode)
-   ("\\.tcf\\'" . js-mode)
-   ("\\.tci\\'" . js-mode)
-   ("\\.tcp\\'" . js-mode)
-   ("\\.xs\\'" . js-mode)))
-
-;;; Linux
-(use-package kconfig-mode
-  :ensure t
-  :pin melpa)
-(when (< emacs-major-version 29)
-  (use-package dts-mode
-    :ensure t
-    :pin gnu))
-(when (>= emacs-major-version 29)
-  (use-package devicetree-ts-mode
-    :ensure t
-    :pin gnu))
-
-;;; Clang Tools
-(eval-after-load 'yaml-ts-mode
-  '(add-to-list 'auto-mode-alist '(".clang-format\\'" . yaml-ts-mode)))
-(eval-after-load 'yaml-ts-mode
-  '(add-to-list 'auto-mode-alist '(".clang-tidy\\'" . yaml-ts-mode)))
-(eval-after-load 'yaml-ts-mode
-  '(add-to-list 'auto-mode-alist '(".clangd\\'" . yaml-ts-mode)))
 
 ;;; Flymake
 (use-package flymake
@@ -1219,14 +827,6 @@
    ("C-c e s r" . flymake-reporting-backends))
   :hook
   (prog-mode . flymake-mode))
-(when (< emacs-major-version 29)
-  (use-package flymake-shellcheck
-    :ensure t
-    :pin melpa
-    :after flymake
-    :commands flymake-shellcheck-load
-    :hook
-    (sh-mode . flymake-shellcheck-load)))
 
 ;;; Language Server Protocol
 (use-package eglot
@@ -1281,66 +881,6 @@
     :config
     (breadcrumb-mode)))
 
-(use-package rmsbolt
-  :ensure t
-  :pin melpa)
-
-;;; Jenkins
-(use-package jenkinsfile-mode
-  :ensure t
-  :pin melpa
-  :mode
-  ("Jenkinsfile.*\\'" . jenkinsfile-mode))
-
-;;; Docker
-(when (>= emacs-major-version 25)
-  (use-package docker
-    :ensure t
-    :pin melpa
-    :bind
-    ("C-c d" . docker)))
-(when (and (>= emacs-major-version 25) (< emacs-major-version 30))
-  (use-package dockerfile-mode
-    :ensure t
-    :pin nongnu))
-(when (>= emacs-major-version 25)
-  (use-package docker-compose-mode
-    :ensure t
-    :pin melpa))
-
-;;; Kubernetes
-(when (>= emacs-major-version 25)
-  (use-package kubernetes
-    :ensure t
-    :pin melpa))
-(use-package kubedoc
-  :ensure t
-  :pin melpa)
-(use-package k8s-mode
-  :ensure t
-  :pin melpa
-  :hook (k8s-mode . yas-minor-mode))
-
-;;; Chef
-(use-package chef-mode
-  :ensure t
-  :pin melpa)
-
-;;; Terraform
-(use-package terraform-mode
-  :ensure t
-  :pin melpa)
-
-;;; Bitbake
-(use-package bitbake
-  :ensure t
-  :pin melpa)
-
-;;; Structure and Interpretation of Computer Programs (SICP)
-(use-package sicp
-  :ensure t
-  :pin melpa)
-
 ;;; DevDocs
 (use-package devdocs
   :ensure t
@@ -1350,29 +890,15 @@
 (when (or (>= emacs-major-version 25)
           (and (= emacs-major-version 24)
                (>= emacs-minor-version 5)))
-  (use-package acme-theme :ensure t :pin melpa :defer t)
   (use-package aircon-theme :ensure t :pin gnu :defer t)
   (use-package alabaster-themes :ensure t :pin melpa :defer t)
-  (use-package chyla-theme :ensure t :pin melpa :defer t)
   (use-package cyberpunk-theme :ensure t :pin nongnu :defer t)
-  (use-package cyberpunk-2019-theme :ensure t :pin melpa :defer t)
-  (use-package dracula-theme :ensure t :pin nongnu :defer t)
   (use-package ef-themes :ensure t :pin gnu :defer t)
-  (use-package gandalf-theme :ensure t :pin melpa :defer t)
-  (use-package grandshell-theme :ensure t :pin melpa :defer t)
-  (use-package hemera-theme :ensure t :pin melpa :defer t)
-  ;; (use-package material-theme :ensure t :pin nongnu :defer t)
-  (use-package material-theme :ensure t :pin melpa :defer t)
+  (use-package material-theme :ensure t :pin nongnu :defer t)
   (use-package modus-themes :ensure t :pin gnu :defer t)
-  (use-package monotropic-theme :ensure t :pin melpa :defer t)
-  (use-package plan9-theme :ensure t :pin melpa :defer t)
-  (use-package professional-theme :ensure t :pin melpa :defer t)
   (use-package solarized-theme :ensure t :pin melpa :defer t)
-  (use-package solo-jazz-theme :ensure t :pin melpa :defer t)
   (use-package standard-themes :ensure t :pin gnu :defer t)
   (use-package subatomic-theme :ensure t :pin nongnu :defer t)
-  (use-package subatomic256-theme :ensure t :pin melpa :defer t)
-  (use-package the-matrix-theme :ensure t :pin melpa :defer t)
   (use-package tramp-theme :ensure t :pin gnu :defer t)
   (use-package unobtrusive-magit-theme :ensure t :pin melpa :defer t)
 
