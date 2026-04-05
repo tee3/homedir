@@ -65,6 +65,7 @@ else if [ os.name ] = MACOSX
   using clang : : : $(macos-options) ;
   using gcc ;
 
+  using-if-command-exists clang : 22 : $(HOMEBREW_PREFIX)/opt/llvm@22/bin/clang++ : $(macos-options) ;
   # using-if-command-exists clang : 21 : $(HOMEBREW_PREFIX)/opt/llvm@21/bin/clang++ : $(macos-options) ;
   using-if-command-exists clang : 20 : $(HOMEBREW_PREFIX)/opt/llvm@20/bin/clang++ : $(macos-options) ;
   using-if-command-exists clang : 19 : $(HOMEBREW_PREFIX)/opt/llvm@19/bin/clang++ : $(macos-options) ;
