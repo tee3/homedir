@@ -502,7 +502,7 @@
   :ensure t
   :pin gnu)
 
-;;; VTerm
+;;; Terminal
 (use-package vterm
   :ensure t
   :pin melpa)
