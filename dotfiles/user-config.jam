@@ -65,11 +65,11 @@ else if [ os.name ] = MACOSX
   using clang : : : $(macos-options) ;
   using gcc ;
 
-  using-if-command-exists clang : 21 : $(HOMEBREW_PREFIX)/opt/llvm@21/bin/clang++ : $(macos-options) ;
+  # using-if-command-exists clang : 21 : $(HOMEBREW_PREFIX)/opt/llvm@21/bin/clang++ : $(macos-options) ;
   using-if-command-exists clang : 20 : $(HOMEBREW_PREFIX)/opt/llvm@20/bin/clang++ : $(macos-options) ;
   using-if-command-exists clang : 19 : $(HOMEBREW_PREFIX)/opt/llvm@19/bin/clang++ : $(macos-options) ;
   using-if-command-exists clang : 18 : $(HOMEBREW_PREFIX)/opt/llvm@18/bin/clang++ : $(macos-options) ;
-  # using-if-command-exists clang : 17 : $(HOMEBREW_PREFIX)/opt/llvm@17/bin/clang++ : $(macos-options) ;
+  using-if-command-exists clang : 17 : $(HOMEBREW_PREFIX)/opt/llvm@17/bin/clang++ : $(macos-options) ;
   using-if-command-exists clang : 16 : $(HOMEBREW_PREFIX)/opt/llvm@16/bin/clang++ : $(macos-options) ;
   using-if-command-exists clang : 15 : $(HOMEBREW_PREFIX)/opt/llvm@15/bin/clang++ : $(macos-options) ;
   using-if-command-exists clang : 14 : $(HOMEBREW_PREFIX)/opt/llvm@14/bin/clang++ : $(macos-options) ;
