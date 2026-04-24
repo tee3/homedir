@@ -4,7 +4,7 @@ set -e
 set -u
 
 if [ "$#" -gt 1 ]; then
-    printf "usage: %s [branch]\n" "$0" 1>&2
+    printf 'usage: %s [branch]\n' "$0" 1>&2
     exit 1
 fi
 
@@ -12,7 +12,7 @@ readonly branch="${1:-master}"
 readonly rootdir="${HOME}"/opt/local/src/emacs
 
 if [ ! -e "${rootdir}" ]; then
-    printf "error: %s does not exist.\n" "${rootdir}" 1>&2
+    printf 'error: %s does not exist.\n' "${rootdir}" 1>&2
     exit 1
 fi
 
@@ -24,7 +24,7 @@ readonly packages
 
 for package in ${packages} ; do
     if ! (brew list --formula | grep "${package}" > /dev/null) ; then
-        printf "error: %s is not installed.\n" "${package}" 1>&2
+        printf 'error: %s is not installed.\n' "${package}" 1>&2
         exit 1
     fi
 done

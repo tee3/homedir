@@ -13,7 +13,7 @@ if ! xcode-select -p > /dev/null ; then
     xcode-select --install
 fi
 
-printf "Install Xcode from the App Store and press Enter when complete: "
+printf 'Install Xcode from the App Store and press Enter when complete: '
 read -r
 
 # Homebrew

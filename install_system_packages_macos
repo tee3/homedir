@@ -19,7 +19,7 @@ pm_autoremove=
 
 # check if Homebrew is installed
 if [ -z "$(command -v brew 2> /dev/null)" ]; then
-    printf "warning: Homewbrew (brew) not found.\n" 1>&2
+    printf 'warning: Homewbrew (brew) not found.\n' 1>&2
 else
     pm="brew"
     pm_check="${pm} doctor"
@@ -41,7 +41,7 @@ ${pm_install}
 # update and check packages
 ${pm_update}
 if ! ${pm_check} ; then
-    printf "warning: Package manager check failed, continue anyway (y/n)?: "
+    printf 'warning: Package manager check failed, continue anyway (y/n)?: '
     read -r yn
     if [ "${yn}" != "y" ]; then
 	exit 1

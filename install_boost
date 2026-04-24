@@ -7,28 +7,28 @@ set -u
 set -e
 
 if [ $# -ne 1 ]; then
-    printf "usage: %s <version>\n" "$(basename "$0")" 1>&2
+    printf 'usage: %s <version>\n' "$(basename "$0")" 1>&2
     exit 1
 fi
 
 readonly version="$1"
-readonly version_name="$(printf "%s" "${version}" | sed 's/\./_/g')"
+readonly version_name="$(printf '%s' "${version}" | sed 's/\./_/g')"
 readonly root="${HOME}"/opt/local/src/boost
 readonly directory=boost_"${version_name}"
 readonly filename="${directory}".tar.gz
 
 if [ ! -d "${root}" ]; then
-    printf "error: %s does not exist.\n" "${root}" 1>&2
+    printf 'error: %s does not exist.\n' "${root}" 1>&2
     exit 1
 fi
 
 if [ -d "${root}"/"${directory}" ]; then
-    printf "error: %s already exists.\n" "${root}/${directory}" 1>&2
+    printf 'error: %s already exists.\n' "${root}/${directory}" 1>&2
     exit 1
 fi
 
 if [ -e "${root}"/"${filename}" ]; then
-    printf "error: %s already exists.\n" "${root}/${filename} " 1>&2
+    printf 'error: %s already exists.\n' "${root}/${filename} " 1>&2
     exit 1
 fi
 
@@ -37,14 +37,14 @@ readonly url=https://archives.boost.io/release/"${version}"/source/"${filename}"
 curl --no-clobber --location --remote-name --output-dir "${root}" "${url}"
 
 if [ ! -e "${root}"/"${filename}" ]; then
-    printf "error: %s does not exist.\n" "${root}/${filename}" 1>&2
+    printf 'error: %s does not exist.\n' "${root}/${filename}" 1>&2
     exit 1
 fi
 
 tar -x -z -f "${root}"/"${filename}" -C "${root}"
 
 if [ ! -d "${root}"/"${directory}" ]; then
-    printf "error: %s does not exist.\n" "${root}/${directory} " 1>&2
+    printf 'error: %s does not exist.\n' "${root}/${directory} " 1>&2
     exit 1
 fi
 
