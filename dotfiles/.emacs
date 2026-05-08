@@ -506,6 +506,9 @@
 (use-package vterm
   :ensure t
   :pin melpa)
+(use-package ghostel
+  :ensure t
+  :pin melpa)
 
 ;;; Debbugs
 (use-package debbugs
