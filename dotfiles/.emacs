@@ -280,6 +280,11 @@
 (use-package hideshow
   :init
   (setq hs-hide-comments-when-hiding-all t))
+(use-package hl-line
+  :init
+  (setq global-hl-line-sticky-flag t)
+  :config
+  (global-hl-line-mode))
 (use-package icomplete
   :init
   (setq icomplete-in-buffer t)
