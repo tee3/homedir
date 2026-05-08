@@ -895,6 +895,7 @@
                (>= emacs-minor-version 5)))
   (use-package aircon-theme :ensure t :pin gnu :defer t)
   (use-package alabaster-themes :ensure t :pin melpa :defer t)
+  (use-package batppuccin :ensure t :pin melpa :defer t)
   (use-package cyberpunk-theme :ensure t :pin nongnu :defer t)
   (use-package ef-themes :ensure t :pin gnu :defer t)
   (use-package material-theme :ensure t :pin nongnu :defer t)
