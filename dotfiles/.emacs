@@ -896,6 +896,7 @@
   (use-package aircon-theme :ensure t :pin gnu :defer t)
   (use-package alabaster-themes :ensure t :pin melpa :defer t)
   (use-package cyberpunk-theme :ensure t :pin nongnu :defer t)
+  (use-package doric-themes :ensure t :pin gnu :defer t)
   (use-package ef-themes :ensure t :pin gnu :defer t)
   (use-package material-theme :ensure t :pin nongnu :defer t)
   (use-package modus-themes :ensure t :pin gnu :defer t)
