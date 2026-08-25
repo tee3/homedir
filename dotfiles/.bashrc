@@ -13,6 +13,10 @@ if [ -n "$(command -v brew 2> /dev/null)" ]; then
     fi
 fi
 
+if command -v gh > /dev/null ; then
+    eval "$(gh completion --shell bash)"
+fi
+
 # History
 export HISTCONTROL="erasedups:ignoreboth"
 
