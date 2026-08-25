@@ -391,6 +391,10 @@
     :demand t
     :config
     (repeat-mode)))
+(when (>= emacs-major-version 32)
+  (use-package replace
+    :init
+    (setq query-replace-show-preview t)))
 (use-package savehist
   :demand t
   :init
