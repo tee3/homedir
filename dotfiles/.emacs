@@ -823,7 +823,7 @@
   :ensure t
   :pin gnu
   :init
-  (setq flymake-show-diagnostics-at-end-of-line t)
+  (setq flymake-inline-diagnostics 'eol)
   :bind
   (("C-c e b" . flymake-switch-to-log-buffer)
    ("C-c e l l" . flymake-show-diagnostic)
