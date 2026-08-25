@@ -900,6 +900,8 @@
   (use-package cyberpunk-theme :ensure t :pin nongnu :defer t)
   (use-package doric-themes :ensure t :pin gnu :defer t)
   (use-package ef-themes :ensure t :pin gnu :defer t)
+  (use-package folio-theme :ensure t :pin melpa :defer t)
+  (use-package kusanagi-theme :ensure t :pin melpa :defer t)
   (use-package material-theme :ensure t :pin nongnu :defer t)
   (use-package modus-themes :ensure t :pin gnu :defer t)
   (use-package solarized-theme :ensure t :pin melpa :defer t)
