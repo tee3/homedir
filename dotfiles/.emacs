@@ -623,6 +623,8 @@
   (setq vc-diff-added-files t)
 
   (setq vc-use-incoming-outgoing-prefixes t)
+
+  (setq vc-dir-show-key-binding-hints nil)
   :bind
   ("C-c v v c" . vc-clone)
   ("C-c v v d" . vc-dir)
