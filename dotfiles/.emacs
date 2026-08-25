@@ -502,6 +502,7 @@
 
 ;;; GNU ELPA suggestions
 (use-package gnu-elpa
+  :disabled
   :ensure t
   :pin gnu)
 
