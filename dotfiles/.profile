@@ -14,15 +14,15 @@ if [ -d "${HOME}/.local/bin" ] ; then
 fi
 
 # Homebrew setup
-if [ -d /usr/local/Homebrew ]; then
+if [ -d /usr/local/Homebrew ] && [ -x /usr/local/Homebrew/bin/brew ]; then
     eval "$(/usr/local/Homebrew/bin/brew shellenv)"
-elif [ -d "${HOME}"/.homebrew ]; then
+elif [ -d "${HOME}"/.homebrew ] && [ -x "${HOME}"/.homebrew/bin/brew ]; then
     eval "$("${HOME}"/.homebrew/bin/brew shellenv)"
-elif [ -d /home/linuxbrew/.linuxbrew ]; then
+elif [ -d /home/linuxbrew/.linuxbrew ] && [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-elif [ -d "${HOME}"/.linuxbrew ]; then
+elif [ -d "${HOME}"/.linuxbrew ] && [ -x "${HOME}"/.linuxbrew/bin/brew ]; then
     eval "$("${HOME}"/.linuxbrew/bin/brew shellenv)"
-elif [ -d /opt/homebrew ]; then
+elif [ -d /opt/homebrew ] && [ -x /opt/homebrew/bin/brew ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
