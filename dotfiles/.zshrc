@@ -14,6 +14,9 @@ fi
 if command -v gh > /dev/null ; then
     gh completion -s zsh > /usr/local/share/zsh/site-functions/_gh
 fi
+if command -v copilot > /dev/null ; then
+    copilot completion -s zsh > /usr/local/share/zsh/site-functions/_copilot
+fi
 
 # local zshrc
 if [ -e "${HOME}"/.zshrc.local ]; then

@@ -16,6 +16,9 @@ fi
 if command -v gh > /dev/null ; then
     eval "$(gh completion --shell bash)"
 fi
+if command -v copilot > /dev/null; then
+    eval "$(copilot completion --shell bash)"
+fi
 
 # History
 export HISTCONTROL="erasedups:ignoreboth"
