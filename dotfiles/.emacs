@@ -882,6 +882,12 @@
   (add-to-list 'eglot-server-programs '((vue-mode) . ("vue-language-server" "--stdio")))
   (add-to-list 'eglot-server-programs '((swift-mode) . ("sourcekit-lsp"))))
 
+;;; Copilot
+(use-package copilot
+  :ensure t
+  :bind
+  (("C-c a g m" . copilot-menu)))
+
 (when (>= emacs-major-version 28)
   (use-package breadcrumb
     :ensure t
